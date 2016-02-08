@@ -15,6 +15,7 @@
 
 typedef ClientReader<OpenConfigData> AgentClientReader;
 
+// This is a test class
 class AgentClientTest: public testing::Test {
 public:
     static void *create_subscriptions(void *args);
