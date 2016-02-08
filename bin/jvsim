@@ -1,0 +1,115 @@
+
+#!/bin/bash
+
+#Cleanup any existing jvtest processes
+ps -ef | grep publish.py | grep -v "grep" | awk '{print $2}' | xargs kill; 
+ps -ef | grep mosquitto | grep -v "grep" | awk '{print $2}' | xargs kill; 
+ps -ef | grep agent_server | grep -v "grep" | awk '{print $2}' | xargs kill; 
+
+#Default values
+run_cleanup=0
+run_server=0
+run_client=0
+run_usage=0
+run_test=0
+
+#Parse out the arguments
+while getopts "ucskt" opt; do
+  case $opt in
+    u)
+      run_usage=1
+      ;;
+    k)
+      run_cleanup=1
+      exit
+      ;;
+    s)
+      run_server=1
+      ;;
+    c)
+      run_client=1
+      ;;
+    t)
+      run_test=1
+      ;;
+    \?)
+      echo "Invalid option: -$OPTARG" >&2
+      exit 1
+      ;;
+  esac
+done
+
+if [ $run_usage != 0 ] 
+then
+    echo "usage: jvtest [-u] [-k] [-s] [-c]"
+    echo " -k  : cleanup and exit"
+    echo " -s  : run server"
+    echo " -c  : run interactive client"
+    exit
+fi
+
+#Paths
+ROOTPATH="/Users/nitin/jvsim"
+
+#What is the platform we are executing on
+platform='unknown'
+unamestr=`uname`
+if [[ "$unamestr" == 'Linux' ]]; then
+   platform='linux'
+elif [[ "$unamestr" == 'Darwin' ]]; then
+   platform='mac'
+fi
+
+#Derive all paths
+CONFIG="$ROOTPATH/config"
+LOGPATH="$ROOTPATH/logs"
+MQTTLOG=$LOGPATH/"jv_test_mosquitto.log"
+PYTHON_PATH="$ROOTPATH/src/sim/sensors:/$ROOTPATH/protos"
+
+echo "---- Detected platform: $platform"
+echo "---- Root path        : $ROOTPATH"
+echo "---- Python path      : $PYTHON_PATH"
+
+#Executables
+MQTTBIN="$ROOTPATH/bin/$platform/mosquitto"
+TESTPATH="$ROOTPATH/bin/$platform"
+SERVERPATH="$ROOTPATH/bin/$platform"
+SERVERLOG="$LOGPATH/agent_server.log"
+CLIENTPATH="$ROOTPATH/bin/$platform"
+SENSORS="$ROOTPATH/src/sim/jvsim.py"
+
+#Setup the python path
+export PYTHONPATH=$PYTHON_PATH
+
+#Start the mosquitto broker
+MQTTCONFIG="$CONFIG/mosquitto.conf"
+echo "log_dest file $MQTTLOG" > $MQTTCONFIG
+$MQTTBIN -v -c $MQTTCONFIG -d
+echo "---- Mosquitto        : $MQTTBIN"
+sleep 1
+
+#Start the data streamers
+echo "---- sensors          : $SENSORS"
+SYSTEM_DESCRIPTION="$CONFIG/system.json"
+SIM_SRCDIR="$ROOTPATH/src/sim"
+python3 $SENSORS $SYSTEM_DESCRIPTION $LOGPATH $SIM_SRCDIR
+
+#Start the gRPC server
+if [ $run_server != 0 ]
+then
+$SERVERPATH/agent_server $SERVERLOG &
+echo "-------- Started Server: $SERVERPATH/agent_server $SERVERLOG"
+fi
+sleep 2
+
+#Do we execute the unit tests
+if [ $run_test != 0 ]
+then
+$TESTPATH/agent_test
+fi
+
+#Start the interactive client
+if [ $run_client != 0 ]
+then
+$CLIENTPATH/agent_client
+fi

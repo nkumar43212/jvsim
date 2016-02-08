@@ -1,0 +1,19 @@
+syntax = "proto2";
+import "jvision_top.proto";
+
+//
+// This occupies branch 6 from JuniperNetworksSensors
+//
+extend JuniperNetworksSensors {
+    optional Test jnpr_test_ext   = 8;
+}
+
+message Test {
+    repeated TestElement test_stats = 1;
+}
+
+message TestElement {
+    required uint32 id   = 1;
+    required string name = 2;
+}
+

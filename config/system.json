@@ -1,0 +1,39 @@
+{
+    "system": {
+        "infrastructure": {
+	    "linecard": "1",
+	    "id": "2.2.2.1"
+	},
+
+		"sensors": {
+			"test": {
+				"resource": "test",
+				"count": "4",
+				"interval": "1"
+			},
+			"ifds": {
+				"resource": "port",
+				"count": "0",
+				"interval": "1"
+			},
+
+                        "lsp_stats": {
+				"resource": "lsp_stats",
+				"count": "0",
+				"interval": "1"
+                        },
+
+			"firewall": {
+				"resource": "firewall",
+				"count": "10",
+				"interval": "1"
+			},
+
+			"ifls": {
+				"resource": "interfaces",
+				"count": "1",
+				"interval": "0.2"
+			}
+		}
+	}
+}
