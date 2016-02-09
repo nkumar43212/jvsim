@@ -49,7 +49,9 @@ then
 fi
 
 #Paths
-ROOTPATH="/Users/nitin/jvsim"
+#If the root path is not bail
+#ROOTPATH="/Users/nitin/jvsim"
+: ${ROOTPATH?"Need to set STATE"}
 
 #What is the platform we are executing on
 platform='unknown'
