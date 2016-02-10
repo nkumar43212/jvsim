@@ -1,7 +1,7 @@
 CXX = g++ -w
 CPPFLAGS += -pthread -I../lib/h/ -I/usr/local/include/
 CXXFLAGS += -std=c++11
-LDFLAGS  += -L/usr/local/lib -L../lib -lgrpc++_unsecure -lgrpc -lgpr -lprotobuf -lpthread -ldl -lrpc_service
+LDFLAGS  += -L/usr/local/lib -L../lib -lpthread -ldl -lrpc_service  -lgrpc++_unsecure -lgrpc -lgpr -lprotobuf
 
 ROOT_DIR    = ../../..
 INSTALL_DIR = $(ROOT_DIR)/bin/$(PLATFORM)
@@ -24,4 +24,4 @@ install: client
 	mv libclient.a ../lib/.
 
 clean:
-	rm -f *.o agent_client libclient.a
+	rm -f *.o client libclient.a
