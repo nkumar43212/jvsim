@@ -1,12 +1,12 @@
 1) Build the sources
    cd $ROOT;
-   mk;
+   make;
 
-2) Check if all the following executables are in $ROOT/bin/mac
+2) Check if all the following executables are in $ROOT/bin/[mac/linux]
    agent_server, agent_client, agent_test, mosquitto
 
-3) Set the environment variable, ROOTPATH. 
-   setenv ROOTPATH=/Users/nitin/jvsim
+3) Set the environment variable, ROOTPATH. For bash, do that following
+   export ROOTPATH=/Users/nitin/jvsim
 
 4) Run the simulator and the test client
    cd $ROOT/bin
