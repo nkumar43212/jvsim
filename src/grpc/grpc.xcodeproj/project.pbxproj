@@ -31,6 +31,8 @@
 		946703DC1C650CD700E73BF5 /* oc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 946703DB1C650CD700E73BF5 /* oc.cpp */; };
 		946703E01C65134700E73BF5 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 946703DD1C65134700E73BF5 /* Makefile */; };
 		946703E11C65134700E73BF5 /* agent_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 946703DF1C65134700E73BF5 /* agent_test.cpp */; };
+		94AC9A411C6A91CD0034AF1A /* gtest_main.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94AC9A401C6A91CD0034AF1A /* gtest_main.a */; };
+		94AC9A431C6A98780034AF1A /* libclient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94AC9A421C6A98780034AF1A /* libclient.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -149,6 +151,8 @@
 		946703DD1C65134700E73BF5 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		946703DE1C65134700E73BF5 /* agent_test.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = agent_test.hpp; sourceTree = "<group>"; };
 		946703DF1C65134700E73BF5 /* agent_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = agent_test.cpp; sourceTree = "<group>"; };
+		94AC9A401C6A91CD0034AF1A /* gtest_main.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = gtest_main.a; path = lib/gtest_main.a; sourceTree = "<group>"; };
+		94AC9A421C6A98780034AF1A /* libclient.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libclient.a; path = lib/libclient.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +181,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94AC9A431C6A98780034AF1A /* libclient.a in Frameworks */,
+				94AC9A411C6A91CD0034AF1A /* gtest_main.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,6 +213,8 @@
 		946702911C64348C00E73BF5 = {
 			isa = PBXGroup;
 			children = (
+				94AC9A421C6A98780034AF1A /* libclient.a */,
+				94AC9A401C6A91CD0034AF1A /* gtest_main.a */,
 				946702A91C6471ED00E73BF5 /* client */,
 				946702B41C64723C00E73BF5 /* server */,
 				946702BF1C64724900E73BF5 /* test */,
@@ -727,18 +735,19 @@
 					/usr/local/include,
 					/Users/nitin/jvsim/src/grpc/lib/h,
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lib",
+				);
 				"OTHER_LDFLAGS[arch=*]" = (
 					"-L/usr/local/lib",
-					"-L${ROOTDIR}/src/grpc/lib",
 					"-lgrpc++_unsecure",
 					"-lgrpc",
 					"-lgpr",
 					"-lprotobuf",
 					"-lpthread",
 					"-ldl",
-					"${ROOTDIR}/src/grpc/lib/gtest_main.a",
 					"-lrpc_service",
-					"${ROOTDIR}/src/grpc/client/AgentClient.o",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -747,6 +756,10 @@
 		946702C41C64724900E73BF5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

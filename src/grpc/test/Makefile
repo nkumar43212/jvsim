@@ -2,7 +2,7 @@ GTEST_DIR = ../../gtest
 CXX = g++ -w
 CPPFLAGS += -I/usr/local/include -pthread -I../lib/h -I../client -isystem $(GTEST_DIR)/include
 CXXFLAGS += -std=c++11
-LDFLAGS += -L/usr/local/lib -L../lib -lgrpc++_unsecure -lgrpc -lgpr -lprotobuf -lpthread -ldl -lrpc_service
+LDFLAGS += -L/usr/local/lib -L../lib -lgrpc++_unsecure -lgrpc -lgpr -lprotobuf -lpthread -ldl -lrpc_service -lclient
 PROTOC = protoc
 
 # All Google Test headers.  Usually you shouldn't change this
@@ -11,8 +11,14 @@ GTEST_HEADERS = $(GTEST_DIR)/include/gtest/*.h \
                 $(GTEST_DIR)/include/gtest/internal/*.h
 
 ROOT_DIR    = ../../..
-PLATFORM    = mac
 INSTALL_DIR = $(ROOT_DIR)/bin/$(PLATFORM)
+
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Linux)
+        PLATFORM    = linux
+else
+        PLATFORM    = mac
+endif
 
 all: agent_test install
 
@@ -34,7 +40,7 @@ gtest_main.a : gtest-all.o gtest_main.o
 agent_test.o : agent_test.cpp agent_test.hpp $(GTEST_HEADERS)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c agent_test.cpp
 
-agent_test : ../client/AgentClient.o agent_test.o gtest_main.a
+agent_test : agent_test.o gtest_main.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(LDFLAGS) -lpthread $^ -o $@
 
 install: agent_test

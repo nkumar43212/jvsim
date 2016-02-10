@@ -78,6 +78,7 @@ TESTPATH="$ROOTPATH/bin/$platform"
 SERVERPATH="$ROOTPATH/bin/$platform"
 SERVERLOG="$LOGPATH/agent_server.log"
 CLIENTPATH="$ROOTPATH/bin/$platform"
+CLIENTLOG="$LOGPATH/";
 SENSORS="$ROOTPATH/src/sim/jvsim.py"
 
 #Setup the python path
@@ -113,5 +114,6 @@ fi
 #Start the interactive client
 if [ $run_client != 0 ]
 then
-$CLIENTPATH/agent_client
+echo "-------- Started Client: $CLIENTPATH/agent_client $CLIENTLOG"
+$CLIENTPATH/agent_client $CLIENTLOG 
 fi

@@ -29,9 +29,6 @@ using agent::GetRequest;
 using agent::Path;
 using agent::Reply;
 
-// Location of logs
-#define AGENTCLIENT_LOG_DIR "/Users/nitin/test/logs/"
-
 // Name of Management Client
 #define AGENTCLIENT_MGMT "Management-Client"
 
@@ -53,9 +50,10 @@ public:
     std::unique_ptr<Agent::Stub> stub_;
     AgentClient(std::shared_ptr<Channel> channel,
                 const std::string& name,
-                uint32_t id) : stub_(Agent::NewStub(channel)), _name(name), _active(true), _id(id)
+                uint32_t id,
+                const std::string& logfile_dir) : stub_(Agent::NewStub(channel)), _name(name), _active(true), _id(id)
     {
-        std::string s(AGENTCLIENT_LOG_DIR);
+        std::string s(logfile_dir);
         _logfile = s + _name;
         _subscription_id_valid = false;
         _subscription_id       = 0;
@@ -64,7 +62,10 @@ public:
     
     ~AgentClient();
     
-    static AgentClient *create(std::shared_ptr<Channel> channel, std::string& name, uint32_t id);
+    static AgentClient *create(std::shared_ptr<Channel> channel,
+                               std::string& name,
+                               uint32_t id,
+                               const std::string& logfile_dir);
     static AgentClient *find(std::string name);
     static void         print();
     

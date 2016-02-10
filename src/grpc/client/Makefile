@@ -4,8 +4,13 @@ CXXFLAGS += -std=c++11
 LDFLAGS  += -L/usr/local/lib -L../lib -lgrpc++_unsecure -lgrpc -lgpr -lprotobuf -lpthread -ldl -lrpc_service
 
 ROOT_DIR    = ../../..
-PLATFORM    = mac
 INSTALL_DIR = $(ROOT_DIR)/bin/$(PLATFORM)
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Linux)
+        PLATFORM    = linux
+else
+        PLATFORM    = mac
+endif
 
 
 all: client install
@@ -15,6 +20,8 @@ client: main.o AgentClient.o AgentClientParser.o
 
 install: client
 	cp client $(INSTALL_DIR)/agent_client
+	ar rvs libclient.a AgentClient.o
+	mv libclient.a ../lib/.
 
 clean:
-	rm -f *.o agent_client
+	rm -f *.o agent_client libclient.a

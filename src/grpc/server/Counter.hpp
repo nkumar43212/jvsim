@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <iostream>
+#include <unistd.h>
 
 class Counter {
     // Name of the counter

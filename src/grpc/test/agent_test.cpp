@@ -12,6 +12,8 @@
 #include <google/protobuf/text_format.h>
 #include <google/protobuf/io/zero_copy_stream.h>
 
+std::string CLIENT_LOGDIR("/Users/nitin/jvsim/logs");
+
 TEST_F(AgentClientTest, subscribe) {
     AgentClient *client;
     uint32_t subscription_id;
@@ -19,7 +21,7 @@ TEST_F(AgentClientTest, subscribe) {
     // Create the test client
     std::string mgmt_client_name(AGENTCLIENT_MGMT);
     client = AgentClient::create(grpc::CreateChannel("localhost:50051", grpc::InsecureCredentials()),
-                                 mgmt_client_name, 0);
+                                 mgmt_client_name, 0, CLIENT_LOGDIR);
     EXPECT_TRUE(client != NULL);
     EXPECT_TRUE(client->stub_ != NULL);
     
@@ -76,7 +78,7 @@ TEST_F(AgentClientTest, list) {
     // Create the test client
     std::string mgmt_client_name("client-list");
     client = AgentClient::create(grpc::CreateChannel("localhost:50051", grpc::InsecureCredentials()),
-                                 mgmt_client_name, 0);
+                                 mgmt_client_name, 0, CLIENT_LOGDIR);
     EXPECT_TRUE(client != NULL);
     EXPECT_TRUE(client->stub_ != NULL);
     
@@ -135,7 +137,7 @@ TEST_F(AgentClientTest, get) {
     // Create the test client
     std::string mgmt_client_name("client-list");
     client = AgentClient::create(grpc::CreateChannel("localhost:50051", grpc::InsecureCredentials()),
-                                 mgmt_client_name, 0);
+                                 mgmt_client_name, 0, CLIENT_LOGDIR);
     EXPECT_TRUE(client != NULL);
     EXPECT_TRUE(client->stub_ != NULL);
     
@@ -253,7 +255,7 @@ AgentClientTest::create_subscriptions (void *args)
     // Create the test client
     std::string mgmt_client_name("client-" + std::to_string(test_args->index));
     client = AgentClient::create(grpc::CreateChannel("localhost:50051", grpc::InsecureCredentials()),
-                                 mgmt_client_name, 0);
+                                 mgmt_client_name, 0, CLIENT_LOGDIR);
     EXPECT_TRUE(client != NULL);
     EXPECT_TRUE(client->stub_ != NULL);
     test_args->client = client;

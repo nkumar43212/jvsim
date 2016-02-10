@@ -15,11 +15,17 @@
 using std::map;
 map<const std::string, AgentClient *> active_clients;
 
+// Location of logs
+std::string AGENTCLIENT_LOG_DIR;
+
 AgentClient *
-AgentClient::create (std::shared_ptr<Channel> channel, std::string& name, uint32_t id)
+AgentClient::create (std::shared_ptr<Channel> channel,
+                     std::string& name,
+                     uint32_t id,
+                     const std::string &logfile_dir)
 {
     // Create a client
-    AgentClient *client = new AgentClient(channel, name, id);
+    AgentClient *client = new AgentClient(channel, name, id, logfile_dir);
     active_clients[name] = client;
     return client;
 }
