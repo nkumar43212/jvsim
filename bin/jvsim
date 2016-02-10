@@ -4,7 +4,7 @@
 #Cleanup any existing jvtest processes
 ps -ef | grep publish.py | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
 ps -ef | grep mosquitto | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
-ps -ef | grep agent_server | grep -v "grep" | awk '{print $2}' | xargs kill /dev/null 2>&1
+ps -ef | grep agent_server | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
 
 #Default values
 run_cleanup=0
