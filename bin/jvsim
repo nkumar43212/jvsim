@@ -51,7 +51,7 @@ fi
 #Paths
 #If the root path is not bail
 #ROOTPATH="/Users/nitin/jvsim"
-: ${ROOTPATH?"Need to set STATE"}
+: ${ROOTPATH?"Need to set ROOTPATH"}
 
 #What is the platform we are executing on
 platform='unknown'

@@ -1,6 +1,6 @@
 import argparse
 import time
-import mosquitto
+import paho.mqtt.client as paho
 import os
 import sys
 from time import gmtime, strftime
@@ -57,14 +57,15 @@ def on_publish(mosq, userdata, mid):
 #create an mqtt client
 mypid       = os.getpid()
 client_uniq = "publisher-" + linecard_str + "-" + resource_str + "-" + str(mypid)
-mqttc       = mosquitto.Mosquitto(client_uniq)
+#mqttc       = mosquitto.Mosquitto(client_uniq)
+mqttc       = paho.Client()
 
 #attach MQTT callbacks
 mqttc.on_connect = on_connect
 #mqttc.on_publish = on_publish
 
 #connect to broker
-mqttc.connect(broker, port, 60, True)
+mqttc.connect(broker, port, 60)
 
 #Track packet and byte counts
 last_packets = 0

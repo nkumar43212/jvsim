@@ -1,0 +1,195 @@
+linecard =  lc0
+resource =  lsp_stats
+count    =  0
+interval =  1
+sys      =  2.2.2.1
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 2
+timestamp: 1455130018
+
+-------------
+mqtt-connect
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 3
+timestamp: 1455130019
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 4
+timestamp: 1455130020
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 5
+timestamp: 1455130021
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 6
+timestamp: 1455130022
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 7
+timestamp: 1455130023
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 8
+timestamp: 1455130024
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 9
+timestamp: 1455130025
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 10
+timestamp: 1455130026
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 11
+timestamp: 1455130027
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 12
+timestamp: 1455130028
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 13
+timestamp: 1455130029
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 14
+timestamp: 1455130030
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 15
+timestamp: 1455130031
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 16
+timestamp: 1455130032
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 17
+timestamp: 1455130033
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 18
+timestamp: 1455130034
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 19
+timestamp: 1455130035
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 20
+timestamp: 1455130036
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 21
+timestamp: 1455130037
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 22
+timestamp: 1455130038
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 23
+timestamp: 1455130039
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 24
+timestamp: 1455130040
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 25
+timestamp: 1455130041
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 26
+timestamp: 1455130042
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 27
+timestamp: 1455130043
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 28
+timestamp: 1455130044
+
+-------------

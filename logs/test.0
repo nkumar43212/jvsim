@@ -1,0 +1,789 @@
+linecard =  lc0
+resource =  test
+count    =  4
+interval =  1
+sys      =  2.2.2.1
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 2
+timestamp: 1455130018
+enterprise {
+  juniperNetworks {
+    [jnpr_test_ext] {
+      test_stats {
+        id: 0
+        name: "test-0"
+      }
+      test_stats {
+        id: 1
+        name: "test-1"
+      }
+      test_stats {
+        id: 2
+        name: "test-2"
+      }
+      test_stats {
+        id: 3
+        name: "test-3"
+      }
+    }
+  }
+}
+
+-------------
+mqtt-connect
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 3
+timestamp: 1455130019
+enterprise {
+  juniperNetworks {
+    [jnpr_test_ext] {
+      test_stats {
+        id: 0
+        name: "test-0"
+      }
+      test_stats {
+        id: 1
+        name: "test-1"
+      }
+      test_stats {
+        id: 2
+        name: "test-2"
+      }
+      test_stats {
+        id: 3
+        name: "test-3"
+      }
+    }
+  }
+}
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 4
+timestamp: 1455130020
+enterprise {
+  juniperNetworks {
+    [jnpr_test_ext] {
+      test_stats {
+        id: 0
+        name: "test-0"
+      }
+      test_stats {
+        id: 1
+        name: "test-1"
+      }
+      test_stats {
+        id: 2
+        name: "test-2"
+      }
+      test_stats {
+        id: 3
+        name: "test-3"
+      }
+    }
+  }
+}
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 5
+timestamp: 1455130021
+enterprise {
+  juniperNetworks {
+    [jnpr_test_ext] {
+      test_stats {
+        id: 0
+        name: "test-0"
+      }
+      test_stats {
+        id: 1
+        name: "test-1"
+      }
+      test_stats {
+        id: 2
+        name: "test-2"
+      }
+      test_stats {
+        id: 3
+        name: "test-3"
+      }
+    }
+  }
+}
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 6
+timestamp: 1455130022
+enterprise {
+  juniperNetworks {
+    [jnpr_test_ext] {
+      test_stats {
+        id: 0
+        name: "test-0"
+      }
+      test_stats {
+        id: 1
+        name: "test-1"
+      }
+      test_stats {
+        id: 2
+        name: "test-2"
+      }
+      test_stats {
+        id: 3
+        name: "test-3"
+      }
+    }
+  }
+}
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 7
+timestamp: 1455130023
+enterprise {
+  juniperNetworks {
+    [jnpr_test_ext] {
+      test_stats {
+        id: 0
+        name: "test-0"
+      }
+      test_stats {
+        id: 1
+        name: "test-1"
+      }
+      test_stats {
+        id: 2
+        name: "test-2"
+      }
+      test_stats {
+        id: 3
+        name: "test-3"
+      }
+    }
+  }
+}
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 8
+timestamp: 1455130024
+enterprise {
+  juniperNetworks {
+    [jnpr_test_ext] {
+      test_stats {
+        id: 0
+        name: "test-0"
+      }
+      test_stats {
+        id: 1
+        name: "test-1"
+      }
+      test_stats {
+        id: 2
+        name: "test-2"
+      }
+      test_stats {
+        id: 3
+        name: "test-3"
+      }
+    }
+  }
+}
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 9
+timestamp: 1455130025
+enterprise {
+  juniperNetworks {
+    [jnpr_test_ext] {
+      test_stats {
+        id: 0
+        name: "test-0"
+      }
+      test_stats {
+        id: 1
+        name: "test-1"
+      }
+      test_stats {
+        id: 2
+        name: "test-2"
+      }
+      test_stats {
+        id: 3
+        name: "test-3"
+      }
+    }
+  }
+}
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 10
+timestamp: 1455130026
+enterprise {
+  juniperNetworks {
+    [jnpr_test_ext] {
+      test_stats {
+        id: 0
+        name: "test-0"
+      }
+      test_stats {
+        id: 1
+        name: "test-1"
+      }
+      test_stats {
+        id: 2
+        name: "test-2"
+      }
+      test_stats {
+        id: 3
+        name: "test-3"
+      }
+    }
+  }
+}
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 11
+timestamp: 1455130027
+enterprise {
+  juniperNetworks {
+    [jnpr_test_ext] {
+      test_stats {
+        id: 0
+        name: "test-0"
+      }
+      test_stats {
+        id: 1
+        name: "test-1"
+      }
+      test_stats {
+        id: 2
+        name: "test-2"
+      }
+      test_stats {
+        id: 3
+        name: "test-3"
+      }
+    }
+  }
+}
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 12
+timestamp: 1455130028
+enterprise {
+  juniperNetworks {
+    [jnpr_test_ext] {
+      test_stats {
+        id: 0
+        name: "test-0"
+      }
+      test_stats {
+        id: 1
+        name: "test-1"
+      }
+      test_stats {
+        id: 2
+        name: "test-2"
+      }
+      test_stats {
+        id: 3
+        name: "test-3"
+      }
+    }
+  }
+}
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 13
+timestamp: 1455130029
+enterprise {
+  juniperNetworks {
+    [jnpr_test_ext] {
+      test_stats {
+        id: 0
+        name: "test-0"
+      }
+      test_stats {
+        id: 1
+        name: "test-1"
+      }
+      test_stats {
+        id: 2
+        name: "test-2"
+      }
+      test_stats {
+        id: 3
+        name: "test-3"
+      }
+    }
+  }
+}
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 14
+timestamp: 1455130030
+enterprise {
+  juniperNetworks {
+    [jnpr_test_ext] {
+      test_stats {
+        id: 0
+        name: "test-0"
+      }
+      test_stats {
+        id: 1
+        name: "test-1"
+      }
+      test_stats {
+        id: 2
+        name: "test-2"
+      }
+      test_stats {
+        id: 3
+        name: "test-3"
+      }
+    }
+  }
+}
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 15
+timestamp: 1455130031
+enterprise {
+  juniperNetworks {
+    [jnpr_test_ext] {
+      test_stats {
+        id: 0
+        name: "test-0"
+      }
+      test_stats {
+        id: 1
+        name: "test-1"
+      }
+      test_stats {
+        id: 2
+        name: "test-2"
+      }
+      test_stats {
+        id: 3
+        name: "test-3"
+      }
+    }
+  }
+}
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 16
+timestamp: 1455130032
+enterprise {
+  juniperNetworks {
+    [jnpr_test_ext] {
+      test_stats {
+        id: 0
+        name: "test-0"
+      }
+      test_stats {
+        id: 1
+        name: "test-1"
+      }
+      test_stats {
+        id: 2
+        name: "test-2"
+      }
+      test_stats {
+        id: 3
+        name: "test-3"
+      }
+    }
+  }
+}
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 17
+timestamp: 1455130033
+enterprise {
+  juniperNetworks {
+    [jnpr_test_ext] {
+      test_stats {
+        id: 0
+        name: "test-0"
+      }
+      test_stats {
+        id: 1
+        name: "test-1"
+      }
+      test_stats {
+        id: 2
+        name: "test-2"
+      }
+      test_stats {
+        id: 3
+        name: "test-3"
+      }
+    }
+  }
+}
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 18
+timestamp: 1455130034
+enterprise {
+  juniperNetworks {
+    [jnpr_test_ext] {
+      test_stats {
+        id: 0
+        name: "test-0"
+      }
+      test_stats {
+        id: 1
+        name: "test-1"
+      }
+      test_stats {
+        id: 2
+        name: "test-2"
+      }
+      test_stats {
+        id: 3
+        name: "test-3"
+      }
+    }
+  }
+}
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 19
+timestamp: 1455130035
+enterprise {
+  juniperNetworks {
+    [jnpr_test_ext] {
+      test_stats {
+        id: 0
+        name: "test-0"
+      }
+      test_stats {
+        id: 1
+        name: "test-1"
+      }
+      test_stats {
+        id: 2
+        name: "test-2"
+      }
+      test_stats {
+        id: 3
+        name: "test-3"
+      }
+    }
+  }
+}
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 20
+timestamp: 1455130036
+enterprise {
+  juniperNetworks {
+    [jnpr_test_ext] {
+      test_stats {
+        id: 0
+        name: "test-0"
+      }
+      test_stats {
+        id: 1
+        name: "test-1"
+      }
+      test_stats {
+        id: 2
+        name: "test-2"
+      }
+      test_stats {
+        id: 3
+        name: "test-3"
+      }
+    }
+  }
+}
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 21
+timestamp: 1455130037
+enterprise {
+  juniperNetworks {
+    [jnpr_test_ext] {
+      test_stats {
+        id: 0
+        name: "test-0"
+      }
+      test_stats {
+        id: 1
+        name: "test-1"
+      }
+      test_stats {
+        id: 2
+        name: "test-2"
+      }
+      test_stats {
+        id: 3
+        name: "test-3"
+      }
+    }
+  }
+}
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 22
+timestamp: 1455130038
+enterprise {
+  juniperNetworks {
+    [jnpr_test_ext] {
+      test_stats {
+        id: 0
+        name: "test-0"
+      }
+      test_stats {
+        id: 1
+        name: "test-1"
+      }
+      test_stats {
+        id: 2
+        name: "test-2"
+      }
+      test_stats {
+        id: 3
+        name: "test-3"
+      }
+    }
+  }
+}
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 23
+timestamp: 1455130040
+enterprise {
+  juniperNetworks {
+    [jnpr_test_ext] {
+      test_stats {
+        id: 0
+        name: "test-0"
+      }
+      test_stats {
+        id: 1
+        name: "test-1"
+      }
+      test_stats {
+        id: 2
+        name: "test-2"
+      }
+      test_stats {
+        id: 3
+        name: "test-3"
+      }
+    }
+  }
+}
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 24
+timestamp: 1455130041
+enterprise {
+  juniperNetworks {
+    [jnpr_test_ext] {
+      test_stats {
+        id: 0
+        name: "test-0"
+      }
+      test_stats {
+        id: 1
+        name: "test-1"
+      }
+      test_stats {
+        id: 2
+        name: "test-2"
+      }
+      test_stats {
+        id: 3
+        name: "test-3"
+      }
+    }
+  }
+}
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 25
+timestamp: 1455130042
+enterprise {
+  juniperNetworks {
+    [jnpr_test_ext] {
+      test_stats {
+        id: 0
+        name: "test-0"
+      }
+      test_stats {
+        id: 1
+        name: "test-1"
+      }
+      test_stats {
+        id: 2
+        name: "test-2"
+      }
+      test_stats {
+        id: 3
+        name: "test-3"
+      }
+    }
+  }
+}
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 26
+timestamp: 1455130043
+enterprise {
+  juniperNetworks {
+    [jnpr_test_ext] {
+      test_stats {
+        id: 0
+        name: "test-0"
+      }
+      test_stats {
+        id: 1
+        name: "test-1"
+      }
+      test_stats {
+        id: 2
+        name: "test-2"
+      }
+      test_stats {
+        id: 3
+        name: "test-3"
+      }
+    }
+  }
+}
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 27
+timestamp: 1455130044
+enterprise {
+  juniperNetworks {
+    [jnpr_test_ext] {
+      test_stats {
+        id: 0
+        name: "test-0"
+      }
+      test_stats {
+        id: 1
+        name: "test-1"
+      }
+      test_stats {
+        id: 2
+        name: "test-2"
+      }
+      test_stats {
+        id: 3
+        name: "test-3"
+      }
+    }
+  }
+}
+
+-------------
+-------------
+system_id: "2.2.2.1"
+component_id: 0
+sequence_number: 28
+timestamp: 1455130045
+enterprise {
+  juniperNetworks {
+    [jnpr_test_ext] {
+      test_stats {
+        id: 0
+        name: "test-0"
+      }
+      test_stats {
+        id: 1
+        name: "test-1"
+      }
+      test_stats {
+        id: 2
+        name: "test-2"
+      }
+      test_stats {
+        id: 3
+        name: "test-3"
+      }
+    }
+  }
+}
+
+-------------

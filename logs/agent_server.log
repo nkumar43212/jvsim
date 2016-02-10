@@ -1,0 +1,70 @@
+0:Logging enabled --
+
+1:Registered Translators:
+
+2:OC Translator = FooStr
+
+3:OC Translator = firewall
+
+4:OC Translator = interfaces
+
+5:OC Translator = port
+
+6:Subscribe-Begin:firewall:
+7:Subscribe-stream-end:
+8:Unsubscribe:ID = 2
+9:UnsubscribeEnd
+10:Subscribe-Begin:firewall:
+11:Subscribe-stream-end:
+12:Unsubscribe:ID = 3
+13:UnsubscribeEnd
+14:Subscribe-Begin:firewall:
+15:Subscribe-stream-end:
+16:Operational Get:ID = 4
+17:Unsubscribe:ID = 4
+18:UnsubscribeEnd
+119::SuSubscribe-Begin:firewall:
+
+19:Subscribe-Begin:firewall:
+119::SuSubscribe-Begin:firewall:
+
+19:Subscribe-Begin:firewall:119::SuSubscribe-Begin:firewall:
+
+19:Subscribe-Begin:firewall:21:Subscribe-Begin:firewall:
+22:Subscribe-Begin:firewall:
+22:Subscribe-Begin:firewall:
+23:Subscribe-Begin:firewall:
+23:Subscribe-Begin:firewall:
+26:Subscribe-Begin:firewall:
+27:Subscribe-Begin:firewall:
+28:Subscribe-Begin:firewall:
+29:Subscribe-stream-end:
+30:Subscribe-stream-end:
+31:Subscribe-stream-end:
+32:Subscribe-stream-end:
+33:Subscribe-stream-end:
+34:Subscribe-stream-end:
+35:Subscribe-stream-end:
+36:Subscribe-stream-end:
+37:Subscribe-stream-end:
+38:Subscribe-stream-end:
+39:Unsubscribe:ID = 12
+40:UnsubscribeEnd
+41:Unsubscribe:ID = 6
+42:UnsubscribeEnd
+43:Unsubscribe:ID = 7
+44:UnsubscribeEnd
+45:Unsubscribe:ID = 8
+46:UnsubscribeEnd
+47:Unsubscribe:ID = 5
+48:UnsubscribeEnd
+49:Unsubscribe:ID = 9
+50:UnsubscribeEnd
+51:Unsubscribe:ID = 13
+52:UnsubscribeEnd
+53:Unsubscribe:ID = 10
+54:UnsubscribeEnd
+55:Unsubscribe:ID = 14
+56:UnsubscribeEnd
+57:Unsubscribe:ID = 11
+58:UnsubscribeEnd
