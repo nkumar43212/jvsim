@@ -29,19 +29,34 @@ AgentServer::telemetrySubscribe (ServerContext *context,
     // Make a note
     _logger->log("Subscribe-Begin:" + log_str);
     
+    // Allocate an ID
+    uint32_t id = _id_manager.allocate();
+    if (id == _id_manager.getNullIdentifier()) {
+        std::string id_str = std::to_string(_id_manager.getNullIdentifier());
+        context->AddInitialMetadata("subscription-id", id_str);
+        context->AddInitialMetadata("subscription-name", "__agent_error__id_exhausted");
+        _logger->log("Subscribe-stream-end: Error, ID Exhausted");
+        return Status::OK;
+    }
+    
     // Create a subscription
     AgentServerTransport transport(context, writer);
     AgentSubscriptionLimits limits(args->limit_records(), args->limit_time_seconds());
-    AgentSubscription *sub = AgentSubscription::createSubscription(transport,
+    AgentSubscription *sub = AgentSubscription::createSubscription(id,
+                                                                   transport,
                                                                    path_list,
                                                                    limits);
     if (!sub) {
-        std::string id_str = std::to_string(AgentSubscription::getErrorIdentifier());
+        std::string id_str = std::to_string(_id_manager.getNullIdentifier());
         context->AddInitialMetadata("subscription-id", id_str);
         context->AddInitialMetadata("subscription-name", "__agent_error__");
         _logger->log("Subscribe-stream-end: Error");
         return Status::OK;
     }
+    
+    // Log the subscription Identifier
+    log_str = std::to_string(sub->getId());
+    _logger->log("Subscription-Allocate:" + log_str);
     
     // Send back the response on the metadata channel
     std::string id_str = std::to_string(sub->getId());
@@ -90,6 +105,7 @@ AgentServer::telemetryUnSubscribe (ServerContext *context, const agent::UnSubscr
     
     // Remove the subscription
     AgentSubscription::deleteSubscription(sub->getId());
+    _id_manager.deallocate(sub->getId());
     delete sub;
     
     reply->set_code(agent::OK);

@@ -6,26 +6,12 @@
 //  Copyright © 2016 Juniper Networks. All rights reserved.
 //
 
+#include <mutex>
 #include "AgentSubscription.hpp"
 #include "OpenConfig.hpp"
 
-// A globally unique subscription index.
-uint32_t global_sub_id = 1;
-
 // Store of all active subscriptions
 std::map<uint32_t, AgentSubscription *> store;
-
-uint32_t
-AgentSubscription::allocateIdentifier ()
-{
-    return ++global_sub_id;
-}
-
-uint32_t
-AgentSubscription::getErrorIdentifier()
-{
-    return 0;
-}
 
 void
 AgentSubscription::on_message(const struct mosquitto_message* mosqmessage)

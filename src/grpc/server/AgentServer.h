@@ -17,6 +17,7 @@
 #include "jvision_top.pb.h"
 #include "AgentMessageBus.hpp"
 #include "AgentServerLog.hpp"
+#include "AgentServerIdManager.hpp"
 
 using grpc::Server;
 using grpc::ServerBuilder;
@@ -36,6 +37,9 @@ using agent::ReturnCode;
 class AgentServer final : public Agent::Service {
     // Logging service
     AgentServerLog *_logger;
+    
+    // Subscription ID Manager
+    AgentServerIdManager _id_manager;
     
     // The Interface
     Status telemetrySubscribe(ServerContext *context, const SubscriptionRequest *args, ServerWriter<OpenConfigData>* writer) override;

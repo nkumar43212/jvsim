@@ -17,6 +17,7 @@
 #include <string>
 #include <vector>
 
+#include "AgentServerIdManager.hpp"
 #include "AgentMessageBus.hpp"
 #include "AgentServerTransport.hpp"
 #include "AgentSubscriptionLimits.hpp"
@@ -65,12 +66,12 @@ public:
         _oc_lookup_failures = _stream_alloc_failures = _stream_parse_failures = 0;
     }
     
-    static AgentSubscription* createSubscription (AgentServerTransport transport,
+    static AgentSubscription* createSubscription (uint32_t id,
+                                                  AgentServerTransport transport,
                                                   PathList path_list,
                                                   AgentSubscriptionLimits limits,
                                                   char *name = NULL)
     {
-        uint32_t id             = allocateIdentifier();
         std::string client_name = name ? name : "client-" + std::to_string(id);
         
         AgentSubscription *sub;
