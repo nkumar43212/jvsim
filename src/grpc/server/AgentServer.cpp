@@ -49,7 +49,7 @@ AgentServer::telemetrySubscribe (ServerContext *context,
     if (!sub) {
         std::string id_str = std::to_string(_id_manager.getNullIdentifier());
         context->AddInitialMetadata("subscription-id", id_str);
-        context->AddInitialMetadata("subscription-name", "__agent_error__");
+        context->AddInitialMetadata("subscription-name", "__agent_error__no_memory");
         _logger->log("Subscribe-stream-end: Error");
         return Status::OK;
     }
