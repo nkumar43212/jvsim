@@ -13,6 +13,7 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <mutex>
 
 #define AGENTSERVER_LOGFILE "/Users/nitin/test/logs/agent_server.log"
 
@@ -21,7 +22,8 @@ class AgentServerLog {
     uint64_t      _sequence_number;
     uint8_t       _level;
     std::ofstream _outputFile;
-
+    std::mutex    _log_mutex;
+    
 public:
     
     AgentServerLog () : _outputFile(AGENTSERVER_LOGFILE)
@@ -44,6 +46,7 @@ public:
             return;
         }
         
+        std::lock_guard<std::mutex> guard(_log_mutex);
         _outputFile << _sequence_number << ":" << message << "\n";
         _outputFile.flush();
         _sequence_number++;

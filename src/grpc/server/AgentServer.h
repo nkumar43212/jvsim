@@ -34,7 +34,6 @@ using agent::KeyValue;
 using agent::ReturnCode;
 
 class AgentServer final : public Agent::Service {
-    
     // Logging service
     AgentServerLog *_logger;
     
