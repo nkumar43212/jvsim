@@ -96,7 +96,6 @@ public:
     
     int parseArg(char* cnd, const char* cmd[], char input[])
     {
-        
         std::cout << "jvsim> ";
         std::cin.getline(input,50);
         cnd = strtok(input, " ");

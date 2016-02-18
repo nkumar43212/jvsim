@@ -36,6 +36,8 @@
 		94AC9A681C74500F0034AF1A /* AgentServerIdManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94AC9A661C74500F0034AF1A /* AgentServerIdManager.cpp */; };
 		94AC9A691C7459900034AF1A /* AgentServerIdManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94AC9A661C74500F0034AF1A /* AgentServerIdManager.cpp */; };
 		94AC9A6C1C7459B80034AF1A /* agent_test_server.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94AC9A6A1C7459B80034AF1A /* agent_test_server.cpp */; };
+		94AC9A711C7529890034AF1A /* OpenConfigPort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94AC9A701C7529890034AF1A /* OpenConfigPort.cpp */; };
+		94AC9A741C7546280034AF1A /* AgentClientLag.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94AC9A721C7546280034AF1A /* AgentClientLag.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -160,6 +162,9 @@
 		94AC9A671C74500F0034AF1A /* AgentServerIdManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AgentServerIdManager.hpp; sourceTree = "<group>"; };
 		94AC9A6A1C7459B80034AF1A /* agent_test_server.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = agent_test_server.cpp; sourceTree = "<group>"; };
 		94AC9A6B1C7459B80034AF1A /* agent_test_server.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = agent_test_server.hpp; sourceTree = "<group>"; };
+		94AC9A701C7529890034AF1A /* OpenConfigPort.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OpenConfigPort.cpp; sourceTree = "<group>"; };
+		94AC9A721C7546280034AF1A /* AgentClientLag.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AgentClientLag.cpp; sourceTree = "<group>"; };
+		94AC9A731C7546280034AF1A /* AgentClientLag.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AgentClientLag.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +257,8 @@
 				9467039E1C6475EE00E73BF5 /* AgentClientParser.hpp */,
 				9467039F1C6475EE00E73BF5 /* AgentClientParser.cpp */,
 				946703A01C6475EE00E73BF5 /* AgentClient.hpp */,
+				94AC9A721C7546280034AF1A /* AgentClientLag.cpp */,
+				94AC9A731C7546280034AF1A /* AgentClientLag.hpp */,
 				9467039C1C6475C600E73BF5 /* main.cpp */,
 				946702DF1C64758500E73BF5 /* AgentClient.cpp */,
 			);
@@ -313,6 +320,7 @@
 		946703C41C64782500E73BF5 /* lib-oc */ = {
 			isa = PBXGroup;
 			children = (
+				94AC9A701C7529890034AF1A /* OpenConfigPort.cpp */,
 				946703DB1C650CD700E73BF5 /* oc.cpp */,
 				946703CA1C64786E00E73BF5 /* Makefile */,
 				946703CC1C64786E00E73BF5 /* genxlate.py */,
@@ -515,6 +523,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94AC9A741C7546280034AF1A /* AgentClientLag.cpp in Sources */,
 				946703A11C6475EE00E73BF5 /* AgentClientParser.cpp in Sources */,
 				9467039D1C6475C600E73BF5 /* main.cpp in Sources */,
 				946703D91C64823300E73BF5 /* Makefile in Sources */,
@@ -572,6 +581,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94AC9A711C7529890034AF1A /* OpenConfigPort.cpp in Sources */,
 				946703DC1C650CD700E73BF5 /* oc.cpp in Sources */,
 				946703D41C64786E00E73BF5 /* OpenConfigFirewall.cpp in Sources */,
 				946703D21C64786E00E73BF5 /* Makefile in Sources */,

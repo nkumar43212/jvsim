@@ -22,7 +22,7 @@ def generate_message(frame, sensor_type, max_count, lc_slot, system_id, sequence
     #Call the appropriate encoder
     x = 0
     for x in range(0, max_count):
-        jv_encode(sensor_type, jnpr, x);
+        jv_encode(sensor_type, jnpr, x, lc_slot);
 
     #Serialize
     byte_stream = telemetry_stream.SerializeToString()

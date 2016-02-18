@@ -8,6 +8,7 @@
 
 #include "AgentClient.hpp"
 #include "AgentClientParser.hpp"
+#include "AgentClientLag.hpp"
 
 // Subscription ID
 uint32_t global_id;
@@ -145,6 +146,36 @@ handle_get (int argc, const char *argv[])
     client->getOperational(verbosity);
 }
 
+void
+handle_build_lag (int argc, const char *argv[])
+{
+    AgentLag::build(atoi(argv[1]), atoi(argv[2]));
+    AgentLag::print();
+}
+
+void
+handle_clean_lag (int argc, const char *argv[])
+{
+    AgentLag::reset();
+}
+
+void
+handle_print_lag (int argc, const char *argv[])
+{
+    AgentLag *lagp = AgentLag::findLag(argv[1]);
+    if (!lagp) {
+        std::cout << "Could not find LAG = " << argv[1] << "\n";
+        return;
+    }
+
+    uint32_t repeat_count = argv[2] ? atoi(argv[2]) : 1;
+    
+    for (int i = 0; i < repeat_count; i++) {
+        lagp->printMembers();
+        sleep(5);
+    }
+}
+
 // Add new commands here
 entry_t agent_client_commands [] = {    
     {
@@ -202,6 +233,31 @@ entry_t agent_client_commands [] = {
         .e_usage   = std::string("subscribe <subscription-name> <path>+"),
         .e_handler = handle_print
     },
+    
+    {
+        .e_cmd     = std::string("build-lag"),
+        .e_argc    = 3,
+        .e_help    = std::string("Build the LAG database"),
+        .e_usage   = std::string("build-lag <total-lag-count> <number-of-lcs>"),
+        .e_handler = handle_build_lag
+    },
+   
+    {
+        .e_cmd     = std::string("clean-lag"),
+        .e_argc    = 1,
+        .e_help    = std::string("Clean the LAG database"),
+        .e_usage   = std::string("clean-lag"),
+        .e_handler = handle_clean_lag
+    },
+
+    {
+        .e_cmd     = std::string("print-lag"),
+        .e_argc    = 2,
+        .e_help    = std::string("Print Stats for given LAG"),
+        .e_usage   = std::string("print-lag <name> <repeat-count>"),
+        .e_handler = handle_print_lag
+    },
+
 };
 
 u_int32_t agent_client_commands_count = sizeof(agent_client_commands)/sizeof(entry_t);

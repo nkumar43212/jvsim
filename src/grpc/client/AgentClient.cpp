@@ -10,6 +10,7 @@
 #include "AgentClient.hpp"
 #include <google/protobuf/text_format.h>
 #include <google/protobuf/io/zero_copy_stream.h>
+#include "AgentClientLag.hpp"
 
 // List of active clients
 using std::map;
@@ -122,6 +123,9 @@ AgentClient::subscribeTelemetry (std::vector<std::string> path_list,
         outputFile << "Key Value Message Size = " << kv.ByteSize() << "\n";
         outputFile << formatted;
         outputFile.flush();
+        
+        // If this is a port interface subscription update the LAG
+        AgentLag::updateStats(&kv);
     }
     
     // Cleanup

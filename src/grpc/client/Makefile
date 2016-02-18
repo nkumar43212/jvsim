@@ -15,12 +15,12 @@ endif
 
 all: client install
 
-client: main.o AgentClient.o AgentClientParser.o
+client: main.o AgentClient.o AgentClientParser.o AgentClientLag.o
 	$(CXX) $^ $(LDFLAGS) -o $@
 
 install: client
 	cp client $(INSTALL_DIR)/agent_client
-	ar rvs libclient.a AgentClient.o
+	ar rvs libclient.a AgentClient.o AgentClientLag.o
 	mv libclient.a ../lib/.
 
 clean:

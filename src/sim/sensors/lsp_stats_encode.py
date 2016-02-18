@@ -1,6 +1,6 @@
 import lsp_stats_pb2
 
-def jv_encode_lsp_stats(jnpr, index):
+def jv_encode_lsp_stats(jnpr, index, lc_slot):
     lsp_stats = jnpr.Extensions[lsp_stats_pb2.jnpr_lsp_statistics_ext]
     record    = lsp_stats.lsp_stats_records.add()
     record.name = "foo-" + str(index)

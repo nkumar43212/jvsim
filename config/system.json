@@ -1,7 +1,7 @@
 {
     "system": {
         "infrastructure": {
-	    "linecard": "1",
+	    "linecard": "10",
 	    "id": "2.2.2.1"
 	},
 
@@ -13,7 +13,7 @@
 			},
 			"ifds": {
 				"resource": "port",
-				"count": "0",
+				"count": "100",
 				"interval": "1"
 			},
 

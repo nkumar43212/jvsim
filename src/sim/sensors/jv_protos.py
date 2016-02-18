@@ -5,8 +5,8 @@ from port_encode       import jv_encode_port;
 from lsp_stats_encode  import jv_encode_lsp_stats;
 from interfaces_encode import jv_encode_interfaces;
 
-def jv_encode(name, jnpr, index):
-    dispatch[name](jnpr, index);
+def jv_encode(name, jnpr, index, lc_slot):
+    dispatch[name](jnpr, index, lc_slot);
 
 dispatch = {
     'test':       jv_encode_test,
