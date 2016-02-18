@@ -24,7 +24,7 @@ libs:
 	cd $(SRC_DIR)/lib-rpc-service; make
 
 clean-logs:
-	cd $(LOG_DIR); rm *
+	cd $(LOG_DIR); rm *; touch test
 clean:
 	cd $(SERVER_DIR); make clean
 	cd $(CLIENT_DIR); make clean
