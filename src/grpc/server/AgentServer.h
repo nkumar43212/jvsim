@@ -13,26 +13,11 @@
 #include <string>
 #include <grpc++/grpc++.h>
 
-#include "agent.grpc.pb.h"
-#include "jvision_top.pb.h"
+#include "AgentServerProtos.h"
 #include "AgentMessageBus.hpp"
 #include "AgentServerLog.hpp"
 #include "AgentServerIdManager.hpp"
-
-using grpc::Server;
-using grpc::ServerBuilder;
-using grpc::ServerContext;
-using grpc::ServerWriter;
-using grpc::Status;
-
-using agent::Agent;
-using agent::Reply;
-using agent::SubscriptionRequest;
-using agent::UnSubscribeRequest;
-using agent::GetRequest;
-using agent::OpenConfigData;
-using agent::KeyValue;
-using agent::ReturnCode;
+#include "AgentConsolidator.hpp"
 
 class AgentServer final : public Agent::Service {
     // Logging service
@@ -41,6 +26,9 @@ class AgentServer final : public Agent::Service {
     // Subscription ID Manager
     AgentServerIdManager _id_manager;
     
+    // Consolidator that consolidates requests into JUNOS
+    AgentConsolidator _consolidator;
+    
     // The Interface
     Status telemetrySubscribe(ServerContext *context, const SubscriptionRequest *args, ServerWriter<OpenConfigData>* writer) override;
     Status telemetryUnSubscribe(ServerContext *context, const UnSubscribeRequest *args, Reply *replyp) override;
@@ -48,7 +36,7 @@ class AgentServer final : public Agent::Service {
     Status telemetryOperationalStateGet(ServerContext *context, const GetRequest *args, OpenConfigData *operational_state) override;
     
 public:
-    AgentServer (AgentServerLog *logger) : _logger(logger) {}
+    AgentServer (AgentServerLog *logger, AgentSystem *sys_handle) : _logger(logger), _consolidator(sys_handle, logger) {}
 };
 
 #endif /* AgentServer_h */

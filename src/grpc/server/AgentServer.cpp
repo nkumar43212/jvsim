@@ -7,9 +7,12 @@
 //
 
 #include <stdio.h>
+#include <google/protobuf/text_format.h>
+#include <google/protobuf/io/zero_copy_stream.h>
 #include "AgentServer.h"
 #include "OpenConfig.hpp"
 #include "AgentSubscription.hpp"
+#include "AgentConsolidator.hpp"
 
 Status
 AgentServer::telemetrySubscribe (ServerContext *context,
@@ -18,6 +21,7 @@ AgentServer::telemetrySubscribe (ServerContext *context,
 {
     PathList    path_list;
     std::string log_str;
+    AgentConsolidatorHandle *system_handle;
     
     // Get all the paths that we are interested in
     for (int i = 0; i < args->path_list_size(); i++) {
@@ -25,7 +29,7 @@ AgentServer::telemetrySubscribe (ServerContext *context,
         log_str += args->path_list(i).path();
         log_str += ":";
     }
-   
+    
     // Make a note
     _logger->log("Subscribe-Begin:" + log_str);
     
@@ -39,10 +43,21 @@ AgentServer::telemetrySubscribe (ServerContext *context,
         return Status::OK;
     }
     
+    // Create a subscription into the system
+    system_handle = _consolidator.addRequest(std::to_string(id), args);
+    if (!system_handle) {
+        std::string id_str = std::to_string(_id_manager.getNullIdentifier());
+        context->AddInitialMetadata("subscription-id", id_str);
+        context->AddInitialMetadata("subscription-name", "__agent_error__system_fail");
+        _logger->log("Subscribe-stream-end: Error, Internal System Failure");
+        return Status::OK;
+    }
+    
     // Create a subscription
     AgentServerTransport transport(context, writer);
     AgentSubscriptionLimits limits(args->limit_records(), args->limit_time_seconds());
     AgentSubscription *sub = AgentSubscription::createSubscription(id,
+                                                                   system_handle,
                                                                    transport,
                                                                    path_list,
                                                                    limits);
@@ -102,6 +117,9 @@ AgentServer::telemetryUnSubscribe (ServerContext *context, const agent::UnSubscr
     
     // Cancel the subscription on the bus
     sub->disable();
+    
+    // Remove the subscription from the system
+    _consolidator.removeRequest(sub->getSystemSubscription());
     
     // Remove the subscription
     AgentSubscription::deleteSubscription(sub->getId());

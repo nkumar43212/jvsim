@@ -11,10 +11,10 @@
 #include "AgentSubscription.hpp"
 #include "lib_oc.h"
 
-void RunServer (AgentServerLog *logger)
+void RunServer (AgentServerLog *logger, AgentSystem *sys_handle)
 {
     std::string server_address("0.0.0.0:50051");
-    AgentServer service(logger);
+    AgentServer service(logger, sys_handle);
     ServerBuilder builder;
     
     // Listen on the given address without any authentication mechanism.
@@ -52,6 +52,9 @@ int main (int argc, const char * argv[])
     lib_oc_init();
     OpenConfig::display(logger);
     
+    // Create a handle for the system
+    AgentSystem *sys_handle = new AgentSystem(logger);
+    
     // Start the server
-    RunServer(logger);
+    RunServer(logger, sys_handle);
 }

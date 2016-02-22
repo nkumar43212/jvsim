@@ -21,6 +21,7 @@
 #include "AgentMessageBus.hpp"
 #include "AgentServerTransport.hpp"
 #include "AgentSubscriptionLimits.hpp"
+#include "AgentConsolidator.hpp"
 
 // List of Paths
 typedef std::vector<std::string> PathList;
@@ -41,6 +42,9 @@ class AgentSubscription : public MessageBus {
     // Transport Handle
     AgentServerTransport _transport;
     
+    // Consolidation handle that tracks the subscription request towards JUNOS system
+    AgentConsolidatorHandle *_system_subscription;
+    
     // Misc subscription statistics
     uint64_t       _oc_lookup_failures;
     uint64_t       _stream_alloc_failures;
@@ -52,11 +56,12 @@ class AgentSubscription : public MessageBus {
 public:
     
     // Accessors
-    uint32_t    getId()       { return _id;        }
-    std::string getName()     { return _name;      }
-    PathList    getPathList() { return _path_list; }
-    bool        getActive()   { return _active;    }
-    uint32_t    getErrorId()  { return getErrorIdentifier(); }
+    uint32_t    getId()                              { return _id;        }
+    std::string getName()                            { return _name;      }
+    PathList    getPathList()                        { return _path_list; }
+    bool        getActive()                          { return _active;    }
+    uint32_t    getErrorId()                         { return getErrorIdentifier(); }
+    AgentConsolidatorHandle *getSystemSubscription() { return _system_subscription; }
     
     // Construction
     AgentSubscription (std::string name,
@@ -67,6 +72,7 @@ public:
     }
     
     static AgentSubscription* createSubscription (uint32_t id,
+                                                  AgentConsolidatorHandle *system_handle,
                                                   AgentServerTransport transport,
                                                   PathList path_list,
                                                   AgentSubscriptionLimits limits,
@@ -74,16 +80,18 @@ public:
     {
         std::string client_name = name ? name : "client-" + std::to_string(id);
         
+        // Allocate the object
         AgentSubscription *sub;
         sub = new AgentSubscription(client_name, transport, limits);
         if (!sub) {
             return NULL;
         }
         
-        sub->_id        = id;
-        sub->_name      = client_name;
-        sub->_path_list = path_list;
-        store[sub->_id] = sub;
+        sub->_system_subscription = system_handle;
+        sub->_id                  = id;
+        sub->_name                = client_name;
+        sub->_path_list           = path_list;
+        store[sub->_id]           = sub;
         
         return sub;
     }
@@ -91,7 +99,14 @@ public:
     static void               deleteSubscription (uint32_t id)
     {
         std::map<uint32_t, AgentSubscription *>::iterator itr = store.find(id);
+        AgentSubscription *sub;
         
+        // Did we find it ?
+        if (itr == store.end()) {
+            return;
+        }
+        
+        // Remove from the internal store
         if (itr != store.end()) {
             store.erase(itr);
         }

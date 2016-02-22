@@ -66,6 +66,10 @@
             argument = "--gtest_filter=id_manager.*"
             isEnabled = "NO">
          </CommandLineArgument>
+         <CommandLineArgument
+            argument = "--gtest_filter=AgentConsolidatorTest.*"
+            isEnabled = "YES">
+         </CommandLineArgument>
       </CommandLineArguments>
       <EnvironmentVariables>
          <EnvironmentVariable

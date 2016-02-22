@@ -5,35 +5,41 @@
 	    "id": "2.2.2.1"
 	},
 
-		"sensors": {
-			"test": {
-				"resource": "test",
-				"count": "4",
-				"interval": "1"
-			},
-			"ifds": {
-				"resource": "port",
-				"count": "100",
-				"interval": "1"
-			},
+	"operational-state": {
+            "xe-0/0/1" : "down",
+            "xe-0/0/2" : "down"
+        },
 
-                        "lsp_stats": {
-				"resource": "lsp_stats",
-				"count": "0",
-				"interval": "1"
-                        },
+	"sensors": {
+	    "test": {
+	        "resource": "test",
+	    	"count": "4",
+		"interval": "1"
+	    },
 
-			"firewall": {
-				"resource": "firewall",
-				"count": "10",
-				"interval": "1"
-			},
+	    "ifds": {
+		"resource": "port",
+		"count": "100",
+		"interval": "1"
+	    },
 
-			"ifls": {
-				"resource": "interfaces",
-				"count": "1",
-				"interval": "0.2"
-			}
-		}
+            "lsp_stats": {
+		"resource": "lsp_stats",
+		"count": "0",
+		"interval": "1"
+            },
+	
+ 	    "firewall": {
+		"resource": "firewall",
+		"count": "10",
+		"interval": "1"
+	    },
+
+	    "ifls": {
+	     	"resource": "interfaces",
+		"count": "1",
+		"interval": "0.2"
+	    }
 	}
+    }
 }

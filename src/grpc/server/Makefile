@@ -17,7 +17,7 @@ LDFLAGS  += /usr/local/lib/libmosquittopp.$(DSO_EXT) -L/usr/local/lib -L../lib -
 
 all: server install
 
-server: main.o AgentServer.o AgentMessageBus.o AgentSubscription.o OpenConfig.o 
+server: main.o AgentServer.o AgentMessageBus.o AgentSubscription.o OpenConfig.o AgentConsolidator.o AgentConsolidatorSystem.o AgentSystem.o
 	$(CXX) $^ $(LDFLAGS) -o $@
 
 install: server
