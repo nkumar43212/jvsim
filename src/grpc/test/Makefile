@@ -2,7 +2,7 @@ GTEST_DIR = ../../gtest
 CXX = g++ -w
 CPPFLAGS += -I/usr/local/include -pthread -I../lib/h -I../client -I../server -isystem $(GTEST_DIR)/include
 CXXFLAGS += -std=c++11
-LDFLAGS += -L/usr/local/lib -L../lib -lpthread -ldl -lrpc_service -lclient -lgrpc++_unsecure -lgrpc -lgpr -lprotobuf
+LDFLAGS += -L/usr/local/lib -L../lib -lpthread -ldl -lrpc_service -lclient -lserver -lgrpc++_unsecure -lgrpc -lgpr -lprotobuf
 PROTOC = protoc
 
 # All Google Test headers.  Usually you shouldn't change this
@@ -37,10 +37,10 @@ gtest_main.a : gtest-all.o gtest_main.o
 	cp gtest_main.a ../lib/gtest_main.a
 
 # Build unit tests
-agent_test.o : agent_test.cpp agent_test_server.cpp agent_test.hpp $(GTEST_HEADERS)
+agent_test.o : agent_test.cpp agent_test_server.cpp agent_test.hpp $(GTEST_HEADERS) agent_test_consolidator.cpp
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c agent_test.cpp
 
-agent_test : agent_test.o agent_test_server.o gtest_main.a
+agent_test : agent_test.o agent_test_server.o gtest_main.a agent_test_consolidator.o
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
 
 install: agent_test

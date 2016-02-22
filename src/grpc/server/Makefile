@@ -22,6 +22,8 @@ server: main.o AgentServer.o AgentMessageBus.o AgentSubscription.o OpenConfig.o 
 
 install: server
 	cp server $(INSTALL_DIR)/agent_server
+	ar rvs libserver.a AgentConsolidator.o AgentConsolidatorSystem.o AgentSystem.o
+	mv libserver.a ../lib/
 
 clean:
-	rm -f *.o server 
+	rm -f *.o server  ../lib/libserver.a
