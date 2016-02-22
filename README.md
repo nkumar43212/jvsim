@@ -35,12 +35,14 @@ Since jvsim has dependencies on several open source components (like gRPC, proto
           
 # Layout
 Important directories in the project are 
-* **protos/** includes all the .proto files used by the simulation. These include the native gpb encoding of the sensor data as well as the RPC interface exposed by the server
+* **protos/** includes all the .proto files used by the simulation. 
+ * Native GPB based encoding used by linecard sensors
+ * Encodings used in the gRPC service. 
 * **src/grpc/server** is the implementation of the gRPC server
-* **src/grpc/client** is the interactive client which can be used to explore the RPC interface
-* **src/grpc/test** is the test harness
-* **src/sim** is the simulation of all the data sensors that produce the simulated telemetry data
-* logs/ will have the runtime logs produced by different components. Some important files to look out for 
+* **src/grpc/client** is an interactive client which can be used to explore the RPC interface
+* **src/grpc/test** is a test harness where select workflows are automated into gtest based unit tests
+* **src/sim** is the simulation of all the data sensors that produce simulated telemetry data
+* **logs/** will have the runtime logs produced by different components. Some important files to look out for 
   * **agent_server.log** Produced by the server
   * **jv_test_mosquitto.log** The mosquitto broker is run in a verbose mode. This file has all the logs from the broker process 
   * **port.N, firewall.N**, lsp_stats.N are the logs for each of the sensors. There is a separate log file for each linecard slot (N)
