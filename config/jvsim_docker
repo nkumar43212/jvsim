@@ -1,0 +1,48 @@
+FROM ubuntu:14.04                                                                                     
+MAINTAINER Surya Nimmagadda                                                                           
+
+# Install base packages
+RUN cd /home  \        
+&& sudo apt-get install -y git wget curl zip unzip \
+&& apt-get update \                                 
+&& sudo apt-get install -y build-essential autoconf libtool \
+&& apt-get install -y python \
+&& apt-get install -y python-setuptools
+
+# Install GRPC and GPB
+RUN cd /home \
+&& git clone -b  release-0_11_1 https://github.com/grpc/grpc grpc \
+&& cd /home/grpc \
+&& git submodule update --init \
+&& make \
+&& make install \
+&& cd /home/grpc/third_party/protobuf/  \
+&&  ./autogen.sh \
+&&  ./configure \
+&&  sudo make \
+&&  sudo make install \
+&& cd /home/grpc/third_party/protobuf/python \
+&&  python setup.py build \
+&&  python setup.py install
+
+# Install mosquitto
+RUN cd /home \
+&& sudo apt-get install -y pkg-config cmake openssl libc-ares-dev libssl-dev python-mosquitto \
+&& wget http://mosquitto.org/files/source/mosquitto-1.3.5.tar.gz \
+&& tar xzf mosquitto-1.3.5.tar.gz \
+&& cd mosquitto-1.3.5 \
+&& cmake . \
+&& sudo make install \
+&& apt-get install -y python-pip \
+&& pip install paho-mqtt \
+&& useradd mosquitto
+
+# JVSIM
+RUN cd /home \
+&& git clone https://github.com/nkumar43212/jvsim.git \
+&& cd /home/jvsim \
+&& sudo ldconfig \
+&& export LD_LIBRARY_PATH=/usr/local/lib \
+&& make all
+
+
