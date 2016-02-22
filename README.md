@@ -14,7 +14,7 @@ jvsim is a simulation of all the modules that participate in an jVision ecosyste
 
 
 # Docker installation
-Since jvsim has dependencies on several open source components (like gRPC, protocol buffers), it is sometimes easier to run the simulator as a docker container, where all these packages are installed automatically. The following simple steps will enable this
+Since jvsim has dependencies on several open source components (like gRPC, protocol buffers), it is easier to run the simulator as a docker container, where all these packages are installed as part of the container creation. The following simple steps will enable this
 * Install docker on your server [Skip if already installed] "https://docs.docker.com/engine/installation/linux/ubuntulinux/"
 * Copy jvsim docker file  [https://github.com/nkumar43212/jvsim/config/jvsim_docker]
 * docker build  -t jvsim_cont -f jvsim_docker .
@@ -23,7 +23,15 @@ Since jvsim has dependencies on several open source components (like gRPC, proto
   * cd /home/jvsim
   * setenv ROOTPATH=/home/jvsim
   * make
-  * bin/jvsim  -s -t
+  * bin/jvsim  -s -t  [This runs the server (-s) and the test harness (-t)]
+
+# jVsim Runtime Options
+    bin/jvsim -u
+        usage: jvtest [-u] [-k] [-s] [-c] [-t]
+          -k  : cleanup and exit
+          -s  : run server
+          -c  : run interactive client
+          -t  : run test harness
 
  
 
