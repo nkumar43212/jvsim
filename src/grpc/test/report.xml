@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="6" failures="0" disabled="0" errors="0" timestamp="2016-02-19T09:55:24" time="0" name="AllTests">
+  <testsuite name="id_manager" tests="6" failures="0" disabled="0" errors="0" time="0">
+    <testcase name="init" status="run" time="0" classname="id_manager" />
+    <testcase name="allocate" status="run" time="0" classname="id_manager" />
+    <testcase name="allocate_all" status="run" time="0" classname="id_manager" />
+    <testcase name="deallocate_all" status="run" time="0" classname="id_manager" />
+    <testcase name="allocate_random" status="run" time="0" classname="id_manager" />
+    <testcase name="exhaust" status="run" time="0" classname="id_manager" />
+  </testsuite>
+</testsuites>

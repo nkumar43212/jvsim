@@ -2,3 +2,6 @@
 *.o
 .svn/*
 logs/*
+src/grpc/client/client
+src/grpc/server/server
+src/grpc/test/agent_test
