@@ -1,13 +1,13 @@
 # jVision Simulator (jvsim)
 
 jvsim is a simulation of all the modules that participate in a jVision ecosystem. These are
-* **Junos System** The following components of the system are simulated
-  * Different flavors of sensors (interfaces, firewall, lsp stats)
-  * Number of linecards
-  * The structure of the system is specified by a configuration file (**config/system.json**)
+* **Network Device** The following components of the device are simulated
+  * linecards (Simulated processes mimic the behavior of linecards in a real chassis)
+  * sensors (e.g interfaces, firewall, lsp stats)
+  * The system is modelled using a configuration file (**config/system.json**)
 * **gRPC Server**
-  * This is the process that implements the telemetry interface
-  * The RPC interface is specified by the Google RPC proto definition
+  * The process that implements the telemetry interface
+  * The interface is specified by a Google RPC service
 * **gRPC Client**
   * A test client is included with this project. 
   * An interactive CLI is provided which enables invoking various jVision RPCs
@@ -21,13 +21,13 @@ Since jvsim has dependencies on several open source components (like gRPC, proto
 * docker run --name jvsim_cont -t -i jvsim_cont  /bin/bash
 * Inside the container 
   * cd /home/jvsim
-  * setenv ROOTPATH=/home/jvsim
+  * export ROOTPATH=/home/jvsim
   * make
   * bin/jvsim  -s -t  [This runs the server (-s) and the test harness (-t)]
 
 # jVsim Runtime Options
     bin/jvsim -u
-        usage: jvtest [-u] [-k] [-s] [-c] [-t]
+        usage: jvsim [-u] [-k] [-s] [-c] [-t]
           -k  : cleanup and exit
           -s  : run server
           -c  : run interactive client
@@ -35,15 +35,17 @@ Since jvsim has dependencies on several open source components (like gRPC, proto
           
 # Layout
 Important directories in the project are 
-* **protos/** includes all the .proto files used by the simulation. These include the native gpb encoding of the sensor data as well as the RPC interface exposed by the server
+* **protos/** includes all the .proto files used by the simulation. 
+ * Native GPB based encoding used by linecard sensors
+ * Encodings used in the gRPC service. 
 * **src/grpc/server** is the implementation of the gRPC server
-* **src/grpc/client** is the interactive client which can be used to explore the RPC interface
-* **src/grpc/test** is the test harness
-* **src/sim** is the simulation of all the data sensors that produce the simulated telemetry data
-* logs/ will have the runtime logs produced by different components. Some important files to look out for 
-  ** agent_server.log will have the logs produced by the server
-  ** jv_test_mosquitto.log 
-  ** port.N, firewall.N, lsp_stats.N are the logs for each of these sensors. N is the linecard slot number
+* **src/grpc/client** is an interactive client which can be used to explore the RPC interface
+* **src/grpc/test** is a test harness where select workflows are automated into gtest based unit tests
+* **src/sim** is the simulation of all the data sensors that produce simulated telemetry data
+* **logs/** will have the runtime logs produced by different components. Some important files to look out for 
+  * **agent_server.log** Produced by the server
+  * **jv_test_mosquitto.log** The mosquitto broker is run in a verbose mode. This file has all the logs from the broker process 
+  * **port.N, firewall.N**, lsp_stats.N are the logs for each of the sensors. There is a separate log file for each linecard slot (N)
 
  
 
