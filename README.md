@@ -21,7 +21,7 @@ Since jvsim has dependencies on several open source components (like gRPC, proto
 * docker run --name jvsim_cont -t -i jvsim_cont  /bin/bash
 * Inside the container 
   * cd /home/jvsim
-  * setenv ROOTPATH=/home/jvsim
+  * export ROOTPATH=/home/jvsim
   * make
   * bin/jvsim  -s -t  [This runs the server (-s) and the test harness (-t)]
 
