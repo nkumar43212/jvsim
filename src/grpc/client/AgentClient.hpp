@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <iostream>
 #include <string>
+#include "AgentServerLog.hpp"
 
 #include <grpc++/grpc++.h>
 #include "agent.grpc.pb.h"

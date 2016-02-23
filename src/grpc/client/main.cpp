@@ -10,7 +10,9 @@
 #include "AgentClient.hpp"
 #include "AgentClientParser.hpp"
 
+// :-/ globals
 extern uint32_t global_id;
+AgentParser *parser;
 
 int main(int argc, const char * argv[])
 {
@@ -31,8 +33,8 @@ int main(int argc, const char * argv[])
                         logfile_dir);
 
     // Run a simple command line loop to test all
-    AgentParser parser;
-    parser.parseLoop();
+    parser = new AgentParser(logfile_dir);
+    parser->parseLoop();
     
     return 0;
 }

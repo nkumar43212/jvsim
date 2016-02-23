@@ -57,14 +57,20 @@ public:
 // A simple interpreter
 class AgentParser {
     std::map<std::string, entry_t *> _grammar;
+    std::string _logfile_dir;
     
 public:
-    AgentParser ()
+    AgentParser (std::string client_logfile_dir) : _logfile_dir(client_logfile_dir)
     {
         for (uint32_t i = 0; i < agent_client_commands_count; i++) {
             entry_t *entry = agent_client_commands + i;
             _grammar[entry->e_cmd] = entry;
         }
+    }
+    
+    std::string getLogDir ()
+    {
+        return _logfile_dir;
     }
     
     entry_t *lookupCmd (const char *cmd)

@@ -112,17 +112,17 @@ AgentClient::subscribeTelemetry (std::vector<std::string> path_list,
     }
    
     // Log file handle
-    std::ofstream outputFile(_logfile);
-
+    AgentServerLog *logger = new AgentServerLog(_logfile);
+    logger->enable();
+    
     // Start reading the stream
     OpenConfigData kv;
     while (reader->Read(&kv) && _active) {
         // Print it out
         std::string formatted;
         google::protobuf::TextFormat::PrintToString(kv, &formatted);
-        outputFile << "Key Value Message Size = " << kv.ByteSize() << "\n";
-        outputFile << formatted;
-        outputFile.flush();
+        logger->log(formatted);
+        logger->log("-----");
         
         // If this is a port interface subscription update the LAG
         AgentLag::updateStats(&kv);
@@ -132,6 +132,7 @@ AgentClient::subscribeTelemetry (std::vector<std::string> path_list,
     if (getDebug()) {
         std::cout << _subscription_id << ": Ending subscription session. Active = " << _active << "\n";
     }
+    delete logger;
     reader->Finish();
 }
 

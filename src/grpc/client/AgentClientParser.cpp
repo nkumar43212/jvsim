@@ -13,7 +13,8 @@
 // Subscription ID
 uint32_t global_id;
 
-std::string CLIENT_LOGDIR("/Users/nitin/jvsim/logs");
+// The global parser object
+extern AgentParser *parser;
 
 void
 handle_subscribe (int argc, const char *argv[])
@@ -25,7 +26,7 @@ handle_subscribe (int argc, const char *argv[])
     client = AgentClient::create(grpc::CreateChannel("localhost:50051", grpc::InsecureCredentials()),
                                  client_name,
                                  global_id++,
-                                 CLIENT_LOGDIR);
+                                 parser->getLogDir());
     
     // collect the list of paths
     std::vector<std::string> path_list;
@@ -47,7 +48,7 @@ proc (void *args)
     
     // Create a client
     client = AgentClient::create(grpc::CreateChannel("localhost:50051", grpc::InsecureCredentials()),
-                                 client_name, global_id++, CLIENT_LOGDIR);
+                                 client_name, global_id++, parser->getLogDir());
     
     // collect the list of paths
     std::vector<std::string> path_list;
@@ -86,7 +87,7 @@ handle_subscribe_limits (int argc, const char *argv[])
     
     // Create a client
     client = AgentClient::create(grpc::CreateChannel("localhost:50051", grpc::InsecureCredentials()),
-                                 client_name, global_id++, CLIENT_LOGDIR);
+                                 client_name, global_id++, parser->getLogDir());
     
     // collect the list of paths
     std::vector<std::string> path_list;
