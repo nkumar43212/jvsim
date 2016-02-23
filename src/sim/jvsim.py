@@ -31,7 +31,7 @@ for attribute, value in sensors.items():
 
 print(sensor_list)
 
-python_cmd = "python3"
+python_cmd = "python"
 publish_cmd = args.srcdir + "/publish.py "
 
 for lc in range(0, max_lcs):
