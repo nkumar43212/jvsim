@@ -63,7 +63,11 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "/Users/nitin/jvsim/logs/agent_server.log"
+            argument = "-l /Users/nitin/jvsim/logs/agent_server.log"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-f /Users/nitin/jvsim/logs/filemode"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>

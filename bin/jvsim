@@ -41,16 +41,16 @@ done
 
 if [ $run_usage != 0 ] 
 then
-    echo "usage: jvtest [-u] [-k] [-s] [-c]"
+    echo "usage: jvsim [-u] [-k] [-s] [-c]"
     echo " -k  : cleanup and exit"
     echo " -s  : run server"
     echo " -c  : run interactive client"
+    echo " -t  : run test harness"
     exit
 fi
 
 #Paths
 #If the root path is not bail
-#ROOTPATH="/Users/nitin/jvsim"
 : ${ROOTPATH?"Need to set ROOTPATH"}
 
 #What is the platform we are executing on
@@ -67,6 +67,7 @@ CONFIG="$ROOTPATH/config"
 LOGPATH="$ROOTPATH/logs"
 MQTTLOG=$LOGPATH/"jv_test_mosquitto.log"
 PYTHON_PATH="$ROOTPATH/src/sim/sensors:/$ROOTPATH/protos"
+SYSTEM_FILE="$LOGPATH/system_file.output"
 
 echo "---- Detected platform: $platform"
 echo "---- Root path        : $ROOTPATH"
@@ -95,13 +96,13 @@ sleep 1
 echo "---- sensors          : $SENSORS"
 SYSTEM_DESCRIPTION="$CONFIG/system.json"
 SIM_SRCDIR="$ROOTPATH/src/sim"
-python3 $SENSORS $SYSTEM_DESCRIPTION $LOGPATH $SIM_SRCDIR
+python3 $SENSORS $SYSTEM_DESCRIPTION $LOGPATH $SIM_SRCDIR 
 
 #Start the gRPC server
 if [ $run_server != 0 ]
 then
-$SERVERPATH/agent_server $SERVERLOG &
-echo "-------- Started Server: $SERVERPATH/agent_server $SERVERLOG"
+$SERVERPATH/agent_server -l $SERVERLOG -f $SYSTEM_FILE &
+echo "-------- Started Server: $SERVERPATH/agent_server -l $SERVERLOG -f $SYSTEM_FILE"
 fi
 sleep 2
 

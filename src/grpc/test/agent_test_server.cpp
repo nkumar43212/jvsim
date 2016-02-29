@@ -13,6 +13,7 @@
 #include <google/protobuf/io/zero_copy_stream.h>
 #include "agent_test_server.hpp"
 #include "AgentServerIdManager.hpp"
+#include "AgentServerCmdOptions.hpp"
 
 // Initialize a space manager, and ensure that we don't have bogus values
 TEST(id_manager, init) {
@@ -121,3 +122,57 @@ TEST(id_manager, exhaust) {
     id = mgr.allocate();
     EXPECT_TRUE(id != mgr.getNullIdentifier());
 }
+
+// Command Lineparsing
+TEST(args_parser, null_args) {
+    AgentServerCmdOptions opts;
+    char *argv[10];
+    std::string arg1("test");
+    argv[0] = (char *) arg1.c_str();
+    opts.parseArgs(1, argv);
+    EXPECT_TRUE(opts.isSystemModeFile() == false);
+    EXPECT_TRUE(opts.isSystemModeProc() == false);
+    EXPECT_TRUE(opts.isSystemModeNull() == false);
+    EXPECT_TRUE(opts.getLogFile() == NULL);
+}
+
+TEST(args_parser, log_args) {
+    AgentServerCmdOptions opts;
+    char *argv[10];
+    std::string arg1("test"), arg2("-l"), arg3("test_file");
+    
+    argv[0] = (char *) arg1.c_str();
+    argv[1] = (char *) arg2.c_str();
+    argv[2] = (char *) arg3.c_str();
+    opts.parseArgs(3, argv);
+    EXPECT_TRUE(std::string(opts.getLogFile()) == "test_file");
+}
+
+TEST(args_parser, file_args) {
+    AgentServerCmdOptions opts;
+    char *argv[10];
+    std::string arg1("test"), arg2("-f"), arg3("test_file");
+    argv[0] = (char *) arg1.c_str();
+    argv[1] = (char *) arg2.c_str();
+    argv[2] = (char *) arg3.c_str();
+    
+    opts.parseArgs(3, argv);
+    EXPECT_TRUE(opts.isSystemModeFile() == true);
+    EXPECT_TRUE(std::string(opts.getSystemFileName()) == "test_file");
+}
+
+TEST(args_parser, proc_args) {
+    AgentServerCmdOptions opts;
+    char *argv[10];
+    std::string arg1("test"), arg2("-p");
+    argv[0] = (char *) arg1.c_str();
+    argv[1] = (char *) arg2.c_str();
+    
+    opts.parseArgs(2, argv);
+    EXPECT_TRUE(opts.isSystemModeFile() == false);
+    EXPECT_TRUE(opts.isSystemModeProc() == true);
+    EXPECT_TRUE(opts.isSystemModeNull() == false);
+}
+
+
+

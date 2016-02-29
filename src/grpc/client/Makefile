@@ -5,6 +5,7 @@ LDFLAGS  += -L/usr/local/lib -L../lib -lpthread -ldl -lrpc_service  -lgrpc++_uns
 
 ROOT_DIR    = ../../..
 INSTALL_DIR = $(ROOT_DIR)/bin/$(PLATFORM)
+SRC_DIR     = $(ROOT_DIR)/src/grpc/client
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
         PLATFORM    = linux
@@ -12,10 +13,12 @@ else
         PLATFORM    = mac
 endif
 
+FILES = $(wildcard $(SRC_DIR)/*.cpp)
+OBJS  = $(subst .cpp,.o,$(FILES))
 
 all: client install
 
-client: main.o AgentClient.o AgentClientParser.o AgentClientLag.o
+client: $(OBJS)
 	$(CXX) $^ $(LDFLAGS) -o $@
 
 install: client

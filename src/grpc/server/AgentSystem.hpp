@@ -23,8 +23,8 @@ class AgentSystem {
     
 public:
     AgentSystem (AgentServerLog *logger) : _logger(logger) {}
-    void systemAdd(const agent::Path *request_path);
-    void systemRemove(const agent::Path *request_path);
+    virtual void systemAdd(const agent::Path *request_path) = 0;
+    virtual void systemRemove(const agent::Path *request_path) = 0;
 };
 
 #endif /* AgentSystem_hpp */

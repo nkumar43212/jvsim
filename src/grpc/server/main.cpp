@@ -7,11 +7,14 @@
 
 #include <iostream>
 #include "AgentServer.h"
+#include "AgentServerCmdOptions.hpp"
+#include "AgentSystemFactory.hpp"
 #include "OpenConfig.hpp"
 #include "AgentSubscription.hpp"
 #include "lib_oc.h"
 
-void RunServer (AgentServerLog *logger, AgentSystem *sys_handle)
+void
+RunServer (AgentServerLog *logger, AgentSystem *sys_handle)
 {
     std::string server_address("0.0.0.0:50051");
     AgentServer service(logger, sys_handle);
@@ -33,19 +36,40 @@ void RunServer (AgentServerLog *logger, AgentSystem *sys_handle)
     server->Wait();
 }
 
-
-int main (int argc, const char * argv[])
+AgentSystem *
+CreateSystemHandle (AgentServerCmdOptions *cmd_options,
+                    AgentServerLog *logger)
 {
+    AgentSystem *sys_handle;
+    
+    // Now look at the system mode provided
+    if (cmd_options->isSystemModeFile()) {
+        sys_handle = AgentSystemFactory::createFile(logger, cmd_options->getSystemFileName());
+    } else if (cmd_options->isSystemModeProc()) {
+        sys_handle = AgentSystemFactory::createSystemProcess(logger);
+    } else {
+        // Default Mode
+        sys_handle = AgentSystemFactory::createNull(logger);
+    }
+
+    return sys_handle;
+}
+
+int
+main (int argc, char * argv[])
+{
+    // Get all command line options
+    AgentServerCmdOptions opts;
+    if (!opts.parseArgs(argc, argv)) {
+        return -1;
+    }
+    
     // Initialize interface with Mosquitto Library
     mosqpp::lib_init();
 
     // Create a logger
     AgentServerLog *logger;
-    if (argv[1]) {
-        logger = new AgentServerLog(argv[1]);
-    } else {
-        logger = new AgentServerLog;
-    }
+    logger = new AgentServerLog(opts.getLogFile());
     logger->enable();
     
     // Initialize all the oc translators
@@ -53,7 +77,7 @@ int main (int argc, const char * argv[])
     OpenConfig::display(logger);
     
     // Create a handle for the system
-    AgentSystem *sys_handle = new AgentSystem(logger);
+    AgentSystem *sys_handle = CreateSystemHandle(&opts, logger);
     
     // Start the server
     RunServer(logger, sys_handle);

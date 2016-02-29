@@ -10,6 +10,7 @@
 #define agent_test_consolidator_hpp
 
 #include <stdio.h>
+#include "AgentSystemFactory.hpp"
 
 // This is a test class
 class AgentConsolidatorTest: public testing::Test {
@@ -21,14 +22,13 @@ public:
     void SetUp ()
     {
         logger     = new AgentServerLog;
-        sys_handle = new AgentSystem(logger);
+        sys_handle = AgentSystemFactory::createFile(logger, std::string("/Users/nitin/jvsim/logs/filemode_test"));
         cons       = new AgentConsolidator(sys_handle, logger);
     }
     
     void TearDown ()
     {
         delete cons;
-        delete sys_handle;
         delete logger;
     }
     

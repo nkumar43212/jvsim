@@ -43,6 +43,7 @@ RUN cd /home \
 && cd /home/jvsim \
 && sudo ldconfig \
 && export LD_LIBRARY_PATH=/usr/local/lib \
+&& export ROOTPATH=/home/jvsim \
 && make all
 
 
