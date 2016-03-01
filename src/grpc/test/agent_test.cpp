@@ -30,6 +30,7 @@ TEST_F(AgentClientTest, subscribe) {
     Path *path;
     path = request.add_path_list();
     path->set_path("firewall");
+    path->set_sample_frequency(10);
     request.set_limit_records(5);
     
     // Create a reader
@@ -87,6 +88,7 @@ TEST_F(AgentClientTest, list) {
     Path *path;
     path = request.add_path_list();
     path->set_path("firewall");
+    path->set_sample_frequency(10);
     request.set_limit_records(1);
     
     // Create a reader
@@ -146,6 +148,7 @@ TEST_F(AgentClientTest, get) {
     Path *path;
     path = request.add_path_list();
     path->set_path("firewall");
+    path->set_sample_frequency(10);
     request.set_limit_records(1);
     
     // Create a reader
@@ -265,6 +268,7 @@ AgentClientTest::create_subscriptions (void *args)
     Path *path;
     path = request.add_path_list();
     path->set_path("firewall");
+    path->set_sample_frequency(5);
     request.set_limit_records(5);
     
     // Create a reader

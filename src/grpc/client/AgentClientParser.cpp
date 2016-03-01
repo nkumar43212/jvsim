@@ -28,13 +28,16 @@ handle_subscribe (int argc, const char *argv[])
                                  global_id++,
                                  parser->getLogDir());
     
+    // Sample Frequency
+    uint32_t sample_frequency = atoi(argv[2]);
+    
     // collect the list of paths
     std::vector<std::string> path_list;
-    for (int i = 2; argv[i]; i++) {
+    for (int i = 3; argv[i]; i++) {
         path_list.push_back(argv[i]);
     }
     
-    client->subscribeTelemetry(path_list);
+    client->subscribeTelemetry(path_list, sample_frequency);
 }
 
 void *
@@ -50,13 +53,16 @@ proc (void *args)
     client = AgentClient::create(grpc::CreateChannel("localhost:50051", grpc::InsecureCredentials()),
                                  client_name, global_id++, parser->getLogDir());
     
+    // Sample Frequency
+    uint32_t sample_frequency = atoi(argv[3]);
+    
     // collect the list of paths
     std::vector<std::string> path_list;
-    for (int i = 3; argv[i]; i++) {
+    for (int i = 4; argv[i]; i++) {
         path_list.push_back(argv[i]);
     }
     
-    client->subscribeTelemetry(path_list);
+    client->subscribeTelemetry(path_list, sample_frequency);
     return NULL;
 }
 
@@ -89,14 +95,17 @@ handle_subscribe_limits (int argc, const char *argv[])
     client = AgentClient::create(grpc::CreateChannel("localhost:50051", grpc::InsecureCredentials()),
                                  client_name, global_id++, parser->getLogDir());
     
+    // Sample Frequency
+    uint32_t sample_frequency = atoi(argv[2]);
+
     // collect the list of paths
     std::vector<std::string> path_list;
-    for (int i = 2; argv[i]; i++) {
+    for (int i = 3; argv[i]; i++) {
         path_list.push_back(argv[i]);
     }
     
     client->setDebug(true);
-    client->subscribeTelemetry(path_list, 10, 10);
+    client->subscribeTelemetry(path_list, sample_frequency, 10, 10);
 }
 
 void
@@ -181,25 +190,25 @@ handle_print_lag (int argc, const char *argv[])
 entry_t agent_client_commands [] = {    
     {
         .e_cmd     = std::string("subscribe"),
-        .e_argc    = 3,
+        .e_argc    = 4,
         .e_help    = std::string("Subscribe to a jvision sensor by specifying a list of paths"),
-        .e_usage   = std::string("subscribe <subscription-name> <path>+"),
+        .e_usage   = std::string("subscribe <subscription-name> <sample-frequency> <path>+"),
         .e_handler = handle_subscribe
     },
     
     {
         .e_cmd     = std::string("subscribe_limits"),
-        .e_argc    = 3,
+        .e_argc    = 4,
         .e_help    = std::string("Subscribe with a limit to the session"),
-        .e_usage   = std::string("subscribe_limits <subscription-name> <path>+"),
+        .e_usage   = std::string("subscribe_limits <subscription-name> <sample-frequency> <path>+"),
         .e_handler = handle_subscribe_limits
     },
    
     {
         .e_cmd     = std::string("subscribe_n"),
-        .e_argc    = 3,
+        .e_argc    = 4,
         .e_help    = std::string("Create N subscriptions"),
-        .e_usage   = std::string("subscribe_n <count> <subscription-name> <path>+"),
+        .e_usage   = std::string("subscribe_n <count> <subscription-name> <sample-frequency> <path>+"),
         .e_handler = handle_subscribe_multiple
     },
 

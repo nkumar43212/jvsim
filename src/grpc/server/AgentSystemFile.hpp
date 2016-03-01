@@ -66,6 +66,7 @@ class AgentSystemFile: public AgentSystem {
     void append_int (std::string &base, uint32_t int_val, bool newline = false)
     {
         base += std::to_string(int_val);
+        base += " ";
         
         if (newline) {
             base += "\n";
@@ -77,25 +78,53 @@ class AgentSystemFile: public AgentSystem {
                              std::string sensor_name,
                              std::string &message)
     {
-
+        // Generate some common names
         std::string system_resource = getSystemResource(request_path->path());
+        std::string profile_name("common");
+        profile_name += std::to_string(request_path->sample_frequency());
+     
+        // Build the config snippets
         append(message, "set services analytics sensor");
         append(message, sensor_name);
         append(message, "resource");
         append(message, system_resource, true);
+      
         append(message, "set services analytics sensor");
         append(message, sensor_name);
-        append(message, "reporting-interval");
-        append_int(message, request_path->sample_frequency(), true);
-        append(message, "set services analytics sensor");
-        append(message, sensor_name);
-        append(message, "export-to-re", true);
+        append(message, "export-to-routing-engine", true);
         if (!request_path->filter().empty()) {
             append(message, "set services analytics sensor");
             append(message, sensor_name);
             append(message, "resource-filter");
             append(message, request_path->filter(), true);
         }
+        
+        append(message, "set services analytics sensor");
+        append(message, sensor_name);
+        append(message, "server-name common", true);
+        
+        append(message, "set services analytics sensor");
+        append(message, sensor_name);
+        append(message, "export-name");
+        append(message, profile_name, true);
+        
+        // Generate export profile
+        append(message, "set services analytics export-name");
+        append(message, profile_name);
+        append(message, "local-address 1.1.1.1", true);
+       
+        append(message, "set services analytics export-name");
+        append(message, profile_name);
+        append(message, "reporting-interval");
+        append_int(message, request_path->sample_frequency(), true);
+        
+        append(message, "set services analytics export-name");
+        append(message, profile_name);
+        append(message, "format gpb", true);
+        
+        // Streaming server
+        append(message, "set services analytics streaming-server common local-port 2000", true);
+        append(message, "set services analytics streaming-server common local-address 1.1.1.1", true);
     }
     
     // Get the message towards the system file
@@ -123,6 +152,5 @@ public:
     // Remove from the system
     void systemRemove(const agent::Path *request_path);
 };
-
 
 #endif /* AgentSystemFile_hpp */

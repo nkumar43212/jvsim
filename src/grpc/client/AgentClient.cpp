@@ -67,6 +67,7 @@ AgentClient::print ()
 
 void
 AgentClient::subscribeTelemetry (std::vector<std::string> path_list,
+                                 uint32_t sample_frequency,
                                  uint32_t limit_records,
                                  uint32_t limit_seconds)
 {
@@ -78,6 +79,7 @@ AgentClient::subscribeTelemetry (std::vector<std::string> path_list,
     for (std::vector<std::string>::iterator itr = path_list.begin(); itr != path_list.end(); itr++) {
         path = request.add_path_list();
         path->set_path(*itr);
+        path->set_sample_frequency(sample_frequency);
     }
 
     // Set the limits

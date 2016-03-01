@@ -78,7 +78,9 @@ public:
     bool        getDebug ()        { return _debug_log;             }
     void        setDebug(bool val) { _debug_log = val;              }
     
-    void subscribeTelemetry(std::vector<std::string> path_list, uint32_t limit_records = 0, uint32_t limit_seconds = 0);
+    void subscribeTelemetry(std::vector<std::string> path_list,
+                            uint32_t sample_frequency,
+                            uint32_t limit_records = 0, uint32_t limit_seconds = 0);
     void unSubscribeTelemetry();
     void listSubscriptions(uint32_t verbosity);
     void getOperational(uint32_t verbosity);
