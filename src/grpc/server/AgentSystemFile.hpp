@@ -112,9 +112,9 @@ public:
     AgentSystemFile (AgentServerLog *logger, std::string file_name) : AgentSystem(logger), _outputFile(file_name)
     {
         // Load the system map
-        _system_map["port"]       = std::string("/junos/system/ports");
-        _system_map["firewall"]   = std::string("/junos/system/firewall");
-        _system_map["interfaces"] = std::string("/junos/system/linecards/interfaces");
+        _system_map["port"]       = std::string("/junos/system/linecard/interface/");
+        _system_map["firewall"]   = std::string("/junos/system/linecard/firewall/");
+        _system_map["interfaces"] = std::string("/junos/system/linecard/interface/logical/usage/");
     }
     
     // Add into the system

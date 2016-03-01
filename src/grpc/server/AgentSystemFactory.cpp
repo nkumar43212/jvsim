@@ -9,6 +9,8 @@
 #include "AgentSystemFactory.hpp"
 #include "AgentSystemNull.hpp"
 #include "AgentSystemFile.hpp"
+#include "AgentSystemProc.hpp"
+
 
 AgentSystem *
 AgentSystemFactory::createNull (AgentServerLog *logger)
@@ -22,9 +24,8 @@ AgentSystemFactory::createFile (AgentServerLog *logger, std::string file_name)
     return new AgentSystemFile(logger, file_name);
 }
 
-// TBD create the interface to another process
 AgentSystem *
 AgentSystemFactory::createSystemProcess (AgentServerLog *logger)
 {
-    return new AgentSystemNull(logger);
+    return new AgentSystemProc(logger);
 }

@@ -52,6 +52,7 @@
 		94AC9A901C77DACE0034AF1A /* AgentConsolidatorSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94AC9A8C1C77BCF50034AF1A /* AgentConsolidatorSystem.cpp */; };
 		94AC9AA21C7A1CD60034AF1A /* AgentSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94AC9AA01C7A1CD60034AF1A /* AgentSystem.cpp */; };
 		94AC9AA31C7A1F2F0034AF1A /* AgentSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94AC9AA01C7A1CD60034AF1A /* AgentSystem.cpp */; };
+		94FB189A1C85032400791B3A /* AgentSystemProc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94FB18981C85032400791B3A /* AgentSystemProc.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -196,6 +197,8 @@
 		94AC9A8D1C77BCF50034AF1A /* AgentConsolidatorSystem.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AgentConsolidatorSystem.hpp; sourceTree = "<group>"; };
 		94AC9AA01C7A1CD60034AF1A /* AgentSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AgentSystem.cpp; sourceTree = "<group>"; };
 		94AC9AA11C7A1CD60034AF1A /* AgentSystem.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AgentSystem.hpp; sourceTree = "<group>"; };
+		94FB18981C85032400791B3A /* AgentSystemProc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AgentSystemProc.cpp; sourceTree = "<group>"; };
+		94FB18991C85032400791B3A /* AgentSystemProc.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AgentSystemProc.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -319,6 +322,8 @@
 				94AC9AA11C7A1CD60034AF1A /* AgentSystem.hpp */,
 				94A291F81C7FDA6B004BB6C3 /* AgentSystemFactory.cpp */,
 				94A291F91C7FDA6B004BB6C3 /* AgentSystemFactory.hpp */,
+				94FB18981C85032400791B3A /* AgentSystemProc.cpp */,
+				94FB18991C85032400791B3A /* AgentSystemProc.hpp */,
 				946702D31C64739A00E73BF5 /* AgentSubscription.cpp */,
 				946702D41C64739A00E73BF5 /* AgentMessageBus.hpp */,
 				946702D51C64739A00E73BF5 /* OpenConfig.hpp */,
@@ -583,6 +588,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94FB189A1C85032400791B3A /* AgentSystemProc.cpp in Sources */,
 				94A291FD1C80FAF2004BB6C3 /* AgentServerCmdOptions.cpp in Sources */,
 				94AC9AA21C7A1CD60034AF1A /* AgentSystem.cpp in Sources */,
 				946702CD1C64734E00E73BF5 /* AgentServer.cpp in Sources */,
