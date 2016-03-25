@@ -1,0 +1,27 @@
+//
+//  OpenConfig@.hpp
+//  agent-jv
+//
+//  Created by NITIN KUMAR on 1/12/16.
+//  Copyright © 2016 Juniper Networks. All rights reserved.
+//
+
+#ifndef OpenConfig@_hpp
+#define OpenConfig@_hpp
+
+#include <stdio.h>
+#include "OpenConfig.hpp"
+#include "jvision_top.pb.h"
+#include "$.pb.h"
+
+class OpenConfig@ : public OpenConfig {
+public:
+    OpenConfig@ ()
+    {
+        OpenConfig::registerSelf("$", this);
+    }
+    
+    void   iterate (JuniperNetworksSensors *handle, agent::OpenConfigData *datap);
+};
+
+#endif /* OpenConfig@_hpp */

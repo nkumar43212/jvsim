@@ -1,0 +1,25 @@
+To add a new sensor simulation
+
+1) Add a new entry to the system config file 
+
+2) Add proto file to $SB/protos
+
+3) Compile proto file
+     - cd $SB/src/lib-protos; make
+     - cd $SB/src/sim/sensors; make
+
+4) Add encoder to create mock data
+     - cd $SB/src/sim/sensors
+     - Update jv_encode.py
+     - Create a new file foo_encode.py
+     - Add the routine foo_encode
+
+5) Add translator to lib-oc
+     - cd $SB/src/grpc/lib-oc
+     - python genxlate.py Foo foo
+     - A new file "OpenConfigFoo.cpp" will get generated
+     - Add translation code in this routine
+     - make 
+     - Rebuild the server so that this new translation is incorporated
+     - cd $SB/src/grpc/server; make
+
