@@ -29,6 +29,16 @@
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
+		<key>mgd-server.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
+		<key>mgd_server.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
 		<key>server.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -73,6 +83,16 @@
 			<true/>
 		</dict>
 		<key>946703C21C64782500E73BF5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>94AC4F0E1CA1EE9E00AFDFE0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>94AC4F191CA1EFD500AFDFE0</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -74,6 +74,52 @@ AgentConsolidator::removeRequest (AgentConsolidatorHandle *handle)
     ++_remove_count;
 }
 
+agent::SubscriptionRequest *
+AgentConsolidator::getRequest (AgentConsolidatorHandle *handle, bool cached)
+{
+    // Guard the add request
+    std::lock_guard<std::mutex> guard(_consolidator_mutex);
+    
+    // Is the handle valid ?
+    if (!handle) {
+        _error_count_bad_handle++;
+        return NULL;
+    }
+    
+    // Make a note
+    _logger->log("Get request:" + handle->getId());
+    
+    // Build the answer
+    agent::SubscriptionRequest *request_list = new agent::SubscriptionRequest;
+    if (!request_list) {
+        return NULL;
+    }
+    
+    // Iterate through the handle
+    for (int i = 0; i < handle->getHandleCount(); i++) {
+        AgentConsolidatorSystemHandlePtr ptr = handle->getHandle(i);
+        if (!ptr) {
+            continue;
+        }
+        
+        // Return the local state in the consolidator
+        if (cached) {
+            agent::Path *path = request_list->add_path_list();
+            path->CopyFrom(*ptr->getRequest());
+            continue;
+        }
+        
+        // Query the system
+        agent::Path *p = ptr->get(getSystemHandle());
+        if (p) {
+            agent::Path *path = request_list->add_path_list();
+            path->CopyFrom(*p);
+        }
+    }
+    
+    return request_list;
+}
+
 uint32_t
 AgentConsolidator::getSystemRequestCount ()
 {

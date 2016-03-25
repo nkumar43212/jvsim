@@ -2,6 +2,7 @@
     "system": {
         "infrastructure": {
 	    "linecard": "10",
+            "pfe_count": "4",
 	    "id": "2.2.2.1"
 	},
 
@@ -39,7 +40,19 @@
 	     	"resource": "interfaces",
 		"count": "1",
 		"interval": "0.2"
-	    }
+	    }, 
+
+	    "packet_stats": {
+                "resource": "packet_stats",
+                "count": "1",
+                "interval": "2"
+            }, 
+
+	    "npu_util": {
+                "resource": "npu_util",
+                "count": "1",
+                "interval": "2"
+            }
 	}
     }
 }

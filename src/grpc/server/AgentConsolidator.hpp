@@ -58,12 +58,20 @@ public:
         return (_error_count_bad_handle + _error_count_create + _error_count_no_mem + _error_count_underflow);
     }
     
-    // Create a request
-    AgentConsolidatorHandle *addRequest(const std::string request_id,
+    // Create a request into the system.
+    AgentConsolidatorHandle *  addRequest(const std::string request_id,
                                         const agent::SubscriptionRequest *request);
-    void                     removeRequest(AgentConsolidatorHandle *handle);
     
-    // Number of total requests made on the system
+    // Remove an earlier created request
+    void                       removeRequest(AgentConsolidatorHandle *handle);
+    
+    // Query the system using the consolidator handle to get the original request
+    // Used by testing infra to ensure that the system has what was asked for
+    // The API returns either the requests cached in the consolidator or queries
+    // the system.
+    agent::SubscriptionRequest *getRequest(AgentConsolidatorHandle *handle, bool cached = true);
+    
+    // Number of total requests made on the system.
     uint32_t                 getSystemRequestCount();
     
     // Status of all requests

@@ -13,6 +13,8 @@
 #include "OpenConfigInterface.hpp"
 #include "OpenConfigPort.hpp"
 #include "OpenConfigFoo.hpp"
+#include "OpenConfigPacketStats.hpp"
+#include "OpenConfigNPU_Utilization.hpp"
 //@header
 
 void
@@ -22,5 +24,7 @@ lib_oc_init ()
     OpenConfigInterface *intf = new OpenConfigInterface;
     OpenConfigPort      *port = new OpenConfigPort;
     OpenConfigFoo	 *Foo = new OpenConfigFoo;
+    OpenConfigPacketStats	 *PacketStats = new OpenConfigPacketStats;
+    OpenConfigNPU_Utilization	 *NPU_Utilization = new OpenConfigNPU_Utilization;
 //@next
 }

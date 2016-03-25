@@ -147,10 +147,13 @@ public:
     }
     
     // Add into the system
-    void systemAdd(const agent::Path *request_path);
+    void systemAdd(SystemId id, const agent::Path *request_path);
     
     // Remove from the system
-    void systemRemove(const agent::Path *request_path);
+    void systemRemove(SystemId id, const agent::Path *request_path);
+    
+    // Query the system
+    agent::Path * systemGet(SystemId sys_id);
 };
 
 #endif /* AgentSystemFile_hpp */

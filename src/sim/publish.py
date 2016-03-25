@@ -15,7 +15,9 @@ parser.add_argument("max_count")
 parser.add_argument("export_interval");
 parser.add_argument("logfile");
 parser.add_argument("system_id");
+parser.add_argument("pfe_count");
 args = parser.parse_args()
+
 
 linecard_str    = "lc" + args.linecard;
 linecard_slot   = int(args.linecard);
@@ -24,17 +26,22 @@ resource_cnt    = int(args.max_count);
 export_interval = args.export_interval;
 logfile         = args.logfile
 system_id       = args.system_id;
-
+pfe_count       = int(args.pfe_count);
 
 #Send all output to file
 sys.stdout = open(logfile, 'w')
 
 print("linecard = ", linecard_str);
+print("pfe_count= ", pfe_count);
 print("resource = ", resource_str);
 print("count    = ", resource_cnt);
 print("interval = ", export_interval);
 print("sys      = ", system_id);
 sys.stdout.flush()
+
+#System Parameters
+system_params = {}
+system_params['pfe_count'] = pfe_count;
 
 # Details for the Broker
 broker = "127.0.0.1"
@@ -87,7 +94,7 @@ while mqttc.loop() == 0:
         #Generate a message
         frame = bytearray()
         sequence_number += 1
-        generate_message(frame, resource_str, resource_cnt, linecard_slot, system_id, sequence_number)
+        generate_message(frame, resource_str, resource_cnt, linecard_slot, system_id, sequence_number, system_params)
        
 
         #Send it over to the bus

@@ -1,7 +1,7 @@
 import random
 import port_pb2
 
-def jv_encode_port(jnpr, index, lc_slot):
+def jv_encode_port(jnpr, index, lc_slot, system_params):
     port_stats = jnpr.Extensions[port_pb2.jnpr_interface_ext]
     port = port_stats.interface_stats.add()
     port.if_name = "xe-" + str(lc_slot) + "/0/" + str(index);

@@ -1,6 +1,6 @@
 import test_pb2
 
-def jv_encode_test(jnpr, index, lc_slot):
+def jv_encode_test(jnpr, index, lc_slot, system_params):
     test = jnpr.Extensions[test_pb2.jnpr_test_ext]
     test_stats = test.test_stats.add()
     test_stats.id = index;

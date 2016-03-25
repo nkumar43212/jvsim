@@ -6,7 +6,10 @@ PROTOC   = protoc
 
 PROTOS_PATH = ../../../protos
 
-OBJ = port.pb.o firewall.pb.o logical_port.pb.o lsp_stats.pb.o
+ROOT_DIR    = ../../..
+SRC_DIR     = $(ROOT_DIR)/src/grpc/lib-protos
+FILES       = $(wildcard $(SRC_DIR)/*.cc)
+OBJ         = $(subst .cc,.o,$(FILES))
 
 all: proto libprotos
 

@@ -2,7 +2,7 @@ import firewall_pb2
 import time
 import calendar
 
-def jv_encode_firewall(jnpr, index, lc_slot):
+def jv_encode_firewall(jnpr, index, lc_slot, system_params):
     firewall = jnpr.Extensions[firewall_pb2.jnpr_firewall_ext]
     fw_stats = firewall.firewall_stats.add()
     fw_stats.filter_name = "filter-" + str(index)

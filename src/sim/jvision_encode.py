@@ -8,7 +8,7 @@ import calendar
 from jv_protos import jv_encode
 
 #Generate a message
-def generate_message(frame, sensor_type, max_count, lc_slot, system_id, sequence_number):
+def generate_message(frame, sensor_type, max_count, lc_slot, system_id, sequence_number, system_params):
     telemetry_stream              = jvision_top_pb2.TelemetryStream();
     telemetry_stream.system_id    = system_id
     telemetry_stream.component_id = lc_slot
@@ -22,7 +22,7 @@ def generate_message(frame, sensor_type, max_count, lc_slot, system_id, sequence
     #Call the appropriate encoder
     x = 0
     for x in range(0, max_count):
-        jv_encode(sensor_type, jnpr, x, lc_slot);
+        jv_encode(sensor_type, jnpr, x, lc_slot, system_params);
 
     #Serialize
     byte_stream = telemetry_stream.SerializeToString()
@@ -40,6 +40,7 @@ def print_message(byte_stream):
     tstream = jvision_top_pb2.TelemetryStream();
     tstream.ParseFromString(byte_stream)
     print(google.protobuf.text_format.MessageToString(tstream))
+    print("Message Size = %u\n" % (tstream.ByteSize()));
     print("-------------");
     sys.stdout.flush()
 

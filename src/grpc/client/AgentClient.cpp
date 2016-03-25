@@ -120,6 +120,9 @@ AgentClient::subscribeTelemetry (std::vector<std::string> path_list,
     // Start reading the stream
     OpenConfigData kv;
     while (reader->Read(&kv) && _active) {
+        // Log the message size
+        logger->log("Message Size = " + std::to_string(kv.ByteSize()));
+    
         // Print it out
         std::string formatted;
         google::protobuf::TextFormat::PrintToString(kv, &formatted);

@@ -25,9 +25,9 @@ resource_str = args.resource_reg_str
 #Make a copy of the template
 copy_hpp = "OpenConfig" + resource + ".hpp"
 copy_cpp = "OpenConfig" + resource + ".cpp"
-cmd = "cp OpenConfigTemplate.cpp " + copy_cpp;
+cmd = "cp OpenConfigTemplateCpp " + copy_cpp;
 os.system(cmd);
-cmd = "cp OpenConfigTemplate.hpp " + copy_hpp;
+cmd = "cp OpenConfigTemplateHpp " + copy_hpp;
 os.system(cmd);
 
 replace(copy_hpp, "@", resource);
@@ -38,15 +38,10 @@ replace(copy_hpp, "$", resource_str);
 search_str = "//@header";
 header_include = "#include " + "\"" + copy_hpp + "\"" + "\n" + search_str; 
 #print(header_include);
-replace("junos_protos.cpp", search_str, header_include);
+replace("oc.cpp", search_str, header_include);
 
 #Add the registration
 search_str = "//@next"
 registration = "    OpenConfig" + resource + "\t *" + resource + " = new OpenConfig" + resource + ";\n" + search_str;
-replace("junos_protos.cpp", search_str, registration);
+replace("oc.cpp", search_str, registration);
 #print(registration);
-
-
-
-
-

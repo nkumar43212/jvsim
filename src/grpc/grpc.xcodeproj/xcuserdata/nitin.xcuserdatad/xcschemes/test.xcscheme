@@ -67,12 +67,20 @@
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
+            argument = "--gtest_filter=AgentConsolidatorProcTest.*"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "--gtest_filter=AgentConsolidator*.*"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
             argument = "--gtest_filter=args_parser.*"
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "--gtest_filter=AgentConsolidatorTest.*"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </CommandLineArgument>
       </CommandLineArguments>
       <EnvironmentVariables>

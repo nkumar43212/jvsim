@@ -9,10 +9,10 @@
 #include "AgentSystemFile.hpp"
 
 void
-AgentSystemFile::systemAdd (const agent::Path *request_path)
+AgentSystemFile::systemAdd (SystemId id, const agent::Path *request_path)
 {
     // The common interface
-    AgentSystem::systemAdd(request_path);
+    AgentSystem::systemAdd(id, request_path);
     
     // Generate a sensor name
     std::string sensor_name;
@@ -23,15 +23,16 @@ AgentSystemFile::systemAdd (const agent::Path *request_path)
     generateAddMessage(request_path, sensor_name, message);
     
     // Write it out
+    _outputFile << id.getId() << "\n";
     _outputFile << message << "\n";
     _outputFile.flush();
 }
 
 void
-AgentSystemFile::systemRemove (const agent::Path *request_path)
+AgentSystemFile::systemRemove (SystemId id, const agent::Path *request_path)
 {
     // The common interface
-    AgentSystem::systemRemove(request_path);
+    AgentSystem::systemRemove(id, request_path);
     
     // Generate a sensor name
     std::string sensor_name;
@@ -42,6 +43,13 @@ AgentSystemFile::systemRemove (const agent::Path *request_path)
     generateRemoveMessage(request_path, sensor_name, message);
     
     // Write it out
+    _outputFile << id.getId() << "\n";
     _outputFile << message << "\n";
     _outputFile.flush();
+}
+
+agent::Path *
+AgentSystemFile::systemGet (SystemId sys_id)
+{
+    return NULL;
 }

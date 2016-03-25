@@ -18,6 +18,7 @@ with open(args.model) as json_file:
 #Get basic system parameters
 max_lcs   = int(sys_data["system"]["infrastructure"]["linecard"])
 system_id = sys_data["system"]["infrastructure"]["id"]
+max_pfes  = int(sys_data["system"]["infrastructure"]["pfe_count"])
 
 #Set environment
 os.system("echo $PYTHONPATH");
@@ -41,6 +42,6 @@ for lc in range(0, max_lcs):
         max_count = sensors[res]["count"];
         interval  = sensors[res]["interval"];
         logfile   = args.logdir + "/" + resource + "." + str(lc);
-        cmd       = python_cmd + " " + publish_cmd + str(lc) + " " + resource + " " + max_count + " " + interval + " " + logfile + " " +  system_id + "&"
+        cmd       = python_cmd + " " + publish_cmd + str(lc) + " " + resource + " " + max_count + " " + interval + " " + logfile + " " +  system_id + " " + str(max_pfes) + "&"
         print(cmd)
         os.system(cmd);

@@ -118,7 +118,7 @@ AgentConsolidatorSystemHandle::insert (AgentSystem *sys_handle,
     sysdb[hashed] = syshandle;
     
     // Generate a request towards the system
-    sys_handle->systemAdd(request_path);
+    sys_handle->systemAdd(SystemId(hashed), request_path);
 }
 
 void
@@ -136,9 +136,29 @@ AgentConsolidatorSystemHandle::remove (AgentSystem *sys_handle,
         return;
     }
     
-    sys_handle->systemRemove(request_path);
+    sys_handle->systemRemove(SystemId(hashed), request_path);
     sysdb.erase(itr);
 }
+
+agent::Path *
+AgentConsolidatorSystemHandle::get (AgentSystem *sys_handle)
+{
+    // Generate a hash from the request message
+    std::string request_str;
+    google::protobuf::TextFormat::PrintToString(_request, &request_str);
+    std::hash<std::string> hasher;
+    auto hashed = hasher(request_str);
+    
+    // Do we have this entry ?
+    AgentSystemDB::iterator itr = sysdb.find(hashed);
+    if (itr == sysdb.end()) {
+        return NULL;
+    }
+    
+    // Query the system
+    return sys_handle->systemGet(SystemId(hashed));
+}
+
 
 uint32_t
 AgentConsolidatorSystemHandle::getCount ()

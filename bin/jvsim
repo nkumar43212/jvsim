@@ -5,6 +5,7 @@
 ps -ef | grep publish.py | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
 ps -ef | grep mosquitto | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
 ps -ef | grep agent_server | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
+ps -ef | grep mgd_server | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
 
 #Default values
 run_cleanup=0
@@ -12,9 +13,11 @@ run_server=0
 run_client=0
 run_usage=0
 run_test=0
+run_mgd=0
+run_data=0
 
 #Parse out the arguments
-while getopts "ucskt" opt; do
+while getopts "ucsktmd" opt; do
   case $opt in
     u)
       run_usage=1
@@ -22,6 +25,9 @@ while getopts "ucskt" opt; do
     k)
       run_cleanup=1
       exit
+      ;;
+    m)
+      run_mgd=1
       ;;
     s)
       run_server=1
@@ -32,6 +38,9 @@ while getopts "ucskt" opt; do
     t)
       run_test=1
       ;;
+    d)
+      run_data=1
+      ;;
     \?)
       echo "Invalid option: -$OPTARG" >&2
       exit 1
@@ -41,11 +50,13 @@ done
 
 if [ $run_usage != 0 ] 
 then
-    echo "usage: jvsim [-u] [-k] [-s] [-c]"
+    echo "usage: jvsim [-u] [-k] [-s] [-c] [-m] [-d]"
     echo " -k  : cleanup and exit"
     echo " -s  : run server"
+    echo " -m  : run simulation management daemon server"
     echo " -c  : run interactive client"
     echo " -t  : run test harness"
+    echo " -d  : run data streamers"
     exit
 fi
 
@@ -81,6 +92,8 @@ SERVERLOG="$LOGPATH/agent_server.log"
 CLIENTPATH="$ROOTPATH/bin/$platform"
 CLIENTLOG="$LOGPATH/";
 SENSORS="$ROOTPATH/src/sim/jvsim.py"
+MGD="$ROOTPATH/bin/$platform/mgd_server"
+MGDLOG="$LOGPATH/mgd_server.log"
 
 #Setup the python path
 export PYTHONPATH=$PYTHON_PATH
@@ -93,16 +106,35 @@ echo "---- Mosquitto        : $MQTTBIN"
 sleep 1
 
 #Start the data streamers
+if [ $run_data != 0 ]
+then
 echo "---- sensors          : $SENSORS"
 SYSTEM_DESCRIPTION="$CONFIG/system.json"
 SIM_SRCDIR="$ROOTPATH/src/sim"
 python3 $SENSORS $SYSTEM_DESCRIPTION $LOGPATH $SIM_SRCDIR 
+fi
+
+#Do we start MGD ?
+if [ $run_mgd != 0 ]
+then
+echo "---- Mgd Server        : $MGD"
+$MGD $MGDLOG &
+fi
 
 #Start the gRPC server
 if [ $run_server != 0 ]
 then
-$SERVERPATH/agent_server -l $SERVERLOG -f $SYSTEM_FILE &
-echo "-------- Started Server: $SERVERPATH/agent_server -l $SERVERLOG -f $SYSTEM_FILE"
+
+
+if [ $run_mgd != 0 ]
+then
+    $SERVERPATH/agent_server -l $SERVERLOG -p &
+    echo "-------- Started Server Proc: $SERVERPATH/agent_server -l $SERVERLOG -p"
+else
+    $SERVERPATH/agent_server -l $SERVERLOG -f $SYSTEM_FILE &
+    echo "-------- Started Server: $SERVERPATH/agent_server -l $SERVERLOG -f $SYSTEM_FILE"
+fi
+
 fi
 sleep 2
 
@@ -111,6 +143,7 @@ if [ $run_test != 0 ]
 then
 $TESTPATH/agent_test
 fi
+
 
 #Start the interactive client
 if [ $run_client != 0 ]

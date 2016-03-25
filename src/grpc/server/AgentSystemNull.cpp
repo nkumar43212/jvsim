@@ -9,13 +9,20 @@
 #include "AgentSystemNull.hpp"
 
 void
-AgentSystemNull::systemAdd (const agent::Path *request_path)
+AgentSystemNull::systemAdd (SystemId id, const agent::Path *request_path)
 {
-    AgentSystem::systemAdd(request_path);
+    AgentSystem::systemAdd(id, request_path);
 }
 
 void
-AgentSystemNull::systemRemove (const agent::Path *request_path)
+AgentSystemNull::systemRemove (SystemId id, const agent::Path *request_path)
 {
-    AgentSystem::systemRemove(request_path);
+    AgentSystem::systemRemove(id, request_path);
 }
+
+agent::Path *
+AgentSystemNull::systemGet (SystemId sys_id)
+{
+    return NULL;
+}
+

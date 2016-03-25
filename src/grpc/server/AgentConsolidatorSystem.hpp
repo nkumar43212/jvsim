@@ -35,9 +35,15 @@ public:
     // Object lifecycle
     static std::shared_ptr<AgentConsolidatorSystemHandle> create(AgentSystem *sys_handle,
                                                                  const agent::Path *request_path);
-    bool destroy(AgentSystem *sys_handle);
+    
+
+    // Free up a system handle
+    bool         destroy(AgentSystem *sys_handle);
     ~AgentConsolidatorSystemHandle() {}
     
+    // Get the contents of the handle from the system. Used by the unit test infra
+    agent::Path *get(AgentSystem *sys_handle);
+
     // Class interface
     static std::shared_ptr<AgentConsolidatorSystemHandle> find(const agent::Path *request_path,
                                                                bool *collision);
