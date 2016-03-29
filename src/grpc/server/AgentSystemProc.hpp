@@ -73,7 +73,7 @@ public:
         value = "";
         
         // Look for the field name
-        char *str = strstr(path_name.c_str(), field_name.c_str());
+        char *str = strstr((char *) path_name.c_str(), (char *) field_name.c_str());
         if (!str) {
             return;
         }
