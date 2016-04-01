@@ -5,12 +5,12 @@ A new sensor simulation can be added as follows
 2) Add proto file to $SB/protos
 
 3) Compile proto file
-     - cd $SB/src/lib-protos; make
+     - cd $SB/src/grpc/lib-protos; make
      - cd $SB/src/sim/sensors; make
 
 4) Add encoder to create mock data
      - cd $SB/src/sim/sensors
-     - Update jv_encode.py
+     - Update jv_protos.py
      - Create a new file foo_encode.py
      - Add the routine foo_encode
 
