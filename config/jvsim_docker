@@ -11,7 +11,7 @@ RUN cd /home  \
 
 # Install GRPC and GPB
 RUN cd /home \
-&& git clone -b  release-0_11_1 https://github.com/grpc/grpc grpc \
+&& git clone -b  release-0_11 https://github.com/grpc/grpc grpc \
 && cd /home/grpc \
 && git submodule update --init \
 && make \
