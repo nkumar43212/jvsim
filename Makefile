@@ -23,9 +23,9 @@ test: client server libs
 	cd $(TEST_DIR); make
 
 libs:
-	cd $(SRC_DIR)/lib-oc; make
 	cd $(SRC_DIR)/lib-protos; make
 	cd $(SRC_DIR)/lib-rpc-service; make
+	cd $(SRC_DIR)/lib-oc; make
 
 clean-logs:
 	cd $(LOG_DIR); rm *; touch test
