@@ -1,5 +1,6 @@
 *.a
 *.o
+*.pyc
 .svn/*
 logs/*
 src/grpc/client/client
