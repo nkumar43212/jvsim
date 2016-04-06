@@ -3,7 +3,8 @@ SERVER_DIR = $(ROOT_DIR)/src/grpc/server
 CLIENT_DIR = $(ROOT_DIR)/src/grpc/client
 MGD_DIR  = $(ROOT_DIR)/src/grpc/mgd_server
 TEST_DIR = $(ROOT_DIR)/src/grpc/test
-BIN_DIR = $(ROOT_DIR)/bin/mac/
+MAC_BIN_DIR = $(ROOT_DIR)/bin/mac/
+LINUX_BIN_DIR = $(ROOT_DIR)/bin/linux/
 LOG_DIR = $(ROOT_DIR)/logs/
 SRC_DIR = $(ROOT_DIR)/src/grpc
 LIB_DIR = $(ROOT_DIR)/src/grpc/lib
@@ -35,6 +36,7 @@ clean:
 	cd $(CLIENT_DIR); make clean
 	cd $(MGD_DIR); make clean
 	cd $(TEST_DIR); make clean
-	cd $(BIN_DIR); rm agent*
+	cd $(MAC_BIN_DIR); rm -f agent*; rm -f mgd*
+	cd $(LINUX_BIN_DIR); rm -f agent*; rm -f mgd*
 	cd $(LIB_DIR); rm *.a
 
