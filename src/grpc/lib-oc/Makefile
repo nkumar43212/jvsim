@@ -6,7 +6,7 @@ ROOT_DIR    = ../../..
 INSTALL_DIR = $(ROOT_DIR)/bin/$(PLATFORM) 
 SRC_DIR     = $(ROOT_DIR)/src/grpc/lib-oc
 FILES       = $(wildcard $(SRC_DIR)/*.cpp)
-OC_OBJS        = $(subst .cpp,.o,$(FILES))
+OC_OBJS     = $(subst .cpp,.o,$(FILES))
 
 all: liboc
 

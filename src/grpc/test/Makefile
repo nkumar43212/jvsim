@@ -15,9 +15,9 @@ INSTALL_DIR = $(ROOT_DIR)/bin/$(PLATFORM)
 
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
-        PLATFORM    = linux
+	PLATFORM    = linux
 else
-        PLATFORM    = mac
+	PLATFORM    = mac
 endif
 
 all: agent_test install

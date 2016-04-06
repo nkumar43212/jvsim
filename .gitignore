@@ -6,3 +6,4 @@ logs/*
 src/grpc/client/client
 src/grpc/server/server
 src/grpc/test/agent_test
+src/grpc/mgd_server/mgd_server

@@ -8,9 +8,9 @@ INSTALL_DIR = $(ROOT_DIR)/bin/$(PLATFORM)
 SRC_DIR     = $(ROOT_DIR)/src/grpc/client
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
-        PLATFORM    = linux
+	PLATFORM    = linux
 else
-        PLATFORM    = mac
+	PLATFORM    = mac
 endif
 
 FILES = $(wildcard $(SRC_DIR)/*.cpp)

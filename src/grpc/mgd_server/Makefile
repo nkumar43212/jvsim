@@ -3,10 +3,10 @@ INSTALL_DIR = $(ROOT_DIR)/bin/$(PLATFORM)
 SRC_DIR     = $(ROOT_DIR)/src/grpc/mgd_server
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
-        PLATFORM    = linux
+	PLATFORM    = linux
 	DSO_EXT     = so
 else
-        PLATFORM    = mac
+	PLATFORM    = mac
 	DSO_EXT     = dylib
 endif
 
@@ -29,4 +29,4 @@ install: mgd_server
 	cp mgd_server $(INSTALL_DIR)/mgd_server
 
 clean:
-	rm -f *.o mgd_server 
+	rm -f *.o mgd_server
