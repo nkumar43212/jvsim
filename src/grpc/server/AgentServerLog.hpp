@@ -9,13 +9,12 @@
 #ifndef AgentServerLog_hpp
 #define AgentServerLog_hpp
 
-#include <stdio.h>
-#include <string>
 #include <iostream>
+#include <cstring>
 #include <fstream>
 #include <mutex>
 
-#define AGENTSERVER_LOGFILE "/Users/nitin/test/logs/agent_server.log"
+#define AGENTSERVER_LOGFILE "agent_server.log"
 
 class AgentServerLog {
     std::string   _logfile;
@@ -23,22 +22,22 @@ class AgentServerLog {
     uint8_t       _level;
     std::ofstream _outputFile;
     std::mutex    _log_mutex;
-    
+
 public:
-    
+
     AgentServerLog () : _outputFile(AGENTSERVER_LOGFILE)
     {
         _logfile = std::string(AGENTSERVER_LOGFILE);
         _sequence_number = 0;
         _level = 1;
     }
-    
+
     AgentServerLog (const std::string logfile) : _logfile(logfile), _outputFile(_logfile)
     {
         _sequence_number = 0;
         _level = 0;
     }
-   
+
     // Write to the logger
     void log (std::string message)
     {
@@ -51,7 +50,7 @@ public:
         _outputFile.flush();
         _sequence_number++;
     }
-    
+
     // Write to logger conditionally
     void log (const char *filter, std::string message)
     {
@@ -61,13 +60,14 @@ public:
             log(message);
         }
     }
-    
+
     void enable ()
     {
         _level = 1;
         std::cout << "Enabled logging to :" << _logfile << "\n";
         log("Logging enabled --\n");
     }
+
     void disable ()
     {
         log("Logging disabled --\n");
