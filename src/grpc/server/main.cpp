@@ -63,22 +63,37 @@ main (int argc, char * argv[])
     if (!opts.parseArgs(argc, argv)) {
         return -1;
     }
-    
-    // Initialize interface with Mosquitto Library
-    mosqpp::lib_init();
+
+    // Validate if logger file was specified
+    char *log_file = opts.getLogFile();
+    if (log_file == NULL) {
+        char *env_rp = std::getenv("ROOTPATH");
+        if (env_rp != NULL) {
+            // if ROOTPATH env variable is set, set default log path
+            std::string log_file_str = (std::string)env_rp + "/logs/" + AGENTSERVER_LOGFILE;
+            log_file = (char *)log_file_str.c_str();
+            std::cout << "Log file not specified using -l option. Default = " << log_file << std::endl;
+        } else {
+            std::cerr << "Please setup ROOTPATH environment variable or use -l to set log file." << std::endl;
+            exit(0);
+        }
+    }
 
     // Create a logger
     AgentServerLog *logger;
-    logger = new AgentServerLog(opts.getLogFile());
+    logger = new AgentServerLog(log_file);
     logger->enable();
-    
+
+    // Initialize interface with Mosquitto Library
+    mosqpp::lib_init();
+
     // Initialize all the oc translators
     lib_oc_init();
     OpenConfig::display(logger);
-    
+
     // Create a handle for the system
     AgentSystem *sys_handle = CreateSystemHandle(&opts, logger);
-    
+
     // Start the server
     RunServer(logger, sys_handle);
 }
