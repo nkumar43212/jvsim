@@ -11,6 +11,7 @@
 
 #include <iostream>
 #include <cstring>
+#include <unistd.h>
 
 class AgentServerCmdOptions {
     char *_logfile;
