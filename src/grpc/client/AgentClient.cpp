@@ -74,7 +74,10 @@ AgentClient::subscribeTelemetry (std::vector<std::string> path_list,
     // Create a request
     Path *path;
     SubscriptionRequest request;
-    
+    SubscriptionAdditionalConfig *p_add_config = request.mutable_additional_config();
+    SubscriptionReply reply;
+    SubscriptionResponse *response;
+
     // Set up the paths
     for (std::vector<std::string>::iterator itr = path_list.begin(); itr != path_list.end(); itr++) {
         path = request.add_path_list();
@@ -84,39 +87,46 @@ AgentClient::subscribeTelemetry (std::vector<std::string> path_list,
 
     // Set the limits
     if (limit_records) {
-        request.set_limit_records(limit_records);
+        p_add_config->set_limit_records(limit_records);
     }
     if (limit_seconds) {
-        request.set_limit_time_seconds(limit_seconds);
+        p_add_config->set_limit_time_seconds(limit_seconds);
     }
-    
+
     // Create a reader
     ClientContext context;
     std::multimap<grpc::string_ref, grpc::string_ref> server_metadata;
     std::multimap<grpc::string_ref, grpc::string_ref>::iterator metadata_itr;
     std::unique_ptr<ClientReader<OpenConfigData>> reader(stub_->telemetrySubscribe(&context, request));
-    
+
     // Wait for the initial meta data to come back
     reader->WaitForInitialMetadata();
     server_metadata = context.GetServerInitialMetadata();
-    metadata_itr = server_metadata.find("subscription-id");
+    metadata_itr = server_metadata.find("init-response");
     if (metadata_itr != server_metadata.end()) {
         _subscription_id_valid = true;
         std::string tmp = metadata_itr->second.data();
-        _subscription_id       = atoi(tmp.c_str());
+        // Use Textformat Printer APIs to convert to right format
+        // std::cout << "Data received = " << tmp << std::endl;
+        google::protobuf::TextFormat::Parser parser;
+        parser.ParseFromString(tmp, &reply);
+        response = reply.mutable_response();
+        _subscription_id = response->subscription_id();
+    } else {
+        std::cout << "Error in Metadata iterator." << std::endl;
+        return;
     }
-    
-    // Print out all the elements received in the metadata
-    if (getDebug()) {
-        for (metadata_itr = server_metadata.begin(); metadata_itr != server_metadata.end(); metadata_itr++) {
-            std::cout << "key = " << metadata_itr->first.data() << ": Value = " << metadata_itr->second.data() << "\n";
-        }
+
+    // Std on the terminal
+    std::cout << "Subcription Id = " << _subscription_id << std::endl;
+    for (int i = 0; i < reply.path_list_size(); i++) {
+        std::cout << "Path[" << i << "]: " << reply.path_list(i).path() << std::endl;
     }
-   
+
     // Log file handle
     AgentServerLog *logger = new AgentServerLog(_logfile);
     logger->enable();
-    
+
     // Start reading the stream
     OpenConfigData kv;
     while (reader->Read(&kv) && _active) {
@@ -132,7 +142,7 @@ AgentClient::subscribeTelemetry (std::vector<std::string> path_list,
         // If this is a port interface subscription update the LAG
         AgentLag::updateStats(&kv);
     }
-    
+
     // Cleanup
     if (getDebug()) {
         std::cout << _subscription_id << ": Ending subscription session. Active = " << _active << "\n";
@@ -142,51 +152,55 @@ AgentClient::subscribeTelemetry (std::vector<std::string> path_list,
 }
 
 void
-AgentClient::unSubscribeTelemetry ()
+AgentClient::cancelSubscribeTelemetry ()
 {
     // Log the request
+    setDebug(true);
     if (getDebug()) {
-        std::cout << _subscription_id << ": Unsubscribe\n";
+        std::cout << _subscription_id << ": Unsubscribe" << std::endl;
     }
-    
+
     // Break the read loop
     _active = false;
-    
+
     // Remove the list
     map<const std::string, AgentClient *>::iterator itr;
     itr = active_clients.find(_name);
     if (itr == active_clients.end()) {
-        std::cout << "Failed to find subscription : " << _name << "\n";
+        std::cout << "Failed to find subscription : " << _name << std::endl;
         return;
     }
     active_clients.erase(itr);
-    
+
     // Do we have a valid ID from the server ?
     if (getServerIdValid() == 0) {
-        std::cout << "Failed to find Server Subscription ID\n";
+        std::cout << "Failed to find Server Subscription ID" << std::endl;
         return;
     }
-    
+
     // Send over the unsubscribe
     ClientContext context;
-    UnSubscribeRequest request;
-    Reply reply;
-    request.set_id(getServerId());
-    stub_->telemetryUnSubscribe(&context, request, &reply);
-    
+    CancelSubscriptionRequest request;
+    CancelSubscriptionReply reply;
+    request.set_subscription_id(getServerId());
+    stub_->cancelTelemetrySubscription(&context, request, &reply);
+
     // What did the server tell us ?
     if (getDebug()) {
-        std::cout << "Server Response : " << reply.code() << "\n";
+        std::cout << "Server Response : " << reply.code() << std::endl;
+        std::cout << "Server Response string : " << reply.code_str() << std::endl;
     }
 }
 
 void
 AgentClient::listSubscriptions (uint32_t verbosity)
 {
+    // TODO ABBAS
+#if 0
     // Send over the list request
     // Create a reader
     ClientContext  context;
-    GetRequest     request;
+         request;
     OpenConfigData data;
     request.set_verbosity(verbosity);
     
@@ -196,11 +210,14 @@ AgentClient::listSubscriptions (uint32_t verbosity)
     std::string formatted;
     google::protobuf::TextFormat::PrintToString(data, &formatted);
     std::cout << "Server Response : \n" << formatted << "\n";
+#endif
 }
 
 void
 AgentClient::getOperational (uint32_t verbosity)
 {
+    // TODO ABBAS
+#if 0
     // Create a reader
     ClientContext  context;
     GetRequest     request;
@@ -218,6 +235,7 @@ AgentClient::getOperational (uint32_t verbosity)
     std::string formatted;
     google::protobuf::TextFormat::PrintToString(data, &formatted);
     std::cout << formatted;
+#endif
 }
 
 

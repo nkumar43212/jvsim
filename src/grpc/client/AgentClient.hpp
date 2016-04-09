@@ -9,7 +9,6 @@
 #ifndef AgentClient_hpp
 #define AgentClient_hpp
 
-#include <stdio.h>
 #include <iostream>
 #include <string>
 #include "AgentServerLog.hpp"
@@ -22,13 +21,28 @@ using grpc::ClientContext;
 using grpc::ClientReader;
 using grpc::Status;
 
-using agent::Agent;
-using agent::OpenConfigData;
-using agent::SubscriptionRequest;
-using agent::UnSubscribeRequest;
-using agent::GetRequest;
-using agent::Path;
-using agent::Reply;
+using Telemetry::OpenConfigTelemetry;
+
+using Telemetry::CancelSubscriptionReply;
+using Telemetry::CancelSubscriptionRequest;
+using Telemetry::Collector;
+using Telemetry::DataEncodingReply;
+using Telemetry::DataEncodingRequest;
+using Telemetry::GetOperationalStateReply;
+using Telemetry::GetOperationalStateRequest;
+using Telemetry::GetSubscriptionsReply;
+using Telemetry::GetSubscriptionsRequest;
+using Telemetry::KeyValue;
+using Telemetry::OpenConfigData;
+using Telemetry::Path;
+using Telemetry::SubscriptionAdditionalConfig;
+using Telemetry::SubscriptionInput;
+using Telemetry::SubscriptionReply;
+using Telemetry::SubscriptionRequest;
+using Telemetry::SubscriptionResponse;
+using Telemetry::ReturnCode;
+using Telemetry::VerbosityLevel;
+using Telemetry::EncodingType;
 
 // Name of Management Client
 #define AGENTCLIENT_MGMT "Management-Client"
@@ -48,11 +62,11 @@ class AgentClient {
     
    
 public:
-    std::unique_ptr<Agent::Stub> stub_;
+    std::unique_ptr<OpenConfigTelemetry::Stub> stub_;
     AgentClient(std::shared_ptr<Channel> channel,
                 const std::string& name,
                 uint32_t id,
-                const std::string& logfile_dir) : stub_(Agent::NewStub(channel)), _name(name), _active(true), _id(id)
+                const std::string& logfile_dir) : stub_(OpenConfigTelemetry::NewStub(channel)), _name(name), _active(true), _id(id)
     {
         std::string s(logfile_dir);
         _logfile = s + _name;
@@ -81,7 +95,7 @@ public:
     void subscribeTelemetry(std::vector<std::string> path_list,
                             uint32_t sample_frequency,
                             uint32_t limit_records = 0, uint32_t limit_seconds = 0);
-    void unSubscribeTelemetry();
+    void cancelSubscribeTelemetry();
     void listSubscriptions(uint32_t verbosity);
     void getOperational(uint32_t verbosity);
     void errorMsg(std::string err_str, Status code)

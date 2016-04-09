@@ -63,7 +63,7 @@ AgentLag::print ()
 }
 
 void
-AgentLag::updateStats(agent::OpenConfigData *data)
+AgentLag::updateStats(Telemetry::OpenConfigData *data)
 {
     uint32_t    size = data->kv_size();
     std::string member_name;
@@ -71,7 +71,7 @@ AgentLag::updateStats(agent::OpenConfigData *data)
     uint64_t    packets = 0;
     
     for (int i = 0; i < size; i++) {
-        const agent::KeyValue &kv = data->kv(i);
+        const Telemetry::KeyValue &kv = data->kv(i);
         
         bool found_all   = false;
         

@@ -9,8 +9,6 @@
 #ifndef AgentClientLag_hpp
 #define AgentClientLag_hpp
 
-#include <stdio.h>
-#include <stdio.h>
 #include <string>
 #include <map>
 #include <iostream>
@@ -43,7 +41,7 @@ public:
     static void           addLag(AgentLag *lag);
     static AgentLag * findLag(const std::string lag_name);
     static void           print();
-    static void           updateStats(agent::OpenConfigData *data);
+    static void           updateStats(Telemetry::OpenConfigData *data);
     
     void addMember (AgentMemberInterface *child)
     {

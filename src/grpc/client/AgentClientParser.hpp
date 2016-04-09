@@ -9,7 +9,6 @@
 #ifndef AgentClientParser_hpp
 #define AgentClientParser_hpp
 
-#include <stdio.h>
 #include <string>
 #include <iostream>
 #include <sstream>
