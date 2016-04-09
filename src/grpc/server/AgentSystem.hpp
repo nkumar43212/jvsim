@@ -42,9 +42,9 @@ class AgentSystem {
     
 public:
     AgentSystem (AgentServerLog *logger) : _logger(logger) {}
-    virtual void systemAdd(SystemId sys_id, const agent::Path *request_path) = 0;
-    virtual void systemRemove(SystemId sys_id, const agent::Path *request_path) = 0;
-    virtual agent::Path * systemGet(SystemId sys_id) = 0;
+    virtual void systemAdd(SystemId sys_id, const Telemetry::Path *request_path) = 0;
+    virtual void systemRemove(SystemId sys_id, const Telemetry::Path *request_path) = 0;
+    virtual Telemetry::Path * systemGet(SystemId sys_id) = 0;
 };
 
 #endif /* AgentSystem_hpp */

@@ -21,7 +21,7 @@ TEST_F(AgentConsolidatorProcTest, create) {
 
 TEST_F(AgentConsolidatorProcTest, parsePaths) {
     AgentSystemProc * phandle = (AgentSystemProc *)sys_handle;
-    agent::Path request_path;
+    Telemetry::Path request_path;
     
     // Empty string
     std::string path_name;
@@ -56,8 +56,8 @@ TEST_F(AgentConsolidatorProcTest, parsePaths) {
 
 TEST_F(AgentConsolidatorProcTest, get) {
     AgentConsolidatorHandle *handle;
-    agent::SubscriptionRequest request;
-    agent::Path *path;
+    SubscriptionRequest request;
+    Telemetry::Path *path;
     
     // Build a request
     path = request.add_path_list();
@@ -73,7 +73,7 @@ TEST_F(AgentConsolidatorProcTest, get) {
     EXPECT_TRUE(cons->getErrors() == 0);
     
     // Retrieve the request back and check whether it is the same
-    agent::SubscriptionRequest *ptr;
+    SubscriptionRequest *ptr;
     ptr = cons->getRequest(handle);
     
     // Make sure that the requests match.
@@ -82,7 +82,7 @@ TEST_F(AgentConsolidatorProcTest, get) {
         std::string original_path = request.path_list(j).path();
         
         for (int i = 0; i < ptr->path_list_size(); i++) {
-            agent::Path path = ptr->path_list(i);
+            Telemetry::Path path = ptr->path_list(i);
             if (path.path() == original_path) {
                 found = true;
                 break;
@@ -95,19 +95,19 @@ TEST_F(AgentConsolidatorProcTest, get) {
 
 TEST_F(AgentConsolidatorProcTest, getSystem) {
     AgentConsolidatorHandle *handle;
-    agent::SubscriptionRequest request;
-    agent::Path *path;
-    
+    SubscriptionRequest request;
+    Telemetry::Path *path;
+
     // Build a request
     path = request.add_path_list();
     path->set_path("firewall");
-    
+
     // Add it to the consolidator
     handle = cons->addRequest(std::string("test1"), &request);
     EXPECT_TRUE(handle != NULL);
     
     // Retrieve the request back and check whether it is the same
-    agent::SubscriptionRequest *ptr;
+    SubscriptionRequest *ptr;
     ptr = cons->getRequest(handle, false);
     
     // Make sure that the requests match.
@@ -116,7 +116,7 @@ TEST_F(AgentConsolidatorProcTest, getSystem) {
         std::string original_path = request.path_list(j).path();
         
         for (int i = 0; i < ptr->path_list_size(); i++) {
-            agent::Path path = ptr->path_list(i);
+            Telemetry::Path path = ptr->path_list(i);
             if (path.path() == original_path) {
                 found = true;
                 break;

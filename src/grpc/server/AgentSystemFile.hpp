@@ -20,7 +20,7 @@ class AgentSystemFile: public AgentSystem {
     std::map<std::string, std::string> _system_map;
     
     // Generate a name from the request
-    void generateName(const agent::Path *request_path, std::string &name)
+    void generateName(const Telemetry::Path *request_path, std::string &name)
     {
         name += "path=";
         name += request_path->path();
@@ -74,7 +74,7 @@ class AgentSystemFile: public AgentSystem {
     }
     
     // Get the message towards the system file
-    void generateAddMessage (const agent::Path *request_path,
+    void generateAddMessage (const Telemetry::Path *request_path,
                              std::string sensor_name,
                              std::string &message)
     {
@@ -128,7 +128,7 @@ class AgentSystemFile: public AgentSystem {
     }
     
     // Get the message towards the system file
-    void generateRemoveMessage (const agent::Path *request_path,
+    void generateRemoveMessage (const Telemetry::Path *request_path,
                                 std::string sensor_name,
                                 std::string &message)
     {
@@ -147,13 +147,13 @@ public:
     }
     
     // Add into the system
-    void systemAdd(SystemId id, const agent::Path *request_path);
+    void systemAdd(SystemId id, const Telemetry::Path *request_path);
     
     // Remove from the system
-    void systemRemove(SystemId id, const agent::Path *request_path);
+    void systemRemove(SystemId id, const Telemetry::Path *request_path);
     
     // Query the system
-    agent::Path * systemGet(SystemId sys_id);
+    Telemetry::Path * systemGet(SystemId sys_id);
 };
 
 #endif /* AgentSystemFile_hpp */

@@ -31,7 +31,8 @@ TEST_F(AgentClientTest, subscribe) {
     path = request.add_path_list();
     path->set_path("firewall");
     path->set_sample_frequency(10);
-    request.set_limit_records(5);
+    SubscriptionAdditionalConfig *add_config = request.mutable_additional_config();
+    add_config->set_limit_records(5);
     
     // Create a reader
     ClientContext context;
@@ -63,10 +64,10 @@ TEST_F(AgentClientTest, subscribe) {
 
     // Unsubscribe
     ClientContext context_1;
-    UnSubscribeRequest request_1;
-    Reply reply;
-    request_1.set_id(subscription_id);
-    client->stub_->telemetryUnSubscribe(&context_1, request_1, &reply);
+    CancelSubscriptionRequest request_1;
+    CancelSubscriptionReply reply;
+    request_1.set_subscription_id(subscription_id);
+    client->stub_->cancelTelemetrySubscription(&context_1, request_1, &reply);
     
     std::string formatted;
     google::protobuf::TextFormat::PrintToString(reply, &formatted);
@@ -89,7 +90,8 @@ TEST_F(AgentClientTest, list) {
     path = request.add_path_list();
     path->set_path("firewall");
     path->set_sample_frequency(10);
-    request.set_limit_records(1);
+    SubscriptionAdditionalConfig *add_config = request.mutable_additional_config();
+    add_config->set_limit_records(1);
     
     // Create a reader
     ClientContext context;
@@ -110,27 +112,29 @@ TEST_F(AgentClientTest, list) {
     
     // Send over the list request
     ClientContext  get_context;
-    GetRequest     get_request;
-    OpenConfigData data;
-    get_request.set_verbosity(1);
-    client->stub_->telemetrySubscriptionsGet(&get_context, get_request, &data);
-    
+    GetSubscriptionsRequest get_request;
+    GetSubscriptionsReply get_reply;
+    // get_request.set_verbosity(1);
+    client->stub_->getTelemetrySubscriptions(&get_context, get_request, &get_reply);
+
     // What did the server tell us ?
     bool found = false;
+#if 0
     for (int i = 0; i < data.kv_size(); i++) {
-        agent::KeyValue kv = data.kv(i);
+        Telemetry::KeyValue kv = data.kv(i);
         if (kv.int_value() == subscription_id) {
             found = true;
         }
     }
+#endif
     EXPECT_TRUE(found);
 
     // Remove the subscriptions
     ClientContext context_1;
-    UnSubscribeRequest request_1;
-    Reply reply;
-    request_1.set_id(subscription_id);
-    client->stub_->telemetryUnSubscribe(&context_1, request_1, &reply);
+    CancelSubscriptionRequest request_1;
+    CancelSubscriptionReply reply;
+    request_1.set_subscription_id(subscription_id);
+    client->stub_->cancelTelemetrySubscription(&context_1, request_1, &reply);
 }
 
 TEST_F(AgentClientTest, get) {
@@ -149,7 +153,8 @@ TEST_F(AgentClientTest, get) {
     path = request.add_path_list();
     path->set_path("firewall");
     path->set_sample_frequency(10);
-    request.set_limit_records(1);
+    SubscriptionAdditionalConfig *add_config = request.mutable_additional_config();
+    add_config->set_limit_records(1);
     
     // Create a reader
     ClientContext context;
@@ -170,42 +175,44 @@ TEST_F(AgentClientTest, get) {
     
     // Create a reader
     ClientContext  get_context;
-    GetRequest     get_request;
-    OpenConfigData data;
+    GetOperationalStateRequest oper_request;
+    GetOperationalStateReply oper_reply;
     
-    get_request.set_id(subscription_id);
-    get_request.set_verbosity(1);
-    client->stub_->telemetryOperationalStateGet(&get_context, get_request, &data);
-    
+    oper_request.set_subscription_id(subscription_id);
+    oper_request.set_verbosity(Telemetry::DETAIL);
+    client->stub_->getTelemetryOperationalState(&get_context, oper_request, &oper_reply);
+
     // Verify that all the interesting fields came back
     bool found = false;
+#if 0
     for (int i = 0; i < data.kv_size(); i++) {
-        agent::KeyValue kv = data.kv(i);
+        Telemetry::KeyValue kv = data.kv(i);
         if (kv.key() == std::string("total_message_count")) {
             found = true;
         }
     }
+#endif
     EXPECT_TRUE(found);
 
     // Remove the subscriptions
     ClientContext context_1;
-    UnSubscribeRequest request_1;
-    Reply reply;
-    request_1.set_id(subscription_id);
-    client->stub_->telemetryUnSubscribe(&context_1, request_1, &reply);
+    CancelSubscriptionRequest request_1;
+    CancelSubscriptionReply reply;
+    request_1.set_subscription_id(subscription_id);
+    client->stub_->cancelTelemetrySubscription(&context_1, request_1, &reply);
 }
 
 #define MAX_SUBS 10
 #define MAX_RECS 100
 TEST_F(AgentClientTest, multiple_subscribe) {
     int n = MAX_SUBS;                      
-    agent::OpenConfigData *data[MAX_SUBS]; 
+    Telemetry::OpenConfigData *data[MAX_SUBS];
     TestArgs              *args[MAX_SUBS];
     pthread_t              tid[MAX_SUBS];
     
     // Spawn the N subscribers
     for (int i = 0; i < n; i++) {
-        data[i] = new agent::OpenConfigData[MAX_RECS];
+        data[i] = new Telemetry::OpenConfigData[MAX_RECS];
         args[i] = new TestArgs(i, data[i], MAX_RECS);
         pthread_create(&tid[i], NULL, AgentClientTest::create_subscriptions, (void *)(args[i]));
     }
@@ -217,23 +224,26 @@ TEST_F(AgentClientTest, multiple_subscribe) {
 
     // Check whether all subscriptions exist ?
     ClientContext  get_context;
-    GetRequest     get_request;
-    OpenConfigData list_data;
-    get_request.set_verbosity(1);
-    args[0]->client->stub_->telemetrySubscriptionsGet(&get_context, get_request, &list_data);
-    
+    GetSubscriptionsRequest get_request;
+    GetSubscriptionsReply get_reply;
+    get_request.set_subscription_id(0xFFFFFFFF);
+    args[0]->client->stub_->getTelemetrySubscriptions(&get_context, get_request, &get_reply);
+
     // Check whether all subscriptions are present
     for (int j = 0; j < n; j++) {
         bool found = false;
+#if 0
         for (int i = 0; i < list_data.kv_size(); i++) {
-            agent::KeyValue kv = list_data.kv(i);
+            Telemetry::KeyValue kv = list_data.kv(i);
             if (kv.int_value() == args[j]->subscription_id) {
                 found = true;
             }
         }
+#endif
         EXPECT_TRUE(found);
     }
 
+#if 0
     // Go through the data received and validate
     for (int i = 0; i < n; i++) {
         TestArgs *test_args = args[i];
@@ -246,6 +256,7 @@ TEST_F(AgentClientTest, multiple_subscribe) {
     for (int i = 0; i < n; i++) {
         AgentClientTest::delete_subscriptions((void *) args[i]);
     }
+#endif
 }
 
 void *
@@ -269,8 +280,9 @@ AgentClientTest::create_subscriptions (void *args)
     path = request.add_path_list();
     path->set_path("firewall");
     path->set_sample_frequency(5);
-    request.set_limit_records(5);
-    
+    SubscriptionAdditionalConfig *add_config = request.mutable_additional_config();
+    add_config->set_limit_records(5);
+
     // Create a reader
     ClientContext context;
     std::multimap<grpc::string_ref, grpc::string_ref> server_metadata;
@@ -309,13 +321,13 @@ void *
 AgentClientTest::delete_subscriptions (void *args)
 {
     TestArgs *test_args = (TestArgs *) args;
-    
+
     // Unsubscribe
     ClientContext context_1;
-    UnSubscribeRequest request_1;
-    Reply reply;
-    request_1.set_id(test_args->subscription_id);
-    test_args->client->stub_->telemetryUnSubscribe(&context_1, request_1, &reply);
-    
+    CancelSubscriptionRequest request_1;
+    CancelSubscriptionReply reply;
+    request_1.set_subscription_id(test_args->subscription_id);
+    test_args->client->stub_->cancelTelemetrySubscription(&context_1, request_1, &reply);
+
     return NULL;
 }

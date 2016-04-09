@@ -9,18 +9,18 @@
 #include "AgentSystemNull.hpp"
 
 void
-AgentSystemNull::systemAdd (SystemId id, const agent::Path *request_path)
+AgentSystemNull::systemAdd (SystemId id, const Telemetry::Path *request_path)
 {
     AgentSystem::systemAdd(id, request_path);
 }
 
 void
-AgentSystemNull::systemRemove (SystemId id, const agent::Path *request_path)
+AgentSystemNull::systemRemove (SystemId id, const Telemetry::Path *request_path)
 {
     AgentSystem::systemRemove(id, request_path);
 }
 
-agent::Path *
+Telemetry::Path *
 AgentSystemNull::systemGet (SystemId sys_id)
 {
     return NULL;

@@ -10,11 +10,11 @@
 #include <iostream>
 
 void
-OpenConfigNPU_Utilization::iterate (JuniperNetworksSensors *handle, agent::OpenConfigData *datap)
+OpenConfigNPU_Utilization::iterate (JuniperNetworksSensors *handle, Telemetry::OpenConfigData *datap)
 {
     NetworkProcessorUtilization *message = handle->MutableExtension(jnpr_npu_util_ext);
     int i;
-    agent::KeyValue *kv;
+    Telemetry::KeyValue *kv;
     
     std::string master_key = "oc-path/network-processor-utilization/";
     kv = datap->add_kv();

@@ -21,7 +21,7 @@ public:
         OpenConfig::registerSelf("npu_util", this);
     }
     
-    void   iterate (JuniperNetworksSensors *handle, agent::OpenConfigData *datap);
+    void   iterate (JuniperNetworksSensors *handle, Telemetry::OpenConfigData *datap);
 };
 
 #endif /* OpenConfigNPU_Utilization_hpp */

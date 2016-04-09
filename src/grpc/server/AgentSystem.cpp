@@ -11,7 +11,7 @@
 #include <google/protobuf/io/zero_copy_stream.h>
 
 void
-AgentSystem::systemAdd (SystemId id, const agent::Path *request_path)
+AgentSystem::systemAdd (SystemId id, const Telemetry::Path *request_path)
 {
     // Operation
     std::string log_str;
@@ -29,7 +29,7 @@ AgentSystem::systemAdd (SystemId id, const agent::Path *request_path)
 }
 
 void
-AgentSystem::systemRemove (SystemId id, const agent::Path *request_path)
+AgentSystem::systemRemove (SystemId id, const Telemetry::Path *request_path)
 {
     // Operation
     std::string log_str;

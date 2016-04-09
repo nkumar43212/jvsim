@@ -23,7 +23,7 @@ public:
     static void        registerSelf(const std::string path_name, OpenConfig *handler);
     static void        display(AgentServerLog *logger);
     static OpenConfig *find(const std::string path_name);
-    virtual void   iterate(JuniperNetworksSensors *handle, agent::OpenConfigData *datap) = 0;
+    virtual void   iterate(JuniperNetworksSensors *handle, Telemetry::OpenConfigData *datap) = 0;
 };
 
 

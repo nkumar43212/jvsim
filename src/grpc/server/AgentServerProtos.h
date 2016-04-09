@@ -10,7 +10,6 @@
 #define AgentServerProtos_h
 
 #include "agent.grpc.pb.h"
-#include "jvision_top.pb.h"
 
 using grpc::Server;
 using grpc::ServerBuilder;
@@ -18,14 +17,27 @@ using grpc::ServerContext;
 using grpc::ServerWriter;
 using grpc::Status;
 
-using agent::Agent;
-using agent::Reply;
-using agent::SubscriptionRequest;
-using agent::UnSubscribeRequest;
-using agent::GetRequest;
-using agent::OpenConfigData;
-using agent::KeyValue;
-using agent::ReturnCode;
+using Telemetry::OpenConfigTelemetry;
 
+using Telemetry::CancelSubscriptionReply;
+using Telemetry::CancelSubscriptionRequest;
+using Telemetry::Collector;
+using Telemetry::DataEncodingReply;
+using Telemetry::DataEncodingRequest;
+using Telemetry::GetOperationalStateReply;
+using Telemetry::GetOperationalStateRequest;
+using Telemetry::GetSubscriptionsReply;
+using Telemetry::GetSubscriptionsRequest;
+using Telemetry::KeyValue;
+using Telemetry::OpenConfigData;
+using Telemetry::Path;
+using Telemetry::SubscriptionAdditionalConfig;
+using Telemetry::SubscriptionInput;
+using Telemetry::SubscriptionReply;
+using Telemetry::SubscriptionRequest;
+using Telemetry::SubscriptionResponse;
+using Telemetry::ReturnCode;
+using Telemetry::VerbosityLevel;
+using Telemetry::EncodingType;
 
 #endif /* AgentServerProtos_h */

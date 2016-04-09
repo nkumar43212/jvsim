@@ -9,11 +9,8 @@
 #ifndef AgentSubscription_hpp
 #define AgentSubscription_hpp
 
-#include <stdio.h>
-#include <stdio.h>
 #include <iostream>
 #include <map>
-#include <stdio.h>
 #include <string>
 #include <vector>
 
@@ -28,41 +25,42 @@ typedef std::vector<std::string> PathList;
 
 // Store for all subscriptions
 class AgentSubscription;
-extern std::map<uint32_t, AgentSubscription *> store;
+extern std::map<id_idx_t, AgentSubscription *> store;
 
 
 class AgentSubscription : public MessageBus {
     // Subscription Identifier
     uint32_t       _id;
-    
+
     // Name to identify the subscription
     std::string    _name;
     PathList       _path_list;
-    
+
     // Transport Handle
     AgentServerTransport _transport;
-    
+
     // Consolidation handle that tracks the subscription request towards JUNOS system
     AgentConsolidatorHandle *_system_subscription;
-    
+
     // Misc subscription statistics
     uint64_t       _oc_lookup_failures;
     uint64_t       _stream_alloc_failures;
     uint64_t       _stream_parse_failures;
-    
+
     // Current state of subscription
     bool          _active;
-   
+
 public:
-    
+
     // Accessors
-    uint32_t    getId()                              { return _id;        }
+    id_idx_t    getId()                              { return _id;        }
     std::string getName()                            { return _name;      }
     PathList    getPathList()                        { return _path_list; }
     bool        getActive()                          { return _active;    }
     uint32_t    getErrorId()                         { return getErrorIdentifier(); }
     AgentConsolidatorHandle *getSystemSubscription() { return _system_subscription; }
-    
+    AgentServerTransport getTransport()              { return _transport; }
+
     // Construction
     AgentSubscription (std::string name,
                        AgentServerTransport transport,
@@ -71,7 +69,7 @@ public:
         _oc_lookup_failures = _stream_alloc_failures = _stream_parse_failures = 0;
     }
     
-    static AgentSubscription* createSubscription (uint32_t id,
+    static AgentSubscription* createSubscription (id_idx_t id,
                                                   AgentConsolidatorHandle *system_handle,
                                                   AgentServerTransport transport,
                                                   PathList path_list,
@@ -79,27 +77,27 @@ public:
                                                   char *name = NULL)
     {
         std::string client_name = name ? name : "client-" + std::to_string(id);
-        
+
         // Allocate the object
         AgentSubscription *sub;
         sub = new AgentSubscription(client_name, transport, limits);
         if (!sub) {
             return NULL;
         }
-        
+
         sub->_system_subscription = system_handle;
         sub->_id                  = id;
         sub->_name                = client_name;
         sub->_path_list           = path_list;
         store[sub->_id]           = sub;
-        
+
         return sub;
     }
-    
-    static void               deleteSubscription (uint32_t id)
+
+    static void deleteSubscription (id_idx_t id)
     {
-        std::map<uint32_t, AgentSubscription *>::iterator itr = store.find(id);
-        AgentSubscription *sub;
+        std::map<id_idx_t, AgentSubscription *>::iterator itr = store.find(id);
+        // AgentSubscription *sub;
         
         // Did we find it ?
         if (itr == store.end()) {
@@ -111,8 +109,8 @@ public:
             store.erase(itr);
         }
     }
-    
-    static AgentSubscription* findSubscription (uint32_t id)
+
+    static AgentSubscription* findSubscription (id_idx_t id)
     {
         if (store.count(id) == 0) {
             return NULL;
@@ -120,24 +118,24 @@ public:
         
         return store[id];
     }
-    
+
     static AgentSubscription *getFirst ()
     {
         return store.begin() != store.end() ? store.begin()->second : NULL;
     }
     
-    static AgentSubscription *getNext (uint32_t id)
+    static AgentSubscription *getNext (id_idx_t id)
     {
-        std::map<uint32_t, AgentSubscription *>::iterator itr;
-        
+        std::map<id_idx_t, AgentSubscription *>::iterator itr;
+
         itr = store.upper_bound(id);
         if (itr != store.end()) {
             return itr->second;
         }
-        
+
         return NULL;
     }
-    
+
     void enable ()
     {
         // Add all the corresponding subscriptions
@@ -146,7 +144,7 @@ public:
         }
         _active = true;
     }
-    
+
     void disable ()
     {
         // Add all the corresponding subscriptions
@@ -155,12 +153,12 @@ public:
         }
         _active = false;
     }
-    
+
     bool expired ()
     {
         return _limits_reached;
     }
-    
+
     void setActive (bool value)
     {
         _active = value;
@@ -175,7 +173,7 @@ public:
         if (!verbosity) {
             return;
         }
-        
+
         // Failures
         KeyValue *kv;
         kv = datap->add_kv();
@@ -190,9 +188,9 @@ public:
         kv->set_key("stream_parse_failures");
         kv->set_int_value(_stream_parse_failures);
     }
-    
+
     virtual void on_message(const struct mosquitto_message* mosqmessage);
-    
+
     static uint32_t allocateIdentifier();
     static uint32_t getErrorIdentifier();
 };

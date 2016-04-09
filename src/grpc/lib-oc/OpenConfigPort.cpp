@@ -10,11 +10,11 @@
 #include <iostream>
 
 void
-OpenConfigPort::iterate (JuniperNetworksSensors *handle, agent::OpenConfigData *datap)
+OpenConfigPort::iterate (JuniperNetworksSensors *handle, Telemetry::OpenConfigData *datap)
 {
     int i, size;
     GPort *portp = handle->MutableExtension(jnpr_interface_ext);
-    agent::KeyValue *kv;
+    Telemetry::KeyValue *kv;
 
     size = portp->interface_stats_size();
     for (i = 0; i < size; i++) {

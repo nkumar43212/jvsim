@@ -17,9 +17,9 @@ public:
     AgentSystemNull (AgentServerLog *logger) : AgentSystem(logger)
     {
     }
-    void systemAdd(SystemId id, const agent::Path *request_path);
-    void systemRemove(SystemId id, const agent::Path *request_path);
-    agent::Path * systemGet(SystemId sys_id);
+    void systemAdd(SystemId id, const Telemetry::Path *request_path);
+    void systemRemove(SystemId id, const Telemetry::Path *request_path);
+    Telemetry::Path * systemGet(SystemId sys_id);
 };
 
 

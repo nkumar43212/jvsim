@@ -9,7 +9,6 @@
 #ifndef Counter_hpp
 #define Counter_hpp
 
-#include <stdio.h>
 #include <iostream>
 #include <unistd.h>
 

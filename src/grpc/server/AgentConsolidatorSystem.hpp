@@ -20,7 +20,7 @@
 // we do not create multiple subscriptions on the JUNOS system and reuse the sensors
 
 class AgentConsolidatorSystemHandle {
-    agent::Path _request;
+    Telemetry::Path _request;
     uint64_t    _refcount;
     
 public:
@@ -29,12 +29,12 @@ public:
     uint64_t getRef ()                              { return _refcount; }
     void     decRef ()                              { --_refcount;      }
     void     incRef ()                              { ++_refcount;      }
-    void     setRequest(const agent::Path *request) { _request.CopyFrom(*request); }
-    const agent::Path *getRequest ()                { return &_request; }
+    void     setRequest(const Telemetry::Path *request) { _request.CopyFrom(*request); }
+    const Telemetry::Path *getRequest ()                { return &_request; }
     
     // Object lifecycle
     static std::shared_ptr<AgentConsolidatorSystemHandle> create(AgentSystem *sys_handle,
-                                                                 const agent::Path *request_path);
+                                                                 const Telemetry::Path *request_path);
     
 
     // Free up a system handle
@@ -42,16 +42,16 @@ public:
     ~AgentConsolidatorSystemHandle() {}
     
     // Get the contents of the handle from the system. Used by the unit test infra
-    agent::Path *get(AgentSystem *sys_handle);
+    Telemetry::Path *get(AgentSystem *sys_handle);
 
     // Class interface
-    static std::shared_ptr<AgentConsolidatorSystemHandle> find(const agent::Path *request_path,
+    static std::shared_ptr<AgentConsolidatorSystemHandle> find(const Telemetry::Path *request_path,
                                                                bool *collision);
     static void insert(AgentSystem *sys_handle,
-                       const agent::Path *request_path,
+                       const Telemetry::Path *request_path,
                        std::shared_ptr<AgentConsolidatorSystemHandle> syshandle);
     static void remove(AgentSystem *sys_handle,
-                       const agent::Path *request_path);
+                       const Telemetry::Path *request_path);
     static uint32_t getCount();
     void description();
 };

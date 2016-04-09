@@ -135,6 +135,7 @@
 		058673341CB4620500C8DF1F /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		058673361CB462A100C8DF1F /* agent.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = agent.pb.h; path = lib/h/agent.pb.h; sourceTree = SOURCE_ROOT; };
 		058673371CB462C200C8DF1F /* agent.grpc.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = agent.grpc.pb.h; path = lib/h/agent.grpc.pb.h; sourceTree = SOURCE_ROOT; };
+		05AA6FEE1CB992D900966978 /* agent.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = agent.proto; path = ../../../protos/agent.proto; sourceTree = "<group>"; };
 		9467029A1C64348C00E73BF5 /* grpc */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = grpc; sourceTree = BUILT_PRODUCTS_DIR; };
 		946702A81C6471ED00E73BF5 /* client */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = client; sourceTree = BUILT_PRODUCTS_DIR; };
 		946702B31C64723C00E73BF5 /* server */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = server; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,7 +167,6 @@
 		946703B31C6477A400E73BF5 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		946703B91C6477E100E73BF5 /* agent.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = agent.pb.cc; sourceTree = "<group>"; };
 		946703BB1C6477E100E73BF5 /* agent.grpc.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = agent.grpc.pb.cc; sourceTree = "<group>"; };
-		946703BC1C6477E100E73BF5 /* agent.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = agent.proto; sourceTree = "<group>"; };
 		946703C31C64782500E73BF5 /* lib-oc */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "lib-oc"; sourceTree = BUILT_PRODUCTS_DIR; };
 		946703C51C64782500E73BF5 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		946703CA1C64786E00E73BF5 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
@@ -318,13 +318,13 @@
 			isa = PBXGroup;
 			children = (
 				946703D81C64823300E73BF5 /* Makefile */,
-				9467039E1C6475EE00E73BF5 /* AgentClientParser.hpp */,
-				9467039F1C6475EE00E73BF5 /* AgentClientParser.cpp */,
-				946703A01C6475EE00E73BF5 /* AgentClient.hpp */,
-				94AC9A721C7546280034AF1A /* AgentClientLag.cpp */,
-				94AC9A731C7546280034AF1A /* AgentClientLag.hpp */,
-				9467039C1C6475C600E73BF5 /* main.cpp */,
 				946702DF1C64758500E73BF5 /* AgentClient.cpp */,
+				94AC9A721C7546280034AF1A /* AgentClientLag.cpp */,
+				9467039F1C6475EE00E73BF5 /* AgentClientParser.cpp */,
+				9467039C1C6475C600E73BF5 /* main.cpp */,
+				946703A01C6475EE00E73BF5 /* AgentClient.hpp */,
+				94AC9A731C7546280034AF1A /* AgentClientLag.hpp */,
+				9467039E1C6475EE00E73BF5 /* AgentClientParser.hpp */,
 			);
 			path = client;
 			sourceTree = "<group>";
@@ -333,41 +333,41 @@
 			isa = PBXGroup;
 			children = (
 				946702DB1C6474FB00E73BF5 /* Makefile */,
-				946702DC1C6474FB00E73BF5 /* main.cpp */,
-				946702CF1C64739A00E73BF5 /* Counter.hpp */,
-				946702D01C64739A00E73BF5 /* Counter.cpp */,
-				946702D11C64739A00E73BF5 /* AgentSubscriptionLimits.hpp */,
-				94A291FB1C80FAF2004BB6C3 /* AgentServerCmdOptions.cpp */,
-				94A291FC1C80FAF2004BB6C3 /* AgentServerCmdOptions.hpp */,
-				946702D21C64739A00E73BF5 /* AgentSubscriptionLimits.cpp */,
 				94AC9A821C7799BA0034AF1A /* AgentConsolidator.cpp */,
-				94AC9A831C7799BA0034AF1A /* AgentConsolidator.hpp */,
 				94AC9A8C1C77BCF50034AF1A /* AgentConsolidatorSystem.cpp */,
-				94AC9A8D1C77BCF50034AF1A /* AgentConsolidatorSystem.hpp */,
-				94AC9AA01C7A1CD60034AF1A /* AgentSystem.cpp */,
-				94A291FF1C822019004BB6C3 /* AgentSystemNull.cpp */,
-				94A292021C8278F0004BB6C3 /* AgentSystemFile.cpp */,
-				94A292031C8278F0004BB6C3 /* AgentSystemFile.hpp */,
-				94A292001C822019004BB6C3 /* AgentSystemNull.hpp */,
-				94AC9AA11C7A1CD60034AF1A /* AgentSystem.hpp */,
-				94A291F81C7FDA6B004BB6C3 /* AgentSystemFactory.cpp */,
-				94A291F91C7FDA6B004BB6C3 /* AgentSystemFactory.hpp */,
-				94FB18981C85032400791B3A /* AgentSystemProc.cpp */,
-				94FB18991C85032400791B3A /* AgentSystemProc.hpp */,
-				946702D31C64739A00E73BF5 /* AgentSubscription.cpp */,
-				946702D41C64739A00E73BF5 /* AgentMessageBus.hpp */,
-				946702D51C64739A00E73BF5 /* OpenConfig.hpp */,
-				946702D61C64739A00E73BF5 /* OpenConfig.cpp */,
-				946702C51C64734E00E73BF5 /* AgentSubscription.hpp */,
-				946702C61C64734E00E73BF5 /* AgentServerTransport.hpp */,
-				946702C71C64734E00E73BF5 /* AgentServerLog.hpp */,
-				946702C81C64734E00E73BF5 /* AgentServerLog.cpp */,
-				946702C91C64734E00E73BF5 /* AgentServer.h */,
-				94AC9A861C77B3A40034AF1A /* AgentServerProtos.h */,
-				94AC9A661C74500F0034AF1A /* AgentServerIdManager.cpp */,
-				94AC9A671C74500F0034AF1A /* AgentServerIdManager.hpp */,
 				946702CB1C64734E00E73BF5 /* AgentMessageBus.cpp */,
 				946702CA1C64734E00E73BF5 /* AgentServer.cpp */,
+				94A291FB1C80FAF2004BB6C3 /* AgentServerCmdOptions.cpp */,
+				94AC9A661C74500F0034AF1A /* AgentServerIdManager.cpp */,
+				946702C81C64734E00E73BF5 /* AgentServerLog.cpp */,
+				946702D31C64739A00E73BF5 /* AgentSubscription.cpp */,
+				946702D21C64739A00E73BF5 /* AgentSubscriptionLimits.cpp */,
+				94AC9AA01C7A1CD60034AF1A /* AgentSystem.cpp */,
+				94A291F81C7FDA6B004BB6C3 /* AgentSystemFactory.cpp */,
+				94A292021C8278F0004BB6C3 /* AgentSystemFile.cpp */,
+				94A291FF1C822019004BB6C3 /* AgentSystemNull.cpp */,
+				94FB18981C85032400791B3A /* AgentSystemProc.cpp */,
+				946702D01C64739A00E73BF5 /* Counter.cpp */,
+				946702DC1C6474FB00E73BF5 /* main.cpp */,
+				946702D61C64739A00E73BF5 /* OpenConfig.cpp */,
+				946702C91C64734E00E73BF5 /* AgentServer.h */,
+				94AC9A861C77B3A40034AF1A /* AgentServerProtos.h */,
+				94AC9A831C7799BA0034AF1A /* AgentConsolidator.hpp */,
+				94AC9A8D1C77BCF50034AF1A /* AgentConsolidatorSystem.hpp */,
+				946702D41C64739A00E73BF5 /* AgentMessageBus.hpp */,
+				94A291FC1C80FAF2004BB6C3 /* AgentServerCmdOptions.hpp */,
+				94AC9A671C74500F0034AF1A /* AgentServerIdManager.hpp */,
+				946702C71C64734E00E73BF5 /* AgentServerLog.hpp */,
+				946702C61C64734E00E73BF5 /* AgentServerTransport.hpp */,
+				946702C51C64734E00E73BF5 /* AgentSubscription.hpp */,
+				946702D11C64739A00E73BF5 /* AgentSubscriptionLimits.hpp */,
+				94AC9AA11C7A1CD60034AF1A /* AgentSystem.hpp */,
+				94A291F91C7FDA6B004BB6C3 /* AgentSystemFactory.hpp */,
+				94A292031C8278F0004BB6C3 /* AgentSystemFile.hpp */,
+				94A292001C822019004BB6C3 /* AgentSystemNull.hpp */,
+				94FB18991C85032400791B3A /* AgentSystemProc.hpp */,
+				946702CF1C64739A00E73BF5 /* Counter.hpp */,
+				946702D51C64739A00E73BF5 /* OpenConfig.hpp */,
 			);
 			path = server;
 			sourceTree = "<group>";
@@ -392,11 +392,11 @@
 			isa = PBXGroup;
 			children = (
 				946703D61C647BD500E73BF5 /* Makefile */,
+				05AA6FEE1CB992D900966978 /* agent.proto */,
 				058673361CB462A100C8DF1F /* agent.pb.h */,
 				946703B91C6477E100E73BF5 /* agent.pb.cc */,
 				058673371CB462C200C8DF1F /* agent.grpc.pb.h */,
 				946703BB1C6477E100E73BF5 /* agent.grpc.pb.cc */,
-				946703BC1C6477E100E73BF5 /* agent.proto */,
 				946703B31C6477A400E73BF5 /* main.cpp */,
 			);
 			path = "lib-rpc-service";

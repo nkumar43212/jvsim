@@ -9,16 +9,14 @@
 #ifndef AgentMessageBus_hpp
 #define AgentMessageBus_hpp
 
-#include <stdio.h>
 #include <iostream>
 #include <map>
-#include <stdio.h>
 #include <string>
 #include <mosquittopp.h>
 
-#include "Counter.hpp"
-#include "AgentServer.h"
+#include "AgentServerProtos.h"
 #include "AgentSubscriptionLimits.hpp"
+#include "Counter.hpp"
 
 class Mqtt: public mosqpp::mosquittopp {
 
@@ -79,9 +77,9 @@ public:
         }
     }
     
-    void getOperational (agent::OpenConfigData *datap, uint32_t verbosity = 0)
+    void getOperational (Telemetry::OpenConfigData *datap, uint32_t verbosity = 0)
     {
-        agent::KeyValue *kv;
+        Telemetry::KeyValue *kv;
         
         // Total Message Count
         kv = datap->add_kv();

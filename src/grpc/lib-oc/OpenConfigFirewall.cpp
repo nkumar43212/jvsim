@@ -10,11 +10,11 @@
 #include <iostream>
 
 void
-OpenConfigFirewall::iterate (JuniperNetworksSensors *handle, agent::OpenConfigData *datap)
+OpenConfigFirewall::iterate (JuniperNetworksSensors *handle, Telemetry::OpenConfigData *datap)
 {
     Firewall *message = handle->MutableExtension(jnpr_firewall_ext);
     int i, j;
-    agent::KeyValue *kv;
+    Telemetry::KeyValue *kv;
     
     for (i = 0; i < message->firewall_stats_size(); i++) {
         const FirewallStats& filter = message->firewall_stats(i);

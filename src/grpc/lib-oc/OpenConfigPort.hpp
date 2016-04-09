@@ -21,7 +21,7 @@ public:
         OpenConfig::registerSelf("port", this);
     }
     
-    void   iterate (JuniperNetworksSensors *handle, agent::OpenConfigData *datap);
+    void   iterate (JuniperNetworksSensors *handle, Telemetry::OpenConfigData *datap);
 };
 
 #endif /* OpenConfigPort_hpp */

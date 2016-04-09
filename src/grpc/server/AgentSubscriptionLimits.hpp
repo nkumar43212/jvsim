@@ -9,7 +9,6 @@
 #ifndef AgentSubscriptionLimits_hpp
 #define AgentSubscriptionLimits_hpp
 
-#include <stdio.h>
 #include <iostream>
 
 class AgentSubscriptionLimits {
@@ -36,7 +35,7 @@ public:
         start();
     }
     
-    bool expired (uint64_t current_records)
+    bool expired (uint32_t current_records)
     {
         bool time_expired = expiredTime();
         bool records_expired = expiredCount(current_records);

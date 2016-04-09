@@ -44,13 +44,13 @@ public:
     {
     }
     
-    void systemAdd(SystemId id, const agent::Path *request_path);
-    void systemRemove(SystemId id, const agent::Path *request_path);
-    agent::Path * systemGet(SystemId sys_id);
+    void systemAdd(SystemId id, const Telemetry::Path *request_path);
+    void systemRemove(SystemId id, const Telemetry::Path *request_path);
+    Telemetry::Path * systemGet(SystemId sys_id);
     
     // Helper routines
     // Generate a name from the request
-    void generateName(const agent::Path *request_path, std::string &name)
+    void generateName(const Telemetry::Path *request_path, std::string &name)
     {
         name += "path=";
         name += request_path->path();
@@ -88,7 +88,7 @@ public:
     }
     
     // From a name form the request path
-    void parseName(const std::string &name, agent::Path *request_path)
+    void parseName(const std::string &name, Telemetry::Path *request_path)
     {
         std::string value;
         

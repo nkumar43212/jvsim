@@ -9,11 +9,11 @@
 #include "OpenConfigInterface.hpp"
 
 void
-OpenConfigInterface::iterate (JuniperNetworksSensors *handle, agent::OpenConfigData *datap)
+OpenConfigInterface::iterate (JuniperNetworksSensors *handle, Telemetry::OpenConfigData *datap)
 {
     int i, size;
     GLogicalPort *portp = handle->MutableExtension(jnprLogicalInterfaceExt);
-    agent::KeyValue *kv;
+    Telemetry::KeyValue *kv;
     
     size = portp->interface_info_size();
     for (i = 0; i < size; i++) {

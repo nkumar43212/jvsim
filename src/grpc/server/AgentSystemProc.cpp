@@ -12,7 +12,7 @@
 #include "AgentSystemProc.hpp"
 
 void
-AgentSystemProc::systemAdd (SystemId id, const agent::Path *request_path)
+AgentSystemProc::systemAdd (SystemId id, const Telemetry::Path *request_path)
 {
     // Create a client
     std::shared_ptr<grpc::Channel> channel = grpc::CreateChannel("localhost:50050", grpc::InsecureCredentials());
@@ -49,11 +49,11 @@ AgentSystemProc::systemAdd (SystemId id, const agent::Path *request_path)
 }
 
 void
-AgentSystemProc::systemRemove (SystemId id, const agent::Path *request_path)
+AgentSystemProc::systemRemove (SystemId id, const Telemetry::Path *request_path)
 {
 }
 
-agent::Path *
+Telemetry::Path *
 AgentSystemProc::systemGet (SystemId id)
 {
     // Create a client
@@ -86,7 +86,7 @@ AgentSystemProc::systemGet (SystemId id)
     
     // Copy Over the paths
     std::string sensor_name(response.data(0).values());
-    agent::Path *path = new agent::Path();
+    Telemetry::Path *path = new Telemetry::Path();
     parseName(sensor_name, path);
     
     return path;

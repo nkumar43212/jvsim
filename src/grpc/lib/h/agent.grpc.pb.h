@@ -23,71 +23,82 @@ class ServerCompletionQueue;
 class ServerContext;
 }  // namespace grpc
 
-namespace agent {
+namespace Telemetry {
 
-class Agent GRPC_FINAL {
+class OpenConfigTelemetry GRPC_FINAL {
  public:
   class StubInterface {
    public:
     virtual ~StubInterface() {}
-    std::unique_ptr< ::grpc::ClientReaderInterface< ::agent::OpenConfigData>> telemetrySubscribe(::grpc::ClientContext* context, const ::agent::SubscriptionRequest& request) {
-      return std::unique_ptr< ::grpc::ClientReaderInterface< ::agent::OpenConfigData>>(telemetrySubscribeRaw(context, request));
+    std::unique_ptr< ::grpc::ClientReaderInterface< ::Telemetry::OpenConfigData>> telemetrySubscribe(::grpc::ClientContext* context, const ::Telemetry::SubscriptionRequest& request) {
+      return std::unique_ptr< ::grpc::ClientReaderInterface< ::Telemetry::OpenConfigData>>(telemetrySubscribeRaw(context, request));
     }
-    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::agent::OpenConfigData>> AsynctelemetrySubscribe(::grpc::ClientContext* context, const ::agent::SubscriptionRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::agent::OpenConfigData>>(AsynctelemetrySubscribeRaw(context, request, cq, tag));
+    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::Telemetry::OpenConfigData>> AsynctelemetrySubscribe(::grpc::ClientContext* context, const ::Telemetry::SubscriptionRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::Telemetry::OpenConfigData>>(AsynctelemetrySubscribeRaw(context, request, cq, tag));
     }
-    virtual ::grpc::Status telemetryUnSubscribe(::grpc::ClientContext* context, const ::agent::UnSubscribeRequest& request, ::agent::Reply* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::agent::Reply>> AsynctelemetryUnSubscribe(::grpc::ClientContext* context, const ::agent::UnSubscribeRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::agent::Reply>>(AsynctelemetryUnSubscribeRaw(context, request, cq));
+    virtual ::grpc::Status cancelTelemetrySubscription(::grpc::ClientContext* context, const ::Telemetry::CancelSubscriptionRequest& request, ::Telemetry::CancelSubscriptionReply* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::Telemetry::CancelSubscriptionReply>> AsynccancelTelemetrySubscription(::grpc::ClientContext* context, const ::Telemetry::CancelSubscriptionRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::Telemetry::CancelSubscriptionReply>>(AsynccancelTelemetrySubscriptionRaw(context, request, cq));
     }
-    virtual ::grpc::Status telemetrySubscriptionsGet(::grpc::ClientContext* context, const ::agent::GetRequest& request, ::agent::OpenConfigData* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::agent::OpenConfigData>> AsynctelemetrySubscriptionsGet(::grpc::ClientContext* context, const ::agent::GetRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::agent::OpenConfigData>>(AsynctelemetrySubscriptionsGetRaw(context, request, cq));
+    virtual ::grpc::Status getTelemetrySubscriptions(::grpc::ClientContext* context, const ::Telemetry::GetSubscriptionsRequest& request, ::Telemetry::GetSubscriptionsReply* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::Telemetry::GetSubscriptionsReply>> AsyncgetTelemetrySubscriptions(::grpc::ClientContext* context, const ::Telemetry::GetSubscriptionsRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::Telemetry::GetSubscriptionsReply>>(AsyncgetTelemetrySubscriptionsRaw(context, request, cq));
     }
-    virtual ::grpc::Status telemetryOperationalStateGet(::grpc::ClientContext* context, const ::agent::GetRequest& request, ::agent::OpenConfigData* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::agent::OpenConfigData>> AsynctelemetryOperationalStateGet(::grpc::ClientContext* context, const ::agent::GetRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::agent::OpenConfigData>>(AsynctelemetryOperationalStateGetRaw(context, request, cq));
+    virtual ::grpc::Status getTelemetryOperationalState(::grpc::ClientContext* context, const ::Telemetry::GetOperationalStateRequest& request, ::Telemetry::GetOperationalStateReply* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::Telemetry::GetOperationalStateReply>> AsyncgetTelemetryOperationalState(::grpc::ClientContext* context, const ::Telemetry::GetOperationalStateRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::Telemetry::GetOperationalStateReply>>(AsyncgetTelemetryOperationalStateRaw(context, request, cq));
+    }
+    virtual ::grpc::Status getDataEncodings(::grpc::ClientContext* context, const ::Telemetry::DataEncodingRequest& request, ::Telemetry::DataEncodingReply* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::Telemetry::DataEncodingReply>> AsyncgetDataEncodings(::grpc::ClientContext* context, const ::Telemetry::DataEncodingRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::Telemetry::DataEncodingReply>>(AsyncgetDataEncodingsRaw(context, request, cq));
     }
   private:
-    virtual ::grpc::ClientReaderInterface< ::agent::OpenConfigData>* telemetrySubscribeRaw(::grpc::ClientContext* context, const ::agent::SubscriptionRequest& request) = 0;
-    virtual ::grpc::ClientAsyncReaderInterface< ::agent::OpenConfigData>* AsynctelemetrySubscribeRaw(::grpc::ClientContext* context, const ::agent::SubscriptionRequest& request, ::grpc::CompletionQueue* cq, void* tag) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::agent::Reply>* AsynctelemetryUnSubscribeRaw(::grpc::ClientContext* context, const ::agent::UnSubscribeRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::agent::OpenConfigData>* AsynctelemetrySubscriptionsGetRaw(::grpc::ClientContext* context, const ::agent::GetRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::agent::OpenConfigData>* AsynctelemetryOperationalStateGetRaw(::grpc::ClientContext* context, const ::agent::GetRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientReaderInterface< ::Telemetry::OpenConfigData>* telemetrySubscribeRaw(::grpc::ClientContext* context, const ::Telemetry::SubscriptionRequest& request) = 0;
+    virtual ::grpc::ClientAsyncReaderInterface< ::Telemetry::OpenConfigData>* AsynctelemetrySubscribeRaw(::grpc::ClientContext* context, const ::Telemetry::SubscriptionRequest& request, ::grpc::CompletionQueue* cq, void* tag) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::Telemetry::CancelSubscriptionReply>* AsynccancelTelemetrySubscriptionRaw(::grpc::ClientContext* context, const ::Telemetry::CancelSubscriptionRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::Telemetry::GetSubscriptionsReply>* AsyncgetTelemetrySubscriptionsRaw(::grpc::ClientContext* context, const ::Telemetry::GetSubscriptionsRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::Telemetry::GetOperationalStateReply>* AsyncgetTelemetryOperationalStateRaw(::grpc::ClientContext* context, const ::Telemetry::GetOperationalStateRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::Telemetry::DataEncodingReply>* AsyncgetDataEncodingsRaw(::grpc::ClientContext* context, const ::Telemetry::DataEncodingRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub GRPC_FINAL : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::Channel>& channel);
-    std::unique_ptr< ::grpc::ClientReader< ::agent::OpenConfigData>> telemetrySubscribe(::grpc::ClientContext* context, const ::agent::SubscriptionRequest& request) {
-      return std::unique_ptr< ::grpc::ClientReader< ::agent::OpenConfigData>>(telemetrySubscribeRaw(context, request));
+    std::unique_ptr< ::grpc::ClientReader< ::Telemetry::OpenConfigData>> telemetrySubscribe(::grpc::ClientContext* context, const ::Telemetry::SubscriptionRequest& request) {
+      return std::unique_ptr< ::grpc::ClientReader< ::Telemetry::OpenConfigData>>(telemetrySubscribeRaw(context, request));
     }
-    std::unique_ptr< ::grpc::ClientAsyncReader< ::agent::OpenConfigData>> AsynctelemetrySubscribe(::grpc::ClientContext* context, const ::agent::SubscriptionRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncReader< ::agent::OpenConfigData>>(AsynctelemetrySubscribeRaw(context, request, cq, tag));
+    std::unique_ptr< ::grpc::ClientAsyncReader< ::Telemetry::OpenConfigData>> AsynctelemetrySubscribe(::grpc::ClientContext* context, const ::Telemetry::SubscriptionRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReader< ::Telemetry::OpenConfigData>>(AsynctelemetrySubscribeRaw(context, request, cq, tag));
     }
-    ::grpc::Status telemetryUnSubscribe(::grpc::ClientContext* context, const ::agent::UnSubscribeRequest& request, ::agent::Reply* response) GRPC_OVERRIDE;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::agent::Reply>> AsynctelemetryUnSubscribe(::grpc::ClientContext* context, const ::agent::UnSubscribeRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::agent::Reply>>(AsynctelemetryUnSubscribeRaw(context, request, cq));
+    ::grpc::Status cancelTelemetrySubscription(::grpc::ClientContext* context, const ::Telemetry::CancelSubscriptionRequest& request, ::Telemetry::CancelSubscriptionReply* response) GRPC_OVERRIDE;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::Telemetry::CancelSubscriptionReply>> AsynccancelTelemetrySubscription(::grpc::ClientContext* context, const ::Telemetry::CancelSubscriptionRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::Telemetry::CancelSubscriptionReply>>(AsynccancelTelemetrySubscriptionRaw(context, request, cq));
     }
-    ::grpc::Status telemetrySubscriptionsGet(::grpc::ClientContext* context, const ::agent::GetRequest& request, ::agent::OpenConfigData* response) GRPC_OVERRIDE;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::agent::OpenConfigData>> AsynctelemetrySubscriptionsGet(::grpc::ClientContext* context, const ::agent::GetRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::agent::OpenConfigData>>(AsynctelemetrySubscriptionsGetRaw(context, request, cq));
+    ::grpc::Status getTelemetrySubscriptions(::grpc::ClientContext* context, const ::Telemetry::GetSubscriptionsRequest& request, ::Telemetry::GetSubscriptionsReply* response) GRPC_OVERRIDE;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::Telemetry::GetSubscriptionsReply>> AsyncgetTelemetrySubscriptions(::grpc::ClientContext* context, const ::Telemetry::GetSubscriptionsRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::Telemetry::GetSubscriptionsReply>>(AsyncgetTelemetrySubscriptionsRaw(context, request, cq));
     }
-    ::grpc::Status telemetryOperationalStateGet(::grpc::ClientContext* context, const ::agent::GetRequest& request, ::agent::OpenConfigData* response) GRPC_OVERRIDE;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::agent::OpenConfigData>> AsynctelemetryOperationalStateGet(::grpc::ClientContext* context, const ::agent::GetRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::agent::OpenConfigData>>(AsynctelemetryOperationalStateGetRaw(context, request, cq));
+    ::grpc::Status getTelemetryOperationalState(::grpc::ClientContext* context, const ::Telemetry::GetOperationalStateRequest& request, ::Telemetry::GetOperationalStateReply* response) GRPC_OVERRIDE;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::Telemetry::GetOperationalStateReply>> AsyncgetTelemetryOperationalState(::grpc::ClientContext* context, const ::Telemetry::GetOperationalStateRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::Telemetry::GetOperationalStateReply>>(AsyncgetTelemetryOperationalStateRaw(context, request, cq));
+    }
+    ::grpc::Status getDataEncodings(::grpc::ClientContext* context, const ::Telemetry::DataEncodingRequest& request, ::Telemetry::DataEncodingReply* response) GRPC_OVERRIDE;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::Telemetry::DataEncodingReply>> AsyncgetDataEncodings(::grpc::ClientContext* context, const ::Telemetry::DataEncodingRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::Telemetry::DataEncodingReply>>(AsyncgetDataEncodingsRaw(context, request, cq));
     }
 
    private:
     std::shared_ptr< ::grpc::Channel> channel_;
-    ::grpc::ClientReader< ::agent::OpenConfigData>* telemetrySubscribeRaw(::grpc::ClientContext* context, const ::agent::SubscriptionRequest& request) GRPC_OVERRIDE;
-    ::grpc::ClientAsyncReader< ::agent::OpenConfigData>* AsynctelemetrySubscribeRaw(::grpc::ClientContext* context, const ::agent::SubscriptionRequest& request, ::grpc::CompletionQueue* cq, void* tag) GRPC_OVERRIDE;
-    ::grpc::ClientAsyncResponseReader< ::agent::Reply>* AsynctelemetryUnSubscribeRaw(::grpc::ClientContext* context, const ::agent::UnSubscribeRequest& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
-    ::grpc::ClientAsyncResponseReader< ::agent::OpenConfigData>* AsynctelemetrySubscriptionsGetRaw(::grpc::ClientContext* context, const ::agent::GetRequest& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
-    ::grpc::ClientAsyncResponseReader< ::agent::OpenConfigData>* AsynctelemetryOperationalStateGetRaw(::grpc::ClientContext* context, const ::agent::GetRequest& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
+    ::grpc::ClientReader< ::Telemetry::OpenConfigData>* telemetrySubscribeRaw(::grpc::ClientContext* context, const ::Telemetry::SubscriptionRequest& request) GRPC_OVERRIDE;
+    ::grpc::ClientAsyncReader< ::Telemetry::OpenConfigData>* AsynctelemetrySubscribeRaw(::grpc::ClientContext* context, const ::Telemetry::SubscriptionRequest& request, ::grpc::CompletionQueue* cq, void* tag) GRPC_OVERRIDE;
+    ::grpc::ClientAsyncResponseReader< ::Telemetry::CancelSubscriptionReply>* AsynccancelTelemetrySubscriptionRaw(::grpc::ClientContext* context, const ::Telemetry::CancelSubscriptionRequest& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
+    ::grpc::ClientAsyncResponseReader< ::Telemetry::GetSubscriptionsReply>* AsyncgetTelemetrySubscriptionsRaw(::grpc::ClientContext* context, const ::Telemetry::GetSubscriptionsRequest& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
+    ::grpc::ClientAsyncResponseReader< ::Telemetry::GetOperationalStateReply>* AsyncgetTelemetryOperationalStateRaw(::grpc::ClientContext* context, const ::Telemetry::GetOperationalStateRequest& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
+    ::grpc::ClientAsyncResponseReader< ::Telemetry::DataEncodingReply>* AsyncgetDataEncodingsRaw(::grpc::ClientContext* context, const ::Telemetry::DataEncodingRequest& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
     const ::grpc::RpcMethod rpcmethod_telemetrySubscribe_;
-    const ::grpc::RpcMethod rpcmethod_telemetryUnSubscribe_;
-    const ::grpc::RpcMethod rpcmethod_telemetrySubscriptionsGet_;
-    const ::grpc::RpcMethod rpcmethod_telemetryOperationalStateGet_;
+    const ::grpc::RpcMethod rpcmethod_cancelTelemetrySubscription_;
+    const ::grpc::RpcMethod rpcmethod_getTelemetrySubscriptions_;
+    const ::grpc::RpcMethod rpcmethod_getTelemetryOperationalState_;
+    const ::grpc::RpcMethod rpcmethod_getDataEncodings_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::Channel>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -95,10 +106,11 @@ class Agent GRPC_FINAL {
    public:
     Service() : service_(nullptr) {}
     virtual ~Service();
-    virtual ::grpc::Status telemetrySubscribe(::grpc::ServerContext* context, const ::agent::SubscriptionRequest* request, ::grpc::ServerWriter< ::agent::OpenConfigData>* writer);
-    virtual ::grpc::Status telemetryUnSubscribe(::grpc::ServerContext* context, const ::agent::UnSubscribeRequest* request, ::agent::Reply* response);
-    virtual ::grpc::Status telemetrySubscriptionsGet(::grpc::ServerContext* context, const ::agent::GetRequest* request, ::agent::OpenConfigData* response);
-    virtual ::grpc::Status telemetryOperationalStateGet(::grpc::ServerContext* context, const ::agent::GetRequest* request, ::agent::OpenConfigData* response);
+    virtual ::grpc::Status telemetrySubscribe(::grpc::ServerContext* context, const ::Telemetry::SubscriptionRequest* request, ::grpc::ServerWriter< ::Telemetry::OpenConfigData>* writer);
+    virtual ::grpc::Status cancelTelemetrySubscription(::grpc::ServerContext* context, const ::Telemetry::CancelSubscriptionRequest* request, ::Telemetry::CancelSubscriptionReply* response);
+    virtual ::grpc::Status getTelemetrySubscriptions(::grpc::ServerContext* context, const ::Telemetry::GetSubscriptionsRequest* request, ::Telemetry::GetSubscriptionsReply* response);
+    virtual ::grpc::Status getTelemetryOperationalState(::grpc::ServerContext* context, const ::Telemetry::GetOperationalStateRequest* request, ::Telemetry::GetOperationalStateReply* response);
+    virtual ::grpc::Status getDataEncodings(::grpc::ServerContext* context, const ::Telemetry::DataEncodingRequest* request, ::Telemetry::DataEncodingReply* response);
     ::grpc::RpcService* service() GRPC_OVERRIDE GRPC_FINAL;
    private:
     ::grpc::RpcService* service_;
@@ -107,14 +119,15 @@ class Agent GRPC_FINAL {
    public:
     explicit AsyncService();
     ~AsyncService() {};
-    void RequesttelemetrySubscribe(::grpc::ServerContext* context, ::agent::SubscriptionRequest* request, ::grpc::ServerAsyncWriter< ::agent::OpenConfigData>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag);
-    void RequesttelemetryUnSubscribe(::grpc::ServerContext* context, ::agent::UnSubscribeRequest* request, ::grpc::ServerAsyncResponseWriter< ::agent::Reply>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag);
-    void RequesttelemetrySubscriptionsGet(::grpc::ServerContext* context, ::agent::GetRequest* request, ::grpc::ServerAsyncResponseWriter< ::agent::OpenConfigData>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag);
-    void RequesttelemetryOperationalStateGet(::grpc::ServerContext* context, ::agent::GetRequest* request, ::grpc::ServerAsyncResponseWriter< ::agent::OpenConfigData>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag);
+    void RequesttelemetrySubscribe(::grpc::ServerContext* context, ::Telemetry::SubscriptionRequest* request, ::grpc::ServerAsyncWriter< ::Telemetry::OpenConfigData>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag);
+    void RequestcancelTelemetrySubscription(::grpc::ServerContext* context, ::Telemetry::CancelSubscriptionRequest* request, ::grpc::ServerAsyncResponseWriter< ::Telemetry::CancelSubscriptionReply>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag);
+    void RequestgetTelemetrySubscriptions(::grpc::ServerContext* context, ::Telemetry::GetSubscriptionsRequest* request, ::grpc::ServerAsyncResponseWriter< ::Telemetry::GetSubscriptionsReply>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag);
+    void RequestgetTelemetryOperationalState(::grpc::ServerContext* context, ::Telemetry::GetOperationalStateRequest* request, ::grpc::ServerAsyncResponseWriter< ::Telemetry::GetOperationalStateReply>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag);
+    void RequestgetDataEncodings(::grpc::ServerContext* context, ::Telemetry::DataEncodingRequest* request, ::grpc::ServerAsyncResponseWriter< ::Telemetry::DataEncodingReply>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag);
   };
 };
 
-}  // namespace agent
+}  // namespace Telemetry
 
 
 #endif  // GRPC_agent_2eproto__INCLUDED

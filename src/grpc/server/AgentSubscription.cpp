@@ -44,12 +44,13 @@ AgentSubscription::on_message(const struct mosquitto_message* mosqmessage)
     }
     
     // Build the OpenConfig format desired towards collector
-    agent::OpenConfigData oc_data;
+    Telemetry::OpenConfigData oc_data;
     
     // Fill in the common header
     oc_data.set_system_id(stream->system_id());
     oc_data.set_component_id(stream->component_id());
     oc_data.set_sub_component_id(stream->sub_component_id());
+    oc_data.set_path(topic);
     oc_data.set_sequence_number(stream->sequence_number());
     oc_data.set_timestamp(stream->timestamp());
     

@@ -24,9 +24,9 @@ public:
 
 class TestArgs {
 public:
-    TestArgs (int i, agent::OpenConfigData *d, int N) : index(i), data(d), max_data_size(N), data_size(0) {}
+    TestArgs (int i, Telemetry::OpenConfigData *d, int N) : index(i), data(d), max_data_size(N), data_size(0) {}
     int    index;
-    agent::OpenConfigData *data;
+    Telemetry::OpenConfigData *data;
     int max_data_size;
     int data_size;
     uint32_t subscription_id;

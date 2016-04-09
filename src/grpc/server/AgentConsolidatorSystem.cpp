@@ -19,7 +19,7 @@ AgentSystemDB sysdb;
 
 AgentConsolidatorSystemHandlePtr
 AgentConsolidatorSystemHandle::create (AgentSystem *sys_handle,
-                                       const agent::Path *request_path)
+                                       const Telemetry::Path *request_path)
 {
     // Do we have this ?
     bool collision;
@@ -72,7 +72,7 @@ AgentConsolidatorSystemHandle::description()
 }
 
 AgentConsolidatorSystemHandlePtr
-AgentConsolidatorSystemHandle::find (const agent::Path *request_path, bool *collision)
+AgentConsolidatorSystemHandle::find (const Telemetry::Path *request_path, bool *collision)
 {
     // Assume that we won't collide. If we see this go up, we need to enhance the
     // implementation to maintain a bucket list over here
@@ -92,7 +92,7 @@ AgentConsolidatorSystemHandle::find (const agent::Path *request_path, bool *coll
     
     // Make sure that there are no hash collisions and everything matches
     std::string db_str;
-    const agent::Path *db_request = itr->second->getRequest();
+    const Telemetry::Path *db_request = itr->second->getRequest();
     google::protobuf::TextFormat::PrintToString(*db_request, &db_str);
     if (db_str != request_str) {
         *collision = true;
@@ -105,7 +105,7 @@ AgentConsolidatorSystemHandle::find (const agent::Path *request_path, bool *coll
 
 void
 AgentConsolidatorSystemHandle::insert (AgentSystem *sys_handle,
-                                       const agent::Path *request_path,
+                                       const Telemetry::Path *request_path,
                                        AgentConsolidatorSystemHandlePtr syshandle)
 {
     // Generate a hash from the request message
@@ -123,7 +123,7 @@ AgentConsolidatorSystemHandle::insert (AgentSystem *sys_handle,
 
 void
 AgentConsolidatorSystemHandle::remove (AgentSystem *sys_handle,
-                                       const agent::Path *request_path)
+                                       const Telemetry::Path *request_path)
 {
     // Generate a hash from the request message
     std::string request_str;
@@ -140,7 +140,7 @@ AgentConsolidatorSystemHandle::remove (AgentSystem *sys_handle,
     sysdb.erase(itr);
 }
 
-agent::Path *
+Telemetry::Path *
 AgentConsolidatorSystemHandle::get (AgentSystem *sys_handle)
 {
     // Generate a hash from the request message

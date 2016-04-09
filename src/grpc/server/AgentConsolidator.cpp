@@ -10,7 +10,7 @@
 // Create a request
 AgentConsolidatorHandle *
 AgentConsolidator::addRequest (const std::string request_id,
-                               const agent::SubscriptionRequest *request)
+                               const Telemetry::SubscriptionRequest *request)
 
 {
     AgentConsolidatorHandle *ptr = new AgentConsolidatorHandle(request_id);
@@ -74,7 +74,7 @@ AgentConsolidator::removeRequest (AgentConsolidatorHandle *handle)
     ++_remove_count;
 }
 
-agent::SubscriptionRequest *
+Telemetry::SubscriptionRequest *
 AgentConsolidator::getRequest (AgentConsolidatorHandle *handle, bool cached)
 {
     // Guard the add request
@@ -90,7 +90,7 @@ AgentConsolidator::getRequest (AgentConsolidatorHandle *handle, bool cached)
     _logger->log("Get request:" + handle->getId());
     
     // Build the answer
-    agent::SubscriptionRequest *request_list = new agent::SubscriptionRequest;
+    Telemetry::SubscriptionRequest *request_list = new Telemetry::SubscriptionRequest;
     if (!request_list) {
         return NULL;
     }
@@ -104,15 +104,15 @@ AgentConsolidator::getRequest (AgentConsolidatorHandle *handle, bool cached)
         
         // Return the local state in the consolidator
         if (cached) {
-            agent::Path *path = request_list->add_path_list();
+            Telemetry::Path *path = request_list->add_path_list();
             path->CopyFrom(*ptr->getRequest());
             continue;
         }
         
         // Query the system
-        agent::Path *p = ptr->get(getSystemHandle());
+        Telemetry::Path *p = ptr->get(getSystemHandle());
         if (p) {
-            agent::Path *path = request_list->add_path_list();
+            Telemetry::Path *path = request_list->add_path_list();
             path->CopyFrom(*p);
         }
     }

@@ -18,10 +18,10 @@
 // Initialize a space manager, and ensure that we don't have bogus values
 TEST(id_manager, init) {
     AgentServerIdManager mgr;
-    uint32_t start, end;
-    
+    id_idx_t start, end;
+
     mgr.getBounds(&start, &end);
-    for (int i = start; i <= end; i++) {
+    for (id_idx_t i = start; i <= end; i++) {
         EXPECT_TRUE(mgr.present(i) == false);
     }
     EXPECT_TRUE(mgr.count() == 0);
@@ -32,33 +32,33 @@ TEST(id_manager, init) {
 TEST(id_manager, allocate) {
     AgentServerIdManager mgr;
     bool status;
-    
-    uint32_t i = mgr.allocate();
+
+    id_idx_t i = mgr.allocate();
     EXPECT_TRUE(i == 1);
     EXPECT_TRUE(mgr.count() == 1);
-    
+
     mgr.deallocate(i, &status);
     EXPECT_TRUE(status == false);
     EXPECT_TRUE(mgr.count() == 0);
 
     i = mgr.allocate();
     EXPECT_TRUE(i == 1);
-    
+
     i = mgr.allocate();
     EXPECT_TRUE(i == 2);
-    
+
     EXPECT_TRUE(mgr.count() == 2);
 }
 
 // Allocate all the IDs
 TEST(id_manager, allocate_all) {
     AgentServerIdManager mgr;
-    uint32_t j = 0;
-    uint32_t start, end;
-    
+    id_idx_t j = 0;
+    id_idx_t start, end;
+
     mgr.getBounds(&start, &end);
-    
-    for (int i = start; i <= end; i++) {
+
+    for (id_idx_t i = start; i <= end; i++) {
         j = mgr.allocate();
     }
     EXPECT_TRUE(j == end);
@@ -68,31 +68,30 @@ TEST(id_manager, allocate_all) {
 // Allocate and Free
 TEST(id_manager, deallocate_all) {
     AgentServerIdManager mgr;
-    uint32_t j = 0;
-    uint32_t start, end;
+    id_idx_t j = 0;
+    id_idx_t start, end;
 
     mgr.getBounds(&start, &end);
-    for (int i = start; i <= end; i++) {
-        bool status;
-        
+    for (id_idx_t i = start; i <= end; i++) {
+        bool was_corrupted;
+
         j = mgr.allocate();
-        mgr.deallocate(j, &status);
-        EXPECT_TRUE(status == false);
+        mgr.deallocate(j, &was_corrupted);
+        EXPECT_TRUE(was_corrupted == false);
     }
 }
 
 // Randomly allocate N Ids
 TEST(id_manager, allocate_random) {
-    
     AgentServerIdManager mgr;
-    uint32_t start, end;
+    id_idx_t start, end;
     mgr.getBounds(&start, &end);
     
-    uint32_t size = end - start + 1;
+    id_idx_t size = end - start + 1;
     srand((unsigned)time(0));
-    uint32_t count = rand() % size;
+    id_idx_t count = rand() % size;
     
-    for (int i = 0; i < count; i++) {
+    for (id_idx_t i = 0; i < count; i++) {
         mgr.allocate();
     }
     EXPECT_TRUE(mgr.count() == count);
@@ -102,22 +101,22 @@ TEST(id_manager, allocate_random) {
 // Exhaust the space and then check whether allocations fail
 TEST(id_manager, exhaust) {
     AgentServerIdManager mgr;
-    uint32_t start, end;
-    uint32_t last = 0;
-    
+    id_idx_t start, end;
+    id_idx_t last = 0;
+
     // Allocate all
     mgr.getBounds(&start, &end);
-    for (int i = start; i <= end; i++) {
+    for (id_idx_t i = start; i <= end; i++) {
         last = mgr.allocate();
     }
-    
+
     // and then some
-    uint32_t id = mgr.allocate();
+    id_idx_t id = mgr.allocate();
     EXPECT_TRUE(id == mgr.getNullIdentifier());
-    
+
     // Free an ID
     mgr.deallocate(last);
-    
+
     // Now allocation must pass
     id = mgr.allocate();
     EXPECT_TRUE(id != mgr.getNullIdentifier());

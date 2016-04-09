@@ -9,7 +9,7 @@
 #include "AgentSystemFile.hpp"
 
 void
-AgentSystemFile::systemAdd (SystemId id, const agent::Path *request_path)
+AgentSystemFile::systemAdd (SystemId id, const Telemetry::Path *request_path)
 {
     // The common interface
     AgentSystem::systemAdd(id, request_path);
@@ -29,7 +29,7 @@ AgentSystemFile::systemAdd (SystemId id, const agent::Path *request_path)
 }
 
 void
-AgentSystemFile::systemRemove (SystemId id, const agent::Path *request_path)
+AgentSystemFile::systemRemove (SystemId id, const Telemetry::Path *request_path)
 {
     // The common interface
     AgentSystem::systemRemove(id, request_path);
@@ -48,7 +48,7 @@ AgentSystemFile::systemRemove (SystemId id, const agent::Path *request_path)
     _outputFile.flush();
 }
 
-agent::Path *
+Telemetry::Path *
 AgentSystemFile::systemGet (SystemId sys_id)
 {
     return NULL;

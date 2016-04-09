@@ -10,11 +10,11 @@
 #include <iostream>
 
 void
-OpenConfigPacketStats::iterate (JuniperNetworksSensors *handle, agent::OpenConfigData *datap)
+OpenConfigPacketStats::iterate (JuniperNetworksSensors *handle, Telemetry::OpenConfigData *datap)
 {
     PacketStatistics *message = handle->MutableExtension(jnpr_packet_statistics_ext);
     int i;
-    agent::KeyValue *kv;
+    Telemetry::KeyValue *kv;
     
     std::string master_key = "oc-path/packet-statistics/";
     kv = datap->add_kv();
