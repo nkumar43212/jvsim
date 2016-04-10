@@ -96,6 +96,7 @@ AgentServer::telemetrySubscribe (ServerContext *context,
 
     // Turn it on
     sub->enable();
+    sub->setActive(true);
 
     bool client_disconnected = false;
     // Wait till the subscription gets cancelled or it expires
@@ -108,8 +109,11 @@ AgentServer::telemetrySubscribe (ServerContext *context,
         sleep(1);
     }
 
-    // Streaming over. The subscription will be deleted by unSubscribe
-    if (client_disconnected) {
+    // Guard the add request
+    std::lock_guard<std::mutex> guard(_delete_initiate_mutex);
+
+    // Streaming over. Either client terminated or sub expired
+    if (client_disconnected || sub->expired()) {
         // cleanup subscription gracefully
         _cleanupSubscription(sub);
     }
@@ -128,6 +132,9 @@ AgentServer::cancelTelemetrySubscription (ServerContext* context, const CancelSu
     // Make a note
     _logger->log("cancelTelemetrySubscription: ID = " + std::to_string(cancel_request->subscription_id()));
 
+    // Guard the add request
+    std::lock_guard<std::mutex> guard(_delete_initiate_mutex);
+
     // Lookup the subscription
     AgentSubscription *sub = AgentSubscription::findSubscription(cancel_request->subscription_id());
     if (!sub) {
@@ -140,7 +147,7 @@ AgentServer::cancelTelemetrySubscription (ServerContext* context, const CancelSu
 
     // cleanup subscription gracefully
     _cleanupSubscription(sub);
-    
+
     // TODO ABBAS do not delete here, leave it to subscription thread
     // delete sub;
 
@@ -154,51 +161,51 @@ AgentServer::cancelTelemetrySubscription (ServerContext* context, const CancelSu
 
 Status
 AgentServer::getTelemetrySubscriptions (ServerContext* context, const GetSubscriptionsRequest* get_request, GetSubscriptionsReply* get_reply)
-// AgentServer::telemetrySubscriptionsGet (ServerContext *context, const agent::GetRequest *args, agent::OpenConfigData *datap)
 {
-#if 0
     AgentSubscription *sub;
+    id_idx_t subscription_id = get_request->subscription_id();
 
-    // Fill in the base
-    // Fill in the common header
-    datap->set_system_id("1.1.1.1");
-    datap->set_component_id(1);
-    datap->set_timestamp(100);
+    _logger->log("getTelemetrySubscriptions ID = " + std::to_string(subscription_id));
 
-    // Iterate the subscription data base
-    sub = AgentSubscription::getFirst();
-    while (sub) {
-        // Add a new entry
-        KeyValue *kv;
-        kv = datap->add_kv();
-        kv->set_key(sub->getName());
-        kv->set_int_value(sub->getId());
-        
-        // Move to the next entry
-        sub = AgentSubscription::getNext(sub->getId());
-    }
-#endif
-    AgentSubscription *sub;
-
-    // Iterate the subscription data base
-    sub = AgentSubscription::getFirst();
-    while (sub) {
-        // Add a new entry
-        SubscriptionReply *sub_reply;
-        sub_reply = get_reply->add_subscription_list();
-        SubscriptionResponse sub_resp;
-        sub_resp.set_subscription_id(sub->getId());
-        sub_reply->set_allocated_response(&sub_resp);
-
-        PathList pathList = sub->getPathList();
-
-        for (PathList::iterator it = pathList.begin() ; it != pathList.end(); ++it) {
-            Telemetry::Path *path = sub_reply->add_path_list();
-            path->set_path(*it);
+    if (subscription_id != 0xFFFFFFFF) {
+        // Lookup the subscription
+        sub = AgentSubscription::findSubscription(subscription_id);
+        if (!sub) {
+            _logger->log("Subcription Not Found. ID = " + std::to_string(subscription_id));
+            return Status::OK;
+        } else {
+            SubscriptionReply *sub_reply;
+            sub_reply = get_reply->add_subscription_list();
+            SubscriptionResponse *sub_resp = sub_reply->mutable_response();
+            sub_resp->set_subscription_id(sub->getId());
+            
+            PathList pathList = sub->getPathList();
+            
+            for (PathList::iterator it = pathList.begin() ; it != pathList.end(); ++it) {
+                Telemetry::Path *path = sub_reply->add_path_list();
+                path->set_path(*it);
+            }
         }
+    } else {
+        // Iterate the subscription data base
+        sub = AgentSubscription::getFirst();
+        while (sub) {
+            // Add a new entry
+            SubscriptionReply *sub_reply;
+            sub_reply = get_reply->add_subscription_list();
+            SubscriptionResponse *sub_resp = sub_reply->mutable_response();
+            sub_resp->set_subscription_id(sub->getId());
 
-        // Move to the next entry
-        sub = AgentSubscription::getNext(sub->getId());
+            PathList pathList = sub->getPathList();
+
+            for (PathList::iterator it = pathList.begin() ; it != pathList.end(); ++it) {
+                Telemetry::Path *path = sub_reply->add_path_list();
+                path->set_path(*it);
+            }
+
+            // Move to the next entry
+            sub = AgentSubscription::getNext(sub->getId());
+        }
     }
 
     return Status::OK;
@@ -255,7 +262,7 @@ AgentServer::_sendMetaDataInfo (ServerContext *context,
     // Use single line mode
     printer.SetSingleLineMode(true);
     printer.PrintToString(reply, &init_data);
-    std::cout << "String data = " << init_data << std::endl;
+    // std::cout << "String data = " << init_data << std::endl;
 
     // Send the meta data and log it
     context->AddInitialMetadata("init-response", init_data);
@@ -275,15 +282,18 @@ AgentServer::_cleanupSubscription (AgentSubscription *sub)
 
     // Cancel the subscription on the bus
     sub->disable();
-    
+
     // Disconnect and stop the MQTT loop
     sub->disconnect();
     sub->loop_stop();
-    
+
     // Remove the subscription from the system
     _consolidator.removeRequest(sub->getSystemSubscription());
     
     // Remove the subscription
     AgentSubscription::deleteSubscription(sub->getId());
     _id_manager.deallocate(sub->getId());
+
+    // Turn it off
+    sub->setActive(false);
 }

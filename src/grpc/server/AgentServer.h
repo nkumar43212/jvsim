@@ -31,6 +31,9 @@ class AgentServer final : public Telemetry::OpenConfigTelemetry::Service {
     // Consolidator that consolidates requests into JUNOS
     AgentConsolidator _consolidator;
 
+    // Global lock so that we serialize delete operations due to client termination or cancelSubscription
+    std::mutex    _delete_initiate_mutex;
+
     // Internal functions
     Status _sendMetaDataInfo(ServerContext* context, ServerWriter<OpenConfigData>* writer, SubscriptionReply& reply);
     void _cleanupSubscription(AgentSubscription *sub);

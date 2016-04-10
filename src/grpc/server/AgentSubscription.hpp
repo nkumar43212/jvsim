@@ -57,7 +57,6 @@ public:
     std::string getName()                            { return _name;      }
     PathList    getPathList()                        { return _path_list; }
     bool        getActive()                          { return _active;    }
-    uint32_t    getErrorId()                         { return getErrorIdentifier(); }
     AgentConsolidatorHandle *getSystemSubscription() { return _system_subscription; }
     AgentServerTransport getTransport()              { return _transport; }
 
@@ -98,12 +97,12 @@ public:
     {
         std::map<id_idx_t, AgentSubscription *>::iterator itr = store.find(id);
         // AgentSubscription *sub;
-        
+
         // Did we find it ?
         if (itr == store.end()) {
             return;
         }
-        
+
         // Remove from the internal store
         if (itr != store.end()) {
             store.erase(itr);
@@ -115,7 +114,7 @@ public:
         if (store.count(id) == 0) {
             return NULL;
         }
-        
+
         return store[id];
     }
 
@@ -142,7 +141,6 @@ public:
         for (PathList::iterator itr = _path_list.begin(); itr != _path_list.end(); itr++) {
             Subscribe(*itr);
         }
-        _active = true;
     }
 
     void disable ()
@@ -151,7 +149,6 @@ public:
         for (PathList::iterator itr = _path_list.begin(); itr != _path_list.end(); itr++) {
             unSubscribe(*itr);
         }
-        _active = false;
     }
 
     bool expired ()
@@ -190,9 +187,6 @@ public:
     }
 
     virtual void on_message(const struct mosquitto_message* mosqmessage);
-
-    static uint32_t allocateIdentifier();
-    static uint32_t getErrorIdentifier();
 };
 
 #endif /* AgentSubscription_hpp */
