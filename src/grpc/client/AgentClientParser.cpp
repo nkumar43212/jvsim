@@ -6,6 +6,7 @@
 //  Copyright © 2016 Juniper Networks. All rights reserved.
 //
 
+#include <unistd.h>
 #include "AgentClient.hpp"
 #include "AgentClientParser.hpp"
 #include "AgentClientLag.hpp"
