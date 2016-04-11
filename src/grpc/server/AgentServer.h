@@ -45,14 +45,6 @@ class AgentServer final : public Telemetry::OpenConfigTelemetry::Service {
     Status getTelemetryOperationalState(ServerContext* context, const GetOperationalStateRequest* operational_request, GetOperationalStateReply* operational_reply) override;
     Status getDataEncodings(ServerContext* context, const DataEncodingRequest* data_enc_request, DataEncodingReply* data_enc_reply) override;
 
-    // TODO ABBAS delete them later
-#if 0
-    Status telemetrySubscribe(ServerContext *context, const SubscriptionRequest *args, ServerWriter<OpenConfigData>* writer) override;
-    Status telemetryUnSubscribe(ServerContext *context, const UnSubscribeRequest *args, Reply *replyp) override;
-    Status telemetrySubscriptionsGet(ServerContext *context, const GetRequest *args, OpenConfigData *subscriptions) override;
-    Status telemetryOperationalStateGet(ServerContext *context, const GetRequest *args, OpenConfigData *operational_state) override;
-#endif
-
 public:
     AgentServer (AgentServerLog *logger, AgentSystem *sys_handle) : _logger(logger), _consolidator(sys_handle, logger) {}
 };

@@ -45,7 +45,8 @@ AgentServer::telemetrySubscribe (ServerContext *context,
     // Create a subscription into the system
     system_handle = _consolidator.addRequest(std::to_string(id), request);
     if (!system_handle) {
-        // TODO ABBAS should we delete allocated id ?
+        // Delete allocated id
+        _id_manager.deallocate(id);
         // Sent id = 0 error message and bail out.
         response->set_subscription_id(_id_manager.getNullIdentifier());
         _logger->log("Subscription-stream-end: Error, Internal System Failure");
@@ -61,7 +62,8 @@ AgentServer::telemetrySubscribe (ServerContext *context,
                                                                    path_list,
                                                                    limits);
     if (!sub) {
-        // TODO ABBAS should we delete allocated id ?
+        // Delete allocated id
+        _id_manager.deallocate(id);
         // Sent id = 0 error message and bail out.
         response->set_subscription_id(_id_manager.getNullIdentifier());
         _logger->log("Subscription-stream-end: Error, Subscription Creation Error");
@@ -75,26 +77,17 @@ AgentServer::telemetrySubscribe (ServerContext *context,
     // Send back the response on the metadata channel
     response->set_subscription_id(sub->getId());
 
-#if 0 /* TODO ABBAS */
-    context->AddInitialMetadata("subscription-name", sub->getName());
-    for (int i = 0; i < request->path_list_size(); i++) {
-        std::string key_str = "path-" + std::to_string(i);
-        context->AddInitialMetadata(key_str, request->path_list(i).path());
-    }
-    context->AddInitialMetadata("limit_records", std::to_string(limits.getRecords()));
-    context->AddInitialMetadata("limit_seconds", std::to_string(limits.getSeconds()));
-#else
+    // Send path info back to the client
+    // TODO ABBAS --- Need to add more than just path details based on capability
     PathList pList = sub->getPathList();
     for (PathList::iterator it = pList.begin(); it < pList.end(); it++) {
         Telemetry::Path *p_tpath = reply.add_path_list();
         p_tpath->set_path(*it);
     }
-    // Don't start MQTT loop till we send this response
-    // TODO ABBAS
+    // Don't start MQTT subscription till we send this response
     _sendMetaDataInfo(context, writer, reply);
-#endif
 
-    // Turn it on
+    // Turn it on (Subscribe)
     sub->enable();
     sub->setActive(true);
 
@@ -148,7 +141,7 @@ AgentServer::cancelTelemetrySubscription (ServerContext* context, const CancelSu
     // cleanup subscription gracefully
     _cleanupSubscription(sub);
 
-    // TODO ABBAS do not delete here, leave it to subscription thread
+    // Note, do not delete here, leave it to subscription thread
     // delete sub;
 
     cancel_reply->set_code(Telemetry::SUCCESS);
