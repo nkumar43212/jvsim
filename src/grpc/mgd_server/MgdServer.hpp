@@ -9,7 +9,6 @@
 #ifndef MgdServer_hpp
 #define MgdServer_hpp
 
-#include <stdio.h>
 #include <grpc++/grpc++.h>
 #include "junos_mgd.pb.h"
 #include "junos_mgd.grpc.pb.h"

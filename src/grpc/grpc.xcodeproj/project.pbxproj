@@ -318,10 +318,10 @@
 			isa = PBXGroup;
 			children = (
 				946703D81C64823300E73BF5 /* Makefile */,
+				9467039C1C6475C600E73BF5 /* main.cpp */,
 				946702DF1C64758500E73BF5 /* AgentClient.cpp */,
 				94AC9A721C7546280034AF1A /* AgentClientLag.cpp */,
 				9467039F1C6475EE00E73BF5 /* AgentClientParser.cpp */,
-				9467039C1C6475C600E73BF5 /* main.cpp */,
 				946703A01C6475EE00E73BF5 /* AgentClient.hpp */,
 				94AC9A731C7546280034AF1A /* AgentClientLag.hpp */,
 				9467039E1C6475EE00E73BF5 /* AgentClientParser.hpp */,
@@ -333,6 +333,7 @@
 			isa = PBXGroup;
 			children = (
 				946702DB1C6474FB00E73BF5 /* Makefile */,
+				946702DC1C6474FB00E73BF5 /* main.cpp */,
 				94AC9A821C7799BA0034AF1A /* AgentConsolidator.cpp */,
 				94AC9A8C1C77BCF50034AF1A /* AgentConsolidatorSystem.cpp */,
 				946702CB1C64734E00E73BF5 /* AgentMessageBus.cpp */,
@@ -348,7 +349,6 @@
 				94A291FF1C822019004BB6C3 /* AgentSystemNull.cpp */,
 				94FB18981C85032400791B3A /* AgentSystemProc.cpp */,
 				946702D01C64739A00E73BF5 /* Counter.cpp */,
-				946702DC1C6474FB00E73BF5 /* main.cpp */,
 				946702D61C64739A00E73BF5 /* OpenConfig.cpp */,
 				946702C91C64734E00E73BF5 /* AgentServer.h */,
 				94AC9A861C77B3A40034AF1A /* AgentServerProtos.h */,
@@ -405,15 +405,15 @@
 		946703C41C64782500E73BF5 /* lib-oc */ = {
 			isa = PBXGroup;
 			children = (
+				946703CA1C64786E00E73BF5 /* Makefile */,
+				946703CC1C64786E00E73BF5 /* genxlate.py */,
+				946703DB1C650CD700E73BF5 /* oc.cpp */,
 				949DD78B1C8D51130062F934 /* OpenConfigNPU_Utilization.hpp */,
 				949DD78C1C8D51130062F934 /* OpenConfigNPU_Utilization.cpp */,
 				949DD7881C8BA28D0062F934 /* OpenConfigPacketStats.hpp */,
 				949DD7891C8BA28D0062F934 /* OpenConfigPacketStats.cpp */,
-				94AC9A701C7529890034AF1A /* OpenConfigPort.cpp */,
-				946703DB1C650CD700E73BF5 /* oc.cpp */,
-				946703CA1C64786E00E73BF5 /* Makefile */,
-				946703CC1C64786E00E73BF5 /* genxlate.py */,
 				946703CD1C64786E00E73BF5 /* OpenConfigPort.hpp */,
+				94AC9A701C7529890034AF1A /* OpenConfigPort.cpp */,
 				946703CE1C64786E00E73BF5 /* OpenConfigInterface.hpp */,
 				946703CF1C64786E00E73BF5 /* OpenConfigFirewall.hpp */,
 				946703D01C64786E00E73BF5 /* OpenConfigFirewall.cpp */,

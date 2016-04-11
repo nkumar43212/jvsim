@@ -7,8 +7,6 @@
 //
 
 #include <iostream>
-#include "AgentServerLog.hpp"
-#include <iostream>
 #include <string>
 #include <grpc++/grpc++.h>
 #include "MgdServer.hpp"
@@ -39,9 +37,26 @@ RunServer (AgentServerLog *logger)
 
 int main(int argc, const char * argv[])
 {
+    std::string logfile;
+    
+    // Get the Looging dir
+    if (argc > 1) {
+        logfile = argv[1];
+    } else {
+        // Validate if logger file was specified
+        char *env_rp = std::getenv("ROOTPATH");
+        if (env_rp != NULL) {
+            // if ROOTPATH env variable is set, set default log path
+            logfile = (std::string)env_rp + "/logs/mgd_server.log";
+        } else {
+            std::cerr << "Please setup ROOTPATH environment variable or run as \"mgd_server_binary logfile\"" << std::endl;
+            exit(0);
+        }
+    }
+
     // Create a logger
     AgentServerLog *logger;
-    logger = new AgentServerLog(argv[1]);
+    logger = new AgentServerLog(logfile);
     logger->enable();
     
     // Start the server
