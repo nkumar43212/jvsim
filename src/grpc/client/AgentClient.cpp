@@ -31,10 +31,10 @@ AgentClient::create (std::shared_ptr<Channel> channel,
     return client;
 }
 
-AgentClient::~AgentClient ()
+AgentClient::~AgentClient (void)
 {
     map<const std::string, AgentClient *>::iterator itr;
-    
+
     itr = active_clients.find(_name);
     if (itr != active_clients.end()) {
         active_clients.erase(itr);
@@ -45,20 +45,20 @@ AgentClient *
 AgentClient::find (std::string name)
 {
     map<const std::string, AgentClient *>::iterator itr;
-    
+
     itr = active_clients.find(name);
     if (itr != active_clients.end()) {
         return itr->second;
     }
-    
+
     return NULL;
 }
 
 void
-AgentClient::print ()
+AgentClient::print (void)
 {
     map<const std::string, AgentClient *>::iterator itr;
-    
+
     for (itr = active_clients.begin(); itr != active_clients.end(); itr++) {
         std::cout << "Subscription = " << itr->second->getName() << " Active = " << itr->second->getActive() << " ID = "<< itr->second->getId() << "\n";
         std::cout << "   ServerID  = " << itr->second->getServerId() << "(valid = " << itr->second->getServerIdValid() << ")\n";
@@ -152,7 +152,7 @@ AgentClient::subscribeTelemetry (std::vector<std::string> path_list,
 }
 
 void
-AgentClient::cancelSubscribeTelemetry ()
+AgentClient::cancelSubscribeTelemetry (void)
 {
     // Log the request
     setDebug(true);
@@ -237,5 +237,3 @@ AgentClient::getOperational (uint32_t verbosity)
     std::cout << formatted;
 #endif
 }
-
-

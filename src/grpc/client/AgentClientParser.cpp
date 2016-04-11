@@ -22,22 +22,22 @@ handle_subscribe (int argc, const char *argv[])
 {
     std::string client_name(argv[1]);
     AgentClient *client;
-    
+
     // Create a client
     client = AgentClient::create(grpc::CreateChannel("localhost:50051", grpc::InsecureCredentials()),
                                  client_name,
                                  global_id++,
                                  parser->getLogDir());
-    
+
     // Sample Frequency
     uint32_t sample_frequency = atoi(argv[2]);
-    
+
     // collect the list of paths
     std::vector<std::string> path_list;
     for (int i = 3; argv[i]; i++) {
         path_list.push_back(argv[i]);
     }
-    
+
     client->subscribeTelemetry(path_list, sample_frequency);
 }
 
@@ -49,20 +49,20 @@ proc (void *args)
     static uint64_t some_id = 0;
     std::string client_name(argv[2] + std::to_string(some_id++));
     AgentClient *client;
-    
+
     // Create a client
     client = AgentClient::create(grpc::CreateChannel("localhost:50051", grpc::InsecureCredentials()),
                                  client_name, global_id++, parser->getLogDir());
-    
+
     // Sample Frequency
     uint32_t sample_frequency = atoi(argv[3]);
-    
+
     // collect the list of paths
     std::vector<std::string> path_list;
     for (int i = 4; argv[i]; i++) {
         path_list.push_back(argv[i]);
     }
-    
+
     client->subscribeTelemetry(path_list, sample_frequency);
     return NULL;
 }
@@ -73,13 +73,13 @@ handle_subscribe_multiple (int argc, const char *argv[])
     uint32_t       count = atoi(argv[1]);
     pthread_t     *tid;
     CommandContext context(argc, argv, NULL);
-    
+
     // Create N threads
     tid = new pthread_t[count];
     for (int i = 0; i < count; i++) {
         pthread_create(&tid[i], NULL, proc, (void *) &context);
     }
-    
+
     // Wait for them to finish
     for (int i = 0; i < count; i++) {
         pthread_join(tid[i], NULL);
@@ -91,11 +91,11 @@ handle_subscribe_limits (int argc, const char *argv[])
 {
     std::string client_name(argv[1]);
     AgentClient *client;
-    
+
     // Create a client
     client = AgentClient::create(grpc::CreateChannel("localhost:50051", grpc::InsecureCredentials()),
                                  client_name, global_id++, parser->getLogDir());
-    
+
     // Sample Frequency
     uint32_t sample_frequency = atoi(argv[2]);
 
@@ -104,7 +104,7 @@ handle_subscribe_limits (int argc, const char *argv[])
     for (int i = 3; argv[i]; i++) {
         path_list.push_back(argv[i]);
     }
-    
+
     client->setDebug(true);
     client->subscribeTelemetry(path_list, sample_frequency, 10, 10);
 }
@@ -114,14 +114,14 @@ handle_unsubscribe (int argc, const char *argv[])
 {
     AgentClient *client;
     std::string client_name((const char *) argv[1]);
-        
+
     // Find this client
     client = AgentClient::find(client_name);
     if (!client) {
         std::cout << "Failed to find client:" << client_name << "\n";
         return;
     }
-        
+
     client->cancelSubscribeTelemetry();
     delete client;
 }
@@ -144,14 +144,14 @@ handle_get (int argc, const char *argv[])
 {
     AgentClient *client;
     std::string client_name((const char *) argv[1]);
-        
+
     // Find this client
     client = AgentClient::find(client_name);
     if (!client) {
         std::cout << "Failed to find client:" << client_name << "\n";
         return;
     }
-        
+
     // Verbosity level
     uint32_t verbosity = argv[2] ? atoi(argv[2]) : 0;
     client->getOperational(verbosity);
@@ -180,7 +180,7 @@ handle_print_lag (int argc, const char *argv[])
     }
 
     uint32_t repeat_count = argv[2] ? atoi(argv[2]) : 1;
-    
+
     for (int i = 0; i < repeat_count; i++) {
         lagp->printMembers();
         sleep(5);
@@ -196,7 +196,7 @@ entry_t agent_client_commands [] = {
         .e_usage   = std::string("subscribe <subscription-name> <sample-frequency> <path>+"),
         .e_handler = handle_subscribe
     },
-    
+
     {
         .e_cmd     = std::string("subscribe_limits"),
         .e_argc    = 4,
@@ -204,7 +204,7 @@ entry_t agent_client_commands [] = {
         .e_usage   = std::string("subscribe_limits <subscription-name> <sample-frequency> <path>+"),
         .e_handler = handle_subscribe_limits
     },
-   
+
     {
         .e_cmd     = std::string("subscribe_n"),
         .e_argc    = 4,
@@ -220,7 +220,7 @@ entry_t agent_client_commands [] = {
         .e_usage   = std::string("unsubscribe <subscription-name>"),
         .e_handler = handle_unsubscribe
     },
-    
+
     {
         .e_cmd     = std::string("list"),
         .e_argc    = 1,
@@ -228,7 +228,7 @@ entry_t agent_client_commands [] = {
         .e_usage   = std::string("list <verbosity>*"),
         .e_handler = handle_list
     },
-    
+
     {
         .e_cmd     = std::string("get"),
         .e_argc    = 1,
@@ -236,7 +236,7 @@ entry_t agent_client_commands [] = {
         .e_usage   = std::string("get <verbosity>*"),
         .e_handler = handle_get
     },
-    
+
     {
         .e_cmd     = std::string("print"),
         .e_argc    = 1,
@@ -244,7 +244,7 @@ entry_t agent_client_commands [] = {
         .e_usage   = std::string("subscribe <subscription-name> <path>+"),
         .e_handler = handle_print
     },
-    
+
     {
         .e_cmd     = std::string("build-lag"),
         .e_argc    = 3,
@@ -252,7 +252,7 @@ entry_t agent_client_commands [] = {
         .e_usage   = std::string("build-lag <total-lag-count> <number-of-lcs>"),
         .e_handler = handle_build_lag
     },
-   
+
     {
         .e_cmd     = std::string("clean-lag"),
         .e_argc    = 1,
@@ -272,4 +272,3 @@ entry_t agent_client_commands [] = {
 };
 
 u_int32_t agent_client_commands_count = sizeof(agent_client_commands)/sizeof(entry_t);
-

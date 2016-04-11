@@ -11,10 +11,9 @@
 
 #include <iostream>
 #include <string>
-#include "AgentServerLog.hpp"
-
 #include <grpc++/grpc++.h>
 #include "agent.grpc.pb.h"
+#include "AgentServerLog.hpp"
 
 using grpc::Channel;
 using grpc::ClientContext;
@@ -47,26 +46,28 @@ using Telemetry::EncodingType;
 // Name of Management Client
 #define AGENTCLIENT_MGMT "Management-Client"
 
+// AgentClient Class
 class AgentClient {
     std::string _name;
     std::string _logfile;
     bool _active;
     bool _debug_log;
-    
+
     // ID used by the client
     uint32_t _id;
-    
+
     // ID allocated by the server
     bool     _subscription_id_valid;
     uint32_t _subscription_id;
-    
-   
+
 public:
+    // Stub Variable
     std::unique_ptr<OpenConfigTelemetry::Stub> stub_;
-    AgentClient(std::shared_ptr<Channel> channel,
-                const std::string& name,
-                uint32_t id,
-                const std::string& logfile_dir) : stub_(OpenConfigTelemetry::NewStub(channel)), _name(name), _active(true), _id(id)
+
+    AgentClient (std::shared_ptr<Channel> channel,
+                 const std::string& name,
+                 uint32_t id,
+                 const std::string& logfile_dir) : stub_(OpenConfigTelemetry::NewStub(channel)), _name(name), _active(true), _id(id)
     {
         std::string s(logfile_dir);
         _logfile = s + _name;
@@ -74,36 +75,35 @@ public:
         _subscription_id       = 0;
         _debug_log = false;
     }   
-    
+
     ~AgentClient();
-    
+
     static AgentClient *create(std::shared_ptr<Channel> channel,
                                std::string& name,
                                uint32_t id,
                                const std::string& logfile_dir);
     static AgentClient *find(std::string name);
-    static void         print();
-    
-    std::string getName()          { return _name;                  }
-    bool        getActive()        { return _active;                }
-    uint32_t    getId()            { return _id;                    }
-    uint32_t    getServerId()      { return _subscription_id;       }
-    bool        getServerIdValid() { return _subscription_id_valid; }
-    bool        getDebug ()        { return _debug_log;             }
-    void        setDebug(bool val) { _debug_log = val;              }
-    
+    static void         print(void);
+
+    std::string getName (void)          { return _name;                  }
+    bool        getActive (void)        { return _active;                }
+    uint32_t    getId (void)            { return _id;                    }
+    uint32_t    getServerId (void)      { return _subscription_id;       }
+    bool        getServerIdValid (void) { return _subscription_id_valid; }
+    bool        getDebug (void)         { return _debug_log;             }
+    void        setDebug(bool val)      { _debug_log = val;              }
+
     void subscribeTelemetry(std::vector<std::string> path_list,
                             uint32_t sample_frequency,
                             uint32_t limit_records = 0, uint32_t limit_seconds = 0);
-    void cancelSubscribeTelemetry();
+    void cancelSubscribeTelemetry(void);
     void listSubscriptions(uint32_t verbosity);
     void getOperational(uint32_t verbosity);
-    void errorMsg(std::string err_str, Status code)
+
+    void errorMsg (std::string err_str, Status code)
     {
-        std::cout << err_str << "\n";
+        std::cout << err_str << std::endl;
     }
 };
-
-
 
 #endif /* AgentClient_hpp */

@@ -1,6 +1,6 @@
 //
 //  AgentClientLag.cpp
-//  grpc
+//  agent-jv
 //
 //  Created by NITIN KUMAR on 2/17/16.
 //  Copyright © 2016 Juniper Networks. All rights reserved.
@@ -29,7 +29,7 @@ AgentLag::build (uint32_t lag_count, uint32_t lc_count)
 }
 
 void
-AgentLag::reset ()
+AgentLag::reset (void)
 {
     lag_db.clear();
     AgentLag::print();
@@ -42,7 +42,7 @@ AgentLag::addLag (AgentLag *lag)
 }
 
 AgentLag *
-AgentLag::findLag(const std::string lag_name)
+AgentLag::findLag (const std::string lag_name)
 {
     if (lag_db.count(lag_name) == 0) {
         return NULL;
@@ -52,7 +52,7 @@ AgentLag::findLag(const std::string lag_name)
 }
 
 void
-AgentLag::print ()
+AgentLag::print (void)
 {
     std::map<std::string, AgentLag *>::iterator itr;
     
@@ -63,7 +63,7 @@ AgentLag::print ()
 }
 
 void
-AgentLag::updateStats(Telemetry::OpenConfigData *data)
+AgentLag::updateStats (Telemetry::OpenConfigData *data)
 {
     uint32_t    size = data->kv_size();
     std::string member_name;

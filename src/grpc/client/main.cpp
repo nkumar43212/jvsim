@@ -17,7 +17,7 @@ AgentParser *parser;
 int main(int argc, const char * argv[])
 {
     std::string logfile_dir;
-    
+
     // Get the Looging dir
     if (argc > 1) {
         logfile_dir = argv[1];
