@@ -6,14 +6,15 @@
 //  Copyright © 2016 Juniper Networks. All rights reserved.
 //
 
-#include "gtest/gtest.h"
-#include "AgentConsolidator.hpp"
-#include "AgentServerLog.hpp"
-#include "AgentSystemProc.hpp"
-#include "agent_test_consolidator_proc.hpp"
 #include <iostream>
 #include <functional>
 #include <string>
+#include "gtest/gtest.h"
+#include "agent_test_consolidator_proc.hpp"
+#include "AgentConsolidator.hpp"
+#include "AgentServerLog.hpp"
+#include "AgentSystemProc.hpp"
+
 
 TEST_F(AgentConsolidatorProcTest, create) {
     EXPECT_TRUE(sys_handle != nullptr);
@@ -126,8 +127,3 @@ TEST_F(AgentConsolidatorProcTest, getSystem) {
         EXPECT_TRUE(found);
     }
 }
-
-
-
-
-

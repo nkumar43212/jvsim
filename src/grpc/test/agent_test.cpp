@@ -7,12 +7,9 @@
 //
 
 #include "gtest/gtest.h"
-#include "AgentClient.hpp"
 #include "agent_test.hpp"
 #include <google/protobuf/text_format.h>
 #include <google/protobuf/io/zero_copy_stream.h>
-
-std::string CLIENT_LOGDIR("/tmp/");
 
 TEST_F(AgentClientTest, subscribe_and_force_terminate) {
     AgentClient *client;
@@ -313,7 +310,7 @@ TEST_F(AgentClientTest, multiple_subscribe) {
     // Spawn the N subscribers
     for (int i = 0; i < n; i++) {
         data[i] = new Telemetry::OpenConfigData[MAX_RECS];
-        args[i] = new TestArgs(i, data[i], MAX_RECS);
+        args[i] = new TestArgs(i, data[i], MAX_RECS, CLIENT_LOGDIR);
         args[i]->limit_record = 5;
         pthread_create(&tid[i], NULL, AgentClientTest::create_subscriptions, (void *)(args[i]));
     }
@@ -358,13 +355,13 @@ TEST_F(AgentClientTest, verify_multiple_subscribe) {
     // Spawn the N subscribers
     for (int i = 0; i < n; i++) {
         data[i] = new Telemetry::OpenConfigData[MAX_RECS];
-        args[i] = new TestArgs(i, data[i], MAX_RECS);
+        args[i] = new TestArgs(i, data[i], MAX_RECS, CLIENT_LOGDIR);
         args[i]->limit_record = 50000;
         pthread_create(&tid[i], NULL, AgentClientTest::create_subscriptions, (void *)(args[i]));
     }
 
     // Sleep a random time till all clients are created
-    sleep(3);
+    sleep(5);
 
     // Check whether all subscriptions exist ?
     ClientContext  get_context;
@@ -423,7 +420,7 @@ AgentClientTest::create_subscriptions (void *args)
     // Create the test client
     std::string client_name("client-" + std::to_string(test_args->index));
     client = AgentClient::create(grpc::CreateChannel("localhost:50051", grpc::InsecureCredentials()),
-                                 client_name, 0, CLIENT_LOGDIR);
+                                 client_name, 0, test_args->client_logdir);
     EXPECT_TRUE(client != NULL);
     EXPECT_TRUE(client->stub_ != NULL);
     test_args->client = client;

@@ -9,8 +9,8 @@
 #ifndef agent_test_consolidator_proc_hpp
 #define agent_test_consolidator_proc_hpp
 
-#include <stdio.h>
 #include "AgentSystemFactory.hpp"
+#include "AgentConsolidator.hpp"
 
 // This is a test class
 class AgentConsolidatorProcTest: public testing::Test {
@@ -18,20 +18,29 @@ public:
     AgentServerLog    *logger;
     AgentSystem       *sys_handle;
     AgentConsolidator *cons;
-    
-    void SetUp ()
+
+    void SetUp (void)
     {
-        logger     = new AgentServerLog;
+        std::string agent_server_log;
+        char *env_rp = std::getenv("ROOTPATH");
+        if (env_rp != NULL) {
+            // if ROOTPATH env variable is set, set default log path
+            agent_server_log = (std::string)env_rp + "/logs/" + AGENTSERVER_LOGFILE;
+        } else {
+            std::cerr << "Please setup ROOTPATH environment variable." << std::endl;
+            exit(1);
+        }
+        logger     = new AgentServerLog(agent_server_log);
         sys_handle = AgentSystemFactory::createSystemProcess(logger);
         cons       = new AgentConsolidator(sys_handle, logger);
     }
-    
-    void TearDown ()
+
+    void TearDown (void)
     {
         delete cons;
         delete logger;
     }
-    
+
     static void *create(void *);
 };
 

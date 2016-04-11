@@ -376,8 +376,8 @@
 			isa = PBXGroup;
 			children = (
 				946703DD1C65134700E73BF5 /* Makefile */,
-				946703DE1C65134700E73BF5 /* agent_test.hpp */,
 				946703DF1C65134700E73BF5 /* agent_test.cpp */,
+				946703DE1C65134700E73BF5 /* agent_test.hpp */,
 				94AC9A6A1C7459B80034AF1A /* agent_test_server.cpp */,
 				94AC9A6B1C7459B80034AF1A /* agent_test_server.hpp */,
 				94AC9A7F1C76FDDC0034AF1A /* agent_test_consolidator.cpp */,

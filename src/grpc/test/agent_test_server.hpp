@@ -9,6 +9,4 @@
 #ifndef agent_test_server_hpp
 #define agent_test_server_hpp
 
-#include <stdio.h>
-
 #endif /* agent_test_server_hpp */

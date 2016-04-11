@@ -6,14 +6,13 @@
 //  Copyright © 2016 Juniper Networks. All rights reserved.
 //
 
-#include "gtest/gtest.h"
-#include "AgentConsolidator.hpp"
-#include "AgentServerLog.hpp"
-#include "agent_test_consolidator.hpp"
+
 #include <iostream>
 #include <functional>
 #include <string>
-
+#include "gtest/gtest.h"
+#include "agent_test_consolidator.hpp"
+#include "AgentServerLog.hpp"
 
 TEST_F(AgentConsolidatorTest, add) {
     AgentConsolidatorHandle *handle;
@@ -162,4 +161,4 @@ AgentConsolidatorTest::create (void *args)
     cons->removeRequest(handle);
     
     return NULL;
-  }
+}

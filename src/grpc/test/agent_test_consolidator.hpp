@@ -9,8 +9,10 @@
 #ifndef agent_test_consolidator_hpp
 #define agent_test_consolidator_hpp
 
-#include <stdio.h>
 #include "AgentSystemFactory.hpp"
+#include "AgentConsolidator.hpp"
+
+#define AGENT_SYSTEMFACTORY_LOG         "filemode_test"
 
 // This is a test class
 class AgentConsolidatorTest: public testing::Test {
@@ -19,19 +21,29 @@ public:
     AgentSystem       *sys_handle;
     AgentConsolidator *cons;
 
-    void SetUp ()
+    void SetUp (void)
     {
-        logger     = new AgentServerLog;
-        sys_handle = AgentSystemFactory::createFile(logger, std::string("/Users/nitin/jvsim/logs/filemode_test"));
+        std::string agent_server_log, agent_systemfactory_log;
+        char *env_rp = std::getenv("ROOTPATH");
+        if (env_rp != NULL) {
+            // if ROOTPATH env variable is set, set default log path
+            agent_server_log = (std::string)env_rp + "/logs/" + AGENTSERVER_LOGFILE;
+            agent_systemfactory_log = (std::string)env_rp + "/logs/" + AGENT_SYSTEMFACTORY_LOG;
+        } else {
+            std::cerr << "Please setup ROOTPATH environment variable." << std::endl;
+            exit(1);
+        }
+        logger     = new AgentServerLog(agent_server_log);
+        sys_handle = AgentSystemFactory::createFile(logger, agent_systemfactory_log);
         cons       = new AgentConsolidator(sys_handle, logger);
     }
-    
-    void TearDown ()
+
+    void TearDown (void)
     {
         delete cons;
         delete logger;
     }
-    
+
     static void *create(void *);
 };
 
