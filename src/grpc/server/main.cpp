@@ -6,6 +6,7 @@
 //
 
 #include <iostream>
+#include <cstdlib>
 #include "AgentServer.h"
 #include "AgentServerCmdOptions.hpp"
 #include "AgentSystemFactory.hpp"
