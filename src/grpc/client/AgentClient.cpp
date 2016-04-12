@@ -60,8 +60,11 @@ AgentClient::print (void)
     map<const std::string, AgentClient *>::iterator itr;
 
     for (itr = active_clients.begin(); itr != active_clients.end(); itr++) {
-        std::cout << "Subscription = " << itr->second->getName() << " Active = " << itr->second->getActive() << " ID = "<< itr->second->getId() << "\n";
-        std::cout << "   ServerID  = " << itr->second->getServerId() << "(valid = " << itr->second->getServerIdValid() << ")\n";
+        std::cout << std::endl << "Subscription = " << itr->second->getName() <<
+            ", ID = "<< itr->second->getId() << " (Active = " << itr->second->getActive()
+            << ")" << std::endl;
+        std::cout << "   Server/Subscription ID  = " << itr->second->getServerId() <<
+            " (Valid = " << itr->second->getServerIdValid() << ")" << std::endl;
     }
 }
 
@@ -118,7 +121,7 @@ AgentClient::subscribeTelemetry (std::vector<std::string> path_list,
     }
 
     // Std on the terminal
-    std::cout << "Subcription Id = " << _subscription_id << std::endl;
+    std::cout << std::endl << "Received Subcription Id = " << _subscription_id << std::endl;
     for (int i = 0; i < reply.path_list_size(); i++) {
         std::cout << "Path[" << i << "]: " << reply.path_list(i).path() << std::endl;
     }
@@ -144,9 +147,8 @@ AgentClient::subscribeTelemetry (std::vector<std::string> path_list,
     }
 
     // Cleanup
-    if (getDebug()) {
-        std::cout << _subscription_id << ": Ending subscription session. Active = " << _active << "\n";
-    }
+    std::cout << "Ending subscription session for Id = " << _subscription_id << std::endl;
+
     delete logger;
     reader->Finish();
 }
@@ -154,11 +156,7 @@ AgentClient::subscribeTelemetry (std::vector<std::string> path_list,
 void
 AgentClient::cancelSubscribeTelemetry (void)
 {
-    // Log the request
-    setDebug(true);
-    if (getDebug()) {
-        std::cout << _subscription_id << ": Unsubscribe" << std::endl;
-    }
+    std::cout << std::endl << "Unsubscribe Subcription Id = " << _subscription_id << std::endl;
 
     // Break the read loop
     _active = false;
@@ -167,14 +165,14 @@ AgentClient::cancelSubscribeTelemetry (void)
     map<const std::string, AgentClient *>::iterator itr;
     itr = active_clients.find(_name);
     if (itr == active_clients.end()) {
-        std::cout << "Failed to find subscription : " << _name << std::endl;
+        std::cout << "Failed to find subscription name: " << _name << std::endl;
         return;
     }
     active_clients.erase(itr);
 
     // Do we have a valid ID from the server ?
     if (getServerIdValid() == 0) {
-        std::cout << "Failed to find Server Subscription ID" << std::endl;
+        std::cout << "Failed to find Server/Subscription Id" << std::endl;
         return;
     }
 
@@ -186,31 +184,30 @@ AgentClient::cancelSubscribeTelemetry (void)
     stub_->cancelTelemetrySubscription(&context, request, &reply);
 
     // What did the server tell us ?
-    if (getDebug()) {
-        std::cout << "Server Response : " << reply.code() << std::endl;
-        std::cout << "Server Response string : " << reply.code_str() << std::endl;
-    }
+    std::cout << "Server Response code : " << reply.code() << std::endl;
+    std::cout << "Server Response string : " << reply.code_str() << std::endl;
 }
 
 void
-AgentClient::listSubscriptions (uint32_t verbosity)
+AgentClient::listSubscriptions (u_int32_t subscription_id)
 {
-    // TODO ABBAS
-#if 0
     // Send over the list request
-    // Create a reader
-    ClientContext  context;
-         request;
-    OpenConfigData data;
-    request.set_verbosity(verbosity);
-    
-    stub_->telemetrySubscriptionsGet(&context, request, &data);
-    
-    // What did the server tell us ?
-    std::string formatted;
-    google::protobuf::TextFormat::PrintToString(data, &formatted);
-    std::cout << "Server Response : \n" << formatted << "\n";
-#endif
+    ClientContext  get_context;
+    GetSubscriptionsRequest get_request;
+    GetSubscriptionsReply get_reply;
+    get_request.set_subscription_id(subscription_id);
+    stub_->getTelemetrySubscriptions(&get_context, get_request, &get_reply);
+    // Iterate throught the list
+    for (int i = 0; i < get_reply.subscription_list_size(); i++) {
+        SubscriptionReply *sub_reply = get_reply.mutable_subscription_list(i);
+        const SubscriptionResponse &sub_response = sub_reply->response();
+        std::cout << std::endl << "[" << i << "] ---> Subscription Id = " << sub_response.subscription_id() << std::endl;
+        int path_list_size = sub_reply->path_list_size();
+        for (int lz = 0; lz < path_list_size; lz++) {
+            Telemetry::Path path = sub_reply->path_list(lz);
+            std::cout << "Path[" << lz << "]: " << path.path() << std::endl;
+        }
+    }
 }
 
 void

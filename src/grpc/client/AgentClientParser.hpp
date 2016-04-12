@@ -33,7 +33,7 @@ class CommandContext {
     int          argument_count;
     const char  *arguments[40];
     entry_t     *entry;
-    
+
 public:
     int           getArgc (void)  { return argument_count; }
     const char ** getArgv (void)  { return arguments; }
@@ -86,9 +86,9 @@ public:
         std::map<std::string, entry_t *>::iterator itr;
 
         for (itr = _grammar.begin(); itr != _grammar.end(); itr++) {
-            std::cout << itr->first << ":\n";
-            std::cout << "   " << itr->second->e_help << "\n";
-            std::cout << "   " << itr->second->e_usage << "\n\n";
+            std::cout << itr->first << ":" << std::endl;
+            std::cout << "   " << itr->second->e_help << std::endl;
+            std::cout << "   " << itr->second->e_usage << std::endl << std::endl;
         }
     }
 
@@ -102,7 +102,7 @@ public:
     int parseArg (char* cnd, const char* cmd[], char input[])
     {
         std::cout << "jvsim> ";
-        std::cin.getline(input,50);
+        std::cin.getline(input, 80);
         cnd = strtok(input, " ");
 
         int i = 0;
@@ -118,9 +118,10 @@ public:
     static void *executeCallback (void *rock)
     {
         CommandContext *context = (CommandContext *) rock;
-        
+
         context->getEntry()->e_handler(context->getArgc(), context->getArgv());
         delete context;
+
         return NULL;
     }
 
@@ -129,13 +130,13 @@ public:
         // Find the command
         entry_t *e = lookupCmd(argv[0]);
         if (!e) {
-            std::cout << "Unrecognised command\n";
+            std::cout << "Unrecognised command" << std::endl;
             return;
         }
 
         // Does the argument count match
         if (argc < e->e_argc) {
-            std::cout << "Missing arguments:Usage:" << e->e_help << "\n";
+            std::cout << "Missing arguments:Usage:" << e->e_help << std::endl;
             return;
         }
 
@@ -169,7 +170,7 @@ public:
             }
 
             // Are we done ?
-            if(strcmp(cmd[0], "exit") == 0 || strcmp(cmd[0], "quit") == 0 ) {
+            if (strcmp(cmd[0], "exit") == 0 || strcmp(cmd[0], "quit") == 0 ) {
                 break;
             }
             execute(argc, cmd);

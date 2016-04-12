@@ -23,6 +23,13 @@ handle_subscribe (int argc, const char *argv[])
     std::string client_name(argv[1]);
     AgentClient *client;
 
+    // Find this client
+    client = AgentClient::find(client_name);
+    if (client != NULL) {
+        std::cout << "Client already exist: " << client_name << std::endl;
+        return;
+    }
+
     // Create a client
     client = AgentClient::create(grpc::CreateChannel("localhost:50051", grpc::InsecureCredentials()),
                                  client_name,
@@ -118,7 +125,7 @@ handle_unsubscribe (int argc, const char *argv[])
     // Find this client
     client = AgentClient::find(client_name);
     if (!client) {
-        std::cout << "Failed to find client:" << client_name << "\n";
+        std::cout << "Failed to find client: " << client_name << std::endl;
         return;
     }
 
@@ -130,6 +137,14 @@ void
 handle_print (int argc, const char *argv[])
 {
     AgentClient::print();
+}
+
+
+void
+handle_list_all (int argc, const char *argv[])
+{
+    AgentClient *mgmt = AgentClient::find(AGENTCLIENT_MGMT);
+    mgmt->listSubscriptions(0xFFFFFFFF);
 }
 
 void
@@ -216,16 +231,24 @@ entry_t agent_client_commands [] = {
     {
         .e_cmd     = std::string("unsubscribe"),
         .e_argc    = 2,
-        .e_help    = std::string("Unsubscribe from an existing request by specifying the subscription ID"),
+        .e_help    = std::string("Unsubscribe an existing request by specifying the subscription name"),
         .e_usage   = std::string("unsubscribe <subscription-name>"),
         .e_handler = handle_unsubscribe
     },
 
     {
-        .e_cmd     = std::string("list"),
+        .e_cmd     = std::string("list-all"),
         .e_argc    = 1,
         .e_help    = std::string("Get all active subscriptions from the server"),
-        .e_usage   = std::string("list <verbosity>*"),
+        .e_usage   = std::string("list-all"),
+        .e_handler = handle_list_all
+    },
+
+    {
+        .e_cmd     = std::string("list"),
+        .e_argc    = 2,
+        .e_help    = std::string("Get subscription id details from the server"),
+        .e_usage   = std::string("list <subscription-id>"),
         .e_handler = handle_list
     },
 
@@ -241,7 +264,7 @@ entry_t agent_client_commands [] = {
         .e_cmd     = std::string("print"),
         .e_argc    = 1,
         .e_help    = std::string("Print all subscriptions known to the client"),
-        .e_usage   = std::string("subscribe <subscription-name> <path>+"),
+        .e_usage   = std::string("print"),
         .e_handler = handle_print
     },
 
