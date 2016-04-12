@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include "OpenConfig.hpp"
 #include "jvision_top.pb.h"
-#include "npu_util.pb.h"
+#include "npu_utilization.pb.h"
 
 class OpenConfigNPU_Utilization : public OpenConfig {
 public:

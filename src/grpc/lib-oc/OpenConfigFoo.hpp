@@ -21,7 +21,7 @@ public:
         OpenConfig::registerSelf("FooStr", this);
     }
     
-    void   iterate (JuniperNetworksSensors *handle, agent::OpenConfigData *datap);
+    void   iterate (JuniperNetworksSensors *handle, Telemetry::OpenConfigData *datap);
 };
 
 #endif /* OpenConfigFoo_hpp */

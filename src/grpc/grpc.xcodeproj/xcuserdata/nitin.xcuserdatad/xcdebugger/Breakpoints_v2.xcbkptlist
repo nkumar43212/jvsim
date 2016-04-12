@@ -31,7 +31,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "58"
             endingLineNumber = "58"
-            landmarkName = "AgentServer::telemetrySubscribe (ServerContext *context, const SubscriptionRequest *args, ServerWriter&lt;OpenConfigData&gt;* writer)"
+            landmarkName = "AgentServer::telemetrySubscribe (ServerContext *context, const SubscriptionRequest *request, ServerWriter&lt;OpenConfigData&gt;* writer)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -63,7 +63,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "35"
             endingLineNumber = "35"
-            landmarkName = "AgentServer::telemetrySubscribe (ServerContext *context, const SubscriptionRequest *args, ServerWriter&lt;OpenConfigData&gt;* writer)"
+            landmarkName = "AgentServer::telemetrySubscribe (ServerContext *context, const SubscriptionRequest *request, ServerWriter&lt;OpenConfigData&gt;* writer)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -223,7 +223,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "34"
             endingLineNumber = "34"
-            landmarkName = "AgentServer::telemetrySubscribe (ServerContext *context, const SubscriptionRequest *args, ServerWriter&lt;OpenConfigData&gt;* writer)"
+            landmarkName = "AgentServer::telemetrySubscribe (ServerContext *context, const SubscriptionRequest *request, ServerWriter&lt;OpenConfigData&gt;* writer)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -239,7 +239,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "106"
             endingLineNumber = "106"
-            landmarkName = "AgentServer::telemetryUnSubscribe (ServerContext *context, const agent::UnSubscribeRequest *args, Reply *reply)"
+            landmarkName = "AgentServer::telemetrySubscribe (ServerContext *context, const SubscriptionRequest *request, ServerWriter&lt;OpenConfigData&gt;* writer)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
