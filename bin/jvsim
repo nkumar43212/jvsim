@@ -99,7 +99,7 @@ export PYTHONPATH=$PYTHON_PATH
 
 #Start the mosquitto broker
 MQTTCONFIG="$CONFIG/mosquitto.conf"
-echo "log_dest file $MQTTLOG" > $MQTTCONFIG
+# echo "log_dest file $MQTTLOG" > $MQTTCONFIG
 $MQTTBIN -v -c $MQTTCONFIG -d
 echo "---- Mosquitto        : $MQTTBIN"
 sleep 1
