@@ -12,7 +12,7 @@
 void
 OpenConfigNPU_Utilization::iterate (JuniperNetworksSensors *handle, Telemetry::OpenConfigData *datap)
 {
-    NetworkProcessorUtilization *message = handle->MutableExtension(jnpr_npu_util_ext);
+    NetworkProcessorUtilization *message = handle->MutableExtension(jnpr_npu_utilization_ext);
     int i;
     Telemetry::KeyValue *kv;
     
