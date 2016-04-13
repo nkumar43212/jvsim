@@ -52,6 +52,31 @@ handle_subscribe (int argc, const char *argv[])
     client->subscribeTelemetry(path_list, sample_frequency);
 }
 
+void
+handle_subscribe_limits (int argc, const char *argv[])
+{
+    std::string client_name(argv[1]);
+    AgentClient *client;
+
+    // Create a client
+    client = AgentClient::create(grpc::CreateChannel("localhost:50051", grpc::InsecureCredentials()),
+                                 client_name, global_id++, parser->getLogDir());
+
+    // Sample Frequency
+    uint32_t sample_frequency = atoi(argv[2]);
+    // uint32_t
+
+    // collect the list of paths
+    std::vector<std::string> path_list;
+    for (int i = 3; argv[i]; i++) {
+        path_list.push_back(argv[i]);
+    }
+
+    client->setDebug(true);
+    client->subscribeTelemetry(path_list, sample_frequency, 10, 10);
+}
+
+
 void *
 proc (void *args)
 {
@@ -102,30 +127,6 @@ handle_subscribe_multiple (int argc, const char *argv[])
 }
 
 void
-handle_subscribe_limits (int argc, const char *argv[])
-{
-    std::string client_name(argv[1]);
-    AgentClient *client;
-
-    // Create a client
-    client = AgentClient::create(grpc::CreateChannel("localhost:50051", grpc::InsecureCredentials()),
-                                 client_name, global_id++, parser->getLogDir());
-
-    // Sample Frequency
-    uint32_t sample_frequency = atoi(argv[2]);
-    // uint32_t
-
-    // collect the list of paths
-    std::vector<std::string> path_list;
-    for (int i = 3; argv[i]; i++) {
-        path_list.push_back(argv[i]);
-    }
-
-    client->setDebug(true);
-    client->subscribeTelemetry(path_list, sample_frequency, 10, 10);
-}
-
-void
 handle_unsubscribe (int argc, const char *argv[])
 {
     std::string client_name((const char *) argv[1]);
@@ -146,13 +147,6 @@ handle_unsubscribe (int argc, const char *argv[])
     client->cancelSubscribeTelemetry();
     delete client;
 }
-
-void
-handle_print (int argc, const char *argv[])
-{
-    AgentClient::print();
-}
-
 
 void
 handle_list_all (int argc, const char *argv[])
@@ -220,6 +214,12 @@ handle_get_oper_mgmt (int argc, const char *argv[])
     }
     AgentClient *mgmt = AgentClient::find(AGENTCLIENT_MGMT);
     mgmt->getOperational(0, verbosity);
+}
+
+void
+handle_print (int argc, const char *argv[])
+{
+    AgentClient::print();
 }
 
 void
