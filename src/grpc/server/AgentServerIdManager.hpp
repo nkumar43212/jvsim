@@ -13,7 +13,7 @@
 #include <bitset>
 #include <unistd.h>
 
-typedef u_int32_t id_idx_t;
+typedef uint32_t id_idx_t;
 
 #define ID_SPACE_SIZE 64
 

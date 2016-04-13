@@ -79,7 +79,7 @@ proc (void *args)
 void
 handle_subscribe_multiple (int argc, const char *argv[])
 {
-    uint32_t       count = atoi(argv[1]);
+    uint32_t      count = atoi(argv[1]);
     pthread_t     *tid;
     CommandContext context(argc, argv, NULL);
 
@@ -112,6 +112,7 @@ handle_subscribe_limits (int argc, const char *argv[])
 
     // Sample Frequency
     uint32_t sample_frequency = atoi(argv[2]);
+    // uint32_t
 
     // collect the list of paths
     std::vector<std::string> path_list;
@@ -126,9 +127,9 @@ handle_subscribe_limits (int argc, const char *argv[])
 void
 handle_unsubscribe (int argc, const char *argv[])
 {
-    AgentClient *client;
     std::string client_name((const char *) argv[1]);
-    
+    AgentClient *client;
+
     if (strcmp(argv[1], AGENTCLIENT_MGMT) == 0) {
         std::cout << AGENTCLIENT_MGMT << " cannot be deleted" << std::endl;
         return;
@@ -185,8 +186,7 @@ handle_get_oper_all (int argc, const char *argv[])
 void
 handle_get_oper (int argc, const char *argv[])
 {
-    u_int32_t subscription_id;
-    subscription_id = (argv[1] ? atoi(argv[1]) : 0);
+    uint32_t subscription_id = (argv[1] ? atoi(argv[1]) : 0);
     if (subscription_id == 0) {
         std::cout << "Invalid Subscription id = 0" << std::endl;
         return;
@@ -263,9 +263,9 @@ entry_t agent_client_commands [] = {
 
     {
         .e_cmd     = std::string("subscribe_limits"),
-        .e_argc    = 4,
-        .e_help    = std::string("Subscribe with a limit to the session"),
-        .e_usage   = std::string("subscribe_limits <subscription-name> <sample-frequency> <path>+"),
+        .e_argc    = 6,
+        .e_help    = std::string("Subscribe with record and second limits to the session"),
+        .e_usage   = std::string("subscribe_limits <subscription-name> <sample-frequency> <record-limit> <second-limit> <path>+"),
         .e_handler = handle_subscribe_limits
     },
 
@@ -359,4 +359,4 @@ entry_t agent_client_commands [] = {
 
 };
 
-u_int32_t agent_client_commands_count = sizeof(agent_client_commands)/sizeof(entry_t);
+uint32_t agent_client_commands_count = sizeof(agent_client_commands)/sizeof(entry_t);

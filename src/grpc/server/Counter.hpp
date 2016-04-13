@@ -81,11 +81,11 @@ public:
     }
     
     // Accessors
-    uint64_t getPackets ()     { return _packets;       }
-    uint64_t getBytes ()       { return _bytes;         }
-    uint64_t getPacketRate()   { return _packet_rate;   }
-    uint64_t getByteRate()     { return _byte_rate;     }
-    uint32_t getRateInterval() { return _rate_scan_interval; }
+    uint64_t getPackets (void)       { return _packets;       }
+    uint64_t getBytes (void)         { return _bytes;         }
+    uint64_t getPacketRate (void)    { return _packet_rate;   }
+    uint64_t getByteRate (void)      { return _byte_rate;     }
+    uint32_t getRateInterval (void)  { return _rate_scan_interval; }
     
     void increment (uint64_t n, uint64_t size)
     {
@@ -98,7 +98,7 @@ public:
         if ((_packets < n) || (_bytes < size)) {
             return;
         }
-        
+
         _packets -= n;
         _bytes -= size;
     }

@@ -198,7 +198,7 @@ AgentClient::cancelSubscribeTelemetry (void)
 }
 
 void
-AgentClient::listSubscriptions (u_int32_t subscription_id)
+AgentClient::listSubscriptions (uint32_t subscription_id)
 {
     // Send over the list request
     ClientContext  get_context;
@@ -220,7 +220,7 @@ AgentClient::listSubscriptions (u_int32_t subscription_id)
 }
 
 void
-AgentClient::getOperational (u_int32_t subscription_id, Telemetry::VerbosityLevel verbosity)
+AgentClient::getOperational (uint32_t subscription_id, Telemetry::VerbosityLevel verbosity)
 {
     ClientContext  context;
     GetOperationalStateRequest  operational_request;

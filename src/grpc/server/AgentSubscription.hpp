@@ -43,9 +43,9 @@ class AgentSubscription : public MessageBus {
     AgentConsolidatorHandle *_system_subscription;
 
     // Misc subscription statistics
-    uint64_t       _oc_lookup_failures;
-    uint64_t       _stream_alloc_failures;
-    uint64_t       _stream_parse_failures;
+    uint64_t      _oc_lookup_failures;
+    uint64_t      _stream_alloc_failures;
+    uint64_t      _stream_parse_failures;
 
     // Current state of subscription
     bool          _active;
