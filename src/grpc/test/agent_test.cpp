@@ -211,86 +211,6 @@ TEST_F(AgentClientTest, list) {
     EXPECT_STREQ(expected_str, code_str);
 }
 
-#if 0 /* TODO ABBAS will add later */
-TEST_F(AgentClientTest, get) {
-    AgentClient *client;
-    
-    // Create the test client
-    std::string mgmt_client_name(AGENTCLIENT_MGMT);
-    client = AgentClient::create(grpc::CreateChannel("localhost:50051", grpc::InsecureCredentials()),
-                                 mgmt_client_name, 0, CLIENT_LOGDIR);
-    EXPECT_TRUE(client != NULL);
-    EXPECT_TRUE(client->stub_ != NULL);
-    
-    // Create a request
-    SubscriptionRequest request;
-    Path *path;
-    path = request.add_path_list();
-    path->set_path("firewall");
-    path->set_sample_frequency(10);
-    SubscriptionAdditionalConfig *add_config = request.mutable_additional_config();
-    add_config->set_limit_records(1);
-    
-    // Create a reader
-    ClientContext context;
-    uint32_t subscription_id;
-    std::multimap<grpc::string_ref, grpc::string_ref> server_metadata;
-    std::multimap<grpc::string_ref, grpc::string_ref>::iterator metadata_itr;
-    std::unique_ptr<AgentClientReader> reader(client->stub_->telemetrySubscribe(&context, request));
-    reader->WaitForInitialMetadata();
-    server_metadata = context.GetServerInitialMetadata();
-    metadata_itr = server_metadata.find("init-response");
-    EXPECT_TRUE(metadata_itr != server_metadata.end());
-    std::string tmp = metadata_itr->second.data();
-    // Use Textformat Printer APIs to convert to right format
-    // std::cout << "Data received = " << tmp << std::endl;
-    google::protobuf::TextFormat::Parser parser;
-    SubscriptionReply reply;
-    SubscriptionResponse *response;
-    parser.ParseFromString(tmp, &reply);
-    response = reply.mutable_response();
-    subscription_id = response->subscription_id();
-    EXPECT_TRUE(subscription_id != 0);
-    OpenConfigData kv;
-    while (reader->Read(&kv)) {
-    }
-    reader->Finish();
-    
-    // Create a reader
-    ClientContext  get_context;
-    GetOperationalStateRequest oper_request;
-    GetOperationalStateReply oper_reply;
-    
-    oper_request.set_subscription_id(subscription_id);
-    oper_request.set_verbosity(Telemetry::VerbosityLevel::DETAIL);
-    client->stub_->getTelemetryOperationalState(&get_context, oper_request, &oper_reply);
-
-    // Verify that all the interesting fields came back
-    bool found = false;
-    // TODO ABBAS FIXME
-    found = true;
-    for (int i = 0; i < data.kv_size(); i++) {
-        Telemetry::KeyValue kv = data.kv(i);
-        if (kv.key() == std::string("total_message_count")) {
-            found = true;
-        }
-    }
-    EXPECT_TRUE(found);
-
-    // Unsubscribe
-    ClientContext context_cancel;
-    CancelSubscriptionRequest cancel_request;
-    CancelSubscriptionReply cancel_reply;
-    cancel_request.set_subscription_id(subscription_id);
-    client->stub_->cancelTelemetrySubscription(&context_cancel, cancel_request, &cancel_reply);
-    EXPECT_TRUE(cancel_reply.code() == Telemetry::SUCCESS);
-    const char * code_str = cancel_reply.code_str().c_str();
-    std::string expected = "Subscription Successfully Deleted";
-    const char * expected_str = expected.c_str();
-    EXPECT_STREQ(expected_str, code_str);
-}
-#endif
-
 #define MAX_SUBS 10
 #define MAX_RECS 100
 TEST_F(AgentClientTest, multiple_subscribe) {
@@ -409,6 +329,119 @@ TEST_F(AgentClientTest, verify_multiple_subscribe) {
     get_request_2.set_subscription_id(0xFFFFFFFF);
     mgmt_client->stub_->getTelemetrySubscriptions(&get_context_2, get_request_2, &get_reply_2);
     EXPECT_TRUE(get_reply_2.subscription_list_size() == 0);
+}
+
+#define OPER_SUB    5
+TEST_F(AgentClientTest, get_oper_all) {
+    int n = OPER_SUB;
+    Telemetry::OpenConfigData *data[MAX_SUBS];
+    TestArgs              *args[MAX_SUBS];
+    pthread_t              tid[MAX_SUBS];
+    AgentClient           *mgmt_client;
+    
+    // Create the test client
+    std::string mgmt_client_name(AGENTCLIENT_MGMT);
+    mgmt_client = AgentClient::create(grpc::CreateChannel("localhost:50051", grpc::InsecureCredentials()),
+                                      mgmt_client_name, 0, CLIENT_LOGDIR);
+    EXPECT_TRUE(mgmt_client != NULL);
+    EXPECT_TRUE(mgmt_client->stub_ != NULL);
+    
+    // Spawn the N subscribers
+    for (int i = 0; i < n; i++) {
+        data[i] = new Telemetry::OpenConfigData[MAX_RECS];
+        args[i] = new TestArgs(i, data[i], MAX_RECS, CLIENT_LOGDIR);
+        args[i]->limit_record = 50000;
+        pthread_create(&tid[i], NULL, AgentClientTest::create_subscriptions, (void *)(args[i]));
+    }
+    
+    // Sleep a random time till all clients are created
+    sleep(5);
+    
+    // Check whether all subscriptions exist ?
+    ClientContext  get_context;
+    GetSubscriptionsRequest get_request;
+    GetSubscriptionsReply get_reply;
+    get_request.set_subscription_id(0xFFFFFFFF);
+    mgmt_client->stub_->getTelemetrySubscriptions(&get_context, get_request, &get_reply);
+    EXPECT_TRUE(get_reply.subscription_list_size() == n);
+    for (int sub = 0; sub < n; sub++) {
+        bool found = false;
+        // Iterate throught the list again ... that's OK for now
+        for (int i = 0; i < get_reply.subscription_list_size(); i++) {
+            SubscriptionReply *sub_reply = get_reply.mutable_subscription_list(i);
+            if (sub_reply->response().subscription_id() == args[sub]->subscription_id) {
+                found = true;
+                int path_list_size = sub_reply->path_list_size();
+                for (int lz = 0; lz < path_list_size; lz++) {
+                    Telemetry::Path path = sub_reply->path_list(lz);
+                    EXPECT_STREQ("firewall", path.path().c_str());
+                }
+                break;
+            }
+        }
+        EXPECT_TRUE(found);
+    }
+
+    // Operational state
+    ClientContext  operational_context;
+    GetOperationalStateRequest  operational_request;
+    GetOperationalStateReply operational_reply;
+    operational_request.set_subscription_id(0xFFFFFFFF);
+    operational_request.set_verbosity(Telemetry::VerbosityLevel::DETAIL);
+    mgmt_client->stub_->getTelemetryOperationalState(&operational_context, operational_request, &operational_reply);
+
+    Telemetry::KeyValue *kv;
+    std::string subscription_id_str("subscription_id");
+    std::string total_subscriptions_str("total_subscriptions");
+    std::string total_message_str("total_message_count");
+    // std::string agent_stats_str("agent-stats");
+    // std::string begin_str("begin");
+    int64_t subscription_count = 0, total_subscriptions = 0;
+    bool found = false;
+    for (int lz = 0; lz < operational_reply.kv_size(); lz++) {
+        kv = operational_reply.mutable_kv(lz);
+        if (kv->key() == subscription_id_str) {
+            subscription_count += 1;
+        }
+        if (kv->key() == total_subscriptions_str) {
+            total_subscriptions = kv->int_value();
+        }
+        if (kv->key() == total_message_str) {
+            found = true;
+        }
+    }
+    EXPECT_TRUE(subscription_count == n);
+    EXPECT_TRUE(total_subscriptions == n);
+    EXPECT_TRUE(found);
+
+    // Now unsubscribe
+    for (int i = 0; i < n; i++) {
+        AgentClientTest::delete_subscriptions((void *) args[i]);
+    }
+    
+    // Reader finish must have automatically terminated all clients. Verify the same.
+    // Check whether all subscriptions exist ?
+    ClientContext  get_context_2;
+    GetSubscriptionsRequest get_request_2;
+    GetSubscriptionsReply get_reply_2;
+    get_request_2.set_subscription_id(0xFFFFFFFF);
+    mgmt_client->stub_->getTelemetrySubscriptions(&get_context_2, get_request_2, &get_reply_2);
+    EXPECT_TRUE(get_reply_2.subscription_list_size() == 0);
+    
+#if 0
+    // Verify that all the interesting fields came back
+    bool found = false;
+    // TODO ABBAS FIXME
+    found = true;
+    for (int i = 0; i < data.kv_size(); i++) {
+        Telemetry::KeyValue kv = data.kv(i);
+        if (kv.key() == std::string("total_message_count")) {
+            found = true;
+        }
+    }
+    EXPECT_TRUE(found);
+    
+#endif
 }
 
 TEST_F(AgentClientTest, encoding) {

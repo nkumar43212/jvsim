@@ -219,22 +219,22 @@ AgentClient::getOperational (uint32_t subscription_id, Telemetry::VerbosityLevel
     GetOperationalStateRequest  operational_request;
     GetOperationalStateReply operational_reply;
     Telemetry::KeyValue *kv;
-    char subscription_id_str[] = "subscription_id";
-    char agent_stats_str[] = "agent-stats";
-    char begin_str[] = "begin";
+    std::string subscription_id_str("subscription_id");
+    std::string agent_stats_str("agent-stats");
+    std::string begin_str("begin");
 
     operational_request.set_subscription_id(subscription_id);
     operational_request.set_verbosity(verbosity);
     stub_->getTelemetryOperationalState(&context, operational_request, &operational_reply);
-    
+
     for (int lz = 0; lz < operational_reply.kv_size(); lz++) {
         kv = operational_reply.mutable_kv(lz);
         // Print efficiently
-        if (strcmp(subscription_id_str, kv->key().c_str()) == 0) {
+        if (kv->key() == subscription_id_str) {
             std::cout << std::endl;
         }
-        if ((strcmp(agent_stats_str, kv->key().c_str()) == 0)) {
-            if (strcmp(begin_str, kv->str_value().c_str()) == 0) {
+        if (kv->key() == agent_stats_str) {
+            if (kv->str_value() == begin_str) {
                 std::cout << std::endl;
             }
         }
