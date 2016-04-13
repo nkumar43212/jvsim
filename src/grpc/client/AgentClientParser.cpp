@@ -17,6 +17,9 @@ uint32_t global_id;
 // The global parser object
 extern AgentParser *parser;
 
+// Id for multiple subscription
+std::atomic_int some_id(0);
+
 void
 handle_subscribe (int argc, const char *argv[])
 {
@@ -53,7 +56,6 @@ proc (void *args)
 {
     CommandContext *context = (CommandContext *) args;
     const char **argv = context->getArgv();
-    static uint64_t some_id = 0;
     std::string client_name(argv[2] + std::to_string(some_id++));
     AgentClient *client;
 
@@ -86,6 +88,11 @@ handle_subscribe_multiple (int argc, const char *argv[])
     for (int i = 0; i < count; i++) {
         pthread_create(&tid[i], NULL, proc, (void *) &context);
     }
+
+    // Give few mins to subscribe all
+    sleep(5);
+    // Reset id
+    some_id.store(0);
 
     // Wait for them to finish
     for (int i = 0; i < count; i++) {
@@ -121,6 +128,11 @@ handle_unsubscribe (int argc, const char *argv[])
 {
     AgentClient *client;
     std::string client_name((const char *) argv[1]);
+    
+    if (strcmp(argv[1], AGENTCLIENT_MGMT) == 0) {
+        std::cout << AGENTCLIENT_MGMT << " cannot be deleted" << std::endl;
+        return;
+    }
 
     // Find this client
     client = AgentClient::find(client_name);

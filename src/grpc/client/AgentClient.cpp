@@ -17,6 +17,7 @@
 // List of active clients
 using std::map;
 map<const std::string, AgentClient *> active_clients;
+std::mutex _client_mutex;
 
 // Location of logs
 std::string AGENTCLIENT_LOG_DIR;
@@ -27,6 +28,9 @@ AgentClient::create (std::shared_ptr<Channel> channel,
                      uint32_t id,
                      const std::string &logfile_dir)
 {
+    // Grab the lock
+    std::lock_guard<std::mutex> guard(_client_mutex);
+
     // Create a client
     AgentClient *client = new AgentClient(channel, name, id, logfile_dir);
     active_clients[name] = client;
@@ -36,6 +40,9 @@ AgentClient::create (std::shared_ptr<Channel> channel,
 AgentClient::~AgentClient (void)
 {
     map<const std::string, AgentClient *>::iterator itr;
+
+    // Grab the lock
+    std::lock_guard<std::mutex> guard(_client_mutex);
 
     itr = active_clients.find(_name);
     if (itr != active_clients.end()) {
