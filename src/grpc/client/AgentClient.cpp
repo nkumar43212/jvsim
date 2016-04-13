@@ -167,18 +167,6 @@ AgentClient::cancelSubscribeTelemetry (void)
 {
     std::cout << std::endl << "Unsubscribe Subcription Id = " << _subscription_id << std::endl;
 
-    // Break the read loop
-    _active = false;
-
-    // Remove the list
-    map<const std::string, AgentClient *>::iterator itr;
-    itr = active_clients.find(_name);
-    if (itr == active_clients.end()) {
-        std::cout << "Failed to find subscription name: " << _name << std::endl;
-        return;
-    }
-    active_clients.erase(itr);
-
     // Do we have a valid ID from the server ?
     if (getServerIdValid() == 0) {
         std::cout << "Failed to find Server/Subscription Id" << std::endl;
@@ -195,6 +183,11 @@ AgentClient::cancelSubscribeTelemetry (void)
     // What did the server tell us ?
     std::cout << "Server Response code : " << reply.code() << std::endl;
     std::cout << "Server Response string : " << reply.code_str() << std::endl;
+
+    if (reply.code() == Telemetry::SUCCESS) {
+        // Break the read loop
+        _active = false;
+    }
 }
 
 void

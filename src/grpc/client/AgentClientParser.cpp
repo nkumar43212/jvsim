@@ -50,6 +50,7 @@ handle_subscribe (int argc, const char *argv[])
     }
 
     client->subscribeTelemetry(path_list, sample_frequency);
+    delete client;
 }
 
 void
@@ -58,22 +59,30 @@ handle_subscribe_limits (int argc, const char *argv[])
     std::string client_name(argv[1]);
     AgentClient *client;
 
+    // Find this client
+    client = AgentClient::find(client_name);
+    if (client != NULL) {
+        std::cout << "Client already exist: " << client_name << std::endl;
+        return;
+    }
+
     // Create a client
     client = AgentClient::create(grpc::CreateChannel("localhost:50051", grpc::InsecureCredentials()),
                                  client_name, global_id++, parser->getLogDir());
 
     // Sample Frequency
     uint32_t sample_frequency = atoi(argv[2]);
-    // uint32_t
+    uint32_t limit_records = atoi(argv[3]);
+    uint32_t limit_seconds = atoi(argv[4]);
 
     // collect the list of paths
     std::vector<std::string> path_list;
-    for (int i = 3; argv[i]; i++) {
+    for (int i = 5; argv[i]; i++) {
         path_list.push_back(argv[i]);
     }
 
-    client->setDebug(true);
-    client->subscribeTelemetry(path_list, sample_frequency, 10, 10);
+    client->subscribeTelemetry(path_list, sample_frequency, limit_records, limit_seconds);
+    delete client;
 }
 
 
@@ -84,6 +93,13 @@ proc (void *args)
     const char **argv = context->getArgv();
     std::string client_name(argv[2] + std::to_string(some_id++));
     AgentClient *client;
+
+    // Find this client
+    client = AgentClient::find(client_name);
+    if (client != NULL) {
+        std::cout << "Client already exist: " << client_name << std::endl;
+        return NULL;
+    }
 
     // Create a client
     client = AgentClient::create(grpc::CreateChannel("localhost:50051", grpc::InsecureCredentials()),
@@ -99,6 +115,7 @@ proc (void *args)
     }
 
     client->subscribeTelemetry(path_list, sample_frequency);
+    delete client;
     return NULL;
 }
 
@@ -145,7 +162,7 @@ handle_unsubscribe (int argc, const char *argv[])
     }
 
     client->cancelSubscribeTelemetry();
-    delete client;
+    // Leave the delete of client in the subscription thread
 }
 
 void

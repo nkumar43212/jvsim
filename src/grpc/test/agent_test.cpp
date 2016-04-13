@@ -141,7 +141,7 @@ TEST_F(AgentClientTest, list) {
     AgentClient *client;
 
     // Create the test client
-    std::string mgmt_client_name("client-list");
+    std::string mgmt_client_name(AGENTCLIENT_MGMT);
     client = AgentClient::create(grpc::CreateChannel("localhost:50051", grpc::InsecureCredentials()),
                                  mgmt_client_name, 0, CLIENT_LOGDIR);
     EXPECT_TRUE(client != NULL);
@@ -216,7 +216,7 @@ TEST_F(AgentClientTest, get) {
     AgentClient *client;
     
     // Create the test client
-    std::string mgmt_client_name("client-list");
+    std::string mgmt_client_name(AGENTCLIENT_MGMT);
     client = AgentClient::create(grpc::CreateChannel("localhost:50051", grpc::InsecureCredentials()),
                                  mgmt_client_name, 0, CLIENT_LOGDIR);
     EXPECT_TRUE(client != NULL);
@@ -415,7 +415,7 @@ TEST_F(AgentClientTest, encoding) {
     AgentClient *client;
     
     // Create the test client
-    std::string mgmt_client_name("client-list");
+    std::string mgmt_client_name(AGENTCLIENT_MGMT);
     client = AgentClient::create(grpc::CreateChannel("localhost:50051", grpc::InsecureCredentials()),
                                  mgmt_client_name, 0, CLIENT_LOGDIR);
     EXPECT_TRUE(client != NULL);
