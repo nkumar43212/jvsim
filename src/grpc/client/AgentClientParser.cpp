@@ -7,6 +7,7 @@
 //
 
 #include <unistd.h>
+#include <atomic>
 #include "AgentClient.hpp"
 #include "AgentClientParser.hpp"
 #include "AgentClientLag.hpp"
