@@ -43,9 +43,9 @@ class AgentSubscription : public MessageBus {
     AgentConsolidatorHandle *_system_subscription;
 
     // Misc subscription statistics
-    uint64_t       _oc_lookup_failures;
-    uint64_t       _stream_alloc_failures;
-    uint64_t       _stream_parse_failures;
+    uint64_t      _oc_lookup_failures;
+    uint64_t      _stream_alloc_failures;
+    uint64_t      _stream_parse_failures;
 
     // Current state of subscription
     bool          _active;
@@ -161,27 +161,27 @@ public:
         _active = value;
     }
     
-    void getOperational (OpenConfigData *datap, uint32_t verbosity = 0)
+    void getOperational (GetOperationalStateReply* operational_reply, Telemetry::VerbosityLevel verbosity)
     {
         // Get stats from the message bus interface
-        MessageBus::getOperational(datap, verbosity);
+        MessageBus::getOperational(operational_reply, verbosity);
 
         // If verbose mose is not set, we are done
-        if (!verbosity) {
+        if (verbosity == Telemetry::VerbosityLevel::TERSE) {
             return;
         }
 
         // Failures
-        KeyValue *kv;
-        kv = datap->add_kv();
+        Telemetry::KeyValue *kv;
+        kv = operational_reply->add_kv();
         kv->set_key("translation_failures");
         kv->set_int_value(_oc_lookup_failures);
-        
-        kv = datap->add_kv();
+
+        kv = operational_reply->add_kv();
         kv->set_key("stream_open_failures");
         kv->set_int_value(_stream_alloc_failures);
-        
-        kv = datap->add_kv();
+
+        kv = operational_reply->add_kv();
         kv->set_key("stream_parse_failures");
         kv->set_int_value(_stream_parse_failures);
     }

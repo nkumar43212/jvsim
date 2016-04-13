@@ -97,8 +97,8 @@ public:
                             uint32_t sample_frequency,
                             uint32_t limit_records = 0, uint32_t limit_seconds = 0);
     void cancelSubscribeTelemetry(void);
-    void listSubscriptions(uint32_t verbosity);
-    void getOperational(uint32_t verbosity);
+    void listSubscriptions(uint32_t subscription_id);
+    void getOperational(uint32_t subscription_id, Telemetry::VerbosityLevel verbosity);
 
     void errorMsg (std::string err_str, Status code)
     {

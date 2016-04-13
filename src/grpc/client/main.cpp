@@ -42,6 +42,7 @@ int main(int argc, const char * argv[])
     struct stat sb;
     if (!(stat(logfile_dir.c_str(), &sb) == 0 && S_ISDIR(sb.st_mode))) {
         std::cout << "Either ROOTPATH set or argument passed is not a valid directory = " << logfile_dir << std::endl;
+        exit(0);
     }
 
     // A well known Management Client

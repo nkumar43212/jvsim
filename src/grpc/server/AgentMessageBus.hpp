@@ -77,55 +77,55 @@ public:
         }
     }
     
-    void getOperational (Telemetry::OpenConfigData *datap, uint32_t verbosity = 0)
+    void getOperational (GetOperationalStateReply* operational_reply, Telemetry::VerbosityLevel verbosity)
     {
         Telemetry::KeyValue *kv;
-        
+
         // Total Message Count
-        kv = datap->add_kv();
+        kv = operational_reply->add_kv();
         kv->set_key("total_message_count");
         kv->set_int_value(messages.getPackets());
-        kv = datap->add_kv();
+        kv = operational_reply->add_kv();
         kv->set_key("total_message_count_rate");
         kv->set_int_value(messages.getPacketRate());
-        
-        kv = datap->add_kv();
+
+        kv = operational_reply->add_kv();
         kv->set_key("total_message_bytes");
         kv->set_int_value(messages.getBytes());
-        kv = datap->add_kv();
+        kv = operational_reply->add_kv();
         kv->set_key("total_message_byte_rate");
         kv->set_int_value(messages.getByteRate());
-        
+
         // Continue only if verbose output is desired
-        if (!verbosity) {
+        if (verbosity == Telemetry::VerbosityLevel::TERSE) {
             return;
         }
-        
+
         // Broker Connections
-        kv = datap->add_kv();
+        kv = operational_reply->add_kv();
         kv->set_key("message_bus_connects");
         kv->set_int_value(stats_connect);
-        
-        kv = datap->add_kv();
+
+        kv = operational_reply->add_kv();
         kv->set_key("message_bus_disconnects");
         kv->set_int_value(stats_disconnect);
-        
-        
+
         // All topic subscriptions
         for (std::map<const std::string, Counter>::iterator itr = stats_topics.begin();
              itr != stats_topics.end(); itr++) {
-            kv = datap->add_kv();
+            kv = operational_reply->add_kv();
             kv->set_key("packets:xpath:" + itr->first);
             kv->set_int_value(itr->second.getPackets());
-            
+
+            kv = operational_reply->add_kv();
             kv->set_key("packet_rates:xpath:" + itr->first);
             kv->set_int_value(itr->second.getPacketRate());
-      
-            kv = datap->add_kv();
+
+            kv = operational_reply->add_kv();
             kv->set_key("bytes:xpath:" + itr->first);
             kv->set_int_value(itr->second.getBytes());
-            
-            kv = datap->add_kv();
+
+            kv = operational_reply->add_kv();
             kv->set_key("byte_rates:xpath:" + itr->first);
             kv->set_int_value(itr->second.getByteRate());
         }
@@ -141,17 +141,16 @@ class MessageBus : public Mqtt {
         connect("127.0.0.1");
         loop_start();
     }
-    
+
     void Subscribe (const std::string resource)
     {
         subscribe(0, resource.c_str());
     }
-    
+
     void unSubscribe (const std::string resource)
     {
         unsubscribe(0, resource.c_str());
     }
 };
-
 
 #endif /* AgentMessageBus_hpp */
