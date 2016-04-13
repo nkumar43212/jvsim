@@ -167,7 +167,7 @@ public:
         MessageBus::getOperational(operational_reply, verbosity);
 
         // If verbose mose is not set, we are done
-        if (verbosity == Telemetry::TERSE) {
+        if (verbosity == Telemetry::VerbosityLevel::TERSE) {
             return;
         }
 

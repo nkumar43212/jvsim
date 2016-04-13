@@ -228,7 +228,6 @@ AgentServer::getTelemetryOperationalState (ServerContext* context, const GetOper
                 std::string err_str = "Subscription Not Found = " + std::to_string(subscription_id);
                 _logger->log(err_str);
                 // Lets fill KV as "Error" as value "Subscription Not Found"
-                // TODO ABBAS
                 kv = operational_reply->add_kv();
                 kv->set_key("error");
                 kv->set_str_value("Subscription Not Found");
@@ -276,7 +275,7 @@ AgentServer::getTelemetryOperationalState (ServerContext* context, const GetOper
 Status
 AgentServer::getDataEncodings (ServerContext* context, const DataEncodingRequest* data_enc_request, DataEncodingReply* data_enc_reply)
 {
-    data_enc_reply->set_encoding_list(0, ::Telemetry::PROTO3);
+    data_enc_reply->add_encoding_list(Telemetry::EncodingType::PROTO3);
     return Status::OK;
 }
 

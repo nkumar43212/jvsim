@@ -262,7 +262,7 @@ TEST_F(AgentClientTest, get) {
     GetOperationalStateReply oper_reply;
     
     oper_request.set_subscription_id(subscription_id);
-    oper_request.set_verbosity(Telemetry::DETAIL);
+    oper_request.set_verbosity(Telemetry::VerbosityLevel::DETAIL);
     client->stub_->getTelemetryOperationalState(&get_context, oper_request, &oper_reply);
 
     // Verify that all the interesting fields came back
@@ -409,6 +409,25 @@ TEST_F(AgentClientTest, verify_multiple_subscribe) {
     get_request_2.set_subscription_id(0xFFFFFFFF);
     mgmt_client->stub_->getTelemetrySubscriptions(&get_context_2, get_request_2, &get_reply_2);
     EXPECT_TRUE(get_reply_2.subscription_list_size() == 0);
+}
+
+TEST_F(AgentClientTest, encoding) {
+    AgentClient *client;
+    
+    // Create the test client
+    std::string mgmt_client_name("client-list");
+    client = AgentClient::create(grpc::CreateChannel("localhost:50051", grpc::InsecureCredentials()),
+                                 mgmt_client_name, 0, CLIENT_LOGDIR);
+    EXPECT_TRUE(client != NULL);
+    EXPECT_TRUE(client->stub_ != NULL);
+    
+    ClientContext context;
+    DataEncodingRequest enc_request;
+    DataEncodingReply enc_reply;
+    
+    client->stub_->getDataEncodings(&context, enc_request, &enc_reply);
+    EXPECT_TRUE(1 == enc_reply.encoding_list_size());
+    EXPECT_TRUE(Telemetry::EncodingType::PROTO3 == enc_reply.encoding_list(0));
 }
 
 void *

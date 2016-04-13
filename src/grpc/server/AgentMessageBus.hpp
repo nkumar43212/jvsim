@@ -97,7 +97,7 @@ public:
         kv->set_int_value(messages.getByteRate());
 
         // Continue only if verbose output is desired
-        if (verbosity == Telemetry::TERSE) {
+        if (verbosity == Telemetry::VerbosityLevel::TERSE) {
             return;
         }
 
