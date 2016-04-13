@@ -24,6 +24,12 @@
 		"interval": "1"
 	    },
 
+            "iptunnels_stats": {
+		"resource": "iptunnels",
+		"count": "3",
+		"interval": "1"
+            },
+
             "lsp_stats": {
 		"resource": "lsp_stats",
 		"count": "0",
