@@ -5,8 +5,10 @@
 //  Created by NITIN KUMAR on 12/29/15.
 //  Copyright © 2015 Juniper Networks. All rights reserved.
 //
+
 #include <iostream>
 #include <fstream>
+#include <cstring>
 #include "AgentClient.hpp"
 #include <google/protobuf/text_format.h>
 #include <google/protobuf/io/zero_copy_stream.h>
@@ -211,26 +213,61 @@ AgentClient::listSubscriptions (u_int32_t subscription_id)
 }
 
 void
-AgentClient::getOperational (uint32_t verbosity)
+AgentClient::getOperational (u_int32_t subscription_id, Telemetry::VerbosityLevel verbosity)
 {
-    // TODO ABBAS
-#if 0
-    // Create a reader
     ClientContext  context;
-    GetRequest     request;
-    OpenConfigData data;
+    GetOperationalStateRequest  operational_request;
+    GetOperationalStateReply operational_reply;
+    Telemetry::KeyValue *kv;
+    char subscription_id_str[] = "subscription_id";
+    char agent_stats_str[] = "agent-stats";
+    char begin_str[] = "begin";
 
-    if (!getServerId()) {
-        std::cout << "No Server ID allocated\n";
-        return;
-    }
-    request.set_id(getServerId());
-    request.set_verbosity(verbosity);
-    stub_->telemetryOperationalStateGet(&context, request, &data);
+    operational_request.set_subscription_id(subscription_id);
+    operational_request.set_verbosity(verbosity);
+    stub_->getTelemetryOperationalState(&context, operational_request, &operational_reply);
     
-    // Print out what came back
-    std::string formatted;
-    google::protobuf::TextFormat::PrintToString(data, &formatted);
-    std::cout << formatted;
-#endif
+    for (int lz = 0; lz < operational_reply.kv_size(); lz++) {
+        kv = operational_reply.mutable_kv(lz);
+        // Print efficiently
+        if (strcmp(subscription_id_str, kv->key().c_str()) == 0) {
+            std::cout << std::endl;
+        }
+        if ((strcmp(agent_stats_str, kv->key().c_str()) == 0)) {
+            if (strcmp(begin_str, kv->str_value().c_str()) == 0) {
+                std::cout << std::endl;
+            }
+        }
+
+        // Print key
+        std::cout << kv->key() << ": ";
+
+        // Print value
+        switch (kv->value_case()) {
+            case KeyValue::kDoubleValue:
+                std::cout << kv->double_value() << std::endl;
+                break;
+            case KeyValue::kIntValue:
+                std::cout << kv->int_value() << std::endl;
+                break;
+            case KeyValue::kUintValue:
+                std::cout << kv->uint_value() << std::endl;
+                break;
+            case KeyValue::kSintValue:
+                std::cout << kv->sint_value() << std::endl;
+                break;
+            case KeyValue::kBoolValue:
+                std::cout << kv->bool_value() << std::endl;
+                break;
+            case KeyValue::kStrValue:
+                std::cout << kv->str_value() << std::endl;
+                break;
+            case KeyValue::kBytesValue:
+                std::cout << kv->bytes_value() << std::endl;
+                break;
+            default:
+                std::cout << "Value Error" << std::endl;
+                break; 
+        }
+    }
 }

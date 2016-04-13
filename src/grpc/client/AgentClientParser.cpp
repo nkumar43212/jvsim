@@ -151,25 +151,62 @@ void
 handle_list (int argc, const char *argv[])
 {
     AgentClient *mgmt = AgentClient::find(AGENTCLIENT_MGMT);
-    mgmt->listSubscriptions(argv[1] ? atoi(argv[1]) : 1);
+    mgmt->listSubscriptions(argv[1] ? atoi(argv[1]) : 0);
 }
 
 void
-handle_get (int argc, const char *argv[])
+handle_get_oper_all (int argc, const char *argv[])
 {
-    AgentClient *client;
-    std::string client_name((const char *) argv[1]);
+    Telemetry::VerbosityLevel verbosity = Telemetry::DETAIL;
+    // Verbosity level
+    if (argv[1] != NULL) {
+        if (strcmp(argv[1], "brief")) {
+            verbosity = Telemetry::BRIEF;
+        } else if (strcmp(argv[1], "terse")) {
+            verbosity = Telemetry::TERSE;
+        }
+    }
+    AgentClient *mgmt = AgentClient::find(AGENTCLIENT_MGMT);
+    mgmt->getOperational(0xFFFFFFFF, verbosity);
+}
 
-    // Find this client
-    client = AgentClient::find(client_name);
-    if (!client) {
-        std::cout << "Failed to find client:" << client_name << "\n";
+void
+handle_get_oper (int argc, const char *argv[])
+{
+    u_int32_t subscription_id;
+    subscription_id = (argv[1] ? atoi(argv[1]) : 0);
+    if (subscription_id == 0) {
+        std::cout << "Invalid Subscription id = 0" << std::endl;
         return;
     }
 
+    Telemetry::VerbosityLevel verbosity = Telemetry::DETAIL;
     // Verbosity level
-    uint32_t verbosity = argv[2] ? atoi(argv[2]) : 0;
-    client->getOperational(verbosity);
+    if (argv[2] != NULL) {
+        if (strcmp(argv[1], "brief")) {
+            verbosity = Telemetry::BRIEF;
+        } else if (strcmp(argv[1], "terse")) {
+            verbosity = Telemetry::TERSE;
+        }
+    }
+    AgentClient *mgmt = AgentClient::find(AGENTCLIENT_MGMT);
+    mgmt->getOperational(subscription_id, verbosity);
+}
+
+void
+handle_get_oper_mgmt (int argc, const char *argv[])
+{
+    Telemetry::VerbosityLevel verbosity = Telemetry::DETAIL;
+    // Verbosity level
+    if (argv[1] != NULL) {
+        if (strcmp(argv[1], "brief")) {
+            verbosity = Telemetry::BRIEF;
+        } else if (strcmp(argv[1], "terse")) {
+            verbosity = Telemetry::TERSE;
+        }
+    }
+    AgentClient *mgmt = AgentClient::find(AGENTCLIENT_MGMT);
+    mgmt->getOperational(0, verbosity);
 }
 
 void
@@ -253,11 +290,27 @@ entry_t agent_client_commands [] = {
     },
 
     {
-        .e_cmd     = std::string("get"),
+        .e_cmd     = std::string("get-oper-all"),
         .e_argc    = 1,
-        .e_help    = std::string("Get operational state from the server"),
-        .e_usage   = std::string("get <verbosity>*"),
-        .e_handler = handle_get
+        .e_help    = std::string("Get all operational state from the server"),
+        .e_usage   = std::string("get-oper-all <verbosity=terse,brief,detail>*"),
+        .e_handler = handle_get_oper_all
+    },
+
+    {
+        .e_cmd     = std::string("get-oper"),
+        .e_argc    = 2,
+        .e_help    = std::string("Get subscription id operational state from the server"),
+        .e_usage   = std::string("get-oper <subscription-id> <verbosity=terse,brief,detail>*"),
+        .e_handler = handle_get_oper
+    },
+
+    {
+        .e_cmd     = std::string("get-oper-mgmt"),
+        .e_argc    = 1,
+        .e_help    = std::string("Get agent operational state from the server"),
+        .e_usage   = std::string("get-oper-mgmt <subscription-id> <verbosity=terse,brief,detail>*"),
+        .e_handler = handle_get_oper_mgmt
     },
 
     {

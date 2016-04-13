@@ -208,28 +208,66 @@ AgentServer::getTelemetrySubscriptions (ServerContext* context, const GetSubscri
 Status
 AgentServer::getTelemetryOperationalState (ServerContext* context, const GetOperationalStateRequest* operational_request, GetOperationalStateReply* operational_reply)
 {
-    // TODO ABBAS --- fix me
-    OpenConfigData *datap = new OpenConfigData();
+    id_idx_t subscription_id = operational_request->subscription_id();
+    Telemetry::VerbosityLevel verbosity = operational_request->verbosity();
+    Telemetry::KeyValue *kv;
 
     // Make a note
-    _logger->log("GetOperationalState:ID = " + std::to_string(operational_request->subscription_id()));
+    _logger->log("getTelemetryOperationalState: ID = " + std::to_string(subscription_id) +
+                 " Verbosity = " + std::to_string(verbosity));
 
-    // If a subscription ID hasn't been set, then we are done
-    if (!operational_request->subscription_id()) {
-        return Status::OK;
+    if (subscription_id != 0) {
+        if (subscription_id != 0xFFFFFFFF) {
+            // Get specific subscription stats
+            kv = operational_reply->add_kv();
+            kv->set_key("subscription_id");
+            kv->set_int_value(subscription_id);
+            // Lookup the subscription
+            AgentSubscription *sub = AgentSubscription::findSubscription(subscription_id);
+            if (!sub) {
+                std::string err_str = "Subscription Not Found = " + std::to_string(subscription_id);
+                _logger->log(err_str);
+                // Lets fill KV as "Error" as value "Subscription Not Found"
+                // TODO ABBAS
+                kv = operational_reply->add_kv();
+                kv->set_key("error");
+                kv->set_str_value("Subscription Not Found");
+                return Status::OK;
+            }
+            // Get all the statistics for this subscription
+            sub->getOperational(operational_reply, verbosity);
+            return Status::OK;
+        } else {
+            // Get all subscription stats
+            AgentSubscription *sub = AgentSubscription::getFirst();
+            while (sub) {
+                // Embed subscription id first
+                kv = operational_reply->add_kv();
+                kv->set_key("subscription_id");
+                kv->set_int_value(sub->getId());
+                // Get all the statistics for this subscription
+                sub->getOperational(operational_reply, verbosity);
+
+                // Move to the next entry
+                sub = AgentSubscription::getNext(sub->getId());
+            }
+        }
     }
 
-    // Lookup the subscription
-    AgentSubscription *sub = AgentSubscription::findSubscription(operational_request->subscription_id());
-    if (!sub) {
-        std::string err_str = "Subscription Not Found=" + std::to_string(operational_request->subscription_id());
-        _logger->log(err_str);
-        return Status::OK;
-    }
+    // Agent level stats begin
+    kv = operational_reply->add_kv();
+    kv->set_key("agent-stats");
+    kv->set_str_value("begin");
 
-    // Get all the statistics for this subscription
-    uint32_t verbosity = operational_request->verbosity() ? operational_request->verbosity() : 0;
-    sub->getOperational(datap, verbosity);
+    // revisit --- TODO
+    kv = operational_reply->add_kv();
+    kv->set_key("total_subscriptions");
+    kv->set_int_value(store.size());
+
+    // Agent level stats end
+    kv = operational_reply->add_kv();
+    kv->set_key("agent-stats");
+    kv->set_str_value("end");
 
     return Status::OK;
 }
@@ -239,7 +277,6 @@ Status
 AgentServer::getDataEncodings (ServerContext* context, const DataEncodingRequest* data_enc_request, DataEncodingReply* data_enc_reply)
 {
     data_enc_reply->set_encoding_list(0, ::Telemetry::PROTO3);
-    
     return Status::OK;
 }
 
