@@ -76,7 +76,7 @@ message IpTunnelStatsRecord {
     // Number of packets that failed this Reverse Path Check (RPF)
     optional uint64      rpf_failed_packets   = 6;
 
-    // Number of bytes that filed RPF check
+    // Number of bytes that failed RPF check
     optional uint64      rpf_failed_bytes     = 7;
 }
 
