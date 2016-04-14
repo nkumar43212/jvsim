@@ -1,10 +1,12 @@
 //
 //  main.cpp
+//  Telemetry Agent
 //
 //  Created by NITIN KUMAR on 12/29/15.
 //  Copyright © 2015 Juniper Networks. All rights reserved.
 //
 
+// Header files
 #include <iostream>
 #include <cstdlib>
 #include "AgentServer.h"
@@ -14,6 +16,7 @@
 #include "AgentSubscription.hpp"
 #include "lib_oc.h"
 
+// Class/Function Implementation
 void
 RunServer (AgentServerLog *logger, AgentSystem *sys_handle)
 {

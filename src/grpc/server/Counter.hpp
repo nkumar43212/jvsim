@@ -1,6 +1,6 @@
 //
 //  Counter.hpp
-//  agent-jv
+//  Telemetry Agent
 //
 //  Created by NITIN KUMAR on 1/27/16.
 //  Copyright © 2016 Juniper Networks. All rights reserved.

@@ -135,6 +135,7 @@
 		058673341CB4620500C8DF1F /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		058673361CB462A100C8DF1F /* agent.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = agent.pb.h; path = lib/h/agent.pb.h; sourceTree = SOURCE_ROOT; };
 		058673371CB462C200C8DF1F /* agent.grpc.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = agent.grpc.pb.h; path = lib/h/agent.grpc.pb.h; sourceTree = SOURCE_ROOT; };
+		0595A14A1CBECECB006A869E /* junos_mgd.proto */ = {isa = PBXFileReference; lastKnownFileType = text; name = junos_mgd.proto; path = ../../../protos/junos_mgd.proto; sourceTree = "<group>"; };
 		05AA6FEE1CB992D900966978 /* agent.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = agent.proto; path = ../../../protos/agent.proto; sourceTree = "<group>"; };
 		9467029A1C64348C00E73BF5 /* grpc */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = grpc; sourceTree = BUILT_PRODUCTS_DIR; };
 		946702A81C6471ED00E73BF5 /* client */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = client; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -427,6 +428,7 @@
 			isa = PBXGroup;
 			children = (
 				058673341CB4620500C8DF1F /* Makefile */,
+				0595A14A1CBECECB006A869E /* junos_mgd.proto */,
 				94AC4F1C1CA1EFD500AFDFE0 /* main.cpp */,
 				94AC4F241CA1F3B100AFDFE0 /* MgdServer.cpp */,
 				94AC4F251CA1F3B100AFDFE0 /* MgdServer.hpp */,

@@ -1,6 +1,6 @@
 //
 //  AgentConsolidatorSystem.hpp
-//  grpc
+//  Telemetry Agent
 //
 //  Created by NITIN KUMAR on 2/19/16.
 //  Copyright © 2016 Juniper Networks. All rights reserved.

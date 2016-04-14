@@ -1,6 +1,6 @@
 //
 //  AgentServer.cpp
-//  agent-jv
+//  Telemetry Agent
 //
 //  Created by NITIN KUMAR on 12/29/15.
 //  Copyright © 2015 Juniper Networks. All rights reserved.
