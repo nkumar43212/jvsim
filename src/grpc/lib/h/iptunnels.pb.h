@@ -208,31 +208,45 @@ class IpTunnelStatsRecord : public ::google::protobuf::Message {
   ::std::string* release_name();
   void set_allocated_name(::std::string* name);
 
-  // optional uint64 packets = 2;
-  bool has_packets() const;
-  void clear_packets();
-  static const int kPacketsFieldNumber = 2;
-  ::google::protobuf::uint64 packets() const;
-  void set_packets(::google::protobuf::uint64 value);
+  // optional uint64 rx_packets = 2;
+  bool has_rx_packets() const;
+  void clear_rx_packets();
+  static const int kRxPacketsFieldNumber = 2;
+  ::google::protobuf::uint64 rx_packets() const;
+  void set_rx_packets(::google::protobuf::uint64 value);
 
-  // optional uint64 bytes = 3;
-  bool has_bytes() const;
-  void clear_bytes();
-  static const int kBytesFieldNumber = 3;
-  ::google::protobuf::uint64 bytes() const;
-  void set_bytes(::google::protobuf::uint64 value);
+  // optional uint64 rx_bytes = 3;
+  bool has_rx_bytes() const;
+  void clear_rx_bytes();
+  static const int kRxBytesFieldNumber = 3;
+  ::google::protobuf::uint64 rx_bytes() const;
+  void set_rx_bytes(::google::protobuf::uint64 value);
 
-  // optional uint64 rpf_failed_packets = 4;
+  // optional uint64 tx_packets = 4;
+  bool has_tx_packets() const;
+  void clear_tx_packets();
+  static const int kTxPacketsFieldNumber = 4;
+  ::google::protobuf::uint64 tx_packets() const;
+  void set_tx_packets(::google::protobuf::uint64 value);
+
+  // optional uint64 tx_bytes = 5;
+  bool has_tx_bytes() const;
+  void clear_tx_bytes();
+  static const int kTxBytesFieldNumber = 5;
+  ::google::protobuf::uint64 tx_bytes() const;
+  void set_tx_bytes(::google::protobuf::uint64 value);
+
+  // optional uint64 rpf_failed_packets = 6;
   bool has_rpf_failed_packets() const;
   void clear_rpf_failed_packets();
-  static const int kRpfFailedPacketsFieldNumber = 4;
+  static const int kRpfFailedPacketsFieldNumber = 6;
   ::google::protobuf::uint64 rpf_failed_packets() const;
   void set_rpf_failed_packets(::google::protobuf::uint64 value);
 
-  // optional uint64 rpf_failed_bytes = 5;
+  // optional uint64 rpf_failed_bytes = 7;
   bool has_rpf_failed_bytes() const;
   void clear_rpf_failed_bytes();
-  static const int kRpfFailedBytesFieldNumber = 5;
+  static const int kRpfFailedBytesFieldNumber = 7;
   ::google::protobuf::uint64 rpf_failed_bytes() const;
   void set_rpf_failed_bytes(::google::protobuf::uint64 value);
 
@@ -240,10 +254,14 @@ class IpTunnelStatsRecord : public ::google::protobuf::Message {
  private:
   inline void set_has_name();
   inline void clear_has_name();
-  inline void set_has_packets();
-  inline void clear_has_packets();
-  inline void set_has_bytes();
-  inline void clear_has_bytes();
+  inline void set_has_rx_packets();
+  inline void clear_has_rx_packets();
+  inline void set_has_rx_bytes();
+  inline void clear_has_rx_bytes();
+  inline void set_has_tx_packets();
+  inline void clear_has_tx_packets();
+  inline void set_has_tx_bytes();
+  inline void clear_has_tx_bytes();
   inline void set_has_rpf_failed_packets();
   inline void clear_has_rpf_failed_packets();
   inline void set_has_rpf_failed_bytes();
@@ -253,8 +271,10 @@ class IpTunnelStatsRecord : public ::google::protobuf::Message {
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
   ::google::protobuf::internal::ArenaStringPtr name_;
-  ::google::protobuf::uint64 packets_;
-  ::google::protobuf::uint64 bytes_;
+  ::google::protobuf::uint64 rx_packets_;
+  ::google::protobuf::uint64 rx_bytes_;
+  ::google::protobuf::uint64 tx_packets_;
+  ::google::protobuf::uint64 tx_bytes_;
   ::google::protobuf::uint64 rpf_failed_packets_;
   ::google::protobuf::uint64 rpf_failed_bytes_;
   friend void  protobuf_AddDesc_iptunnels_2eproto();
@@ -363,63 +383,111 @@ inline void IpTunnelStatsRecord::set_allocated_name(::std::string* name) {
   // @@protoc_insertion_point(field_set_allocated:IpTunnelStatsRecord.name)
 }
 
-// optional uint64 packets = 2;
-inline bool IpTunnelStatsRecord::has_packets() const {
+// optional uint64 rx_packets = 2;
+inline bool IpTunnelStatsRecord::has_rx_packets() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void IpTunnelStatsRecord::set_has_packets() {
+inline void IpTunnelStatsRecord::set_has_rx_packets() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void IpTunnelStatsRecord::clear_has_packets() {
+inline void IpTunnelStatsRecord::clear_has_rx_packets() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void IpTunnelStatsRecord::clear_packets() {
-  packets_ = GOOGLE_ULONGLONG(0);
-  clear_has_packets();
+inline void IpTunnelStatsRecord::clear_rx_packets() {
+  rx_packets_ = GOOGLE_ULONGLONG(0);
+  clear_has_rx_packets();
 }
-inline ::google::protobuf::uint64 IpTunnelStatsRecord::packets() const {
-  // @@protoc_insertion_point(field_get:IpTunnelStatsRecord.packets)
-  return packets_;
+inline ::google::protobuf::uint64 IpTunnelStatsRecord::rx_packets() const {
+  // @@protoc_insertion_point(field_get:IpTunnelStatsRecord.rx_packets)
+  return rx_packets_;
 }
-inline void IpTunnelStatsRecord::set_packets(::google::protobuf::uint64 value) {
-  set_has_packets();
-  packets_ = value;
-  // @@protoc_insertion_point(field_set:IpTunnelStatsRecord.packets)
+inline void IpTunnelStatsRecord::set_rx_packets(::google::protobuf::uint64 value) {
+  set_has_rx_packets();
+  rx_packets_ = value;
+  // @@protoc_insertion_point(field_set:IpTunnelStatsRecord.rx_packets)
 }
 
-// optional uint64 bytes = 3;
-inline bool IpTunnelStatsRecord::has_bytes() const {
+// optional uint64 rx_bytes = 3;
+inline bool IpTunnelStatsRecord::has_rx_bytes() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void IpTunnelStatsRecord::set_has_bytes() {
+inline void IpTunnelStatsRecord::set_has_rx_bytes() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void IpTunnelStatsRecord::clear_has_bytes() {
+inline void IpTunnelStatsRecord::clear_has_rx_bytes() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void IpTunnelStatsRecord::clear_bytes() {
-  bytes_ = GOOGLE_ULONGLONG(0);
-  clear_has_bytes();
+inline void IpTunnelStatsRecord::clear_rx_bytes() {
+  rx_bytes_ = GOOGLE_ULONGLONG(0);
+  clear_has_rx_bytes();
 }
-inline ::google::protobuf::uint64 IpTunnelStatsRecord::bytes() const {
-  // @@protoc_insertion_point(field_get:IpTunnelStatsRecord.bytes)
-  return bytes_;
+inline ::google::protobuf::uint64 IpTunnelStatsRecord::rx_bytes() const {
+  // @@protoc_insertion_point(field_get:IpTunnelStatsRecord.rx_bytes)
+  return rx_bytes_;
 }
-inline void IpTunnelStatsRecord::set_bytes(::google::protobuf::uint64 value) {
-  set_has_bytes();
-  bytes_ = value;
-  // @@protoc_insertion_point(field_set:IpTunnelStatsRecord.bytes)
+inline void IpTunnelStatsRecord::set_rx_bytes(::google::protobuf::uint64 value) {
+  set_has_rx_bytes();
+  rx_bytes_ = value;
+  // @@protoc_insertion_point(field_set:IpTunnelStatsRecord.rx_bytes)
 }
 
-// optional uint64 rpf_failed_packets = 4;
-inline bool IpTunnelStatsRecord::has_rpf_failed_packets() const {
+// optional uint64 tx_packets = 4;
+inline bool IpTunnelStatsRecord::has_tx_packets() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void IpTunnelStatsRecord::set_has_rpf_failed_packets() {
+inline void IpTunnelStatsRecord::set_has_tx_packets() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void IpTunnelStatsRecord::clear_has_rpf_failed_packets() {
+inline void IpTunnelStatsRecord::clear_has_tx_packets() {
   _has_bits_[0] &= ~0x00000008u;
+}
+inline void IpTunnelStatsRecord::clear_tx_packets() {
+  tx_packets_ = GOOGLE_ULONGLONG(0);
+  clear_has_tx_packets();
+}
+inline ::google::protobuf::uint64 IpTunnelStatsRecord::tx_packets() const {
+  // @@protoc_insertion_point(field_get:IpTunnelStatsRecord.tx_packets)
+  return tx_packets_;
+}
+inline void IpTunnelStatsRecord::set_tx_packets(::google::protobuf::uint64 value) {
+  set_has_tx_packets();
+  tx_packets_ = value;
+  // @@protoc_insertion_point(field_set:IpTunnelStatsRecord.tx_packets)
+}
+
+// optional uint64 tx_bytes = 5;
+inline bool IpTunnelStatsRecord::has_tx_bytes() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void IpTunnelStatsRecord::set_has_tx_bytes() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void IpTunnelStatsRecord::clear_has_tx_bytes() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void IpTunnelStatsRecord::clear_tx_bytes() {
+  tx_bytes_ = GOOGLE_ULONGLONG(0);
+  clear_has_tx_bytes();
+}
+inline ::google::protobuf::uint64 IpTunnelStatsRecord::tx_bytes() const {
+  // @@protoc_insertion_point(field_get:IpTunnelStatsRecord.tx_bytes)
+  return tx_bytes_;
+}
+inline void IpTunnelStatsRecord::set_tx_bytes(::google::protobuf::uint64 value) {
+  set_has_tx_bytes();
+  tx_bytes_ = value;
+  // @@protoc_insertion_point(field_set:IpTunnelStatsRecord.tx_bytes)
+}
+
+// optional uint64 rpf_failed_packets = 6;
+inline bool IpTunnelStatsRecord::has_rpf_failed_packets() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void IpTunnelStatsRecord::set_has_rpf_failed_packets() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void IpTunnelStatsRecord::clear_has_rpf_failed_packets() {
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline void IpTunnelStatsRecord::clear_rpf_failed_packets() {
   rpf_failed_packets_ = GOOGLE_ULONGLONG(0);
@@ -435,15 +503,15 @@ inline void IpTunnelStatsRecord::set_rpf_failed_packets(::google::protobuf::uint
   // @@protoc_insertion_point(field_set:IpTunnelStatsRecord.rpf_failed_packets)
 }
 
-// optional uint64 rpf_failed_bytes = 5;
+// optional uint64 rpf_failed_bytes = 7;
 inline bool IpTunnelStatsRecord::has_rpf_failed_bytes() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+  return (_has_bits_[0] & 0x00000040u) != 0;
 }
 inline void IpTunnelStatsRecord::set_has_rpf_failed_bytes() {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000040u;
 }
 inline void IpTunnelStatsRecord::clear_has_rpf_failed_bytes() {
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline void IpTunnelStatsRecord::clear_rpf_failed_bytes() {
   rpf_failed_bytes_ = GOOGLE_ULONGLONG(0);

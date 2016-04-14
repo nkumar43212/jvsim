@@ -52,16 +52,31 @@ message IpTunnelStats {
 //
 message IpTunnelStatsRecord {
     // Name of the IP Tunnel
-    required string      name                 = 1  [(telemetry_options).is_key = true];
+    required string      name                 = 1;
 
-    // The total number of packets
-    optional uint64      packets              = 2  [(telemetry_options).is_counter = true];
+    // Total number of packets received on the tunnel. Receive on 
+    // a tunnel is defined as the process of terminating the tunnel
+    // by decapsulating the outer IP header and processing the payload
+    optional uint64      rx_packets           = 2;
 
-    // The total number of bytes
-    optional uint64      bytes                = 3  [(telemetry_options).is_counter = true];
+    // The total number of bytes received on the tunnel
+    optional uint64      rx_bytes             = 3;
 
-    // Anti Spoof Failures
-    optional uint64      rpf_failed_packets   = 4  [(telemetry_options).is_counter = true];
-    optional uint64      rpf_failed_bytes     = 5  [(telemetry_options).is_counter = true];
+    // Total number of packets transmitted on the tunnel. Transmit
+    // on a tunnel is defined as the process of encapsulating packets
+    // with the tunnel IP header and routing the resulting packets
+    optional uint64      tx_packets           = 4;
+
+    // The total number of bytes transmitted on the tunnel
+    optional uint64      tx_bytes             = 5;
+
+    // IP Tunnels have spoof protection. If the tunnel is configured for this
+    // function, the device will accept packets on a tunnel only if the
+    // the source IP address of the packets is reachable via the same tunnel
+    // Number of packets that failed this Reverse Path Check (RPF)
+    optional uint64      rpf_failed_packets   = 6;
+
+    // Number of bytes that filed RPF check
+    optional uint64      rpf_failed_bytes     = 7;
 }
 

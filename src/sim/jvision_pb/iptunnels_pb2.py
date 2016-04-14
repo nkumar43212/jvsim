@@ -18,7 +18,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='iptunnels.proto',
   package='',
   syntax='proto2',
-  serialized_pb=b'\n\x0fiptunnels.proto\x1a\x11jvision_top.proto\"E\n\rIpTunnelStats\x12\x34\n\x16iptunnel_stats_records\x18\x01 \x03(\x0b\x32\x14.IpTunnelStatsRecord\"\x9c\x01\n\x13IpTunnelStatsRecord\x12\x13\n\x04name\x18\x01 \x02(\tB\x05\x82@\x02\x08\x01\x12\x16\n\x07packets\x18\x02 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12\x14\n\x05\x62ytes\x18\x03 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12!\n\x12rpf_failed_packets\x18\x04 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12\x1f\n\x10rpf_failed_bytes\x18\x05 \x01(\x04\x42\x05\x82@\x02\x18\x01:N\n\x1djnpr_iptunnels_statistics_ext\x12\x17.JuniperNetworksSensors\x18\x0e \x01(\x0b\x32\x0e.IpTunnelStats'
+  serialized_pb=b'\n\x0fiptunnels.proto\x1a\x11jvision_top.proto\"E\n\rIpTunnelStats\x12\x34\n\x16iptunnel_stats_records\x18\x01 \x03(\x0b\x32\x14.IpTunnelStatsRecord\"\xa5\x01\n\x13IpTunnelStatsRecord\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\x12\n\nrx_packets\x18\x02 \x01(\x04\x12\x10\n\x08rx_bytes\x18\x03 \x01(\x04\x12\x12\n\ntx_packets\x18\x04 \x01(\x04\x12\x10\n\x08tx_bytes\x18\x05 \x01(\x04\x12\x1a\n\x12rpf_failed_packets\x18\x06 \x01(\x04\x12\x18\n\x10rpf_failed_bytes\x18\x07 \x01(\x04:N\n\x1djnpr_iptunnels_statistics_ext\x12\x17.JuniperNetworksSensors\x18\x0e \x01(\x0b\x32\x0e.IpTunnelStats'
   ,
   dependencies=[jvision__top__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -78,35 +78,49 @@ _IPTUNNELSTATSRECORD = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002\010\001')),
+      options=None),
     _descriptor.FieldDescriptor(
-      name='packets', full_name='IpTunnelStatsRecord.packets', index=1,
+      name='rx_packets', full_name='IpTunnelStatsRecord.rx_packets', index=1,
       number=2, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002\030\001')),
+      options=None),
     _descriptor.FieldDescriptor(
-      name='bytes', full_name='IpTunnelStatsRecord.bytes', index=2,
+      name='rx_bytes', full_name='IpTunnelStatsRecord.rx_bytes', index=2,
       number=3, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002\030\001')),
+      options=None),
     _descriptor.FieldDescriptor(
-      name='rpf_failed_packets', full_name='IpTunnelStatsRecord.rpf_failed_packets', index=3,
+      name='tx_packets', full_name='IpTunnelStatsRecord.tx_packets', index=3,
       number=4, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002\030\001')),
+      options=None),
     _descriptor.FieldDescriptor(
-      name='rpf_failed_bytes', full_name='IpTunnelStatsRecord.rpf_failed_bytes', index=4,
+      name='tx_bytes', full_name='IpTunnelStatsRecord.tx_bytes', index=4,
       number=5, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002\030\001')),
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='rpf_failed_packets', full_name='IpTunnelStatsRecord.rpf_failed_packets', index=5,
+      number=6, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='rpf_failed_bytes', full_name='IpTunnelStatsRecord.rpf_failed_bytes', index=6,
+      number=7, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -120,7 +134,7 @@ _IPTUNNELSTATSRECORD = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=110,
-  serialized_end=266,
+  serialized_end=275,
 )
 
 _IPTUNNELSTATS.fields_by_name['iptunnel_stats_records'].message_type = _IPTUNNELSTATSRECORD
@@ -145,14 +159,4 @@ _sym_db.RegisterMessage(IpTunnelStatsRecord)
 jnpr_iptunnels_statistics_ext.message_type = _IPTUNNELSTATS
 jvision__top__pb2.JuniperNetworksSensors.RegisterExtension(jnpr_iptunnels_statistics_ext)
 
-_IPTUNNELSTATSRECORD.fields_by_name['name'].has_options = True
-_IPTUNNELSTATSRECORD.fields_by_name['name']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002\010\001')
-_IPTUNNELSTATSRECORD.fields_by_name['packets'].has_options = True
-_IPTUNNELSTATSRECORD.fields_by_name['packets']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002\030\001')
-_IPTUNNELSTATSRECORD.fields_by_name['bytes'].has_options = True
-_IPTUNNELSTATSRECORD.fields_by_name['bytes']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002\030\001')
-_IPTUNNELSTATSRECORD.fields_by_name['rpf_failed_packets'].has_options = True
-_IPTUNNELSTATSRECORD.fields_by_name['rpf_failed_packets']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002\030\001')
-_IPTUNNELSTATSRECORD.fields_by_name['rpf_failed_bytes'].has_options = True
-_IPTUNNELSTATSRECORD.fields_by_name['rpf_failed_bytes']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002\030\001')
 # @@protoc_insertion_point(module_scope)
