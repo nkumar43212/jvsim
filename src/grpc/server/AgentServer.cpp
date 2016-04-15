@@ -20,6 +20,7 @@ AgentServer::telemetrySubscribe (ServerContext *context,
     PathList    path_list;
     std::string log_str;
     AgentConsolidatorHandle *system_handle;
+    SubscriptionRequest *validated_request;
     SubscriptionReply reply;
     SubscriptionResponse *response = reply.mutable_response();
 
@@ -42,8 +43,14 @@ AgentServer::telemetrySubscribe (ServerContext *context,
         return _sendMetaDataInfo(context, writer, reply);
     }
 
+    // Validate request against capability (for now hardcoded)
+    // TODO ABBAS
+    validated_request = new SubscriptionRequest();
+    validated_request->CopyFrom(*request);
+
     // Create a subscription into the system
-    system_handle = _consolidator.addRequest(std::to_string(id), request);
+    system_handle = _consolidator.addRequest(std::to_string(id), validated_request);
+    delete validated_request;
     if (!system_handle) {
         // Delete allocated id
         _id_manager.deallocate(id);
@@ -55,7 +62,8 @@ AgentServer::telemetrySubscribe (ServerContext *context,
 
     // Create a subscription
     AgentServerTransport transport(context, writer);
-    AgentSubscriptionLimits limits(request->additional_config().limit_records(), request->additional_config().limit_time_seconds());
+    AgentSubscriptionLimits limits(request->additional_config().limit_records(),
+                                   request->additional_config().limit_time_seconds());
     AgentSubscription *sub = AgentSubscription::createSubscription(id,
                                                                    system_handle,
                                                                    transport,
@@ -131,8 +139,8 @@ AgentServer::cancelTelemetrySubscription (ServerContext* context, const CancelSu
     // Lookup the subscription
     AgentSubscription *sub = AgentSubscription::findSubscription(cancel_request->subscription_id());
     if (!sub) {
-        std::string err_str = "Subscription Not Found = " + std::to_string(cancel_request->subscription_id());
-        cancel_reply->set_code(Telemetry::NO_SUBSCRIPTION_ENTRY);
+        std::string err_str = "Subscription Not Found. ID = " + std::to_string(cancel_request->subscription_id());
+        cancel_reply->set_code(Telemetry::ReturnCode::NO_SUBSCRIPTION_ENTRY);
         cancel_reply->set_code_str(err_str);
         _logger->log(err_str);
         return Status::OK;
@@ -158,7 +166,7 @@ AgentServer::getTelemetrySubscriptions (ServerContext* context, const GetSubscri
     AgentSubscription *sub;
     id_idx_t subscription_id = get_request->subscription_id();
 
-    _logger->log("getTelemetrySubscriptions ID = " + std::to_string(subscription_id));
+    _logger->log("getTelemetrySubscriptions: ID = " + std::to_string(subscription_id));
 
     if (subscription_id != 0xFFFFFFFF) {
         // Lookup the subscription
@@ -225,7 +233,7 @@ AgentServer::getTelemetryOperationalState (ServerContext* context, const GetOper
             // Lookup the subscription
             AgentSubscription *sub = AgentSubscription::findSubscription(subscription_id);
             if (!sub) {
-                std::string err_str = "Subscription Not Found = " + std::to_string(subscription_id);
+                std::string err_str = "Subscription Not Found. ID = " + std::to_string(subscription_id);
                 _logger->log(err_str);
                 // Lets fill KV as "Error" as value "Subscription Not Found"
                 kv = operational_reply->add_kv();
@@ -296,7 +304,7 @@ AgentServer::_sendMetaDataInfo (ServerContext *context,
     // Send the meta data and log it
     context->AddInitialMetadata("init-response", init_data);
     writer->SendInitialMetadata();
-    _logger->log("Subscribe-MetaData-Sent");
+    _logger->log("Subscribe-MetaData-Sent: ID = " + std::to_string(reply.response().subscription_id()));
     return Status::OK;
 }
 
