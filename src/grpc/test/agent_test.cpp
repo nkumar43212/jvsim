@@ -17,7 +17,8 @@ TEST_F(AgentClientTest, subscribe_and_force_terminate) {
 
     // Create the test client
     std::string mgmt_client_name(AGENTCLIENT_MGMT);
-    client = AgentClient::create(grpc::CreateChannel("localhost:50051", grpc::InsecureCredentials()),
+    client = AgentClient::create(grpc::CreateChannel("localhost:50051",
+                                 grpc::InsecureCredentials()),
                                  mgmt_client_name, 0, CLIENT_LOGDIR);
     EXPECT_TRUE(client != NULL);
     EXPECT_TRUE(client->stub_ != NULL);
@@ -52,7 +53,7 @@ TEST_F(AgentClientTest, subscribe_and_force_terminate) {
     parser.ParseFromString(tmp, &reply);
     response = reply.mutable_response();
     subscription_id = response->subscription_id();
-    EXPECT_TRUE(subscription_id != 0);
+    EXPECT_GT(subscription_id, 0);
 
     // Read records
     OpenConfigData kv;
@@ -72,9 +73,9 @@ TEST_F(AgentClientTest, subscribe_and_force_terminate) {
     CancelSubscriptionReply cancel_reply;
     cancel_request.set_subscription_id(subscription_id);
     client->stub_->cancelTelemetrySubscription(&context_cancel, cancel_request, &cancel_reply);
-    EXPECT_TRUE(cancel_reply.code() == Telemetry::NO_SUBSCRIPTION_ENTRY);
+    EXPECT_EQ(Telemetry::ReturnCode::NO_SUBSCRIPTION_ENTRY, cancel_reply.code());
     const char * code_str = cancel_reply.code_str().c_str();
-    std::string expected = "Subscription Not Found = " + std::to_string(subscription_id);
+    std::string expected = "Subscription Not Found. ID = " + std::to_string(subscription_id);
     const char * expected_str = expected.c_str();
     EXPECT_STREQ(expected_str, code_str);
 }
@@ -120,7 +121,7 @@ TEST_F(AgentClientTest, subscribe_and_graceful_terminate) {
     parser.ParseFromString(tmp, &reply);
     response = reply.mutable_response();
     subscription_id = response->subscription_id();
-    EXPECT_TRUE(subscription_id != 0);
+    EXPECT_GT(subscription_id, 0);
 
     // Dont wait to read anything for now
 
@@ -130,7 +131,7 @@ TEST_F(AgentClientTest, subscribe_and_graceful_terminate) {
     CancelSubscriptionReply cancel_reply;
     cancel_request.set_subscription_id(subscription_id);
     client->stub_->cancelTelemetrySubscription(&context_cancel, cancel_request, &cancel_reply);
-    EXPECT_TRUE(cancel_reply.code() == Telemetry::SUCCESS);
+    EXPECT_EQ(Telemetry::ReturnCode::SUCCESS, cancel_reply.code());
     const char * code_str = cancel_reply.code_str().c_str();
     std::string expected = "Subscription Successfully Deleted";
     const char * expected_str = expected.c_str();
@@ -178,7 +179,7 @@ TEST_F(AgentClientTest, list) {
     response = reply.mutable_response();
     uint32_t subscription_id;
     subscription_id = response->subscription_id();
-    EXPECT_TRUE(subscription_id != 0);
+    EXPECT_GT(subscription_id, 0);
 
     // Dont wait to read anything for now
     
@@ -190,7 +191,7 @@ TEST_F(AgentClientTest, list) {
     client->stub_->getTelemetrySubscriptions(&get_context, get_request, &get_reply);
     for (int i = 0; i < get_reply.subscription_list_size(); i++) {
         SubscriptionReply *sub_reply = get_reply.mutable_subscription_list(i);
-        EXPECT_TRUE(sub_reply->response().subscription_id() == subscription_id);
+        EXPECT_EQ(subscription_id, sub_reply->response().subscription_id());
         int path_list_size = sub_reply->path_list_size();
         for (int lz = 0; lz < path_list_size; lz++) {
             Telemetry::Path path = sub_reply->path_list(lz);
@@ -204,7 +205,7 @@ TEST_F(AgentClientTest, list) {
     CancelSubscriptionReply cancel_reply;
     cancel_request.set_subscription_id(subscription_id);
     client->stub_->cancelTelemetrySubscription(&context_cancel, cancel_request, &cancel_reply);
-    EXPECT_TRUE(cancel_reply.code() == Telemetry::SUCCESS);
+    EXPECT_EQ(Telemetry::ReturnCode::SUCCESS, cancel_reply.code());
     const char * code_str = cancel_reply.code_str().c_str();
     std::string expected = "Subscription Successfully Deleted";
     const char * expected_str = expected.c_str();
@@ -255,7 +256,7 @@ TEST_F(AgentClientTest, multiple_subscribe) {
     GetSubscriptionsReply get_reply;
     get_request.set_subscription_id(0xFFFFFFFF);
     mgmt_client->stub_->getTelemetrySubscriptions(&get_context, get_request, &get_reply);
-    EXPECT_TRUE(get_reply.subscription_list_size() == 0);
+    EXPECT_EQ(0, get_reply.subscription_list_size());
 }
 
 TEST_F(AgentClientTest, verify_multiple_subscribe) {
@@ -267,7 +268,8 @@ TEST_F(AgentClientTest, verify_multiple_subscribe) {
     
     // Create the test client
     std::string mgmt_client_name(AGENTCLIENT_MGMT);
-    mgmt_client = AgentClient::create(grpc::CreateChannel("localhost:50051", grpc::InsecureCredentials()),
+    mgmt_client = AgentClient::create(grpc::CreateChannel("localhost:50051",
+                                      grpc::InsecureCredentials()),
                                       mgmt_client_name, 0, CLIENT_LOGDIR);
     EXPECT_TRUE(mgmt_client != NULL);
     EXPECT_TRUE(mgmt_client->stub_ != NULL);
@@ -277,7 +279,9 @@ TEST_F(AgentClientTest, verify_multiple_subscribe) {
         data[i] = new Telemetry::OpenConfigData[MAX_RECS];
         args[i] = new TestArgs(i, data[i], MAX_RECS, CLIENT_LOGDIR);
         args[i]->limit_record = 50000;
-        pthread_create(&tid[i], NULL, AgentClientTest::create_subscriptions, (void *)(args[i]));
+        args[i]->return_before_graceful_terminate = true;
+        pthread_create(&tid[i], NULL, AgentClientTest::create_subscriptions,
+                       (void *)(args[i]));
     }
 
     // Sleep a random time till all clients are created
@@ -289,7 +293,7 @@ TEST_F(AgentClientTest, verify_multiple_subscribe) {
     GetSubscriptionsReply get_reply;
     get_request.set_subscription_id(0xFFFFFFFF);
     mgmt_client->stub_->getTelemetrySubscriptions(&get_context, get_request, &get_reply);
-    EXPECT_TRUE(get_reply.subscription_list_size() == n);
+    EXPECT_EQ(n, get_reply.subscription_list_size());
     for (int sub = 0; sub < n; sub++) {
         bool found = false;
         // Iterate throught the list again ... that's OK for now
@@ -328,7 +332,7 @@ TEST_F(AgentClientTest, verify_multiple_subscribe) {
     GetSubscriptionsReply get_reply_2;
     get_request_2.set_subscription_id(0xFFFFFFFF);
     mgmt_client->stub_->getTelemetrySubscriptions(&get_context_2, get_request_2, &get_reply_2);
-    EXPECT_TRUE(get_reply_2.subscription_list_size() == 0);
+    EXPECT_EQ(0, get_reply_2.subscription_list_size());
 }
 
 #define OPER_SUB    5
@@ -351,6 +355,7 @@ TEST_F(AgentClientTest, get_oper_all) {
         data[i] = new Telemetry::OpenConfigData[MAX_RECS];
         args[i] = new TestArgs(i, data[i], MAX_RECS, CLIENT_LOGDIR);
         args[i]->limit_record = 50000;
+        args[i]->return_before_graceful_terminate = true;
         pthread_create(&tid[i], NULL, AgentClientTest::create_subscriptions, (void *)(args[i]));
     }
     
@@ -363,7 +368,7 @@ TEST_F(AgentClientTest, get_oper_all) {
     GetSubscriptionsReply get_reply;
     get_request.set_subscription_id(0xFFFFFFFF);
     mgmt_client->stub_->getTelemetrySubscriptions(&get_context, get_request, &get_reply);
-    EXPECT_TRUE(get_reply.subscription_list_size() == n);
+    EXPECT_EQ(n, get_reply.subscription_list_size());
     for (int sub = 0; sub < n; sub++) {
         bool found = false;
         // Iterate throught the list again ... that's OK for now
@@ -410,8 +415,8 @@ TEST_F(AgentClientTest, get_oper_all) {
             found = true;
         }
     }
-    EXPECT_TRUE(subscription_count == n);
-    EXPECT_TRUE(total_subscriptions == n);
+    EXPECT_EQ(n, subscription_count);
+    EXPECT_EQ(n, total_subscriptions);
     EXPECT_TRUE(found);
 
     // Now unsubscribe
@@ -426,22 +431,7 @@ TEST_F(AgentClientTest, get_oper_all) {
     GetSubscriptionsReply get_reply_2;
     get_request_2.set_subscription_id(0xFFFFFFFF);
     mgmt_client->stub_->getTelemetrySubscriptions(&get_context_2, get_request_2, &get_reply_2);
-    EXPECT_TRUE(get_reply_2.subscription_list_size() == 0);
-    
-#if 0
-    // Verify that all the interesting fields came back
-    bool found = false;
-    // TODO ABBAS FIXME
-    found = true;
-    for (int i = 0; i < data.kv_size(); i++) {
-        Telemetry::KeyValue kv = data.kv(i);
-        if (kv.key() == std::string("total_message_count")) {
-            found = true;
-        }
-    }
-    EXPECT_TRUE(found);
-    
-#endif
+    EXPECT_EQ(0, get_reply_2.subscription_list_size());
 }
 
 TEST_F(AgentClientTest, encoding) {
@@ -459,8 +449,8 @@ TEST_F(AgentClientTest, encoding) {
     DataEncodingReply enc_reply;
     
     client->stub_->getDataEncodings(&context, enc_request, &enc_reply);
-    EXPECT_TRUE(1 == enc_reply.encoding_list_size());
-    EXPECT_TRUE(Telemetry::EncodingType::PROTO3 == enc_reply.encoding_list(0));
+    EXPECT_EQ(1, enc_reply.encoding_list_size());
+    EXPECT_EQ(Telemetry::EncodingType::PROTO3, enc_reply.encoding_list(0));
 }
 
 void *
@@ -471,7 +461,8 @@ AgentClientTest::create_subscriptions (void *args)
 
     // Create the test client
     std::string client_name("client-" + std::to_string(test_args->index));
-    client = AgentClient::create(grpc::CreateChannel("localhost:50051", grpc::InsecureCredentials()),
+    client = AgentClient::create(grpc::CreateChannel("localhost:50051",
+                                 grpc::InsecureCredentials()),
                                  client_name, 0, test_args->client_logdir);
     EXPECT_TRUE(client != NULL);
     EXPECT_TRUE(client->stub_ != NULL);
@@ -506,7 +497,7 @@ AgentClientTest::create_subscriptions (void *args)
     parser.ParseFromString(tmp, &reply);
     response = reply.mutable_response();
     subscription_id = response->subscription_id();
-    EXPECT_TRUE(subscription_id != 0);
+    EXPECT_GT(subscription_id, 0);
     test_args->subscription_id = subscription_id;
 
     // Read records
@@ -543,7 +534,7 @@ AgentClientTest::delete_subscriptions (void *args)
     CancelSubscriptionReply cancel_reply;
     cancel_request.set_subscription_id(test_args->subscription_id);
     test_args->client->stub_->cancelTelemetrySubscription(&context_cancel, cancel_request, &cancel_reply);
-    EXPECT_TRUE(cancel_reply.code() == Telemetry::SUCCESS);
+    EXPECT_EQ(Telemetry::ReturnCode::SUCCESS, cancel_reply.code());
     const char * code_str = cancel_reply.code_str().c_str();
     std::string expected = "Subscription Successfully Deleted";
     const char * expected_str = expected.c_str();
