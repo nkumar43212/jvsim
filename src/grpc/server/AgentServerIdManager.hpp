@@ -16,32 +16,42 @@
 
 typedef uint32_t id_idx_t;
 
-#define ID_SPACE_SIZE 64
+#define SUBSCRIPTION_ID_SPACE_SIZE                  64
+#define INTERNAL_SUBSCRIPTION_ID_SPACE_SIZE       8196
+#define INTERNAL_SUBSCRIPTION_ID_SPACE_MIN        1000
 
+template <typename T>
 class AgentServerIdManager {
     // Control access to the space
     std::mutex _id_mutex;
-
+    
     // Track allocated indices using a bit string
-    std::bitset<ID_SPACE_SIZE> _id_space;
+    T          _id_space;
+    
+    // Define minimum and maximum space
+    size_t     _MIN_ID_SPACE_SIZE;
+    size_t     _MAX_ID_SPACE_SIZE;
 
 public:
     // Initialize the ID space manager
-    AgentServerIdManager () : _id_space(0)
+    AgentServerIdManager (id_idx_t min_id = 1) :
+    _id_space(0),
+    _MIN_ID_SPACE_SIZE(min_id),
+    _MAX_ID_SPACE_SIZE(_id_space.size())
     {
     }
 
     // The size of the space
-    id_idx_t getSize ()
+    size_t getSize ()
     {
-        return ID_SPACE_SIZE - 1;
+        return _MAX_ID_SPACE_SIZE - _MIN_ID_SPACE_SIZE;
     }
 
     // Bounds of the space
-    void getBounds (id_idx_t *start, id_idx_t *end)
+    void getBounds (size_t *start, size_t *end)
     {
-        *start = 1;
-        *end   = ID_SPACE_SIZE - 1;
+        *start = _MIN_ID_SPACE_SIZE;
+        *end   = _MAX_ID_SPACE_SIZE - 1;
     }
 
     // Is this ID present in the space
@@ -57,22 +67,22 @@ public:
     }
 
     // Number of IDs availble
-    id_idx_t freeCount ()
+    size_t freeCount ()
     {
-        return getSize() - (id_idx_t)count();
+        return getSize() - count();
     }
 
     // Get a free ID. A return value of zero indicates failure
     id_idx_t allocate (void)
     {
-        id_idx_t start, end;
+        size_t start, end;
 
         getBounds(&start, &end);
         std::lock_guard<std::mutex> guard(_id_mutex);
-        for (id_idx_t i = start; i <= end; i++) {
+        for (size_t i = start; i <= end; i++) {
             if (_id_space.test(i) == 0) {
                 _id_space.set(i);
-                return i;
+                return (id_idx_t)i;
             }
         }
 
@@ -102,7 +112,7 @@ public:
         getBounds(&start, &end);
         for (id_idx_t i = start; i <= end; i++) {
             if (_id_space.test(i)) {
-                std::cout << i << "\n";
+                std::cout << i << " " << std::endl;
             }
         }
     }

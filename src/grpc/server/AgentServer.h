@@ -24,10 +24,10 @@
 class AgentServer final : public Telemetry::OpenConfigTelemetry::Service {
     // Logging service
     AgentServerLog *_logger;
-    
+
     // Subscription ID Manager
-    AgentServerIdManager _id_manager;
-    
+    AgentServerIdManager<std::bitset<SUBSCRIPTION_ID_SPACE_SIZE>> _id_manager;
+
     // Consolidator that consolidates requests into JUNOS
     AgentConsolidator _consolidator;
 
