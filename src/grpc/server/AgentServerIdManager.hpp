@@ -20,6 +20,7 @@ typedef uint32_t id_idx_t;
 #define INTERNAL_SUBSCRIPTION_ID_SPACE_SIZE       8196
 #define INTERNAL_SUBSCRIPTION_ID_SPACE_MIN        1000
 
+// Will assume user is deligent enough to supply type T as std::bitmap<size_t>
 template <typename T>
 class AgentServerIdManager {
     // Control access to the space
