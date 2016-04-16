@@ -25,23 +25,25 @@ AgentConsolidatorSystemHandle::create (AgentSystem *sys_handle,
     bool collision;
     AgentConsolidatorSystemHandlePtr ptr = find(request_path, &collision);
     if (ptr) {
+        // Just increment the reference counter and bail out
         ptr->incRef();
         return ptr;
     }
-    
+
     // No support to handle collisions yet
     if (collision) {
         return NULL;
     }
-    
+
     // No dice. Allocate a new handle
     AgentConsolidatorSystemHandlePtr handle = std::make_shared<AgentConsolidatorSystemHandle>();
-    
+
     // Insert in the DB
     handle->setRef(1);
     handle->setRequest(request_path);
     insert(sys_handle, request_path, handle);
-    
+
+    sys_handle->getLogger()->log("ConsolidatorSystemHandle create successful.");
     return handle;
 }
 
@@ -52,22 +54,24 @@ AgentConsolidatorSystemHandle::destroy (AgentSystem *sys_handle)
     if (!getRef()) {
         return false;
     }
-    
+
     // Decerement the reference
     decRef();
-    
-    // If others still have a referece, we are done
+
+    // If others still have a reference, we are done
     if (getRef()) {
         return true;
     }
-    
+
     // Remove from the system
     remove(sys_handle, &_request);
+
+    sys_handle->getLogger()->log("ConsolidatorSystemHandle destroy successful.");
     return true;
 }
 
 void
-AgentConsolidatorSystemHandle::description()
+AgentConsolidatorSystemHandle::description (void)
 {
 }
 
@@ -83,7 +87,7 @@ AgentConsolidatorSystemHandle::find (const Telemetry::Path *request_path, bool *
     google::protobuf::TextFormat::PrintToString(*request_path, &request_str);
     std::hash<std::string> hasher;
     auto hashed = hasher(request_str);
-    
+
     // Does it exist
     AgentSystemDB::iterator itr = sysdb.find(hashed);
     if (itr == sysdb.end()) {
@@ -98,7 +102,7 @@ AgentConsolidatorSystemHandle::find (const Telemetry::Path *request_path, bool *
         *collision = true;
         return NULL;
     }
- 
+
     // All is well
     return itr->second;
 }
@@ -106,7 +110,7 @@ AgentConsolidatorSystemHandle::find (const Telemetry::Path *request_path, bool *
 void
 AgentConsolidatorSystemHandle::insert (AgentSystem *sys_handle,
                                        const Telemetry::Path *request_path,
-                                       AgentConsolidatorSystemHandlePtr syshandle)
+                                       AgentConsolidatorSystemHandlePtr consolidatorsyshandle)
 {
     // Generate a hash from the request message
     std::string request_str;
@@ -115,8 +119,8 @@ AgentConsolidatorSystemHandle::insert (AgentSystem *sys_handle,
     auto hashed = hasher(request_str);
     
     // Store it away
-    sysdb[hashed] = syshandle;
-    
+    sysdb[hashed] = consolidatorsyshandle;
+
     // Generate a request towards the system
     sys_handle->systemAdd(SystemId(hashed), request_path);
 }
@@ -130,13 +134,15 @@ AgentConsolidatorSystemHandle::remove (AgentSystem *sys_handle,
     google::protobuf::TextFormat::PrintToString(*request_path, &request_str);
     std::hash<std::string> hasher;
     auto hashed = hasher(request_str);
-    
+
     AgentSystemDB::iterator itr = sysdb.find(hashed);
     if (itr == sysdb.end()) {
         return;
     }
     
     sys_handle->systemRemove(SystemId(hashed), request_path);
+
+    // Detach from the sysdb
     sysdb.erase(itr);
 }
 
@@ -148,20 +154,19 @@ AgentConsolidatorSystemHandle::get (AgentSystem *sys_handle)
     google::protobuf::TextFormat::PrintToString(_request, &request_str);
     std::hash<std::string> hasher;
     auto hashed = hasher(request_str);
-    
+
     // Do we have this entry ?
     AgentSystemDB::iterator itr = sysdb.find(hashed);
     if (itr == sysdb.end()) {
         return NULL;
     }
-    
+
     // Query the system
     return sys_handle->systemGet(SystemId(hashed));
 }
 
-
 uint32_t
-AgentConsolidatorSystemHandle::getCount ()
+AgentConsolidatorSystemHandle::getCount (void)
 {
     AgentSystemDB::iterator itr;
     uint32_t count = 0;
