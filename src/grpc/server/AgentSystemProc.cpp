@@ -15,25 +15,26 @@ void
 AgentSystemProc::systemAdd (SystemId id, const Telemetry::Path *request_path)
 {
     // Create a client
-    std::shared_ptr<grpc::Channel> channel = grpc::CreateChannel("localhost:50050", grpc::InsecureCredentials());
+    std::shared_ptr<grpc::Channel> channel = grpc::CreateChannel("localhost:50050",
+                                                  grpc::InsecureCredentials());
     stub_ = OpenConfigRpcApi::NewStub(channel);
-   
+
     // Generate a name for the sensor
     std::string sensor_name;
     generateName(request_path, sensor_name);
-    
+
     // Form the request
     EditConfigRequest   request;
-    
+
     // Request Header
     RequestHdr          *request_header;
     request_header = request.mutable_requestheader();
     request_header->set_requestid(id.getId());
-    
+
     // The create command
     ConfigCommand         *cmd;
     OpenConfigDataElement *config_element;
-    
+
     cmd = request.add_configcommand();
     cmd->set_command(junos_mgd::UpdateConfig);
     config_element = cmd->mutable_opencfgdata();
@@ -45,12 +46,15 @@ AgentSystemProc::systemAdd (SystemId id, const Telemetry::Path *request_path)
     grpc::ClientContext context;
     stub_->EditConfig(&context, request, &response);
     
+    ++_add_system_count;
+
     // Check the request whether everything went OK or not.
 }
 
 void
 AgentSystemProc::systemRemove (SystemId id, const Telemetry::Path *request_path)
 {
+    ++_remove_system_count;
 }
 
 Telemetry::Path *
@@ -91,4 +95,3 @@ AgentSystemProc::systemGet (SystemId id)
     
     return path;
 }
-

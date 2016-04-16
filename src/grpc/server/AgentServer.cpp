@@ -43,6 +43,10 @@ AgentServer::telemetrySubscribe (ServerContext *context,
         return _sendMetaDataInfo(context, writer, reply);
     }
 
+    // Log the Subscription Identifier
+    log_str = std::to_string(id);
+    _logger->log("Subscription-Allocate: ID = " + log_str);
+
     // Validate request against capability (for now hardcoded)
     // TODO ABBAS
     validated_request = new SubscriptionRequest();
@@ -78,10 +82,6 @@ AgentServer::telemetrySubscribe (ServerContext *context,
         return _sendMetaDataInfo(context, writer, reply);
     }
 
-    // Log the Subscription Identifier
-    log_str = std::to_string(sub->getId());
-    _logger->log("Subscription-Allocate: ID = " + log_str);
-
     // Send back the response on the metadata channel
     response->set_subscription_id(sub->getId());
 
@@ -115,6 +115,8 @@ AgentServer::telemetrySubscribe (ServerContext *context,
 
     // Streaming over. Either client terminated or sub expired
     if (client_disconnected || sub->expired()) {
+        _logger->log("Channel disconnected or Subscription expired: ID = " +
+                     std::to_string(id));
         // cleanup subscription gracefully
         _cleanupSubscription(sub);
     }
@@ -266,7 +268,7 @@ AgentServer::getTelemetryOperationalState (ServerContext* context, const GetOper
     kv->set_key("agent-stats");
     kv->set_str_value("begin");
 
-    // revisit --- TODO
+    // TODO ABBAS --- revisit
     kv = operational_reply->add_kv();
     kv->set_key("total_subscriptions");
     kv->set_int_value(store.size());

@@ -9,7 +9,6 @@
 #ifndef AgentSystem_hpp
 #define AgentSystem_hpp
 
-#include <stdio.h>
 #include "AgentServerProtos.h"
 #include "AgentServerLog.hpp"
 
@@ -33,15 +32,18 @@ public:
 
 // Interface presented by a system where all telemetry resources are provisioned
 class AgentSystem {
+
+protected:
     AgentServerLog *_logger;
-    
+
     // Statistics to track requests into the system
-    uint64_t _add_count;
-    uint64_t _remove_count;
-    uint64_t _error_count;
-    
+    uint64_t _add_system_count;
+    uint64_t _remove_system_count;
+    uint64_t _error_system_count;
+
 public:
     AgentSystem (AgentServerLog *logger) : _logger(logger) {}
+    AgentServerLog  *getLogger (void)       { return _logger; }
     virtual void systemAdd(SystemId sys_id, const Telemetry::Path *request_path) = 0;
     virtual void systemRemove(SystemId sys_id, const Telemetry::Path *request_path) = 0;
     virtual Telemetry::Path * systemGet(SystemId sys_id) = 0;

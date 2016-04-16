@@ -9,7 +9,6 @@
 #ifndef AgentSystemProc_hpp
 #define AgentSystemProc_hpp
 
-#include <stdio.h>
 #include "AgentSystem.hpp"
 #include <grpc++/grpc++.h>
 #include "junos_mgd.pb.h"
@@ -34,20 +33,18 @@ using junos_mgd::GetConfigResponse;
 
 
 class AgentSystemProc : public AgentSystem {
-    
-    
 public:
     // The stub for the RPC
     std::unique_ptr<OpenConfigRpcApi::Stub> stub_;
-    
+
     AgentSystemProc (AgentServerLog *logger) : AgentSystem(logger)
     {
     }
-    
+
     void systemAdd(SystemId id, const Telemetry::Path *request_path);
     void systemRemove(SystemId id, const Telemetry::Path *request_path);
     Telemetry::Path * systemGet(SystemId sys_id);
-    
+
     // Helper routines
     // Generate a name from the request
     void generateName(const Telemetry::Path *request_path, std::string &name)
@@ -66,8 +63,9 @@ public:
             name += "-";
         }
     }
-    
-    void parseNameField(std::string path_name, const std::string& field_name, char delim, std::string &value)
+
+    void parseNameField(std::string path_name, const std::string& field_name,
+                        char delim, std::string &value)
     {
         // Just in case
         value = "";
@@ -86,24 +84,24 @@ public:
             value += *str;
         }
     }
-    
+
     // From a name form the request path
     void parseName(const std::string &name, Telemetry::Path *request_path)
     {
         std::string value;
-        
+
         //path=xxx-interval=ddd-filter=dddd-
-        
+
         // Look for path
         parseNameField(name, "path", '-', value);
         request_path->set_path(value);
-        
+
         // Look for interval
         parseNameField(name, "interval", '-', value);
         if (value != "") {
             request_path->set_sample_frequency(atoi(value.c_str()));
         }
-        
+
         // Look for resource filter
         parseNameField(name, "filter", '-', value);
         request_path->set_filter(value);

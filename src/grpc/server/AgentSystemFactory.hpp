@@ -9,7 +9,6 @@
 #ifndef AgentSystemFactory_hpp
 #define AgentSystemFactory_hpp
 
-#include <stdio.h>
 #include "AgentSystem.hpp"
 
 class AgentSystemFactory {

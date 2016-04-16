@@ -9,7 +9,6 @@
 #ifndef AgentSystemFile_hpp
 #define AgentSystemFile_hpp
 
-#include <stdio.h>
 #include "AgentSystem.hpp"
 
 class AgentSystemFile: public AgentSystem {

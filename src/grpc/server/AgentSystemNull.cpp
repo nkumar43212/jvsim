@@ -25,4 +25,3 @@ AgentSystemNull::systemGet (SystemId sys_id)
 {
     return NULL;
 }
-
