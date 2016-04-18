@@ -13,26 +13,26 @@
 #include <map>
 #include "AgentSystem.hpp"
 
+// For now defined as global but should make it part of Consolidator class ???
+// TODO ABBAS
+static AgentServerIdManager<std::bitset<INTERNAL_SUBSCRIPTION_ID_SPACE_SIZE>>
+                    InternalIdGenerator(INTERNAL_SUBSCRIPTION_ID_SPACE_MIN);
+
 // The db of all requests into the system
-typedef std::map<std::size_t, AgentConsolidatorSystemHandlePtr> AgentSystemDB;
+// <request_path_str, ConsolidatorSystemHandlerPtr>
+typedef std::map<std::string, AgentConsolidatorSystemHandlePtr> AgentSystemDB;
 AgentSystemDB sysdb;
 
 AgentConsolidatorSystemHandlePtr
 AgentConsolidatorSystemHandle::create (AgentSystem *sys_handle,
                                        const Telemetry::Path *request_path)
 {
-    // Do we have this ?
-    bool collision;
-    AgentConsolidatorSystemHandlePtr ptr = find(request_path, &collision);
+    // Find if the request path already exist
+    AgentConsolidatorSystemHandlePtr ptr = find(request_path);
     if (ptr) {
         // Just increment the reference counter and bail out
         ptr->incRef();
         return ptr;
-    }
-
-    // No support to handle collisions yet
-    if (collision) {
-        return NULL;
     }
 
     // No dice. Allocate a new handle
@@ -40,7 +40,11 @@ AgentConsolidatorSystemHandle::create (AgentSystem *sys_handle,
 
     // Insert in the DB
     handle->setRef(1);
-    handle->setRequest(request_path);
+    handle->setPath(request_path);
+    // Allocate an internal subscriber id
+    id_idx_t _i_s_id = InternalIdGenerator.allocate();
+    sys_handle->getLogger()->log("Reserved Internal Id = " + std::to_string(_i_s_id));
+    handle->setInternalSubscriptionId(_i_s_id);
     insert(sys_handle, request_path, handle);
 
     sys_handle->getLogger()->log("ConsolidatorSystemHandle create successful.");
@@ -64,7 +68,7 @@ AgentConsolidatorSystemHandle::destroy (AgentSystem *sys_handle)
     }
 
     // Remove from the system
-    remove(sys_handle, &_request);
+    remove(sys_handle, &_path);
 
     sys_handle->getLogger()->log("ConsolidatorSystemHandle destroy successful.");
     return true;
@@ -76,30 +80,19 @@ AgentConsolidatorSystemHandle::description (void)
 }
 
 AgentConsolidatorSystemHandlePtr
-AgentConsolidatorSystemHandle::find (const Telemetry::Path *request_path, bool *collision)
+AgentConsolidatorSystemHandle::find (const Telemetry::Path *request_path)
 {
-    // Assume that we won't collide. If we see this go up, we need to enhance the
-    // implementation to maintain a bucket list over here
-    *collision = false;
-    
-    // Generate a hash from the request message
-    std::string request_str;
-    google::protobuf::TextFormat::PrintToString(*request_path, &request_str);
-    std::hash<std::string> hasher;
-    auto hashed = hasher(request_str);
+    // Convert request to string
+    std::string request_path_str;
+    // Serialize the data in text format
+    google::protobuf::TextFormat::Printer printer;
+    // Use single line mode
+    printer.SetSingleLineMode(true);
+    printer.PrintToString(*request_path, &request_path_str);
 
     // Does it exist
-    AgentSystemDB::iterator itr = sysdb.find(hashed);
+    AgentSystemDB::iterator itr = sysdb.find(request_path_str);
     if (itr == sysdb.end()) {
-        return NULL;
-    }
-    
-    // Make sure that there are no hash collisions and everything matches
-    std::string db_str;
-    const Telemetry::Path *db_request = itr->second->getRequest();
-    google::protobuf::TextFormat::PrintToString(*db_request, &db_str);
-    if (db_str != request_str) {
-        *collision = true;
         return NULL;
     }
 
@@ -112,57 +105,75 @@ AgentConsolidatorSystemHandle::insert (AgentSystem *sys_handle,
                                        const Telemetry::Path *request_path,
                                        AgentConsolidatorSystemHandlePtr consolidatorsyshandle)
 {
-    // Generate a hash from the request message
-    std::string request_str;
-    google::protobuf::TextFormat::PrintToString(*request_path, &request_str);
-    std::hash<std::string> hasher;
-    auto hashed = hasher(request_str);
-    
+    // Convert request to string
+    std::string request_path_str;
+    // Serialize the data in text format
+    google::protobuf::TextFormat::Printer printer;
+    // Use single line mode
+    printer.SetSingleLineMode(true);
+    printer.PrintToString(*request_path, &request_path_str);
+
     // Store it away
-    sysdb[hashed] = consolidatorsyshandle;
+    sysdb[request_path_str] = consolidatorsyshandle;
 
     // Generate a request towards the system
-    sys_handle->systemAdd(SystemId(hashed), request_path);
+    sys_handle->systemAdd(SystemId(consolidatorsyshandle->getInternalSubscriptionId()),
+                          request_path);
+
+    sys_handle->getLogger()->log("Inserted " + request_path_str);
 }
 
 void
 AgentConsolidatorSystemHandle::remove (AgentSystem *sys_handle,
                                        const Telemetry::Path *request_path)
 {
-    // Generate a hash from the request message
-    std::string request_str;
-    google::protobuf::TextFormat::PrintToString(*request_path, &request_str);
-    std::hash<std::string> hasher;
-    auto hashed = hasher(request_str);
+    // Convert request to string
+    std::string request_path_str;
+    // Serialize the data in text format
+    google::protobuf::TextFormat::Printer printer;
+    // Use single line mode
+    printer.SetSingleLineMode(true);
+    printer.PrintToString(*request_path, &request_path_str);
 
-    AgentSystemDB::iterator itr = sysdb.find(hashed);
+    // Does it exist ?
+    AgentSystemDB::iterator itr = sysdb.find(request_path_str);
     if (itr == sysdb.end()) {
         return;
     }
-    
-    sys_handle->systemRemove(SystemId(hashed), request_path);
 
+    sys_handle->systemRemove(SystemId(itr->second->getInternalSubscriptionId()),
+                             request_path);
+    // Delete the Internal ID
+    id_idx_t _i_s_id = itr->second->getInternalSubscriptionId();
+    sys_handle->getLogger()->log("Deleted Internal Id = " + std::to_string(_i_s_id));
+    bool bad;
+    InternalIdGenerator.deallocate(_i_s_id, &bad);
+    
     // Detach from the sysdb
     sysdb.erase(itr);
+
+    sys_handle->getLogger()->log("Removed " + request_path_str);
 }
 
 Telemetry::Path *
 AgentConsolidatorSystemHandle::get (AgentSystem *sys_handle)
 {
-    // Generate a hash from the request message
-    std::string request_str;
-    google::protobuf::TextFormat::PrintToString(_request, &request_str);
-    std::hash<std::string> hasher;
-    auto hashed = hasher(request_str);
+    // Convert request to string
+    std::string request_path_str;
+    // Serialize the data in text format
+    google::protobuf::TextFormat::Printer printer;
+    // Use single line mode
+    printer.SetSingleLineMode(true);
+    printer.PrintToString(_path, &request_path_str);
 
     // Do we have this entry ?
-    AgentSystemDB::iterator itr = sysdb.find(hashed);
+    AgentSystemDB::iterator itr = sysdb.find(request_path_str);
     if (itr == sysdb.end()) {
         return NULL;
     }
 
     // Query the system
-    return sys_handle->systemGet(SystemId(hashed));
+    return sys_handle->systemGet(SystemId(itr->second->getInternalSubscriptionId()));
 }
 
 uint32_t

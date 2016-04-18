@@ -20,19 +20,24 @@
 // we do not create multiple subscriptions on the JUNOS system
 // and reuse the sensors
 class AgentConsolidatorSystemHandle {
-    Telemetry::Path _request;
-    uint64_t    _refcount;
-    
+    Telemetry::Path         _path;
+    id_idx_t                _internal_subscription_id;
+    uint64_t                _refcount;
+
 public:
     // Accessors
+    void     setInternalSubscriptionId (id_idx_t val)
+                                        { _internal_subscription_id = val; }
+    id_idx_t getInternalSubscriptionId (void)
+                                        { return _internal_subscription_id; }
     void     setRef (uint64_t val)      { _refcount = val;  }
     uint64_t getRef (void)              { return _refcount; }
     void     decRef (void)              { --_refcount;      }
     void     incRef (void)              { ++_refcount;      }
-    void     setRequest(const Telemetry::Path *request)
-                                        { _request.CopyFrom(*request); }
-    const Telemetry::Path *getRequest (void)
-                                        { return &_request; }
+    void     setPath(const Telemetry::Path *request)
+                                        { _path.CopyFrom(*request); }
+    const Telemetry::Path *getPath (void)
+                                        { return &_path; }
 
     ~AgentConsolidatorSystemHandle() {}
 
@@ -48,8 +53,7 @@ public:
 
     // Class interface
     static std::shared_ptr<AgentConsolidatorSystemHandle>
-    find(const Telemetry::Path *request_path, bool *collision);
-
+    find(const Telemetry::Path *request_path);
     static void insert(AgentSystem *sys_handle,
                        const Telemetry::Path *request_path,
                        std::shared_ptr<AgentConsolidatorSystemHandle> syshandle);
@@ -66,21 +70,23 @@ typedef std::shared_ptr<AgentConsolidatorSystemHandle>
 
 class AgentConsolidatorHandle {
     // Subscription Identifier
-    std::string _request_id;
+    id_idx_t _subscription_id;
 
     // List of system handles allocated
     std::vector<AgentConsolidatorSystemHandlePtr> _consolidatorsyshandles;
 
 public:
-    AgentConsolidatorHandle (const std::string request_id) : _request_id(request_id) {}
+    AgentConsolidatorHandle (const id_idx_t subscription_id) :
+                             _subscription_id(subscription_id) {}
+
     ~AgentConsolidatorHandle ()
     {
         _consolidatorsyshandles.clear();
     }
 
-    const std::string getId ()
+    const id_idx_t getSubscriptionId ()
     {
-        return _request_id;
+        return _subscription_id;
     }
 
     uint32_t getHandleCount (void)

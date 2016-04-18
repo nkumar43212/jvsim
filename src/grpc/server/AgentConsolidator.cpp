@@ -9,15 +9,15 @@
 
 // Create a request
 AgentConsolidatorHandle *
-AgentConsolidator::addRequest (const std::string request_id,
+AgentConsolidator::addRequest (const id_idx_t subscription_id,
                                const SubscriptionRequest *request)
 {
-    AgentConsolidatorHandle *ptr = new AgentConsolidatorHandle(request_id);
+    AgentConsolidatorHandle *ptr = new AgentConsolidatorHandle(subscription_id);
 
     // Guard the add request
     std::lock_guard<std::mutex> guard(_consolidator_mutex);
 
-    _logger->log("Add Request:" + request_id);
+    _logger->log("Add Request ID: " + std::to_string(subscription_id));
 
     // No memory, we are done
     if (!ptr) {
@@ -59,7 +59,7 @@ AgentConsolidator::removeRequest (AgentConsolidatorHandle *handle)
     }
 
     // Make a note
-    _logger->log("Remove request:" + handle->getId());
+    _logger->log("Remove Request ID: " + std::to_string(handle->getSubscriptionId()));
 
     // Iterate through the handle and remove the references to the system handles
     // The last reference will call the destructor of the system handle which will
@@ -88,7 +88,7 @@ AgentConsolidator::getRequest (AgentConsolidatorHandle *handle, bool cached)
     }
 
     // Make a note
-    _logger->log("Get request:" + handle->getId());
+    _logger->log("Get request ID:" + std::to_string(handle->getSubscriptionId()));
 
     // Build the answer
     SubscriptionRequest *request_list = new Telemetry::SubscriptionRequest;
@@ -106,7 +106,7 @@ AgentConsolidator::getRequest (AgentConsolidatorHandle *handle, bool cached)
         // Return the local state in the consolidator
         if (cached) {
             Telemetry::Path *path = request_list->add_path_list();
-            path->CopyFrom(*ptr->getRequest());
+            path->CopyFrom(*ptr->getPath());
             continue;
         }
 

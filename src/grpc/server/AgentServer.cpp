@@ -53,7 +53,7 @@ AgentServer::telemetrySubscribe (ServerContext *context,
     validated_request->CopyFrom(*request);
 
     // Create a subscription into the system
-    system_handle = _consolidator.addRequest(std::to_string(id), validated_request);
+    system_handle = _consolidator.addRequest(id, validated_request);
     delete validated_request;
     if (!system_handle) {
         // Delete allocated id

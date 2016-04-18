@@ -60,7 +60,7 @@ public:
     }
 
     // Create a request into the system.
-    AgentConsolidatorHandle * addRequest(const std::string request_id,
+    AgentConsolidatorHandle * addRequest(const id_idx_t subscription_id,
                                          const SubscriptionRequest *request);
 
     // Remove an earlier created request
