@@ -46,7 +46,6 @@ AgentSubscription::on_message(const struct mosquitto_message* mosqmessage)
     oc_data.set_sub_component_id(stream->sub_component_id());
     // TODO ABBAS --- Change this to extracted path from sensor_name
     oc_data.set_path(topic);
-    std::cout << stream->sensor_name() << std::endl;
     oc_data.set_sequence_number(stream->sequence_number());
     oc_data.set_timestamp(stream->timestamp());
 
