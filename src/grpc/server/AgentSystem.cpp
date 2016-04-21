@@ -7,8 +7,7 @@
 //
 
 #include "AgentSystem.hpp"
-#include <google/protobuf/text_format.h>
-#include <google/protobuf/io/zero_copy_stream.h>
+#include "AgentUtils.hpp"
 
 void
 AgentSystem::systemAdd (SystemId id, const Telemetry::Path *request_path)
@@ -18,12 +17,7 @@ AgentSystem::systemAdd (SystemId id, const Telemetry::Path *request_path)
 
     // The gist of the request
     // Convert request to string
-    std::string request_path_str;
-    // Serialize the data in text format
-    google::protobuf::TextFormat::Printer printer;
-    // Use single line mode
-    printer.SetSingleLineMode(true);
-    printer.PrintToString(*request_path, &request_path_str);
+    std::string request_path_str = AgentUtils::getMessageString(*request_path);
 
     // Write it
     _logger->log(log_str + request_path_str);
@@ -40,12 +34,7 @@ AgentSystem::systemRemove (SystemId id, const Telemetry::Path *request_path)
 
     // The gist of the request
     // Convert request to string
-    std::string request_path_str;
-    // Serialize the data in text format
-    google::protobuf::TextFormat::Printer printer;
-    // Use single line mode
-    printer.SetSingleLineMode(true);
-    printer.PrintToString(*request_path, &request_path_str);
+    std::string request_path_str = AgentUtils::getMessageString(*request_path);
 
     // Write it
     _logger->log(log_str + request_path_str);

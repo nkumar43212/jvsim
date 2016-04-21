@@ -6,12 +6,11 @@
 //  Copyright © 2016 Juniper Networks. All rights reserved.
 //
 
-#include "AgentConsolidatorSystem.hpp"
-#include <google/protobuf/text_format.h>
-#include <google/protobuf/io/zero_copy_stream.h>
 #include <functional>
 #include <map>
+#include "AgentConsolidatorSystem.hpp"
 #include "AgentSystem.hpp"
+#include "AgentUtils.hpp"
 
 // For now defined as global but should make it part of Consolidator class ???
 // TODO ABBAS
@@ -32,18 +31,23 @@ AgentConsolidatorSystemHandle::create (AgentSystem *sys_handle,
     if (ptr) {
         // Just increment the reference counter and bail out
         ptr->incRef();
+        sys_handle->getLogger()->log("ConsolidatorSystemHandle already exist ("
+                    + std::to_string(ptr->getInternalSubscriptionId()) + "): "
+                    + AgentUtils::getMessageString(*request_path));
         return ptr;
     }
 
     // No dice. Allocate a new handle
-    AgentConsolidatorSystemHandlePtr handle = std::make_shared<AgentConsolidatorSystemHandle>();
+    AgentConsolidatorSystemHandlePtr handle =
+                            std::make_shared<AgentConsolidatorSystemHandle>();
 
     // Insert in the DB
     handle->setRef(1);
     handle->setPath(request_path);
     // Allocate an internal subscriber id
     id_idx_t _i_s_id = InternalIdGenerator.allocate();
-    sys_handle->getLogger()->log("Reserved Internal Id = " + std::to_string(_i_s_id));
+    sys_handle->getLogger()->log("Reserved Internal Id = " +
+                                 std::to_string(_i_s_id));
     handle->setInternalSubscriptionId(_i_s_id);
     insert(sys_handle, request_path, handle);
 
@@ -56,6 +60,8 @@ AgentConsolidatorSystemHandle::destroy (AgentSystem *sys_handle)
 {
     // Ensure that we don't underflow
     if (!getRef()) {
+        sys_handle->getLogger()->log("ConsolidatorSystemHandle has underflow: "
+                                     + AgentUtils::getMessageString(_path));
         return false;
     }
 
@@ -64,13 +70,16 @@ AgentConsolidatorSystemHandle::destroy (AgentSystem *sys_handle)
 
     // If others still have a reference, we are done
     if (getRef()) {
+        sys_handle->getLogger()->log("ConsolidatorSystemHandle still in use ("
+                        + std::to_string(getInternalSubscriptionId()) + "): "
+                        + AgentUtils::getMessageString(_path));
         return true;
     }
 
     // Remove from the system
     remove(sys_handle, &_path);
 
-    sys_handle->getLogger()->log("ConsolidatorSystemHandle destroy successful.");
+    sys_handle->getLogger()->log("ConsolidatorSystemHandle destroy successful");
     return true;
 }
 
@@ -83,12 +92,7 @@ AgentConsolidatorSystemHandlePtr
 AgentConsolidatorSystemHandle::find (const Telemetry::Path *request_path)
 {
     // Convert request to string
-    std::string request_path_str;
-    // Serialize the data in text format
-    google::protobuf::TextFormat::Printer printer;
-    // Use single line mode
-    printer.SetSingleLineMode(true);
-    printer.PrintToString(*request_path, &request_path_str);
+    std::string request_path_str = AgentUtils::getMessageString(*request_path);
 
     // Does it exist
     AgentSystemDB::iterator itr = sysdb.find(request_path_str);
@@ -102,23 +106,19 @@ AgentConsolidatorSystemHandle::find (const Telemetry::Path *request_path)
 
 void
 AgentConsolidatorSystemHandle::insert (AgentSystem *sys_handle,
-                                       const Telemetry::Path *request_path,
-                                       AgentConsolidatorSystemHandlePtr consolidatorsyshandle)
+                        const Telemetry::Path *request_path,
+                        AgentConsolidatorSystemHandlePtr consolidatorsyshandle)
 {
     // Convert request to string
-    std::string request_path_str;
-    // Serialize the data in text format
-    google::protobuf::TextFormat::Printer printer;
-    // Use single line mode
-    printer.SetSingleLineMode(true);
-    printer.PrintToString(*request_path, &request_path_str);
+    std::string request_path_str = AgentUtils::getMessageString(*request_path);
 
     // Store it away
     sysdb[request_path_str] = consolidatorsyshandle;
 
     // Generate a request towards the system
-    sys_handle->systemAdd(SystemId(consolidatorsyshandle->getInternalSubscriptionId()),
-                          request_path);
+    sys_handle->systemAdd(
+                SystemId(consolidatorsyshandle->getInternalSubscriptionId()),
+                request_path);
 
     sys_handle->getLogger()->log("Inserted " + request_path_str);
 }
@@ -128,16 +128,13 @@ AgentConsolidatorSystemHandle::remove (AgentSystem *sys_handle,
                                        const Telemetry::Path *request_path)
 {
     // Convert request to string
-    std::string request_path_str;
-    // Serialize the data in text format
-    google::protobuf::TextFormat::Printer printer;
-    // Use single line mode
-    printer.SetSingleLineMode(true);
-    printer.PrintToString(*request_path, &request_path_str);
+    std::string request_path_str = AgentUtils::getMessageString(*request_path);
 
     // Does it exist ?
     AgentSystemDB::iterator itr = sysdb.find(request_path_str);
     if (itr == sysdb.end()) {
+        sys_handle->getLogger()->log("Remove could not find: " +
+                                     request_path_str);
         return;
     }
 
@@ -145,7 +142,8 @@ AgentConsolidatorSystemHandle::remove (AgentSystem *sys_handle,
                              request_path);
     // Delete the Internal ID
     id_idx_t _i_s_id = itr->second->getInternalSubscriptionId();
-    sys_handle->getLogger()->log("Deleted Internal Id = " + std::to_string(_i_s_id));
+    sys_handle->getLogger()->log("Deleted Internal Id = " +
+                                 std::to_string(_i_s_id));
     bool bad;
     InternalIdGenerator.deallocate(_i_s_id, &bad);
     
@@ -159,21 +157,18 @@ Telemetry::Path *
 AgentConsolidatorSystemHandle::get (AgentSystem *sys_handle)
 {
     // Convert request to string
-    std::string request_path_str;
-    // Serialize the data in text format
-    google::protobuf::TextFormat::Printer printer;
-    // Use single line mode
-    printer.SetSingleLineMode(true);
-    printer.PrintToString(_path, &request_path_str);
+    std::string request_path_str = AgentUtils::getMessageString(_path);
 
     // Do we have this entry ?
     AgentSystemDB::iterator itr = sysdb.find(request_path_str);
     if (itr == sysdb.end()) {
+        sys_handle->getLogger()->log("Get could not find: " + request_path_str);
         return NULL;
     }
 
     // Query the system
-    return sys_handle->systemGet(SystemId(itr->second->getInternalSubscriptionId()));
+    return sys_handle->systemGet(
+                       SystemId(itr->second->getInternalSubscriptionId()));
 }
 
 uint32_t

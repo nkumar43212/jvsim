@@ -7,10 +7,8 @@
 //
 
 // Header files
-#include <google/protobuf/text_format.h>
-#include <google/protobuf/io/zero_copy_stream.h>
 #include "AgentServer.h"
-#include "OpenConfig.hpp"
+#include "AgentUtils.hpp"
 
 Status
 AgentServer::telemetrySubscribe (ServerContext *context,
@@ -317,11 +315,7 @@ AgentServer::_sendMetaDataInfo (ServerContext *context,
                                 SubscriptionReply &reply)
 {
     // Serialize the data in text format
-    std::string init_data;
-    google::protobuf::TextFormat::Printer printer;
-    // Use single line mode
-    printer.SetSingleLineMode(true);
-    printer.PrintToString(reply, &init_data);
+    std::string init_data = AgentUtils::getMessageString(reply);
     // std::cout << "String data = " << init_data << std::endl;
 
     // Send the meta data and log it
