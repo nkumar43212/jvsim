@@ -7,7 +7,6 @@
 //
 
 #include "OpenConfigPort.hpp"
-#include <iostream>
 
 void
 OpenConfigPort::iterate (JuniperNetworksSensors *handle, Telemetry::OpenConfigData *datap)

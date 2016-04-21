@@ -7,7 +7,6 @@
 //
 
 #include "OpenConfigFirewall.hpp"
-#include <iostream>
 
 void
 OpenConfigFirewall::iterate (JuniperNetworksSensors *handle, Telemetry::OpenConfigData *datap)
@@ -15,15 +14,15 @@ OpenConfigFirewall::iterate (JuniperNetworksSensors *handle, Telemetry::OpenConf
     Firewall *message = handle->MutableExtension(jnpr_firewall_ext);
     int i, j;
     Telemetry::KeyValue *kv;
-    
+
     for (i = 0; i < message->firewall_stats_size(); i++) {
         const FirewallStats& filter = message->firewall_stats(i);
         std::string master_key = "oc-path/firewalls/" + filter.filter_name() + "/";
-        
+
         kv = datap->add_kv();
         kv->set_key("__prefix__");
         kv->set_str_value(master_key);
-        
+
         for (j = 0; j < filter.memory_usage_size(); j++) {
             const MemoryUsage& mem = filter.memory_usage(j);
             
@@ -31,7 +30,7 @@ OpenConfigFirewall::iterate (JuniperNetworksSensors *handle, Telemetry::OpenConf
             kv->set_key(master_key + "memory-utilization/" + mem.name());
             kv->set_int_value(mem.allocated());
         }
-        
+
         for (j = 0; j < filter.counter_stats_size(); j++) {
             const CounterStats& cntr = filter.counter_stats(j);
             
@@ -43,9 +42,9 @@ OpenConfigFirewall::iterate (JuniperNetworksSensors *handle, Telemetry::OpenConf
             kv->set_key("counters-bytes/" + cntr.name());
             kv->set_int_value(cntr.bytes());
         }
-        
+
         for (j = 0; j < filter.policer_stats_size(); j++) {
-             const PolicerStats& pol = filter.policer_stats(j);
+            const PolicerStats& pol = filter.policer_stats(j);
             
             kv = datap->add_kv();
             kv->set_key("policer/out-of-spec-packets/" + pol.name());
@@ -56,5 +55,4 @@ OpenConfigFirewall::iterate (JuniperNetworksSensors *handle, Telemetry::OpenConf
             kv->set_int_value(pol.out_of_spec_bytes());
         }
     }
-    
 }

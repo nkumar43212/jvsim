@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05C1BED81CC81DB500A6A342 /* OpenConfigNpuUtilization.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05C1BED61CC81DB500A6A342 /* OpenConfigNpuUtilization.cpp */; };
+		05C1BEDB1CC824C000A6A342 /* OpenConfigLogicalPort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05C1BED91CC824C000A6A342 /* OpenConfigLogicalPort.cpp */; };
 		9436D96C1C8549E700356B6F /* AgentSystemProc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94FB18981C85032400791B3A /* AgentSystemProc.cpp */; };
 		946702CC1C64734E00E73BF5 /* AgentServerLog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 946702C81C64734E00E73BF5 /* AgentServerLog.cpp */; };
 		946702CD1C64734E00E73BF5 /* AgentServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 946702CA1C64734E00E73BF5 /* AgentServer.cpp */; };
@@ -24,11 +26,9 @@
 		946703BE1C6477E100E73BF5 /* agent.grpc.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 946703BB1C6477E100E73BF5 /* agent.grpc.pb.cc */; };
 		946703C61C64782500E73BF5 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 946703C51C64782500E73BF5 /* main.cpp */; };
 		946703D41C64786E00E73BF5 /* OpenConfigFirewall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 946703D01C64786E00E73BF5 /* OpenConfigFirewall.cpp */; };
-		946703D51C64786E00E73BF5 /* OpenConfigInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 946703D11C64786E00E73BF5 /* OpenConfigInterface.cpp */; };
 		946703DC1C650CD700E73BF5 /* oc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 946703DB1C650CD700E73BF5 /* oc.cpp */; };
 		946703E11C65134700E73BF5 /* agent_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 946703DF1C65134700E73BF5 /* agent_test.cpp */; };
 		949DD78A1C8BA28D0062F934 /* OpenConfigPacketStats.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 949DD7891C8BA28D0062F934 /* OpenConfigPacketStats.cpp */; };
-		949DD78D1C8D51130062F934 /* OpenConfigNPU_Utilization.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 949DD78C1C8D51130062F934 /* OpenConfigNPU_Utilization.cpp */; };
 		94A291FA1C7FDA6B004BB6C3 /* AgentSystemFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94A291F81C7FDA6B004BB6C3 /* AgentSystemFactory.cpp */; };
 		94A291FD1C80FAF2004BB6C3 /* AgentServerCmdOptions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94A291FB1C80FAF2004BB6C3 /* AgentServerCmdOptions.cpp */; };
 		94A291FE1C8101AF004BB6C3 /* AgentSystemFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94A291F81C7FDA6B004BB6C3 /* AgentSystemFactory.cpp */; };
@@ -137,6 +137,10 @@
 		058673371CB462C200C8DF1F /* agent.grpc.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = agent.grpc.pb.h; path = lib/h/agent.grpc.pb.h; sourceTree = SOURCE_ROOT; };
 		0595A14A1CBECECB006A869E /* junos_mgd.proto */ = {isa = PBXFileReference; lastKnownFileType = text; name = junos_mgd.proto; path = ../../../protos/junos_mgd.proto; sourceTree = "<group>"; };
 		05AA6FEE1CB992D900966978 /* agent.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = agent.proto; path = ../../../protos/agent.proto; sourceTree = "<group>"; };
+		05C1BED61CC81DB500A6A342 /* OpenConfigNpuUtilization.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OpenConfigNpuUtilization.cpp; sourceTree = "<group>"; };
+		05C1BED71CC81DB500A6A342 /* OpenConfigNpuUtilization.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = OpenConfigNpuUtilization.hpp; sourceTree = "<group>"; };
+		05C1BED91CC824C000A6A342 /* OpenConfigLogicalPort.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OpenConfigLogicalPort.cpp; sourceTree = "<group>"; };
+		05C1BEDA1CC824C000A6A342 /* OpenConfigLogicalPort.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = OpenConfigLogicalPort.hpp; sourceTree = "<group>"; };
 		9467029A1C64348C00E73BF5 /* grpc */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = grpc; sourceTree = BUILT_PRODUCTS_DIR; };
 		946702A81C6471ED00E73BF5 /* client */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = client; sourceTree = BUILT_PRODUCTS_DIR; };
 		946702B31C64723C00E73BF5 /* server */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = server; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -173,10 +177,8 @@
 		946703CA1C64786E00E73BF5 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		946703CC1C64786E00E73BF5 /* genxlate.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = genxlate.py; sourceTree = "<group>"; };
 		946703CD1C64786E00E73BF5 /* OpenConfigPort.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = OpenConfigPort.hpp; sourceTree = "<group>"; };
-		946703CE1C64786E00E73BF5 /* OpenConfigInterface.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = OpenConfigInterface.hpp; sourceTree = "<group>"; };
 		946703CF1C64786E00E73BF5 /* OpenConfigFirewall.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = OpenConfigFirewall.hpp; sourceTree = "<group>"; };
 		946703D01C64786E00E73BF5 /* OpenConfigFirewall.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OpenConfigFirewall.cpp; sourceTree = "<group>"; };
-		946703D11C64786E00E73BF5 /* OpenConfigInterface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OpenConfigInterface.cpp; sourceTree = "<group>"; };
 		946703D61C647BD500E73BF5 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		946703D81C64823300E73BF5 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		946703DB1C650CD700E73BF5 /* oc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = oc.cpp; sourceTree = "<group>"; };
@@ -185,8 +187,6 @@
 		946703DF1C65134700E73BF5 /* agent_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = agent_test.cpp; sourceTree = "<group>"; };
 		949DD7881C8BA28D0062F934 /* OpenConfigPacketStats.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = OpenConfigPacketStats.hpp; sourceTree = "<group>"; };
 		949DD7891C8BA28D0062F934 /* OpenConfigPacketStats.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OpenConfigPacketStats.cpp; sourceTree = "<group>"; };
-		949DD78B1C8D51130062F934 /* OpenConfigNPU_Utilization.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = OpenConfigNPU_Utilization.hpp; sourceTree = "<group>"; };
-		949DD78C1C8D51130062F934 /* OpenConfigNPU_Utilization.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OpenConfigNPU_Utilization.cpp; sourceTree = "<group>"; };
 		94A291F81C7FDA6B004BB6C3 /* AgentSystemFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AgentSystemFactory.cpp; sourceTree = "<group>"; };
 		94A291F91C7FDA6B004BB6C3 /* AgentSystemFactory.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AgentSystemFactory.hpp; sourceTree = "<group>"; };
 		94A291FB1C80FAF2004BB6C3 /* AgentServerCmdOptions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AgentServerCmdOptions.cpp; sourceTree = "<group>"; };
@@ -409,16 +409,16 @@
 				946703CA1C64786E00E73BF5 /* Makefile */,
 				946703CC1C64786E00E73BF5 /* genxlate.py */,
 				946703DB1C650CD700E73BF5 /* oc.cpp */,
-				949DD78B1C8D51130062F934 /* OpenConfigNPU_Utilization.hpp */,
-				949DD78C1C8D51130062F934 /* OpenConfigNPU_Utilization.cpp */,
+				05C1BED61CC81DB500A6A342 /* OpenConfigNpuUtilization.cpp */,
+				05C1BED71CC81DB500A6A342 /* OpenConfigNpuUtilization.hpp */,
 				949DD7881C8BA28D0062F934 /* OpenConfigPacketStats.hpp */,
 				949DD7891C8BA28D0062F934 /* OpenConfigPacketStats.cpp */,
 				946703CD1C64786E00E73BF5 /* OpenConfigPort.hpp */,
 				94AC9A701C7529890034AF1A /* OpenConfigPort.cpp */,
-				946703CE1C64786E00E73BF5 /* OpenConfigInterface.hpp */,
+				05C1BEDA1CC824C000A6A342 /* OpenConfigLogicalPort.hpp */,
+				05C1BED91CC824C000A6A342 /* OpenConfigLogicalPort.cpp */,
 				946703CF1C64786E00E73BF5 /* OpenConfigFirewall.hpp */,
 				946703D01C64786E00E73BF5 /* OpenConfigFirewall.cpp */,
-				946703D11C64786E00E73BF5 /* OpenConfigInterface.cpp */,
 				946703C51C64782500E73BF5 /* main.cpp */,
 			);
 			path = "lib-oc";
@@ -717,13 +717,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05C1BEDB1CC824C000A6A342 /* OpenConfigLogicalPort.cpp in Sources */,
 				94AC9A711C7529890034AF1A /* OpenConfigPort.cpp in Sources */,
 				949DD78A1C8BA28D0062F934 /* OpenConfigPacketStats.cpp in Sources */,
 				946703DC1C650CD700E73BF5 /* oc.cpp in Sources */,
 				946703D41C64786E00E73BF5 /* OpenConfigFirewall.cpp in Sources */,
-				949DD78D1C8D51130062F934 /* OpenConfigNPU_Utilization.cpp in Sources */,
+				05C1BED81CC81DB500A6A342 /* OpenConfigNpuUtilization.cpp in Sources */,
 				946703C61C64782500E73BF5 /* main.cpp in Sources */,
-				946703D51C64786E00E73BF5 /* OpenConfigInterface.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

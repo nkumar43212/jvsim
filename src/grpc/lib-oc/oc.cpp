@@ -8,23 +8,45 @@
 //
 
 #include <iostream>
+#include "jvision_top.pb.h"
 #include "lib_oc.h"
+
+#include "OpenConfigNpuUtilization.hpp"
 #include "OpenConfigFirewall.hpp"
-#include "OpenConfigInterface.hpp"
-#include "OpenConfigPort.hpp"
-#include "OpenConfigFoo.hpp"
 #include "OpenConfigPacketStats.hpp"
-#include "OpenConfigNPU_Utilization.hpp"
+#include "OpenConfigPort.hpp"
+#include "OpenConfigLogicalPort.hpp"
 //@header
 
 void
 lib_oc_init ()
 {
-    OpenConfigFirewall *fw    = new OpenConfigFirewall;
-    OpenConfigInterface *intf = new OpenConfigInterface;
-    OpenConfigPort      *port = new OpenConfigPort;
-    OpenConfigFoo	 *Foo = new OpenConfigFoo;
-    OpenConfigPacketStats	 *PacketStats = new OpenConfigPacketStats;
-    OpenConfigNPU_Utilization	 *NPU_Utilization = new OpenConfigNPU_Utilization;
+    OpenConfigNpuUtilization	 *npu_utilization = new OpenConfigNpuUtilization;
+    OpenConfigFirewall	 *firewall = new OpenConfigFirewall;
+    OpenConfigPacketStats	 *packet_stats = new OpenConfigPacketStats;
+    OpenConfigPort	 *port = new OpenConfigPort;
+    OpenConfigLogicalPort	 *logical_port = new OpenConfigLogicalPort;
 //@next
+}
+
+std::string
+get_oc_extension_type (JuniperNetworksSensors *handle)
+{
+    if (handle->HasExtension(jnpr_npu_utilization_ext)) {
+        return "jnpr_npu_utilization_ext";
+    }
+    if (handle->HasExtension(jnpr_firewall_ext)) {
+        return "jnpr_firewall_ext";
+    }
+    if (handle->HasExtension(jnpr_packet_statistics_ext)) {
+        return "jnpr_packet_statistics_ext";
+    }
+    if (handle->HasExtension(jnpr_interface_ext)) {
+        return "jnpr_interface_ext";
+    }
+    if (handle->HasExtension(jnprLogicalInterfaceExt)) {
+        return "jnprLogicalInterfaceExt";
+    }
+//@ext_type
+    return "unknown";
 }

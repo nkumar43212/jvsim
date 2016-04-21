@@ -1,27 +1,26 @@
 //
-//  OpenConfigNPU_Utilization.hpp
+//  OpenConfigNpuUtilization.hpp
 //  agent-jv
 //
 //  Created by NITIN KUMAR on 1/12/16.
 //  Copyright © 2016 Juniper Networks. All rights reserved.
 //
 
-#ifndef OpenConfigNPU_Utilization_hpp
-#define OpenConfigNPU_Utilization_hpp
+#ifndef OpenConfigNpuUtilization_hpp
+#define OpenConfigNpuUtilization_hpp
 
-#include <stdio.h>
 #include "OpenConfig.hpp"
 #include "jvision_top.pb.h"
 #include "npu_utilization.pb.h"
 
-class OpenConfigNPU_Utilization : public OpenConfig {
+class OpenConfigNpuUtilization : public OpenConfig {
 public:
-    OpenConfigNPU_Utilization ()
+    OpenConfigNpuUtilization ()
     {
-        OpenConfig::registerSelf("npu_util", this);
+        OpenConfig::registerSelf("jnpr_npu_utilization_ext", this);
     }
     
     void   iterate (JuniperNetworksSensors *handle, Telemetry::OpenConfigData *datap);
 };
 
-#endif /* OpenConfigNPU_Utilization_hpp */
+#endif /* OpenConfigNpuUtilization_hpp */

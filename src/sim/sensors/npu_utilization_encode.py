@@ -1,7 +1,7 @@
-import npu_util_pb2
+import npu_utilization_pb2
 
-def jv_encode_npu_util(jnpr, index, lc_slot, system_params):
-    npu = jnpr.Extensions[npu_util_pb2.jnpr_npu_util_ext]
+def jv_encode_npu_utilization(jnpr, index, lc_slot, system_params):
+    npu = jnpr.Extensions[npu_utilization_pb2.jnpr_npu_utilization_ext]
 
     # Per PFE statistics
     x = 0

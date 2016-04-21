@@ -9,7 +9,6 @@
 #ifndef OpenConfig_hpp
 #define OpenConfig_hpp
 
-#include <stdio.h>
 #include <string>
 #include <map>
 #include "jvision_top.pb.h"

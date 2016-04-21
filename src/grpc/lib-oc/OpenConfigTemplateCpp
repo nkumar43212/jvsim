@@ -7,9 +7,8 @@
 //
 
 #include "OpenConfig@.hpp"
-#include <iostream>
 
 void
-OpenConfig@::iterate (JuniperNetworksSensors *handle, agent::OpenConfigData *datap)
+OpenConfig@::iterate (JuniperNetworksSensors *handle, Telemetry::OpenConfigData *datap)
 {
 }

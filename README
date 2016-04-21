@@ -16,10 +16,10 @@ A new sensor simulation can be added as follows
 
 5) Add translator to lib-oc
      - cd $SB/src/grpc/lib-oc
-     - python genxlate.py Foo foo
+     - python genxlate.py <proto-file-name> (e.g.: python genxlate.py foo)
      - A new file "OpenConfigFoo.cpp" will get generated
      - Add translation code in this routine
-     - make 
+     - make
      - Rebuild the server so that this new translation is incorporated
      - cd $SB/src/grpc/server; make
 

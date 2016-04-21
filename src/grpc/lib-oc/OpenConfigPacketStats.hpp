@@ -9,7 +9,6 @@
 #ifndef OpenConfigPacketStats_hpp
 #define OpenConfigPacketStats_hpp
 
-#include <stdio.h>
 #include "OpenConfig.hpp"
 #include "jvision_top.pb.h"
 #include "packet_stats.pb.h"
@@ -18,7 +17,7 @@ class OpenConfigPacketStats : public OpenConfig {
 public:
     OpenConfigPacketStats ()
     {
-        OpenConfig::registerSelf("packet_stats", this);
+        OpenConfig::registerSelf("jnpr_packet_statistics_ext", this);
     }
     
     void   iterate (JuniperNetworksSensors *handle, Telemetry::OpenConfigData *datap);

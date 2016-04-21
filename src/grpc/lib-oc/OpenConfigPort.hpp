@@ -9,7 +9,6 @@
 #ifndef OpenConfigPort_hpp
 #define OpenConfigPort_hpp
 
-#include <stdio.h>
 #include "OpenConfig.hpp"
 #include "jvision_top.pb.h"
 #include "port.pb.h"
@@ -18,7 +17,7 @@ class OpenConfigPort : public OpenConfig {
 public:
     OpenConfigPort ()
     {
-        OpenConfig::registerSelf("port", this);
+        OpenConfig::registerSelf("jnpr_interface_ext", this);
     }
     
     void   iterate (JuniperNetworksSensors *handle, Telemetry::OpenConfigData *datap);

@@ -9,7 +9,6 @@
 #ifndef OpenConfigFirewall_hpp
 #define OpenConfigFirewall_hpp
 
-#include <stdio.h>
 #include "OpenConfig.hpp"
 #include "jvision_top.pb.h"
 #include "firewall.pb.h"
@@ -18,7 +17,7 @@ class OpenConfigFirewall : public OpenConfig {
 public:
     OpenConfigFirewall ()
     {
-        OpenConfig::registerSelf("firewall", this);
+        OpenConfig::registerSelf("jnpr_firewall_ext", this);
     }
     
     void   iterate (JuniperNetworksSensors *handle, Telemetry::OpenConfigData *datap);

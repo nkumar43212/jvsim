@@ -1,27 +1,26 @@
 //
-//  OpenConfigInterface.hpp
+//  OpenConfigLogicalPort.hpp
 //  agent-jv
 //
 //  Created by NITIN KUMAR on 1/12/16.
 //  Copyright © 2016 Juniper Networks. All rights reserved.
 //
 
-#ifndef OpenConfigInterface_hpp
-#define OpenConfigInterface_hpp
+#ifndef OpenConfigLogicalPort_hpp
+#define OpenConfigLogicalPort_hpp
 
-#include <stdio.h>
 #include "OpenConfig.hpp"
 #include "jvision_top.pb.h"
 #include "logical_port.pb.h"
 
-class OpenConfigInterface : public OpenConfig {
+class OpenConfigLogicalPort : public OpenConfig {
 public:
-    OpenConfigInterface()
+    OpenConfigLogicalPort ()
     {
-        OpenConfig::registerSelf("interfaces", this);
+        OpenConfig::registerSelf("jnprLogicalInterfaceExt", this);
     }
     
     void   iterate (JuniperNetworksSensors *handle, Telemetry::OpenConfigData *datap);
 };
 
-#endif /* OpenConfigInterface_hpp */
+#endif /* OpenConfigLogicalPort_hpp */

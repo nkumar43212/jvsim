@@ -43,7 +43,7 @@
 	    },
 
 	    "ifls": {
-	     	"resource": "interfaces",
+		"resource": "logical_port",
 		"count": "1",
 		"interval": "0.2"
 	    }, 
@@ -55,7 +55,7 @@
             }, 
 
 	    "npu_util": {
-                "resource": "npu_util",
+                "resource": "npu_utilization",
                 "count": "1",
                 "interval": "2"
             }
