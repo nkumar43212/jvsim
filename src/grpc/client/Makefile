@@ -1,7 +1,7 @@
 CXX = g++ -w
 CPPFLAGS += -pthread -I../lib/h/ -I/usr/local/include/ -I../server/
 CXXFLAGS += -std=c++11
-LDFLAGS  += -L/usr/local/lib -L../lib -lpthread -ldl -lrpc_service  -lgrpc++_unsecure -lgrpc -lgpr -lprotobuf -lprotos
+LDFLAGS  += -L/usr/local/lib -L../lib -lpthread -ldl -lrpc_service  -lgrpc++_unsecure -lgrpc -lgpr -lprotobuf -lprotos -ljsoncpp
 
 ROOT_DIR    = ../../..
 INSTALL_DIR = $(ROOT_DIR)/bin/$(PLATFORM)

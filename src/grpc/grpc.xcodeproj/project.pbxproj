@@ -863,6 +863,7 @@
 					"-lgpr",
 					"-lprotobuf",
 					"-lprotos",
+					"-ljsoncpp",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -902,6 +903,7 @@
 					"-loc",
 					"-lprotos",
 					"-lprotobuf",
+					"-ljsoncpp",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -938,6 +940,7 @@
 					"-lprotobuf",
 					"-lprotos",
 					"-lrpc_service",
+					"-ljsoncpp",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -1016,6 +1019,7 @@
 					"-loc",
 					"-lprotos",
 					"-lprotobuf",
+					"-ljsoncpp",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

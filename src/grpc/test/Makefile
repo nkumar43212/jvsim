@@ -2,7 +2,7 @@ GTEST_DIR = ../../gtest
 CXX = g++ -w
 CPPFLAGS += -I/usr/local/include -pthread -I../lib/h -I../client -I../server -isystem $(GTEST_DIR)/include
 CXXFLAGS += -std=c++11
-LDFLAGS += -L/usr/local/lib -L../lib -lpthread -ldl -lclient -lserver -lgrpc++_unsecure -lgrpc -lgpr -lprotobuf -lprotos -lrpc_service
+LDFLAGS += -L/usr/local/lib -L../lib -lpthread -ldl -lclient -lserver -lgrpc++_unsecure -lgrpc -lgpr -lprotobuf -lprotos -lrpc_service -ljsoncpp
 PROTOC = protoc
 
 # All Google Test headers.  Usually you shouldn't change this

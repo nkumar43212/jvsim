@@ -13,7 +13,7 @@ endif
 CXX      = g++ -w
 CPPFLAGS += -I/usr/local/include -pthread -I../lib/h -I../server
 CXXFLAGS += -std=c++11
-LDFLAGS  += -L/usr/local/lib -L../lib -lpthread -ldl -lrpc_service -lgrpc++_unsecure -lgrpc -lgpr -loc -lprotos -lprotobuf
+LDFLAGS  += -L/usr/local/lib -L../lib -lpthread -ldl -lrpc_service -lgrpc++_unsecure -lgrpc -lgpr -loc -lprotos -lprotobuf -ljsoncpp
 
 FILES    = $(wildcard $(SRC_DIR)/*.cpp)
 OBJS     = $(subst .cpp,.o,$(FILES))

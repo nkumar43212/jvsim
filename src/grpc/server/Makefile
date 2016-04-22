@@ -13,7 +13,7 @@ endif
 CXX      = g++ -w
 CPPFLAGS += -I/usr/local/include -pthread -I../lib/h
 CXXFLAGS += -std=c++11
-LDFLAGS  += /usr/local/lib/libmosquittopp.$(DSO_EXT) -L/usr/local/lib -L../lib -lpthread -ldl -lrpc_service -lgrpc++_unsecure -lgrpc -lgpr -loc -lprotos -lprotobuf
+LDFLAGS  += /usr/local/lib/libmosquittopp.$(DSO_EXT) -L/usr/local/lib -L../lib -lpthread -ldl -lrpc_service -lgrpc++_unsecure -lgrpc -lgpr -loc -lprotos -lprotobuf -ljsoncpp
 
 FILES    = $(wildcard $(SRC_DIR)/*.cpp)
 OBJS     = $(subst .cpp,.o,$(FILES))

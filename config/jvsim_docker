@@ -37,6 +37,16 @@ RUN cd /home \
 && pip install paho-mqtt \
 && useradd mosquitto
 
+# Install jsoncpp
+RUN cd /home \
+&& git clone https://github.com/open-source-parsers/jsoncpp.git \
+&& cd jsoncpp \
+&& mkdir -p build/debug \
+&& cd build/debug \
+&& cmake -DCMAKE_BUILD_TYPE=debug -DJSONCPP_LIB_BUILD_STATIC=ON-DJSONCPP_LIB_BUILD_SHARED=OFF -G "Unix Makefiles" ../.. \
+&& make \
+&& make install
+
 # JVSIM
 RUN cd /home \
 && git clone https://github.com/nkumar43212/jvsim.git \
