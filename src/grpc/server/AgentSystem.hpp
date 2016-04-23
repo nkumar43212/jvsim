@@ -15,18 +15,18 @@
 // Unique Identifier to track an outstanding system request
 class SystemId {
     size_t _id;
-    
+
 public:
     SystemId(size_t value) : _id(value) {}
-    
+
     size_t getId()
     {
         return _id;
     }
-    
+
     void description ()
     {
-        std::cout << "Id = " << _id << "\n";
+        std::cout << "Id = " << _id << std::endl;
     }
 };
 
@@ -43,9 +43,13 @@ protected:
 
 public:
     AgentSystem (AgentServerLog *logger) : _logger(logger) {}
+
     AgentServerLog  *getLogger (void)       { return _logger; }
-    virtual void systemAdd(SystemId sys_id, const Telemetry::Path *request_path) = 0;
-    virtual void systemRemove(SystemId sys_id, const Telemetry::Path *request_path) = 0;
+
+    virtual void systemAdd(SystemId sys_id,
+                           const Telemetry::Path *request_path) = 0;
+    virtual void systemRemove(SystemId sys_id,
+                              const Telemetry::Path *request_path) = 0;
     virtual Telemetry::Path * systemGet(SystemId sys_id) = 0;
 };
 

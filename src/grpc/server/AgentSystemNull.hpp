@@ -10,18 +10,14 @@
 #define AgentSystemNull_hpp
 
 #include "AgentSystem.hpp"
-#include <stdio.h>
 
 class AgentSystemNull : public AgentSystem {
 public:
-    AgentSystemNull (AgentServerLog *logger) : AgentSystem(logger)
-    {
-    }
+    AgentSystemNull (AgentServerLog *logger) : AgentSystem(logger) {}
+
     void systemAdd(SystemId id, const Telemetry::Path *request_path);
     void systemRemove(SystemId id, const Telemetry::Path *request_path);
     Telemetry::Path * systemGet(SystemId sys_id);
 };
-
-
 
 #endif /* AgentSystemNull_hpp */

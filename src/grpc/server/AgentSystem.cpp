@@ -13,7 +13,7 @@ void
 AgentSystem::systemAdd (SystemId id, const Telemetry::Path *request_path)
 {
     // Operation
-    std::string log_str = "SystemAdd: ";
+    std::string log_str = "SystemAdd(" + std::to_string(id.getId()) + "): ";
 
     // The gist of the request
     // Convert request to string
@@ -30,7 +30,7 @@ void
 AgentSystem::systemRemove (SystemId id, const Telemetry::Path *request_path)
 {
     // Operation
-    std::string log_str = "SystemRemove: ";
+    std::string log_str = "SystemRemove(" + std::to_string(id.getId()) + "): ";
 
     // The gist of the request
     // Convert request to string
