@@ -7,24 +7,21 @@
 //
 
 #include "AgentSystemFile.hpp"
+#include "OCTelemetryJsonGenerator.hpp"
 
 void
 AgentSystemFile::systemAdd (SystemId id, const Telemetry::Path *request_path)
 {
     // The common interface
     AgentSystem::systemAdd(id, request_path);
-    
-    // Generate a sensor name
-    std::string sensor_name;
-    generateName(request_path, sensor_name);
-    
-    // Generate the message
-    std::string message("");
-    generateAddMessage(request_path, sensor_name, message);
-    
+
+    // Generate the Jsonized OC configuration
+    std::string config = OCTelemetryJsonGenerator::generate_json_oc_config(true,
+                                    (id_idx_t)id.getId(), request_path);
+
     // Write it out
-    _outputFile << id.getId() << "\n";
-    _outputFile << message << "\n";
+    _outputFile << "Push config (" << id.getId() << "):" << std::endl;
+    _outputFile << config << std::endl;
     _outputFile.flush();
 }
 
@@ -33,18 +30,14 @@ AgentSystemFile::systemRemove (SystemId id, const Telemetry::Path *request_path)
 {
     // The common interface
     AgentSystem::systemRemove(id, request_path);
-    
-    // Generate a sensor name
-    std::string sensor_name;
-    generateName(request_path, sensor_name);
-    
+
+    // Generate the Jsonized OC configuration
+    std::string config = OCTelemetryJsonGenerator::generate_json_oc_config(true,
+                                    (id_idx_t)id.getId(), request_path);
+
     // Write it out
-    std::string message("");
-    generateRemoveMessage(request_path, sensor_name, message);
-    
-    // Write it out
-    _outputFile << id.getId() << "\n";
-    _outputFile << message << "\n";
+    _outputFile << "Remove config (" << id.getId() << "):" << std::endl;
+    _outputFile << config << std::endl;
     _outputFile.flush();
 }
 

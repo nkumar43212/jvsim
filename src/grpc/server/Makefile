@@ -17,7 +17,7 @@ LDFLAGS  += /usr/local/lib/libmosquittopp.$(DSO_EXT) -L/usr/local/lib -L../lib -
 
 FILES    = $(wildcard $(SRC_DIR)/*.cpp)
 OBJS     = $(subst .cpp,.o,$(FILES))
-OBJS_LIB = AgentConsolidator.o AgentConsolidatorSystem.o AgentSystem.o AgentSystemFile.o AgentSystemNull.o AgentSystemProc.o AgentSystemFactory.o AgentUtils.o OCTelemetryJson.o
+OBJS_LIB = AgentConsolidator.o AgentConsolidatorSystem.o AgentSystem.o AgentSystemFile.o AgentSystemNull.o AgentSystemProc.o AgentSystemFactory.o AgentUtils.o OCTelemetryJson.o OCTelemetryJsonGenerator.o
 
 LIBS     = ../lib/liboc.a ../lib/librpc_service.a ../lib/libprotos.a
 
