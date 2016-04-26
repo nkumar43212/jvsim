@@ -24,7 +24,8 @@ public:
             // if ROOTPATH env variable is set, set default log path
             CLIENT_LOGDIR = (std::string)env_rp + "/tmp/";
         } else {
-            std::cerr << "Please setup ROOTPATH environment variable." << std::endl;
+            std::cerr << "Please setup ROOTPATH environment variable."
+                      << std::endl;
             exit(1);
         }
     }
@@ -40,7 +41,11 @@ public:
 
 class TestArgs {
 public:
-    TestArgs (int i, Telemetry::OpenConfigData *d, int N, std::string cd) : index(i), data(d), max_data_size(N), client_logdir(cd), data_size(0), limit_record(0), return_before_graceful_terminate(false) {}
+    TestArgs (int i, Telemetry::OpenConfigData *d, int N, std::string cd):
+             index(i), data(d), max_data_size(N), client_logdir(cd),
+             data_size(0), limit_record(0),
+             return_before_graceful_terminate(false) {}
+
     int    index;
     Telemetry::OpenConfigData *data;
     int max_data_size;
