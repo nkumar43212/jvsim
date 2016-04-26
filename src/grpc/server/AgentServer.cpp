@@ -22,6 +22,14 @@ AgentServer::telemetrySubscribe (ServerContext *context,
     SubscriptionReply reply;
     SubscriptionResponse *response = reply.mutable_response();
 
+    // Validate path list
+    if (request->path_list_size() == 0) {
+        // Sent id error message and bail out.
+        response->set_subscription_id(_id_manager.getNullIdentifier());
+        _logger->log("Subscription-stream-end: Error, Path List is Zero");
+        return _sendMetaDataInfo(context, writer, reply);
+    }
+
     // Get all the paths that we are interested in
     for (int i = 0; i < request->path_list_size(); i++) {
         path_list.push_back(request->path_list(i).path());
@@ -120,10 +128,12 @@ AgentServer::telemetrySubscribe (ServerContext *context,
         // cleanup subscription gracefully
         _cleanupSubscription(sub);
     }
-    delete sub;
 
     log_str = std::to_string(sub->getId());
     _logger->log("Subscription-stream-end: ID = " + log_str);
+
+    // Delete subscriber object
+    delete sub;
 
     return Status::OK;
 }
