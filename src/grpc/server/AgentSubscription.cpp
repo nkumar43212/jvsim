@@ -35,6 +35,7 @@ AgentSubscription::on_message(const struct mosquitto_message* mosqmessage)
     if (!stream->ParseFromString(data)) {
         _stream_parse_failures++;
         delete stream;
+        return;
     }
 
     // Build the OpenConfig format desired towards collector
