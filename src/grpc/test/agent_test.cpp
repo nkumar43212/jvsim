@@ -23,6 +23,9 @@ TEST_F(AgentClientTest, subscribe_and_force_terminate) {
                                  grpc::InsecureCredentials()),
                                  mgmt_client_name, 0, CLIENT_LOGDIR);
     EXPECT_TRUE(client != NULL);
+    if (!client) {
+        return;
+    }
     EXPECT_TRUE(client->stub_ != NULL);
 
     // Create a request
@@ -96,6 +99,9 @@ TEST_F(AgentClientTest, subscribe_and_graceful_terminate) {
                                  grpc::InsecureCredentials()),
                                  mgmt_client_name, 0, CLIENT_LOGDIR);
     EXPECT_TRUE(client != NULL);
+    if (!client) {
+        return;
+    }
     EXPECT_TRUE(client->stub_ != NULL);
 
     // Create a request
@@ -157,6 +163,9 @@ TEST_F(AgentClientTest, list) {
                                  grpc::InsecureCredentials()),
                                  mgmt_client_name, 0, CLIENT_LOGDIR);
     EXPECT_TRUE(client != NULL);
+    if (!client) {
+        return;
+    }
     EXPECT_TRUE(client->stub_ != NULL);
 
     // Create a request
@@ -242,6 +251,9 @@ TEST_F(AgentClientTest, multiple_subscribe) {
                                       grpc::InsecureCredentials()),
                                       mgmt_client_name, 0, CLIENT_LOGDIR);
     EXPECT_TRUE(mgmt_client != NULL);
+    if (!mgmt_client) {
+        return;
+    }
     EXPECT_TRUE(mgmt_client->stub_ != NULL);
 
     // Spawn the N subscribers
@@ -291,6 +303,9 @@ TEST_F(AgentClientTest, verify_multiple_subscribe) {
                                       grpc::InsecureCredentials()),
                                       mgmt_client_name, 0, CLIENT_LOGDIR);
     EXPECT_TRUE(mgmt_client != NULL);
+    if (!mgmt_client) {
+        return;
+    }
     EXPECT_TRUE(mgmt_client->stub_ != NULL);
     
     // Spawn the N subscribers
@@ -373,6 +388,9 @@ TEST_F(AgentClientTest, get_oper_all) {
                                       grpc::InsecureCredentials()),
                                       mgmt_client_name, 0, CLIENT_LOGDIR);
     EXPECT_TRUE(mgmt_client != NULL);
+    if (!mgmt_client) {
+        return;
+    }
     EXPECT_TRUE(mgmt_client->stub_ != NULL);
     
     // Spawn the N subscribers
@@ -475,6 +493,9 @@ TEST_F(AgentClientTest, encoding) {
                                  grpc::InsecureCredentials()),
                                  mgmt_client_name, 0, CLIENT_LOGDIR);
     EXPECT_TRUE(client != NULL);
+    if (!client) {
+        return;
+    }
     EXPECT_TRUE(client->stub_ != NULL);
     
     ClientContext context;
@@ -498,6 +519,9 @@ AgentClientTest::create_subscriptions (void *args)
                                  grpc::InsecureCredentials()),
                                  client_name, 0, test_args->client_logdir);
     EXPECT_TRUE(client != NULL);
+    if (!client) {
+        return NULL;
+    }
     EXPECT_TRUE(client->stub_ != NULL);
     test_args->client = client;
 
