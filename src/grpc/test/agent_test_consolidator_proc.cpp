@@ -1,6 +1,6 @@
 //
 //  agent_test_consolidator_proc.cpp
-//  grpc
+//  agent-jv
 //
 //  Created by NITIN KUMAR on 3/23/16.
 //  Copyright © 2016 Juniper Networks. All rights reserved.
@@ -17,41 +17,6 @@
 
 TEST_F(AgentConsolidatorProcTest, create) {
     EXPECT_TRUE(sys_handle != nullptr);
-}
-
-TEST_F(AgentConsolidatorProcTest, parsePaths) {
-    AgentSystemProc * phandle = (AgentSystemProc *)sys_handle;
-    Telemetry::Path request_path;
-
-    // Empty string
-    std::string path_name;
-    phandle->parseName(path_name, &request_path);
-    EXPECT_EQ("", request_path.path());
-
-    // Invalid string
-    path_name = std::string("XXX");
-    phandle->parseName(path_name, &request_path);
-    EXPECT_EQ("", request_path.path());
-
-    // Path specified
-    path_name = std::string("path=test1-");
-    phandle->parseName(path_name, &request_path);
-    EXPECT_EQ("test1", request_path.path());
-
-    // Another path name
-    path_name = std::string("path=test2-");
-    phandle->parseName(path_name, &request_path);
-    EXPECT_EQ("test2", request_path.path());
-
-    // No path name
-    path_name = std::string("path=-");
-    phandle->parseName(path_name, &request_path);
-    EXPECT_EQ("", request_path.path());
-
-    // No delimiter 
-    path_name = std::string("path=");
-    phandle->parseName(path_name, &request_path);
-    EXPECT_EQ("", request_path.path());
 }
 
 TEST_F(AgentConsolidatorProcTest, get) {

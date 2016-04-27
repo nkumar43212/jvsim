@@ -1,6 +1,6 @@
 //
 //  MgdServer.hpp
-//  grpc
+//  Junos MGD
 //
 //  Created by NITIN KUMAR on 3/22/16.
 //  Copyright © 2016 Juniper Networks. All rights reserved.
@@ -10,8 +10,8 @@
 #define MgdServer_hpp
 
 #include <grpc++/grpc++.h>
-#include "junos_mgd.pb.h"
-#include "junos_mgd.grpc.pb.h"
+#include "mgd_service.pb.h"
+#include "mgd_service.grpc.pb.h"
 #include "AgentServerLog.hpp"
 
 using grpc::Server;
@@ -20,25 +20,44 @@ using grpc::ServerContext;
 using grpc::ServerWriter;
 using grpc::Status;
 
-using junos_mgd::OpenConfigRpcApi;
-using junos_mgd::EditConfigRequest;
-using junos_mgd::RequestHdr;
-using junos_mgd::ReplyHdr;
-using junos_mgd::ConfigCommand;
-using junos_mgd::OpenConfigDataElement;
-using junos_mgd::EditConfigCommands;
-using junos_mgd::EditConfigResponse;
-using junos_mgd::GetConfigRequest;
-using junos_mgd::GetConfigResponse;
+using openconfig::OpenconfigRpcApi;
+using openconfig::EditEphemeralConfigRequest;
+using openconfig::EditEphemeralConfigRequest_ConfigOperationList;
+using openconfig::EditEphemeralConfigResponse;
+using openconfig::EditEphemeralConfigResponse_ResponseList;
+using openconfig::EphConfigRequestList;
+using openconfig::ExecuteOpCommandRequest;
+using openconfig::ExecuteOpCommandResponse;
+using openconfig::GetDataEncodingsRequest;
+using openconfig::GetDataEncodingsResponse;
+using openconfig::GetEphemeralConfigRequest;
+using openconfig::GetEphemeralConfigResponse;
+using openconfig::GetEphemeralConfigResponse_ResponseList;
+using openconfig::GetModelsRequest;
+using openconfig::GetModelsResponse;
+using openconfig::GetRequest;
+using openconfig::GetRequestList;
+using openconfig::GetResponse;
+using openconfig::GetResponse_ResponseList;
+using openconfig::Model;
+using openconfig::SetDataEncodingRequest;
+using openconfig::SetDataEncodingResponse;
+using openconfig::SetRequest;
+using openconfig::SetRequest_ConfigOperationList;
+using openconfig::SetResponse;
+using openconfig::SetResponse_ResponseList;
 
-class MgdServer final : public OpenConfigRpcApi::Service {
+class MgdServer final : public OpenconfigRpcApi::Service {
     // Logging service
     AgentServerLog *_logger;
-    
+
     // The Mgd Interface
-    Status EditConfig(ServerContext *context, const EditConfigRequest *args, EditConfigResponse * response) override;
-    Status GetConfig(ServerContext *context, const GetConfigRequest *args, GetConfigResponse * response) override;
-    
+    Status Set(ServerContext* context, const SetRequest* set_request,
+               SetResponse* set_response) override;
+
+    Status Get(ServerContext* context, const GetRequest* get_request,
+               GetResponse* get_response) override;
+
 public:
     MgdServer (AgentServerLog *logger) : _logger(logger) {}
 };

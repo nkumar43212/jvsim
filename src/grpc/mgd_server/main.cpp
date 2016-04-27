@@ -1,6 +1,6 @@
 //
 //  main.cpp
-//  mgd_server
+//  Junos MGD
 //
 //  Created by NITIN KUMAR on 3/22/16.
 //  Copyright © 2016 Juniper Networks. All rights reserved.
@@ -17,28 +17,27 @@ RunServer (AgentServerLog *logger)
     std::string server_address("0.0.0.0:50050");
     MgdServer service(logger);
     ServerBuilder builder;
-    
+
     // Listen on the given address without any authentication mechanism.
     builder.AddListeningPort(server_address, grpc::InsecureServerCredentials());
-    
+
     // Register "service" as the instance through which we'll communicate with
     // clients. In this case it corresponds to an *synchronous* service.
     builder.RegisterService(&service);
-    
+
     // Finally assemble the server.
     std::unique_ptr<Server> server(builder.BuildAndStart());
     std::cout << "Server listening on " << server_address << std::endl;
-    
+
     // Wait for the server to shutdown. Note that some other thread must be
     // responsible for shutting down the server for this call to ever return.
     server->Wait();
 }
 
-
 int main(int argc, const char * argv[])
 {
     std::string logfile;
-    
+
     // Get the Looging dir
     if (argc > 1) {
         logfile = argv[1];
@@ -49,7 +48,8 @@ int main(int argc, const char * argv[])
             // if ROOTPATH env variable is set, set default log path
             logfile = (std::string)env_rp + "/logs/mgd_server.log";
         } else {
-            std::cerr << "Please setup ROOTPATH environment variable or run as \"mgd_server_binary logfile\"" << std::endl;
+            std::cerr << "Please setup ROOTPATH environment variable or "
+                         "run as \"mgd_server_binary logfile\"" << std::endl;
             exit(0);
         }
     }
@@ -58,7 +58,7 @@ int main(int argc, const char * argv[])
     AgentServerLog *logger;
     logger = new AgentServerLog(logfile);
     logger->enable();
-    
+
     // Start the server
     RunServer(logger);
 }

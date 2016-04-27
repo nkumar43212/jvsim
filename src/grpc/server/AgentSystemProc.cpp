@@ -7,91 +7,155 @@
 //
 
 #include <grpc++/grpc++.h>
-#include <junos_mgd.pb.h>
-#include <junos_mgd.grpc.pb.h>
 #include "AgentSystemProc.hpp"
+#include "AgentUtils.hpp"
+#include "OCTelemetryJsonGenerator.hpp"
+#include "OCTelemetryJson.hpp"
+
+#define MGD_IP_PORT     "localhost:50050"
+
+grpc::Status
+AgentSystemProc::_sendMessagetoMgd (std::string &config,
+                                    SystemId id,
+                                    openconfig::SetConfigCommands cmdcode)
+{
+    // Create a client
+    std::shared_ptr<grpc::Channel> channel = grpc::CreateChannel(
+                                                 MGD_IP_PORT,
+                                                 grpc::InsecureCredentials());
+    stub_ = OpenconfigRpcApi::NewStub(channel);
+
+    // Form the mgd request
+    SetRequest   set_request;
+
+    // Request Header
+    set_request.set_request_id(id.getId());
+    set_request.set_transaction(true);
+    set_request.set_encoding(
+                openconfig::OpenConfigDataEncodingTypes::ENCODING_JSON);
+
+    // Create the command
+    SetRequest_ConfigOperationList *cmd = set_request.add_config_operation();
+    cmd->set_operation_id("0");
+    cmd->set_operation(cmdcode);
+    cmd->set_path("openconfig-telemetry");
+    cmd->set_value(config);
+
+    // Send over the request
+    SetResponse set_response;
+    grpc::ClientContext context;
+    grpc::Status status = stub_->Set(&context, set_request, &set_response);
+
+    // Get the response - only one request is send
+    SetResponse_ResponseList response = set_response.response(0);
+
+    if ((status.ok() == false) ||
+        (response.response_code() !=
+                             openconfig::OpenConfigRpcResponseTypes::OK)) {
+        // Increment count
+        ++_error_system_count;
+
+        _logger->log("MGD command failed (cmd = " +
+                     std::to_string(cmdcode) + "). Error code: " +
+                     std::to_string(status.error_code()) +
+                     " " + std::to_string(response.response_code()) +
+                     "Error message: " + status.error_message() +
+                     response.message());
+
+        // Indicate failed status
+        status = grpc::Status(grpc::StatusCode::UNKNOWN, "");
+    }
+
+    return status;
+}
 
 void
 AgentSystemProc::systemAdd (SystemId id, const Telemetry::Path *request_path)
 {
-    // Create a client
-    std::shared_ptr<grpc::Channel> channel = grpc::CreateChannel("localhost:50050",
-                                                  grpc::InsecureCredentials());
-    stub_ = OpenConfigRpcApi::NewStub(channel);
+    std::string config = OCTelemetryJsonGenerator::generate_json_oc_config(
+                                    true,
+                                    (id_idx_t)id.getId(),
+                                    request_path);
+    Status status = _sendMessagetoMgd(config, id,
+                           openconfig::SetConfigCommands::UPDATE_CONFIG);
+    if (status.ok()) {
+        // Increment the counter
+        ++_add_system_count;
 
-    // Generate a name for the sensor
-    std::string sensor_name;
-    generateName(request_path, sensor_name);
-
-    // Form the request
-    EditConfigRequest   request;
-
-    // Request Header
-    RequestHdr          *request_header;
-    request_header = request.mutable_requestheader();
-    request_header->set_requestid(id.getId());
-
-    // The create command
-    ConfigCommand         *cmd;
-    OpenConfigDataElement *config_element;
-
-    cmd = request.add_configcommand();
-    cmd->set_command(junos_mgd::UpdateConfig);
-    config_element = cmd->mutable_opencfgdata();
-    config_element->set_path("path");
-    config_element->set_values(sensor_name);
-
-    // Send over the request
-    EditConfigResponse  response;
-    grpc::ClientContext context;
-    stub_->EditConfig(&context, request, &response);
-    
-    ++_add_system_count;
-
-    // Check the request whether everything went OK or not.
+        _logger->log("MGD command UPDATE_CONFIG passed. Request_id: " +
+                     std::to_string(id.getId()) +
+                     " Path: " + AgentUtils::getMessageString(*request_path));
+    }
 }
 
 void
 AgentSystemProc::systemRemove (SystemId id, const Telemetry::Path *request_path)
 {
-    ++_remove_system_count;
+    std::string config = OCTelemetryJsonGenerator::generate_json_oc_config(
+                                    true,
+                                    (id_idx_t)id.getId(),
+                                    request_path);
+    Status status = _sendMessagetoMgd(config, id,
+                           openconfig::SetConfigCommands::DELETE_CONFIG);
+    if (status.ok()) {
+        // Increment the counter
+        ++_remove_system_count;
+
+        _logger->log("MGD command DELETE_CONFIG passed. Request_id: " +
+                     std::to_string(id.getId()) +
+                     " Path: " + AgentUtils::getMessageString(*request_path));
+    }
 }
 
 Telemetry::Path *
 AgentSystemProc::systemGet (SystemId id)
 {
     // Create a client
-    std::shared_ptr<grpc::Channel> channel = grpc::CreateChannel("localhost:50050", grpc::InsecureCredentials());
-    stub_ = OpenConfigRpcApi::NewStub(channel);
-    
+    std::shared_ptr<grpc::Channel> channel = grpc::CreateChannel(
+                                                MGD_IP_PORT,
+                                                grpc::InsecureCredentials());
+    stub_ = OpenconfigRpcApi::NewStub(channel);
+
     // Form the request
-    GetConfigRequest   request;
-    
-    // Request Header
-    RequestHdr          *request_header;
-    request_header = request.mutable_requestheader();
-    request_header->set_requestid(id.getId());
+    GetRequest   get_request;
+    get_request.set_request_id(id.getId());
+    get_request.set_encoding(
+                openconfig::OpenConfigDataEncodingTypes::ENCODING_JSON);
+    GetRequestList *request = get_request.add_get_request();
+    request->set_operation_id("0");
+    request->set_operation(openconfig::GetDataCommands::GET_CONFIG);
+    request->set_path("openconfig-telemetry");
     
     // Send over the request
-    GetConfigResponse  response;
+    GetResponse  get_response;
     grpc::ClientContext context;
-    stub_->GetConfig(&context, request, &response);
-    
+    stub_->Get(&context, get_request, &get_response);
+
     // Did the reply have the same ID ?
-    ReplyHdr reply = response.replyheader();
-    if (reply.requestid() != id.getId()) {
+    if (get_response.request_id() != id.getId()) {
         return NULL;
     }
-    
+
     // Is there a path
-    if (response.data(0).path() != "path") {
+    if (get_response.response(0).path() != "openconfig-telemetry") {
         return NULL;
     }
-    
-    // Copy Over the paths
-    std::string sensor_name(response.data(0).values());
+
+    std::string response_json_str = get_response.response(0).value();
+    _logger->log("Get response : " + response_json_str);
+
+    // Convert to path
+    // TODO ABBAS - FIX THIS HOLISTICALLY LATER
     Telemetry::Path *path = new Telemetry::Path();
-    parseName(sensor_name, path);
-    
+    Json::Value json_obj;
+    OCTelemetryJson::parse_string_to_json_obj(response_json_str,
+                                              json_obj);
+    std::string path_str = json_obj["sensor-groups"]["sensor-paths"][0]
+                                ["sensor-path"]["config"]["path"].asCString();
+    path->set_path(path_str);
+    std::string sample_frequency_str = json_obj["subscriptions"]["persistent"]
+            ["subscription"]["sensor-profiles"]["sensor-profile"]["config"]
+            ["sample-interval"].asCString();
+    path->set_sample_frequency(std::stoi(sample_frequency_str));
     return path;
 }
