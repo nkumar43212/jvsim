@@ -19,7 +19,7 @@ FILES    = $(wildcard $(SRC_DIR)/*.cpp)
 OBJS     = $(subst .cpp,.o,$(FILES))
 OBJS_LIB = AgentConsolidator.o AgentConsolidatorSystem.o AgentSystem.o AgentSystemFile.o AgentSystemNull.o AgentSystemProc.o AgentSystemFactory.o AgentUtils.o OCTelemetryJson.o OCTelemetryJsonGenerator.o
 
-LIBS     = ../lib/liboc.a ../lib/librpc_service.a ../lib/libprotos.a
+LIBS     = ../lib/liboc.a ../lib/librpc_service.a ../lib/libprotos.a ../lib/libinih.a
 
 all: server install
 

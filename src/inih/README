@@ -1,0 +1,8 @@
+This code is taken from:
+git clone https://github.com/benhoyt/inih.git
+
+It is a third-party .INI parser implementation.
+This is the original code with commit reference: 0c3f8ea
+
+The license agreement are provided in LICENSE.txt file.
+
