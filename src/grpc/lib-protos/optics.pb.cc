@@ -358,7 +358,7 @@ void protobuf_AddDesc_optics_2eproto() {
     "ser_temp_low_warning_set\030e \001(\005B\005\202@\002 \001\022*\n"
     "\033lane_laser_temp_low_warning\030f \001(\005B\005\202@\002 "
     "\001:9\n\017jnpr_optics_ext\022\027.JuniperNetworksSe"
-    "nsors\030\n \001(\0132\007.Optics", 5340);
+    "nsors\030\017 \001(\0132\007.Optics", 5340);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "optics.proto", &protobuf_RegisterTypes);
   Optics::default_instance_ = new Optics();
@@ -366,7 +366,7 @@ void protobuf_AddDesc_optics_2eproto() {
   OpticsDiagStats::default_instance_ = new OpticsDiagStats();
   ::google::protobuf::internal::ExtensionSet::RegisterMessageExtension(
     &::JuniperNetworksSensors::default_instance(),
-    10, 11, false, false,
+    15, 11, false, false,
     &::Optics::default_instance());
   Optics::default_instance_->InitAsDefaultInstance();
   OpticsInfos::default_instance_->InitAsDefaultInstance();

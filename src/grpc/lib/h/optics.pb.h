@@ -1358,7 +1358,7 @@ class OpticsDiagStats : public ::google::protobuf::Message {
 };
 // ===================================================================
 
-static const int kJnprOpticsExtFieldNumber = 10;
+static const int kJnprOpticsExtFieldNumber = 15;
 extern ::google::protobuf::internal::ExtensionIdentifier< ::JuniperNetworksSensors,
     ::google::protobuf::internal::MessageTypeTraits< ::Optics >, 11, false >
   jnpr_optics_ext;

@@ -24,6 +24,12 @@
 		"interval": "1"
 	    },
 
+	    "optics": {
+		"resource": "optics",
+		"count": "100",
+		"interval": "1"
+	    },
+
             "iptunnels_stats": {
 		"resource": "iptunnels",
 		"count": "3",
