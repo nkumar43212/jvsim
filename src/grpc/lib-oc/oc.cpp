@@ -18,6 +18,7 @@
 #include "OpenConfigLogicalPort.hpp"
 #include "OpenConfigNpuMem.hpp"
 #include "OpenConfigCpuMemoryUtilization.hpp"
+#include "OpenConfigOptics.hpp"
 //@header
 
 void
@@ -30,6 +31,7 @@ lib_oc_init ()
     OpenConfigLogicalPort	 *logical_port = new OpenConfigLogicalPort;
     OpenConfigNpuMem	 *npu_mem = new OpenConfigNpuMem;
     OpenConfigCpuMemoryUtilization	 *cpu_memory_utilization = new OpenConfigCpuMemoryUtilization;
+    OpenConfigOptics	 *optics = new OpenConfigOptics;
 //@next
 }
 
@@ -56,6 +58,9 @@ get_oc_extension_type (JuniperNetworksSensors *handle)
     }
     if (handle->HasExtension(cpu_memory_util_ext)) {
         return "cpu_memory_util_ext";
+    }
+    if (handle->HasExtension(jnpr_optics_ext)) {
+        return "jnpr_optics_ext";
     }
 //@ext_type
     return "unknown";
