@@ -8,6 +8,7 @@ from packet_stats_encode     import jv_encode_packet_stats;
 from npu_utilization_encode  import jv_encode_npu_utilization;
 from iptunnels_encode  import jv_encode_iptunnels;
 from npu_mem_encode    import jv_encode_npu_mem;
+from cpu_mem_encode    import jv_encode_cpu_mem;
 
 def jv_encode(name, jnpr, index, lc_slot, system_params):
     dispatch[name](jnpr, index, lc_slot, system_params);
@@ -22,4 +23,5 @@ dispatch = {
     'npu_utilization':     jv_encode_npu_utilization,
     'iptunnels':           jv_encode_iptunnels,
     'npu_mem':             jv_encode_npu_mem,
+    'cpu_mem':             jv_encode_cpu_mem,
 }

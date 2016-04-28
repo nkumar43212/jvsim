@@ -17,6 +17,7 @@
 #include "OpenConfigPort.hpp"
 #include "OpenConfigLogicalPort.hpp"
 #include "OpenConfigNpuMem.hpp"
+#include "OpenConfigCpuMemoryUtilization.hpp"
 //@header
 
 void
@@ -28,6 +29,7 @@ lib_oc_init ()
     OpenConfigPort	 *port = new OpenConfigPort;
     OpenConfigLogicalPort	 *logical_port = new OpenConfigLogicalPort;
     OpenConfigNpuMem	 *npu_mem = new OpenConfigNpuMem;
+    OpenConfigCpuMemoryUtilization	 *cpu_memory_utilization = new OpenConfigCpuMemoryUtilization;
 //@next
 }
 
@@ -51,6 +53,9 @@ get_oc_extension_type (JuniperNetworksSensors *handle)
     }
     if (handle->HasExtension(npu_memory_ext)) {
         return "npu_memory_ext";
+    }
+    if (handle->HasExtension(cpu_memory_util_ext)) {
+        return "cpu_memory_util_ext";
     }
 //@ext_type
     return "unknown";

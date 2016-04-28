@@ -60,6 +60,7 @@
 		94AC9AA21C7A1CD60034AF1A /* AgentSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94AC9AA01C7A1CD60034AF1A /* AgentSystem.cpp */; };
 		94AC9AA31C7A1F2F0034AF1A /* AgentSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94AC9AA01C7A1CD60034AF1A /* AgentSystem.cpp */; };
 		94E7E3EC1CD1C03C007D1B3C /* OpenConfigNpuMem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94E7E3EB1CD1C03C007D1B3C /* OpenConfigNpuMem.cpp */; };
+		94E7E3EF1CD1E1DD007D1B3C /* OpenConfigCpuMemoryUtilization.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94E7E3EE1CD1E1DD007D1B3C /* OpenConfigCpuMemoryUtilization.cpp */; };
 		94FB189A1C85032400791B3A /* AgentSystemProc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94FB18981C85032400791B3A /* AgentSystemProc.cpp */; };
 /* End PBXBuildFile section */
 
@@ -234,6 +235,8 @@
 		94AC9AA11C7A1CD60034AF1A /* AgentSystem.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AgentSystem.hpp; sourceTree = "<group>"; };
 		94E7E3EA1CD1C03C007D1B3C /* OpenConfigNpuMem.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = OpenConfigNpuMem.hpp; sourceTree = "<group>"; };
 		94E7E3EB1CD1C03C007D1B3C /* OpenConfigNpuMem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OpenConfigNpuMem.cpp; sourceTree = "<group>"; };
+		94E7E3ED1CD1E1DD007D1B3C /* OpenConfigCpuMemoryUtilization.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = OpenConfigCpuMemoryUtilization.hpp; sourceTree = "<group>"; };
+		94E7E3EE1CD1E1DD007D1B3C /* OpenConfigCpuMemoryUtilization.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OpenConfigCpuMemoryUtilization.cpp; sourceTree = "<group>"; };
 		94FB18981C85032400791B3A /* AgentSystemProc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AgentSystemProc.cpp; sourceTree = "<group>"; };
 		94FB18991C85032400791B3A /* AgentSystemProc.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AgentSystemProc.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -436,6 +439,8 @@
 				949DD7891C8BA28D0062F934 /* OpenConfigPacketStats.cpp */,
 				94E7E3EA1CD1C03C007D1B3C /* OpenConfigNpuMem.hpp */,
 				94E7E3EB1CD1C03C007D1B3C /* OpenConfigNpuMem.cpp */,
+				94E7E3ED1CD1E1DD007D1B3C /* OpenConfigCpuMemoryUtilization.hpp */,
+				94E7E3EE1CD1E1DD007D1B3C /* OpenConfigCpuMemoryUtilization.cpp */,
 				946703CD1C64786E00E73BF5 /* OpenConfigPort.hpp */,
 				94AC9A701C7529890034AF1A /* OpenConfigPort.cpp */,
 				05C1BEDA1CC824C000A6A342 /* OpenConfigLogicalPort.hpp */,
@@ -751,6 +756,7 @@
 				949DD78A1C8BA28D0062F934 /* OpenConfigPacketStats.cpp in Sources */,
 				946703DC1C650CD700E73BF5 /* oc.cpp in Sources */,
 				946703D41C64786E00E73BF5 /* OpenConfigFirewall.cpp in Sources */,
+				94E7E3EF1CD1E1DD007D1B3C /* OpenConfigCpuMemoryUtilization.cpp in Sources */,
 				05C1BED81CC81DB500A6A342 /* OpenConfigNpuUtilization.cpp in Sources */,
 				946703C61C64782500E73BF5 /* main.cpp in Sources */,
 				94E7E3EC1CD1C03C007D1B3C /* OpenConfigNpuMem.cpp in Sources */,
