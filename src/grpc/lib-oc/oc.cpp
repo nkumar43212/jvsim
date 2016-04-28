@@ -16,6 +16,7 @@
 #include "OpenConfigPacketStats.hpp"
 #include "OpenConfigPort.hpp"
 #include "OpenConfigLogicalPort.hpp"
+#include "OpenConfigNpuMem.hpp"
 //@header
 
 void
@@ -26,6 +27,7 @@ lib_oc_init ()
     OpenConfigPacketStats	 *packet_stats = new OpenConfigPacketStats;
     OpenConfigPort	 *port = new OpenConfigPort;
     OpenConfigLogicalPort	 *logical_port = new OpenConfigLogicalPort;
+    OpenConfigNpuMem	 *npu_mem = new OpenConfigNpuMem;
 //@next
 }
 
@@ -46,6 +48,9 @@ get_oc_extension_type (JuniperNetworksSensors *handle)
     }
     if (handle->HasExtension(jnprLogicalInterfaceExt)) {
         return "jnprLogicalInterfaceExt";
+    }
+    if (handle->HasExtension(npu_memory_ext)) {
+        return "npu_memory_ext";
     }
 //@ext_type
     return "unknown";

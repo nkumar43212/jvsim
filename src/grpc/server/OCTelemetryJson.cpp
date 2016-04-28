@@ -153,7 +153,7 @@ std::string
 OCTelemetryJson::write_json_obj_to_string (Json::Value &json_obj)
 {
     Json::FastWriter fw;
-    fw.omitEndingLineFeed();
+    //fw.omitEndingLineFeed();
     return fw.write(json_obj);
 }
 

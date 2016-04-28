@@ -1,0 +1,6 @@
+syntax = "proto2";
+message Optics {
+    repeated Stats stats_record = 1;
+}
+message Stats {
+};

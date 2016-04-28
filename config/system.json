@@ -58,6 +58,12 @@
                 "resource": "npu_utilization",
                 "count": "1",
                 "interval": "2"
+            },
+
+	    "npu_mem": {
+                "resource": "npu_mem",
+                "count": "1",
+                "interval": "2"
             }
 	}
     }

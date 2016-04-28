@@ -591,8 +591,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "57"
             endingLineNumber = "57"
-            landmarkName = "AgentClient(std::shared_ptr&lt;Channel&gt; channel, const std::string&amp; name, uint32_t id, const std::string&amp; logfile_dir)"
-            landmarkType = "5">
+            landmarkName = "class AgentClient"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
