@@ -11,8 +11,7 @@
 #include "AgentUtils.hpp"
 #include "OCTelemetryJsonGenerator.hpp"
 #include "OCTelemetryJson.hpp"
-
-#define MGD_IP_PORT     "localhost:50050"
+#include "GlobalConfig.hpp"
 
 grpc::Status
 AgentSystemProc::_sendMessagetoMgd (std::string &config,
@@ -20,8 +19,10 @@ AgentSystemProc::_sendMessagetoMgd (std::string &config,
                                     openconfig::SetConfigCommands cmdcode)
 {
     // Create a client
+    std::string mgd_address(global_config.device_mgd_ip + ":" +
+                            std::to_string(global_config.device_mgd_port));
     std::shared_ptr<grpc::Channel> channel = grpc::CreateChannel(
-                                                 MGD_IP_PORT,
+                                                 mgd_address,
                                                  grpc::InsecureCredentials());
     stub_ = OpenconfigRpcApi::NewStub(channel);
 
@@ -111,8 +112,10 @@ Telemetry::Path *
 AgentSystemProc::systemGet (SystemId id)
 {
     // Create a client
+    std::string mgd_address(global_config.device_mgd_ip + ":" +
+                            std::to_string(global_config.device_mgd_port));
     std::shared_ptr<grpc::Channel> channel = grpc::CreateChannel(
-                                                MGD_IP_PORT,
+                                                mgd_address,
                                                 grpc::InsecureCredentials());
     stub_ = OpenconfigRpcApi::NewStub(channel);
 
