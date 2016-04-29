@@ -11,6 +11,8 @@
 		0537F4E41CCEA3CC00BD519B /* OCTelemetryJsonGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0537F4E21CCEA3CC00BD519B /* OCTelemetryJsonGenerator.cpp */; };
 		0537F4E51CCEA68200BD519B /* OCTelemetryJsonGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0537F4E21CCEA3CC00BD519B /* OCTelemetryJsonGenerator.cpp */; };
 		0537F4E61CCEA6B000BD519B /* OCTelemetryJson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0537F4DF1CCC01B100BD519B /* OCTelemetryJson.cpp */; };
+		05BD33AC1CD2CEF90059EF17 /* GlobalConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BD33AA1CD2CEF90059EF17 /* GlobalConfig.cpp */; };
+		05BD33AE1CD2F3B60059EF17 /* AgentServerCmdOptions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94A291FB1C80FAF2004BB6C3 /* AgentServerCmdOptions.cpp */; };
 		05C1BED81CC81DB500A6A342 /* OpenConfigNpuUtilization.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05C1BED61CC81DB500A6A342 /* OpenConfigNpuUtilization.cpp */; };
 		05C1BEDB1CC824C000A6A342 /* OpenConfigLogicalPort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05C1BED91CC824C000A6A342 /* OpenConfigLogicalPort.cpp */; };
 		05C1BEDD1CC94D0800A6A342 /* AgentUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05C1BEDC1CC94D0800A6A342 /* AgentUtils.cpp */; };
@@ -149,6 +151,9 @@
 		058673361CB462A100C8DF1F /* agent.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = agent.pb.h; path = lib/h/agent.pb.h; sourceTree = SOURCE_ROOT; };
 		058673371CB462C200C8DF1F /* agent.grpc.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = agent.grpc.pb.h; path = lib/h/agent.grpc.pb.h; sourceTree = SOURCE_ROOT; };
 		05AA6FEE1CB992D900966978 /* agent.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = agent.proto; path = ../../../protos/agent.proto; sourceTree = "<group>"; };
+		05BD33AA1CD2CEF90059EF17 /* GlobalConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GlobalConfig.cpp; sourceTree = "<group>"; };
+		05BD33AB1CD2CEF90059EF17 /* GlobalConfig.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GlobalConfig.hpp; sourceTree = "<group>"; };
+		05BD33AD1CD2EA080059EF17 /* agent_server.ini */ = {isa = PBXFileReference; lastKnownFileType = text; name = agent_server.ini; path = ../../../config/agent_server.ini; sourceTree = "<group>"; };
 		05C1BED61CC81DB500A6A342 /* OpenConfigNpuUtilization.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OpenConfigNpuUtilization.cpp; sourceTree = "<group>"; };
 		05C1BED71CC81DB500A6A342 /* OpenConfigNpuUtilization.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = OpenConfigNpuUtilization.hpp; sourceTree = "<group>"; };
 		05C1BED91CC824C000A6A342 /* OpenConfigLogicalPort.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OpenConfigLogicalPort.cpp; sourceTree = "<group>"; };
@@ -352,6 +357,7 @@
 			isa = PBXGroup;
 			children = (
 				946702DB1C6474FB00E73BF5 /* Makefile */,
+				05BD33AD1CD2EA080059EF17 /* agent_server.ini */,
 				946702DC1C6474FB00E73BF5 /* main.cpp */,
 				94AC9A821C7799BA0034AF1A /* AgentConsolidator.cpp */,
 				94AC9A8C1C77BCF50034AF1A /* AgentConsolidatorSystem.cpp */,
@@ -369,6 +375,7 @@
 				94FB18981C85032400791B3A /* AgentSystemProc.cpp */,
 				05C1BEDC1CC94D0800A6A342 /* AgentUtils.cpp */,
 				946702D01C64739A00E73BF5 /* Counter.cpp */,
+				05BD33AA1CD2CEF90059EF17 /* GlobalConfig.cpp */,
 				0537F4DF1CCC01B100BD519B /* OCTelemetryJson.cpp */,
 				0537F4E21CCEA3CC00BD519B /* OCTelemetryJsonGenerator.cpp */,
 				946702D61C64739A00E73BF5 /* OpenConfig.cpp */,
@@ -390,6 +397,7 @@
 				94FB18991C85032400791B3A /* AgentSystemProc.hpp */,
 				05C1BEDE1CC94D1700A6A342 /* AgentUtils.hpp */,
 				946702CF1C64739A00E73BF5 /* Counter.hpp */,
+				05BD33AB1CD2CEF90059EF17 /* GlobalConfig.hpp */,
 				0537F4E11CCC01C200BD519B /* OCTelemetryJson.hpp */,
 				0537F4E31CCEA3CC00BD519B /* OCTelemetryJsonGenerator.hpp */,
 				946702D51C64739A00E73BF5 /* OpenConfig.hpp */,
@@ -690,6 +698,7 @@
 				94AC9AA21C7A1CD60034AF1A /* AgentSystem.cpp in Sources */,
 				946702CD1C64734E00E73BF5 /* AgentServer.cpp in Sources */,
 				0537F4E01CCC01B100BD519B /* OCTelemetryJson.cpp in Sources */,
+				05BD33AC1CD2CEF90059EF17 /* GlobalConfig.cpp in Sources */,
 				94A292011C822019004BB6C3 /* AgentSystemNull.cpp in Sources */,
 				05C1BEDD1CC94D0800A6A342 /* AgentUtils.cpp in Sources */,
 				946702CE1C64734E00E73BF5 /* AgentMessageBus.cpp in Sources */,
@@ -712,6 +721,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05BD33AE1CD2F3B60059EF17 /* AgentServerCmdOptions.cpp in Sources */,
 				05C1BEDF1CC94ED700A6A342 /* AgentUtils.cpp in Sources */,
 				9436D96C1C8549E700356B6F /* AgentSystemProc.cpp in Sources */,
 				94A292061C827C9F004BB6C3 /* AgentSystemNull.cpp in Sources */,
@@ -932,6 +942,7 @@
 					"-lprotos",
 					"-lprotobuf",
 					"-ljsoncpp",
+					"-linih",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

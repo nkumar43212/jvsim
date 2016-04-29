@@ -251,9 +251,9 @@ TEST(args_parser, null_args) {
     std::string arg1("test");
     argv[0] = (char *) arg1.c_str();
     opts.parseArgs(1, argv);
-    EXPECT_TRUE(opts.isSystemModeFile() == false);
-    EXPECT_TRUE(opts.isSystemModeProc() == false);
-    EXPECT_TRUE(opts.isSystemModeNull() == false);
+    EXPECT_EQ(false, opts.isSystemModeFile());
+    EXPECT_EQ(false, opts.isSystemModeProc());
+    EXPECT_EQ(false, opts.isSystemModeNull());
     EXPECT_TRUE(opts.getLogFile() == NULL);
 }
 
@@ -278,7 +278,7 @@ TEST(args_parser, file_args) {
     argv[2] = (char *) arg3.c_str();
 
     opts.parseArgs(3, argv);
-    EXPECT_TRUE(opts.isSystemModeFile() == true);
+    EXPECT_EQ(true, opts.isSystemModeFile());
     EXPECT_TRUE(std::string(opts.getSystemFileName()) == "test_file");
 }
 
@@ -290,7 +290,7 @@ TEST(args_parser, proc_args) {
     argv[1] = (char *) arg2.c_str();
 
     opts.parseArgs(2, argv);
-    EXPECT_TRUE(opts.isSystemModeFile() == false);
-    EXPECT_TRUE(opts.isSystemModeProc() == true);
-    EXPECT_TRUE(opts.isSystemModeNull() == false);
+    EXPECT_EQ(false, opts.isSystemModeFile());
+    EXPECT_EQ(false, opts.isSystemModeNull());
+    EXPECT_EQ(true, opts.isSystemModeProc());
 }
