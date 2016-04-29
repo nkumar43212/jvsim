@@ -17,6 +17,7 @@
 #include "AgentServerProtos.h"
 #include "AgentSubscriptionLimits.hpp"
 #include "Counter.hpp"
+#include "GlobalConfig.hpp"
 
 class Mqtt: public mosqpp::mosquittopp {
 
@@ -138,7 +139,8 @@ class MessageBus : public Mqtt {
     MessageBus (const std::string client_name,
                 AgentSubscriptionLimits limits) : Mqtt(client_name, limits)
     {
-        connect("127.0.0.1");
+        connect(global_config.mqtt_broker_ip.c_str(),
+                global_config.mqtt_broker_port);
         loop_start();
     }
 

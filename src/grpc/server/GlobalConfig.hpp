@@ -24,6 +24,11 @@
 #define DEVICE_MGD_IP                   "localhost"
 #define DEVICE_MGD_PORT                 50050
 
+// MQTT related
+#define INI_SECTION_MQTT                "mqtt"
+#define MQTT_BROKER_IP                  "127.0.0.1"
+#define MQTT_BROKER_PORT                1883
+
 // UDP server related
 #define INI_SECTION_UDP                 "udp"
 #define UDP_SERVER_MODULE               false
@@ -53,6 +58,9 @@ public:
     std::string     device_mgd_ip;
     int             device_mgd_port;
 
+    std::string     mqtt_broker_ip;
+    int             mqtt_broker_port;
+
     bool            udp_server_module;
     std::string     udp_server_ip;
     int             udp_server_port;
@@ -71,6 +79,9 @@ public:
 
         device_mgd_ip           = DEVICE_MGD_IP;
         device_mgd_port         = DEVICE_MGD_PORT;
+
+        mqtt_broker_ip          = MQTT_BROKER_IP;
+        mqtt_broker_port        = MQTT_BROKER_PORT;
 
         udp_server_module       = UDP_SERVER_MODULE;
         udp_server_ip           = UDP_SERVER_IP;

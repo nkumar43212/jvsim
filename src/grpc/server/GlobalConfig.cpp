@@ -62,6 +62,11 @@ operator<<(std::ostream& os, GlobalConfig& gc)
     os << "Device MGD port              : "
                                 << gc.device_mgd_port << std::endl;
 
+    os << "MQTT broker ip               : "
+                                << gc.mqtt_broker_ip << std::endl;
+    os << "MQTT broker port             : "
+                                << gc.mqtt_broker_port << std::endl;
+
     os << "Invoke UDP server            : "
                                 << gc.udp_server_module << std::endl;
     os << "UDP server ip                : "
@@ -117,6 +122,15 @@ GlobalConfig::parse(std::string filename, GlobalConfig &global_config)
                                              INI_SECTION_JUNOS_DEVICE,
                                              "device_mgd_port",
                                              global_config.device_mgd_port);
+
+    // INI_SECTION_MQTT
+    global_config.mqtt_broker_ip = reader.Get(INI_SECTION_MQTT,
+                                              "mqtt_broker_ip",
+                                              global_config.mqtt_broker_ip);
+    global_config.mqtt_broker_port = (int)reader.GetInteger(
+                                              INI_SECTION_MQTT,
+                                              "mqtt_broker_port",
+                                              global_config.mqtt_broker_port);
 
     // INI_SECTION_UDP
     global_config.udp_server_module = reader.GetBoolean(INI_SECTION_UDP,
