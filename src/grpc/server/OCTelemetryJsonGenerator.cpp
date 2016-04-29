@@ -8,6 +8,7 @@
 
 #include "OCTelemetryJsonGenerator.hpp"
 #include "OCTelemetryJson.hpp"
+#include "JsonUtils.hpp"
 
 std::string
 OCTelemetryJsonGenerator::generate_json_oc_config (bool mqtt,
@@ -18,9 +19,8 @@ OCTelemetryJsonGenerator::generate_json_oc_config (bool mqtt,
 
     // Create sensor_groups
     Json::Value sensor_groups_json;
-    parsingSuccessful = OCTelemetryJson::parse_string_to_json_obj(
-                                                sensor_groups,
-                                                sensor_groups_json);
+    parsingSuccessful = JsonUtils::parse_string_to_json_obj(sensor_groups,
+                                                            sensor_groups_json);
     if (parsingSuccessful == false) {
         // Mark error and return empty string
         return "";
@@ -39,8 +39,8 @@ OCTelemetryJsonGenerator::generate_json_oc_config (bool mqtt,
 // TODO ABBAS - For QFX platform
 #if 0
     parsingSuccessful =
-    OCTelemetryJson::parse_string_to_json_obj(destination_groups,
-                                              destination_groups_json);
+    JsonUtils::parse_string_to_json_obj(destination_groups,
+                                        destination_groups_json);
     if (parsingSuccessful) {
         // Mark error and return empty string
         return "";
@@ -48,7 +48,7 @@ OCTelemetryJsonGenerator::generate_json_oc_config (bool mqtt,
 
     // Set values in destination_groups
     OCTelemetryJson::set_json_destination_group("GRPC_UDP_COLLECTOR",
-                                                "1.1.1.1", "10000",
+                                                "1.1.1.1", 10000,
                                                 &destination_groups_json);
 #endif
 
@@ -56,12 +56,12 @@ OCTelemetryJsonGenerator::generate_json_oc_config (bool mqtt,
     Json::Value subscriptions_json;
     if (mqtt) {
         parsingSuccessful =
-        OCTelemetryJson::parse_string_to_json_obj(subscriptions_mqtt,
-                                                  subscriptions_json);
+        JsonUtils::parse_string_to_json_obj(subscriptions_mqtt,
+                                            subscriptions_json);
     } else {
         parsingSuccessful =
-        OCTelemetryJson::parse_string_to_json_obj(subscriptions_udp,
-                                                  subscriptions_json);
+        JsonUtils::parse_string_to_json_obj(subscriptions_udp,
+                                            subscriptions_json);
     }
     if (parsingSuccessful == false) {
         // Mark error and return empty string
@@ -76,9 +76,9 @@ OCTelemetryJsonGenerator::generate_json_oc_config (bool mqtt,
 
     // Now merge contents
     Json::Value final_json;
-    OCTelemetryJson::merge_json_objects(final_json, sensor_groups_json);
-    OCTelemetryJson::merge_json_objects(final_json,destination_groups_json);
-    OCTelemetryJson::merge_json_objects(final_json, subscriptions_json);
+    JsonUtils::merge_json_objects(final_json, sensor_groups_json);
+    JsonUtils::merge_json_objects(final_json,destination_groups_json);
+    JsonUtils::merge_json_objects(final_json, subscriptions_json);
 
-    return OCTelemetryJson::write_json_obj_to_string(final_json);
+    return JsonUtils::write_json_obj_to_string(final_json);
 }

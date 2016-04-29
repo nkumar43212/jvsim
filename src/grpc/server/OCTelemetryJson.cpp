@@ -43,8 +43,8 @@ std::string destination_groups = R"(
             "destinations" : {
                 "destination" : {
                     "config" : {
-                        "destination-address" : "__GRPC_IP__",
-                        "destination-port" : "__GRPC__PORT__",
+                        "destination-address" : "__GRPC_UDP_IP__",
+                        "destination-port" : "__GRPC_UDP_PORT__",
                         "destination-protocol" : "UDP"
                     }
                 }
@@ -139,24 +139,6 @@ std::string subscriptions_original_OC = R"(
 }
 )";
 
-bool
-OCTelemetryJson::parse_string_to_json_obj (std::string &str,
-                                           Json::Value &json_obj)
-{
-    Json::Reader reader;
-
-    bool parsingSuccessful = reader.parse(str, json_obj);
-    return parsingSuccessful;
-}
-
-std::string
-OCTelemetryJson::write_json_obj_to_string (Json::Value &json_obj)
-{
-    Json::FastWriter fw;
-    //fw.omitEndingLineFeed();
-    return fw.write(json_obj);
-}
-
 void
 OCTelemetryJson::set_json_sensor_group (std::string sensor_group_name,
                                         std::string path,
@@ -178,16 +160,16 @@ OCTelemetryJson::set_json_sensor_group (std::string sensor_group_name,
 
 void
 OCTelemetryJson::set_json_destination_group (std::string dest_group_name,
-                                             std::string grpc_ip,
-                                             std::string grpc_port,
+                                             std::string grpc_udp_ip,
+                                             uint32_t grpc_udp_port,
                                              Json::Value *json_obj)
 {
     (*json_obj)["destination-groups"]["destination-group"]["config"]
                ["group-id"] = dest_group_name;
     (*json_obj)["destination-groups"]["destination-group"]["destinations"]
-               ["destination"]["config"]["destination-address"] = grpc_ip;
+               ["destination"]["config"]["destination-address"] = grpc_udp_ip;
     (*json_obj)["destination-groups"]["destination-group"]["destinations"]
-               ["destination"]["config"]["destination-port"] = grpc_port;
+               ["destination"]["config"]["destination-port"] = grpc_udp_port;
 }
 
 void
@@ -210,23 +192,5 @@ OCTelemetryJson::set_json_subscription (bool mqtt,
         (*json_obj)["subscriptions"]["persistent"]["subscription"]
             ["destination-groups"]["destination-group"]["config"]["group-id"] =
                     destination_group_name;
-    }
-}
-
-// Merges sub into super
-void
-OCTelemetryJson::merge_json_objects (Json::Value& super, Json::Value& sub)
-{
-    // Merge into null too
-    // if (!super.isObject() || !sub.isObject()) return;
-
-    // Merge all members of sub into super
-    for (const auto& key : sub.getMemberNames()) {
-        if (super[key].type() == Json::objectValue &&
-            sub[key].type() == Json::objectValue) {
-            merge_json_objects(super[key], sub[key]);
-        } else {
-            super[key] = sub[key];
-        }
     }
 }

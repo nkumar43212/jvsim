@@ -11,6 +11,7 @@
 #include "AgentUtils.hpp"
 #include "OCTelemetryJsonGenerator.hpp"
 #include "OCTelemetryJson.hpp"
+#include "JsonUtils.hpp"
 #include "GlobalConfig.hpp"
 
 grpc::Status
@@ -151,8 +152,8 @@ AgentSystemProc::systemGet (SystemId id)
     // TODO ABBAS - FIX THIS HOLISTICALLY LATER
     Telemetry::Path *path = new Telemetry::Path();
     Json::Value json_obj;
-    OCTelemetryJson::parse_string_to_json_obj(response_json_str,
-                                              json_obj);
+    JsonUtils::parse_string_to_json_obj(response_json_str,
+                                        json_obj);
     std::string path_str = json_obj["sensor-groups"]["sensor-paths"][0]
                                 ["sensor-path"]["config"]["path"].asCString();
     path->set_path(path_str);
