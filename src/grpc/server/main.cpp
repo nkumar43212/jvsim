@@ -50,7 +50,8 @@ CreateSystemHandle (AgentServerCmdOptions *cmd_options,
     
     // Now look at the system mode provided
     if (cmd_options->isSystemModeFile()) {
-        sys_handle = AgentSystemFactory::createFile(logger, cmd_options->getSystemFileName());
+        sys_handle = AgentSystemFactory::createFile(logger,
+                                        cmd_options->getSystemFileName());
     } else if (cmd_options->isSystemModeProc()) {
         sys_handle = AgentSystemFactory::createSystemProcess(logger);
     } else {

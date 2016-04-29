@@ -7,6 +7,7 @@
 //
 
 #include <iostream>
+#include <unistd.h>
 #include "AgentServerCmdOptions.hpp"
 
 void
