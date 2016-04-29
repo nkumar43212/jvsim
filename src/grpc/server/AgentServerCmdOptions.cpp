@@ -6,6 +6,7 @@
 //  Copyright © 2016 Juniper Networks. All rights reserved.
 //
 
+#include <iostream>
 #include "AgentServerCmdOptions.hpp"
 
 void

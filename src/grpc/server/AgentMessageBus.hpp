@@ -9,7 +9,6 @@
 #ifndef AgentMessageBus_hpp
 #define AgentMessageBus_hpp
 
-#include <iostream>
 #include <map>
 #include <string>
 #include <mosquittopp.h>

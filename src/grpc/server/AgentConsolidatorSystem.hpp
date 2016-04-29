@@ -9,7 +9,7 @@
 #ifndef AgentConsolidatorSystem_hpp
 #define AgentConsolidatorSystem_hpp
 
-#include <iostream>
+#include <memory>
 #include <vector>
 #include "AgentServerProtos.h"
 #include "AgentSystem.hpp"

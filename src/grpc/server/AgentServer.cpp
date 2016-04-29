@@ -8,6 +8,7 @@
 
 // Header files
 #include "AgentServer.h"
+#include "AgentServerTransport.hpp"
 #include "AgentUtils.hpp"
 
 Status

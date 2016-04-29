@@ -6,8 +6,8 @@
 //  Copyright © 2016 Juniper Networks. All rights reserved.
 //
 
-#ifndef AgentServerTransport_h
-#define AgentServerTransport_h
+#ifndef AgentServerTransport_hpp
+#define AgentServerTransport_hpp
 
 #include "AgentServerProtos.h"
 
@@ -17,9 +17,9 @@ class AgentServerTransport {
 
 public:
     AgentServerTransport (ServerContext *server_context,
-                          ServerWriter<OpenConfigData>* writer_context) : _context(server_context), _writer(writer_context)
-    {
-    }
+                          ServerWriter<OpenConfigData>* writer_context) :
+                          _context(server_context),
+                          _writer(writer_context)  {}
 
     ServerContext * getServerContext (void) {
         return _context;
@@ -35,4 +35,4 @@ public:
     }
 };
 
-#endif /* AgentServerTransport_h */
+#endif /* AgentServerTransport_hpp */

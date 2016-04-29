@@ -9,10 +9,9 @@
 #ifndef AgentConsolidator_hpp
 #define AgentConsolidator_hpp
 
-#include <iostream>
-#include <string>
 #include <mutex>
 #include "AgentServerProtos.h"
+#include "AgentServerLog.hpp"
 #include "AgentConsolidatorSystem.hpp"
 #include "AgentSystem.hpp"
 
@@ -35,7 +34,7 @@ class AgentConsolidator {
     uint64_t _error_count_underflow;
 
 public:
-    // Construction
+    // Constructor
     AgentConsolidator (AgentSystem *sys_handle, AgentServerLog *logger) :
                        _sys_handle(sys_handle), _logger(logger)
     {

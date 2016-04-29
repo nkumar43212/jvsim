@@ -9,9 +9,7 @@
 #ifndef AgentServerCmdOptions_hpp
 #define AgentServerCmdOptions_hpp
 
-#include <iostream>
-#include <cstring>
-#include <unistd.h>
+#include <string>
 
 class AgentServerCmdOptions {
     char *_logfile;
@@ -31,20 +29,6 @@ public:
         _file_mode = _null_mode = _proc_mode = false;
         _ini_config_file = NULL;
     }
-
-#if 0
-    ~AgentServerCmdOptions() {
-        if (_logfile) {
-            delete (std::string *)_logfile;
-        }
-        if (_system_file_name) {
-            delete _system_file_name;
-        }
-        if (_ini_config_file) {
-            delete _ini_config_file;
-        }
-    }
-#endif
 
     char *getLogFile(void)          { return _logfile; }
     char *getSystemFileName(void)   { return _system_file_name; }
