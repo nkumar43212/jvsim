@@ -18,6 +18,8 @@
 		05BD33B51CD3E9730059EF17 /* JsonUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BD33B31CD3E9730059EF17 /* JsonUtils.cpp */; };
 		05BD33B61CD3ED0C0059EF17 /* JsonUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BD33B31CD3E9730059EF17 /* JsonUtils.cpp */; };
 		05BD33B71CD3FF550059EF17 /* JunosTelemetryJson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BD33B01CD3513B0059EF17 /* JunosTelemetryJson.cpp */; };
+		05BD33BA1CD4027A0059EF17 /* JunosTelemetryJsonGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BD33B81CD4027A0059EF17 /* JunosTelemetryJsonGenerator.cpp */; };
+		05BD33BB1CD4027A0059EF17 /* JunosTelemetryJsonGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BD33B81CD4027A0059EF17 /* JunosTelemetryJsonGenerator.cpp */; };
 		05C1BED81CC81DB500A6A342 /* OpenConfigNpuUtilization.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05C1BED61CC81DB500A6A342 /* OpenConfigNpuUtilization.cpp */; };
 		05C1BEDB1CC824C000A6A342 /* OpenConfigLogicalPort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05C1BED91CC824C000A6A342 /* OpenConfigLogicalPort.cpp */; };
 		05C1BEDD1CC94D0800A6A342 /* AgentUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05C1BEDC1CC94D0800A6A342 /* AgentUtils.cpp */; };
@@ -163,6 +165,8 @@
 		05BD33B11CD3513C0059EF17 /* JunosTelemetryJson.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = JunosTelemetryJson.hpp; sourceTree = "<group>"; };
 		05BD33B31CD3E9730059EF17 /* JsonUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JsonUtils.cpp; sourceTree = "<group>"; };
 		05BD33B41CD3E9730059EF17 /* JsonUtils.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = JsonUtils.hpp; sourceTree = "<group>"; };
+		05BD33B81CD4027A0059EF17 /* JunosTelemetryJsonGenerator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JunosTelemetryJsonGenerator.cpp; sourceTree = "<group>"; };
+		05BD33B91CD4027A0059EF17 /* JunosTelemetryJsonGenerator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = JunosTelemetryJsonGenerator.hpp; sourceTree = "<group>"; };
 		05C1BED61CC81DB500A6A342 /* OpenConfigNpuUtilization.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OpenConfigNpuUtilization.cpp; sourceTree = "<group>"; };
 		05C1BED71CC81DB500A6A342 /* OpenConfigNpuUtilization.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = OpenConfigNpuUtilization.hpp; sourceTree = "<group>"; };
 		05C1BED91CC824C000A6A342 /* OpenConfigLogicalPort.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OpenConfigLogicalPort.cpp; sourceTree = "<group>"; };
@@ -387,6 +391,7 @@
 				05BD33AA1CD2CEF90059EF17 /* GlobalConfig.cpp */,
 				05BD33B31CD3E9730059EF17 /* JsonUtils.cpp */,
 				05BD33B01CD3513B0059EF17 /* JunosTelemetryJson.cpp */,
+				05BD33B81CD4027A0059EF17 /* JunosTelemetryJsonGenerator.cpp */,
 				0537F4DF1CCC01B100BD519B /* OCTelemetryJson.cpp */,
 				0537F4E21CCEA3CC00BD519B /* OCTelemetryJsonGenerator.cpp */,
 				946702D61C64739A00E73BF5 /* OpenConfig.cpp */,
@@ -411,6 +416,7 @@
 				05BD33AB1CD2CEF90059EF17 /* GlobalConfig.hpp */,
 				05BD33B41CD3E9730059EF17 /* JsonUtils.hpp */,
 				05BD33B11CD3513C0059EF17 /* JunosTelemetryJson.hpp */,
+				05BD33B91CD4027A0059EF17 /* JunosTelemetryJsonGenerator.hpp */,
 				0537F4E11CCC01C200BD519B /* OCTelemetryJson.hpp */,
 				0537F4E31CCEA3CC00BD519B /* OCTelemetryJsonGenerator.hpp */,
 				946702D51C64739A00E73BF5 /* OpenConfig.hpp */,
@@ -709,6 +715,7 @@
 				94FB189A1C85032400791B3A /* AgentSystemProc.cpp in Sources */,
 				94A291FD1C80FAF2004BB6C3 /* AgentServerCmdOptions.cpp in Sources */,
 				94AC9AA21C7A1CD60034AF1A /* AgentSystem.cpp in Sources */,
+				05BD33BA1CD4027A0059EF17 /* JunosTelemetryJsonGenerator.cpp in Sources */,
 				946702CD1C64734E00E73BF5 /* AgentServer.cpp in Sources */,
 				0537F4E01CCC01B100BD519B /* OCTelemetryJson.cpp in Sources */,
 				05BD33B51CD3E9730059EF17 /* JsonUtils.cpp in Sources */,
@@ -743,6 +750,7 @@
 				0537F4E51CCEA68200BD519B /* OCTelemetryJsonGenerator.cpp in Sources */,
 				94A292051C827C95004BB6C3 /* AgentSystemFile.cpp in Sources */,
 				94AC9A8F1C77DAC20034AF1A /* AgentConsolidator.cpp in Sources */,
+				05BD33BB1CD4027A0059EF17 /* JunosTelemetryJsonGenerator.cpp in Sources */,
 				94AC9A811C76FDDC0034AF1A /* agent_test_consolidator.cpp in Sources */,
 				946703E11C65134700E73BF5 /* agent_test.cpp in Sources */,
 				05BD33B71CD3FF550059EF17 /* JunosTelemetryJson.cpp in Sources */,
