@@ -9,6 +9,7 @@
 #include "JunosTelemetryJsonGenerator.hpp"
 #include "JunosTelemetryJson.hpp"
 #include "JsonUtils.hpp"
+#include "AgentUtils.hpp"
 
 std::string
 JunosTelemetryJsonGenerator::generate_json_junos_config (bool mqtt,
@@ -69,7 +70,8 @@ JunosTelemetryJsonGenerator::generate_json_junos_config (bool mqtt,
                                                export_profile_name,
                                                path->path(),
                                                path->filter(),
-                                               internal_subscription_id,
+                                               // internal_subscription_id,
+                                               0,
                                                &sensor_config_json);
 
     // Now merge contents
@@ -78,5 +80,10 @@ JunosTelemetryJsonGenerator::generate_json_junos_config (bool mqtt,
     JsonUtils::merge_json_objects(final_json, streaming_server_json);
     JsonUtils::merge_json_objects(final_json, sensor_config_json);
 
-    return JsonUtils::write_json_obj_to_string(final_json);
+    // Send the final string
+    // ABBAS TODO --- Due to Junos Json implementation limitations,
+    // replace "%name% with "name" in final stage
+    std::string final_str = JsonUtils::write_json_obj_to_string(final_json);
+    AgentUtils::SearchNReplaceString(final_str, "%name%", "name");
+    return final_str;
 }

@@ -17,7 +17,7 @@ std::string export_profile = R"(
                 "export-profile" :
                 [
                     {
-                        "name" : "__EXPORT_PROFILE_NAME__",
+                        "%name%" : "__EXPORT_PROFILE_NAME__",
                         "reporting-rate" : "__PATH_sample_frequency__",
                          "transport" : "udp"
                     }
@@ -37,7 +37,7 @@ std::string streaming_server = R"(
                 "streaming-server" :
                 [
                     {
-                        "name" : "__STREAMING_SERVER_NAME__",
+                        "%name%" : "__STREAMING_SERVER_NAME__",
                         "remote-address" : "__GRPC_UDP_IP__",
                         "remote-port" : "__GRPC_UDP_PORT__"
                     }
@@ -57,7 +57,7 @@ std::string sensor_config = R"(
                 "sensor" :
                 [
                     {
-                        "name" : "__SENSOR_NAME__",
+                        "%name%" : "__SENSOR_NAME__",
                         "server-name" : "__STREAMING_SERVER_NAME__",
                         "export-name" : "__EXPORT_PROFILE_NAME__",
                         "resource" : "__PATH_path__",
@@ -77,7 +77,7 @@ JunosTelemetryJson::set_json_export_profile (std::string export_profile_name,
                                              Json::Value *json_obj)
 {
     (*json_obj)["configuration"]["services"]["analytics"]["export-profile"][0]
-               ["name"] = export_profile_name;
+               ["%name%"] = export_profile_name;
     (*json_obj)["configuration"]["services"]["analytics"]["export-profile"][0]
                ["reporting-rate"] = std::to_string(sampling_frequency);
 #if 0
@@ -93,7 +93,7 @@ JunosTelemetryJson::set_json_streaming_server (std::string streaming_server_name
                                                Json::Value *json_obj)
 {
     (*json_obj)["configuration"]["services"]["analytics"]["streaming-server"][0]
-               ["name"] = streaming_server_name;
+               ["%name%"] = streaming_server_name;
     (*json_obj)["configuration"]["services"]["analytics"]["streaming-server"][0]
                ["remote-address"] = grpc_udp_ip;
     (*json_obj)["configuration"]["services"]["analytics"]["streaming-server"][0]
@@ -111,7 +111,7 @@ JunosTelemetryJson::set_json_sensor_config (bool mqtt,
                                             Json::Value *json_obj)
 {
     (*json_obj)["configuration"]["services"]["analytics"]["sensor"][0]
-               ["name"] = sensor_name;
+               ["%name%"] = sensor_name;
     if (mqtt == false) {
         (*json_obj)["configuration"]["services"]["analytics"]["sensor"][0]
                    ["server-name"] = streaming_server_name;
