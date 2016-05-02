@@ -12,7 +12,8 @@
 #include "AgentUtils.hpp"
 
 std::string
-JunosTelemetryJsonGenerator::generate_json_junos_config (bool mqtt,
+JunosTelemetryJsonGenerator::generate_json_junos_config (bool add,
+                                          bool mqtt,
                                           id_idx_t internal_subscription_id,
                                           const Telemetry::Path *path)
 {
@@ -30,9 +31,11 @@ JunosTelemetryJsonGenerator::generate_json_junos_config (bool mqtt,
     // Set values in export-profile
     std::string export_profile_name = "export_" +
                                       std::to_string(internal_subscription_id);
-    JunosTelemetryJson::set_json_export_profile(export_profile_name,
-                                               path->sample_frequency(),
-                                               &export_profile_json);
+    JunosTelemetryJson::set_json_export_profile(add,
+                                                export_profile_name,
+                                                path->sample_frequency(),
+                                                "udp",
+                                                &export_profile_json);
 
     // Create streaming-server
     Json::Value streaming_server_json;
@@ -41,13 +44,14 @@ JunosTelemetryJsonGenerator::generate_json_junos_config (bool mqtt,
     parsingSuccessful =
     JsonUtils::parse_string_to_json_obj(streaming_server,
                                         streaming_server_json);
-    if (parsingSuccessful) {
+    if (parsingSuccessful == false) {
         // Mark error and return empty string
         return "";
     }
 
     // Set values in streaming-server
-    JunosTelemetryJson::set_json_streaming_server("GRPC_UDP_COLLECTOR",
+    JunosTelemetryJson::set_json_streaming_server(add,
+                                                  "GRPC_UDP_COLLECTOR",
                                                   "1.1.1.1", 10000,
                                                   &streaming_server_json);
 #endif
@@ -64,7 +68,8 @@ JunosTelemetryJsonGenerator::generate_json_junos_config (bool mqtt,
     // Set values in sensor
     std::string sensor_name = "sensor_" +
                               std::to_string(internal_subscription_id);
-    JunosTelemetryJson::set_json_sensor_config(mqtt,
+    JunosTelemetryJson::set_json_sensor_config(add,
+                                               mqtt,
                                                sensor_name,
                                                "GRPC_UDP_COLLECTOR",
                                                export_profile_name,
@@ -84,6 +89,6 @@ JunosTelemetryJsonGenerator::generate_json_junos_config (bool mqtt,
     // ABBAS TODO --- Due to Junos Json implementation limitations,
     // replace "%name% with "name" in final stage
     std::string final_str = JsonUtils::write_json_obj_to_string(final_json);
-    AgentUtils::SearchNReplaceString(final_str, "%name%", "name");
+    AgentUtils::SearchNReplaceString(final_str, "@name@", "name");
     return final_str;
 }

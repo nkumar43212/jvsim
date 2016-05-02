@@ -19,14 +19,18 @@ extern std::string sensor_config;
 // Junos configuration methods for setting various Json configuration
 class JunosTelemetryJson {
 public:
-    static void set_json_export_profile(std::string export_profile_name,
+    static void set_json_export_profile(bool add,
+                                        std::string export_profile_name,
                                         uint32_t sampling_frequency,
+                                        std::string transport,
                                         Json::Value *json_obj);
-    static void set_json_streaming_server(std::string streaming_server_name,
+    static void set_json_streaming_server(bool add,
+                                          std::string streaming_server_name,
                                           std::string grpc_udp_ip,
                                           uint32_t grpc_udp_port,
                                           Json::Value *json_obj);
-    static void set_json_sensor_config(bool mqtt,
+    static void set_json_sensor_config(bool add,
+                                       bool mqtt,
                                        std::string sensor_name,
                                        std::string streaming_server_name,
                                        std::string export_profile_name,

@@ -17,9 +17,10 @@ std::string export_profile = R"(
                 "export-profile" :
                 [
                     {
-                        "%name%" : "__EXPORT_PROFILE_NAME__",
+                        "@" : { "operation" : "delete" },
+                        "@name@" : "__EXPORT_PROFILE_NAME__",
                         "reporting-rate" : "__PATH_sample_frequency__",
-                         "transport" : "udp"
+                         "transport" : "__TRANSPORT__"
                     }
                 ]
             }
@@ -37,7 +38,8 @@ std::string streaming_server = R"(
                 "streaming-server" :
                 [
                     {
-                        "%name%" : "__STREAMING_SERVER_NAME__",
+                        "@" : { "operation" : "delete" },
+                        "@name@" : "__STREAMING_SERVER_NAME__",
                         "remote-address" : "__GRPC_UDP_IP__",
                         "remote-port" : "__GRPC_UDP_PORT__"
                     }
@@ -57,7 +59,8 @@ std::string sensor_config = R"(
                 "sensor" :
                 [
                     {
-                        "%name%" : "__SENSOR_NAME__",
+                        "@" : { "operation" : "delete" },
+                        "@name@" : "__SENSOR_NAME__",
                         "server-name" : "__STREAMING_SERVER_NAME__",
                         "export-name" : "__EXPORT_PROFILE_NAME__",
                         "resource" : "__PATH_path__",
@@ -72,36 +75,60 @@ std::string sensor_config = R"(
 )";
 
 void
-JunosTelemetryJson::set_json_export_profile (std::string export_profile_name,
+JunosTelemetryJson::set_json_export_profile (bool add,
+                                             std::string export_profile_name,
                                              uint32_t sampling_frequency,
+                                             std::string transport,
                                              Json::Value *json_obj)
 {
     (*json_obj)["configuration"]["services"]["analytics"]["export-profile"][0]
-               ["%name%"] = export_profile_name;
-    (*json_obj)["configuration"]["services"]["analytics"]["export-profile"][0]
-               ["reporting-rate"] = std::to_string(sampling_frequency);
-#if 0
-    (*json_obj)["configuration"]["services"]["analytics"]["export-profile"][0]
-               ["transport"] = ???;
-#endif
+               ["@name@"] = export_profile_name;
+    if (add) {
+        // Modify necessary fields
+        (*json_obj)["configuration"]["services"]["analytics"]["export-profile"]
+                   [0].removeMember("@");
+        (*json_obj)["configuration"]["services"]["analytics"]["export-profile"]
+                   [0]["reporting-rate"] = std::to_string(sampling_frequency);
+        (*json_obj)["configuration"]["services"]["analytics"]["export-profile"]
+                   [0]["transport"] = transport;
+    } else {
+        // Remove unwanted fields
+        (*json_obj)["configuration"]["services"]["analytics"]["export-profile"]
+                   [0].removeMember("reporting-rate");
+        (*json_obj)["configuration"]["services"]["analytics"]["export-profile"]
+                   [0].removeMember("transport");
+    }
 }
 
 void
-JunosTelemetryJson::set_json_streaming_server (std::string streaming_server_name,
-                                               std::string grpc_udp_ip,
-                                               uint32_t grpc_udp_port,
-                                               Json::Value *json_obj)
+JunosTelemetryJson::set_json_streaming_server (bool add,
+                                              std::string streaming_server_name,
+                                              std::string grpc_udp_ip,
+                                              uint32_t grpc_udp_port,
+                                              Json::Value *json_obj)
 {
     (*json_obj)["configuration"]["services"]["analytics"]["streaming-server"][0]
-               ["%name%"] = streaming_server_name;
-    (*json_obj)["configuration"]["services"]["analytics"]["streaming-server"][0]
-               ["remote-address"] = grpc_udp_ip;
-    (*json_obj)["configuration"]["services"]["analytics"]["streaming-server"][0]
-               ["remote-port"] = std::to_string(grpc_udp_port);
+               ["@name@"] = streaming_server_name;
+    if (add) {
+        // Modify necessary fields
+        (*json_obj)["configuration"]["services"]["analytics"]["streaming-server"]
+                   [0].removeMember("@");
+        (*json_obj)["configuration"]["services"]["analytics"]["streaming-server"]
+                   [0]["remote-address"] = grpc_udp_ip;
+        (*json_obj)["configuration"]["services"]["analytics"]["streaming-server"]
+                   [0]["remote-port"] = std::to_string(grpc_udp_port);
+    } else {
+        // Remove unwanted fields
+        (*json_obj)["configuration"]["services"]["analytics"]["streaming-server"]
+                   [0].removeMember("remote-address");
+        (*json_obj)["configuration"]["services"]["analytics"]["streaming-server"]
+                   [0].removeMember("remote-port");
+    }
 }
 
 void
-JunosTelemetryJson::set_json_sensor_config (bool mqtt,
+JunosTelemetryJson::set_json_sensor_config (bool add,
+                                            bool mqtt,
                                             std::string sensor_name,
                                             std::string streaming_server_name,
                                             std::string export_profile_name,
@@ -111,30 +138,48 @@ JunosTelemetryJson::set_json_sensor_config (bool mqtt,
                                             Json::Value *json_obj)
 {
     (*json_obj)["configuration"]["services"]["analytics"]["sensor"][0]
-               ["%name%"] = sensor_name;
-    if (mqtt == false) {
+               ["@name@"] = sensor_name;
+    if (add) {
+        // Modify necessary fields
         (*json_obj)["configuration"]["services"]["analytics"]["sensor"][0]
-                   ["server-name"] = streaming_server_name;
+                   .removeMember("@");
+        if (mqtt == false) {
+            (*json_obj)["configuration"]["services"]["analytics"]["sensor"][0]
+                       ["server-name"] = streaming_server_name;
+        } else {
+            (*json_obj)["configuration"]["services"]["analytics"]["sensor"][0]
+                       .removeMember("server-name");
+        }
+        (*json_obj)["configuration"]["services"]["analytics"]["sensor"][0]
+                   ["export-name"] = export_profile_name;
+        (*json_obj)["configuration"]["services"]["analytics"]["sensor"][0]
+                   ["resource"] = path;
+        if (filter.length() != 0) {
+            (*json_obj)["configuration"]["services"]["analytics"]["sensor"][0]
+                       ["resource-filter"] = filter;
+        } else {
+            (*json_obj)["configuration"]["services"]["analytics"]["sensor"][0]
+                       .removeMember("resource-filter");
+        }
+        if (internal_subscription_id == 0) {
+            (*json_obj)["configuration"]["services"]["analytics"]["sensor"][0]
+                        .removeMember("subscription-id");
+        } else {
+            (*json_obj)["configuration"]["services"]["analytics"]["sensor"][0]
+                       ["subscription-id"] =
+                                    std::to_string(internal_subscription_id);
+        }
     } else {
+        // Remove unwanted fields
         (*json_obj)["configuration"]["services"]["analytics"]["sensor"][0]
                    .removeMember("server-name");
-    }
-    (*json_obj)["configuration"]["services"]["analytics"]["sensor"][0]
-               ["export-name"] = export_profile_name;
-    (*json_obj)["configuration"]["services"]["analytics"]["sensor"][0]
-               ["resource"] = path;
-    if (filter.length() != 0) {
         (*json_obj)["configuration"]["services"]["analytics"]["sensor"][0]
-                   ["resource-filter"] = filter;
-    } else {
+                   .removeMember("export-name");
+        (*json_obj)["configuration"]["services"]["analytics"]["sensor"][0]
+                   .removeMember("resource");
         (*json_obj)["configuration"]["services"]["analytics"]["sensor"][0]
                    .removeMember("resource-filter");
-    }
-    if (internal_subscription_id == 0) {
         (*json_obj)["configuration"]["services"]["analytics"]["sensor"][0]
-                    .removeMember("subscription-id");
-    } else {
-        (*json_obj)["configuration"]["services"]["analytics"]["sensor"][0]
-                ["subscription-id"] = std::to_string(internal_subscription_id);
+                   .removeMember("subscription-id");
     }
 }
