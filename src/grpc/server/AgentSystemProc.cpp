@@ -318,8 +318,8 @@ AgentSystemProc::systemGet (SystemId id)
                                    ["sensor"][0]["resource"].asCString();
     path->set_path(path_str);
     std::string sample_frequency_str = json_obj["configuration"]["services"]
-                                              ["analytics"]["export-profile"]
-                                              [0]["reporting-rate"].asCString();
+                                               ["analytics"]["sensor"][0]
+                                               ["reporting-rate"].asCString();
     path->set_sample_frequency(std::stoi(sample_frequency_str));
     return path;
 #endif
