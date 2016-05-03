@@ -66,7 +66,7 @@ AgentSubscription::on_message(const struct mosquitto_message* mosqmessage)
 
     // Send it over to the server via the transport channel
     if (getActive()) {
-        _transport.write(&oc_data);
+        _transport->write(&oc_data);
     }
 
     // Done

@@ -73,7 +73,7 @@ AgentServer::telemetrySubscribe (ServerContext *context,
     }
 
     // Create a subscription
-    AgentServerTransport transport(context, writer);
+    AgentServerTransport *transport = new AgentServerTransport(context, writer);
     AgentSubscriptionLimits limits(request->additional_config().limit_records(),
                             request->additional_config().limit_time_seconds());
     AgentSubscription *sub = AgentSubscription::createSubscription(id,
@@ -111,7 +111,7 @@ AgentServer::telemetrySubscribe (ServerContext *context,
     bool client_disconnected = false;
     // Wait till the subscription gets cancelled or it expires
     while (!sub->expired() && sub->getActive()) {
-        if (sub->getTransport().getServerContext()->IsCancelled() == true) {
+        if (sub->getTransport()->getServerContext()->IsCancelled() == true) {
             // Client is disconnected
             client_disconnected = true;
             sub->setActive(false);
@@ -132,6 +132,9 @@ AgentServer::telemetrySubscribe (ServerContext *context,
 
     log_str = std::to_string(sub->getId());
     _logger->log("Subscription-stream-end: ID = " + log_str);
+
+    // Delete transport object
+    delete transport;
 
     // Delete subscriber object
     delete sub;

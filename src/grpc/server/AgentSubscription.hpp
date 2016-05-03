@@ -37,9 +37,10 @@ class AgentSubscription : public MessageBus {
     PathList       _path_list;
 
     // Transport Handle
-    AgentServerTransport _transport;
+    AgentServerTransport *_transport;
 
-    // Consolidation handle that tracks the subscription request towards JUNOS system
+    // Consolidation handle that tracks the subscription request towards
+    // JUNOS system
     AgentConsolidatorHandle *_system_subscription;
 
     // Misc subscription statistics
@@ -57,23 +58,26 @@ public:
     std::string getName()                            { return _name;      }
     PathList    getPathList()                        { return _path_list; }
     bool        getActive()                          { return _active;    }
-    AgentConsolidatorHandle *getSystemSubscription() { return _system_subscription; }
-    AgentServerTransport getTransport()              { return _transport; }
+    AgentConsolidatorHandle *getSystemSubscription()
+                                           { return _system_subscription; }
+    AgentServerTransport* getTransport()             { return _transport; }
 
     // Construction
     AgentSubscription (std::string name,
-                       AgentServerTransport transport,
-                       AgentSubscriptionLimits limits) : MessageBus(name, limits), _transport(transport)
+                       AgentServerTransport *transport,
+                       AgentSubscriptionLimits limits) :
+                       MessageBus(name, limits),
+                       _transport(transport)
     {
         _oc_lookup_failures = _stream_alloc_failures = _stream_parse_failures = 0;
     }
-    
+
     static AgentSubscription* createSubscription (id_idx_t id,
-                                                  AgentConsolidatorHandle *system_handle,
-                                                  AgentServerTransport transport,
-                                                  PathList path_list,
-                                                  AgentSubscriptionLimits limits,
-                                                  char *name = NULL)
+                                    AgentConsolidatorHandle *system_handle,
+                                    AgentServerTransport *transport,
+                                    PathList path_list,
+                                    AgentSubscriptionLimits limits,
+                                    char *name = NULL)
     {
         std::string client_name = name ? name : "client-" + std::to_string(id);
 
@@ -96,14 +100,8 @@ public:
     static void deleteSubscription (id_idx_t id)
     {
         std::map<id_idx_t, AgentSubscription *>::iterator itr = store.find(id);
-        // AgentSubscription *sub;
 
         // Did we find it ?
-        if (itr == store.end()) {
-            return;
-        }
-
-        // Remove from the internal store
         if (itr != store.end()) {
             store.erase(itr);
         }
@@ -138,16 +136,42 @@ public:
     void enable ()
     {
         // Add all the corresponding subscriptions
-        for (PathList::iterator itr = _path_list.begin(); itr != _path_list.end(); itr++) {
-            Subscribe(*itr);
+        if (global_config.subscribe_topic_name == TOPIC_PATH) {
+            for (PathList::iterator itr = _path_list.begin();
+                 itr != _path_list.end();
+                 itr++) {
+                Subscribe(*itr);
+            }
+        } else if (global_config.subscribe_topic_name == TOPIC_INTERNAL_SUB_ID) {
+            int total_handles = _system_subscription->getHandleCount();
+            for (int i = 0; i < total_handles; i++) {
+                AgentConsolidatorSystemHandlePtr csh =
+                                            _system_subscription->getHandle(i);
+                id_idx_t isubid = csh->getInternalSubscriptionId();
+                // TODO ABBAS === test this
+                Subscribe(std::to_string(isubid));
+            }
         }
     }
 
     void disable ()
     {
-        // Add all the corresponding subscriptions
-        for (PathList::iterator itr = _path_list.begin(); itr != _path_list.end(); itr++) {
-            unSubscribe(*itr);
+        // Delete the corresponding subscriptions
+        if (global_config.subscribe_topic_name == TOPIC_PATH) {
+            for (PathList::iterator itr = _path_list.begin();
+                 itr != _path_list.end();
+                 itr++) {
+                unSubscribe(*itr);
+            }
+        } else if (global_config.subscribe_topic_name == TOPIC_INTERNAL_SUB_ID) {
+            int total_handles = _system_subscription->getHandleCount();
+            for (int i = 0; i < total_handles; i++) {
+                AgentConsolidatorSystemHandlePtr csh =
+                _system_subscription->getHandle(i);
+                id_idx_t isubid = csh->getInternalSubscriptionId();
+                // TODO ABBAS === test this
+                Subscribe(std::to_string(isubid));
+            }
         }
     }
 
@@ -161,7 +185,8 @@ public:
         _active = value;
     }
     
-    void getOperational (GetOperationalStateReply* operational_reply, Telemetry::VerbosityLevel verbosity)
+    void getOperational (GetOperationalStateReply* operational_reply,
+                         Telemetry::VerbosityLevel verbosity)
     {
         // Get stats from the message bus interface
         MessageBus::getOperational(operational_reply, verbosity);

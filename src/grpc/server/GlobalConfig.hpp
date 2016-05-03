@@ -39,7 +39,7 @@
 #define INI_SECTION_OTHER_KNOBS         "other-knobs"
 #define TOPIC_INTERNAL_SUB_ID           "internal-subscription-id"
 #define TOPIC_PATH                      "path"
-#define SUBSCRIPTION_TOPIC_NAME         TOPIC_INTERNAL_SUB_ID
+#define SUBSCRIPTION_TOPIC_NAME         TOPIC_PATH
 
 #define SYSTEM_MODE_NULL                "null"
 #define SYSTEM_MODE_FILE                "file"

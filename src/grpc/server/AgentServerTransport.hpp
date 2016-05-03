@@ -31,6 +31,7 @@ public:
             return;
         }
 
+        // TODO ABBAS === Add a mutex protection here for UDP/MQTT
         _writer->Write(*data);
     }
 };
