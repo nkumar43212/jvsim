@@ -13,8 +13,14 @@
 
 // Configuration Database
 // The db of all requests into the system
+// 1. Normal db
 typedef std::map<std::size_t, SetRequest_ConfigOperationList *> ConfigDB;
 ConfigDB config_db;
+
+// 2. Ephemeral db
+typedef std::map<std::size_t, EditEphemeralConfigRequest_ConfigOperationList *>
+        EphConfigDB;
+EphConfigDB eph_config_db;
 
 Status
 MgdServer::Set (ServerContext* context, const SetRequest* set_request,
@@ -83,6 +89,88 @@ MgdServer::Get (ServerContext* context, const GetRequest* get_request,
         response->set_message("Fail");
     }
     SetRequest_ConfigOperationList *cmd = config_db[request_id];
+
+    // Fill in the details
+    response->set_value(cmd->value());
+    response->set_response_code(openconfig::OpenConfigRpcResponseTypes::OK);
+    response->set_message("Success");
+
+    return Status::OK;
+}
+
+
+Status
+MgdServer::EditEphemeralConfig (ServerContext* context,
+                           const EditEphemeralConfigRequest* edit_eph_request,
+                           EditEphemeralConfigResponse* edit_eph_response)
+{
+    // Log the request
+    std::string formatted;
+    google::protobuf::TextFormat::PrintToString(*edit_eph_request, &formatted);
+    _logger->log(formatted);
+
+    // Store it locally, as we will get asked about it
+    uint64_t request_id = edit_eph_request->request_id();
+
+    EditEphemeralConfigRequest_ConfigOperationList *cmd =
+                            new EditEphemeralConfigRequest_ConfigOperationList;
+    cmd->CopyFrom(edit_eph_request->eph_config_operations(0));
+
+    if ((cmd->operation() == openconfig::SetConfigCommands::UPDATE_CONFIG) ||
+        (cmd->operation() == openconfig::SetConfigCommands::REPLACE_CONFIG)) {
+        // add
+        eph_config_db[request_id] = cmd;
+    } else {
+        // delete
+        eph_config_db.erase(request_id);
+    }
+
+    edit_eph_response->set_request_id(request_id);
+    EditEphemeralConfigResponse_ResponseList *response =
+                                            edit_eph_response->add_response();
+    response->set_operation_id(cmd->operation_id());
+    response->set_response_code(openconfig::OpenConfigRpcResponseTypes::OK);
+    response->set_message("Success");
+
+    return Status::OK;
+}
+
+Status
+MgdServer::GetEphemeralConfig(ServerContext* context,
+                          const GetEphemeralConfigRequest* get_eph_request,
+                          GetEphemeralConfigResponse* get_eph_response)
+{
+    // Log the request
+    std::string formatted;
+    google::protobuf::TextFormat::PrintToString(*get_eph_request, &formatted);
+    _logger->log(formatted);
+
+    if (get_eph_request->eph_config_requests(0).path() != "/") {
+        _logger->log("Error in requested path not /");
+    }
+
+    // Prepare the reply
+    get_eph_response->set_request_id(get_eph_request->request_id());
+    GetEphemeralConfigResponse_ResponseList *response =
+                                            get_eph_response->add_response();
+    response->set_operation_id("0");
+    response->set_path(get_eph_request->eph_config_requests(0).path());
+
+    // Request ID
+    size_t request_id = get_eph_request->request_id();
+
+    // Look it up in the db
+    EphConfigDB::iterator it;
+    it = eph_config_db.find(request_id);
+    if (it == eph_config_db.end()) {
+        _logger->log("No data available for request id : " +
+                     std::to_string(request_id));
+        response->set_value("");
+        response->set_response_code(openconfig::OpenConfigRpcResponseTypes::NOK);
+        response->set_message("Fail");
+    }
+    EditEphemeralConfigRequest_ConfigOperationList *cmd =
+                                                    eph_config_db[request_id];
 
     // Fill in the details
     response->set_value(cmd->value());

@@ -58,6 +58,14 @@ class MgdServer final : public OpenconfigRpcApi::Service {
     Status Get(ServerContext* context, const GetRequest* get_request,
                GetResponse* get_response) override;
 
+    Status EditEphemeralConfig(ServerContext* context,
+               const EditEphemeralConfigRequest* edit_eph_request,
+               EditEphemeralConfigResponse* edit_eph_response) override;
+
+    Status GetEphemeralConfig(ServerContext* context,
+               const GetEphemeralConfigRequest* get_eph_request,
+               GetEphemeralConfigResponse* get_eph_response) override;
+
 public:
     MgdServer (AgentServerLog *logger) : _logger(logger) {}
 };
