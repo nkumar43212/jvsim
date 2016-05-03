@@ -21,7 +21,6 @@ class JunosTelemetryJson {
 public:
     static void set_json_export_profile(bool add,
                                         std::string export_profile_name,
-                                        uint32_t sampling_frequency,
                                         std::string transport,
                                         Json::Value *json_obj);
     static void set_json_streaming_server(bool add,
@@ -36,6 +35,7 @@ public:
                                        std::string export_profile_name,
                                        std::string path,
                                        std::string filter,
+                                       uint32_t sampling_frequency,
                                        uint32_t internal_subscription_id,
                                        Json::Value *json_obj);
 };

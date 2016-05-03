@@ -19,7 +19,6 @@ std::string export_profile = R"(
                     {
                         "@" : { "operation" : "delete" },
                         "@name@" : "__EXPORT_PROFILE_NAME__",
-                        "reporting-rate" : "__PATH_sample_frequency__",
                          "transport" : "__TRANSPORT__"
                     }
                 ]
@@ -65,6 +64,7 @@ std::string sensor_config = R"(
                         "export-name" : "__EXPORT_PROFILE_NAME__",
                         "resource" : "__PATH_path__",
                         "resource-filter" : "__PATH_filter__",
+                        "reporting-rate" : "__PATH_sample_frequency__",
                         "subscription-id" : "__INTERNAL_SUBSCRIPTION_ID__"
                     }
                 ]
@@ -77,7 +77,6 @@ std::string sensor_config = R"(
 void
 JunosTelemetryJson::set_json_export_profile (bool add,
                                              std::string export_profile_name,
-                                             uint32_t sampling_frequency,
                                              std::string transport,
                                              Json::Value *json_obj)
 {
@@ -88,13 +87,9 @@ JunosTelemetryJson::set_json_export_profile (bool add,
         (*json_obj)["configuration"]["services"]["analytics"]["export-profile"]
                    [0].removeMember("@");
         (*json_obj)["configuration"]["services"]["analytics"]["export-profile"]
-                   [0]["reporting-rate"] = std::to_string(sampling_frequency);
-        (*json_obj)["configuration"]["services"]["analytics"]["export-profile"]
                    [0]["transport"] = transport;
     } else {
         // Remove unwanted fields
-        (*json_obj)["configuration"]["services"]["analytics"]["export-profile"]
-                   [0].removeMember("reporting-rate");
         (*json_obj)["configuration"]["services"]["analytics"]["export-profile"]
                    [0].removeMember("transport");
     }
@@ -134,6 +129,7 @@ JunosTelemetryJson::set_json_sensor_config (bool add,
                                             std::string export_profile_name,
                                             std::string path,
                                             std::string filter,
+                                            uint32_t sampling_frequency,
                                             uint32_t internal_subscription_id,
                                             Json::Value *json_obj)
 {
@@ -161,14 +157,11 @@ JunosTelemetryJson::set_json_sensor_config (bool add,
             (*json_obj)["configuration"]["services"]["analytics"]["sensor"][0]
                        .removeMember("resource-filter");
         }
-        if (internal_subscription_id == 0) {
-            (*json_obj)["configuration"]["services"]["analytics"]["sensor"][0]
-                        .removeMember("subscription-id");
-        } else {
-            (*json_obj)["configuration"]["services"]["analytics"]["sensor"][0]
-                       ["subscription-id"] =
+        (*json_obj)["configuration"]["services"]["analytics"]["sensor"][0]
+                   ["reporting-rate"] = std::to_string(sampling_frequency);
+        (*json_obj)["configuration"]["services"]["analytics"]["sensor"][0]
+                   ["subscription-id"] =
                                     std::to_string(internal_subscription_id);
-        }
     } else {
         // Remove unwanted fields
         (*json_obj)["configuration"]["services"]["analytics"]["sensor"][0]
@@ -179,6 +172,8 @@ JunosTelemetryJson::set_json_sensor_config (bool add,
                    .removeMember("resource");
         (*json_obj)["configuration"]["services"]["analytics"]["sensor"][0]
                    .removeMember("resource-filter");
+        (*json_obj)["configuration"]["services"]["analytics"]["sensor"][0]
+                   .removeMember("reporting-rate");
         (*json_obj)["configuration"]["services"]["analytics"]["sensor"][0]
                    .removeMember("subscription-id");
     }

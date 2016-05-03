@@ -33,8 +33,7 @@ JunosTelemetryJsonGenerator::generate_json_junos_config (bool add,
                                       std::to_string(internal_subscription_id);
     JunosTelemetryJson::set_json_export_profile(add,
                                                 export_profile_name,
-                                                path->sample_frequency(),
-                                                "udp",
+                                                mqtt ? "grpc" : "udp",
                                                 &export_profile_json);
 
     // Create streaming-server
@@ -75,8 +74,8 @@ JunosTelemetryJsonGenerator::generate_json_junos_config (bool add,
                                                export_profile_name,
                                                path->path(),
                                                path->filter(),
-                                               // internal_subscription_id,
-                                               0,
+                                               path->sample_frequency(),
+                                               internal_subscription_id,
                                                &sensor_config_json);
 
     // Now merge contents
