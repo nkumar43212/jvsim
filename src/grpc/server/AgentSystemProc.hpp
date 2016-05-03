@@ -55,9 +55,12 @@ public:
     std::unique_ptr<OpenconfigRpcApi::Stub> stub_;
 
     // Internal API
-    grpc::Status _sendMessagetoMgd(std::string &config,
-                                   SystemId id,
-                                   openconfig::SetConfigCommands cmdcode);
+    grpc::Status _sendOCMessagetoMgd(std::string &config,
+                                     SystemId id,
+                                     openconfig::SetConfigCommands cmdcode);
+    grpc::Status _sendJunosMessagetoMgd(std::string &config,
+                                        SystemId id,
+                                        openconfig::SetConfigCommands cmdcode);
 
     void systemAdd(SystemId id, const Telemetry::Path *request_path);
     void systemRemove(SystemId id, const Telemetry::Path *request_path);

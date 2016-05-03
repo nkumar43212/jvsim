@@ -11,13 +11,15 @@
 #include "AgentUtils.hpp"
 #include "OCTelemetryJsonGenerator.hpp"
 #include "OCTelemetryJson.hpp"
+#include "JunosTelemetryJsonGenerator.hpp"
+#include "JunosTelemetryJson.hpp"
 #include "JsonUtils.hpp"
 #include "GlobalConfig.hpp"
 
 grpc::Status
-AgentSystemProc::_sendMessagetoMgd (std::string &config,
-                                    SystemId id,
-                                    openconfig::SetConfigCommands cmdcode)
+AgentSystemProc::_sendOCMessagetoMgd (std::string &config,
+                                      SystemId id,
+                                      openconfig::SetConfigCommands cmdcode)
 {
     // Create a client
     std::string mgd_address(global_config.device_mgd_ip + ":" +
@@ -51,6 +53,7 @@ AgentSystemProc::_sendMessagetoMgd (std::string &config,
     // Get the response - only one request is send
     SetResponse_ResponseList response = set_response.response(0);
 
+    // Check the status
     if ((status.ok() == false) ||
         (response.response_code() !=
                              openconfig::OpenConfigRpcResponseTypes::OK)) {
@@ -71,15 +74,82 @@ AgentSystemProc::_sendMessagetoMgd (std::string &config,
     return status;
 }
 
+grpc::Status
+AgentSystemProc::_sendJunosMessagetoMgd (std::string &config,
+                                         SystemId id,
+                                         openconfig::SetConfigCommands cmdcode)
+{
+    // Create a client
+    std::string mgd_address(global_config.device_mgd_ip + ":" +
+                            std::to_string(global_config.device_mgd_port));
+    std::shared_ptr<grpc::Channel> channel = grpc::CreateChannel(
+                                                   mgd_address,
+                                                   grpc::InsecureCredentials());
+    stub_ = OpenconfigRpcApi::NewStub(channel);
+
+    // Form the mgd request
+    EditEphemeralConfigRequest edit_eph_request;
+    //SetRequest   set_request;
+
+    // Request Header
+    edit_eph_request.set_request_id(id.getId());
+    edit_eph_request.set_encoding(
+                     openconfig::OpenConfigDataEncodingTypes::ENCODING_JSON);
+    // edit_eph_request.set_eph_instance_name();
+    edit_eph_request.set_disable_config_validation(true);
+
+    // Create the command
+    EditEphemeralConfigRequest_ConfigOperationList *cmd =
+                            edit_eph_request.add_eph_config_operations();
+    cmd->set_operation_id("0");
+    cmd->set_operation(cmdcode);
+    cmd->set_path("/");
+    cmd->set_value(config);
+
+    // Send over the request
+    EditEphemeralConfigResponse edit_eph_response;
+    grpc::ClientContext context;
+    grpc::Status status = stub_->EditEphemeralConfig(&context,
+                                                     edit_eph_request,
+                                                     &edit_eph_response);
+
+    // Get the response - only one request is send
+    EditEphemeralConfigResponse_ResponseList response =
+                                                edit_eph_response.response(0);
+
+    // Check the status
+    if ((status.ok() == false) ||
+        (response.response_code() !=
+         openconfig::OpenConfigRpcResponseTypes::OK)) {
+            // Increment count
+            ++_error_system_count;
+
+            _logger->log("MGD command failed (cmd = " +
+                         std::to_string(cmdcode) + "). Error code: " +
+                         std::to_string(status.error_code()) +
+                         " " + std::to_string(response.response_code()) +
+                         "Error message: " + status.error_message() +
+                         response.message());
+
+            // Indicate failed status
+            status = grpc::Status(grpc::StatusCode::UNKNOWN, "");
+        }
+
+    return status;
+}
+
 void
 AgentSystemProc::systemAdd (SystemId id, const Telemetry::Path *request_path)
 {
-    std::string config = OCTelemetryJsonGenerator::generate_json_oc_config(
-                                    true,
-                                    (id_idx_t)id.getId(),
-                                    request_path);
-    Status status = _sendMessagetoMgd(config, id,
-                           openconfig::SetConfigCommands::UPDATE_CONFIG);
+#if defined(__OC_Telemetry_Config__)
+    // OpenConfig Config
+    bool mqtt = true;
+    std::string config;
+    config = OCTelemetryJsonGenerator::generate_json_oc_config(mqtt,
+                                                    (id_idx_t)id.getId(),
+                                                    request_path);
+    Status status = _sendOCMessagetoMgd(config, id,
+                            openconfig::SetConfigCommands::UPDATE_CONFIG);
     if (status.ok()) {
         // Increment the counter
         ++_add_system_count;
@@ -88,16 +158,39 @@ AgentSystemProc::systemAdd (SystemId id, const Telemetry::Path *request_path)
                      std::to_string(id.getId()) +
                      " Path: " + AgentUtils::getMessageString(*request_path));
     }
+#else
+    // Junos Config
+    std::string config;
+    bool add = true;
+    bool mqtt = true;
+    config = JunosTelemetryJsonGenerator::generate_json_junos_config(add,
+                                    mqtt,
+                                    (id_idx_t)id.getId(),
+                                    request_path);
+    Status status = _sendJunosMessagetoMgd(config, id,
+                        openconfig::SetConfigCommands::UPDATE_CONFIG);
+    if (status.ok()) {
+        // Increment the counter
+        ++_add_system_count;
+
+        _logger->log("MGD command UPDATE_CONFIG passed. Request_id: " +
+                     std::to_string(id.getId()) +
+                     " Path: " + AgentUtils::getMessageString(*request_path));
+    }
+#endif
 }
 
 void
 AgentSystemProc::systemRemove (SystemId id, const Telemetry::Path *request_path)
 {
-    std::string config = OCTelemetryJsonGenerator::generate_json_oc_config(
-                                    true,
+#if defined(__OC_Telemetry_Config__)
+    // OpenConfig Config
+    bool mqtt = true;
+    std::string config;
+    config = OCTelemetryJsonGenerator::generate_json_oc_config(mqtt,
                                     (id_idx_t)id.getId(),
                                     request_path);
-    Status status = _sendMessagetoMgd(config, id,
+    Status status = _sendOCMessagetoMgd(config, id,
                            openconfig::SetConfigCommands::DELETE_CONFIG);
     if (status.ok()) {
         // Increment the counter
@@ -107,6 +200,26 @@ AgentSystemProc::systemRemove (SystemId id, const Telemetry::Path *request_path)
                      std::to_string(id.getId()) +
                      " Path: " + AgentUtils::getMessageString(*request_path));
     }
+#else
+    // Junos Config
+    std::string config;
+    bool add = false;
+    bool mqtt = true;
+    config = JunosTelemetryJsonGenerator::generate_json_junos_config(add,
+                                    mqtt,
+                                    (id_idx_t)id.getId(),
+                                    request_path);
+    Status status = _sendJunosMessagetoMgd(config, id,
+                        openconfig::SetConfigCommands::DELETE_CONFIG);
+    if (status.ok()) {
+        // Increment the counter
+        ++_add_system_count;
+
+        _logger->log("MGD command UPDATE_CONFIG passed. Request_id: " +
+                     std::to_string(id.getId()) +
+                     " Path: " + AgentUtils::getMessageString(*request_path));
+    }
+#endif
 }
 
 Telemetry::Path *
@@ -120,6 +233,8 @@ AgentSystemProc::systemGet (SystemId id)
                                                 grpc::InsecureCredentials());
     stub_ = OpenconfigRpcApi::NewStub(channel);
 
+#if defined(__OC_Telemetry_Config__)
+    // OpenConfig Config
     // Form the request
     GetRequest   get_request;
     get_request.set_request_id(id.getId());
@@ -129,7 +244,7 @@ AgentSystemProc::systemGet (SystemId id)
     request->set_operation_id("0");
     request->set_operation(openconfig::GetDataCommands::GET_CONFIG);
     request->set_path("openconfig-telemetry");
-    
+
     // Send over the request
     GetResponse  get_response;
     grpc::ClientContext context;
@@ -162,4 +277,50 @@ AgentSystemProc::systemGet (SystemId id)
             ["sample-interval"].asCString();
     path->set_sample_frequency(std::stoi(sample_frequency_str));
     return path;
+#else
+    // Junos Config
+    // Form the request
+    GetEphemeralConfigRequest   get_eph_request;
+    get_eph_request.set_request_id(id.getId());
+    get_eph_request.set_encoding(
+                    openconfig::OpenConfigDataEncodingTypes::ENCODING_JSON);
+    // get_eph_request.set_eph_instance_name();
+    get_eph_request.set_merge_view(true);
+    EphConfigRequestList *request = get_eph_request.add_eph_config_requests();
+    request->set_operation_id("0");
+    request->set_path("/");
+
+    // Send over the request
+    GetEphemeralConfigResponse  get_eph_response;
+    grpc::ClientContext context;
+    stub_->GetEphemeralConfig(&context, get_eph_request, &get_eph_response);
+
+    // Did the reply have the same ID ?
+    if (get_eph_response.request_id() != id.getId()) {
+        return NULL;
+    }
+
+    // Is there a path
+    if (get_eph_response.response(0).path() != "/") {
+        return NULL;
+    }
+
+    std::string response_json_str = get_eph_response.response(0).value();
+    _logger->log("Get response : " + response_json_str);
+
+    // Convert to path
+    // TODO ABBAS - FIX THIS HOLISTICALLY LATER
+    Telemetry::Path *path = new Telemetry::Path();
+    Json::Value json_obj;
+    JsonUtils::parse_string_to_json_obj(response_json_str,
+                                        json_obj);
+    std::string path_str = json_obj["configuration"]["services"]["analytics"]
+                                   ["sensor"][0]["resource"].asCString();
+    path->set_path(path_str);
+    std::string sample_frequency_str = json_obj["configuration"]["services"]
+                                              ["analytics"]["export-profile"]
+                                              [0]["reporting-rate"].asCString();
+    path->set_sample_frequency(std::stoi(sample_frequency_str));
+    return path;
+#endif
 }
