@@ -13,15 +13,20 @@
 
 // Configuration Database
 // The db of all requests into the system
+
+#if defined(__OC_Telemetry_Config__)
 // 1. Normal db
 typedef std::map<std::size_t, SetRequest_ConfigOperationList *> ConfigDB;
 ConfigDB config_db;
 
+#else
 // 2. Ephemeral db
 typedef std::map<std::size_t, EditEphemeralConfigRequest_ConfigOperationList *>
         EphConfigDB;
 EphConfigDB eph_config_db;
+#endif
 
+#if defined(__OC_Telemetry_Config__)
 Status
 MgdServer::Set (ServerContext* context, const SetRequest* set_request,
                 SetResponse* set_response)
@@ -98,6 +103,7 @@ MgdServer::Get (ServerContext* context, const GetRequest* get_request,
     return Status::OK;
 }
 
+#else
 
 Status
 MgdServer::EditEphemeralConfig (ServerContext* context,
@@ -116,8 +122,8 @@ MgdServer::EditEphemeralConfig (ServerContext* context,
                             new EditEphemeralConfigRequest_ConfigOperationList;
     cmd->CopyFrom(edit_eph_request->eph_config_operations(0));
 
-    if ((cmd->operation() == openconfig::SetConfigCommands::UPDATE_CONFIG) ||
-        (cmd->operation() == openconfig::SetConfigCommands::REPLACE_CONFIG)) {
+    if ((cmd->operation() == management::ConfigCommands::UPDATE_CONFIG) ||
+        (cmd->operation() == management::ConfigCommands::REPLACE_CONFIG)) {
         // add
         eph_config_db[request_id] = cmd;
     } else {
@@ -129,7 +135,7 @@ MgdServer::EditEphemeralConfig (ServerContext* context,
     EditEphemeralConfigResponse_ResponseList *response =
                                             edit_eph_response->add_response();
     response->set_operation_id(cmd->operation_id());
-    response->set_response_code(openconfig::OpenConfigRpcResponseTypes::OK);
+    response->set_response_code(management::JunosRpcResponseTypes::OK);
     response->set_message("Success");
 
     return Status::OK;
@@ -166,7 +172,7 @@ MgdServer::GetEphemeralConfig(ServerContext* context,
         _logger->log("No data available for request id : " +
                      std::to_string(request_id));
         response->set_value("");
-        response->set_response_code(openconfig::OpenConfigRpcResponseTypes::NOK);
+        response->set_response_code(management::JunosRpcResponseTypes::NOK);
         response->set_message("Fail");
     }
     EditEphemeralConfigRequest_ConfigOperationList *cmd =
@@ -174,8 +180,10 @@ MgdServer::GetEphemeralConfig(ServerContext* context,
 
     // Fill in the details
     response->set_value(cmd->value());
-    response->set_response_code(openconfig::OpenConfigRpcResponseTypes::OK);
+    response->set_response_code(management::JunosRpcResponseTypes::OK);
     response->set_message("Success");
 
     return Status::OK;
 }
+
+#endif

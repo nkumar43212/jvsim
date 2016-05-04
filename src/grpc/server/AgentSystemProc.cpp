@@ -16,6 +16,7 @@
 #include "JsonUtils.hpp"
 #include "GlobalConfig.hpp"
 
+#if defined(__OC_Telemetry_Config__)
 grpc::Status
 AgentSystemProc::_sendOCMessagetoMgd (std::string &config,
                                       SystemId id,
@@ -74,10 +75,12 @@ AgentSystemProc::_sendOCMessagetoMgd (std::string &config,
     return status;
 }
 
+#else
+
 grpc::Status
 AgentSystemProc::_sendJunosMessagetoMgd (std::string &config,
                                          SystemId id,
-                                         openconfig::SetConfigCommands cmdcode)
+                                         management::ConfigCommands cmdcode)
 {
     // Create a client
     std::string mgd_address(global_config.device_mgd_ip + ":" +
@@ -85,18 +88,16 @@ AgentSystemProc::_sendJunosMessagetoMgd (std::string &config,
     std::shared_ptr<grpc::Channel> channel = grpc::CreateChannel(
                                                    mgd_address,
                                                    grpc::InsecureCredentials());
-    stub_ = OpenconfigRpcApi::NewStub(channel);
+    stub_ = ManagementRpcApi::NewStub(channel);
 
     // Form the mgd request
     EditEphemeralConfigRequest edit_eph_request;
-    //SetRequest   set_request;
 
     // Request Header
     edit_eph_request.set_request_id(id.getId());
     edit_eph_request.set_encoding(
-                     openconfig::OpenConfigDataEncodingTypes::ENCODING_JSON);
+                     management::JunosDataEncodingTypes::ENCODING_JSON);
     // edit_eph_request.set_eph_instance_name();
-    edit_eph_request.set_disable_config_validation(true);
 
     // Create the command
     EditEphemeralConfigRequest_ConfigOperationList *cmd =
@@ -120,7 +121,7 @@ AgentSystemProc::_sendJunosMessagetoMgd (std::string &config,
     // Check the status
     if ((status.ok() == false) ||
         (response.response_code() !=
-         openconfig::OpenConfigRpcResponseTypes::OK)) {
+         management::JunosRpcResponseTypes::OK)) {
             // Increment count
             ++_error_system_count;
 
@@ -137,6 +138,8 @@ AgentSystemProc::_sendJunosMessagetoMgd (std::string &config,
 
     return status;
 }
+
+#endif
 
 void
 AgentSystemProc::systemAdd (SystemId id, const Telemetry::Path *request_path)
@@ -168,7 +171,7 @@ AgentSystemProc::systemAdd (SystemId id, const Telemetry::Path *request_path)
                                     (id_idx_t)id.getId(),
                                     request_path);
     Status status = _sendJunosMessagetoMgd(config, id,
-                        openconfig::SetConfigCommands::UPDATE_CONFIG);
+                        management::ConfigCommands::UPDATE_CONFIG);
     if (status.ok()) {
         // Increment the counter
         ++_add_system_count;
@@ -210,7 +213,7 @@ AgentSystemProc::systemRemove (SystemId id, const Telemetry::Path *request_path)
                                     (id_idx_t)id.getId(),
                                     request_path);
     Status status = _sendJunosMessagetoMgd(config, id,
-                        openconfig::SetConfigCommands::DELETE_CONFIG);
+                        management::ConfigCommands::DELETE_CONFIG);
     if (status.ok()) {
         // Increment the counter
         ++_add_system_count;
@@ -231,7 +234,7 @@ AgentSystemProc::systemGet (SystemId id)
     std::shared_ptr<grpc::Channel> channel = grpc::CreateChannel(
                                                 mgd_address,
                                                 grpc::InsecureCredentials());
-    stub_ = OpenconfigRpcApi::NewStub(channel);
+    stub_ = ManagementRpcApi::NewStub(channel);
 
 #if defined(__OC_Telemetry_Config__)
     // OpenConfig Config
@@ -283,7 +286,7 @@ AgentSystemProc::systemGet (SystemId id)
     GetEphemeralConfigRequest   get_eph_request;
     get_eph_request.set_request_id(id.getId());
     get_eph_request.set_encoding(
-                    openconfig::OpenConfigDataEncodingTypes::ENCODING_JSON);
+                    management::JunosDataEncodingTypes::ENCODING_JSON);
     // get_eph_request.set_eph_instance_name();
     get_eph_request.set_merge_view(true);
     EphConfigRequestList *request = get_eph_request.add_eph_config_requests();

@@ -149,6 +149,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		052D26A11CD9D55800C1B7F9 /* openconfig_mgd.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = openconfig_mgd.proto; path = ../../../protos/openconfig_mgd.proto; sourceTree = "<group>"; };
 		0537F4DF1CCC01B100BD519B /* OCTelemetryJson.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OCTelemetryJson.cpp; sourceTree = "<group>"; };
 		0537F4E11CCC01C200BD519B /* OCTelemetryJson.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = OCTelemetryJson.hpp; sourceTree = "<group>"; };
 		0537F4E21CCEA3CC00BD519B /* OCTelemetryJsonGenerator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OCTelemetryJsonGenerator.cpp; sourceTree = "<group>"; };
@@ -484,6 +485,7 @@
 			children = (
 				058673341CB4620500C8DF1F /* Makefile */,
 				0537F4E71CCEB1ED00BD519B /* mgd_service.proto */,
+				052D26A11CD9D55800C1B7F9 /* openconfig_mgd.proto */,
 				94AC4F1C1CA1EFD500AFDFE0 /* main.cpp */,
 				94AC4F241CA1F3B100AFDFE0 /* MgdServer.cpp */,
 				94AC4F251CA1F3B100AFDFE0 /* MgdServer.hpp */,

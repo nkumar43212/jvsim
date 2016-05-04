@@ -30,7 +30,7 @@
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 
-namespace openconfig {
+namespace management {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_mgd_5fservice_2eproto();
@@ -44,92 +44,10 @@ class EditEphemeralConfigResponse_ResponseList;
 class EphConfigRequestList;
 class ExecuteOpCommandRequest;
 class ExecuteOpCommandResponse;
-class GetDataEncodingsRequest;
-class GetDataEncodingsResponse;
 class GetEphemeralConfigRequest;
 class GetEphemeralConfigResponse;
 class GetEphemeralConfigResponse_ResponseList;
-class GetModelsRequest;
-class GetModelsResponse;
-class GetRequest;
-class GetRequestList;
-class GetResponse;
-class GetResponse_ResponseList;
-class Model;
-class SetDataEncodingRequest;
-class SetDataEncodingResponse;
-class SetRequest;
-class SetRequest_ConfigOperationList;
-class SetResponse;
-class SetResponse_ResponseList;
 
-enum OpenConfigDataEncodingTypes {
-  ENCODING_XML = 0,
-  ENCODING_JSON = 1,
-  ENCODING_PROTO3 = 2,
-  OpenConfigDataEncodingTypes_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
-  OpenConfigDataEncodingTypes_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
-};
-bool OpenConfigDataEncodingTypes_IsValid(int value);
-const OpenConfigDataEncodingTypes OpenConfigDataEncodingTypes_MIN = ENCODING_XML;
-const OpenConfigDataEncodingTypes OpenConfigDataEncodingTypes_MAX = ENCODING_PROTO3;
-const int OpenConfigDataEncodingTypes_ARRAYSIZE = OpenConfigDataEncodingTypes_MAX + 1;
-
-const ::google::protobuf::EnumDescriptor* OpenConfigDataEncodingTypes_descriptor();
-inline const ::std::string& OpenConfigDataEncodingTypes_Name(OpenConfigDataEncodingTypes value) {
-  return ::google::protobuf::internal::NameOfEnum(
-    OpenConfigDataEncodingTypes_descriptor(), value);
-}
-inline bool OpenConfigDataEncodingTypes_Parse(
-    const ::std::string& name, OpenConfigDataEncodingTypes* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<OpenConfigDataEncodingTypes>(
-    OpenConfigDataEncodingTypes_descriptor(), name, value);
-}
-enum GetDataCommands {
-  GET_ALL = 0,
-  GET_CONFIG = 1,
-  GET_OPSTATE = 2,
-  GET_OPER = 3,
-  GetDataCommands_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
-  GetDataCommands_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
-};
-bool GetDataCommands_IsValid(int value);
-const GetDataCommands GetDataCommands_MIN = GET_ALL;
-const GetDataCommands GetDataCommands_MAX = GET_OPER;
-const int GetDataCommands_ARRAYSIZE = GetDataCommands_MAX + 1;
-
-const ::google::protobuf::EnumDescriptor* GetDataCommands_descriptor();
-inline const ::std::string& GetDataCommands_Name(GetDataCommands value) {
-  return ::google::protobuf::internal::NameOfEnum(
-    GetDataCommands_descriptor(), value);
-}
-inline bool GetDataCommands_Parse(
-    const ::std::string& name, GetDataCommands* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<GetDataCommands>(
-    GetDataCommands_descriptor(), name, value);
-}
-enum SetConfigCommands {
-  UPDATE_CONFIG = 0,
-  REPLACE_CONFIG = 1,
-  DELETE_CONFIG = 2,
-  SetConfigCommands_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
-  SetConfigCommands_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
-};
-bool SetConfigCommands_IsValid(int value);
-const SetConfigCommands SetConfigCommands_MIN = UPDATE_CONFIG;
-const SetConfigCommands SetConfigCommands_MAX = DELETE_CONFIG;
-const int SetConfigCommands_ARRAYSIZE = SetConfigCommands_MAX + 1;
-
-const ::google::protobuf::EnumDescriptor* SetConfigCommands_descriptor();
-inline const ::std::string& SetConfigCommands_Name(SetConfigCommands value) {
-  return ::google::protobuf::internal::NameOfEnum(
-    SetConfigCommands_descriptor(), value);
-}
-inline bool SetConfigCommands_Parse(
-    const ::std::string& name, SetConfigCommands* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<SetConfigCommands>(
-    SetConfigCommands_descriptor(), name, value);
-}
 enum OperationFormatType {
   OPERATION_FORMAT_JSON = 0,
   OPERATION_FORMAT_XML = 1,
@@ -152,1117 +70,76 @@ inline bool OperationFormatType_Parse(
   return ::google::protobuf::internal::ParseNamedEnum<OperationFormatType>(
     OperationFormatType_descriptor(), name, value);
 }
-enum OpenConfigRpcResponseTypes {
+enum JunosRpcResponseTypes {
   OK = 0,
   NOK = 1,
   UNSUPPORTED_PATH = 2,
   INVALID_PATH = 3,
   INVALID_CONFIGURATION = 4,
-  UNSUPPORTED_INTERVAL = 5,
-  INVALID_SUBSCRIPTION_ID = 6,
-  UNSUPPORTED_ENCODING = 7,
-  OpenConfigRpcResponseTypes_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
-  OpenConfigRpcResponseTypes_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
+  UNSUPPORTED_ENCODING = 5,
+  JunosRpcResponseTypes_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
+  JunosRpcResponseTypes_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
-bool OpenConfigRpcResponseTypes_IsValid(int value);
-const OpenConfigRpcResponseTypes OpenConfigRpcResponseTypes_MIN = OK;
-const OpenConfigRpcResponseTypes OpenConfigRpcResponseTypes_MAX = UNSUPPORTED_ENCODING;
-const int OpenConfigRpcResponseTypes_ARRAYSIZE = OpenConfigRpcResponseTypes_MAX + 1;
+bool JunosRpcResponseTypes_IsValid(int value);
+const JunosRpcResponseTypes JunosRpcResponseTypes_MIN = OK;
+const JunosRpcResponseTypes JunosRpcResponseTypes_MAX = UNSUPPORTED_ENCODING;
+const int JunosRpcResponseTypes_ARRAYSIZE = JunosRpcResponseTypes_MAX + 1;
 
-const ::google::protobuf::EnumDescriptor* OpenConfigRpcResponseTypes_descriptor();
-inline const ::std::string& OpenConfigRpcResponseTypes_Name(OpenConfigRpcResponseTypes value) {
+const ::google::protobuf::EnumDescriptor* JunosRpcResponseTypes_descriptor();
+inline const ::std::string& JunosRpcResponseTypes_Name(JunosRpcResponseTypes value) {
   return ::google::protobuf::internal::NameOfEnum(
-    OpenConfigRpcResponseTypes_descriptor(), value);
+    JunosRpcResponseTypes_descriptor(), value);
 }
-inline bool OpenConfigRpcResponseTypes_Parse(
-    const ::std::string& name, OpenConfigRpcResponseTypes* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<OpenConfigRpcResponseTypes>(
-    OpenConfigRpcResponseTypes_descriptor(), name, value);
+inline bool JunosRpcResponseTypes_Parse(
+    const ::std::string& name, JunosRpcResponseTypes* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<JunosRpcResponseTypes>(
+    JunosRpcResponseTypes_descriptor(), name, value);
+}
+enum JunosDataEncodingTypes {
+  ENCODING_XML = 0,
+  ENCODING_JSON = 1,
+  ENCODING_PROTO3 = 2,
+  JunosDataEncodingTypes_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
+  JunosDataEncodingTypes_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
+};
+bool JunosDataEncodingTypes_IsValid(int value);
+const JunosDataEncodingTypes JunosDataEncodingTypes_MIN = ENCODING_XML;
+const JunosDataEncodingTypes JunosDataEncodingTypes_MAX = ENCODING_PROTO3;
+const int JunosDataEncodingTypes_ARRAYSIZE = JunosDataEncodingTypes_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* JunosDataEncodingTypes_descriptor();
+inline const ::std::string& JunosDataEncodingTypes_Name(JunosDataEncodingTypes value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    JunosDataEncodingTypes_descriptor(), value);
+}
+inline bool JunosDataEncodingTypes_Parse(
+    const ::std::string& name, JunosDataEncodingTypes* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<JunosDataEncodingTypes>(
+    JunosDataEncodingTypes_descriptor(), name, value);
+}
+enum ConfigCommands {
+  UPDATE_CONFIG = 0,
+  REPLACE_CONFIG = 1,
+  DELETE_CONFIG = 2,
+  ConfigCommands_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
+  ConfigCommands_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
+};
+bool ConfigCommands_IsValid(int value);
+const ConfigCommands ConfigCommands_MIN = UPDATE_CONFIG;
+const ConfigCommands ConfigCommands_MAX = DELETE_CONFIG;
+const int ConfigCommands_ARRAYSIZE = ConfigCommands_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* ConfigCommands_descriptor();
+inline const ::std::string& ConfigCommands_Name(ConfigCommands value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    ConfigCommands_descriptor(), value);
+}
+inline bool ConfigCommands_Parse(
+    const ::std::string& name, ConfigCommands* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<ConfigCommands>(
+    ConfigCommands_descriptor(), name, value);
 }
 // ===================================================================
-
-class GetDataEncodingsRequest : public ::google::protobuf::Message {
- public:
-  GetDataEncodingsRequest();
-  virtual ~GetDataEncodingsRequest();
-
-  GetDataEncodingsRequest(const GetDataEncodingsRequest& from);
-
-  inline GetDataEncodingsRequest& operator=(const GetDataEncodingsRequest& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const GetDataEncodingsRequest& default_instance();
-
-  void Swap(GetDataEncodingsRequest* other);
-
-  // implements Message ----------------------------------------------
-
-  inline GetDataEncodingsRequest* New() const { return New(NULL); }
-
-  GetDataEncodingsRequest* New(::google::protobuf::Arena* arena) const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const GetDataEncodingsRequest& from);
-  void MergeFrom(const GetDataEncodingsRequest& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  void InternalSwap(GetDataEncodingsRequest* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return _internal_metadata_.arena();
-  }
-  inline void* MaybeArenaPtr() const {
-    return _internal_metadata_.raw_arena_ptr();
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional uint64 request_id = 1;
-  void clear_request_id();
-  static const int kRequestIdFieldNumber = 1;
-  ::google::protobuf::uint64 request_id() const;
-  void set_request_id(::google::protobuf::uint64 value);
-
-  // @@protoc_insertion_point(class_scope:openconfig.GetDataEncodingsRequest)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  bool _is_default_instance_;
-  ::google::protobuf::uint64 request_id_;
-  mutable int _cached_size_;
-  friend void  protobuf_AddDesc_mgd_5fservice_2eproto();
-  friend void protobuf_AssignDesc_mgd_5fservice_2eproto();
-  friend void protobuf_ShutdownFile_mgd_5fservice_2eproto();
-
-  void InitAsDefaultInstance();
-  static GetDataEncodingsRequest* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class GetDataEncodingsResponse : public ::google::protobuf::Message {
- public:
-  GetDataEncodingsResponse();
-  virtual ~GetDataEncodingsResponse();
-
-  GetDataEncodingsResponse(const GetDataEncodingsResponse& from);
-
-  inline GetDataEncodingsResponse& operator=(const GetDataEncodingsResponse& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const GetDataEncodingsResponse& default_instance();
-
-  void Swap(GetDataEncodingsResponse* other);
-
-  // implements Message ----------------------------------------------
-
-  inline GetDataEncodingsResponse* New() const { return New(NULL); }
-
-  GetDataEncodingsResponse* New(::google::protobuf::Arena* arena) const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const GetDataEncodingsResponse& from);
-  void MergeFrom(const GetDataEncodingsResponse& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  void InternalSwap(GetDataEncodingsResponse* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return _internal_metadata_.arena();
-  }
-  inline void* MaybeArenaPtr() const {
-    return _internal_metadata_.raw_arena_ptr();
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional uint64 request_id = 1;
-  void clear_request_id();
-  static const int kRequestIdFieldNumber = 1;
-  ::google::protobuf::uint64 request_id() const;
-  void set_request_id(::google::protobuf::uint64 value);
-
-  // repeated .openconfig.OpenConfigDataEncodingTypes encoding = 2;
-  int encoding_size() const;
-  void clear_encoding();
-  static const int kEncodingFieldNumber = 2;
-  ::openconfig::OpenConfigDataEncodingTypes encoding(int index) const;
-  void set_encoding(int index, ::openconfig::OpenConfigDataEncodingTypes value);
-  void add_encoding(::openconfig::OpenConfigDataEncodingTypes value);
-  const ::google::protobuf::RepeatedField<int>& encoding() const;
-  ::google::protobuf::RepeatedField<int>* mutable_encoding();
-
-  // optional .openconfig.OpenConfigRpcResponseTypes response_code = 3;
-  void clear_response_code();
-  static const int kResponseCodeFieldNumber = 3;
-  ::openconfig::OpenConfigRpcResponseTypes response_code() const;
-  void set_response_code(::openconfig::OpenConfigRpcResponseTypes value);
-
-  // optional string message = 4;
-  void clear_message();
-  static const int kMessageFieldNumber = 4;
-  const ::std::string& message() const;
-  void set_message(const ::std::string& value);
-  void set_message(const char* value);
-  void set_message(const char* value, size_t size);
-  ::std::string* mutable_message();
-  ::std::string* release_message();
-  void set_allocated_message(::std::string* message);
-
-  // @@protoc_insertion_point(class_scope:openconfig.GetDataEncodingsResponse)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  bool _is_default_instance_;
-  ::google::protobuf::uint64 request_id_;
-  ::google::protobuf::RepeatedField<int> encoding_;
-  mutable int _encoding_cached_byte_size_;
-  ::google::protobuf::internal::ArenaStringPtr message_;
-  int response_code_;
-  mutable int _cached_size_;
-  friend void  protobuf_AddDesc_mgd_5fservice_2eproto();
-  friend void protobuf_AssignDesc_mgd_5fservice_2eproto();
-  friend void protobuf_ShutdownFile_mgd_5fservice_2eproto();
-
-  void InitAsDefaultInstance();
-  static GetDataEncodingsResponse* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class SetDataEncodingRequest : public ::google::protobuf::Message {
- public:
-  SetDataEncodingRequest();
-  virtual ~SetDataEncodingRequest();
-
-  SetDataEncodingRequest(const SetDataEncodingRequest& from);
-
-  inline SetDataEncodingRequest& operator=(const SetDataEncodingRequest& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const SetDataEncodingRequest& default_instance();
-
-  void Swap(SetDataEncodingRequest* other);
-
-  // implements Message ----------------------------------------------
-
-  inline SetDataEncodingRequest* New() const { return New(NULL); }
-
-  SetDataEncodingRequest* New(::google::protobuf::Arena* arena) const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const SetDataEncodingRequest& from);
-  void MergeFrom(const SetDataEncodingRequest& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  void InternalSwap(SetDataEncodingRequest* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return _internal_metadata_.arena();
-  }
-  inline void* MaybeArenaPtr() const {
-    return _internal_metadata_.raw_arena_ptr();
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional uint64 request_id = 1;
-  void clear_request_id();
-  static const int kRequestIdFieldNumber = 1;
-  ::google::protobuf::uint64 request_id() const;
-  void set_request_id(::google::protobuf::uint64 value);
-
-  // optional .openconfig.OpenConfigDataEncodingTypes encoding = 2;
-  void clear_encoding();
-  static const int kEncodingFieldNumber = 2;
-  ::openconfig::OpenConfigDataEncodingTypes encoding() const;
-  void set_encoding(::openconfig::OpenConfigDataEncodingTypes value);
-
-  // @@protoc_insertion_point(class_scope:openconfig.SetDataEncodingRequest)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  bool _is_default_instance_;
-  ::google::protobuf::uint64 request_id_;
-  int encoding_;
-  mutable int _cached_size_;
-  friend void  protobuf_AddDesc_mgd_5fservice_2eproto();
-  friend void protobuf_AssignDesc_mgd_5fservice_2eproto();
-  friend void protobuf_ShutdownFile_mgd_5fservice_2eproto();
-
-  void InitAsDefaultInstance();
-  static SetDataEncodingRequest* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class SetDataEncodingResponse : public ::google::protobuf::Message {
- public:
-  SetDataEncodingResponse();
-  virtual ~SetDataEncodingResponse();
-
-  SetDataEncodingResponse(const SetDataEncodingResponse& from);
-
-  inline SetDataEncodingResponse& operator=(const SetDataEncodingResponse& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const SetDataEncodingResponse& default_instance();
-
-  void Swap(SetDataEncodingResponse* other);
-
-  // implements Message ----------------------------------------------
-
-  inline SetDataEncodingResponse* New() const { return New(NULL); }
-
-  SetDataEncodingResponse* New(::google::protobuf::Arena* arena) const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const SetDataEncodingResponse& from);
-  void MergeFrom(const SetDataEncodingResponse& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  void InternalSwap(SetDataEncodingResponse* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return _internal_metadata_.arena();
-  }
-  inline void* MaybeArenaPtr() const {
-    return _internal_metadata_.raw_arena_ptr();
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional uint64 request_id = 1;
-  void clear_request_id();
-  static const int kRequestIdFieldNumber = 1;
-  ::google::protobuf::uint64 request_id() const;
-  void set_request_id(::google::protobuf::uint64 value);
-
-  // optional .openconfig.OpenConfigRpcResponseTypes response_code = 2;
-  void clear_response_code();
-  static const int kResponseCodeFieldNumber = 2;
-  ::openconfig::OpenConfigRpcResponseTypes response_code() const;
-  void set_response_code(::openconfig::OpenConfigRpcResponseTypes value);
-
-  // optional string message = 3;
-  void clear_message();
-  static const int kMessageFieldNumber = 3;
-  const ::std::string& message() const;
-  void set_message(const ::std::string& value);
-  void set_message(const char* value);
-  void set_message(const char* value, size_t size);
-  ::std::string* mutable_message();
-  ::std::string* release_message();
-  void set_allocated_message(::std::string* message);
-
-  // @@protoc_insertion_point(class_scope:openconfig.SetDataEncodingResponse)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  bool _is_default_instance_;
-  ::google::protobuf::uint64 request_id_;
-  ::google::protobuf::internal::ArenaStringPtr message_;
-  int response_code_;
-  mutable int _cached_size_;
-  friend void  protobuf_AddDesc_mgd_5fservice_2eproto();
-  friend void protobuf_AssignDesc_mgd_5fservice_2eproto();
-  friend void protobuf_ShutdownFile_mgd_5fservice_2eproto();
-
-  void InitAsDefaultInstance();
-  static SetDataEncodingResponse* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class GetModelsRequest : public ::google::protobuf::Message {
- public:
-  GetModelsRequest();
-  virtual ~GetModelsRequest();
-
-  GetModelsRequest(const GetModelsRequest& from);
-
-  inline GetModelsRequest& operator=(const GetModelsRequest& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const GetModelsRequest& default_instance();
-
-  void Swap(GetModelsRequest* other);
-
-  // implements Message ----------------------------------------------
-
-  inline GetModelsRequest* New() const { return New(NULL); }
-
-  GetModelsRequest* New(::google::protobuf::Arena* arena) const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const GetModelsRequest& from);
-  void MergeFrom(const GetModelsRequest& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  void InternalSwap(GetModelsRequest* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return _internal_metadata_.arena();
-  }
-  inline void* MaybeArenaPtr() const {
-    return _internal_metadata_.raw_arena_ptr();
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional uint64 request_id = 1;
-  void clear_request_id();
-  static const int kRequestIdFieldNumber = 1;
-  ::google::protobuf::uint64 request_id() const;
-  void set_request_id(::google::protobuf::uint64 value);
-
-  // @@protoc_insertion_point(class_scope:openconfig.GetModelsRequest)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  bool _is_default_instance_;
-  ::google::protobuf::uint64 request_id_;
-  mutable int _cached_size_;
-  friend void  protobuf_AddDesc_mgd_5fservice_2eproto();
-  friend void protobuf_AssignDesc_mgd_5fservice_2eproto();
-  friend void protobuf_ShutdownFile_mgd_5fservice_2eproto();
-
-  void InitAsDefaultInstance();
-  static GetModelsRequest* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class Model : public ::google::protobuf::Message {
- public:
-  Model();
-  virtual ~Model();
-
-  Model(const Model& from);
-
-  inline Model& operator=(const Model& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const Model& default_instance();
-
-  void Swap(Model* other);
-
-  // implements Message ----------------------------------------------
-
-  inline Model* New() const { return New(NULL); }
-
-  Model* New(::google::protobuf::Arena* arena) const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Model& from);
-  void MergeFrom(const Model& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  void InternalSwap(Model* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return _internal_metadata_.arena();
-  }
-  inline void* MaybeArenaPtr() const {
-    return _internal_metadata_.raw_arena_ptr();
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional string name = 1;
-  void clear_name();
-  static const int kNameFieldNumber = 1;
-  const ::std::string& name() const;
-  void set_name(const ::std::string& value);
-  void set_name(const char* value);
-  void set_name(const char* value, size_t size);
-  ::std::string* mutable_name();
-  ::std::string* release_name();
-  void set_allocated_name(::std::string* name);
-
-  // optional string namespace = 2;
-  void clear_namespace_();
-  static const int kNamespaceFieldNumber = 2;
-  const ::std::string& namespace_() const;
-  void set_namespace_(const ::std::string& value);
-  void set_namespace_(const char* value);
-  void set_namespace_(const char* value, size_t size);
-  ::std::string* mutable_namespace_();
-  ::std::string* release_namespace_();
-  void set_allocated_namespace_(::std::string* namespace_);
-
-  // optional string version = 3;
-  void clear_version();
-  static const int kVersionFieldNumber = 3;
-  const ::std::string& version() const;
-  void set_version(const ::std::string& value);
-  void set_version(const char* value);
-  void set_version(const char* value, size_t size);
-  ::std::string* mutable_version();
-  ::std::string* release_version();
-  void set_allocated_version(::std::string* version);
-
-  // @@protoc_insertion_point(class_scope:openconfig.Model)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  bool _is_default_instance_;
-  ::google::protobuf::internal::ArenaStringPtr name_;
-  ::google::protobuf::internal::ArenaStringPtr namespace__;
-  ::google::protobuf::internal::ArenaStringPtr version_;
-  mutable int _cached_size_;
-  friend void  protobuf_AddDesc_mgd_5fservice_2eproto();
-  friend void protobuf_AssignDesc_mgd_5fservice_2eproto();
-  friend void protobuf_ShutdownFile_mgd_5fservice_2eproto();
-
-  void InitAsDefaultInstance();
-  static Model* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class GetModelsResponse : public ::google::protobuf::Message {
- public:
-  GetModelsResponse();
-  virtual ~GetModelsResponse();
-
-  GetModelsResponse(const GetModelsResponse& from);
-
-  inline GetModelsResponse& operator=(const GetModelsResponse& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const GetModelsResponse& default_instance();
-
-  void Swap(GetModelsResponse* other);
-
-  // implements Message ----------------------------------------------
-
-  inline GetModelsResponse* New() const { return New(NULL); }
-
-  GetModelsResponse* New(::google::protobuf::Arena* arena) const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const GetModelsResponse& from);
-  void MergeFrom(const GetModelsResponse& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  void InternalSwap(GetModelsResponse* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return _internal_metadata_.arena();
-  }
-  inline void* MaybeArenaPtr() const {
-    return _internal_metadata_.raw_arena_ptr();
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional uint64 request_id = 1;
-  void clear_request_id();
-  static const int kRequestIdFieldNumber = 1;
-  ::google::protobuf::uint64 request_id() const;
-  void set_request_id(::google::protobuf::uint64 value);
-
-  // repeated .openconfig.Model model = 2;
-  int model_size() const;
-  void clear_model();
-  static const int kModelFieldNumber = 2;
-  const ::openconfig::Model& model(int index) const;
-  ::openconfig::Model* mutable_model(int index);
-  ::openconfig::Model* add_model();
-  ::google::protobuf::RepeatedPtrField< ::openconfig::Model >*
-      mutable_model();
-  const ::google::protobuf::RepeatedPtrField< ::openconfig::Model >&
-      model() const;
-
-  // optional .openconfig.OpenConfigRpcResponseTypes response_code = 3;
-  void clear_response_code();
-  static const int kResponseCodeFieldNumber = 3;
-  ::openconfig::OpenConfigRpcResponseTypes response_code() const;
-  void set_response_code(::openconfig::OpenConfigRpcResponseTypes value);
-
-  // optional string message = 4;
-  void clear_message();
-  static const int kMessageFieldNumber = 4;
-  const ::std::string& message() const;
-  void set_message(const ::std::string& value);
-  void set_message(const char* value);
-  void set_message(const char* value, size_t size);
-  ::std::string* mutable_message();
-  ::std::string* release_message();
-  void set_allocated_message(::std::string* message);
-
-  // @@protoc_insertion_point(class_scope:openconfig.GetModelsResponse)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  bool _is_default_instance_;
-  ::google::protobuf::uint64 request_id_;
-  ::google::protobuf::RepeatedPtrField< ::openconfig::Model > model_;
-  ::google::protobuf::internal::ArenaStringPtr message_;
-  int response_code_;
-  mutable int _cached_size_;
-  friend void  protobuf_AddDesc_mgd_5fservice_2eproto();
-  friend void protobuf_AssignDesc_mgd_5fservice_2eproto();
-  friend void protobuf_ShutdownFile_mgd_5fservice_2eproto();
-
-  void InitAsDefaultInstance();
-  static GetModelsResponse* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class GetRequestList : public ::google::protobuf::Message {
- public:
-  GetRequestList();
-  virtual ~GetRequestList();
-
-  GetRequestList(const GetRequestList& from);
-
-  inline GetRequestList& operator=(const GetRequestList& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const GetRequestList& default_instance();
-
-  void Swap(GetRequestList* other);
-
-  // implements Message ----------------------------------------------
-
-  inline GetRequestList* New() const { return New(NULL); }
-
-  GetRequestList* New(::google::protobuf::Arena* arena) const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const GetRequestList& from);
-  void MergeFrom(const GetRequestList& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  void InternalSwap(GetRequestList* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return _internal_metadata_.arena();
-  }
-  inline void* MaybeArenaPtr() const {
-    return _internal_metadata_.raw_arena_ptr();
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional string operation_id = 1;
-  void clear_operation_id();
-  static const int kOperationIdFieldNumber = 1;
-  const ::std::string& operation_id() const;
-  void set_operation_id(const ::std::string& value);
-  void set_operation_id(const char* value);
-  void set_operation_id(const char* value, size_t size);
-  ::std::string* mutable_operation_id();
-  ::std::string* release_operation_id();
-  void set_allocated_operation_id(::std::string* operation_id);
-
-  // optional .openconfig.GetDataCommands operation = 2;
-  void clear_operation();
-  static const int kOperationFieldNumber = 2;
-  ::openconfig::GetDataCommands operation() const;
-  void set_operation(::openconfig::GetDataCommands value);
-
-  // optional string path = 3;
-  void clear_path();
-  static const int kPathFieldNumber = 3;
-  const ::std::string& path() const;
-  void set_path(const ::std::string& value);
-  void set_path(const char* value);
-  void set_path(const char* value, size_t size);
-  ::std::string* mutable_path();
-  ::std::string* release_path();
-  void set_allocated_path(::std::string* path);
-
-  // @@protoc_insertion_point(class_scope:openconfig.GetRequestList)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  bool _is_default_instance_;
-  ::google::protobuf::internal::ArenaStringPtr operation_id_;
-  ::google::protobuf::internal::ArenaStringPtr path_;
-  int operation_;
-  mutable int _cached_size_;
-  friend void  protobuf_AddDesc_mgd_5fservice_2eproto();
-  friend void protobuf_AssignDesc_mgd_5fservice_2eproto();
-  friend void protobuf_ShutdownFile_mgd_5fservice_2eproto();
-
-  void InitAsDefaultInstance();
-  static GetRequestList* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class GetRequest : public ::google::protobuf::Message {
- public:
-  GetRequest();
-  virtual ~GetRequest();
-
-  GetRequest(const GetRequest& from);
-
-  inline GetRequest& operator=(const GetRequest& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const GetRequest& default_instance();
-
-  void Swap(GetRequest* other);
-
-  // implements Message ----------------------------------------------
-
-  inline GetRequest* New() const { return New(NULL); }
-
-  GetRequest* New(::google::protobuf::Arena* arena) const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const GetRequest& from);
-  void MergeFrom(const GetRequest& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  void InternalSwap(GetRequest* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return _internal_metadata_.arena();
-  }
-  inline void* MaybeArenaPtr() const {
-    return _internal_metadata_.raw_arena_ptr();
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional uint64 request_id = 1;
-  void clear_request_id();
-  static const int kRequestIdFieldNumber = 1;
-  ::google::protobuf::uint64 request_id() const;
-  void set_request_id(::google::protobuf::uint64 value);
-
-  // optional .openconfig.OpenConfigDataEncodingTypes encoding = 2;
-  void clear_encoding();
-  static const int kEncodingFieldNumber = 2;
-  ::openconfig::OpenConfigDataEncodingTypes encoding() const;
-  void set_encoding(::openconfig::OpenConfigDataEncodingTypes value);
-
-  // repeated .openconfig.GetRequestList get_request = 3;
-  int get_request_size() const;
-  void clear_get_request();
-  static const int kGetRequestFieldNumber = 3;
-  const ::openconfig::GetRequestList& get_request(int index) const;
-  ::openconfig::GetRequestList* mutable_get_request(int index);
-  ::openconfig::GetRequestList* add_get_request();
-  ::google::protobuf::RepeatedPtrField< ::openconfig::GetRequestList >*
-      mutable_get_request();
-  const ::google::protobuf::RepeatedPtrField< ::openconfig::GetRequestList >&
-      get_request() const;
-
-  // @@protoc_insertion_point(class_scope:openconfig.GetRequest)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  bool _is_default_instance_;
-  ::google::protobuf::uint64 request_id_;
-  ::google::protobuf::RepeatedPtrField< ::openconfig::GetRequestList > get_request_;
-  int encoding_;
-  mutable int _cached_size_;
-  friend void  protobuf_AddDesc_mgd_5fservice_2eproto();
-  friend void protobuf_AssignDesc_mgd_5fservice_2eproto();
-  friend void protobuf_ShutdownFile_mgd_5fservice_2eproto();
-
-  void InitAsDefaultInstance();
-  static GetRequest* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class GetResponse_ResponseList : public ::google::protobuf::Message {
- public:
-  GetResponse_ResponseList();
-  virtual ~GetResponse_ResponseList();
-
-  GetResponse_ResponseList(const GetResponse_ResponseList& from);
-
-  inline GetResponse_ResponseList& operator=(const GetResponse_ResponseList& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const GetResponse_ResponseList& default_instance();
-
-  void Swap(GetResponse_ResponseList* other);
-
-  // implements Message ----------------------------------------------
-
-  inline GetResponse_ResponseList* New() const { return New(NULL); }
-
-  GetResponse_ResponseList* New(::google::protobuf::Arena* arena) const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const GetResponse_ResponseList& from);
-  void MergeFrom(const GetResponse_ResponseList& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  void InternalSwap(GetResponse_ResponseList* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return _internal_metadata_.arena();
-  }
-  inline void* MaybeArenaPtr() const {
-    return _internal_metadata_.raw_arena_ptr();
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional string operation_id = 1;
-  void clear_operation_id();
-  static const int kOperationIdFieldNumber = 1;
-  const ::std::string& operation_id() const;
-  void set_operation_id(const ::std::string& value);
-  void set_operation_id(const char* value);
-  void set_operation_id(const char* value, size_t size);
-  ::std::string* mutable_operation_id();
-  ::std::string* release_operation_id();
-  void set_allocated_operation_id(::std::string* operation_id);
-
-  // optional string path = 2;
-  void clear_path();
-  static const int kPathFieldNumber = 2;
-  const ::std::string& path() const;
-  void set_path(const ::std::string& value);
-  void set_path(const char* value);
-  void set_path(const char* value, size_t size);
-  ::std::string* mutable_path();
-  ::std::string* release_path();
-  void set_allocated_path(::std::string* path);
-
-  // optional string value = 3;
-  void clear_value();
-  static const int kValueFieldNumber = 3;
-  const ::std::string& value() const;
-  void set_value(const ::std::string& value);
-  void set_value(const char* value);
-  void set_value(const char* value, size_t size);
-  ::std::string* mutable_value();
-  ::std::string* release_value();
-  void set_allocated_value(::std::string* value);
-
-  // optional .openconfig.OpenConfigRpcResponseTypes response_code = 4;
-  void clear_response_code();
-  static const int kResponseCodeFieldNumber = 4;
-  ::openconfig::OpenConfigRpcResponseTypes response_code() const;
-  void set_response_code(::openconfig::OpenConfigRpcResponseTypes value);
-
-  // optional string message = 5;
-  void clear_message();
-  static const int kMessageFieldNumber = 5;
-  const ::std::string& message() const;
-  void set_message(const ::std::string& value);
-  void set_message(const char* value);
-  void set_message(const char* value, size_t size);
-  ::std::string* mutable_message();
-  ::std::string* release_message();
-  void set_allocated_message(::std::string* message);
-
-  // @@protoc_insertion_point(class_scope:openconfig.GetResponse.ResponseList)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  bool _is_default_instance_;
-  ::google::protobuf::internal::ArenaStringPtr operation_id_;
-  ::google::protobuf::internal::ArenaStringPtr path_;
-  ::google::protobuf::internal::ArenaStringPtr value_;
-  ::google::protobuf::internal::ArenaStringPtr message_;
-  int response_code_;
-  mutable int _cached_size_;
-  friend void  protobuf_AddDesc_mgd_5fservice_2eproto();
-  friend void protobuf_AssignDesc_mgd_5fservice_2eproto();
-  friend void protobuf_ShutdownFile_mgd_5fservice_2eproto();
-
-  void InitAsDefaultInstance();
-  static GetResponse_ResponseList* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class GetResponse : public ::google::protobuf::Message {
- public:
-  GetResponse();
-  virtual ~GetResponse();
-
-  GetResponse(const GetResponse& from);
-
-  inline GetResponse& operator=(const GetResponse& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const GetResponse& default_instance();
-
-  void Swap(GetResponse* other);
-
-  // implements Message ----------------------------------------------
-
-  inline GetResponse* New() const { return New(NULL); }
-
-  GetResponse* New(::google::protobuf::Arena* arena) const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const GetResponse& from);
-  void MergeFrom(const GetResponse& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  void InternalSwap(GetResponse* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return _internal_metadata_.arena();
-  }
-  inline void* MaybeArenaPtr() const {
-    return _internal_metadata_.raw_arena_ptr();
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  typedef GetResponse_ResponseList ResponseList;
-
-  // accessors -------------------------------------------------------
-
-  // optional uint64 request_id = 1;
-  void clear_request_id();
-  static const int kRequestIdFieldNumber = 1;
-  ::google::protobuf::uint64 request_id() const;
-  void set_request_id(::google::protobuf::uint64 value);
-
-  // repeated .openconfig.GetResponse.ResponseList response = 2;
-  int response_size() const;
-  void clear_response();
-  static const int kResponseFieldNumber = 2;
-  const ::openconfig::GetResponse_ResponseList& response(int index) const;
-  ::openconfig::GetResponse_ResponseList* mutable_response(int index);
-  ::openconfig::GetResponse_ResponseList* add_response();
-  ::google::protobuf::RepeatedPtrField< ::openconfig::GetResponse_ResponseList >*
-      mutable_response();
-  const ::google::protobuf::RepeatedPtrField< ::openconfig::GetResponse_ResponseList >&
-      response() const;
-
-  // @@protoc_insertion_point(class_scope:openconfig.GetResponse)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  bool _is_default_instance_;
-  ::google::protobuf::uint64 request_id_;
-  ::google::protobuf::RepeatedPtrField< ::openconfig::GetResponse_ResponseList > response_;
-  mutable int _cached_size_;
-  friend void  protobuf_AddDesc_mgd_5fservice_2eproto();
-  friend void protobuf_AssignDesc_mgd_5fservice_2eproto();
-  friend void protobuf_ShutdownFile_mgd_5fservice_2eproto();
-
-  void InitAsDefaultInstance();
-  static GetResponse* default_instance_;
-};
-// -------------------------------------------------------------------
 
 class ExecuteOpCommandRequest : public ::google::protobuf::Message {
  public:
@@ -1337,19 +214,19 @@ class ExecuteOpCommandRequest : public ::google::protobuf::Message {
   ::std::string* release_command();
   void set_allocated_command(::std::string* command);
 
-  // optional .openconfig.OperationFormatType in_format = 3;
+  // optional .management.OperationFormatType in_format = 3;
   void clear_in_format();
   static const int kInFormatFieldNumber = 3;
-  ::openconfig::OperationFormatType in_format() const;
-  void set_in_format(::openconfig::OperationFormatType value);
+  ::management::OperationFormatType in_format() const;
+  void set_in_format(::management::OperationFormatType value);
 
-  // optional .openconfig.OperationFormatType out_format = 4;
+  // optional .management.OperationFormatType out_format = 4;
   void clear_out_format();
   static const int kOutFormatFieldNumber = 4;
-  ::openconfig::OperationFormatType out_format() const;
-  void set_out_format(::openconfig::OperationFormatType value);
+  ::management::OperationFormatType out_format() const;
+  void set_out_format(::management::OperationFormatType value);
 
-  // @@protoc_insertion_point(class_scope:openconfig.ExecuteOpCommandRequest)
+  // @@protoc_insertion_point(class_scope:management.ExecuteOpCommandRequest)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -1441,11 +318,11 @@ class ExecuteOpCommandResponse : public ::google::protobuf::Message {
   ::std::string* release_data();
   void set_allocated_data(::std::string* data);
 
-  // optional .openconfig.OpenConfigRpcResponseTypes response_code = 3;
+  // optional .management.JunosRpcResponseTypes response_code = 3;
   void clear_response_code();
   static const int kResponseCodeFieldNumber = 3;
-  ::openconfig::OpenConfigRpcResponseTypes response_code() const;
-  void set_response_code(::openconfig::OpenConfigRpcResponseTypes value);
+  ::management::JunosRpcResponseTypes response_code() const;
+  void set_response_code(::management::JunosRpcResponseTypes value);
 
   // optional string message = 4;
   void clear_message();
@@ -1458,7 +335,7 @@ class ExecuteOpCommandResponse : public ::google::protobuf::Message {
   ::std::string* release_message();
   void set_allocated_message(::std::string* message);
 
-  // @@protoc_insertion_point(class_scope:openconfig.ExecuteOpCommandResponse)
+  // @@protoc_insertion_point(class_scope:management.ExecuteOpCommandResponse)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -1474,422 +351,6 @@ class ExecuteOpCommandResponse : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static ExecuteOpCommandResponse* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class SetRequest_ConfigOperationList : public ::google::protobuf::Message {
- public:
-  SetRequest_ConfigOperationList();
-  virtual ~SetRequest_ConfigOperationList();
-
-  SetRequest_ConfigOperationList(const SetRequest_ConfigOperationList& from);
-
-  inline SetRequest_ConfigOperationList& operator=(const SetRequest_ConfigOperationList& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const SetRequest_ConfigOperationList& default_instance();
-
-  void Swap(SetRequest_ConfigOperationList* other);
-
-  // implements Message ----------------------------------------------
-
-  inline SetRequest_ConfigOperationList* New() const { return New(NULL); }
-
-  SetRequest_ConfigOperationList* New(::google::protobuf::Arena* arena) const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const SetRequest_ConfigOperationList& from);
-  void MergeFrom(const SetRequest_ConfigOperationList& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  void InternalSwap(SetRequest_ConfigOperationList* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return _internal_metadata_.arena();
-  }
-  inline void* MaybeArenaPtr() const {
-    return _internal_metadata_.raw_arena_ptr();
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional string operation_id = 1;
-  void clear_operation_id();
-  static const int kOperationIdFieldNumber = 1;
-  const ::std::string& operation_id() const;
-  void set_operation_id(const ::std::string& value);
-  void set_operation_id(const char* value);
-  void set_operation_id(const char* value, size_t size);
-  ::std::string* mutable_operation_id();
-  ::std::string* release_operation_id();
-  void set_allocated_operation_id(::std::string* operation_id);
-
-  // optional .openconfig.SetConfigCommands operation = 2;
-  void clear_operation();
-  static const int kOperationFieldNumber = 2;
-  ::openconfig::SetConfigCommands operation() const;
-  void set_operation(::openconfig::SetConfigCommands value);
-
-  // optional string path = 3;
-  void clear_path();
-  static const int kPathFieldNumber = 3;
-  const ::std::string& path() const;
-  void set_path(const ::std::string& value);
-  void set_path(const char* value);
-  void set_path(const char* value, size_t size);
-  ::std::string* mutable_path();
-  ::std::string* release_path();
-  void set_allocated_path(::std::string* path);
-
-  // optional string value = 4;
-  void clear_value();
-  static const int kValueFieldNumber = 4;
-  const ::std::string& value() const;
-  void set_value(const ::std::string& value);
-  void set_value(const char* value);
-  void set_value(const char* value, size_t size);
-  ::std::string* mutable_value();
-  ::std::string* release_value();
-  void set_allocated_value(::std::string* value);
-
-  // @@protoc_insertion_point(class_scope:openconfig.SetRequest.ConfigOperationList)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  bool _is_default_instance_;
-  ::google::protobuf::internal::ArenaStringPtr operation_id_;
-  ::google::protobuf::internal::ArenaStringPtr path_;
-  ::google::protobuf::internal::ArenaStringPtr value_;
-  int operation_;
-  mutable int _cached_size_;
-  friend void  protobuf_AddDesc_mgd_5fservice_2eproto();
-  friend void protobuf_AssignDesc_mgd_5fservice_2eproto();
-  friend void protobuf_ShutdownFile_mgd_5fservice_2eproto();
-
-  void InitAsDefaultInstance();
-  static SetRequest_ConfigOperationList* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class SetRequest : public ::google::protobuf::Message {
- public:
-  SetRequest();
-  virtual ~SetRequest();
-
-  SetRequest(const SetRequest& from);
-
-  inline SetRequest& operator=(const SetRequest& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const SetRequest& default_instance();
-
-  void Swap(SetRequest* other);
-
-  // implements Message ----------------------------------------------
-
-  inline SetRequest* New() const { return New(NULL); }
-
-  SetRequest* New(::google::protobuf::Arena* arena) const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const SetRequest& from);
-  void MergeFrom(const SetRequest& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  void InternalSwap(SetRequest* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return _internal_metadata_.arena();
-  }
-  inline void* MaybeArenaPtr() const {
-    return _internal_metadata_.raw_arena_ptr();
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  typedef SetRequest_ConfigOperationList ConfigOperationList;
-
-  // accessors -------------------------------------------------------
-
-  // optional uint64 request_id = 1;
-  void clear_request_id();
-  static const int kRequestIdFieldNumber = 1;
-  ::google::protobuf::uint64 request_id() const;
-  void set_request_id(::google::protobuf::uint64 value);
-
-  // optional bool transaction = 2;
-  void clear_transaction();
-  static const int kTransactionFieldNumber = 2;
-  bool transaction() const;
-  void set_transaction(bool value);
-
-  // optional .openconfig.OpenConfigDataEncodingTypes encoding = 3;
-  void clear_encoding();
-  static const int kEncodingFieldNumber = 3;
-  ::openconfig::OpenConfigDataEncodingTypes encoding() const;
-  void set_encoding(::openconfig::OpenConfigDataEncodingTypes value);
-
-  // repeated .openconfig.SetRequest.ConfigOperationList config_operation = 4;
-  int config_operation_size() const;
-  void clear_config_operation();
-  static const int kConfigOperationFieldNumber = 4;
-  const ::openconfig::SetRequest_ConfigOperationList& config_operation(int index) const;
-  ::openconfig::SetRequest_ConfigOperationList* mutable_config_operation(int index);
-  ::openconfig::SetRequest_ConfigOperationList* add_config_operation();
-  ::google::protobuf::RepeatedPtrField< ::openconfig::SetRequest_ConfigOperationList >*
-      mutable_config_operation();
-  const ::google::protobuf::RepeatedPtrField< ::openconfig::SetRequest_ConfigOperationList >&
-      config_operation() const;
-
-  // @@protoc_insertion_point(class_scope:openconfig.SetRequest)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  bool _is_default_instance_;
-  ::google::protobuf::uint64 request_id_;
-  bool transaction_;
-  int encoding_;
-  ::google::protobuf::RepeatedPtrField< ::openconfig::SetRequest_ConfigOperationList > config_operation_;
-  mutable int _cached_size_;
-  friend void  protobuf_AddDesc_mgd_5fservice_2eproto();
-  friend void protobuf_AssignDesc_mgd_5fservice_2eproto();
-  friend void protobuf_ShutdownFile_mgd_5fservice_2eproto();
-
-  void InitAsDefaultInstance();
-  static SetRequest* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class SetResponse_ResponseList : public ::google::protobuf::Message {
- public:
-  SetResponse_ResponseList();
-  virtual ~SetResponse_ResponseList();
-
-  SetResponse_ResponseList(const SetResponse_ResponseList& from);
-
-  inline SetResponse_ResponseList& operator=(const SetResponse_ResponseList& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const SetResponse_ResponseList& default_instance();
-
-  void Swap(SetResponse_ResponseList* other);
-
-  // implements Message ----------------------------------------------
-
-  inline SetResponse_ResponseList* New() const { return New(NULL); }
-
-  SetResponse_ResponseList* New(::google::protobuf::Arena* arena) const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const SetResponse_ResponseList& from);
-  void MergeFrom(const SetResponse_ResponseList& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  void InternalSwap(SetResponse_ResponseList* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return _internal_metadata_.arena();
-  }
-  inline void* MaybeArenaPtr() const {
-    return _internal_metadata_.raw_arena_ptr();
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional string operation_id = 1;
-  void clear_operation_id();
-  static const int kOperationIdFieldNumber = 1;
-  const ::std::string& operation_id() const;
-  void set_operation_id(const ::std::string& value);
-  void set_operation_id(const char* value);
-  void set_operation_id(const char* value, size_t size);
-  ::std::string* mutable_operation_id();
-  ::std::string* release_operation_id();
-  void set_allocated_operation_id(::std::string* operation_id);
-
-  // optional .openconfig.OpenConfigRpcResponseTypes response_code = 2;
-  void clear_response_code();
-  static const int kResponseCodeFieldNumber = 2;
-  ::openconfig::OpenConfigRpcResponseTypes response_code() const;
-  void set_response_code(::openconfig::OpenConfigRpcResponseTypes value);
-
-  // optional string message = 3;
-  void clear_message();
-  static const int kMessageFieldNumber = 3;
-  const ::std::string& message() const;
-  void set_message(const ::std::string& value);
-  void set_message(const char* value);
-  void set_message(const char* value, size_t size);
-  ::std::string* mutable_message();
-  ::std::string* release_message();
-  void set_allocated_message(::std::string* message);
-
-  // @@protoc_insertion_point(class_scope:openconfig.SetResponse.ResponseList)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  bool _is_default_instance_;
-  ::google::protobuf::internal::ArenaStringPtr operation_id_;
-  ::google::protobuf::internal::ArenaStringPtr message_;
-  int response_code_;
-  mutable int _cached_size_;
-  friend void  protobuf_AddDesc_mgd_5fservice_2eproto();
-  friend void protobuf_AssignDesc_mgd_5fservice_2eproto();
-  friend void protobuf_ShutdownFile_mgd_5fservice_2eproto();
-
-  void InitAsDefaultInstance();
-  static SetResponse_ResponseList* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class SetResponse : public ::google::protobuf::Message {
- public:
-  SetResponse();
-  virtual ~SetResponse();
-
-  SetResponse(const SetResponse& from);
-
-  inline SetResponse& operator=(const SetResponse& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const SetResponse& default_instance();
-
-  void Swap(SetResponse* other);
-
-  // implements Message ----------------------------------------------
-
-  inline SetResponse* New() const { return New(NULL); }
-
-  SetResponse* New(::google::protobuf::Arena* arena) const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const SetResponse& from);
-  void MergeFrom(const SetResponse& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  void InternalSwap(SetResponse* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return _internal_metadata_.arena();
-  }
-  inline void* MaybeArenaPtr() const {
-    return _internal_metadata_.raw_arena_ptr();
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  typedef SetResponse_ResponseList ResponseList;
-
-  // accessors -------------------------------------------------------
-
-  // optional uint64 request_id = 1;
-  void clear_request_id();
-  static const int kRequestIdFieldNumber = 1;
-  ::google::protobuf::uint64 request_id() const;
-  void set_request_id(::google::protobuf::uint64 value);
-
-  // repeated .openconfig.SetResponse.ResponseList response = 2;
-  int response_size() const;
-  void clear_response();
-  static const int kResponseFieldNumber = 2;
-  const ::openconfig::SetResponse_ResponseList& response(int index) const;
-  ::openconfig::SetResponse_ResponseList* mutable_response(int index);
-  ::openconfig::SetResponse_ResponseList* add_response();
-  ::google::protobuf::RepeatedPtrField< ::openconfig::SetResponse_ResponseList >*
-      mutable_response();
-  const ::google::protobuf::RepeatedPtrField< ::openconfig::SetResponse_ResponseList >&
-      response() const;
-
-  // @@protoc_insertion_point(class_scope:openconfig.SetResponse)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  bool _is_default_instance_;
-  ::google::protobuf::uint64 request_id_;
-  ::google::protobuf::RepeatedPtrField< ::openconfig::SetResponse_ResponseList > response_;
-  mutable int _cached_size_;
-  friend void  protobuf_AddDesc_mgd_5fservice_2eproto();
-  friend void protobuf_AssignDesc_mgd_5fservice_2eproto();
-  friend void protobuf_ShutdownFile_mgd_5fservice_2eproto();
-
-  void InitAsDefaultInstance();
-  static SetResponse* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -1971,7 +432,7 @@ class EphConfigRequestList : public ::google::protobuf::Message {
   ::std::string* release_path();
   void set_allocated_path(::std::string* path);
 
-  // @@protoc_insertion_point(class_scope:openconfig.EphConfigRequestList)
+  // @@protoc_insertion_point(class_scope:management.EphConfigRequestList)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -2050,22 +511,22 @@ class GetEphemeralConfigRequest : public ::google::protobuf::Message {
   ::google::protobuf::uint64 request_id() const;
   void set_request_id(::google::protobuf::uint64 value);
 
-  // optional .openconfig.OpenConfigDataEncodingTypes encoding = 2;
+  // optional .management.JunosDataEncodingTypes encoding = 2;
   void clear_encoding();
   static const int kEncodingFieldNumber = 2;
-  ::openconfig::OpenConfigDataEncodingTypes encoding() const;
-  void set_encoding(::openconfig::OpenConfigDataEncodingTypes value);
+  ::management::JunosDataEncodingTypes encoding() const;
+  void set_encoding(::management::JunosDataEncodingTypes value);
 
-  // repeated .openconfig.EphConfigRequestList eph_config_requests = 3;
+  // repeated .management.EphConfigRequestList eph_config_requests = 3;
   int eph_config_requests_size() const;
   void clear_eph_config_requests();
   static const int kEphConfigRequestsFieldNumber = 3;
-  const ::openconfig::EphConfigRequestList& eph_config_requests(int index) const;
-  ::openconfig::EphConfigRequestList* mutable_eph_config_requests(int index);
-  ::openconfig::EphConfigRequestList* add_eph_config_requests();
-  ::google::protobuf::RepeatedPtrField< ::openconfig::EphConfigRequestList >*
+  const ::management::EphConfigRequestList& eph_config_requests(int index) const;
+  ::management::EphConfigRequestList* mutable_eph_config_requests(int index);
+  ::management::EphConfigRequestList* add_eph_config_requests();
+  ::google::protobuf::RepeatedPtrField< ::management::EphConfigRequestList >*
       mutable_eph_config_requests();
-  const ::google::protobuf::RepeatedPtrField< ::openconfig::EphConfigRequestList >&
+  const ::google::protobuf::RepeatedPtrField< ::management::EphConfigRequestList >&
       eph_config_requests() const;
 
   // optional string eph_instance_name = 4;
@@ -2085,13 +546,13 @@ class GetEphemeralConfigRequest : public ::google::protobuf::Message {
   bool merge_view() const;
   void set_merge_view(bool value);
 
-  // @@protoc_insertion_point(class_scope:openconfig.GetEphemeralConfigRequest)
+  // @@protoc_insertion_point(class_scope:management.GetEphemeralConfigRequest)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   bool _is_default_instance_;
   ::google::protobuf::uint64 request_id_;
-  ::google::protobuf::RepeatedPtrField< ::openconfig::EphConfigRequestList > eph_config_requests_;
+  ::google::protobuf::RepeatedPtrField< ::management::EphConfigRequestList > eph_config_requests_;
   int encoding_;
   bool merge_view_;
   ::google::protobuf::internal::ArenaStringPtr eph_instance_name_;
@@ -2194,11 +655,11 @@ class GetEphemeralConfigResponse_ResponseList : public ::google::protobuf::Messa
   ::std::string* release_value();
   void set_allocated_value(::std::string* value);
 
-  // optional .openconfig.OpenConfigRpcResponseTypes response_code = 4;
+  // optional .management.JunosRpcResponseTypes response_code = 4;
   void clear_response_code();
   static const int kResponseCodeFieldNumber = 4;
-  ::openconfig::OpenConfigRpcResponseTypes response_code() const;
-  void set_response_code(::openconfig::OpenConfigRpcResponseTypes value);
+  ::management::JunosRpcResponseTypes response_code() const;
+  void set_response_code(::management::JunosRpcResponseTypes value);
 
   // optional string message = 5;
   void clear_message();
@@ -2211,7 +672,7 @@ class GetEphemeralConfigResponse_ResponseList : public ::google::protobuf::Messa
   ::std::string* release_message();
   void set_allocated_message(::std::string* message);
 
-  // @@protoc_insertion_point(class_scope:openconfig.GetEphemeralConfigResponse.ResponseList)
+  // @@protoc_insertion_point(class_scope:management.GetEphemeralConfigResponse.ResponseList)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -2295,25 +756,25 @@ class GetEphemeralConfigResponse : public ::google::protobuf::Message {
   ::google::protobuf::uint64 request_id() const;
   void set_request_id(::google::protobuf::uint64 value);
 
-  // repeated .openconfig.GetEphemeralConfigResponse.ResponseList response = 2;
+  // repeated .management.GetEphemeralConfigResponse.ResponseList response = 2;
   int response_size() const;
   void clear_response();
   static const int kResponseFieldNumber = 2;
-  const ::openconfig::GetEphemeralConfigResponse_ResponseList& response(int index) const;
-  ::openconfig::GetEphemeralConfigResponse_ResponseList* mutable_response(int index);
-  ::openconfig::GetEphemeralConfigResponse_ResponseList* add_response();
-  ::google::protobuf::RepeatedPtrField< ::openconfig::GetEphemeralConfigResponse_ResponseList >*
+  const ::management::GetEphemeralConfigResponse_ResponseList& response(int index) const;
+  ::management::GetEphemeralConfigResponse_ResponseList* mutable_response(int index);
+  ::management::GetEphemeralConfigResponse_ResponseList* add_response();
+  ::google::protobuf::RepeatedPtrField< ::management::GetEphemeralConfigResponse_ResponseList >*
       mutable_response();
-  const ::google::protobuf::RepeatedPtrField< ::openconfig::GetEphemeralConfigResponse_ResponseList >&
+  const ::google::protobuf::RepeatedPtrField< ::management::GetEphemeralConfigResponse_ResponseList >&
       response() const;
 
-  // @@protoc_insertion_point(class_scope:openconfig.GetEphemeralConfigResponse)
+  // @@protoc_insertion_point(class_scope:management.GetEphemeralConfigResponse)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   bool _is_default_instance_;
   ::google::protobuf::uint64 request_id_;
-  ::google::protobuf::RepeatedPtrField< ::openconfig::GetEphemeralConfigResponse_ResponseList > response_;
+  ::google::protobuf::RepeatedPtrField< ::management::GetEphemeralConfigResponse_ResponseList > response_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_mgd_5fservice_2eproto();
   friend void protobuf_AssignDesc_mgd_5fservice_2eproto();
@@ -2391,11 +852,11 @@ class EditEphemeralConfigRequest_ConfigOperationList : public ::google::protobuf
   ::std::string* release_operation_id();
   void set_allocated_operation_id(::std::string* operation_id);
 
-  // optional .openconfig.SetConfigCommands operation = 2;
+  // optional .management.ConfigCommands operation = 2;
   void clear_operation();
   static const int kOperationFieldNumber = 2;
-  ::openconfig::SetConfigCommands operation() const;
-  void set_operation(::openconfig::SetConfigCommands value);
+  ::management::ConfigCommands operation() const;
+  void set_operation(::management::ConfigCommands value);
 
   // optional string path = 3;
   void clear_path();
@@ -2419,7 +880,7 @@ class EditEphemeralConfigRequest_ConfigOperationList : public ::google::protobuf
   ::std::string* release_value();
   void set_allocated_value(::std::string* value);
 
-  // @@protoc_insertion_point(class_scope:openconfig.EditEphemeralConfigRequest.ConfigOperationList)
+  // @@protoc_insertion_point(class_scope:management.EditEphemeralConfigRequest.ConfigOperationList)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -2502,22 +963,22 @@ class EditEphemeralConfigRequest : public ::google::protobuf::Message {
   ::google::protobuf::uint64 request_id() const;
   void set_request_id(::google::protobuf::uint64 value);
 
-  // optional .openconfig.OpenConfigDataEncodingTypes encoding = 2;
+  // optional .management.JunosDataEncodingTypes encoding = 2;
   void clear_encoding();
   static const int kEncodingFieldNumber = 2;
-  ::openconfig::OpenConfigDataEncodingTypes encoding() const;
-  void set_encoding(::openconfig::OpenConfigDataEncodingTypes value);
+  ::management::JunosDataEncodingTypes encoding() const;
+  void set_encoding(::management::JunosDataEncodingTypes value);
 
-  // repeated .openconfig.EditEphemeralConfigRequest.ConfigOperationList eph_config_operations = 3;
+  // repeated .management.EditEphemeralConfigRequest.ConfigOperationList eph_config_operations = 3;
   int eph_config_operations_size() const;
   void clear_eph_config_operations();
   static const int kEphConfigOperationsFieldNumber = 3;
-  const ::openconfig::EditEphemeralConfigRequest_ConfigOperationList& eph_config_operations(int index) const;
-  ::openconfig::EditEphemeralConfigRequest_ConfigOperationList* mutable_eph_config_operations(int index);
-  ::openconfig::EditEphemeralConfigRequest_ConfigOperationList* add_eph_config_operations();
-  ::google::protobuf::RepeatedPtrField< ::openconfig::EditEphemeralConfigRequest_ConfigOperationList >*
+  const ::management::EditEphemeralConfigRequest_ConfigOperationList& eph_config_operations(int index) const;
+  ::management::EditEphemeralConfigRequest_ConfigOperationList* mutable_eph_config_operations(int index);
+  ::management::EditEphemeralConfigRequest_ConfigOperationList* add_eph_config_operations();
+  ::google::protobuf::RepeatedPtrField< ::management::EditEphemeralConfigRequest_ConfigOperationList >*
       mutable_eph_config_operations();
-  const ::google::protobuf::RepeatedPtrField< ::openconfig::EditEphemeralConfigRequest_ConfigOperationList >&
+  const ::google::protobuf::RepeatedPtrField< ::management::EditEphemeralConfigRequest_ConfigOperationList >&
       eph_config_operations() const;
 
   // optional string eph_instance_name = 4;
@@ -2531,22 +992,15 @@ class EditEphemeralConfigRequest : public ::google::protobuf::Message {
   ::std::string* release_eph_instance_name();
   void set_allocated_eph_instance_name(::std::string* eph_instance_name);
 
-  // optional bool disable_config_validation = 5;
-  void clear_disable_config_validation();
-  static const int kDisableConfigValidationFieldNumber = 5;
-  bool disable_config_validation() const;
-  void set_disable_config_validation(bool value);
-
-  // @@protoc_insertion_point(class_scope:openconfig.EditEphemeralConfigRequest)
+  // @@protoc_insertion_point(class_scope:management.EditEphemeralConfigRequest)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   bool _is_default_instance_;
   ::google::protobuf::uint64 request_id_;
-  ::google::protobuf::RepeatedPtrField< ::openconfig::EditEphemeralConfigRequest_ConfigOperationList > eph_config_operations_;
-  int encoding_;
-  bool disable_config_validation_;
+  ::google::protobuf::RepeatedPtrField< ::management::EditEphemeralConfigRequest_ConfigOperationList > eph_config_operations_;
   ::google::protobuf::internal::ArenaStringPtr eph_instance_name_;
+  int encoding_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_mgd_5fservice_2eproto();
   friend void protobuf_AssignDesc_mgd_5fservice_2eproto();
@@ -2624,11 +1078,11 @@ class EditEphemeralConfigResponse_ResponseList : public ::google::protobuf::Mess
   ::std::string* release_operation_id();
   void set_allocated_operation_id(::std::string* operation_id);
 
-  // optional .openconfig.OpenConfigRpcResponseTypes response_code = 2;
+  // optional .management.JunosRpcResponseTypes response_code = 2;
   void clear_response_code();
   static const int kResponseCodeFieldNumber = 2;
-  ::openconfig::OpenConfigRpcResponseTypes response_code() const;
-  void set_response_code(::openconfig::OpenConfigRpcResponseTypes value);
+  ::management::JunosRpcResponseTypes response_code() const;
+  void set_response_code(::management::JunosRpcResponseTypes value);
 
   // optional string message = 3;
   void clear_message();
@@ -2641,7 +1095,7 @@ class EditEphemeralConfigResponse_ResponseList : public ::google::protobuf::Mess
   ::std::string* release_message();
   void set_allocated_message(::std::string* message);
 
-  // @@protoc_insertion_point(class_scope:openconfig.EditEphemeralConfigResponse.ResponseList)
+  // @@protoc_insertion_point(class_scope:management.EditEphemeralConfigResponse.ResponseList)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -2723,25 +1177,25 @@ class EditEphemeralConfigResponse : public ::google::protobuf::Message {
   ::google::protobuf::uint64 request_id() const;
   void set_request_id(::google::protobuf::uint64 value);
 
-  // repeated .openconfig.EditEphemeralConfigResponse.ResponseList response = 2;
+  // repeated .management.EditEphemeralConfigResponse.ResponseList response = 2;
   int response_size() const;
   void clear_response();
   static const int kResponseFieldNumber = 2;
-  const ::openconfig::EditEphemeralConfigResponse_ResponseList& response(int index) const;
-  ::openconfig::EditEphemeralConfigResponse_ResponseList* mutable_response(int index);
-  ::openconfig::EditEphemeralConfigResponse_ResponseList* add_response();
-  ::google::protobuf::RepeatedPtrField< ::openconfig::EditEphemeralConfigResponse_ResponseList >*
+  const ::management::EditEphemeralConfigResponse_ResponseList& response(int index) const;
+  ::management::EditEphemeralConfigResponse_ResponseList* mutable_response(int index);
+  ::management::EditEphemeralConfigResponse_ResponseList* add_response();
+  ::google::protobuf::RepeatedPtrField< ::management::EditEphemeralConfigResponse_ResponseList >*
       mutable_response();
-  const ::google::protobuf::RepeatedPtrField< ::openconfig::EditEphemeralConfigResponse_ResponseList >&
+  const ::google::protobuf::RepeatedPtrField< ::management::EditEphemeralConfigResponse_ResponseList >&
       response() const;
 
-  // @@protoc_insertion_point(class_scope:openconfig.EditEphemeralConfigResponse)
+  // @@protoc_insertion_point(class_scope:management.EditEphemeralConfigResponse)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   bool _is_default_instance_;
   ::google::protobuf::uint64 request_id_;
-  ::google::protobuf::RepeatedPtrField< ::openconfig::EditEphemeralConfigResponse_ResponseList > response_;
+  ::google::protobuf::RepeatedPtrField< ::management::EditEphemeralConfigResponse_ResponseList > response_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_mgd_5fservice_2eproto();
   friend void protobuf_AssignDesc_mgd_5fservice_2eproto();
@@ -2756,896 +1210,6 @@ class EditEphemeralConfigResponse : public ::google::protobuf::Message {
 // ===================================================================
 
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
-// GetDataEncodingsRequest
-
-// optional uint64 request_id = 1;
-inline void GetDataEncodingsRequest::clear_request_id() {
-  request_id_ = GOOGLE_ULONGLONG(0);
-}
-inline ::google::protobuf::uint64 GetDataEncodingsRequest::request_id() const {
-  // @@protoc_insertion_point(field_get:openconfig.GetDataEncodingsRequest.request_id)
-  return request_id_;
-}
-inline void GetDataEncodingsRequest::set_request_id(::google::protobuf::uint64 value) {
-  
-  request_id_ = value;
-  // @@protoc_insertion_point(field_set:openconfig.GetDataEncodingsRequest.request_id)
-}
-
-// -------------------------------------------------------------------
-
-// GetDataEncodingsResponse
-
-// optional uint64 request_id = 1;
-inline void GetDataEncodingsResponse::clear_request_id() {
-  request_id_ = GOOGLE_ULONGLONG(0);
-}
-inline ::google::protobuf::uint64 GetDataEncodingsResponse::request_id() const {
-  // @@protoc_insertion_point(field_get:openconfig.GetDataEncodingsResponse.request_id)
-  return request_id_;
-}
-inline void GetDataEncodingsResponse::set_request_id(::google::protobuf::uint64 value) {
-  
-  request_id_ = value;
-  // @@protoc_insertion_point(field_set:openconfig.GetDataEncodingsResponse.request_id)
-}
-
-// repeated .openconfig.OpenConfigDataEncodingTypes encoding = 2;
-inline int GetDataEncodingsResponse::encoding_size() const {
-  return encoding_.size();
-}
-inline void GetDataEncodingsResponse::clear_encoding() {
-  encoding_.Clear();
-}
-inline ::openconfig::OpenConfigDataEncodingTypes GetDataEncodingsResponse::encoding(int index) const {
-  // @@protoc_insertion_point(field_get:openconfig.GetDataEncodingsResponse.encoding)
-  return static_cast< ::openconfig::OpenConfigDataEncodingTypes >(encoding_.Get(index));
-}
-inline void GetDataEncodingsResponse::set_encoding(int index, ::openconfig::OpenConfigDataEncodingTypes value) {
-  encoding_.Set(index, value);
-  // @@protoc_insertion_point(field_set:openconfig.GetDataEncodingsResponse.encoding)
-}
-inline void GetDataEncodingsResponse::add_encoding(::openconfig::OpenConfigDataEncodingTypes value) {
-  encoding_.Add(value);
-  // @@protoc_insertion_point(field_add:openconfig.GetDataEncodingsResponse.encoding)
-}
-inline const ::google::protobuf::RepeatedField<int>&
-GetDataEncodingsResponse::encoding() const {
-  // @@protoc_insertion_point(field_list:openconfig.GetDataEncodingsResponse.encoding)
-  return encoding_;
-}
-inline ::google::protobuf::RepeatedField<int>*
-GetDataEncodingsResponse::mutable_encoding() {
-  // @@protoc_insertion_point(field_mutable_list:openconfig.GetDataEncodingsResponse.encoding)
-  return &encoding_;
-}
-
-// optional .openconfig.OpenConfigRpcResponseTypes response_code = 3;
-inline void GetDataEncodingsResponse::clear_response_code() {
-  response_code_ = 0;
-}
-inline ::openconfig::OpenConfigRpcResponseTypes GetDataEncodingsResponse::response_code() const {
-  // @@protoc_insertion_point(field_get:openconfig.GetDataEncodingsResponse.response_code)
-  return static_cast< ::openconfig::OpenConfigRpcResponseTypes >(response_code_);
-}
-inline void GetDataEncodingsResponse::set_response_code(::openconfig::OpenConfigRpcResponseTypes value) {
-  
-  response_code_ = value;
-  // @@protoc_insertion_point(field_set:openconfig.GetDataEncodingsResponse.response_code)
-}
-
-// optional string message = 4;
-inline void GetDataEncodingsResponse::clear_message() {
-  message_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& GetDataEncodingsResponse::message() const {
-  // @@protoc_insertion_point(field_get:openconfig.GetDataEncodingsResponse.message)
-  return message_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void GetDataEncodingsResponse::set_message(const ::std::string& value) {
-  
-  message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:openconfig.GetDataEncodingsResponse.message)
-}
-inline void GetDataEncodingsResponse::set_message(const char* value) {
-  
-  message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:openconfig.GetDataEncodingsResponse.message)
-}
-inline void GetDataEncodingsResponse::set_message(const char* value, size_t size) {
-  
-  message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:openconfig.GetDataEncodingsResponse.message)
-}
-inline ::std::string* GetDataEncodingsResponse::mutable_message() {
-  
-  // @@protoc_insertion_point(field_mutable:openconfig.GetDataEncodingsResponse.message)
-  return message_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* GetDataEncodingsResponse::release_message() {
-  
-  return message_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void GetDataEncodingsResponse::set_allocated_message(::std::string* message) {
-  if (message != NULL) {
-    
-  } else {
-    
-  }
-  message_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), message);
-  // @@protoc_insertion_point(field_set_allocated:openconfig.GetDataEncodingsResponse.message)
-}
-
-// -------------------------------------------------------------------
-
-// SetDataEncodingRequest
-
-// optional uint64 request_id = 1;
-inline void SetDataEncodingRequest::clear_request_id() {
-  request_id_ = GOOGLE_ULONGLONG(0);
-}
-inline ::google::protobuf::uint64 SetDataEncodingRequest::request_id() const {
-  // @@protoc_insertion_point(field_get:openconfig.SetDataEncodingRequest.request_id)
-  return request_id_;
-}
-inline void SetDataEncodingRequest::set_request_id(::google::protobuf::uint64 value) {
-  
-  request_id_ = value;
-  // @@protoc_insertion_point(field_set:openconfig.SetDataEncodingRequest.request_id)
-}
-
-// optional .openconfig.OpenConfigDataEncodingTypes encoding = 2;
-inline void SetDataEncodingRequest::clear_encoding() {
-  encoding_ = 0;
-}
-inline ::openconfig::OpenConfigDataEncodingTypes SetDataEncodingRequest::encoding() const {
-  // @@protoc_insertion_point(field_get:openconfig.SetDataEncodingRequest.encoding)
-  return static_cast< ::openconfig::OpenConfigDataEncodingTypes >(encoding_);
-}
-inline void SetDataEncodingRequest::set_encoding(::openconfig::OpenConfigDataEncodingTypes value) {
-  
-  encoding_ = value;
-  // @@protoc_insertion_point(field_set:openconfig.SetDataEncodingRequest.encoding)
-}
-
-// -------------------------------------------------------------------
-
-// SetDataEncodingResponse
-
-// optional uint64 request_id = 1;
-inline void SetDataEncodingResponse::clear_request_id() {
-  request_id_ = GOOGLE_ULONGLONG(0);
-}
-inline ::google::protobuf::uint64 SetDataEncodingResponse::request_id() const {
-  // @@protoc_insertion_point(field_get:openconfig.SetDataEncodingResponse.request_id)
-  return request_id_;
-}
-inline void SetDataEncodingResponse::set_request_id(::google::protobuf::uint64 value) {
-  
-  request_id_ = value;
-  // @@protoc_insertion_point(field_set:openconfig.SetDataEncodingResponse.request_id)
-}
-
-// optional .openconfig.OpenConfigRpcResponseTypes response_code = 2;
-inline void SetDataEncodingResponse::clear_response_code() {
-  response_code_ = 0;
-}
-inline ::openconfig::OpenConfigRpcResponseTypes SetDataEncodingResponse::response_code() const {
-  // @@protoc_insertion_point(field_get:openconfig.SetDataEncodingResponse.response_code)
-  return static_cast< ::openconfig::OpenConfigRpcResponseTypes >(response_code_);
-}
-inline void SetDataEncodingResponse::set_response_code(::openconfig::OpenConfigRpcResponseTypes value) {
-  
-  response_code_ = value;
-  // @@protoc_insertion_point(field_set:openconfig.SetDataEncodingResponse.response_code)
-}
-
-// optional string message = 3;
-inline void SetDataEncodingResponse::clear_message() {
-  message_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& SetDataEncodingResponse::message() const {
-  // @@protoc_insertion_point(field_get:openconfig.SetDataEncodingResponse.message)
-  return message_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void SetDataEncodingResponse::set_message(const ::std::string& value) {
-  
-  message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:openconfig.SetDataEncodingResponse.message)
-}
-inline void SetDataEncodingResponse::set_message(const char* value) {
-  
-  message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:openconfig.SetDataEncodingResponse.message)
-}
-inline void SetDataEncodingResponse::set_message(const char* value, size_t size) {
-  
-  message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:openconfig.SetDataEncodingResponse.message)
-}
-inline ::std::string* SetDataEncodingResponse::mutable_message() {
-  
-  // @@protoc_insertion_point(field_mutable:openconfig.SetDataEncodingResponse.message)
-  return message_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* SetDataEncodingResponse::release_message() {
-  
-  return message_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void SetDataEncodingResponse::set_allocated_message(::std::string* message) {
-  if (message != NULL) {
-    
-  } else {
-    
-  }
-  message_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), message);
-  // @@protoc_insertion_point(field_set_allocated:openconfig.SetDataEncodingResponse.message)
-}
-
-// -------------------------------------------------------------------
-
-// GetModelsRequest
-
-// optional uint64 request_id = 1;
-inline void GetModelsRequest::clear_request_id() {
-  request_id_ = GOOGLE_ULONGLONG(0);
-}
-inline ::google::protobuf::uint64 GetModelsRequest::request_id() const {
-  // @@protoc_insertion_point(field_get:openconfig.GetModelsRequest.request_id)
-  return request_id_;
-}
-inline void GetModelsRequest::set_request_id(::google::protobuf::uint64 value) {
-  
-  request_id_ = value;
-  // @@protoc_insertion_point(field_set:openconfig.GetModelsRequest.request_id)
-}
-
-// -------------------------------------------------------------------
-
-// Model
-
-// optional string name = 1;
-inline void Model::clear_name() {
-  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& Model::name() const {
-  // @@protoc_insertion_point(field_get:openconfig.Model.name)
-  return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void Model::set_name(const ::std::string& value) {
-  
-  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:openconfig.Model.name)
-}
-inline void Model::set_name(const char* value) {
-  
-  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:openconfig.Model.name)
-}
-inline void Model::set_name(const char* value, size_t size) {
-  
-  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:openconfig.Model.name)
-}
-inline ::std::string* Model::mutable_name() {
-  
-  // @@protoc_insertion_point(field_mutable:openconfig.Model.name)
-  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* Model::release_name() {
-  
-  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void Model::set_allocated_name(::std::string* name) {
-  if (name != NULL) {
-    
-  } else {
-    
-  }
-  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:openconfig.Model.name)
-}
-
-// optional string namespace = 2;
-inline void Model::clear_namespace_() {
-  namespace__.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& Model::namespace_() const {
-  // @@protoc_insertion_point(field_get:openconfig.Model.namespace)
-  return namespace__.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void Model::set_namespace_(const ::std::string& value) {
-  
-  namespace__.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:openconfig.Model.namespace)
-}
-inline void Model::set_namespace_(const char* value) {
-  
-  namespace__.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:openconfig.Model.namespace)
-}
-inline void Model::set_namespace_(const char* value, size_t size) {
-  
-  namespace__.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:openconfig.Model.namespace)
-}
-inline ::std::string* Model::mutable_namespace_() {
-  
-  // @@protoc_insertion_point(field_mutable:openconfig.Model.namespace)
-  return namespace__.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* Model::release_namespace_() {
-  
-  return namespace__.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void Model::set_allocated_namespace_(::std::string* namespace_) {
-  if (namespace_ != NULL) {
-    
-  } else {
-    
-  }
-  namespace__.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), namespace_);
-  // @@protoc_insertion_point(field_set_allocated:openconfig.Model.namespace)
-}
-
-// optional string version = 3;
-inline void Model::clear_version() {
-  version_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& Model::version() const {
-  // @@protoc_insertion_point(field_get:openconfig.Model.version)
-  return version_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void Model::set_version(const ::std::string& value) {
-  
-  version_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:openconfig.Model.version)
-}
-inline void Model::set_version(const char* value) {
-  
-  version_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:openconfig.Model.version)
-}
-inline void Model::set_version(const char* value, size_t size) {
-  
-  version_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:openconfig.Model.version)
-}
-inline ::std::string* Model::mutable_version() {
-  
-  // @@protoc_insertion_point(field_mutable:openconfig.Model.version)
-  return version_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* Model::release_version() {
-  
-  return version_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void Model::set_allocated_version(::std::string* version) {
-  if (version != NULL) {
-    
-  } else {
-    
-  }
-  version_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), version);
-  // @@protoc_insertion_point(field_set_allocated:openconfig.Model.version)
-}
-
-// -------------------------------------------------------------------
-
-// GetModelsResponse
-
-// optional uint64 request_id = 1;
-inline void GetModelsResponse::clear_request_id() {
-  request_id_ = GOOGLE_ULONGLONG(0);
-}
-inline ::google::protobuf::uint64 GetModelsResponse::request_id() const {
-  // @@protoc_insertion_point(field_get:openconfig.GetModelsResponse.request_id)
-  return request_id_;
-}
-inline void GetModelsResponse::set_request_id(::google::protobuf::uint64 value) {
-  
-  request_id_ = value;
-  // @@protoc_insertion_point(field_set:openconfig.GetModelsResponse.request_id)
-}
-
-// repeated .openconfig.Model model = 2;
-inline int GetModelsResponse::model_size() const {
-  return model_.size();
-}
-inline void GetModelsResponse::clear_model() {
-  model_.Clear();
-}
-inline const ::openconfig::Model& GetModelsResponse::model(int index) const {
-  // @@protoc_insertion_point(field_get:openconfig.GetModelsResponse.model)
-  return model_.Get(index);
-}
-inline ::openconfig::Model* GetModelsResponse::mutable_model(int index) {
-  // @@protoc_insertion_point(field_mutable:openconfig.GetModelsResponse.model)
-  return model_.Mutable(index);
-}
-inline ::openconfig::Model* GetModelsResponse::add_model() {
-  // @@protoc_insertion_point(field_add:openconfig.GetModelsResponse.model)
-  return model_.Add();
-}
-inline ::google::protobuf::RepeatedPtrField< ::openconfig::Model >*
-GetModelsResponse::mutable_model() {
-  // @@protoc_insertion_point(field_mutable_list:openconfig.GetModelsResponse.model)
-  return &model_;
-}
-inline const ::google::protobuf::RepeatedPtrField< ::openconfig::Model >&
-GetModelsResponse::model() const {
-  // @@protoc_insertion_point(field_list:openconfig.GetModelsResponse.model)
-  return model_;
-}
-
-// optional .openconfig.OpenConfigRpcResponseTypes response_code = 3;
-inline void GetModelsResponse::clear_response_code() {
-  response_code_ = 0;
-}
-inline ::openconfig::OpenConfigRpcResponseTypes GetModelsResponse::response_code() const {
-  // @@protoc_insertion_point(field_get:openconfig.GetModelsResponse.response_code)
-  return static_cast< ::openconfig::OpenConfigRpcResponseTypes >(response_code_);
-}
-inline void GetModelsResponse::set_response_code(::openconfig::OpenConfigRpcResponseTypes value) {
-  
-  response_code_ = value;
-  // @@protoc_insertion_point(field_set:openconfig.GetModelsResponse.response_code)
-}
-
-// optional string message = 4;
-inline void GetModelsResponse::clear_message() {
-  message_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& GetModelsResponse::message() const {
-  // @@protoc_insertion_point(field_get:openconfig.GetModelsResponse.message)
-  return message_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void GetModelsResponse::set_message(const ::std::string& value) {
-  
-  message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:openconfig.GetModelsResponse.message)
-}
-inline void GetModelsResponse::set_message(const char* value) {
-  
-  message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:openconfig.GetModelsResponse.message)
-}
-inline void GetModelsResponse::set_message(const char* value, size_t size) {
-  
-  message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:openconfig.GetModelsResponse.message)
-}
-inline ::std::string* GetModelsResponse::mutable_message() {
-  
-  // @@protoc_insertion_point(field_mutable:openconfig.GetModelsResponse.message)
-  return message_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* GetModelsResponse::release_message() {
-  
-  return message_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void GetModelsResponse::set_allocated_message(::std::string* message) {
-  if (message != NULL) {
-    
-  } else {
-    
-  }
-  message_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), message);
-  // @@protoc_insertion_point(field_set_allocated:openconfig.GetModelsResponse.message)
-}
-
-// -------------------------------------------------------------------
-
-// GetRequestList
-
-// optional string operation_id = 1;
-inline void GetRequestList::clear_operation_id() {
-  operation_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& GetRequestList::operation_id() const {
-  // @@protoc_insertion_point(field_get:openconfig.GetRequestList.operation_id)
-  return operation_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void GetRequestList::set_operation_id(const ::std::string& value) {
-  
-  operation_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:openconfig.GetRequestList.operation_id)
-}
-inline void GetRequestList::set_operation_id(const char* value) {
-  
-  operation_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:openconfig.GetRequestList.operation_id)
-}
-inline void GetRequestList::set_operation_id(const char* value, size_t size) {
-  
-  operation_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:openconfig.GetRequestList.operation_id)
-}
-inline ::std::string* GetRequestList::mutable_operation_id() {
-  
-  // @@protoc_insertion_point(field_mutable:openconfig.GetRequestList.operation_id)
-  return operation_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* GetRequestList::release_operation_id() {
-  
-  return operation_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void GetRequestList::set_allocated_operation_id(::std::string* operation_id) {
-  if (operation_id != NULL) {
-    
-  } else {
-    
-  }
-  operation_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), operation_id);
-  // @@protoc_insertion_point(field_set_allocated:openconfig.GetRequestList.operation_id)
-}
-
-// optional .openconfig.GetDataCommands operation = 2;
-inline void GetRequestList::clear_operation() {
-  operation_ = 0;
-}
-inline ::openconfig::GetDataCommands GetRequestList::operation() const {
-  // @@protoc_insertion_point(field_get:openconfig.GetRequestList.operation)
-  return static_cast< ::openconfig::GetDataCommands >(operation_);
-}
-inline void GetRequestList::set_operation(::openconfig::GetDataCommands value) {
-  
-  operation_ = value;
-  // @@protoc_insertion_point(field_set:openconfig.GetRequestList.operation)
-}
-
-// optional string path = 3;
-inline void GetRequestList::clear_path() {
-  path_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& GetRequestList::path() const {
-  // @@protoc_insertion_point(field_get:openconfig.GetRequestList.path)
-  return path_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void GetRequestList::set_path(const ::std::string& value) {
-  
-  path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:openconfig.GetRequestList.path)
-}
-inline void GetRequestList::set_path(const char* value) {
-  
-  path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:openconfig.GetRequestList.path)
-}
-inline void GetRequestList::set_path(const char* value, size_t size) {
-  
-  path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:openconfig.GetRequestList.path)
-}
-inline ::std::string* GetRequestList::mutable_path() {
-  
-  // @@protoc_insertion_point(field_mutable:openconfig.GetRequestList.path)
-  return path_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* GetRequestList::release_path() {
-  
-  return path_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void GetRequestList::set_allocated_path(::std::string* path) {
-  if (path != NULL) {
-    
-  } else {
-    
-  }
-  path_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), path);
-  // @@protoc_insertion_point(field_set_allocated:openconfig.GetRequestList.path)
-}
-
-// -------------------------------------------------------------------
-
-// GetRequest
-
-// optional uint64 request_id = 1;
-inline void GetRequest::clear_request_id() {
-  request_id_ = GOOGLE_ULONGLONG(0);
-}
-inline ::google::protobuf::uint64 GetRequest::request_id() const {
-  // @@protoc_insertion_point(field_get:openconfig.GetRequest.request_id)
-  return request_id_;
-}
-inline void GetRequest::set_request_id(::google::protobuf::uint64 value) {
-  
-  request_id_ = value;
-  // @@protoc_insertion_point(field_set:openconfig.GetRequest.request_id)
-}
-
-// optional .openconfig.OpenConfigDataEncodingTypes encoding = 2;
-inline void GetRequest::clear_encoding() {
-  encoding_ = 0;
-}
-inline ::openconfig::OpenConfigDataEncodingTypes GetRequest::encoding() const {
-  // @@protoc_insertion_point(field_get:openconfig.GetRequest.encoding)
-  return static_cast< ::openconfig::OpenConfigDataEncodingTypes >(encoding_);
-}
-inline void GetRequest::set_encoding(::openconfig::OpenConfigDataEncodingTypes value) {
-  
-  encoding_ = value;
-  // @@protoc_insertion_point(field_set:openconfig.GetRequest.encoding)
-}
-
-// repeated .openconfig.GetRequestList get_request = 3;
-inline int GetRequest::get_request_size() const {
-  return get_request_.size();
-}
-inline void GetRequest::clear_get_request() {
-  get_request_.Clear();
-}
-inline const ::openconfig::GetRequestList& GetRequest::get_request(int index) const {
-  // @@protoc_insertion_point(field_get:openconfig.GetRequest.get_request)
-  return get_request_.Get(index);
-}
-inline ::openconfig::GetRequestList* GetRequest::mutable_get_request(int index) {
-  // @@protoc_insertion_point(field_mutable:openconfig.GetRequest.get_request)
-  return get_request_.Mutable(index);
-}
-inline ::openconfig::GetRequestList* GetRequest::add_get_request() {
-  // @@protoc_insertion_point(field_add:openconfig.GetRequest.get_request)
-  return get_request_.Add();
-}
-inline ::google::protobuf::RepeatedPtrField< ::openconfig::GetRequestList >*
-GetRequest::mutable_get_request() {
-  // @@protoc_insertion_point(field_mutable_list:openconfig.GetRequest.get_request)
-  return &get_request_;
-}
-inline const ::google::protobuf::RepeatedPtrField< ::openconfig::GetRequestList >&
-GetRequest::get_request() const {
-  // @@protoc_insertion_point(field_list:openconfig.GetRequest.get_request)
-  return get_request_;
-}
-
-// -------------------------------------------------------------------
-
-// GetResponse_ResponseList
-
-// optional string operation_id = 1;
-inline void GetResponse_ResponseList::clear_operation_id() {
-  operation_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& GetResponse_ResponseList::operation_id() const {
-  // @@protoc_insertion_point(field_get:openconfig.GetResponse.ResponseList.operation_id)
-  return operation_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void GetResponse_ResponseList::set_operation_id(const ::std::string& value) {
-  
-  operation_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:openconfig.GetResponse.ResponseList.operation_id)
-}
-inline void GetResponse_ResponseList::set_operation_id(const char* value) {
-  
-  operation_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:openconfig.GetResponse.ResponseList.operation_id)
-}
-inline void GetResponse_ResponseList::set_operation_id(const char* value, size_t size) {
-  
-  operation_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:openconfig.GetResponse.ResponseList.operation_id)
-}
-inline ::std::string* GetResponse_ResponseList::mutable_operation_id() {
-  
-  // @@protoc_insertion_point(field_mutable:openconfig.GetResponse.ResponseList.operation_id)
-  return operation_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* GetResponse_ResponseList::release_operation_id() {
-  
-  return operation_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void GetResponse_ResponseList::set_allocated_operation_id(::std::string* operation_id) {
-  if (operation_id != NULL) {
-    
-  } else {
-    
-  }
-  operation_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), operation_id);
-  // @@protoc_insertion_point(field_set_allocated:openconfig.GetResponse.ResponseList.operation_id)
-}
-
-// optional string path = 2;
-inline void GetResponse_ResponseList::clear_path() {
-  path_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& GetResponse_ResponseList::path() const {
-  // @@protoc_insertion_point(field_get:openconfig.GetResponse.ResponseList.path)
-  return path_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void GetResponse_ResponseList::set_path(const ::std::string& value) {
-  
-  path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:openconfig.GetResponse.ResponseList.path)
-}
-inline void GetResponse_ResponseList::set_path(const char* value) {
-  
-  path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:openconfig.GetResponse.ResponseList.path)
-}
-inline void GetResponse_ResponseList::set_path(const char* value, size_t size) {
-  
-  path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:openconfig.GetResponse.ResponseList.path)
-}
-inline ::std::string* GetResponse_ResponseList::mutable_path() {
-  
-  // @@protoc_insertion_point(field_mutable:openconfig.GetResponse.ResponseList.path)
-  return path_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* GetResponse_ResponseList::release_path() {
-  
-  return path_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void GetResponse_ResponseList::set_allocated_path(::std::string* path) {
-  if (path != NULL) {
-    
-  } else {
-    
-  }
-  path_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), path);
-  // @@protoc_insertion_point(field_set_allocated:openconfig.GetResponse.ResponseList.path)
-}
-
-// optional string value = 3;
-inline void GetResponse_ResponseList::clear_value() {
-  value_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& GetResponse_ResponseList::value() const {
-  // @@protoc_insertion_point(field_get:openconfig.GetResponse.ResponseList.value)
-  return value_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void GetResponse_ResponseList::set_value(const ::std::string& value) {
-  
-  value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:openconfig.GetResponse.ResponseList.value)
-}
-inline void GetResponse_ResponseList::set_value(const char* value) {
-  
-  value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:openconfig.GetResponse.ResponseList.value)
-}
-inline void GetResponse_ResponseList::set_value(const char* value, size_t size) {
-  
-  value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:openconfig.GetResponse.ResponseList.value)
-}
-inline ::std::string* GetResponse_ResponseList::mutable_value() {
-  
-  // @@protoc_insertion_point(field_mutable:openconfig.GetResponse.ResponseList.value)
-  return value_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* GetResponse_ResponseList::release_value() {
-  
-  return value_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void GetResponse_ResponseList::set_allocated_value(::std::string* value) {
-  if (value != NULL) {
-    
-  } else {
-    
-  }
-  value_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set_allocated:openconfig.GetResponse.ResponseList.value)
-}
-
-// optional .openconfig.OpenConfigRpcResponseTypes response_code = 4;
-inline void GetResponse_ResponseList::clear_response_code() {
-  response_code_ = 0;
-}
-inline ::openconfig::OpenConfigRpcResponseTypes GetResponse_ResponseList::response_code() const {
-  // @@protoc_insertion_point(field_get:openconfig.GetResponse.ResponseList.response_code)
-  return static_cast< ::openconfig::OpenConfigRpcResponseTypes >(response_code_);
-}
-inline void GetResponse_ResponseList::set_response_code(::openconfig::OpenConfigRpcResponseTypes value) {
-  
-  response_code_ = value;
-  // @@protoc_insertion_point(field_set:openconfig.GetResponse.ResponseList.response_code)
-}
-
-// optional string message = 5;
-inline void GetResponse_ResponseList::clear_message() {
-  message_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& GetResponse_ResponseList::message() const {
-  // @@protoc_insertion_point(field_get:openconfig.GetResponse.ResponseList.message)
-  return message_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void GetResponse_ResponseList::set_message(const ::std::string& value) {
-  
-  message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:openconfig.GetResponse.ResponseList.message)
-}
-inline void GetResponse_ResponseList::set_message(const char* value) {
-  
-  message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:openconfig.GetResponse.ResponseList.message)
-}
-inline void GetResponse_ResponseList::set_message(const char* value, size_t size) {
-  
-  message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:openconfig.GetResponse.ResponseList.message)
-}
-inline ::std::string* GetResponse_ResponseList::mutable_message() {
-  
-  // @@protoc_insertion_point(field_mutable:openconfig.GetResponse.ResponseList.message)
-  return message_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* GetResponse_ResponseList::release_message() {
-  
-  return message_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void GetResponse_ResponseList::set_allocated_message(::std::string* message) {
-  if (message != NULL) {
-    
-  } else {
-    
-  }
-  message_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), message);
-  // @@protoc_insertion_point(field_set_allocated:openconfig.GetResponse.ResponseList.message)
-}
-
-// -------------------------------------------------------------------
-
-// GetResponse
-
-// optional uint64 request_id = 1;
-inline void GetResponse::clear_request_id() {
-  request_id_ = GOOGLE_ULONGLONG(0);
-}
-inline ::google::protobuf::uint64 GetResponse::request_id() const {
-  // @@protoc_insertion_point(field_get:openconfig.GetResponse.request_id)
-  return request_id_;
-}
-inline void GetResponse::set_request_id(::google::protobuf::uint64 value) {
-  
-  request_id_ = value;
-  // @@protoc_insertion_point(field_set:openconfig.GetResponse.request_id)
-}
-
-// repeated .openconfig.GetResponse.ResponseList response = 2;
-inline int GetResponse::response_size() const {
-  return response_.size();
-}
-inline void GetResponse::clear_response() {
-  response_.Clear();
-}
-inline const ::openconfig::GetResponse_ResponseList& GetResponse::response(int index) const {
-  // @@protoc_insertion_point(field_get:openconfig.GetResponse.response)
-  return response_.Get(index);
-}
-inline ::openconfig::GetResponse_ResponseList* GetResponse::mutable_response(int index) {
-  // @@protoc_insertion_point(field_mutable:openconfig.GetResponse.response)
-  return response_.Mutable(index);
-}
-inline ::openconfig::GetResponse_ResponseList* GetResponse::add_response() {
-  // @@protoc_insertion_point(field_add:openconfig.GetResponse.response)
-  return response_.Add();
-}
-inline ::google::protobuf::RepeatedPtrField< ::openconfig::GetResponse_ResponseList >*
-GetResponse::mutable_response() {
-  // @@protoc_insertion_point(field_mutable_list:openconfig.GetResponse.response)
-  return &response_;
-}
-inline const ::google::protobuf::RepeatedPtrField< ::openconfig::GetResponse_ResponseList >&
-GetResponse::response() const {
-  // @@protoc_insertion_point(field_list:openconfig.GetResponse.response)
-  return response_;
-}
-
-// -------------------------------------------------------------------
-
 // ExecuteOpCommandRequest
 
 // optional uint64 request_id = 1;
@@ -3653,13 +1217,13 @@ inline void ExecuteOpCommandRequest::clear_request_id() {
   request_id_ = GOOGLE_ULONGLONG(0);
 }
 inline ::google::protobuf::uint64 ExecuteOpCommandRequest::request_id() const {
-  // @@protoc_insertion_point(field_get:openconfig.ExecuteOpCommandRequest.request_id)
+  // @@protoc_insertion_point(field_get:management.ExecuteOpCommandRequest.request_id)
   return request_id_;
 }
 inline void ExecuteOpCommandRequest::set_request_id(::google::protobuf::uint64 value) {
   
   request_id_ = value;
-  // @@protoc_insertion_point(field_set:openconfig.ExecuteOpCommandRequest.request_id)
+  // @@protoc_insertion_point(field_set:management.ExecuteOpCommandRequest.request_id)
 }
 
 // optional string command = 2;
@@ -3667,28 +1231,28 @@ inline void ExecuteOpCommandRequest::clear_command() {
   command_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& ExecuteOpCommandRequest::command() const {
-  // @@protoc_insertion_point(field_get:openconfig.ExecuteOpCommandRequest.command)
+  // @@protoc_insertion_point(field_get:management.ExecuteOpCommandRequest.command)
   return command_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void ExecuteOpCommandRequest::set_command(const ::std::string& value) {
   
   command_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:openconfig.ExecuteOpCommandRequest.command)
+  // @@protoc_insertion_point(field_set:management.ExecuteOpCommandRequest.command)
 }
 inline void ExecuteOpCommandRequest::set_command(const char* value) {
   
   command_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:openconfig.ExecuteOpCommandRequest.command)
+  // @@protoc_insertion_point(field_set_char:management.ExecuteOpCommandRequest.command)
 }
 inline void ExecuteOpCommandRequest::set_command(const char* value, size_t size) {
   
   command_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:openconfig.ExecuteOpCommandRequest.command)
+  // @@protoc_insertion_point(field_set_pointer:management.ExecuteOpCommandRequest.command)
 }
 inline ::std::string* ExecuteOpCommandRequest::mutable_command() {
   
-  // @@protoc_insertion_point(field_mutable:openconfig.ExecuteOpCommandRequest.command)
+  // @@protoc_insertion_point(field_mutable:management.ExecuteOpCommandRequest.command)
   return command_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* ExecuteOpCommandRequest::release_command() {
@@ -3702,35 +1266,35 @@ inline void ExecuteOpCommandRequest::set_allocated_command(::std::string* comman
     
   }
   command_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), command);
-  // @@protoc_insertion_point(field_set_allocated:openconfig.ExecuteOpCommandRequest.command)
+  // @@protoc_insertion_point(field_set_allocated:management.ExecuteOpCommandRequest.command)
 }
 
-// optional .openconfig.OperationFormatType in_format = 3;
+// optional .management.OperationFormatType in_format = 3;
 inline void ExecuteOpCommandRequest::clear_in_format() {
   in_format_ = 0;
 }
-inline ::openconfig::OperationFormatType ExecuteOpCommandRequest::in_format() const {
-  // @@protoc_insertion_point(field_get:openconfig.ExecuteOpCommandRequest.in_format)
-  return static_cast< ::openconfig::OperationFormatType >(in_format_);
+inline ::management::OperationFormatType ExecuteOpCommandRequest::in_format() const {
+  // @@protoc_insertion_point(field_get:management.ExecuteOpCommandRequest.in_format)
+  return static_cast< ::management::OperationFormatType >(in_format_);
 }
-inline void ExecuteOpCommandRequest::set_in_format(::openconfig::OperationFormatType value) {
+inline void ExecuteOpCommandRequest::set_in_format(::management::OperationFormatType value) {
   
   in_format_ = value;
-  // @@protoc_insertion_point(field_set:openconfig.ExecuteOpCommandRequest.in_format)
+  // @@protoc_insertion_point(field_set:management.ExecuteOpCommandRequest.in_format)
 }
 
-// optional .openconfig.OperationFormatType out_format = 4;
+// optional .management.OperationFormatType out_format = 4;
 inline void ExecuteOpCommandRequest::clear_out_format() {
   out_format_ = 0;
 }
-inline ::openconfig::OperationFormatType ExecuteOpCommandRequest::out_format() const {
-  // @@protoc_insertion_point(field_get:openconfig.ExecuteOpCommandRequest.out_format)
-  return static_cast< ::openconfig::OperationFormatType >(out_format_);
+inline ::management::OperationFormatType ExecuteOpCommandRequest::out_format() const {
+  // @@protoc_insertion_point(field_get:management.ExecuteOpCommandRequest.out_format)
+  return static_cast< ::management::OperationFormatType >(out_format_);
 }
-inline void ExecuteOpCommandRequest::set_out_format(::openconfig::OperationFormatType value) {
+inline void ExecuteOpCommandRequest::set_out_format(::management::OperationFormatType value) {
   
   out_format_ = value;
-  // @@protoc_insertion_point(field_set:openconfig.ExecuteOpCommandRequest.out_format)
+  // @@protoc_insertion_point(field_set:management.ExecuteOpCommandRequest.out_format)
 }
 
 // -------------------------------------------------------------------
@@ -3742,13 +1306,13 @@ inline void ExecuteOpCommandResponse::clear_request_id() {
   request_id_ = GOOGLE_ULONGLONG(0);
 }
 inline ::google::protobuf::uint64 ExecuteOpCommandResponse::request_id() const {
-  // @@protoc_insertion_point(field_get:openconfig.ExecuteOpCommandResponse.request_id)
+  // @@protoc_insertion_point(field_get:management.ExecuteOpCommandResponse.request_id)
   return request_id_;
 }
 inline void ExecuteOpCommandResponse::set_request_id(::google::protobuf::uint64 value) {
   
   request_id_ = value;
-  // @@protoc_insertion_point(field_set:openconfig.ExecuteOpCommandResponse.request_id)
+  // @@protoc_insertion_point(field_set:management.ExecuteOpCommandResponse.request_id)
 }
 
 // optional string data = 2;
@@ -3756,28 +1320,28 @@ inline void ExecuteOpCommandResponse::clear_data() {
   data_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& ExecuteOpCommandResponse::data() const {
-  // @@protoc_insertion_point(field_get:openconfig.ExecuteOpCommandResponse.data)
+  // @@protoc_insertion_point(field_get:management.ExecuteOpCommandResponse.data)
   return data_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void ExecuteOpCommandResponse::set_data(const ::std::string& value) {
   
   data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:openconfig.ExecuteOpCommandResponse.data)
+  // @@protoc_insertion_point(field_set:management.ExecuteOpCommandResponse.data)
 }
 inline void ExecuteOpCommandResponse::set_data(const char* value) {
   
   data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:openconfig.ExecuteOpCommandResponse.data)
+  // @@protoc_insertion_point(field_set_char:management.ExecuteOpCommandResponse.data)
 }
 inline void ExecuteOpCommandResponse::set_data(const char* value, size_t size) {
   
   data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:openconfig.ExecuteOpCommandResponse.data)
+  // @@protoc_insertion_point(field_set_pointer:management.ExecuteOpCommandResponse.data)
 }
 inline ::std::string* ExecuteOpCommandResponse::mutable_data() {
   
-  // @@protoc_insertion_point(field_mutable:openconfig.ExecuteOpCommandResponse.data)
+  // @@protoc_insertion_point(field_mutable:management.ExecuteOpCommandResponse.data)
   return data_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* ExecuteOpCommandResponse::release_data() {
@@ -3791,21 +1355,21 @@ inline void ExecuteOpCommandResponse::set_allocated_data(::std::string* data) {
     
   }
   data_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), data);
-  // @@protoc_insertion_point(field_set_allocated:openconfig.ExecuteOpCommandResponse.data)
+  // @@protoc_insertion_point(field_set_allocated:management.ExecuteOpCommandResponse.data)
 }
 
-// optional .openconfig.OpenConfigRpcResponseTypes response_code = 3;
+// optional .management.JunosRpcResponseTypes response_code = 3;
 inline void ExecuteOpCommandResponse::clear_response_code() {
   response_code_ = 0;
 }
-inline ::openconfig::OpenConfigRpcResponseTypes ExecuteOpCommandResponse::response_code() const {
-  // @@protoc_insertion_point(field_get:openconfig.ExecuteOpCommandResponse.response_code)
-  return static_cast< ::openconfig::OpenConfigRpcResponseTypes >(response_code_);
+inline ::management::JunosRpcResponseTypes ExecuteOpCommandResponse::response_code() const {
+  // @@protoc_insertion_point(field_get:management.ExecuteOpCommandResponse.response_code)
+  return static_cast< ::management::JunosRpcResponseTypes >(response_code_);
 }
-inline void ExecuteOpCommandResponse::set_response_code(::openconfig::OpenConfigRpcResponseTypes value) {
+inline void ExecuteOpCommandResponse::set_response_code(::management::JunosRpcResponseTypes value) {
   
   response_code_ = value;
-  // @@protoc_insertion_point(field_set:openconfig.ExecuteOpCommandResponse.response_code)
+  // @@protoc_insertion_point(field_set:management.ExecuteOpCommandResponse.response_code)
 }
 
 // optional string message = 4;
@@ -3813,28 +1377,28 @@ inline void ExecuteOpCommandResponse::clear_message() {
   message_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& ExecuteOpCommandResponse::message() const {
-  // @@protoc_insertion_point(field_get:openconfig.ExecuteOpCommandResponse.message)
+  // @@protoc_insertion_point(field_get:management.ExecuteOpCommandResponse.message)
   return message_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void ExecuteOpCommandResponse::set_message(const ::std::string& value) {
   
   message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:openconfig.ExecuteOpCommandResponse.message)
+  // @@protoc_insertion_point(field_set:management.ExecuteOpCommandResponse.message)
 }
 inline void ExecuteOpCommandResponse::set_message(const char* value) {
   
   message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:openconfig.ExecuteOpCommandResponse.message)
+  // @@protoc_insertion_point(field_set_char:management.ExecuteOpCommandResponse.message)
 }
 inline void ExecuteOpCommandResponse::set_message(const char* value, size_t size) {
   
   message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:openconfig.ExecuteOpCommandResponse.message)
+  // @@protoc_insertion_point(field_set_pointer:management.ExecuteOpCommandResponse.message)
 }
 inline ::std::string* ExecuteOpCommandResponse::mutable_message() {
   
-  // @@protoc_insertion_point(field_mutable:openconfig.ExecuteOpCommandResponse.message)
+  // @@protoc_insertion_point(field_mutable:management.ExecuteOpCommandResponse.message)
   return message_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* ExecuteOpCommandResponse::release_message() {
@@ -3848,382 +1412,7 @@ inline void ExecuteOpCommandResponse::set_allocated_message(::std::string* messa
     
   }
   message_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), message);
-  // @@protoc_insertion_point(field_set_allocated:openconfig.ExecuteOpCommandResponse.message)
-}
-
-// -------------------------------------------------------------------
-
-// SetRequest_ConfigOperationList
-
-// optional string operation_id = 1;
-inline void SetRequest_ConfigOperationList::clear_operation_id() {
-  operation_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& SetRequest_ConfigOperationList::operation_id() const {
-  // @@protoc_insertion_point(field_get:openconfig.SetRequest.ConfigOperationList.operation_id)
-  return operation_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void SetRequest_ConfigOperationList::set_operation_id(const ::std::string& value) {
-  
-  operation_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:openconfig.SetRequest.ConfigOperationList.operation_id)
-}
-inline void SetRequest_ConfigOperationList::set_operation_id(const char* value) {
-  
-  operation_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:openconfig.SetRequest.ConfigOperationList.operation_id)
-}
-inline void SetRequest_ConfigOperationList::set_operation_id(const char* value, size_t size) {
-  
-  operation_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:openconfig.SetRequest.ConfigOperationList.operation_id)
-}
-inline ::std::string* SetRequest_ConfigOperationList::mutable_operation_id() {
-  
-  // @@protoc_insertion_point(field_mutable:openconfig.SetRequest.ConfigOperationList.operation_id)
-  return operation_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* SetRequest_ConfigOperationList::release_operation_id() {
-  
-  return operation_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void SetRequest_ConfigOperationList::set_allocated_operation_id(::std::string* operation_id) {
-  if (operation_id != NULL) {
-    
-  } else {
-    
-  }
-  operation_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), operation_id);
-  // @@protoc_insertion_point(field_set_allocated:openconfig.SetRequest.ConfigOperationList.operation_id)
-}
-
-// optional .openconfig.SetConfigCommands operation = 2;
-inline void SetRequest_ConfigOperationList::clear_operation() {
-  operation_ = 0;
-}
-inline ::openconfig::SetConfigCommands SetRequest_ConfigOperationList::operation() const {
-  // @@protoc_insertion_point(field_get:openconfig.SetRequest.ConfigOperationList.operation)
-  return static_cast< ::openconfig::SetConfigCommands >(operation_);
-}
-inline void SetRequest_ConfigOperationList::set_operation(::openconfig::SetConfigCommands value) {
-  
-  operation_ = value;
-  // @@protoc_insertion_point(field_set:openconfig.SetRequest.ConfigOperationList.operation)
-}
-
-// optional string path = 3;
-inline void SetRequest_ConfigOperationList::clear_path() {
-  path_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& SetRequest_ConfigOperationList::path() const {
-  // @@protoc_insertion_point(field_get:openconfig.SetRequest.ConfigOperationList.path)
-  return path_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void SetRequest_ConfigOperationList::set_path(const ::std::string& value) {
-  
-  path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:openconfig.SetRequest.ConfigOperationList.path)
-}
-inline void SetRequest_ConfigOperationList::set_path(const char* value) {
-  
-  path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:openconfig.SetRequest.ConfigOperationList.path)
-}
-inline void SetRequest_ConfigOperationList::set_path(const char* value, size_t size) {
-  
-  path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:openconfig.SetRequest.ConfigOperationList.path)
-}
-inline ::std::string* SetRequest_ConfigOperationList::mutable_path() {
-  
-  // @@protoc_insertion_point(field_mutable:openconfig.SetRequest.ConfigOperationList.path)
-  return path_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* SetRequest_ConfigOperationList::release_path() {
-  
-  return path_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void SetRequest_ConfigOperationList::set_allocated_path(::std::string* path) {
-  if (path != NULL) {
-    
-  } else {
-    
-  }
-  path_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), path);
-  // @@protoc_insertion_point(field_set_allocated:openconfig.SetRequest.ConfigOperationList.path)
-}
-
-// optional string value = 4;
-inline void SetRequest_ConfigOperationList::clear_value() {
-  value_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& SetRequest_ConfigOperationList::value() const {
-  // @@protoc_insertion_point(field_get:openconfig.SetRequest.ConfigOperationList.value)
-  return value_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void SetRequest_ConfigOperationList::set_value(const ::std::string& value) {
-  
-  value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:openconfig.SetRequest.ConfigOperationList.value)
-}
-inline void SetRequest_ConfigOperationList::set_value(const char* value) {
-  
-  value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:openconfig.SetRequest.ConfigOperationList.value)
-}
-inline void SetRequest_ConfigOperationList::set_value(const char* value, size_t size) {
-  
-  value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:openconfig.SetRequest.ConfigOperationList.value)
-}
-inline ::std::string* SetRequest_ConfigOperationList::mutable_value() {
-  
-  // @@protoc_insertion_point(field_mutable:openconfig.SetRequest.ConfigOperationList.value)
-  return value_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* SetRequest_ConfigOperationList::release_value() {
-  
-  return value_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void SetRequest_ConfigOperationList::set_allocated_value(::std::string* value) {
-  if (value != NULL) {
-    
-  } else {
-    
-  }
-  value_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set_allocated:openconfig.SetRequest.ConfigOperationList.value)
-}
-
-// -------------------------------------------------------------------
-
-// SetRequest
-
-// optional uint64 request_id = 1;
-inline void SetRequest::clear_request_id() {
-  request_id_ = GOOGLE_ULONGLONG(0);
-}
-inline ::google::protobuf::uint64 SetRequest::request_id() const {
-  // @@protoc_insertion_point(field_get:openconfig.SetRequest.request_id)
-  return request_id_;
-}
-inline void SetRequest::set_request_id(::google::protobuf::uint64 value) {
-  
-  request_id_ = value;
-  // @@protoc_insertion_point(field_set:openconfig.SetRequest.request_id)
-}
-
-// optional bool transaction = 2;
-inline void SetRequest::clear_transaction() {
-  transaction_ = false;
-}
-inline bool SetRequest::transaction() const {
-  // @@protoc_insertion_point(field_get:openconfig.SetRequest.transaction)
-  return transaction_;
-}
-inline void SetRequest::set_transaction(bool value) {
-  
-  transaction_ = value;
-  // @@protoc_insertion_point(field_set:openconfig.SetRequest.transaction)
-}
-
-// optional .openconfig.OpenConfigDataEncodingTypes encoding = 3;
-inline void SetRequest::clear_encoding() {
-  encoding_ = 0;
-}
-inline ::openconfig::OpenConfigDataEncodingTypes SetRequest::encoding() const {
-  // @@protoc_insertion_point(field_get:openconfig.SetRequest.encoding)
-  return static_cast< ::openconfig::OpenConfigDataEncodingTypes >(encoding_);
-}
-inline void SetRequest::set_encoding(::openconfig::OpenConfigDataEncodingTypes value) {
-  
-  encoding_ = value;
-  // @@protoc_insertion_point(field_set:openconfig.SetRequest.encoding)
-}
-
-// repeated .openconfig.SetRequest.ConfigOperationList config_operation = 4;
-inline int SetRequest::config_operation_size() const {
-  return config_operation_.size();
-}
-inline void SetRequest::clear_config_operation() {
-  config_operation_.Clear();
-}
-inline const ::openconfig::SetRequest_ConfigOperationList& SetRequest::config_operation(int index) const {
-  // @@protoc_insertion_point(field_get:openconfig.SetRequest.config_operation)
-  return config_operation_.Get(index);
-}
-inline ::openconfig::SetRequest_ConfigOperationList* SetRequest::mutable_config_operation(int index) {
-  // @@protoc_insertion_point(field_mutable:openconfig.SetRequest.config_operation)
-  return config_operation_.Mutable(index);
-}
-inline ::openconfig::SetRequest_ConfigOperationList* SetRequest::add_config_operation() {
-  // @@protoc_insertion_point(field_add:openconfig.SetRequest.config_operation)
-  return config_operation_.Add();
-}
-inline ::google::protobuf::RepeatedPtrField< ::openconfig::SetRequest_ConfigOperationList >*
-SetRequest::mutable_config_operation() {
-  // @@protoc_insertion_point(field_mutable_list:openconfig.SetRequest.config_operation)
-  return &config_operation_;
-}
-inline const ::google::protobuf::RepeatedPtrField< ::openconfig::SetRequest_ConfigOperationList >&
-SetRequest::config_operation() const {
-  // @@protoc_insertion_point(field_list:openconfig.SetRequest.config_operation)
-  return config_operation_;
-}
-
-// -------------------------------------------------------------------
-
-// SetResponse_ResponseList
-
-// optional string operation_id = 1;
-inline void SetResponse_ResponseList::clear_operation_id() {
-  operation_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& SetResponse_ResponseList::operation_id() const {
-  // @@protoc_insertion_point(field_get:openconfig.SetResponse.ResponseList.operation_id)
-  return operation_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void SetResponse_ResponseList::set_operation_id(const ::std::string& value) {
-  
-  operation_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:openconfig.SetResponse.ResponseList.operation_id)
-}
-inline void SetResponse_ResponseList::set_operation_id(const char* value) {
-  
-  operation_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:openconfig.SetResponse.ResponseList.operation_id)
-}
-inline void SetResponse_ResponseList::set_operation_id(const char* value, size_t size) {
-  
-  operation_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:openconfig.SetResponse.ResponseList.operation_id)
-}
-inline ::std::string* SetResponse_ResponseList::mutable_operation_id() {
-  
-  // @@protoc_insertion_point(field_mutable:openconfig.SetResponse.ResponseList.operation_id)
-  return operation_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* SetResponse_ResponseList::release_operation_id() {
-  
-  return operation_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void SetResponse_ResponseList::set_allocated_operation_id(::std::string* operation_id) {
-  if (operation_id != NULL) {
-    
-  } else {
-    
-  }
-  operation_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), operation_id);
-  // @@protoc_insertion_point(field_set_allocated:openconfig.SetResponse.ResponseList.operation_id)
-}
-
-// optional .openconfig.OpenConfigRpcResponseTypes response_code = 2;
-inline void SetResponse_ResponseList::clear_response_code() {
-  response_code_ = 0;
-}
-inline ::openconfig::OpenConfigRpcResponseTypes SetResponse_ResponseList::response_code() const {
-  // @@protoc_insertion_point(field_get:openconfig.SetResponse.ResponseList.response_code)
-  return static_cast< ::openconfig::OpenConfigRpcResponseTypes >(response_code_);
-}
-inline void SetResponse_ResponseList::set_response_code(::openconfig::OpenConfigRpcResponseTypes value) {
-  
-  response_code_ = value;
-  // @@protoc_insertion_point(field_set:openconfig.SetResponse.ResponseList.response_code)
-}
-
-// optional string message = 3;
-inline void SetResponse_ResponseList::clear_message() {
-  message_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& SetResponse_ResponseList::message() const {
-  // @@protoc_insertion_point(field_get:openconfig.SetResponse.ResponseList.message)
-  return message_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void SetResponse_ResponseList::set_message(const ::std::string& value) {
-  
-  message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:openconfig.SetResponse.ResponseList.message)
-}
-inline void SetResponse_ResponseList::set_message(const char* value) {
-  
-  message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:openconfig.SetResponse.ResponseList.message)
-}
-inline void SetResponse_ResponseList::set_message(const char* value, size_t size) {
-  
-  message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:openconfig.SetResponse.ResponseList.message)
-}
-inline ::std::string* SetResponse_ResponseList::mutable_message() {
-  
-  // @@protoc_insertion_point(field_mutable:openconfig.SetResponse.ResponseList.message)
-  return message_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* SetResponse_ResponseList::release_message() {
-  
-  return message_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void SetResponse_ResponseList::set_allocated_message(::std::string* message) {
-  if (message != NULL) {
-    
-  } else {
-    
-  }
-  message_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), message);
-  // @@protoc_insertion_point(field_set_allocated:openconfig.SetResponse.ResponseList.message)
-}
-
-// -------------------------------------------------------------------
-
-// SetResponse
-
-// optional uint64 request_id = 1;
-inline void SetResponse::clear_request_id() {
-  request_id_ = GOOGLE_ULONGLONG(0);
-}
-inline ::google::protobuf::uint64 SetResponse::request_id() const {
-  // @@protoc_insertion_point(field_get:openconfig.SetResponse.request_id)
-  return request_id_;
-}
-inline void SetResponse::set_request_id(::google::protobuf::uint64 value) {
-  
-  request_id_ = value;
-  // @@protoc_insertion_point(field_set:openconfig.SetResponse.request_id)
-}
-
-// repeated .openconfig.SetResponse.ResponseList response = 2;
-inline int SetResponse::response_size() const {
-  return response_.size();
-}
-inline void SetResponse::clear_response() {
-  response_.Clear();
-}
-inline const ::openconfig::SetResponse_ResponseList& SetResponse::response(int index) const {
-  // @@protoc_insertion_point(field_get:openconfig.SetResponse.response)
-  return response_.Get(index);
-}
-inline ::openconfig::SetResponse_ResponseList* SetResponse::mutable_response(int index) {
-  // @@protoc_insertion_point(field_mutable:openconfig.SetResponse.response)
-  return response_.Mutable(index);
-}
-inline ::openconfig::SetResponse_ResponseList* SetResponse::add_response() {
-  // @@protoc_insertion_point(field_add:openconfig.SetResponse.response)
-  return response_.Add();
-}
-inline ::google::protobuf::RepeatedPtrField< ::openconfig::SetResponse_ResponseList >*
-SetResponse::mutable_response() {
-  // @@protoc_insertion_point(field_mutable_list:openconfig.SetResponse.response)
-  return &response_;
-}
-inline const ::google::protobuf::RepeatedPtrField< ::openconfig::SetResponse_ResponseList >&
-SetResponse::response() const {
-  // @@protoc_insertion_point(field_list:openconfig.SetResponse.response)
-  return response_;
+  // @@protoc_insertion_point(field_set_allocated:management.ExecuteOpCommandResponse.message)
 }
 
 // -------------------------------------------------------------------
@@ -4235,28 +1424,28 @@ inline void EphConfigRequestList::clear_operation_id() {
   operation_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& EphConfigRequestList::operation_id() const {
-  // @@protoc_insertion_point(field_get:openconfig.EphConfigRequestList.operation_id)
+  // @@protoc_insertion_point(field_get:management.EphConfigRequestList.operation_id)
   return operation_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void EphConfigRequestList::set_operation_id(const ::std::string& value) {
   
   operation_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:openconfig.EphConfigRequestList.operation_id)
+  // @@protoc_insertion_point(field_set:management.EphConfigRequestList.operation_id)
 }
 inline void EphConfigRequestList::set_operation_id(const char* value) {
   
   operation_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:openconfig.EphConfigRequestList.operation_id)
+  // @@protoc_insertion_point(field_set_char:management.EphConfigRequestList.operation_id)
 }
 inline void EphConfigRequestList::set_operation_id(const char* value, size_t size) {
   
   operation_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:openconfig.EphConfigRequestList.operation_id)
+  // @@protoc_insertion_point(field_set_pointer:management.EphConfigRequestList.operation_id)
 }
 inline ::std::string* EphConfigRequestList::mutable_operation_id() {
   
-  // @@protoc_insertion_point(field_mutable:openconfig.EphConfigRequestList.operation_id)
+  // @@protoc_insertion_point(field_mutable:management.EphConfigRequestList.operation_id)
   return operation_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* EphConfigRequestList::release_operation_id() {
@@ -4270,7 +1459,7 @@ inline void EphConfigRequestList::set_allocated_operation_id(::std::string* oper
     
   }
   operation_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), operation_id);
-  // @@protoc_insertion_point(field_set_allocated:openconfig.EphConfigRequestList.operation_id)
+  // @@protoc_insertion_point(field_set_allocated:management.EphConfigRequestList.operation_id)
 }
 
 // optional string path = 2;
@@ -4278,28 +1467,28 @@ inline void EphConfigRequestList::clear_path() {
   path_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& EphConfigRequestList::path() const {
-  // @@protoc_insertion_point(field_get:openconfig.EphConfigRequestList.path)
+  // @@protoc_insertion_point(field_get:management.EphConfigRequestList.path)
   return path_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void EphConfigRequestList::set_path(const ::std::string& value) {
   
   path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:openconfig.EphConfigRequestList.path)
+  // @@protoc_insertion_point(field_set:management.EphConfigRequestList.path)
 }
 inline void EphConfigRequestList::set_path(const char* value) {
   
   path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:openconfig.EphConfigRequestList.path)
+  // @@protoc_insertion_point(field_set_char:management.EphConfigRequestList.path)
 }
 inline void EphConfigRequestList::set_path(const char* value, size_t size) {
   
   path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:openconfig.EphConfigRequestList.path)
+  // @@protoc_insertion_point(field_set_pointer:management.EphConfigRequestList.path)
 }
 inline ::std::string* EphConfigRequestList::mutable_path() {
   
-  // @@protoc_insertion_point(field_mutable:openconfig.EphConfigRequestList.path)
+  // @@protoc_insertion_point(field_mutable:management.EphConfigRequestList.path)
   return path_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* EphConfigRequestList::release_path() {
@@ -4313,7 +1502,7 @@ inline void EphConfigRequestList::set_allocated_path(::std::string* path) {
     
   }
   path_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), path);
-  // @@protoc_insertion_point(field_set_allocated:openconfig.EphConfigRequestList.path)
+  // @@protoc_insertion_point(field_set_allocated:management.EphConfigRequestList.path)
 }
 
 // -------------------------------------------------------------------
@@ -4325,56 +1514,56 @@ inline void GetEphemeralConfigRequest::clear_request_id() {
   request_id_ = GOOGLE_ULONGLONG(0);
 }
 inline ::google::protobuf::uint64 GetEphemeralConfigRequest::request_id() const {
-  // @@protoc_insertion_point(field_get:openconfig.GetEphemeralConfigRequest.request_id)
+  // @@protoc_insertion_point(field_get:management.GetEphemeralConfigRequest.request_id)
   return request_id_;
 }
 inline void GetEphemeralConfigRequest::set_request_id(::google::protobuf::uint64 value) {
   
   request_id_ = value;
-  // @@protoc_insertion_point(field_set:openconfig.GetEphemeralConfigRequest.request_id)
+  // @@protoc_insertion_point(field_set:management.GetEphemeralConfigRequest.request_id)
 }
 
-// optional .openconfig.OpenConfigDataEncodingTypes encoding = 2;
+// optional .management.JunosDataEncodingTypes encoding = 2;
 inline void GetEphemeralConfigRequest::clear_encoding() {
   encoding_ = 0;
 }
-inline ::openconfig::OpenConfigDataEncodingTypes GetEphemeralConfigRequest::encoding() const {
-  // @@protoc_insertion_point(field_get:openconfig.GetEphemeralConfigRequest.encoding)
-  return static_cast< ::openconfig::OpenConfigDataEncodingTypes >(encoding_);
+inline ::management::JunosDataEncodingTypes GetEphemeralConfigRequest::encoding() const {
+  // @@protoc_insertion_point(field_get:management.GetEphemeralConfigRequest.encoding)
+  return static_cast< ::management::JunosDataEncodingTypes >(encoding_);
 }
-inline void GetEphemeralConfigRequest::set_encoding(::openconfig::OpenConfigDataEncodingTypes value) {
+inline void GetEphemeralConfigRequest::set_encoding(::management::JunosDataEncodingTypes value) {
   
   encoding_ = value;
-  // @@protoc_insertion_point(field_set:openconfig.GetEphemeralConfigRequest.encoding)
+  // @@protoc_insertion_point(field_set:management.GetEphemeralConfigRequest.encoding)
 }
 
-// repeated .openconfig.EphConfigRequestList eph_config_requests = 3;
+// repeated .management.EphConfigRequestList eph_config_requests = 3;
 inline int GetEphemeralConfigRequest::eph_config_requests_size() const {
   return eph_config_requests_.size();
 }
 inline void GetEphemeralConfigRequest::clear_eph_config_requests() {
   eph_config_requests_.Clear();
 }
-inline const ::openconfig::EphConfigRequestList& GetEphemeralConfigRequest::eph_config_requests(int index) const {
-  // @@protoc_insertion_point(field_get:openconfig.GetEphemeralConfigRequest.eph_config_requests)
+inline const ::management::EphConfigRequestList& GetEphemeralConfigRequest::eph_config_requests(int index) const {
+  // @@protoc_insertion_point(field_get:management.GetEphemeralConfigRequest.eph_config_requests)
   return eph_config_requests_.Get(index);
 }
-inline ::openconfig::EphConfigRequestList* GetEphemeralConfigRequest::mutable_eph_config_requests(int index) {
-  // @@protoc_insertion_point(field_mutable:openconfig.GetEphemeralConfigRequest.eph_config_requests)
+inline ::management::EphConfigRequestList* GetEphemeralConfigRequest::mutable_eph_config_requests(int index) {
+  // @@protoc_insertion_point(field_mutable:management.GetEphemeralConfigRequest.eph_config_requests)
   return eph_config_requests_.Mutable(index);
 }
-inline ::openconfig::EphConfigRequestList* GetEphemeralConfigRequest::add_eph_config_requests() {
-  // @@protoc_insertion_point(field_add:openconfig.GetEphemeralConfigRequest.eph_config_requests)
+inline ::management::EphConfigRequestList* GetEphemeralConfigRequest::add_eph_config_requests() {
+  // @@protoc_insertion_point(field_add:management.GetEphemeralConfigRequest.eph_config_requests)
   return eph_config_requests_.Add();
 }
-inline ::google::protobuf::RepeatedPtrField< ::openconfig::EphConfigRequestList >*
+inline ::google::protobuf::RepeatedPtrField< ::management::EphConfigRequestList >*
 GetEphemeralConfigRequest::mutable_eph_config_requests() {
-  // @@protoc_insertion_point(field_mutable_list:openconfig.GetEphemeralConfigRequest.eph_config_requests)
+  // @@protoc_insertion_point(field_mutable_list:management.GetEphemeralConfigRequest.eph_config_requests)
   return &eph_config_requests_;
 }
-inline const ::google::protobuf::RepeatedPtrField< ::openconfig::EphConfigRequestList >&
+inline const ::google::protobuf::RepeatedPtrField< ::management::EphConfigRequestList >&
 GetEphemeralConfigRequest::eph_config_requests() const {
-  // @@protoc_insertion_point(field_list:openconfig.GetEphemeralConfigRequest.eph_config_requests)
+  // @@protoc_insertion_point(field_list:management.GetEphemeralConfigRequest.eph_config_requests)
   return eph_config_requests_;
 }
 
@@ -4383,28 +1572,28 @@ inline void GetEphemeralConfigRequest::clear_eph_instance_name() {
   eph_instance_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& GetEphemeralConfigRequest::eph_instance_name() const {
-  // @@protoc_insertion_point(field_get:openconfig.GetEphemeralConfigRequest.eph_instance_name)
+  // @@protoc_insertion_point(field_get:management.GetEphemeralConfigRequest.eph_instance_name)
   return eph_instance_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void GetEphemeralConfigRequest::set_eph_instance_name(const ::std::string& value) {
   
   eph_instance_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:openconfig.GetEphemeralConfigRequest.eph_instance_name)
+  // @@protoc_insertion_point(field_set:management.GetEphemeralConfigRequest.eph_instance_name)
 }
 inline void GetEphemeralConfigRequest::set_eph_instance_name(const char* value) {
   
   eph_instance_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:openconfig.GetEphemeralConfigRequest.eph_instance_name)
+  // @@protoc_insertion_point(field_set_char:management.GetEphemeralConfigRequest.eph_instance_name)
 }
 inline void GetEphemeralConfigRequest::set_eph_instance_name(const char* value, size_t size) {
   
   eph_instance_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:openconfig.GetEphemeralConfigRequest.eph_instance_name)
+  // @@protoc_insertion_point(field_set_pointer:management.GetEphemeralConfigRequest.eph_instance_name)
 }
 inline ::std::string* GetEphemeralConfigRequest::mutable_eph_instance_name() {
   
-  // @@protoc_insertion_point(field_mutable:openconfig.GetEphemeralConfigRequest.eph_instance_name)
+  // @@protoc_insertion_point(field_mutable:management.GetEphemeralConfigRequest.eph_instance_name)
   return eph_instance_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* GetEphemeralConfigRequest::release_eph_instance_name() {
@@ -4418,7 +1607,7 @@ inline void GetEphemeralConfigRequest::set_allocated_eph_instance_name(::std::st
     
   }
   eph_instance_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), eph_instance_name);
-  // @@protoc_insertion_point(field_set_allocated:openconfig.GetEphemeralConfigRequest.eph_instance_name)
+  // @@protoc_insertion_point(field_set_allocated:management.GetEphemeralConfigRequest.eph_instance_name)
 }
 
 // optional bool merge_view = 5;
@@ -4426,13 +1615,13 @@ inline void GetEphemeralConfigRequest::clear_merge_view() {
   merge_view_ = false;
 }
 inline bool GetEphemeralConfigRequest::merge_view() const {
-  // @@protoc_insertion_point(field_get:openconfig.GetEphemeralConfigRequest.merge_view)
+  // @@protoc_insertion_point(field_get:management.GetEphemeralConfigRequest.merge_view)
   return merge_view_;
 }
 inline void GetEphemeralConfigRequest::set_merge_view(bool value) {
   
   merge_view_ = value;
-  // @@protoc_insertion_point(field_set:openconfig.GetEphemeralConfigRequest.merge_view)
+  // @@protoc_insertion_point(field_set:management.GetEphemeralConfigRequest.merge_view)
 }
 
 // -------------------------------------------------------------------
@@ -4444,28 +1633,28 @@ inline void GetEphemeralConfigResponse_ResponseList::clear_operation_id() {
   operation_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& GetEphemeralConfigResponse_ResponseList::operation_id() const {
-  // @@protoc_insertion_point(field_get:openconfig.GetEphemeralConfigResponse.ResponseList.operation_id)
+  // @@protoc_insertion_point(field_get:management.GetEphemeralConfigResponse.ResponseList.operation_id)
   return operation_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void GetEphemeralConfigResponse_ResponseList::set_operation_id(const ::std::string& value) {
   
   operation_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:openconfig.GetEphemeralConfigResponse.ResponseList.operation_id)
+  // @@protoc_insertion_point(field_set:management.GetEphemeralConfigResponse.ResponseList.operation_id)
 }
 inline void GetEphemeralConfigResponse_ResponseList::set_operation_id(const char* value) {
   
   operation_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:openconfig.GetEphemeralConfigResponse.ResponseList.operation_id)
+  // @@protoc_insertion_point(field_set_char:management.GetEphemeralConfigResponse.ResponseList.operation_id)
 }
 inline void GetEphemeralConfigResponse_ResponseList::set_operation_id(const char* value, size_t size) {
   
   operation_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:openconfig.GetEphemeralConfigResponse.ResponseList.operation_id)
+  // @@protoc_insertion_point(field_set_pointer:management.GetEphemeralConfigResponse.ResponseList.operation_id)
 }
 inline ::std::string* GetEphemeralConfigResponse_ResponseList::mutable_operation_id() {
   
-  // @@protoc_insertion_point(field_mutable:openconfig.GetEphemeralConfigResponse.ResponseList.operation_id)
+  // @@protoc_insertion_point(field_mutable:management.GetEphemeralConfigResponse.ResponseList.operation_id)
   return operation_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* GetEphemeralConfigResponse_ResponseList::release_operation_id() {
@@ -4479,7 +1668,7 @@ inline void GetEphemeralConfigResponse_ResponseList::set_allocated_operation_id(
     
   }
   operation_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), operation_id);
-  // @@protoc_insertion_point(field_set_allocated:openconfig.GetEphemeralConfigResponse.ResponseList.operation_id)
+  // @@protoc_insertion_point(field_set_allocated:management.GetEphemeralConfigResponse.ResponseList.operation_id)
 }
 
 // optional string path = 2;
@@ -4487,28 +1676,28 @@ inline void GetEphemeralConfigResponse_ResponseList::clear_path() {
   path_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& GetEphemeralConfigResponse_ResponseList::path() const {
-  // @@protoc_insertion_point(field_get:openconfig.GetEphemeralConfigResponse.ResponseList.path)
+  // @@protoc_insertion_point(field_get:management.GetEphemeralConfigResponse.ResponseList.path)
   return path_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void GetEphemeralConfigResponse_ResponseList::set_path(const ::std::string& value) {
   
   path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:openconfig.GetEphemeralConfigResponse.ResponseList.path)
+  // @@protoc_insertion_point(field_set:management.GetEphemeralConfigResponse.ResponseList.path)
 }
 inline void GetEphemeralConfigResponse_ResponseList::set_path(const char* value) {
   
   path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:openconfig.GetEphemeralConfigResponse.ResponseList.path)
+  // @@protoc_insertion_point(field_set_char:management.GetEphemeralConfigResponse.ResponseList.path)
 }
 inline void GetEphemeralConfigResponse_ResponseList::set_path(const char* value, size_t size) {
   
   path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:openconfig.GetEphemeralConfigResponse.ResponseList.path)
+  // @@protoc_insertion_point(field_set_pointer:management.GetEphemeralConfigResponse.ResponseList.path)
 }
 inline ::std::string* GetEphemeralConfigResponse_ResponseList::mutable_path() {
   
-  // @@protoc_insertion_point(field_mutable:openconfig.GetEphemeralConfigResponse.ResponseList.path)
+  // @@protoc_insertion_point(field_mutable:management.GetEphemeralConfigResponse.ResponseList.path)
   return path_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* GetEphemeralConfigResponse_ResponseList::release_path() {
@@ -4522,7 +1711,7 @@ inline void GetEphemeralConfigResponse_ResponseList::set_allocated_path(::std::s
     
   }
   path_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), path);
-  // @@protoc_insertion_point(field_set_allocated:openconfig.GetEphemeralConfigResponse.ResponseList.path)
+  // @@protoc_insertion_point(field_set_allocated:management.GetEphemeralConfigResponse.ResponseList.path)
 }
 
 // optional string value = 3;
@@ -4530,28 +1719,28 @@ inline void GetEphemeralConfigResponse_ResponseList::clear_value() {
   value_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& GetEphemeralConfigResponse_ResponseList::value() const {
-  // @@protoc_insertion_point(field_get:openconfig.GetEphemeralConfigResponse.ResponseList.value)
+  // @@protoc_insertion_point(field_get:management.GetEphemeralConfigResponse.ResponseList.value)
   return value_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void GetEphemeralConfigResponse_ResponseList::set_value(const ::std::string& value) {
   
   value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:openconfig.GetEphemeralConfigResponse.ResponseList.value)
+  // @@protoc_insertion_point(field_set:management.GetEphemeralConfigResponse.ResponseList.value)
 }
 inline void GetEphemeralConfigResponse_ResponseList::set_value(const char* value) {
   
   value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:openconfig.GetEphemeralConfigResponse.ResponseList.value)
+  // @@protoc_insertion_point(field_set_char:management.GetEphemeralConfigResponse.ResponseList.value)
 }
 inline void GetEphemeralConfigResponse_ResponseList::set_value(const char* value, size_t size) {
   
   value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:openconfig.GetEphemeralConfigResponse.ResponseList.value)
+  // @@protoc_insertion_point(field_set_pointer:management.GetEphemeralConfigResponse.ResponseList.value)
 }
 inline ::std::string* GetEphemeralConfigResponse_ResponseList::mutable_value() {
   
-  // @@protoc_insertion_point(field_mutable:openconfig.GetEphemeralConfigResponse.ResponseList.value)
+  // @@protoc_insertion_point(field_mutable:management.GetEphemeralConfigResponse.ResponseList.value)
   return value_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* GetEphemeralConfigResponse_ResponseList::release_value() {
@@ -4565,21 +1754,21 @@ inline void GetEphemeralConfigResponse_ResponseList::set_allocated_value(::std::
     
   }
   value_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set_allocated:openconfig.GetEphemeralConfigResponse.ResponseList.value)
+  // @@protoc_insertion_point(field_set_allocated:management.GetEphemeralConfigResponse.ResponseList.value)
 }
 
-// optional .openconfig.OpenConfigRpcResponseTypes response_code = 4;
+// optional .management.JunosRpcResponseTypes response_code = 4;
 inline void GetEphemeralConfigResponse_ResponseList::clear_response_code() {
   response_code_ = 0;
 }
-inline ::openconfig::OpenConfigRpcResponseTypes GetEphemeralConfigResponse_ResponseList::response_code() const {
-  // @@protoc_insertion_point(field_get:openconfig.GetEphemeralConfigResponse.ResponseList.response_code)
-  return static_cast< ::openconfig::OpenConfigRpcResponseTypes >(response_code_);
+inline ::management::JunosRpcResponseTypes GetEphemeralConfigResponse_ResponseList::response_code() const {
+  // @@protoc_insertion_point(field_get:management.GetEphemeralConfigResponse.ResponseList.response_code)
+  return static_cast< ::management::JunosRpcResponseTypes >(response_code_);
 }
-inline void GetEphemeralConfigResponse_ResponseList::set_response_code(::openconfig::OpenConfigRpcResponseTypes value) {
+inline void GetEphemeralConfigResponse_ResponseList::set_response_code(::management::JunosRpcResponseTypes value) {
   
   response_code_ = value;
-  // @@protoc_insertion_point(field_set:openconfig.GetEphemeralConfigResponse.ResponseList.response_code)
+  // @@protoc_insertion_point(field_set:management.GetEphemeralConfigResponse.ResponseList.response_code)
 }
 
 // optional string message = 5;
@@ -4587,28 +1776,28 @@ inline void GetEphemeralConfigResponse_ResponseList::clear_message() {
   message_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& GetEphemeralConfigResponse_ResponseList::message() const {
-  // @@protoc_insertion_point(field_get:openconfig.GetEphemeralConfigResponse.ResponseList.message)
+  // @@protoc_insertion_point(field_get:management.GetEphemeralConfigResponse.ResponseList.message)
   return message_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void GetEphemeralConfigResponse_ResponseList::set_message(const ::std::string& value) {
   
   message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:openconfig.GetEphemeralConfigResponse.ResponseList.message)
+  // @@protoc_insertion_point(field_set:management.GetEphemeralConfigResponse.ResponseList.message)
 }
 inline void GetEphemeralConfigResponse_ResponseList::set_message(const char* value) {
   
   message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:openconfig.GetEphemeralConfigResponse.ResponseList.message)
+  // @@protoc_insertion_point(field_set_char:management.GetEphemeralConfigResponse.ResponseList.message)
 }
 inline void GetEphemeralConfigResponse_ResponseList::set_message(const char* value, size_t size) {
   
   message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:openconfig.GetEphemeralConfigResponse.ResponseList.message)
+  // @@protoc_insertion_point(field_set_pointer:management.GetEphemeralConfigResponse.ResponseList.message)
 }
 inline ::std::string* GetEphemeralConfigResponse_ResponseList::mutable_message() {
   
-  // @@protoc_insertion_point(field_mutable:openconfig.GetEphemeralConfigResponse.ResponseList.message)
+  // @@protoc_insertion_point(field_mutable:management.GetEphemeralConfigResponse.ResponseList.message)
   return message_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* GetEphemeralConfigResponse_ResponseList::release_message() {
@@ -4622,7 +1811,7 @@ inline void GetEphemeralConfigResponse_ResponseList::set_allocated_message(::std
     
   }
   message_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), message);
-  // @@protoc_insertion_point(field_set_allocated:openconfig.GetEphemeralConfigResponse.ResponseList.message)
+  // @@protoc_insertion_point(field_set_allocated:management.GetEphemeralConfigResponse.ResponseList.message)
 }
 
 // -------------------------------------------------------------------
@@ -4634,42 +1823,42 @@ inline void GetEphemeralConfigResponse::clear_request_id() {
   request_id_ = GOOGLE_ULONGLONG(0);
 }
 inline ::google::protobuf::uint64 GetEphemeralConfigResponse::request_id() const {
-  // @@protoc_insertion_point(field_get:openconfig.GetEphemeralConfigResponse.request_id)
+  // @@protoc_insertion_point(field_get:management.GetEphemeralConfigResponse.request_id)
   return request_id_;
 }
 inline void GetEphemeralConfigResponse::set_request_id(::google::protobuf::uint64 value) {
   
   request_id_ = value;
-  // @@protoc_insertion_point(field_set:openconfig.GetEphemeralConfigResponse.request_id)
+  // @@protoc_insertion_point(field_set:management.GetEphemeralConfigResponse.request_id)
 }
 
-// repeated .openconfig.GetEphemeralConfigResponse.ResponseList response = 2;
+// repeated .management.GetEphemeralConfigResponse.ResponseList response = 2;
 inline int GetEphemeralConfigResponse::response_size() const {
   return response_.size();
 }
 inline void GetEphemeralConfigResponse::clear_response() {
   response_.Clear();
 }
-inline const ::openconfig::GetEphemeralConfigResponse_ResponseList& GetEphemeralConfigResponse::response(int index) const {
-  // @@protoc_insertion_point(field_get:openconfig.GetEphemeralConfigResponse.response)
+inline const ::management::GetEphemeralConfigResponse_ResponseList& GetEphemeralConfigResponse::response(int index) const {
+  // @@protoc_insertion_point(field_get:management.GetEphemeralConfigResponse.response)
   return response_.Get(index);
 }
-inline ::openconfig::GetEphemeralConfigResponse_ResponseList* GetEphemeralConfigResponse::mutable_response(int index) {
-  // @@protoc_insertion_point(field_mutable:openconfig.GetEphemeralConfigResponse.response)
+inline ::management::GetEphemeralConfigResponse_ResponseList* GetEphemeralConfigResponse::mutable_response(int index) {
+  // @@protoc_insertion_point(field_mutable:management.GetEphemeralConfigResponse.response)
   return response_.Mutable(index);
 }
-inline ::openconfig::GetEphemeralConfigResponse_ResponseList* GetEphemeralConfigResponse::add_response() {
-  // @@protoc_insertion_point(field_add:openconfig.GetEphemeralConfigResponse.response)
+inline ::management::GetEphemeralConfigResponse_ResponseList* GetEphemeralConfigResponse::add_response() {
+  // @@protoc_insertion_point(field_add:management.GetEphemeralConfigResponse.response)
   return response_.Add();
 }
-inline ::google::protobuf::RepeatedPtrField< ::openconfig::GetEphemeralConfigResponse_ResponseList >*
+inline ::google::protobuf::RepeatedPtrField< ::management::GetEphemeralConfigResponse_ResponseList >*
 GetEphemeralConfigResponse::mutable_response() {
-  // @@protoc_insertion_point(field_mutable_list:openconfig.GetEphemeralConfigResponse.response)
+  // @@protoc_insertion_point(field_mutable_list:management.GetEphemeralConfigResponse.response)
   return &response_;
 }
-inline const ::google::protobuf::RepeatedPtrField< ::openconfig::GetEphemeralConfigResponse_ResponseList >&
+inline const ::google::protobuf::RepeatedPtrField< ::management::GetEphemeralConfigResponse_ResponseList >&
 GetEphemeralConfigResponse::response() const {
-  // @@protoc_insertion_point(field_list:openconfig.GetEphemeralConfigResponse.response)
+  // @@protoc_insertion_point(field_list:management.GetEphemeralConfigResponse.response)
   return response_;
 }
 
@@ -4682,28 +1871,28 @@ inline void EditEphemeralConfigRequest_ConfigOperationList::clear_operation_id()
   operation_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& EditEphemeralConfigRequest_ConfigOperationList::operation_id() const {
-  // @@protoc_insertion_point(field_get:openconfig.EditEphemeralConfigRequest.ConfigOperationList.operation_id)
+  // @@protoc_insertion_point(field_get:management.EditEphemeralConfigRequest.ConfigOperationList.operation_id)
   return operation_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void EditEphemeralConfigRequest_ConfigOperationList::set_operation_id(const ::std::string& value) {
   
   operation_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:openconfig.EditEphemeralConfigRequest.ConfigOperationList.operation_id)
+  // @@protoc_insertion_point(field_set:management.EditEphemeralConfigRequest.ConfigOperationList.operation_id)
 }
 inline void EditEphemeralConfigRequest_ConfigOperationList::set_operation_id(const char* value) {
   
   operation_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:openconfig.EditEphemeralConfigRequest.ConfigOperationList.operation_id)
+  // @@protoc_insertion_point(field_set_char:management.EditEphemeralConfigRequest.ConfigOperationList.operation_id)
 }
 inline void EditEphemeralConfigRequest_ConfigOperationList::set_operation_id(const char* value, size_t size) {
   
   operation_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:openconfig.EditEphemeralConfigRequest.ConfigOperationList.operation_id)
+  // @@protoc_insertion_point(field_set_pointer:management.EditEphemeralConfigRequest.ConfigOperationList.operation_id)
 }
 inline ::std::string* EditEphemeralConfigRequest_ConfigOperationList::mutable_operation_id() {
   
-  // @@protoc_insertion_point(field_mutable:openconfig.EditEphemeralConfigRequest.ConfigOperationList.operation_id)
+  // @@protoc_insertion_point(field_mutable:management.EditEphemeralConfigRequest.ConfigOperationList.operation_id)
   return operation_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* EditEphemeralConfigRequest_ConfigOperationList::release_operation_id() {
@@ -4717,21 +1906,21 @@ inline void EditEphemeralConfigRequest_ConfigOperationList::set_allocated_operat
     
   }
   operation_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), operation_id);
-  // @@protoc_insertion_point(field_set_allocated:openconfig.EditEphemeralConfigRequest.ConfigOperationList.operation_id)
+  // @@protoc_insertion_point(field_set_allocated:management.EditEphemeralConfigRequest.ConfigOperationList.operation_id)
 }
 
-// optional .openconfig.SetConfigCommands operation = 2;
+// optional .management.ConfigCommands operation = 2;
 inline void EditEphemeralConfigRequest_ConfigOperationList::clear_operation() {
   operation_ = 0;
 }
-inline ::openconfig::SetConfigCommands EditEphemeralConfigRequest_ConfigOperationList::operation() const {
-  // @@protoc_insertion_point(field_get:openconfig.EditEphemeralConfigRequest.ConfigOperationList.operation)
-  return static_cast< ::openconfig::SetConfigCommands >(operation_);
+inline ::management::ConfigCommands EditEphemeralConfigRequest_ConfigOperationList::operation() const {
+  // @@protoc_insertion_point(field_get:management.EditEphemeralConfigRequest.ConfigOperationList.operation)
+  return static_cast< ::management::ConfigCommands >(operation_);
 }
-inline void EditEphemeralConfigRequest_ConfigOperationList::set_operation(::openconfig::SetConfigCommands value) {
+inline void EditEphemeralConfigRequest_ConfigOperationList::set_operation(::management::ConfigCommands value) {
   
   operation_ = value;
-  // @@protoc_insertion_point(field_set:openconfig.EditEphemeralConfigRequest.ConfigOperationList.operation)
+  // @@protoc_insertion_point(field_set:management.EditEphemeralConfigRequest.ConfigOperationList.operation)
 }
 
 // optional string path = 3;
@@ -4739,28 +1928,28 @@ inline void EditEphemeralConfigRequest_ConfigOperationList::clear_path() {
   path_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& EditEphemeralConfigRequest_ConfigOperationList::path() const {
-  // @@protoc_insertion_point(field_get:openconfig.EditEphemeralConfigRequest.ConfigOperationList.path)
+  // @@protoc_insertion_point(field_get:management.EditEphemeralConfigRequest.ConfigOperationList.path)
   return path_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void EditEphemeralConfigRequest_ConfigOperationList::set_path(const ::std::string& value) {
   
   path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:openconfig.EditEphemeralConfigRequest.ConfigOperationList.path)
+  // @@protoc_insertion_point(field_set:management.EditEphemeralConfigRequest.ConfigOperationList.path)
 }
 inline void EditEphemeralConfigRequest_ConfigOperationList::set_path(const char* value) {
   
   path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:openconfig.EditEphemeralConfigRequest.ConfigOperationList.path)
+  // @@protoc_insertion_point(field_set_char:management.EditEphemeralConfigRequest.ConfigOperationList.path)
 }
 inline void EditEphemeralConfigRequest_ConfigOperationList::set_path(const char* value, size_t size) {
   
   path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:openconfig.EditEphemeralConfigRequest.ConfigOperationList.path)
+  // @@protoc_insertion_point(field_set_pointer:management.EditEphemeralConfigRequest.ConfigOperationList.path)
 }
 inline ::std::string* EditEphemeralConfigRequest_ConfigOperationList::mutable_path() {
   
-  // @@protoc_insertion_point(field_mutable:openconfig.EditEphemeralConfigRequest.ConfigOperationList.path)
+  // @@protoc_insertion_point(field_mutable:management.EditEphemeralConfigRequest.ConfigOperationList.path)
   return path_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* EditEphemeralConfigRequest_ConfigOperationList::release_path() {
@@ -4774,7 +1963,7 @@ inline void EditEphemeralConfigRequest_ConfigOperationList::set_allocated_path(:
     
   }
   path_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), path);
-  // @@protoc_insertion_point(field_set_allocated:openconfig.EditEphemeralConfigRequest.ConfigOperationList.path)
+  // @@protoc_insertion_point(field_set_allocated:management.EditEphemeralConfigRequest.ConfigOperationList.path)
 }
 
 // optional string value = 4;
@@ -4782,28 +1971,28 @@ inline void EditEphemeralConfigRequest_ConfigOperationList::clear_value() {
   value_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& EditEphemeralConfigRequest_ConfigOperationList::value() const {
-  // @@protoc_insertion_point(field_get:openconfig.EditEphemeralConfigRequest.ConfigOperationList.value)
+  // @@protoc_insertion_point(field_get:management.EditEphemeralConfigRequest.ConfigOperationList.value)
   return value_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void EditEphemeralConfigRequest_ConfigOperationList::set_value(const ::std::string& value) {
   
   value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:openconfig.EditEphemeralConfigRequest.ConfigOperationList.value)
+  // @@protoc_insertion_point(field_set:management.EditEphemeralConfigRequest.ConfigOperationList.value)
 }
 inline void EditEphemeralConfigRequest_ConfigOperationList::set_value(const char* value) {
   
   value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:openconfig.EditEphemeralConfigRequest.ConfigOperationList.value)
+  // @@protoc_insertion_point(field_set_char:management.EditEphemeralConfigRequest.ConfigOperationList.value)
 }
 inline void EditEphemeralConfigRequest_ConfigOperationList::set_value(const char* value, size_t size) {
   
   value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:openconfig.EditEphemeralConfigRequest.ConfigOperationList.value)
+  // @@protoc_insertion_point(field_set_pointer:management.EditEphemeralConfigRequest.ConfigOperationList.value)
 }
 inline ::std::string* EditEphemeralConfigRequest_ConfigOperationList::mutable_value() {
   
-  // @@protoc_insertion_point(field_mutable:openconfig.EditEphemeralConfigRequest.ConfigOperationList.value)
+  // @@protoc_insertion_point(field_mutable:management.EditEphemeralConfigRequest.ConfigOperationList.value)
   return value_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* EditEphemeralConfigRequest_ConfigOperationList::release_value() {
@@ -4817,7 +2006,7 @@ inline void EditEphemeralConfigRequest_ConfigOperationList::set_allocated_value(
     
   }
   value_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set_allocated:openconfig.EditEphemeralConfigRequest.ConfigOperationList.value)
+  // @@protoc_insertion_point(field_set_allocated:management.EditEphemeralConfigRequest.ConfigOperationList.value)
 }
 
 // -------------------------------------------------------------------
@@ -4829,56 +2018,56 @@ inline void EditEphemeralConfigRequest::clear_request_id() {
   request_id_ = GOOGLE_ULONGLONG(0);
 }
 inline ::google::protobuf::uint64 EditEphemeralConfigRequest::request_id() const {
-  // @@protoc_insertion_point(field_get:openconfig.EditEphemeralConfigRequest.request_id)
+  // @@protoc_insertion_point(field_get:management.EditEphemeralConfigRequest.request_id)
   return request_id_;
 }
 inline void EditEphemeralConfigRequest::set_request_id(::google::protobuf::uint64 value) {
   
   request_id_ = value;
-  // @@protoc_insertion_point(field_set:openconfig.EditEphemeralConfigRequest.request_id)
+  // @@protoc_insertion_point(field_set:management.EditEphemeralConfigRequest.request_id)
 }
 
-// optional .openconfig.OpenConfigDataEncodingTypes encoding = 2;
+// optional .management.JunosDataEncodingTypes encoding = 2;
 inline void EditEphemeralConfigRequest::clear_encoding() {
   encoding_ = 0;
 }
-inline ::openconfig::OpenConfigDataEncodingTypes EditEphemeralConfigRequest::encoding() const {
-  // @@protoc_insertion_point(field_get:openconfig.EditEphemeralConfigRequest.encoding)
-  return static_cast< ::openconfig::OpenConfigDataEncodingTypes >(encoding_);
+inline ::management::JunosDataEncodingTypes EditEphemeralConfigRequest::encoding() const {
+  // @@protoc_insertion_point(field_get:management.EditEphemeralConfigRequest.encoding)
+  return static_cast< ::management::JunosDataEncodingTypes >(encoding_);
 }
-inline void EditEphemeralConfigRequest::set_encoding(::openconfig::OpenConfigDataEncodingTypes value) {
+inline void EditEphemeralConfigRequest::set_encoding(::management::JunosDataEncodingTypes value) {
   
   encoding_ = value;
-  // @@protoc_insertion_point(field_set:openconfig.EditEphemeralConfigRequest.encoding)
+  // @@protoc_insertion_point(field_set:management.EditEphemeralConfigRequest.encoding)
 }
 
-// repeated .openconfig.EditEphemeralConfigRequest.ConfigOperationList eph_config_operations = 3;
+// repeated .management.EditEphemeralConfigRequest.ConfigOperationList eph_config_operations = 3;
 inline int EditEphemeralConfigRequest::eph_config_operations_size() const {
   return eph_config_operations_.size();
 }
 inline void EditEphemeralConfigRequest::clear_eph_config_operations() {
   eph_config_operations_.Clear();
 }
-inline const ::openconfig::EditEphemeralConfigRequest_ConfigOperationList& EditEphemeralConfigRequest::eph_config_operations(int index) const {
-  // @@protoc_insertion_point(field_get:openconfig.EditEphemeralConfigRequest.eph_config_operations)
+inline const ::management::EditEphemeralConfigRequest_ConfigOperationList& EditEphemeralConfigRequest::eph_config_operations(int index) const {
+  // @@protoc_insertion_point(field_get:management.EditEphemeralConfigRequest.eph_config_operations)
   return eph_config_operations_.Get(index);
 }
-inline ::openconfig::EditEphemeralConfigRequest_ConfigOperationList* EditEphemeralConfigRequest::mutable_eph_config_operations(int index) {
-  // @@protoc_insertion_point(field_mutable:openconfig.EditEphemeralConfigRequest.eph_config_operations)
+inline ::management::EditEphemeralConfigRequest_ConfigOperationList* EditEphemeralConfigRequest::mutable_eph_config_operations(int index) {
+  // @@protoc_insertion_point(field_mutable:management.EditEphemeralConfigRequest.eph_config_operations)
   return eph_config_operations_.Mutable(index);
 }
-inline ::openconfig::EditEphemeralConfigRequest_ConfigOperationList* EditEphemeralConfigRequest::add_eph_config_operations() {
-  // @@protoc_insertion_point(field_add:openconfig.EditEphemeralConfigRequest.eph_config_operations)
+inline ::management::EditEphemeralConfigRequest_ConfigOperationList* EditEphemeralConfigRequest::add_eph_config_operations() {
+  // @@protoc_insertion_point(field_add:management.EditEphemeralConfigRequest.eph_config_operations)
   return eph_config_operations_.Add();
 }
-inline ::google::protobuf::RepeatedPtrField< ::openconfig::EditEphemeralConfigRequest_ConfigOperationList >*
+inline ::google::protobuf::RepeatedPtrField< ::management::EditEphemeralConfigRequest_ConfigOperationList >*
 EditEphemeralConfigRequest::mutable_eph_config_operations() {
-  // @@protoc_insertion_point(field_mutable_list:openconfig.EditEphemeralConfigRequest.eph_config_operations)
+  // @@protoc_insertion_point(field_mutable_list:management.EditEphemeralConfigRequest.eph_config_operations)
   return &eph_config_operations_;
 }
-inline const ::google::protobuf::RepeatedPtrField< ::openconfig::EditEphemeralConfigRequest_ConfigOperationList >&
+inline const ::google::protobuf::RepeatedPtrField< ::management::EditEphemeralConfigRequest_ConfigOperationList >&
 EditEphemeralConfigRequest::eph_config_operations() const {
-  // @@protoc_insertion_point(field_list:openconfig.EditEphemeralConfigRequest.eph_config_operations)
+  // @@protoc_insertion_point(field_list:management.EditEphemeralConfigRequest.eph_config_operations)
   return eph_config_operations_;
 }
 
@@ -4887,28 +2076,28 @@ inline void EditEphemeralConfigRequest::clear_eph_instance_name() {
   eph_instance_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& EditEphemeralConfigRequest::eph_instance_name() const {
-  // @@protoc_insertion_point(field_get:openconfig.EditEphemeralConfigRequest.eph_instance_name)
+  // @@protoc_insertion_point(field_get:management.EditEphemeralConfigRequest.eph_instance_name)
   return eph_instance_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void EditEphemeralConfigRequest::set_eph_instance_name(const ::std::string& value) {
   
   eph_instance_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:openconfig.EditEphemeralConfigRequest.eph_instance_name)
+  // @@protoc_insertion_point(field_set:management.EditEphemeralConfigRequest.eph_instance_name)
 }
 inline void EditEphemeralConfigRequest::set_eph_instance_name(const char* value) {
   
   eph_instance_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:openconfig.EditEphemeralConfigRequest.eph_instance_name)
+  // @@protoc_insertion_point(field_set_char:management.EditEphemeralConfigRequest.eph_instance_name)
 }
 inline void EditEphemeralConfigRequest::set_eph_instance_name(const char* value, size_t size) {
   
   eph_instance_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:openconfig.EditEphemeralConfigRequest.eph_instance_name)
+  // @@protoc_insertion_point(field_set_pointer:management.EditEphemeralConfigRequest.eph_instance_name)
 }
 inline ::std::string* EditEphemeralConfigRequest::mutable_eph_instance_name() {
   
-  // @@protoc_insertion_point(field_mutable:openconfig.EditEphemeralConfigRequest.eph_instance_name)
+  // @@protoc_insertion_point(field_mutable:management.EditEphemeralConfigRequest.eph_instance_name)
   return eph_instance_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* EditEphemeralConfigRequest::release_eph_instance_name() {
@@ -4922,21 +2111,7 @@ inline void EditEphemeralConfigRequest::set_allocated_eph_instance_name(::std::s
     
   }
   eph_instance_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), eph_instance_name);
-  // @@protoc_insertion_point(field_set_allocated:openconfig.EditEphemeralConfigRequest.eph_instance_name)
-}
-
-// optional bool disable_config_validation = 5;
-inline void EditEphemeralConfigRequest::clear_disable_config_validation() {
-  disable_config_validation_ = false;
-}
-inline bool EditEphemeralConfigRequest::disable_config_validation() const {
-  // @@protoc_insertion_point(field_get:openconfig.EditEphemeralConfigRequest.disable_config_validation)
-  return disable_config_validation_;
-}
-inline void EditEphemeralConfigRequest::set_disable_config_validation(bool value) {
-  
-  disable_config_validation_ = value;
-  // @@protoc_insertion_point(field_set:openconfig.EditEphemeralConfigRequest.disable_config_validation)
+  // @@protoc_insertion_point(field_set_allocated:management.EditEphemeralConfigRequest.eph_instance_name)
 }
 
 // -------------------------------------------------------------------
@@ -4948,28 +2123,28 @@ inline void EditEphemeralConfigResponse_ResponseList::clear_operation_id() {
   operation_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& EditEphemeralConfigResponse_ResponseList::operation_id() const {
-  // @@protoc_insertion_point(field_get:openconfig.EditEphemeralConfigResponse.ResponseList.operation_id)
+  // @@protoc_insertion_point(field_get:management.EditEphemeralConfigResponse.ResponseList.operation_id)
   return operation_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void EditEphemeralConfigResponse_ResponseList::set_operation_id(const ::std::string& value) {
   
   operation_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:openconfig.EditEphemeralConfigResponse.ResponseList.operation_id)
+  // @@protoc_insertion_point(field_set:management.EditEphemeralConfigResponse.ResponseList.operation_id)
 }
 inline void EditEphemeralConfigResponse_ResponseList::set_operation_id(const char* value) {
   
   operation_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:openconfig.EditEphemeralConfigResponse.ResponseList.operation_id)
+  // @@protoc_insertion_point(field_set_char:management.EditEphemeralConfigResponse.ResponseList.operation_id)
 }
 inline void EditEphemeralConfigResponse_ResponseList::set_operation_id(const char* value, size_t size) {
   
   operation_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:openconfig.EditEphemeralConfigResponse.ResponseList.operation_id)
+  // @@protoc_insertion_point(field_set_pointer:management.EditEphemeralConfigResponse.ResponseList.operation_id)
 }
 inline ::std::string* EditEphemeralConfigResponse_ResponseList::mutable_operation_id() {
   
-  // @@protoc_insertion_point(field_mutable:openconfig.EditEphemeralConfigResponse.ResponseList.operation_id)
+  // @@protoc_insertion_point(field_mutable:management.EditEphemeralConfigResponse.ResponseList.operation_id)
   return operation_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* EditEphemeralConfigResponse_ResponseList::release_operation_id() {
@@ -4983,21 +2158,21 @@ inline void EditEphemeralConfigResponse_ResponseList::set_allocated_operation_id
     
   }
   operation_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), operation_id);
-  // @@protoc_insertion_point(field_set_allocated:openconfig.EditEphemeralConfigResponse.ResponseList.operation_id)
+  // @@protoc_insertion_point(field_set_allocated:management.EditEphemeralConfigResponse.ResponseList.operation_id)
 }
 
-// optional .openconfig.OpenConfigRpcResponseTypes response_code = 2;
+// optional .management.JunosRpcResponseTypes response_code = 2;
 inline void EditEphemeralConfigResponse_ResponseList::clear_response_code() {
   response_code_ = 0;
 }
-inline ::openconfig::OpenConfigRpcResponseTypes EditEphemeralConfigResponse_ResponseList::response_code() const {
-  // @@protoc_insertion_point(field_get:openconfig.EditEphemeralConfigResponse.ResponseList.response_code)
-  return static_cast< ::openconfig::OpenConfigRpcResponseTypes >(response_code_);
+inline ::management::JunosRpcResponseTypes EditEphemeralConfigResponse_ResponseList::response_code() const {
+  // @@protoc_insertion_point(field_get:management.EditEphemeralConfigResponse.ResponseList.response_code)
+  return static_cast< ::management::JunosRpcResponseTypes >(response_code_);
 }
-inline void EditEphemeralConfigResponse_ResponseList::set_response_code(::openconfig::OpenConfigRpcResponseTypes value) {
+inline void EditEphemeralConfigResponse_ResponseList::set_response_code(::management::JunosRpcResponseTypes value) {
   
   response_code_ = value;
-  // @@protoc_insertion_point(field_set:openconfig.EditEphemeralConfigResponse.ResponseList.response_code)
+  // @@protoc_insertion_point(field_set:management.EditEphemeralConfigResponse.ResponseList.response_code)
 }
 
 // optional string message = 3;
@@ -5005,28 +2180,28 @@ inline void EditEphemeralConfigResponse_ResponseList::clear_message() {
   message_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& EditEphemeralConfigResponse_ResponseList::message() const {
-  // @@protoc_insertion_point(field_get:openconfig.EditEphemeralConfigResponse.ResponseList.message)
+  // @@protoc_insertion_point(field_get:management.EditEphemeralConfigResponse.ResponseList.message)
   return message_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void EditEphemeralConfigResponse_ResponseList::set_message(const ::std::string& value) {
   
   message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:openconfig.EditEphemeralConfigResponse.ResponseList.message)
+  // @@protoc_insertion_point(field_set:management.EditEphemeralConfigResponse.ResponseList.message)
 }
 inline void EditEphemeralConfigResponse_ResponseList::set_message(const char* value) {
   
   message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:openconfig.EditEphemeralConfigResponse.ResponseList.message)
+  // @@protoc_insertion_point(field_set_char:management.EditEphemeralConfigResponse.ResponseList.message)
 }
 inline void EditEphemeralConfigResponse_ResponseList::set_message(const char* value, size_t size) {
   
   message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:openconfig.EditEphemeralConfigResponse.ResponseList.message)
+  // @@protoc_insertion_point(field_set_pointer:management.EditEphemeralConfigResponse.ResponseList.message)
 }
 inline ::std::string* EditEphemeralConfigResponse_ResponseList::mutable_message() {
   
-  // @@protoc_insertion_point(field_mutable:openconfig.EditEphemeralConfigResponse.ResponseList.message)
+  // @@protoc_insertion_point(field_mutable:management.EditEphemeralConfigResponse.ResponseList.message)
   return message_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* EditEphemeralConfigResponse_ResponseList::release_message() {
@@ -5040,7 +2215,7 @@ inline void EditEphemeralConfigResponse_ResponseList::set_allocated_message(::st
     
   }
   message_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), message);
-  // @@protoc_insertion_point(field_set_allocated:openconfig.EditEphemeralConfigResponse.ResponseList.message)
+  // @@protoc_insertion_point(field_set_allocated:management.EditEphemeralConfigResponse.ResponseList.message)
 }
 
 // -------------------------------------------------------------------
@@ -5052,42 +2227,42 @@ inline void EditEphemeralConfigResponse::clear_request_id() {
   request_id_ = GOOGLE_ULONGLONG(0);
 }
 inline ::google::protobuf::uint64 EditEphemeralConfigResponse::request_id() const {
-  // @@protoc_insertion_point(field_get:openconfig.EditEphemeralConfigResponse.request_id)
+  // @@protoc_insertion_point(field_get:management.EditEphemeralConfigResponse.request_id)
   return request_id_;
 }
 inline void EditEphemeralConfigResponse::set_request_id(::google::protobuf::uint64 value) {
   
   request_id_ = value;
-  // @@protoc_insertion_point(field_set:openconfig.EditEphemeralConfigResponse.request_id)
+  // @@protoc_insertion_point(field_set:management.EditEphemeralConfigResponse.request_id)
 }
 
-// repeated .openconfig.EditEphemeralConfigResponse.ResponseList response = 2;
+// repeated .management.EditEphemeralConfigResponse.ResponseList response = 2;
 inline int EditEphemeralConfigResponse::response_size() const {
   return response_.size();
 }
 inline void EditEphemeralConfigResponse::clear_response() {
   response_.Clear();
 }
-inline const ::openconfig::EditEphemeralConfigResponse_ResponseList& EditEphemeralConfigResponse::response(int index) const {
-  // @@protoc_insertion_point(field_get:openconfig.EditEphemeralConfigResponse.response)
+inline const ::management::EditEphemeralConfigResponse_ResponseList& EditEphemeralConfigResponse::response(int index) const {
+  // @@protoc_insertion_point(field_get:management.EditEphemeralConfigResponse.response)
   return response_.Get(index);
 }
-inline ::openconfig::EditEphemeralConfigResponse_ResponseList* EditEphemeralConfigResponse::mutable_response(int index) {
-  // @@protoc_insertion_point(field_mutable:openconfig.EditEphemeralConfigResponse.response)
+inline ::management::EditEphemeralConfigResponse_ResponseList* EditEphemeralConfigResponse::mutable_response(int index) {
+  // @@protoc_insertion_point(field_mutable:management.EditEphemeralConfigResponse.response)
   return response_.Mutable(index);
 }
-inline ::openconfig::EditEphemeralConfigResponse_ResponseList* EditEphemeralConfigResponse::add_response() {
-  // @@protoc_insertion_point(field_add:openconfig.EditEphemeralConfigResponse.response)
+inline ::management::EditEphemeralConfigResponse_ResponseList* EditEphemeralConfigResponse::add_response() {
+  // @@protoc_insertion_point(field_add:management.EditEphemeralConfigResponse.response)
   return response_.Add();
 }
-inline ::google::protobuf::RepeatedPtrField< ::openconfig::EditEphemeralConfigResponse_ResponseList >*
+inline ::google::protobuf::RepeatedPtrField< ::management::EditEphemeralConfigResponse_ResponseList >*
 EditEphemeralConfigResponse::mutable_response() {
-  // @@protoc_insertion_point(field_mutable_list:openconfig.EditEphemeralConfigResponse.response)
+  // @@protoc_insertion_point(field_mutable_list:management.EditEphemeralConfigResponse.response)
   return &response_;
 }
-inline const ::google::protobuf::RepeatedPtrField< ::openconfig::EditEphemeralConfigResponse_ResponseList >&
+inline const ::google::protobuf::RepeatedPtrField< ::management::EditEphemeralConfigResponse_ResponseList >&
 EditEphemeralConfigResponse::response() const {
-  // @@protoc_insertion_point(field_list:openconfig.EditEphemeralConfigResponse.response)
+  // @@protoc_insertion_point(field_list:management.EditEphemeralConfigResponse.response)
   return response_;
 }
 
@@ -5110,69 +2285,34 @@ EditEphemeralConfigResponse::response() const {
 
 // -------------------------------------------------------------------
 
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace openconfig
+}  // namespace management
 
 #ifndef SWIG
 namespace google {
 namespace protobuf {
 
-template <> struct is_proto_enum< ::openconfig::OpenConfigDataEncodingTypes> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::management::OperationFormatType> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::openconfig::OpenConfigDataEncodingTypes>() {
-  return ::openconfig::OpenConfigDataEncodingTypes_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::management::OperationFormatType>() {
+  return ::management::OperationFormatType_descriptor();
 }
-template <> struct is_proto_enum< ::openconfig::GetDataCommands> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::management::JunosRpcResponseTypes> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::openconfig::GetDataCommands>() {
-  return ::openconfig::GetDataCommands_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::management::JunosRpcResponseTypes>() {
+  return ::management::JunosRpcResponseTypes_descriptor();
 }
-template <> struct is_proto_enum< ::openconfig::SetConfigCommands> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::management::JunosDataEncodingTypes> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::openconfig::SetConfigCommands>() {
-  return ::openconfig::SetConfigCommands_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::management::JunosDataEncodingTypes>() {
+  return ::management::JunosDataEncodingTypes_descriptor();
 }
-template <> struct is_proto_enum< ::openconfig::OperationFormatType> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::management::ConfigCommands> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::openconfig::OperationFormatType>() {
-  return ::openconfig::OperationFormatType_descriptor();
-}
-template <> struct is_proto_enum< ::openconfig::OpenConfigRpcResponseTypes> : ::google::protobuf::internal::true_type {};
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::openconfig::OpenConfigRpcResponseTypes>() {
-  return ::openconfig::OpenConfigRpcResponseTypes_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::management::ConfigCommands>() {
+  return ::management::ConfigCommands_descriptor();
 }
 
 }  // namespace protobuf

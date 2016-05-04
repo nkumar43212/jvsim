@@ -10,9 +10,15 @@
 #define MgdServer_hpp
 
 #include <grpc++/grpc++.h>
-#include "mgd_service.pb.h"
-#include "mgd_service.grpc.pb.h"
 #include "AgentServerLog.hpp"
+
+#if defined(__OC_Telemetry_Config__)
+    #include "openconfig_mgd.pb.h"
+    #include "openconfig_mgd.grpc.pb.h"
+#else
+    #include "mgd_service.pb.h"
+    #include "mgd_service.grpc.pb.h"
+#endif
 
 using grpc::Server;
 using grpc::ServerBuilder;
@@ -20,19 +26,12 @@ using grpc::ServerContext;
 using grpc::ServerWriter;
 using grpc::Status;
 
+#if defined(__OC_Telemetry_Config__)
+
 using openconfig::OpenconfigRpcApi;
-using openconfig::EditEphemeralConfigRequest;
-using openconfig::EditEphemeralConfigRequest_ConfigOperationList;
-using openconfig::EditEphemeralConfigResponse;
-using openconfig::EditEphemeralConfigResponse_ResponseList;
-using openconfig::EphConfigRequestList;
-using openconfig::ExecuteOpCommandRequest;
-using openconfig::ExecuteOpCommandResponse;
+
 using openconfig::GetDataEncodingsRequest;
 using openconfig::GetDataEncodingsResponse;
-using openconfig::GetEphemeralConfigRequest;
-using openconfig::GetEphemeralConfigResponse;
-using openconfig::GetEphemeralConfigResponse_ResponseList;
 using openconfig::GetModelsRequest;
 using openconfig::GetModelsResponse;
 using openconfig::GetRequest;
@@ -47,16 +46,42 @@ using openconfig::SetRequest_ConfigOperationList;
 using openconfig::SetResponse;
 using openconfig::SetResponse_ResponseList;
 
+#else
+
+using management::ManagementRpcApi;
+
+using management::EditEphemeralConfigRequest;
+using management::EditEphemeralConfigRequest_ConfigOperationList;
+using management::EditEphemeralConfigResponse;
+using management::EditEphemeralConfigResponse_ResponseList;
+using management::EphConfigRequestList;
+using management::ExecuteOpCommandRequest;
+using management::ExecuteOpCommandResponse;
+using management::GetEphemeralConfigRequest;
+using management::GetEphemeralConfigResponse;
+using management::GetEphemeralConfigResponse_ResponseList;
+
+#endif
+
+#if defined(__OC_Telemetry_Config__)
 class MgdServer final : public OpenconfigRpcApi::Service {
+#else
+class MgdServer final : public ManagementRpcApi::Service {
+#endif
+
     // Logging service
     AgentServerLog *_logger;
 
     // The Mgd Interface
+#if defined(__OC_Telemetry_Config__)
+
     Status Set(ServerContext* context, const SetRequest* set_request,
                SetResponse* set_response) override;
 
     Status Get(ServerContext* context, const GetRequest* get_request,
                GetResponse* get_response) override;
+
+#else
 
     Status EditEphemeralConfig(ServerContext* context,
                const EditEphemeralConfigRequest* edit_eph_request,
@@ -65,6 +90,7 @@ class MgdServer final : public OpenconfigRpcApi::Service {
     Status GetEphemeralConfig(ServerContext* context,
                const GetEphemeralConfigRequest* get_eph_request,
                GetEphemeralConfigResponse* get_eph_response) override;
+#endif
 
 public:
     MgdServer (AgentServerLog *logger) : _logger(logger) {}

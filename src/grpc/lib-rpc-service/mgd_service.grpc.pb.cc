@@ -12,241 +12,111 @@
 #include <grpc++/support/async_unary_call.h>
 #include <grpc++/support/async_stream.h>
 #include <grpc++/support/sync_stream.h>
-namespace openconfig {
+namespace management {
 
-static const char* OpenconfigRpcApi_method_names[] = {
-  "/openconfig.OpenconfigRpcApi/GetDataEncodings",
-  "/openconfig.OpenconfigRpcApi/SetDataEncoding",
-  "/openconfig.OpenconfigRpcApi/GetModels",
-  "/openconfig.OpenconfigRpcApi/Get",
-  "/openconfig.OpenconfigRpcApi/Set",
-  "/openconfig.OpenconfigRpcApi/ExecuteOpCommand",
-  "/openconfig.OpenconfigRpcApi/GetEphemeralConfig",
-  "/openconfig.OpenconfigRpcApi/EditEphemeralConfig",
+static const char* ManagementRpcApi_method_names[] = {
+  "/management.ManagementRpcApi/ExecuteOpCommand",
+  "/management.ManagementRpcApi/GetEphemeralConfig",
+  "/management.ManagementRpcApi/EditEphemeralConfig",
 };
 
-std::unique_ptr< OpenconfigRpcApi::Stub> OpenconfigRpcApi::NewStub(const std::shared_ptr< ::grpc::Channel>& channel, const ::grpc::StubOptions& options) {
-  std::unique_ptr< OpenconfigRpcApi::Stub> stub(new OpenconfigRpcApi::Stub(channel));
+std::unique_ptr< ManagementRpcApi::Stub> ManagementRpcApi::NewStub(const std::shared_ptr< ::grpc::Channel>& channel, const ::grpc::StubOptions& options) {
+  std::unique_ptr< ManagementRpcApi::Stub> stub(new ManagementRpcApi::Stub(channel));
   return stub;
 }
 
-OpenconfigRpcApi::Stub::Stub(const std::shared_ptr< ::grpc::Channel>& channel)
-  : channel_(channel), rpcmethod_GetDataEncodings_(OpenconfigRpcApi_method_names[0], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_SetDataEncoding_(OpenconfigRpcApi_method_names[1], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_GetModels_(OpenconfigRpcApi_method_names[2], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_Get_(OpenconfigRpcApi_method_names[3], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_Set_(OpenconfigRpcApi_method_names[4], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_ExecuteOpCommand_(OpenconfigRpcApi_method_names[5], ::grpc::RpcMethod::SERVER_STREAMING, channel)
-  , rpcmethod_GetEphemeralConfig_(OpenconfigRpcApi_method_names[6], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_EditEphemeralConfig_(OpenconfigRpcApi_method_names[7], ::grpc::RpcMethod::NORMAL_RPC, channel)
+ManagementRpcApi::Stub::Stub(const std::shared_ptr< ::grpc::Channel>& channel)
+  : channel_(channel), rpcmethod_ExecuteOpCommand_(ManagementRpcApi_method_names[0], ::grpc::RpcMethod::SERVER_STREAMING, channel)
+  , rpcmethod_GetEphemeralConfig_(ManagementRpcApi_method_names[1], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_EditEphemeralConfig_(ManagementRpcApi_method_names[2], ::grpc::RpcMethod::NORMAL_RPC, channel)
   {}
 
-::grpc::Status OpenconfigRpcApi::Stub::GetDataEncodings(::grpc::ClientContext* context, const ::openconfig::GetDataEncodingsRequest& request, ::openconfig::GetDataEncodingsResponse* response) {
-  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_GetDataEncodings_, context, request, response);
+::grpc::ClientReader< ::management::ExecuteOpCommandResponse>* ManagementRpcApi::Stub::ExecuteOpCommandRaw(::grpc::ClientContext* context, const ::management::ExecuteOpCommandRequest& request) {
+  return new ::grpc::ClientReader< ::management::ExecuteOpCommandResponse>(channel_.get(), rpcmethod_ExecuteOpCommand_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::openconfig::GetDataEncodingsResponse>* OpenconfigRpcApi::Stub::AsyncGetDataEncodingsRaw(::grpc::ClientContext* context, const ::openconfig::GetDataEncodingsRequest& request, ::grpc::CompletionQueue* cq) {
-  return new ::grpc::ClientAsyncResponseReader< ::openconfig::GetDataEncodingsResponse>(channel_.get(), cq, rpcmethod_GetDataEncodings_, context, request);
+::grpc::ClientAsyncReader< ::management::ExecuteOpCommandResponse>* ManagementRpcApi::Stub::AsyncExecuteOpCommandRaw(::grpc::ClientContext* context, const ::management::ExecuteOpCommandRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
+  return new ::grpc::ClientAsyncReader< ::management::ExecuteOpCommandResponse>(channel_.get(), cq, rpcmethod_ExecuteOpCommand_, context, request, tag);
 }
 
-::grpc::Status OpenconfigRpcApi::Stub::SetDataEncoding(::grpc::ClientContext* context, const ::openconfig::SetDataEncodingRequest& request, ::openconfig::SetDataEncodingResponse* response) {
-  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_SetDataEncoding_, context, request, response);
-}
-
-::grpc::ClientAsyncResponseReader< ::openconfig::SetDataEncodingResponse>* OpenconfigRpcApi::Stub::AsyncSetDataEncodingRaw(::grpc::ClientContext* context, const ::openconfig::SetDataEncodingRequest& request, ::grpc::CompletionQueue* cq) {
-  return new ::grpc::ClientAsyncResponseReader< ::openconfig::SetDataEncodingResponse>(channel_.get(), cq, rpcmethod_SetDataEncoding_, context, request);
-}
-
-::grpc::Status OpenconfigRpcApi::Stub::GetModels(::grpc::ClientContext* context, const ::openconfig::GetModelsRequest& request, ::openconfig::GetModelsResponse* response) {
-  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_GetModels_, context, request, response);
-}
-
-::grpc::ClientAsyncResponseReader< ::openconfig::GetModelsResponse>* OpenconfigRpcApi::Stub::AsyncGetModelsRaw(::grpc::ClientContext* context, const ::openconfig::GetModelsRequest& request, ::grpc::CompletionQueue* cq) {
-  return new ::grpc::ClientAsyncResponseReader< ::openconfig::GetModelsResponse>(channel_.get(), cq, rpcmethod_GetModels_, context, request);
-}
-
-::grpc::Status OpenconfigRpcApi::Stub::Get(::grpc::ClientContext* context, const ::openconfig::GetRequest& request, ::openconfig::GetResponse* response) {
-  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_Get_, context, request, response);
-}
-
-::grpc::ClientAsyncResponseReader< ::openconfig::GetResponse>* OpenconfigRpcApi::Stub::AsyncGetRaw(::grpc::ClientContext* context, const ::openconfig::GetRequest& request, ::grpc::CompletionQueue* cq) {
-  return new ::grpc::ClientAsyncResponseReader< ::openconfig::GetResponse>(channel_.get(), cq, rpcmethod_Get_, context, request);
-}
-
-::grpc::Status OpenconfigRpcApi::Stub::Set(::grpc::ClientContext* context, const ::openconfig::SetRequest& request, ::openconfig::SetResponse* response) {
-  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_Set_, context, request, response);
-}
-
-::grpc::ClientAsyncResponseReader< ::openconfig::SetResponse>* OpenconfigRpcApi::Stub::AsyncSetRaw(::grpc::ClientContext* context, const ::openconfig::SetRequest& request, ::grpc::CompletionQueue* cq) {
-  return new ::grpc::ClientAsyncResponseReader< ::openconfig::SetResponse>(channel_.get(), cq, rpcmethod_Set_, context, request);
-}
-
-::grpc::ClientReader< ::openconfig::ExecuteOpCommandResponse>* OpenconfigRpcApi::Stub::ExecuteOpCommandRaw(::grpc::ClientContext* context, const ::openconfig::ExecuteOpCommandRequest& request) {
-  return new ::grpc::ClientReader< ::openconfig::ExecuteOpCommandResponse>(channel_.get(), rpcmethod_ExecuteOpCommand_, context, request);
-}
-
-::grpc::ClientAsyncReader< ::openconfig::ExecuteOpCommandResponse>* OpenconfigRpcApi::Stub::AsyncExecuteOpCommandRaw(::grpc::ClientContext* context, const ::openconfig::ExecuteOpCommandRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
-  return new ::grpc::ClientAsyncReader< ::openconfig::ExecuteOpCommandResponse>(channel_.get(), cq, rpcmethod_ExecuteOpCommand_, context, request, tag);
-}
-
-::grpc::Status OpenconfigRpcApi::Stub::GetEphemeralConfig(::grpc::ClientContext* context, const ::openconfig::GetEphemeralConfigRequest& request, ::openconfig::GetEphemeralConfigResponse* response) {
+::grpc::Status ManagementRpcApi::Stub::GetEphemeralConfig(::grpc::ClientContext* context, const ::management::GetEphemeralConfigRequest& request, ::management::GetEphemeralConfigResponse* response) {
   return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_GetEphemeralConfig_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::openconfig::GetEphemeralConfigResponse>* OpenconfigRpcApi::Stub::AsyncGetEphemeralConfigRaw(::grpc::ClientContext* context, const ::openconfig::GetEphemeralConfigRequest& request, ::grpc::CompletionQueue* cq) {
-  return new ::grpc::ClientAsyncResponseReader< ::openconfig::GetEphemeralConfigResponse>(channel_.get(), cq, rpcmethod_GetEphemeralConfig_, context, request);
+::grpc::ClientAsyncResponseReader< ::management::GetEphemeralConfigResponse>* ManagementRpcApi::Stub::AsyncGetEphemeralConfigRaw(::grpc::ClientContext* context, const ::management::GetEphemeralConfigRequest& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::management::GetEphemeralConfigResponse>(channel_.get(), cq, rpcmethod_GetEphemeralConfig_, context, request);
 }
 
-::grpc::Status OpenconfigRpcApi::Stub::EditEphemeralConfig(::grpc::ClientContext* context, const ::openconfig::EditEphemeralConfigRequest& request, ::openconfig::EditEphemeralConfigResponse* response) {
+::grpc::Status ManagementRpcApi::Stub::EditEphemeralConfig(::grpc::ClientContext* context, const ::management::EditEphemeralConfigRequest& request, ::management::EditEphemeralConfigResponse* response) {
   return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_EditEphemeralConfig_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::openconfig::EditEphemeralConfigResponse>* OpenconfigRpcApi::Stub::AsyncEditEphemeralConfigRaw(::grpc::ClientContext* context, const ::openconfig::EditEphemeralConfigRequest& request, ::grpc::CompletionQueue* cq) {
-  return new ::grpc::ClientAsyncResponseReader< ::openconfig::EditEphemeralConfigResponse>(channel_.get(), cq, rpcmethod_EditEphemeralConfig_, context, request);
+::grpc::ClientAsyncResponseReader< ::management::EditEphemeralConfigResponse>* ManagementRpcApi::Stub::AsyncEditEphemeralConfigRaw(::grpc::ClientContext* context, const ::management::EditEphemeralConfigRequest& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::management::EditEphemeralConfigResponse>(channel_.get(), cq, rpcmethod_EditEphemeralConfig_, context, request);
 }
 
-OpenconfigRpcApi::AsyncService::AsyncService() : ::grpc::AsynchronousService(OpenconfigRpcApi_method_names, 8) {}
+ManagementRpcApi::AsyncService::AsyncService() : ::grpc::AsynchronousService(ManagementRpcApi_method_names, 3) {}
 
-OpenconfigRpcApi::Service::~Service() {
+ManagementRpcApi::Service::~Service() {
   delete service_;
 }
 
-::grpc::Status OpenconfigRpcApi::Service::GetDataEncodings(::grpc::ServerContext* context, const ::openconfig::GetDataEncodingsRequest* request, ::openconfig::GetDataEncodingsResponse* response) {
-  (void) context;
-  (void) request;
-  (void) response;
-  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-}
-
-void OpenconfigRpcApi::AsyncService::RequestGetDataEncodings(::grpc::ServerContext* context, ::openconfig::GetDataEncodingsRequest* request, ::grpc::ServerAsyncResponseWriter< ::openconfig::GetDataEncodingsResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-  AsynchronousService::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
-}
-
-::grpc::Status OpenconfigRpcApi::Service::SetDataEncoding(::grpc::ServerContext* context, const ::openconfig::SetDataEncodingRequest* request, ::openconfig::SetDataEncodingResponse* response) {
-  (void) context;
-  (void) request;
-  (void) response;
-  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-}
-
-void OpenconfigRpcApi::AsyncService::RequestSetDataEncoding(::grpc::ServerContext* context, ::openconfig::SetDataEncodingRequest* request, ::grpc::ServerAsyncResponseWriter< ::openconfig::SetDataEncodingResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-  AsynchronousService::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
-}
-
-::grpc::Status OpenconfigRpcApi::Service::GetModels(::grpc::ServerContext* context, const ::openconfig::GetModelsRequest* request, ::openconfig::GetModelsResponse* response) {
-  (void) context;
-  (void) request;
-  (void) response;
-  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-}
-
-void OpenconfigRpcApi::AsyncService::RequestGetModels(::grpc::ServerContext* context, ::openconfig::GetModelsRequest* request, ::grpc::ServerAsyncResponseWriter< ::openconfig::GetModelsResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-  AsynchronousService::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
-}
-
-::grpc::Status OpenconfigRpcApi::Service::Get(::grpc::ServerContext* context, const ::openconfig::GetRequest* request, ::openconfig::GetResponse* response) {
-  (void) context;
-  (void) request;
-  (void) response;
-  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-}
-
-void OpenconfigRpcApi::AsyncService::RequestGet(::grpc::ServerContext* context, ::openconfig::GetRequest* request, ::grpc::ServerAsyncResponseWriter< ::openconfig::GetResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-  AsynchronousService::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
-}
-
-::grpc::Status OpenconfigRpcApi::Service::Set(::grpc::ServerContext* context, const ::openconfig::SetRequest* request, ::openconfig::SetResponse* response) {
-  (void) context;
-  (void) request;
-  (void) response;
-  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-}
-
-void OpenconfigRpcApi::AsyncService::RequestSet(::grpc::ServerContext* context, ::openconfig::SetRequest* request, ::grpc::ServerAsyncResponseWriter< ::openconfig::SetResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-  AsynchronousService::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
-}
-
-::grpc::Status OpenconfigRpcApi::Service::ExecuteOpCommand(::grpc::ServerContext* context, const ::openconfig::ExecuteOpCommandRequest* request, ::grpc::ServerWriter< ::openconfig::ExecuteOpCommandResponse>* writer) {
+::grpc::Status ManagementRpcApi::Service::ExecuteOpCommand(::grpc::ServerContext* context, const ::management::ExecuteOpCommandRequest* request, ::grpc::ServerWriter< ::management::ExecuteOpCommandResponse>* writer) {
   (void) context;
   (void) request;
   (void) writer;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-void OpenconfigRpcApi::AsyncService::RequestExecuteOpCommand(::grpc::ServerContext* context, ::openconfig::ExecuteOpCommandRequest* request, ::grpc::ServerAsyncWriter< ::openconfig::ExecuteOpCommandResponse>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-  AsynchronousService::RequestServerStreaming(5, context, request, writer, new_call_cq, notification_cq, tag);
+void ManagementRpcApi::AsyncService::RequestExecuteOpCommand(::grpc::ServerContext* context, ::management::ExecuteOpCommandRequest* request, ::grpc::ServerAsyncWriter< ::management::ExecuteOpCommandResponse>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+  AsynchronousService::RequestServerStreaming(0, context, request, writer, new_call_cq, notification_cq, tag);
 }
 
-::grpc::Status OpenconfigRpcApi::Service::GetEphemeralConfig(::grpc::ServerContext* context, const ::openconfig::GetEphemeralConfigRequest* request, ::openconfig::GetEphemeralConfigResponse* response) {
+::grpc::Status ManagementRpcApi::Service::GetEphemeralConfig(::grpc::ServerContext* context, const ::management::GetEphemeralConfigRequest* request, ::management::GetEphemeralConfigResponse* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-void OpenconfigRpcApi::AsyncService::RequestGetEphemeralConfig(::grpc::ServerContext* context, ::openconfig::GetEphemeralConfigRequest* request, ::grpc::ServerAsyncResponseWriter< ::openconfig::GetEphemeralConfigResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-  AsynchronousService::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
+void ManagementRpcApi::AsyncService::RequestGetEphemeralConfig(::grpc::ServerContext* context, ::management::GetEphemeralConfigRequest* request, ::grpc::ServerAsyncResponseWriter< ::management::GetEphemeralConfigResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+  AsynchronousService::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
 }
 
-::grpc::Status OpenconfigRpcApi::Service::EditEphemeralConfig(::grpc::ServerContext* context, const ::openconfig::EditEphemeralConfigRequest* request, ::openconfig::EditEphemeralConfigResponse* response) {
+::grpc::Status ManagementRpcApi::Service::EditEphemeralConfig(::grpc::ServerContext* context, const ::management::EditEphemeralConfigRequest* request, ::management::EditEphemeralConfigResponse* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-void OpenconfigRpcApi::AsyncService::RequestEditEphemeralConfig(::grpc::ServerContext* context, ::openconfig::EditEphemeralConfigRequest* request, ::grpc::ServerAsyncResponseWriter< ::openconfig::EditEphemeralConfigResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-  AsynchronousService::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
+void ManagementRpcApi::AsyncService::RequestEditEphemeralConfig(::grpc::ServerContext* context, ::management::EditEphemeralConfigRequest* request, ::grpc::ServerAsyncResponseWriter< ::management::EditEphemeralConfigResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+  AsynchronousService::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
 }
 
-::grpc::RpcService* OpenconfigRpcApi::Service::service() {
+::grpc::RpcService* ManagementRpcApi::Service::service() {
   if (service_ != nullptr) {
     return service_;
   }
   service_ = new ::grpc::RpcService();
   service_->AddMethod(new ::grpc::RpcServiceMethod(
-      OpenconfigRpcApi_method_names[0],
-      ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< OpenconfigRpcApi::Service, ::openconfig::GetDataEncodingsRequest, ::openconfig::GetDataEncodingsResponse>(
-          std::mem_fn(&OpenconfigRpcApi::Service::GetDataEncodings), this)));
-  service_->AddMethod(new ::grpc::RpcServiceMethod(
-      OpenconfigRpcApi_method_names[1],
-      ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< OpenconfigRpcApi::Service, ::openconfig::SetDataEncodingRequest, ::openconfig::SetDataEncodingResponse>(
-          std::mem_fn(&OpenconfigRpcApi::Service::SetDataEncoding), this)));
-  service_->AddMethod(new ::grpc::RpcServiceMethod(
-      OpenconfigRpcApi_method_names[2],
-      ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< OpenconfigRpcApi::Service, ::openconfig::GetModelsRequest, ::openconfig::GetModelsResponse>(
-          std::mem_fn(&OpenconfigRpcApi::Service::GetModels), this)));
-  service_->AddMethod(new ::grpc::RpcServiceMethod(
-      OpenconfigRpcApi_method_names[3],
-      ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< OpenconfigRpcApi::Service, ::openconfig::GetRequest, ::openconfig::GetResponse>(
-          std::mem_fn(&OpenconfigRpcApi::Service::Get), this)));
-  service_->AddMethod(new ::grpc::RpcServiceMethod(
-      OpenconfigRpcApi_method_names[4],
-      ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< OpenconfigRpcApi::Service, ::openconfig::SetRequest, ::openconfig::SetResponse>(
-          std::mem_fn(&OpenconfigRpcApi::Service::Set), this)));
-  service_->AddMethod(new ::grpc::RpcServiceMethod(
-      OpenconfigRpcApi_method_names[5],
+      ManagementRpcApi_method_names[0],
       ::grpc::RpcMethod::SERVER_STREAMING,
-      new ::grpc::ServerStreamingHandler< OpenconfigRpcApi::Service, ::openconfig::ExecuteOpCommandRequest, ::openconfig::ExecuteOpCommandResponse>(
-          std::mem_fn(&OpenconfigRpcApi::Service::ExecuteOpCommand), this)));
+      new ::grpc::ServerStreamingHandler< ManagementRpcApi::Service, ::management::ExecuteOpCommandRequest, ::management::ExecuteOpCommandResponse>(
+          std::mem_fn(&ManagementRpcApi::Service::ExecuteOpCommand), this)));
   service_->AddMethod(new ::grpc::RpcServiceMethod(
-      OpenconfigRpcApi_method_names[6],
+      ManagementRpcApi_method_names[1],
       ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< OpenconfigRpcApi::Service, ::openconfig::GetEphemeralConfigRequest, ::openconfig::GetEphemeralConfigResponse>(
-          std::mem_fn(&OpenconfigRpcApi::Service::GetEphemeralConfig), this)));
+      new ::grpc::RpcMethodHandler< ManagementRpcApi::Service, ::management::GetEphemeralConfigRequest, ::management::GetEphemeralConfigResponse>(
+          std::mem_fn(&ManagementRpcApi::Service::GetEphemeralConfig), this)));
   service_->AddMethod(new ::grpc::RpcServiceMethod(
-      OpenconfigRpcApi_method_names[7],
+      ManagementRpcApi_method_names[2],
       ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< OpenconfigRpcApi::Service, ::openconfig::EditEphemeralConfigRequest, ::openconfig::EditEphemeralConfigResponse>(
-          std::mem_fn(&OpenconfigRpcApi::Service::EditEphemeralConfig), this)));
+      new ::grpc::RpcMethodHandler< ManagementRpcApi::Service, ::management::EditEphemeralConfigRequest, ::management::EditEphemeralConfigResponse>(
+          std::mem_fn(&ManagementRpcApi::Service::EditEphemeralConfig), this)));
   return service_;
 }
 
 
-}  // namespace openconfig
+}  // namespace management
 
