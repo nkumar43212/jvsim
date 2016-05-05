@@ -16,6 +16,10 @@
 #include "JsonUtils.hpp"
 #include "GlobalConfig.hpp"
 
+// Set connection timeout to MGD server to X sec for a RPC API call
+#define CLIENT_CONN_TIMEOUT         5
+
+
 #if defined(__OC_Telemetry_Config__)
 grpc::Status
 AgentSystemProc::_sendOCMessagetoMgd (std::string &config,
@@ -110,31 +114,59 @@ AgentSystemProc::_sendJunosMessagetoMgd (std::string &config,
     // Send over the request
     EditEphemeralConfigResponse edit_eph_response;
     grpc::ClientContext context;
+    std::chrono::system_clock::time_point deadline =
+                        std::chrono::system_clock::now() +
+                        std::chrono::seconds(CLIENT_CONN_TIMEOUT);
+    context.set_deadline(deadline);
     grpc::Status status = stub_->EditEphemeralConfig(&context,
                                                      edit_eph_request,
                                                      &edit_eph_response);
+    // Check time exceeded (device is not available)
+    if (status.ok() == false) {
+        // Increment count
+        ++_error_system_count;
+
+        _logger->log("MGD command failed (cmd = " +
+                     std::to_string(cmdcode) + "). Error code: " +
+                     std::to_string(status.error_code()) + ". " +
+                     "Error message: " + status.error_message());
+
+        return status;
+    }
+
+    // Make sure we get atleast one element in response
+    if (edit_eph_response.response_size() == 0) {
+        // Increment count
+        ++_error_system_count;
+
+        _logger->log("MGD command failed (cmd = " +
+                     std::to_string(cmdcode) + "). No response received.");
+
+        // Indicate failed status
+        status = grpc::Status(grpc::StatusCode::UNKNOWN, "");
+
+        return status;
+    }
 
     // Get the response - only one request is send
     EditEphemeralConfigResponse_ResponseList response =
                                                 edit_eph_response.response(0);
 
     // Check the status
-    if ((status.ok() == false) ||
-        (response.response_code() !=
-         management::JunosRpcResponseTypes::OK)) {
+    if (response.response_code() != management::JunosRpcResponseTypes::OK) {
             // Increment count
             ++_error_system_count;
 
             _logger->log("MGD command failed (cmd = " +
                          std::to_string(cmdcode) + "). Error code: " +
-                         std::to_string(status.error_code()) +
-                         " " + std::to_string(response.response_code()) +
-                         "Error message: " + status.error_message() +
-                         response.message());
+                         std::to_string(response.response_code()) + ". " +
+                         "Error message: " + response.message());
 
             // Indicate failed status
             status = grpc::Status(grpc::StatusCode::UNKNOWN, "");
-        }
+
+        return status;
+    }
 
     return status;
 }
@@ -218,7 +250,7 @@ AgentSystemProc::systemRemove (SystemId id, const Telemetry::Path *request_path)
         // Increment the counter
         ++_add_system_count;
 
-        _logger->log("MGD command UPDATE_CONFIG passed. Request_id: " +
+        _logger->log("MGD command DELETE_CONFIG passed. Request_id: " +
                      std::to_string(id.getId()) +
                      " Path: " + AgentUtils::getMessageString(*request_path));
     }
@@ -310,6 +342,12 @@ AgentSystemProc::systemGet (SystemId id)
 
     std::string response_json_str = get_eph_response.response(0).value();
     _logger->log("Get response : " + response_json_str);
+
+    // Remove the special tags
+    AgentUtils::SearchNReplaceString(response_json_str,
+                                     "<configuration-json>", "");
+    AgentUtils::SearchNReplaceString(response_json_str,
+                                     "</configuration-json>", "");
 
     // Convert to path
     // TODO ABBAS - FIX THIS HOLISTICALLY LATER

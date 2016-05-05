@@ -61,6 +61,13 @@
             ReferencedContainer = "container:grpc.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "ROOTPATH"
+            value = "${PROJECT_DIR}/../.."
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

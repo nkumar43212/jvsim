@@ -63,10 +63,32 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "-l ${PROJECT_DIR}/../../logs/agent_server.log"
+            argument = "-c ${PROJECT_DIR}/../../config/agent_server.ini"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "Using_log_n_process"
+            value = "-l /tmp/agent_server.log -p"
+            isEnabled = "NO">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "Using_log_n_process_2"
+            value = "-l ${PROJECT_DIR}/../../logs/agent_server.log -p"
+            isEnabled = "NO">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "Using_ini"
+            value = "-c ${PROJECT_DIR}/../../config/agent_server.ini"
+            isEnabled = "NO">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "Using_file_mode"
+            value = "-l ${PROJECT_DIR}/../../logs/agent_server.log -f ${PROJECT_DIR}/../../logs/sim_file.log"
+            isEnabled = "NO">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

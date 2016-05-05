@@ -149,7 +149,7 @@ public:
                                             _system_subscription->getHandle(i);
                 id_idx_t isubid = csh->getInternalSubscriptionId();
                 // TODO ABBAS === test this
-                Subscribe(std::to_string(isubid));
+                Subscribe("/" + std::to_string(isubid));
             }
         }
     }
@@ -170,7 +170,7 @@ public:
                 _system_subscription->getHandle(i);
                 id_idx_t isubid = csh->getInternalSubscriptionId();
                 // TODO ABBAS === test this
-                Subscribe(std::to_string(isubid));
+                Subscribe("/" + std::to_string(isubid));
             }
         }
     }

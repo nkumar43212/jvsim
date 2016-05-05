@@ -84,10 +84,13 @@ JunosTelemetryJsonGenerator::generate_json_junos_config (bool add,
     JsonUtils::merge_json_objects(final_json, streaming_server_json);
     JsonUtils::merge_json_objects(final_json, sensor_config_json);
 
-    // Send the final string
-    // ABBAS TODO --- Due to Junos Json implementation limitations,
+    // Config string
+    // ABBAS SPECIAL FIX --- Due to Junos Json implementation limitations,
     // replace "%name% with "name" in final stage
     std::string final_str = JsonUtils::write_json_obj_to_string(final_json);
     AgentUtils::SearchNReplaceString(final_str, "@name@", "name");
+
+    // ABBAS SPECIAL FIX --- Prepend and Append this special tag
+    final_str = "<configuration-json>" + final_str + "</configuration-json>";
     return final_str;
 }
