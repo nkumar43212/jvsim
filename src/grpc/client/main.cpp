@@ -34,20 +34,23 @@ int main(int argc, const char * argv[])
             // if ROOTPATH env variable is set, set default log path
             logfile_dir = (std::string)env_rp + "/logs/";
         } else {
-            std::cerr << "Please setup ROOTPATH environment variable or run as \"client_binary logfile_dir\"" << std::endl;
+            std::cerr << "Please setup ROOTPATH environment variable or run as"
+                      << "\"client_binary logfile_dir\"" << std::endl;
             exit(0);
         }
     }
     // Validate if directory
     struct stat sb;
     if (!(stat(logfile_dir.c_str(), &sb) == 0 && S_ISDIR(sb.st_mode))) {
-        std::cout << "Either ROOTPATH set or argument passed is not a valid directory = " << logfile_dir << std::endl;
+        std::cout << "Either ROOTPATH set or argument passed is not a "
+                  << "valid directory = " << logfile_dir << std::endl;
         exit(0);
     }
 
     // A well known Management Client
     std::string mgmt_client_name(AGENTCLIENT_MGMT);
-    AgentClient::create(grpc::CreateChannel("localhost:50051", grpc::InsecureCredentials()),
+    AgentClient::create(grpc::CreateChannel(AGENT_SERVER_IP_PORT,
+                        grpc::InsecureCredentials()),
                         mgmt_client_name,
                         global_id++,
                         logfile_dir);

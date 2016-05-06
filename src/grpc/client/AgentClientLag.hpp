@@ -1,6 +1,6 @@
 //
 //  AgentClientLag.hpp
-//  agent-jv
+//  agent-jv-client
 //
 //  Created by NITIN KUMAR on 2/17/16.
 //  Copyright © 2016 Juniper Networks. All rights reserved.
@@ -69,7 +69,8 @@ public:
         for (itr = _interfaces.begin(); itr != _interfaces.end(); itr++) {
             AgentMemberInterface *childp = itr->second;
             count += childp->getPackets();
-            std::cout << "  " << childp->getName() << ":" << childp->getPackets() << "\n";
+            std::cout << "  " << childp->getName() << ":"
+                      << childp->getPackets() << "\n";
         }
         std::cout << "Total = " << count << "\n";
         std::cout << "-----------\n";

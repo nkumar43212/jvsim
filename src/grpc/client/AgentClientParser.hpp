@@ -1,6 +1,6 @@
 //
 //  AgentClientParser.hpp
-//  agent-jv
+//  agent-jv-client
 //
 //  Created by NITIN KUMAR on 1/22/16.
 //  Copyright © 2016 Juniper Networks. All rights reserved.
@@ -59,7 +59,8 @@ class AgentParser {
     std::string _logfile_dir;
 
 public:
-    AgentParser (std::string client_logfile_dir) : _logfile_dir(client_logfile_dir)
+    AgentParser (std::string client_logfile_dir) :
+                _logfile_dir(client_logfile_dir)
     {
         for (uint32_t i = 0; i < agent_client_commands_count; i++) {
             entry_t *entry = agent_client_commands + i;

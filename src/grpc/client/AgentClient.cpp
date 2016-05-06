@@ -1,6 +1,6 @@
 //
 //  AgentClient.cpp
-//  agent-jv
+//  agent-jv-client
 //
 //  Created by NITIN KUMAR on 12/29/15.
 //  Copyright © 2015 Juniper Networks. All rights reserved.
@@ -69,11 +69,13 @@ AgentClient::print (void)
     map<const std::string, AgentClient *>::iterator itr;
 
     for (itr = active_clients.begin(); itr != active_clients.end(); itr++) {
-        std::cout << std::endl << "Subscription = " << itr->second->getName() <<
-            ", ID = "<< itr->second->getId() << " (Active = " << itr->second->getActive()
-            << ")" << std::endl;
-        std::cout << "   Server/Subscription ID  = " << itr->second->getServerId() <<
-            " (Valid = " << itr->second->getServerIdValid() << ")" << std::endl;
+        std::cout << std::endl << "Subscription = " << itr->second->getName()
+                  << ", ID = "<< itr->second->getId() << " (Active = "
+                  << itr->second->getActive() << ")" << std::endl;
+        std::cout << "   Server/Subscription ID  = "
+                  << itr->second->getServerId()
+                  << " (Valid = " << itr->second->getServerIdValid() << ")"
+                  << std::endl;
     }
 }
 
@@ -86,12 +88,14 @@ AgentClient::subscribeTelemetry (std::vector<std::string> path_list,
     // Create a request
     Path *path;
     SubscriptionRequest request;
-    SubscriptionAdditionalConfig *p_add_config = request.mutable_additional_config();
+    SubscriptionAdditionalConfig *p_add_config =
+                                        request.mutable_additional_config();
     SubscriptionReply reply;
     SubscriptionResponse *response;
 
     // Set up the paths
-    for (std::vector<std::string>::iterator itr = path_list.begin(); itr != path_list.end(); itr++) {
+    for (std::vector<std::string>::iterator itr = path_list.begin();
+         itr != path_list.end(); itr++) {
         path = request.add_path_list();
         path->set_path(*itr);
         path->set_sample_frequency(sample_frequency);
@@ -109,7 +113,8 @@ AgentClient::subscribeTelemetry (std::vector<std::string> path_list,
     ClientContext context;
     std::multimap<grpc::string_ref, grpc::string_ref> server_metadata;
     std::multimap<grpc::string_ref, grpc::string_ref>::iterator metadata_itr;
-    std::unique_ptr<ClientReader<OpenConfigData>> reader(stub_->telemetrySubscribe(&context, request));
+    std::unique_ptr<ClientReader<OpenConfigData>>
+                        reader(stub_->telemetrySubscribe(&context, request));
 
     // Wait for the initial meta data to come back
     reader->WaitForInitialMetadata();
@@ -130,9 +135,11 @@ AgentClient::subscribeTelemetry (std::vector<std::string> path_list,
     }
 
     // Std on the terminal
-    std::cout << std::endl << "Received Subcription Id = " << _subscription_id << std::endl;
+    std::cout << std::endl << "Received Subcription Id = "
+              << _subscription_id << std::endl;
     for (int i = 0; i < reply.path_list_size(); i++) {
-        std::cout << "Path[" << i << "]: " << reply.path_list(i).path() << std::endl;
+        std::cout << "Path[" << i << "]: " << reply.path_list(i).path()
+                  << std::endl;
     }
 
     // Log file handle
@@ -144,19 +151,20 @@ AgentClient::subscribeTelemetry (std::vector<std::string> path_list,
     while (reader->Read(&kv) && _active) {
         // Log the message size
         logger->log("Message Size = " + std::to_string(kv.ByteSize()));
-    
+
         // Print it out
         std::string formatted;
         google::protobuf::TextFormat::PrintToString(kv, &formatted);
         logger->log(formatted);
         logger->log("-----");
-        
+
         // If this is a port interface subscription update the LAG
         AgentLag::updateStats(&kv);
     }
 
     // Cleanup
-    std::cout << "Ending subscription session for Id = " << _subscription_id << std::endl;
+    std::cout << "Ending subscription session for Id = "
+              << _subscription_id << std::endl;
 
     delete logger;
     reader->Finish();
@@ -165,7 +173,8 @@ AgentClient::subscribeTelemetry (std::vector<std::string> path_list,
 void
 AgentClient::cancelSubscribeTelemetry (void)
 {
-    std::cout << std::endl << "Unsubscribe Subcription Id = " << _subscription_id << std::endl;
+    std::cout << std::endl << "Unsubscribe Subcription Id = "
+              << _subscription_id << std::endl;
 
     // Do we have a valid ID from the server ?
     if (getServerIdValid() == 0) {
@@ -203,7 +212,8 @@ AgentClient::listSubscriptions (uint32_t subscription_id)
     for (int i = 0; i < get_reply.subscription_list_size(); i++) {
         SubscriptionReply *sub_reply = get_reply.mutable_subscription_list(i);
         const SubscriptionResponse &sub_response = sub_reply->response();
-        std::cout << std::endl << "[" << i << "] ---> Subscription Id = " << sub_response.subscription_id() << std::endl;
+        std::cout << std::endl << "[" << i << "] ---> Subscription Id = "
+                  << sub_response.subscription_id() << std::endl;
         int path_list_size = sub_reply->path_list_size();
         for (int lz = 0; lz < path_list_size; lz++) {
             Telemetry::Path path = sub_reply->path_list(lz);
@@ -213,7 +223,8 @@ AgentClient::listSubscriptions (uint32_t subscription_id)
 }
 
 void
-AgentClient::getOperational (uint32_t subscription_id, Telemetry::VerbosityLevel verbosity)
+AgentClient::getOperational (uint32_t subscription_id,
+                             Telemetry::VerbosityLevel verbosity)
 {
     ClientContext  context;
     GetOperationalStateRequest  operational_request;
@@ -225,7 +236,8 @@ AgentClient::getOperational (uint32_t subscription_id, Telemetry::VerbosityLevel
 
     operational_request.set_subscription_id(subscription_id);
     operational_request.set_verbosity(verbosity);
-    stub_->getTelemetryOperationalState(&context, operational_request, &operational_reply);
+    stub_->getTelemetryOperationalState(&context,
+                                    operational_request, &operational_reply);
 
     for (int lz = 0; lz < operational_reply.kv_size(); lz++) {
         kv = operational_reply.mutable_kv(lz);

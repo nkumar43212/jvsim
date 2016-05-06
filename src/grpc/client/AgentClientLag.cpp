@@ -1,6 +1,6 @@
 //
 //  AgentClientLag.cpp
-//  agent-jv
+//  agent-jv-client
 //
 //  Created by NITIN KUMAR on 2/17/16.
 //  Copyright © 2016 Juniper Networks. All rights reserved.
@@ -20,7 +20,8 @@ AgentLag::build (uint32_t lag_count, uint32_t lc_count)
         AgentLag *lag = new AgentLag(name + std::to_string(i));
         for (int j = 0; j < lc_count; j++) {
             AgentMemberInterface *member;
-            std::string cname = "oc-path/interfaces/xe-" + std::to_string(j) + "/0/" + std::to_string(i) + "/";
+            std::string cname = "oc-path/interfaces/xe-" + std::to_string(j) +
+                                "/0/" + std::to_string(i) + "/";
             member = new AgentMemberInterface(cname);
             lag->addMember(member);
         }

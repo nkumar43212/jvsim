@@ -1,6 +1,6 @@
 //
 //  AgentClientParser.cpp
-//  agent-jv
+//  agent-jv-client
 //
 //  Created by NITIN KUMAR on 1/22/16.
 //  Copyright © 2016 Juniper Networks. All rights reserved.
@@ -35,7 +35,8 @@ handle_subscribe (int argc, const char *argv[])
     }
 
     // Create a client
-    client = AgentClient::create(grpc::CreateChannel("localhost:50051", grpc::InsecureCredentials()),
+    client = AgentClient::create(grpc::CreateChannel(AGENT_SERVER_IP_PORT,
+                                 grpc::InsecureCredentials()),
                                  client_name,
                                  global_id++,
                                  parser->getLogDir());
@@ -67,8 +68,11 @@ handle_subscribe_limits (int argc, const char *argv[])
     }
 
     // Create a client
-    client = AgentClient::create(grpc::CreateChannel("localhost:50051", grpc::InsecureCredentials()),
-                                 client_name, global_id++, parser->getLogDir());
+    client = AgentClient::create(grpc::CreateChannel(AGENT_SERVER_IP_PORT,
+                                 grpc::InsecureCredentials()),
+                                 client_name,
+                                 global_id++,
+                                 parser->getLogDir());
 
     // Sample Frequency
     uint32_t sample_frequency = atoi(argv[2]);
@@ -81,7 +85,8 @@ handle_subscribe_limits (int argc, const char *argv[])
         path_list.push_back(argv[i]);
     }
 
-    client->subscribeTelemetry(path_list, sample_frequency, limit_records, limit_seconds);
+    client->subscribeTelemetry(path_list, sample_frequency,
+                               limit_records, limit_seconds);
     delete client;
 }
 
@@ -102,8 +107,11 @@ proc (void *args)
     }
 
     // Create a client
-    client = AgentClient::create(grpc::CreateChannel("localhost:50051", grpc::InsecureCredentials()),
-                                 client_name, global_id++, parser->getLogDir());
+    client = AgentClient::create(grpc::CreateChannel(AGENT_SERVER_IP_PORT,
+                                 grpc::InsecureCredentials()),
+                                 client_name,
+                                 global_id++,
+                                 parser->getLogDir());
 
     // Sample Frequency
     uint32_t sample_frequency = atoi(argv[3]);
@@ -377,4 +385,5 @@ entry_t agent_client_commands [] = {
 
 };
 
-uint32_t agent_client_commands_count = sizeof(agent_client_commands)/sizeof(entry_t);
+uint32_t agent_client_commands_count =
+                                sizeof(agent_client_commands)/sizeof(entry_t);

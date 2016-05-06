@@ -1,6 +1,6 @@
 //
 //  AgentClient.hpp
-//  agent-jv
+//  agent-jv-client
 //
 //  Created by NITIN KUMAR on 12/29/15.
 //  Copyright © 2015 Juniper Networks. All rights reserved.
@@ -43,6 +43,9 @@ using Telemetry::ReturnCode;
 using Telemetry::VerbosityLevel;
 using Telemetry::EncodingType;
 
+// AGENT_SERVER_ADDRESS
+#define AGENT_SERVER_IP_PORT            "localhost:50051"
+
 // Name of Management Client
 #define AGENTCLIENT_MGMT "Management-Client"
 
@@ -67,7 +70,9 @@ public:
     AgentClient (std::shared_ptr<Channel> channel,
                  const std::string& name,
                  uint32_t id,
-                 const std::string& logfile_dir) : stub_(OpenConfigTelemetry::NewStub(channel)), _name(name), _active(true), _id(id)
+                 const std::string& logfile_dir) :
+                 stub_(OpenConfigTelemetry::NewStub(channel)),
+                 _name(name), _active(true), _id(id)
     {
         std::string s(logfile_dir);
         _logfile = s + _name;
@@ -95,10 +100,12 @@ public:
 
     void subscribeTelemetry(std::vector<std::string> path_list,
                             uint32_t sample_frequency,
-                            uint32_t limit_records = 0, uint32_t limit_seconds = 0);
+                            uint32_t limit_records = 0,
+                            uint32_t limit_seconds = 0);
     void cancelSubscribeTelemetry(void);
     void listSubscriptions(uint32_t subscription_id);
-    void getOperational(uint32_t subscription_id, Telemetry::VerbosityLevel verbosity);
+    void getOperational(uint32_t subscription_id,
+                        Telemetry::VerbosityLevel verbosity);
 
     void errorMsg (std::string err_str, Status code)
     {
