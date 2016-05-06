@@ -11,16 +11,16 @@ from google.protobuf import descriptor_pb2
 _sym_db = _symbol_database.Default()
 
 
-import jvision_top_pb2 as jvision__top__pb2
+import telemetry_top_pb2 as telemetry__top__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='test.proto',
   package='',
   syntax='proto2',
-  serialized_pb=b'\n\ntest.proto\x1a\x11jvision_top.proto\"(\n\x04Test\x12 \n\ntest_stats\x18\x01 \x03(\x0b\x32\x0c.TestElement\"\'\n\x0bTestElement\x12\n\n\x02id\x18\x01 \x02(\r\x12\x0c\n\x04name\x18\x02 \x02(\t:5\n\rjnpr_test_ext\x12\x17.JuniperNetworksSensors\x18\x08 \x01(\x0b\x32\x05.Test'
+  serialized_pb=b'\n\ntest.proto\x1a\x13telemetry_top.proto\"(\n\x04Test\x12 \n\ntest_stats\x18\x01 \x03(\x0b\x32\x0c.TestElement\"\'\n\x0bTestElement\x12\n\n\x02id\x18\x01 \x02(\r\x12\x0c\n\x04name\x18\x02 \x02(\t:5\n\rjnpr_test_ext\x12\x17.JuniperNetworksSensors\x18\x08 \x01(\x0b\x32\x05.Test'
   ,
-  dependencies=[jvision__top__pb2.DESCRIPTOR,])
+  dependencies=[telemetry__top__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 
@@ -60,8 +60,8 @@ _TEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=33,
-  serialized_end=73,
+  serialized_start=35,
+  serialized_end=75,
 )
 
 
@@ -98,8 +98,8 @@ _TESTELEMENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=75,
-  serialized_end=114,
+  serialized_start=77,
+  serialized_end=116,
 )
 
 _TEST.fields_by_name['test_stats'].message_type = _TESTELEMENT
@@ -122,6 +122,6 @@ TestElement = _reflection.GeneratedProtocolMessageType('TestElement', (_message.
 _sym_db.RegisterMessage(TestElement)
 
 jnpr_test_ext.message_type = _TEST
-jvision__top__pb2.JuniperNetworksSensors.RegisterExtension(jnpr_test_ext)
+telemetry__top__pb2.JuniperNetworksSensors.RegisterExtension(jnpr_test_ext)
 
 # @@protoc_insertion_point(module_scope)

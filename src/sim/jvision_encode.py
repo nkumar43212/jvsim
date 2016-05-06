@@ -1,6 +1,6 @@
 import os
 import sys
-import jvision_top_pb2
+import telemetry_top_pb2
 import jv_protos
 import google.protobuf.text_format
 import time
@@ -9,7 +9,7 @@ from jv_protos import jv_encode
 
 #Generate a message
 def generate_message(frame, sensor_type, max_count, lc_slot, system_id, sequence_number, system_params):
-    telemetry_stream              = jvision_top_pb2.TelemetryStream();
+    telemetry_stream              = telemetry_top_pb2.TelemetryStream();
     telemetry_stream.system_id    = system_id
     telemetry_stream.component_id = lc_slot
     telemetry_stream.timestamp    = calendar.timegm(time.gmtime())
@@ -17,7 +17,7 @@ def generate_message(frame, sensor_type, max_count, lc_slot, system_id, sequence
 
     #Extend the juniper enterprise
     enterprise = telemetry_stream.enterprise
-    jnpr       = enterprise.juniperNetworks
+    jnpr       = enterprise.Extensions[telemetry_top_pb2.juniperNetworks]
 
     #Call the appropriate encoder
     x = 0
@@ -37,7 +37,7 @@ def generate_message(frame, sensor_type, max_count, lc_slot, system_id, sequence
 
 def print_message(byte_stream):
     print("-------------");
-    tstream = jvision_top_pb2.TelemetryStream();
+    tstream = telemetry_top_pb2.TelemetryStream();
     tstream.ParseFromString(byte_stream)
     print(google.protobuf.text_format.MessageToString(tstream))
     print("Message Size = %u\n" % (tstream.ByteSize()));

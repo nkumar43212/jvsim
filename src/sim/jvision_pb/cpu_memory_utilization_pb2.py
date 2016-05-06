@@ -11,16 +11,16 @@ from google.protobuf import descriptor_pb2
 _sym_db = _symbol_database.Default()
 
 
-import jvision_top_pb2 as jvision__top__pb2
+import telemetry_top_pb2 as telemetry__top__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='cpu_memory_utilization.proto',
   package='',
   syntax='proto2',
-  serialized_pb=b'\n\x1c\x63pu_memory_utilization.proto\x1a\x11jvision_top.proto\"I\n\x14\x43puMemoryUtilization\x12\x31\n\x0butilization\x18\x01 \x03(\x0b\x32\x1c.CpuMemoryUtilizationSummary\"\xad\x01\n\x1b\x43puMemoryUtilizationSummary\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04size\x18\x02 \x01(\x04\x12\x17\n\x0f\x62ytes_allocated\x18\x03 \x01(\x04\x12\x13\n\x0butilization\x18\x04 \x01(\x05\x12\x44\n\x17\x61pplication_utilization\x18\x05 \x03(\x0b\x32#.CpuMemoryUtilizationPerApplication\"\x8b\x01\n\"CpuMemoryUtilizationPerApplication\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x17\n\x0f\x62ytes_allocated\x18\x02 \x01(\x04\x12\x13\n\x0b\x61llocations\x18\x03 \x01(\x04\x12\r\n\x05\x66rees\x18\x04 \x01(\x04\x12\x1a\n\x12\x61llocations_failed\x18\x05 \x01(\x04:K\n\x13\x63pu_memory_util_ext\x12\x17.JuniperNetworksSensors\x18\x01 \x01(\x0b\x32\x15.CpuMemoryUtilization'
+  serialized_pb=b'\n\x1c\x63pu_memory_utilization.proto\x1a\x13telemetry_top.proto\"I\n\x14\x43puMemoryUtilization\x12\x31\n\x0butilization\x18\x01 \x03(\x0b\x32\x1c.CpuMemoryUtilizationSummary\"\xad\x01\n\x1b\x43puMemoryUtilizationSummary\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04size\x18\x02 \x01(\x04\x12\x17\n\x0f\x62ytes_allocated\x18\x03 \x01(\x04\x12\x13\n\x0butilization\x18\x04 \x01(\x05\x12\x44\n\x17\x61pplication_utilization\x18\x05 \x03(\x0b\x32#.CpuMemoryUtilizationPerApplication\"\x8b\x01\n\"CpuMemoryUtilizationPerApplication\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x17\n\x0f\x62ytes_allocated\x18\x02 \x01(\x04\x12\x13\n\x0b\x61llocations\x18\x03 \x01(\x04\x12\r\n\x05\x66rees\x18\x04 \x01(\x04\x12\x1a\n\x12\x61llocations_failed\x18\x05 \x01(\x04:K\n\x13\x63pu_memory_util_ext\x12\x17.JuniperNetworksSensors\x18\x01 \x01(\x0b\x32\x15.CpuMemoryUtilization'
   ,
-  dependencies=[jvision__top__pb2.DESCRIPTOR,])
+  dependencies=[telemetry__top__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 
@@ -60,8 +60,8 @@ _CPUMEMORYUTILIZATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=51,
-  serialized_end=124,
+  serialized_start=53,
+  serialized_end=126,
 )
 
 
@@ -119,8 +119,8 @@ _CPUMEMORYUTILIZATIONSUMMARY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=127,
-  serialized_end=300,
+  serialized_start=129,
+  serialized_end=302,
 )
 
 
@@ -178,8 +178,8 @@ _CPUMEMORYUTILIZATIONPERAPPLICATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=303,
-  serialized_end=442,
+  serialized_start=305,
+  serialized_end=444,
 )
 
 _CPUMEMORYUTILIZATION.fields_by_name['utilization'].message_type = _CPUMEMORYUTILIZATIONSUMMARY
@@ -211,6 +211,6 @@ CpuMemoryUtilizationPerApplication = _reflection.GeneratedProtocolMessageType('C
 _sym_db.RegisterMessage(CpuMemoryUtilizationPerApplication)
 
 cpu_memory_util_ext.message_type = _CPUMEMORYUTILIZATION
-jvision__top__pb2.JuniperNetworksSensors.RegisterExtension(cpu_memory_util_ext)
+telemetry__top__pb2.JuniperNetworksSensors.RegisterExtension(cpu_memory_util_ext)
 
 # @@protoc_insertion_point(module_scope)

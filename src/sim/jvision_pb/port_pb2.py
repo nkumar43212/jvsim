@@ -11,16 +11,16 @@ from google.protobuf import descriptor_pb2
 _sym_db = _symbol_database.Default()
 
 
-import jvision_top_pb2 as jvision__top__pb2
+import telemetry_top_pb2 as telemetry__top__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='port.proto',
   package='',
   syntax='proto2',
-  serialized_pb=b'\n\nport.proto\x1a\x11jvision_top.proto\"1\n\x05GPort\x12(\n\x0finterface_stats\x18\x01 \x03(\x0b\x32\x0f.InterfaceInfos\"\xbb\x02\n\x0eInterfaceInfos\x12\x16\n\x07if_name\x18\x01 \x02(\tB\x05\x82@\x02\x08\x01\x12\x11\n\tinit_time\x18\x02 \x02(\x04\x12\x15\n\rsnmp_if_index\x18\x03 \x01(\r\x12\x16\n\x0eparent_ae_name\x18\x04 \x01(\t\x12&\n\x11\x65gress_queue_info\x18\x05 \x03(\x0b\x32\x0b.QueueStats\x12\'\n\x12ingress_queue_info\x18\x06 \x03(\x0b\x32\x0b.QueueStats\x12&\n\ringress_stats\x18\x07 \x01(\x0b\x32\x0f.InterfaceStats\x12%\n\x0c\x65gress_stats\x18\x08 \x01(\x0b\x32\x0f.InterfaceStats\x12/\n\x0eingress_errors\x18\t \x01(\x0b\x32\x17.IngressInterfaceErrors\"\xcf\x01\n\x0eInterfaceStats\x12\x16\n\x07if_pkts\x18\x01 \x02(\x04\x42\x05\x82@\x02\x18\x01\x12\x18\n\tif_octets\x18\x02 \x02(\x04\x42\x05\x82@\x02\x18\x01\x12\x1b\n\x0cif_1sec_pkts\x18\x03 \x02(\x04\x42\x05\x82@\x02 \x01\x12\x1d\n\x0eif_1sec_octets\x18\x04 \x02(\x04\x42\x05\x82@\x02 \x01\x12\x19\n\nif_uc_pkts\x18\x05 \x02(\x04\x42\x05\x82@\x02\x18\x01\x12\x19\n\nif_mc_pkts\x18\x06 \x02(\x04\x42\x05\x82@\x02\x18\x01\x12\x19\n\nif_bc_pkts\x18\x07 \x02(\x04\x42\x05\x82@\x02\x18\x01\"\xec\x02\n\x16IngressInterfaceErrors\x12\x1b\n\x0cif_in_errors\x18\x01 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12\x1b\n\x0cif_in_qdrops\x18\x02 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12!\n\x12if_in_frame_errors\x18\x03 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12\x1d\n\x0eif_in_discards\x18\x04 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12\x1a\n\x0bif_in_runts\x18\x05 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12#\n\x14if_in_l3_incompletes\x18\x06 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12\"\n\x13if_in_l2chan_errors\x18\x07 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12)\n\x1aif_in_l2_mismatch_timeouts\x18\x08 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12 \n\x11if_in_fifo_errors\x18\t \x01(\x04\x42\x05\x82@\x02\x18\x01\x12$\n\x15if_in_resource_errors\x18\n \x01(\x04\x42\x05\x82@\x02\x18\x01\"\x8d\x03\n\nQueueStats\x12\x1b\n\x0cqueue_number\x18\x01 \x01(\rB\x05\x82@\x02\x08\x01\x12\x16\n\x07packets\x18\x02 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12\x14\n\x05\x62ytes\x18\x03 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12 \n\x11tail_drop_packets\x18\x04 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12\x1e\n\x0frl_drop_packets\x18\x05 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12\x1c\n\rrl_drop_bytes\x18\x06 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12\x1f\n\x10red_drop_packets\x18\x07 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12\x1d\n\x0ered_drop_bytes\x18\x08 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12#\n\x14\x61vg_buffer_occupancy\x18\t \x01(\x04\x42\x05\x82@\x02 \x01\x12#\n\x14\x63ur_buffer_occupancy\x18\n \x01(\x04\x42\x05\x82@\x02 \x01\x12$\n\x15peak_buffer_occupancy\x18\x0b \x01(\x04\x42\x05\x82@\x02 \x01\x12$\n\x15\x61llocated_buffer_size\x18\x0c \x01(\x04\x42\x05\x82@\x02 \x01:;\n\x12jnpr_interface_ext\x12\x17.JuniperNetworksSensors\x18\x03 \x01(\x0b\x32\x06.GPort'
+  serialized_pb=b'\n\nport.proto\x1a\x13telemetry_top.proto\"1\n\x05GPort\x12(\n\x0finterface_stats\x18\x01 \x03(\x0b\x32\x0f.InterfaceInfos\"\xde\x03\n\x0eInterfaceInfos\x12\x16\n\x07if_name\x18\x01 \x02(\tB\x05\x82@\x02\x08\x01\x12\x11\n\tinit_time\x18\x02 \x02(\x04\x12\x15\n\rsnmp_if_index\x18\x03 \x01(\r\x12\x16\n\x0eparent_ae_name\x18\x04 \x01(\t\x12&\n\x11\x65gress_queue_info\x18\x05 \x03(\x0b\x32\x0b.QueueStats\x12\'\n\x12ingress_queue_info\x18\x06 \x03(\x0b\x32\x0b.QueueStats\x12&\n\ringress_stats\x18\x07 \x01(\x0b\x32\x0f.InterfaceStats\x12%\n\x0c\x65gress_stats\x18\x08 \x01(\x0b\x32\x0f.InterfaceStats\x12/\n\x0eingress_errors\x18\t \x01(\x0b\x32\x17.IngressInterfaceErrors\x12 \n\x18if_administration_status\x18\n \x01(\t\x12\x1d\n\x15if_operational_status\x18\x0b \x01(\t\x12\x16\n\x0eif_description\x18\x0c \x01(\t\x12\x1d\n\x0eif_transitions\x18\r \x01(\x04\x42\x05\x82@\x02\x18\x01\x12\x14\n\x0cifLastChange\x18\x0e \x01(\r\x12\x13\n\x0bifHighSpeed\x18\x0f \x01(\r\"\x86\x02\n\x0eInterfaceStats\x12\x16\n\x07if_pkts\x18\x01 \x02(\x04\x42\x05\x82@\x02\x18\x01\x12\x18\n\tif_octets\x18\x02 \x02(\x04\x42\x05\x82@\x02\x18\x01\x12\x1b\n\x0cif_1sec_pkts\x18\x03 \x02(\x04\x42\x05\x82@\x02 \x01\x12\x1d\n\x0eif_1sec_octets\x18\x04 \x02(\x04\x42\x05\x82@\x02 \x01\x12\x19\n\nif_uc_pkts\x18\x05 \x02(\x04\x42\x05\x82@\x02\x18\x01\x12\x19\n\nif_mc_pkts\x18\x06 \x02(\x04\x42\x05\x82@\x02\x18\x01\x12\x19\n\nif_bc_pkts\x18\x07 \x02(\x04\x42\x05\x82@\x02\x18\x01\x12\x17\n\x08if_error\x18\x08 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12\x1c\n\rif_pause_pkts\x18\t \x01(\x04\x42\x05\x82@\x02\x18\x01\"\xec\x02\n\x16IngressInterfaceErrors\x12\x1b\n\x0cif_in_errors\x18\x01 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12\x1b\n\x0cif_in_qdrops\x18\x02 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12!\n\x12if_in_frame_errors\x18\x03 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12\x1d\n\x0eif_in_discards\x18\x04 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12\x1a\n\x0bif_in_runts\x18\x05 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12#\n\x14if_in_l3_incompletes\x18\x06 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12\"\n\x13if_in_l2chan_errors\x18\x07 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12)\n\x1aif_in_l2_mismatch_timeouts\x18\x08 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12 \n\x11if_in_fifo_errors\x18\t \x01(\x04\x42\x05\x82@\x02\x18\x01\x12$\n\x15if_in_resource_errors\x18\n \x01(\x04\x42\x05\x82@\x02\x18\x01\"\x8d\x03\n\nQueueStats\x12\x1b\n\x0cqueue_number\x18\x01 \x01(\rB\x05\x82@\x02\x08\x01\x12\x16\n\x07packets\x18\x02 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12\x14\n\x05\x62ytes\x18\x03 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12 \n\x11tail_drop_packets\x18\x04 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12\x1e\n\x0frl_drop_packets\x18\x05 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12\x1c\n\rrl_drop_bytes\x18\x06 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12\x1f\n\x10red_drop_packets\x18\x07 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12\x1d\n\x0ered_drop_bytes\x18\x08 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12#\n\x14\x61vg_buffer_occupancy\x18\t \x01(\x04\x42\x05\x82@\x02 \x01\x12#\n\x14\x63ur_buffer_occupancy\x18\n \x01(\x04\x42\x05\x82@\x02 \x01\x12$\n\x15peak_buffer_occupancy\x18\x0b \x01(\x04\x42\x05\x82@\x02 \x01\x12$\n\x15\x61llocated_buffer_size\x18\x0c \x01(\x04\x42\x05\x82@\x02 \x01:;\n\x12jnpr_interface_ext\x12\x17.JuniperNetworksSensors\x18\x03 \x01(\x0b\x32\x06.GPort'
   ,
-  dependencies=[jvision__top__pb2.DESCRIPTOR,])
+  dependencies=[telemetry__top__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 
@@ -60,8 +60,8 @@ _GPORT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=33,
-  serialized_end=82,
+  serialized_start=35,
+  serialized_end=84,
 )
 
 
@@ -135,6 +135,48 @@ _INTERFACEINFOS = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+    _descriptor.FieldDescriptor(
+      name='if_administration_status', full_name='InterfaceInfos.if_administration_status', index=9,
+      number=10, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='if_operational_status', full_name='InterfaceInfos.if_operational_status', index=10,
+      number=11, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='if_description', full_name='InterfaceInfos.if_description', index=11,
+      number=12, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='if_transitions', full_name='InterfaceInfos.if_transitions', index=12,
+      number=13, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002\030\001')),
+    _descriptor.FieldDescriptor(
+      name='ifLastChange', full_name='InterfaceInfos.ifLastChange', index=13,
+      number=14, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='ifHighSpeed', full_name='InterfaceInfos.ifHighSpeed', index=14,
+      number=15, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -147,8 +189,8 @@ _INTERFACEINFOS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=85,
-  serialized_end=400,
+  serialized_start=87,
+  serialized_end=565,
 )
 
 
@@ -208,6 +250,20 @@ _INTERFACESTATS = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002\030\001')),
+    _descriptor.FieldDescriptor(
+      name='if_error', full_name='InterfaceStats.if_error', index=7,
+      number=8, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002\030\001')),
+    _descriptor.FieldDescriptor(
+      name='if_pause_pkts', full_name='InterfaceStats.if_pause_pkts', index=8,
+      number=9, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002\030\001')),
   ],
   extensions=[
   ],
@@ -220,8 +276,8 @@ _INTERFACESTATS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=403,
-  serialized_end=610,
+  serialized_start=568,
+  serialized_end=830,
 )
 
 
@@ -314,8 +370,8 @@ _INGRESSINTERFACEERRORS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=613,
-  serialized_end=977,
+  serialized_start=833,
+  serialized_end=1197,
 )
 
 
@@ -422,8 +478,8 @@ _QUEUESTATS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=980,
-  serialized_end=1377,
+  serialized_start=1200,
+  serialized_end=1597,
 )
 
 _GPORT.fields_by_name['interface_stats'].message_type = _INTERFACEINFOS
@@ -475,10 +531,12 @@ QueueStats = _reflection.GeneratedProtocolMessageType('QueueStats', (_message.Me
 _sym_db.RegisterMessage(QueueStats)
 
 jnpr_interface_ext.message_type = _GPORT
-jvision__top__pb2.JuniperNetworksSensors.RegisterExtension(jnpr_interface_ext)
+telemetry__top__pb2.JuniperNetworksSensors.RegisterExtension(jnpr_interface_ext)
 
 _INTERFACEINFOS.fields_by_name['if_name'].has_options = True
 _INTERFACEINFOS.fields_by_name['if_name']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002\010\001')
+_INTERFACEINFOS.fields_by_name['if_transitions'].has_options = True
+_INTERFACEINFOS.fields_by_name['if_transitions']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002\030\001')
 _INTERFACESTATS.fields_by_name['if_pkts'].has_options = True
 _INTERFACESTATS.fields_by_name['if_pkts']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002\030\001')
 _INTERFACESTATS.fields_by_name['if_octets'].has_options = True
@@ -493,6 +551,10 @@ _INTERFACESTATS.fields_by_name['if_mc_pkts'].has_options = True
 _INTERFACESTATS.fields_by_name['if_mc_pkts']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002\030\001')
 _INTERFACESTATS.fields_by_name['if_bc_pkts'].has_options = True
 _INTERFACESTATS.fields_by_name['if_bc_pkts']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002\030\001')
+_INTERFACESTATS.fields_by_name['if_error'].has_options = True
+_INTERFACESTATS.fields_by_name['if_error']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002\030\001')
+_INTERFACESTATS.fields_by_name['if_pause_pkts'].has_options = True
+_INTERFACESTATS.fields_by_name['if_pause_pkts']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002\030\001')
 _INGRESSINTERFACEERRORS.fields_by_name['if_in_errors'].has_options = True
 _INGRESSINTERFACEERRORS.fields_by_name['if_in_errors']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002\030\001')
 _INGRESSINTERFACEERRORS.fields_by_name['if_in_qdrops'].has_options = True

@@ -199,30 +199,31 @@ void protobuf_AddDesc_logical_5fport_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::protobuf_AddDesc_jvision_5ftop_2eproto();
+  ::protobuf_AddDesc_telemetry_5ftop_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\022logical_port.proto\032\021jvision_top.proto\""
-    "=\n\014GLogicalPort\022-\n\016interface_info\030\001 \003(\0132"
-    "\025.LogicalInterfaceInfo\"\206\002\n\024LogicalInterf"
-    "aceInfo\022\026\n\007if_name\030\001 \002(\tB\005\202@\002\010\001\022\030\n\tinit_"
-    "time\030\002 \002(\004B\005\202@\002\020\001\022\034\n\rsnmp_if_index\030\003 \001(\r"
-    "B\005\202@\002\010\001\022\035\n\016parent_ae_name\030\004 \001(\tB\005\202@\002\010\001\022-"
-    "\n\ringress_stats\030\005 \001(\0132\026.IngressInterface"
-    "Stats\022+\n\014egress_stats\030\006 \001(\0132\025.EgressInte"
-    "rfaceStats\022#\n\010op_state\030\007 \001(\0132\021.Operation"
-    "alState\"\266\001\n\025IngressInterfaceStats\022\026\n\007if_"
-    "pkts\030\001 \002(\004B\005\202@\002\030\001\022\030\n\tif_octets\030\002 \002(\004B\005\202@"
-    "\002\030\001\022\034\n\rif_ucast_pkts\030\003 \001(\004B\005\202@\002\030\001\022\034\n\rif_"
-    "mcast_pkts\030\004 \002(\004B\005\202@\002\030\001\022/\n\013if_fc_stats\030\005"
-    " \003(\0132\032.ForwardingClassAccounting\"H\n\024Egre"
-    "ssInterfaceStats\022\026\n\007if_pkts\030\001 \002(\004B\005\202@\002\030\001"
-    "\022\030\n\tif_octets\030\002 \002(\004B\005\202@\002\030\001\".\n\020Operationa"
-    "lState\022\032\n\022operational_status\030\001 \001(\t\"\201\001\n\031F"
-    "orwardingClassAccounting\022\030\n\tif_family\030\001 "
-    "\001(\tB\005\202@\002\010\001\022\030\n\tfc_number\030\002 \001(\rB\005\202@\002\010\001\022\026\n\007"
-    "if_pkts\030\003 \001(\004B\005\202@\002\030\001\022\030\n\tif_octets\030\004 \001(\004B"
-    "\005\202@\002\030\001:G\n\027jnprLogicalInterfaceExt\022\027.Juni"
-    "perNetworksSensors\030\007 \001(\0132\r.GLogicalPort", 879);
+    "\n\022logical_port.proto\032\023telemetry_top.prot"
+    "o\"=\n\014GLogicalPort\022-\n\016interface_info\030\001 \003("
+    "\0132\025.LogicalInterfaceInfo\"\206\002\n\024LogicalInte"
+    "rfaceInfo\022\026\n\007if_name\030\001 \002(\tB\005\202@\002\010\001\022\030\n\tini"
+    "t_time\030\002 \002(\004B\005\202@\002\020\001\022\034\n\rsnmp_if_index\030\003 \001"
+    "(\rB\005\202@\002\010\001\022\035\n\016parent_ae_name\030\004 \001(\tB\005\202@\002\010\001"
+    "\022-\n\ringress_stats\030\005 \001(\0132\026.IngressInterfa"
+    "ceStats\022+\n\014egress_stats\030\006 \001(\0132\025.EgressIn"
+    "terfaceStats\022#\n\010op_state\030\007 \001(\0132\021.Operati"
+    "onalState\"\266\001\n\025IngressInterfaceStats\022\026\n\007i"
+    "f_pkts\030\001 \002(\004B\005\202@\002\030\001\022\030\n\tif_octets\030\002 \002(\004B\005"
+    "\202@\002\030\001\022\034\n\rif_ucast_pkts\030\003 \001(\004B\005\202@\002\030\001\022\034\n\ri"
+    "f_mcast_pkts\030\004 \002(\004B\005\202@\002\030\001\022/\n\013if_fc_stats"
+    "\030\005 \003(\0132\032.ForwardingClassAccounting\"H\n\024Eg"
+    "ressInterfaceStats\022\026\n\007if_pkts\030\001 \002(\004B\005\202@\002"
+    "\030\001\022\030\n\tif_octets\030\002 \002(\004B\005\202@\002\030\001\".\n\020Operatio"
+    "nalState\022\032\n\022operational_status\030\001 \001(\t\"\201\001\n"
+    "\031ForwardingClassAccounting\022\030\n\tif_family\030"
+    "\001 \001(\tB\005\202@\002\010\001\022\030\n\tfc_number\030\002 \001(\rB\005\202@\002\010\001\022\026"
+    "\n\007if_pkts\030\003 \001(\004B\005\202@\002\030\001\022\030\n\tif_octets\030\004 \001("
+    "\004B\005\202@\002\030\001:G\n\027jnprLogicalInterfaceExt\022\027.Ju"
+    "niperNetworksSensors\030\007 \001(\0132\r.GLogicalPor"
+    "t", 881);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "logical_port.proto", &protobuf_RegisterTypes);
   GLogicalPort::default_instance_ = new GLogicalPort();

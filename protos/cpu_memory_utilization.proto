@@ -34,8 +34,9 @@
 //
 // Version 1.0
 //
-syntax = "proto2";
-import "jvision_top.proto";
+
+ 
+import "telemetry_top.proto";
 
 //
 // This sensor occupies branch 1 from JuniperNetworksSensors

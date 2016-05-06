@@ -11,16 +11,16 @@ from google.protobuf import descriptor_pb2
 _sym_db = _symbol_database.Default()
 
 
-import jvision_top_pb2 as jvision__top__pb2
+import telemetry_top_pb2 as telemetry__top__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='iptunnels.proto',
   package='',
   syntax='proto2',
-  serialized_pb=b'\n\x0fiptunnels.proto\x1a\x11jvision_top.proto\"E\n\rIpTunnelStats\x12\x34\n\x16iptunnel_stats_records\x18\x01 \x03(\x0b\x32\x14.IpTunnelStatsRecord\"\xa5\x01\n\x13IpTunnelStatsRecord\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\x12\n\nrx_packets\x18\x02 \x01(\x04\x12\x10\n\x08rx_bytes\x18\x03 \x01(\x04\x12\x12\n\ntx_packets\x18\x04 \x01(\x04\x12\x10\n\x08tx_bytes\x18\x05 \x01(\x04\x12\x1a\n\x12rpf_failed_packets\x18\x06 \x01(\x04\x12\x18\n\x10rpf_failed_bytes\x18\x07 \x01(\x04:N\n\x1djnpr_iptunnels_statistics_ext\x12\x17.JuniperNetworksSensors\x18\x0e \x01(\x0b\x32\x0e.IpTunnelStats'
+  serialized_pb=b'\n\x0fiptunnels.proto\x1a\x13telemetry_top.proto\"E\n\rIpTunnelStats\x12\x34\n\x16iptunnel_stats_records\x18\x01 \x03(\x0b\x32\x14.IpTunnelStatsRecord\"\xa5\x01\n\x13IpTunnelStatsRecord\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\x12\n\nrx_packets\x18\x02 \x01(\x04\x12\x10\n\x08rx_bytes\x18\x03 \x01(\x04\x12\x12\n\ntx_packets\x18\x04 \x01(\x04\x12\x10\n\x08tx_bytes\x18\x05 \x01(\x04\x12\x1a\n\x12rpf_failed_packets\x18\x06 \x01(\x04\x12\x18\n\x10rpf_failed_bytes\x18\x07 \x01(\x04:N\n\x1djnpr_iptunnels_statistics_ext\x12\x17.JuniperNetworksSensors\x18\x0e \x01(\x0b\x32\x0e.IpTunnelStats'
   ,
-  dependencies=[jvision__top__pb2.DESCRIPTOR,])
+  dependencies=[telemetry__top__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 
@@ -60,8 +60,8 @@ _IPTUNNELSTATS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=38,
-  serialized_end=107,
+  serialized_start=40,
+  serialized_end=109,
 )
 
 
@@ -133,8 +133,8 @@ _IPTUNNELSTATSRECORD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=110,
-  serialized_end=275,
+  serialized_start=112,
+  serialized_end=277,
 )
 
 _IPTUNNELSTATS.fields_by_name['iptunnel_stats_records'].message_type = _IPTUNNELSTATSRECORD
@@ -157,6 +157,6 @@ IpTunnelStatsRecord = _reflection.GeneratedProtocolMessageType('IpTunnelStatsRec
 _sym_db.RegisterMessage(IpTunnelStatsRecord)
 
 jnpr_iptunnels_statistics_ext.message_type = _IPTUNNELSTATS
-jvision__top__pb2.JuniperNetworksSensors.RegisterExtension(jnpr_iptunnels_statistics_ext)
+telemetry__top__pb2.JuniperNetworksSensors.RegisterExtension(jnpr_iptunnels_statistics_ext)
 
 # @@protoc_insertion_point(module_scope)

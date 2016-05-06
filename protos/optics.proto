@@ -31,8 +31,7 @@
 // Version 1.1
 //
 
-syntax = "proto2";
-import "jvision_top.proto";
+import "telemetry_top.proto";
 
 //
 // 

@@ -11,16 +11,16 @@ from google.protobuf import descriptor_pb2
 _sym_db = _symbol_database.Default()
 
 
-import jvision_top_pb2 as jvision__top__pb2
+import telemetry_top_pb2 as telemetry__top__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='firewall.proto',
   package='',
   syntax='proto2',
-  serialized_pb=b'\n\x0e\x66irewall.proto\x1a\x11jvision_top.proto\"2\n\x08\x46irewall\x12&\n\x0e\x66irewall_stats\x18\x01 \x03(\x0b\x32\x0e.FirewallStats\"\xf4\x01\n\rFirewallStats\x12\x1a\n\x0b\x66ilter_name\x18\x01 \x02(\tB\x05\x82@\x02\x08\x01\x12\x18\n\ttimestamp\x18\x02 \x01(\x04\x42\x05\x82@\x02\x10\x01\x12\"\n\x0cmemory_usage\x18\x03 \x03(\x0b\x32\x0c.MemoryUsage\x12$\n\rcounter_stats\x18\x04 \x03(\x0b\x32\r.CounterStats\x12$\n\rpolicer_stats\x18\x05 \x03(\x0b\x32\r.PolicerStats\x12=\n\x1ahierarchical_policer_stats\x18\x06 \x03(\x0b\x32\x19.HierarchicalPolicerStats\"<\n\x0bMemoryUsage\x12\x13\n\x04name\x18\x01 \x02(\tB\x05\x82@\x02\x08\x01\x12\x18\n\tallocated\x18\x02 \x01(\x04\x42\x05\x82@\x02 \x01\"Q\n\x0c\x43ounterStats\x12\x13\n\x04name\x18\x01 \x02(\tB\x05\x82@\x02\x08\x01\x12\x16\n\x07packets\x18\x02 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12\x14\n\x05\x62ytes\x18\x03 \x01(\x04\x42\x05\x82@\x02\x18\x01\"\xa0\x01\n\x0cPolicerStats\x12\x13\n\x04name\x18\x01 \x02(\tB\x05\x82@\x02\x08\x01\x12\"\n\x13out_of_spec_packets\x18\x02 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12 \n\x11out_of_spec_bytes\x18\x03 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12\x35\n\x16\x65xtended_policer_stats\x18\x04 \x01(\x0b\x32\x15.ExtendedPolicerStats\"\x9a\x01\n\x14\x45xtendedPolicerStats\x12\x1e\n\x0foffered_packets\x18\x01 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12\x1c\n\roffered_bytes\x18\x02 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12\"\n\x13transmitted_packets\x18\x03 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12 \n\x11transmitted_bytes\x18\x04 \x01(\x04\x42\x05\x82@\x02\x18\x01\"\xaf\x01\n\x18HierarchicalPolicerStats\x12\x13\n\x04name\x18\x01 \x02(\tB\x05\x82@\x02\x08\x01\x12\x1e\n\x0fpremium_packets\x18\x02 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12\x1c\n\rpremium_bytes\x18\x03 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12 \n\x11\x61ggregate_packets\x18\x04 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12\x1e\n\x0f\x61ggregate_bytes\x18\x05 \x01(\x04\x42\x05\x82@\x02\x18\x01:=\n\x11jnpr_firewall_ext\x12\x17.JuniperNetworksSensors\x18\x06 \x01(\x0b\x32\t.Firewall'
+  serialized_pb=b'\n\x0e\x66irewall.proto\x1a\x13telemetry_top.proto\"2\n\x08\x46irewall\x12&\n\x0e\x66irewall_stats\x18\x01 \x03(\x0b\x32\x0e.FirewallStats\"\xf4\x01\n\rFirewallStats\x12\x1a\n\x0b\x66ilter_name\x18\x01 \x02(\tB\x05\x82@\x02\x08\x01\x12\x18\n\ttimestamp\x18\x02 \x01(\x04\x42\x05\x82@\x02\x10\x01\x12\"\n\x0cmemory_usage\x18\x03 \x03(\x0b\x32\x0c.MemoryUsage\x12$\n\rcounter_stats\x18\x04 \x03(\x0b\x32\r.CounterStats\x12$\n\rpolicer_stats\x18\x05 \x03(\x0b\x32\r.PolicerStats\x12=\n\x1ahierarchical_policer_stats\x18\x06 \x03(\x0b\x32\x19.HierarchicalPolicerStats\"<\n\x0bMemoryUsage\x12\x13\n\x04name\x18\x01 \x02(\tB\x05\x82@\x02\x08\x01\x12\x18\n\tallocated\x18\x02 \x01(\x04\x42\x05\x82@\x02 \x01\"Q\n\x0c\x43ounterStats\x12\x13\n\x04name\x18\x01 \x02(\tB\x05\x82@\x02\x08\x01\x12\x16\n\x07packets\x18\x02 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12\x14\n\x05\x62ytes\x18\x03 \x01(\x04\x42\x05\x82@\x02\x18\x01\"\xa0\x01\n\x0cPolicerStats\x12\x13\n\x04name\x18\x01 \x02(\tB\x05\x82@\x02\x08\x01\x12\"\n\x13out_of_spec_packets\x18\x02 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12 \n\x11out_of_spec_bytes\x18\x03 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12\x35\n\x16\x65xtended_policer_stats\x18\x04 \x01(\x0b\x32\x15.ExtendedPolicerStats\"\x9a\x01\n\x14\x45xtendedPolicerStats\x12\x1e\n\x0foffered_packets\x18\x01 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12\x1c\n\roffered_bytes\x18\x02 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12\"\n\x13transmitted_packets\x18\x03 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12 \n\x11transmitted_bytes\x18\x04 \x01(\x04\x42\x05\x82@\x02\x18\x01\"\xaf\x01\n\x18HierarchicalPolicerStats\x12\x13\n\x04name\x18\x01 \x02(\tB\x05\x82@\x02\x08\x01\x12\x1e\n\x0fpremium_packets\x18\x02 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12\x1c\n\rpremium_bytes\x18\x03 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12 \n\x11\x61ggregate_packets\x18\x04 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12\x1e\n\x0f\x61ggregate_bytes\x18\x05 \x01(\x04\x42\x05\x82@\x02\x18\x01:=\n\x11jnpr_firewall_ext\x12\x17.JuniperNetworksSensors\x18\x06 \x01(\x0b\x32\t.Firewall'
   ,
-  dependencies=[jvision__top__pb2.DESCRIPTOR,])
+  dependencies=[telemetry__top__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 
@@ -60,8 +60,8 @@ _FIREWALL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=37,
-  serialized_end=87,
+  serialized_start=39,
+  serialized_end=89,
 )
 
 
@@ -126,8 +126,8 @@ _FIREWALLSTATS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=90,
-  serialized_end=334,
+  serialized_start=92,
+  serialized_end=336,
 )
 
 
@@ -164,8 +164,8 @@ _MEMORYUSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=336,
-  serialized_end=396,
+  serialized_start=338,
+  serialized_end=398,
 )
 
 
@@ -209,8 +209,8 @@ _COUNTERSTATS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=398,
-  serialized_end=479,
+  serialized_start=400,
+  serialized_end=481,
 )
 
 
@@ -261,8 +261,8 @@ _POLICERSTATS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=482,
-  serialized_end=642,
+  serialized_start=484,
+  serialized_end=644,
 )
 
 
@@ -313,8 +313,8 @@ _EXTENDEDPOLICERSTATS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=645,
-  serialized_end=799,
+  serialized_start=647,
+  serialized_end=801,
 )
 
 
@@ -372,8 +372,8 @@ _HIERARCHICALPOLICERSTATS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=802,
-  serialized_end=977,
+  serialized_start=804,
+  serialized_end=979,
 )
 
 _FIREWALL.fields_by_name['firewall_stats'].message_type = _FIREWALLSTATS
@@ -441,7 +441,7 @@ HierarchicalPolicerStats = _reflection.GeneratedProtocolMessageType('Hierarchica
 _sym_db.RegisterMessage(HierarchicalPolicerStats)
 
 jnpr_firewall_ext.message_type = _FIREWALL
-jvision__top__pb2.JuniperNetworksSensors.RegisterExtension(jnpr_firewall_ext)
+telemetry__top__pb2.JuniperNetworksSensors.RegisterExtension(jnpr_firewall_ext)
 
 _FIREWALLSTATS.fields_by_name['filter_name'].has_options = True
 _FIREWALLSTATS.fields_by_name['filter_name']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002\010\001')

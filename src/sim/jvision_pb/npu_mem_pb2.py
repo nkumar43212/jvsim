@@ -11,16 +11,16 @@ from google.protobuf import descriptor_pb2
 _sym_db = _symbol_database.Default()
 
 
-import jvision_top_pb2 as jvision__top__pb2
+import telemetry_top_pb2 as telemetry__top__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='npu_mem.proto',
   package='',
   syntax='proto2',
-  serialized_pb=b'\n\rnpu_mem.proto\x1a\x11jvision_top.proto\"E\n!NetworkProcessorMemoryUtilization\x12 \n\x0cmemory_stats\x18\x01 \x03(\x0b\x32\n.NpuMemory\"k\n\tNpuMemory\x12\x12\n\nidentifier\x18\x01 \x02(\t\x12\"\n\x07summary\x18\x02 \x03(\x0b\x32\x11.NpuMemorySummary\x12&\n\tpartition\x18\x03 \x03(\x0b\x32\x13.NpuMemoryPartition\"_\n\x10NpuMemorySummary\x12\x15\n\rresource_name\x18\x01 \x01(\t\x12\x0c\n\x04size\x18\x02 \x01(\x04\x12\x11\n\tallocated\x18\x03 \x01(\x04\x12\x13\n\x0butilization\x18\x04 \x01(\x05\"\x83\x01\n\x12NpuMemoryPartition\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x18\n\x10\x61pplication_name\x18\x02 \x01(\t\x12\x17\n\x0f\x62ytes_allocated\x18\x03 \x01(\r\x12\x18\n\x10\x61llocation_count\x18\x04 \x01(\r\x12\x12\n\nfree_count\x18\x05 \x01(\r:S\n\x0enpu_memory_ext\x12\x17.JuniperNetworksSensors\x18\x0b \x01(\x0b\x32\".NetworkProcessorMemoryUtilization'
+  serialized_pb=b'\n\rnpu_mem.proto\x1a\x13telemetry_top.proto\"E\n!NetworkProcessorMemoryUtilization\x12 \n\x0cmemory_stats\x18\x01 \x03(\x0b\x32\n.NpuMemory\"k\n\tNpuMemory\x12\x12\n\nidentifier\x18\x01 \x02(\t\x12\"\n\x07summary\x18\x02 \x03(\x0b\x32\x11.NpuMemorySummary\x12&\n\tpartition\x18\x03 \x03(\x0b\x32\x13.NpuMemoryPartition\"_\n\x10NpuMemorySummary\x12\x15\n\rresource_name\x18\x01 \x01(\t\x12\x0c\n\x04size\x18\x02 \x01(\x04\x12\x11\n\tallocated\x18\x03 \x01(\x04\x12\x13\n\x0butilization\x18\x04 \x01(\x05\"\x83\x01\n\x12NpuMemoryPartition\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x18\n\x10\x61pplication_name\x18\x02 \x01(\t\x12\x17\n\x0f\x62ytes_allocated\x18\x03 \x01(\r\x12\x18\n\x10\x61llocation_count\x18\x04 \x01(\r\x12\x12\n\nfree_count\x18\x05 \x01(\r:S\n\x0enpu_memory_ext\x12\x17.JuniperNetworksSensors\x18\x0b \x01(\x0b\x32\".NetworkProcessorMemoryUtilization'
   ,
-  dependencies=[jvision__top__pb2.DESCRIPTOR,])
+  dependencies=[telemetry__top__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 
@@ -60,8 +60,8 @@ _NETWORKPROCESSORMEMORYUTILIZATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=36,
-  serialized_end=105,
+  serialized_start=38,
+  serialized_end=107,
 )
 
 
@@ -105,8 +105,8 @@ _NPUMEMORY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=107,
-  serialized_end=214,
+  serialized_start=109,
+  serialized_end=216,
 )
 
 
@@ -157,8 +157,8 @@ _NPUMEMORYSUMMARY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=216,
-  serialized_end=311,
+  serialized_start=218,
+  serialized_end=313,
 )
 
 
@@ -216,8 +216,8 @@ _NPUMEMORYPARTITION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=314,
-  serialized_end=445,
+  serialized_start=316,
+  serialized_end=447,
 )
 
 _NETWORKPROCESSORMEMORYUTILIZATION.fields_by_name['memory_stats'].message_type = _NPUMEMORY
@@ -258,6 +258,6 @@ NpuMemoryPartition = _reflection.GeneratedProtocolMessageType('NpuMemoryPartitio
 _sym_db.RegisterMessage(NpuMemoryPartition)
 
 npu_memory_ext.message_type = _NETWORKPROCESSORMEMORYUTILIZATION
-jvision__top__pb2.JuniperNetworksSensors.RegisterExtension(npu_memory_ext)
+telemetry__top__pb2.JuniperNetworksSensors.RegisterExtension(npu_memory_ext)
 
 # @@protoc_insertion_point(module_scope)

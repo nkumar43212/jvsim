@@ -27,7 +27,7 @@
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
 #include <google/protobuf/unknown_field_set.h>
-#include "jvision_top.pb.h"
+#include "telemetry_top.pb.h"
 // @@protoc_insertion_point(includes)
 
 // Internal implementation detail -- do not call these.
@@ -288,6 +288,63 @@ class InterfaceInfos : public ::google::protobuf::Message {
   ::IngressInterfaceErrors* release_ingress_errors();
   void set_allocated_ingress_errors(::IngressInterfaceErrors* ingress_errors);
 
+  // optional string if_administration_status = 10;
+  bool has_if_administration_status() const;
+  void clear_if_administration_status();
+  static const int kIfAdministrationStatusFieldNumber = 10;
+  const ::std::string& if_administration_status() const;
+  void set_if_administration_status(const ::std::string& value);
+  void set_if_administration_status(const char* value);
+  void set_if_administration_status(const char* value, size_t size);
+  ::std::string* mutable_if_administration_status();
+  ::std::string* release_if_administration_status();
+  void set_allocated_if_administration_status(::std::string* if_administration_status);
+
+  // optional string if_operational_status = 11;
+  bool has_if_operational_status() const;
+  void clear_if_operational_status();
+  static const int kIfOperationalStatusFieldNumber = 11;
+  const ::std::string& if_operational_status() const;
+  void set_if_operational_status(const ::std::string& value);
+  void set_if_operational_status(const char* value);
+  void set_if_operational_status(const char* value, size_t size);
+  ::std::string* mutable_if_operational_status();
+  ::std::string* release_if_operational_status();
+  void set_allocated_if_operational_status(::std::string* if_operational_status);
+
+  // optional string if_description = 12;
+  bool has_if_description() const;
+  void clear_if_description();
+  static const int kIfDescriptionFieldNumber = 12;
+  const ::std::string& if_description() const;
+  void set_if_description(const ::std::string& value);
+  void set_if_description(const char* value);
+  void set_if_description(const char* value, size_t size);
+  ::std::string* mutable_if_description();
+  ::std::string* release_if_description();
+  void set_allocated_if_description(::std::string* if_description);
+
+  // optional uint64 if_transitions = 13;
+  bool has_if_transitions() const;
+  void clear_if_transitions();
+  static const int kIfTransitionsFieldNumber = 13;
+  ::google::protobuf::uint64 if_transitions() const;
+  void set_if_transitions(::google::protobuf::uint64 value);
+
+  // optional uint32 ifLastChange = 14;
+  bool has_iflastchange() const;
+  void clear_iflastchange();
+  static const int kIfLastChangeFieldNumber = 14;
+  ::google::protobuf::uint32 iflastchange() const;
+  void set_iflastchange(::google::protobuf::uint32 value);
+
+  // optional uint32 ifHighSpeed = 15;
+  bool has_ifhighspeed() const;
+  void clear_ifhighspeed();
+  static const int kIfHighSpeedFieldNumber = 15;
+  ::google::protobuf::uint32 ifhighspeed() const;
+  void set_ifhighspeed(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:InterfaceInfos)
  private:
   inline void set_has_if_name();
@@ -304,6 +361,18 @@ class InterfaceInfos : public ::google::protobuf::Message {
   inline void clear_has_egress_stats();
   inline void set_has_ingress_errors();
   inline void clear_has_ingress_errors();
+  inline void set_has_if_administration_status();
+  inline void clear_has_if_administration_status();
+  inline void set_has_if_operational_status();
+  inline void clear_has_if_operational_status();
+  inline void set_has_if_description();
+  inline void clear_has_if_description();
+  inline void set_has_if_transitions();
+  inline void clear_has_if_transitions();
+  inline void set_has_iflastchange();
+  inline void clear_has_iflastchange();
+  inline void set_has_ifhighspeed();
+  inline void clear_has_ifhighspeed();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -318,8 +387,14 @@ class InterfaceInfos : public ::google::protobuf::Message {
   ::google::protobuf::RepeatedPtrField< ::QueueStats > ingress_queue_info_;
   ::InterfaceStats* ingress_stats_;
   ::InterfaceStats* egress_stats_;
-  ::IngressInterfaceErrors* ingress_errors_;
   ::google::protobuf::uint32 snmp_if_index_;
+  ::google::protobuf::uint32 iflastchange_;
+  ::IngressInterfaceErrors* ingress_errors_;
+  ::google::protobuf::internal::ArenaStringPtr if_administration_status_;
+  ::google::protobuf::internal::ArenaStringPtr if_operational_status_;
+  ::google::protobuf::internal::ArenaStringPtr if_description_;
+  ::google::protobuf::uint64 if_transitions_;
+  ::google::protobuf::uint32 ifhighspeed_;
   friend void  protobuf_AddDesc_port_2eproto();
   friend void protobuf_AssignDesc_port_2eproto();
   friend void protobuf_ShutdownFile_port_2eproto();
@@ -442,6 +517,20 @@ class InterfaceStats : public ::google::protobuf::Message {
   ::google::protobuf::uint64 if_bc_pkts() const;
   void set_if_bc_pkts(::google::protobuf::uint64 value);
 
+  // optional uint64 if_error = 8;
+  bool has_if_error() const;
+  void clear_if_error();
+  static const int kIfErrorFieldNumber = 8;
+  ::google::protobuf::uint64 if_error() const;
+  void set_if_error(::google::protobuf::uint64 value);
+
+  // optional uint64 if_pause_pkts = 9;
+  bool has_if_pause_pkts() const;
+  void clear_if_pause_pkts();
+  static const int kIfPausePktsFieldNumber = 9;
+  ::google::protobuf::uint64 if_pause_pkts() const;
+  void set_if_pause_pkts(::google::protobuf::uint64 value);
+
   // @@protoc_insertion_point(class_scope:InterfaceStats)
  private:
   inline void set_has_if_pkts();
@@ -458,6 +547,10 @@ class InterfaceStats : public ::google::protobuf::Message {
   inline void clear_has_if_mc_pkts();
   inline void set_has_if_bc_pkts();
   inline void clear_has_if_bc_pkts();
+  inline void set_has_if_error();
+  inline void clear_has_if_error();
+  inline void set_has_if_pause_pkts();
+  inline void clear_has_if_pause_pkts();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -472,6 +565,8 @@ class InterfaceStats : public ::google::protobuf::Message {
   ::google::protobuf::uint64 if_uc_pkts_;
   ::google::protobuf::uint64 if_mc_pkts_;
   ::google::protobuf::uint64 if_bc_pkts_;
+  ::google::protobuf::uint64 if_error_;
+  ::google::protobuf::uint64 if_pause_pkts_;
   friend void  protobuf_AddDesc_port_2eproto();
   friend void protobuf_AssignDesc_port_2eproto();
   friend void protobuf_ShutdownFile_port_2eproto();
@@ -1246,6 +1341,237 @@ inline void InterfaceInfos::set_allocated_ingress_errors(::IngressInterfaceError
   // @@protoc_insertion_point(field_set_allocated:InterfaceInfos.ingress_errors)
 }
 
+// optional string if_administration_status = 10;
+inline bool InterfaceInfos::has_if_administration_status() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
+}
+inline void InterfaceInfos::set_has_if_administration_status() {
+  _has_bits_[0] |= 0x00000200u;
+}
+inline void InterfaceInfos::clear_has_if_administration_status() {
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline void InterfaceInfos::clear_if_administration_status() {
+  if_administration_status_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_if_administration_status();
+}
+inline const ::std::string& InterfaceInfos::if_administration_status() const {
+  // @@protoc_insertion_point(field_get:InterfaceInfos.if_administration_status)
+  return if_administration_status_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void InterfaceInfos::set_if_administration_status(const ::std::string& value) {
+  set_has_if_administration_status();
+  if_administration_status_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:InterfaceInfos.if_administration_status)
+}
+inline void InterfaceInfos::set_if_administration_status(const char* value) {
+  set_has_if_administration_status();
+  if_administration_status_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:InterfaceInfos.if_administration_status)
+}
+inline void InterfaceInfos::set_if_administration_status(const char* value, size_t size) {
+  set_has_if_administration_status();
+  if_administration_status_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:InterfaceInfos.if_administration_status)
+}
+inline ::std::string* InterfaceInfos::mutable_if_administration_status() {
+  set_has_if_administration_status();
+  // @@protoc_insertion_point(field_mutable:InterfaceInfos.if_administration_status)
+  return if_administration_status_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* InterfaceInfos::release_if_administration_status() {
+  clear_has_if_administration_status();
+  return if_administration_status_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void InterfaceInfos::set_allocated_if_administration_status(::std::string* if_administration_status) {
+  if (if_administration_status != NULL) {
+    set_has_if_administration_status();
+  } else {
+    clear_has_if_administration_status();
+  }
+  if_administration_status_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), if_administration_status);
+  // @@protoc_insertion_point(field_set_allocated:InterfaceInfos.if_administration_status)
+}
+
+// optional string if_operational_status = 11;
+inline bool InterfaceInfos::has_if_operational_status() const {
+  return (_has_bits_[0] & 0x00000400u) != 0;
+}
+inline void InterfaceInfos::set_has_if_operational_status() {
+  _has_bits_[0] |= 0x00000400u;
+}
+inline void InterfaceInfos::clear_has_if_operational_status() {
+  _has_bits_[0] &= ~0x00000400u;
+}
+inline void InterfaceInfos::clear_if_operational_status() {
+  if_operational_status_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_if_operational_status();
+}
+inline const ::std::string& InterfaceInfos::if_operational_status() const {
+  // @@protoc_insertion_point(field_get:InterfaceInfos.if_operational_status)
+  return if_operational_status_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void InterfaceInfos::set_if_operational_status(const ::std::string& value) {
+  set_has_if_operational_status();
+  if_operational_status_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:InterfaceInfos.if_operational_status)
+}
+inline void InterfaceInfos::set_if_operational_status(const char* value) {
+  set_has_if_operational_status();
+  if_operational_status_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:InterfaceInfos.if_operational_status)
+}
+inline void InterfaceInfos::set_if_operational_status(const char* value, size_t size) {
+  set_has_if_operational_status();
+  if_operational_status_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:InterfaceInfos.if_operational_status)
+}
+inline ::std::string* InterfaceInfos::mutable_if_operational_status() {
+  set_has_if_operational_status();
+  // @@protoc_insertion_point(field_mutable:InterfaceInfos.if_operational_status)
+  return if_operational_status_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* InterfaceInfos::release_if_operational_status() {
+  clear_has_if_operational_status();
+  return if_operational_status_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void InterfaceInfos::set_allocated_if_operational_status(::std::string* if_operational_status) {
+  if (if_operational_status != NULL) {
+    set_has_if_operational_status();
+  } else {
+    clear_has_if_operational_status();
+  }
+  if_operational_status_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), if_operational_status);
+  // @@protoc_insertion_point(field_set_allocated:InterfaceInfos.if_operational_status)
+}
+
+// optional string if_description = 12;
+inline bool InterfaceInfos::has_if_description() const {
+  return (_has_bits_[0] & 0x00000800u) != 0;
+}
+inline void InterfaceInfos::set_has_if_description() {
+  _has_bits_[0] |= 0x00000800u;
+}
+inline void InterfaceInfos::clear_has_if_description() {
+  _has_bits_[0] &= ~0x00000800u;
+}
+inline void InterfaceInfos::clear_if_description() {
+  if_description_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_if_description();
+}
+inline const ::std::string& InterfaceInfos::if_description() const {
+  // @@protoc_insertion_point(field_get:InterfaceInfos.if_description)
+  return if_description_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void InterfaceInfos::set_if_description(const ::std::string& value) {
+  set_has_if_description();
+  if_description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:InterfaceInfos.if_description)
+}
+inline void InterfaceInfos::set_if_description(const char* value) {
+  set_has_if_description();
+  if_description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:InterfaceInfos.if_description)
+}
+inline void InterfaceInfos::set_if_description(const char* value, size_t size) {
+  set_has_if_description();
+  if_description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:InterfaceInfos.if_description)
+}
+inline ::std::string* InterfaceInfos::mutable_if_description() {
+  set_has_if_description();
+  // @@protoc_insertion_point(field_mutable:InterfaceInfos.if_description)
+  return if_description_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* InterfaceInfos::release_if_description() {
+  clear_has_if_description();
+  return if_description_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void InterfaceInfos::set_allocated_if_description(::std::string* if_description) {
+  if (if_description != NULL) {
+    set_has_if_description();
+  } else {
+    clear_has_if_description();
+  }
+  if_description_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), if_description);
+  // @@protoc_insertion_point(field_set_allocated:InterfaceInfos.if_description)
+}
+
+// optional uint64 if_transitions = 13;
+inline bool InterfaceInfos::has_if_transitions() const {
+  return (_has_bits_[0] & 0x00001000u) != 0;
+}
+inline void InterfaceInfos::set_has_if_transitions() {
+  _has_bits_[0] |= 0x00001000u;
+}
+inline void InterfaceInfos::clear_has_if_transitions() {
+  _has_bits_[0] &= ~0x00001000u;
+}
+inline void InterfaceInfos::clear_if_transitions() {
+  if_transitions_ = GOOGLE_ULONGLONG(0);
+  clear_has_if_transitions();
+}
+inline ::google::protobuf::uint64 InterfaceInfos::if_transitions() const {
+  // @@protoc_insertion_point(field_get:InterfaceInfos.if_transitions)
+  return if_transitions_;
+}
+inline void InterfaceInfos::set_if_transitions(::google::protobuf::uint64 value) {
+  set_has_if_transitions();
+  if_transitions_ = value;
+  // @@protoc_insertion_point(field_set:InterfaceInfos.if_transitions)
+}
+
+// optional uint32 ifLastChange = 14;
+inline bool InterfaceInfos::has_iflastchange() const {
+  return (_has_bits_[0] & 0x00002000u) != 0;
+}
+inline void InterfaceInfos::set_has_iflastchange() {
+  _has_bits_[0] |= 0x00002000u;
+}
+inline void InterfaceInfos::clear_has_iflastchange() {
+  _has_bits_[0] &= ~0x00002000u;
+}
+inline void InterfaceInfos::clear_iflastchange() {
+  iflastchange_ = 0u;
+  clear_has_iflastchange();
+}
+inline ::google::protobuf::uint32 InterfaceInfos::iflastchange() const {
+  // @@protoc_insertion_point(field_get:InterfaceInfos.ifLastChange)
+  return iflastchange_;
+}
+inline void InterfaceInfos::set_iflastchange(::google::protobuf::uint32 value) {
+  set_has_iflastchange();
+  iflastchange_ = value;
+  // @@protoc_insertion_point(field_set:InterfaceInfos.ifLastChange)
+}
+
+// optional uint32 ifHighSpeed = 15;
+inline bool InterfaceInfos::has_ifhighspeed() const {
+  return (_has_bits_[0] & 0x00004000u) != 0;
+}
+inline void InterfaceInfos::set_has_ifhighspeed() {
+  _has_bits_[0] |= 0x00004000u;
+}
+inline void InterfaceInfos::clear_has_ifhighspeed() {
+  _has_bits_[0] &= ~0x00004000u;
+}
+inline void InterfaceInfos::clear_ifhighspeed() {
+  ifhighspeed_ = 0u;
+  clear_has_ifhighspeed();
+}
+inline ::google::protobuf::uint32 InterfaceInfos::ifhighspeed() const {
+  // @@protoc_insertion_point(field_get:InterfaceInfos.ifHighSpeed)
+  return ifhighspeed_;
+}
+inline void InterfaceInfos::set_ifhighspeed(::google::protobuf::uint32 value) {
+  set_has_ifhighspeed();
+  ifhighspeed_ = value;
+  // @@protoc_insertion_point(field_set:InterfaceInfos.ifHighSpeed)
+}
+
 // -------------------------------------------------------------------
 
 // InterfaceStats
@@ -1416,6 +1742,54 @@ inline void InterfaceStats::set_if_bc_pkts(::google::protobuf::uint64 value) {
   set_has_if_bc_pkts();
   if_bc_pkts_ = value;
   // @@protoc_insertion_point(field_set:InterfaceStats.if_bc_pkts)
+}
+
+// optional uint64 if_error = 8;
+inline bool InterfaceStats::has_if_error() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void InterfaceStats::set_has_if_error() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void InterfaceStats::clear_has_if_error() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void InterfaceStats::clear_if_error() {
+  if_error_ = GOOGLE_ULONGLONG(0);
+  clear_has_if_error();
+}
+inline ::google::protobuf::uint64 InterfaceStats::if_error() const {
+  // @@protoc_insertion_point(field_get:InterfaceStats.if_error)
+  return if_error_;
+}
+inline void InterfaceStats::set_if_error(::google::protobuf::uint64 value) {
+  set_has_if_error();
+  if_error_ = value;
+  // @@protoc_insertion_point(field_set:InterfaceStats.if_error)
+}
+
+// optional uint64 if_pause_pkts = 9;
+inline bool InterfaceStats::has_if_pause_pkts() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void InterfaceStats::set_has_if_pause_pkts() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void InterfaceStats::clear_has_if_pause_pkts() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void InterfaceStats::clear_if_pause_pkts() {
+  if_pause_pkts_ = GOOGLE_ULONGLONG(0);
+  clear_has_if_pause_pkts();
+}
+inline ::google::protobuf::uint64 InterfaceStats::if_pause_pkts() const {
+  // @@protoc_insertion_point(field_get:InterfaceStats.if_pause_pkts)
+  return if_pause_pkts_;
+}
+inline void InterfaceStats::set_if_pause_pkts(::google::protobuf::uint64 value) {
+  set_has_if_pause_pkts();
+  if_pause_pkts_ = value;
+  // @@protoc_insertion_point(field_set:InterfaceStats.if_pause_pkts)
 }
 
 // -------------------------------------------------------------------

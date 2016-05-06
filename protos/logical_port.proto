@@ -17,9 +17,7 @@
 // under the License.
 //
 
-syntax = "proto2";
-
-import "jvision_top.proto";
+import "telemetry_top.proto";
 
 message GLogicalPort {
     repeated LogicalInterfaceInfo interface_info = 1;

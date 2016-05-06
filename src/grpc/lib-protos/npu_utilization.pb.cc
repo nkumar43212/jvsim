@@ -154,25 +154,25 @@ void protobuf_AddDesc_npu_5futilization_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::protobuf_AddDesc_jvision_5ftop_2eproto();
+  ::protobuf_AddDesc_telemetry_5ftop_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\025npu_utilization.proto\032\021jvision_top.pro"
-    "to\"C\n\033NetworkProcessorUtilization\022$\n\016npu"
-    "_util_stats\030\001 \003(\0132\014.Utilization\"q\n\013Utili"
-    "zation\022\022\n\nidentifier\030\001 \002(\t\022\023\n\013utilizatio"
-    "n\030\002 \001(\r\022\034\n\007packets\030\003 \003(\0132\013.PacketLoad\022\033\n"
-    "\006memory\030\004 \003(\0132\013.MemoryLoad\"\272\001\n\nMemoryLoa"
-    "d\022\014\n\004name\030\001 \001(\t\022\024\n\014average_util\030\002 \001(\r\022\024\n"
-    "\014highest_util\030\003 \001(\r\022\023\n\013lowest_util\030\004 \001(\r"
-    "\022\036\n\026average_cache_hit_rate\030\005 \001(\r\022\036\n\026high"
-    "est_cache_hit_rate\030\006 \001(\r\022\035\n\025lowest_cache"
-    "_hit_rate\030\007 \001(\r\"\242\001\n\nPacketLoad\022\022\n\nidenti"
-    "fier\030\001 \002(\t\022\014\n\004rate\030\002 \001(\004\022\'\n\037average_inst"
-    "ructions_per_packet\030\003 \001(\r\022&\n\036average_wai"
-    "t_cycles_per_packet\030\004 \001(\r\022!\n\031average_cyc"
-    "les_per_packet\030\005 \001(\r:W\n\030jnpr_npu_utiliza"
-    "tion_ext\022\027.JuniperNetworksSensors\030\014 \001(\0132"
-    "\034.NetworkProcessorUtilization", 669);
+    "\n\025npu_utilization.proto\032\023telemetry_top.p"
+    "roto\"C\n\033NetworkProcessorUtilization\022$\n\016n"
+    "pu_util_stats\030\001 \003(\0132\014.Utilization\"q\n\013Uti"
+    "lization\022\022\n\nidentifier\030\001 \002(\t\022\023\n\013utilizat"
+    "ion\030\002 \001(\r\022\034\n\007packets\030\003 \003(\0132\013.PacketLoad\022"
+    "\033\n\006memory\030\004 \003(\0132\013.MemoryLoad\"\272\001\n\nMemoryL"
+    "oad\022\014\n\004name\030\001 \001(\t\022\024\n\014average_util\030\002 \001(\r\022"
+    "\024\n\014highest_util\030\003 \001(\r\022\023\n\013lowest_util\030\004 \001"
+    "(\r\022\036\n\026average_cache_hit_rate\030\005 \001(\r\022\036\n\026hi"
+    "ghest_cache_hit_rate\030\006 \001(\r\022\035\n\025lowest_cac"
+    "he_hit_rate\030\007 \001(\r\"\242\001\n\nPacketLoad\022\022\n\niden"
+    "tifier\030\001 \002(\t\022\014\n\004rate\030\002 \001(\004\022\'\n\037average_in"
+    "structions_per_packet\030\003 \001(\r\022&\n\036average_w"
+    "ait_cycles_per_packet\030\004 \001(\r\022!\n\031average_c"
+    "ycles_per_packet\030\005 \001(\r:W\n\030jnpr_npu_utili"
+    "zation_ext\022\027.JuniperNetworksSensors\030\014 \001("
+    "\0132\034.NetworkProcessorUtilization", 671);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "npu_utilization.proto", &protobuf_RegisterTypes);
   NetworkProcessorUtilization::default_instance_ = new NetworkProcessorUtilization();

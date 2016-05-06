@@ -11,16 +11,16 @@ from google.protobuf import descriptor_pb2
 _sym_db = _symbol_database.Default()
 
 
-import jvision_top_pb2 as jvision__top__pb2
+import telemetry_top_pb2 as telemetry__top__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='packet_stats.proto',
   package='',
   syntax='proto2',
-  serialized_pb=b'\n\x12packet_stats.proto\x1a\x11jvision_top.proto\"y\n\x10PacketStatistics\x12\'\n\x0cpacket_stats\x18\x01 \x03(\x0b\x32\x11.PacketStatsClass\x12<\n\x10packet_stats_pfe\x18\x02 \x03(\x0b\x32\".PacketStatsPacketForwardingEngine\"d\n!PacketStatsPacketForwardingEngine\x12\x16\n\x0epfe_identifier\x18\x01 \x02(\t\x12\'\n\x0cpacket_stats\x18\x02 \x03(\x0b\x32\x11.PacketStatsClass\"F\n\x10PacketStatsClass\x12\x0c\n\x04name\x18\x01 \x02(\t\x12$\n\x07\x63ounter\x18\x02 \x02(\x0b\x32\x13.PacketStatsCounter\"S\n\x12PacketStatsCounter\x12\x14\n\x0cpacket_count\x18\x01 \x02(\x04\x12\x12\n\nbyte_count\x18\x02 \x01(\x04\x12\x13\n\x0bpacket_rate\x18\x03 \x01(\x04:N\n\x1ajnpr_packet_statistics_ext\x12\x17.JuniperNetworksSensors\x18\n \x01(\x0b\x32\x11.PacketStatistics'
+  serialized_pb=b'\n\x12packet_stats.proto\x1a\x13telemetry_top.proto\"y\n\x10PacketStatistics\x12\'\n\x0cpacket_stats\x18\x01 \x03(\x0b\x32\x11.PacketStatsClass\x12<\n\x10packet_stats_pfe\x18\x02 \x03(\x0b\x32\".PacketStatsPacketForwardingEngine\"d\n!PacketStatsPacketForwardingEngine\x12\x16\n\x0epfe_identifier\x18\x01 \x02(\t\x12\'\n\x0cpacket_stats\x18\x02 \x03(\x0b\x32\x11.PacketStatsClass\"F\n\x10PacketStatsClass\x12\x0c\n\x04name\x18\x01 \x02(\t\x12$\n\x07\x63ounter\x18\x02 \x02(\x0b\x32\x13.PacketStatsCounter\"S\n\x12PacketStatsCounter\x12\x14\n\x0cpacket_count\x18\x01 \x02(\x04\x12\x12\n\nbyte_count\x18\x02 \x01(\x04\x12\x13\n\x0bpacket_rate\x18\x03 \x01(\x04:N\n\x1ajnpr_packet_statistics_ext\x12\x17.JuniperNetworksSensors\x18\n \x01(\x0b\x32\x11.PacketStatistics'
   ,
-  dependencies=[jvision__top__pb2.DESCRIPTOR,])
+  dependencies=[telemetry__top__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 
@@ -67,8 +67,8 @@ _PACKETSTATISTICS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=41,
-  serialized_end=162,
+  serialized_start=43,
+  serialized_end=164,
 )
 
 
@@ -105,8 +105,8 @@ _PACKETSTATSPACKETFORWARDINGENGINE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=164,
-  serialized_end=264,
+  serialized_start=166,
+  serialized_end=266,
 )
 
 
@@ -143,8 +143,8 @@ _PACKETSTATSCLASS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=266,
-  serialized_end=336,
+  serialized_start=268,
+  serialized_end=338,
 )
 
 
@@ -188,8 +188,8 @@ _PACKETSTATSCOUNTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=338,
-  serialized_end=421,
+  serialized_start=340,
+  serialized_end=423,
 )
 
 _PACKETSTATISTICS.fields_by_name['packet_stats'].message_type = _PACKETSTATSCLASS
@@ -231,6 +231,6 @@ PacketStatsCounter = _reflection.GeneratedProtocolMessageType('PacketStatsCounte
 _sym_db.RegisterMessage(PacketStatsCounter)
 
 jnpr_packet_statistics_ext.message_type = _PACKETSTATISTICS
-jvision__top__pb2.JuniperNetworksSensors.RegisterExtension(jnpr_packet_statistics_ext)
+telemetry__top__pb2.JuniperNetworksSensors.RegisterExtension(jnpr_packet_statistics_ext)
 
 # @@protoc_insertion_point(module_scope)

@@ -3,6 +3,8 @@
 //
 // The top level messages is GPort
 //
+// Version 1.0
+//
 // Copyrights (c)  2015, Juniper Networks, Inc.
 // All rights reserved.
 //
@@ -26,8 +28,7 @@
 // under the License.
 //
 
-syntax = "proto2";
-import "jvision_top.proto";
+import "telemetry_top.proto";
 
 message GPort {
     repeated InterfaceInfos interface_stats = 1;
@@ -60,6 +61,24 @@ message InterfaceInfos {
 
     // inbound traffic errors
     optional IngressInterfaceErrors ingress_errors = 9;
+
+    // Interface administration status
+    optional string if_administration_status       = 10;
+
+    // Interface operational status
+    optional string if_operational_status          = 11;
+
+    // Interface description
+    optional string if_description                 = 12;
+
+    // Counter: number of carrier transitions on this interface
+    optional uint64 if_transitions                 = 13 [(telemetry_options).is_counter = true];
+
+    // This corresponds to the ifLastChange object in the standard interface MIB
+    optional uint32 ifLastChange                   = 14;
+
+    // This corresponds to the ifHighSpeed object in the standard interface MIB
+    optional uint32 ifHighSpeed                    = 15;
 }
 
 message InterfaceStats {
@@ -83,6 +102,13 @@ message InterfaceStats {
 
     // Counter: total no of broadcast packets sent/rcvd by this interface
     required uint64 if_bc_pkts = 7 [(telemetry_options).is_counter = true];
+
+    // Counter: total no of error packets sent/rcvd by this interface
+    optional uint64 if_error       = 8 [(telemetry_options).is_counter = true];
+
+    // Counter: total no of PAUSE packets sent/rcvd by this interface
+    optional uint64 if_pause_pkts  = 9 [(telemetry_options).is_counter = true];
+
 }
 
 message IngressInterfaceErrors {

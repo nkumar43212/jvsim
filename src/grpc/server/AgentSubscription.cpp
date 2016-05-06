@@ -54,7 +54,8 @@ AgentSubscription::on_message(const struct mosquitto_message* mosqmessage)
     EnterpriseSensors *EnterpriseSensors_handle;
     JuniperNetworksSensors *JuniperNetworksSensors_handle;
     EnterpriseSensors_handle = stream->mutable_enterprise();
-    JuniperNetworksSensors_handle = EnterpriseSensors_handle->mutable_junipernetworks();
+    JuniperNetworksSensors_handle =
+            EnterpriseSensors_handle->MutableExtension(juniperNetworks);
     std::string ext_type = get_oc_extension_type(JuniperNetworksSensors_handle);
     // Dispatch based on the extension type
     OpenConfig *oc = OpenConfig::find(ext_type);

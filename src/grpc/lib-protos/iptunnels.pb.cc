@@ -103,17 +103,17 @@ void protobuf_AddDesc_iptunnels_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::protobuf_AddDesc_jvision_5ftop_2eproto();
+  ::protobuf_AddDesc_telemetry_5ftop_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\017iptunnels.proto\032\021jvision_top.proto\"E\n\r"
-    "IpTunnelStats\0224\n\026iptunnel_stats_records\030"
-    "\001 \003(\0132\024.IpTunnelStatsRecord\"\245\001\n\023IpTunnel"
-    "StatsRecord\022\014\n\004name\030\001 \002(\t\022\022\n\nrx_packets\030"
-    "\002 \001(\004\022\020\n\010rx_bytes\030\003 \001(\004\022\022\n\ntx_packets\030\004 "
-    "\001(\004\022\020\n\010tx_bytes\030\005 \001(\004\022\032\n\022rpf_failed_pack"
-    "ets\030\006 \001(\004\022\030\n\020rpf_failed_bytes\030\007 \001(\004:N\n\035j"
-    "npr_iptunnels_statistics_ext\022\027.JuniperNe"
-    "tworksSensors\030\016 \001(\0132\016.IpTunnelStats", 355);
+    "\n\017iptunnels.proto\032\023telemetry_top.proto\"E"
+    "\n\rIpTunnelStats\0224\n\026iptunnel_stats_record"
+    "s\030\001 \003(\0132\024.IpTunnelStatsRecord\"\245\001\n\023IpTunn"
+    "elStatsRecord\022\014\n\004name\030\001 \002(\t\022\022\n\nrx_packet"
+    "s\030\002 \001(\004\022\020\n\010rx_bytes\030\003 \001(\004\022\022\n\ntx_packets\030"
+    "\004 \001(\004\022\020\n\010tx_bytes\030\005 \001(\004\022\032\n\022rpf_failed_pa"
+    "ckets\030\006 \001(\004\022\030\n\020rpf_failed_bytes\030\007 \001(\004:N\n"
+    "\035jnpr_iptunnels_statistics_ext\022\027.Juniper"
+    "NetworksSensors\030\016 \001(\0132\016.IpTunnelStats", 357);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "iptunnels.proto", &protobuf_RegisterTypes);
   IpTunnelStats::default_instance_ = new IpTunnelStats();

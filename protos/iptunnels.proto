@@ -29,8 +29,7 @@
 // dynamic IP Tunnels to export their telemetry data
 //
 
-syntax = "proto2";
-import "jvision_top.proto";
+import "telemetry_top.proto";
 
 //
 // This occupies branch 5 from JuniperNetworksSensors

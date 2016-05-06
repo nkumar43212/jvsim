@@ -103,17 +103,17 @@ void protobuf_AddDesc_lsp_5fstats_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::protobuf_AddDesc_jvision_5ftop_2eproto();
+  ::protobuf_AddDesc_telemetry_5ftop_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\017lsp_stats.proto\032\021jvision_top.proto\"6\n\010"
-    "LspStats\022*\n\021lsp_stats_records\030\001 \003(\0132\017.Ls"
-    "pStatsRecord\"\274\001\n\016LspStatsRecord\022\023\n\004name\030"
-    "\001 \002(\tB\005\202@\002\010\001\022\"\n\023instance_identifier\030\002 \002("
-    "\rB\005\202@\002\010\001\022\033\n\014counter_name\030\003 \002(\tB\005\202@\002\010\001\022\026\n"
-    "\007packets\030\004 \001(\004B\005\202@\002\030\001\022\024\n\005bytes\030\005 \001(\004B\005\202@"
-    "\002\030\001\022\023\n\013packet_rate\030\006 \001(\004\022\021\n\tbyte_rate\030\007 "
-    "\001(\004:C\n\027jnpr_lsp_statistics_ext\022\027.Juniper"
-    "NetworksSensors\030\005 \001(\0132\t.LspStats", 352);
+    "\n\017lsp_stats.proto\032\023telemetry_top.proto\"6"
+    "\n\010LspStats\022*\n\021lsp_stats_records\030\001 \003(\0132\017."
+    "LspStatsRecord\"\274\001\n\016LspStatsRecord\022\023\n\004nam"
+    "e\030\001 \002(\tB\005\202@\002\010\001\022\"\n\023instance_identifier\030\002 "
+    "\002(\rB\005\202@\002\010\001\022\033\n\014counter_name\030\003 \002(\tB\005\202@\002\010\001\022"
+    "\026\n\007packets\030\004 \001(\004B\005\202@\002\030\001\022\024\n\005bytes\030\005 \001(\004B\005"
+    "\202@\002\030\001\022\023\n\013packet_rate\030\006 \001(\004\022\021\n\tbyte_rate\030"
+    "\007 \001(\004:C\n\027jnpr_lsp_statistics_ext\022\027.Junip"
+    "erNetworksSensors\030\005 \001(\0132\t.LspStats", 354);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "lsp_stats.proto", &protobuf_RegisterTypes);
   LspStats::default_instance_ = new LspStats();

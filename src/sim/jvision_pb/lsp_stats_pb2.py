@@ -11,16 +11,16 @@ from google.protobuf import descriptor_pb2
 _sym_db = _symbol_database.Default()
 
 
-import jvision_top_pb2 as jvision__top__pb2
+import telemetry_top_pb2 as telemetry__top__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='lsp_stats.proto',
   package='',
   syntax='proto2',
-  serialized_pb=b'\n\x0flsp_stats.proto\x1a\x11jvision_top.proto\"6\n\x08LspStats\x12*\n\x11lsp_stats_records\x18\x01 \x03(\x0b\x32\x0f.LspStatsRecord\"\xbc\x01\n\x0eLspStatsRecord\x12\x13\n\x04name\x18\x01 \x02(\tB\x05\x82@\x02\x08\x01\x12\"\n\x13instance_identifier\x18\x02 \x02(\rB\x05\x82@\x02\x08\x01\x12\x1b\n\x0c\x63ounter_name\x18\x03 \x02(\tB\x05\x82@\x02\x08\x01\x12\x16\n\x07packets\x18\x04 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12\x14\n\x05\x62ytes\x18\x05 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12\x13\n\x0bpacket_rate\x18\x06 \x01(\x04\x12\x11\n\tbyte_rate\x18\x07 \x01(\x04:C\n\x17jnpr_lsp_statistics_ext\x12\x17.JuniperNetworksSensors\x18\x05 \x01(\x0b\x32\t.LspStats'
+  serialized_pb=b'\n\x0flsp_stats.proto\x1a\x13telemetry_top.proto\"6\n\x08LspStats\x12*\n\x11lsp_stats_records\x18\x01 \x03(\x0b\x32\x0f.LspStatsRecord\"\xbc\x01\n\x0eLspStatsRecord\x12\x13\n\x04name\x18\x01 \x02(\tB\x05\x82@\x02\x08\x01\x12\"\n\x13instance_identifier\x18\x02 \x02(\rB\x05\x82@\x02\x08\x01\x12\x1b\n\x0c\x63ounter_name\x18\x03 \x02(\tB\x05\x82@\x02\x08\x01\x12\x16\n\x07packets\x18\x04 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12\x14\n\x05\x62ytes\x18\x05 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12\x13\n\x0bpacket_rate\x18\x06 \x01(\x04\x12\x11\n\tbyte_rate\x18\x07 \x01(\x04:C\n\x17jnpr_lsp_statistics_ext\x12\x17.JuniperNetworksSensors\x18\x05 \x01(\x0b\x32\t.LspStats'
   ,
-  dependencies=[jvision__top__pb2.DESCRIPTOR,])
+  dependencies=[telemetry__top__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 
@@ -60,8 +60,8 @@ _LSPSTATS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=38,
-  serialized_end=92,
+  serialized_start=40,
+  serialized_end=94,
 )
 
 
@@ -133,8 +133,8 @@ _LSPSTATSRECORD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=95,
-  serialized_end=283,
+  serialized_start=97,
+  serialized_end=285,
 )
 
 _LSPSTATS.fields_by_name['lsp_stats_records'].message_type = _LSPSTATSRECORD
@@ -157,7 +157,7 @@ LspStatsRecord = _reflection.GeneratedProtocolMessageType('LspStatsRecord', (_me
 _sym_db.RegisterMessage(LspStatsRecord)
 
 jnpr_lsp_statistics_ext.message_type = _LSPSTATS
-jvision__top__pb2.JuniperNetworksSensors.RegisterExtension(jnpr_lsp_statistics_ext)
+telemetry__top__pb2.JuniperNetworksSensors.RegisterExtension(jnpr_lsp_statistics_ext)
 
 _LSPSTATSRECORD.fields_by_name['name'].has_options = True
 _LSPSTATSRECORD.fields_by_name['name']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002\010\001')

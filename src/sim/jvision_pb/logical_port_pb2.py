@@ -11,16 +11,16 @@ from google.protobuf import descriptor_pb2
 _sym_db = _symbol_database.Default()
 
 
-import jvision_top_pb2 as jvision__top__pb2
+import telemetry_top_pb2 as telemetry__top__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='logical_port.proto',
   package='',
   syntax='proto2',
-  serialized_pb=b'\n\x12logical_port.proto\x1a\x11jvision_top.proto\"=\n\x0cGLogicalPort\x12-\n\x0einterface_info\x18\x01 \x03(\x0b\x32\x15.LogicalInterfaceInfo\"\x86\x02\n\x14LogicalInterfaceInfo\x12\x16\n\x07if_name\x18\x01 \x02(\tB\x05\x82@\x02\x08\x01\x12\x18\n\tinit_time\x18\x02 \x02(\x04\x42\x05\x82@\x02\x10\x01\x12\x1c\n\rsnmp_if_index\x18\x03 \x01(\rB\x05\x82@\x02\x08\x01\x12\x1d\n\x0eparent_ae_name\x18\x04 \x01(\tB\x05\x82@\x02\x08\x01\x12-\n\ringress_stats\x18\x05 \x01(\x0b\x32\x16.IngressInterfaceStats\x12+\n\x0c\x65gress_stats\x18\x06 \x01(\x0b\x32\x15.EgressInterfaceStats\x12#\n\x08op_state\x18\x07 \x01(\x0b\x32\x11.OperationalState\"\xb6\x01\n\x15IngressInterfaceStats\x12\x16\n\x07if_pkts\x18\x01 \x02(\x04\x42\x05\x82@\x02\x18\x01\x12\x18\n\tif_octets\x18\x02 \x02(\x04\x42\x05\x82@\x02\x18\x01\x12\x1c\n\rif_ucast_pkts\x18\x03 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12\x1c\n\rif_mcast_pkts\x18\x04 \x02(\x04\x42\x05\x82@\x02\x18\x01\x12/\n\x0bif_fc_stats\x18\x05 \x03(\x0b\x32\x1a.ForwardingClassAccounting\"H\n\x14\x45gressInterfaceStats\x12\x16\n\x07if_pkts\x18\x01 \x02(\x04\x42\x05\x82@\x02\x18\x01\x12\x18\n\tif_octets\x18\x02 \x02(\x04\x42\x05\x82@\x02\x18\x01\".\n\x10OperationalState\x12\x1a\n\x12operational_status\x18\x01 \x01(\t\"\x81\x01\n\x19\x46orwardingClassAccounting\x12\x18\n\tif_family\x18\x01 \x01(\tB\x05\x82@\x02\x08\x01\x12\x18\n\tfc_number\x18\x02 \x01(\rB\x05\x82@\x02\x08\x01\x12\x16\n\x07if_pkts\x18\x03 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12\x18\n\tif_octets\x18\x04 \x01(\x04\x42\x05\x82@\x02\x18\x01:G\n\x17jnprLogicalInterfaceExt\x12\x17.JuniperNetworksSensors\x18\x07 \x01(\x0b\x32\r.GLogicalPort'
+  serialized_pb=b'\n\x12logical_port.proto\x1a\x13telemetry_top.proto\"=\n\x0cGLogicalPort\x12-\n\x0einterface_info\x18\x01 \x03(\x0b\x32\x15.LogicalInterfaceInfo\"\x86\x02\n\x14LogicalInterfaceInfo\x12\x16\n\x07if_name\x18\x01 \x02(\tB\x05\x82@\x02\x08\x01\x12\x18\n\tinit_time\x18\x02 \x02(\x04\x42\x05\x82@\x02\x10\x01\x12\x1c\n\rsnmp_if_index\x18\x03 \x01(\rB\x05\x82@\x02\x08\x01\x12\x1d\n\x0eparent_ae_name\x18\x04 \x01(\tB\x05\x82@\x02\x08\x01\x12-\n\ringress_stats\x18\x05 \x01(\x0b\x32\x16.IngressInterfaceStats\x12+\n\x0c\x65gress_stats\x18\x06 \x01(\x0b\x32\x15.EgressInterfaceStats\x12#\n\x08op_state\x18\x07 \x01(\x0b\x32\x11.OperationalState\"\xb6\x01\n\x15IngressInterfaceStats\x12\x16\n\x07if_pkts\x18\x01 \x02(\x04\x42\x05\x82@\x02\x18\x01\x12\x18\n\tif_octets\x18\x02 \x02(\x04\x42\x05\x82@\x02\x18\x01\x12\x1c\n\rif_ucast_pkts\x18\x03 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12\x1c\n\rif_mcast_pkts\x18\x04 \x02(\x04\x42\x05\x82@\x02\x18\x01\x12/\n\x0bif_fc_stats\x18\x05 \x03(\x0b\x32\x1a.ForwardingClassAccounting\"H\n\x14\x45gressInterfaceStats\x12\x16\n\x07if_pkts\x18\x01 \x02(\x04\x42\x05\x82@\x02\x18\x01\x12\x18\n\tif_octets\x18\x02 \x02(\x04\x42\x05\x82@\x02\x18\x01\".\n\x10OperationalState\x12\x1a\n\x12operational_status\x18\x01 \x01(\t\"\x81\x01\n\x19\x46orwardingClassAccounting\x12\x18\n\tif_family\x18\x01 \x01(\tB\x05\x82@\x02\x08\x01\x12\x18\n\tfc_number\x18\x02 \x01(\rB\x05\x82@\x02\x08\x01\x12\x16\n\x07if_pkts\x18\x03 \x01(\x04\x42\x05\x82@\x02\x18\x01\x12\x18\n\tif_octets\x18\x04 \x01(\x04\x42\x05\x82@\x02\x18\x01:G\n\x17jnprLogicalInterfaceExt\x12\x17.JuniperNetworksSensors\x18\x07 \x01(\x0b\x32\r.GLogicalPort'
   ,
-  dependencies=[jvision__top__pb2.DESCRIPTOR,])
+  dependencies=[telemetry__top__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 
@@ -60,8 +60,8 @@ _GLOGICALPORT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=41,
-  serialized_end=102,
+  serialized_start=43,
+  serialized_end=104,
 )
 
 
@@ -133,8 +133,8 @@ _LOGICALINTERFACEINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=105,
-  serialized_end=367,
+  serialized_start=107,
+  serialized_end=369,
 )
 
 
@@ -192,8 +192,8 @@ _INGRESSINTERFACESTATS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=370,
-  serialized_end=552,
+  serialized_start=372,
+  serialized_end=554,
 )
 
 
@@ -230,8 +230,8 @@ _EGRESSINTERFACESTATS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=554,
-  serialized_end=626,
+  serialized_start=556,
+  serialized_end=628,
 )
 
 
@@ -261,8 +261,8 @@ _OPERATIONALSTATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=628,
-  serialized_end=674,
+  serialized_start=630,
+  serialized_end=676,
 )
 
 
@@ -313,8 +313,8 @@ _FORWARDINGCLASSACCOUNTING = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=677,
-  serialized_end=806,
+  serialized_start=679,
+  serialized_end=808,
 )
 
 _GLOGICALPORT.fields_by_name['interface_info'].message_type = _LOGICALINTERFACEINFO
@@ -373,7 +373,7 @@ ForwardingClassAccounting = _reflection.GeneratedProtocolMessageType('Forwarding
 _sym_db.RegisterMessage(ForwardingClassAccounting)
 
 jnprLogicalInterfaceExt.message_type = _GLOGICALPORT
-jvision__top__pb2.JuniperNetworksSensors.RegisterExtension(jnprLogicalInterfaceExt)
+telemetry__top__pb2.JuniperNetworksSensors.RegisterExtension(jnprLogicalInterfaceExt)
 
 _LOGICALINTERFACEINFO.fields_by_name['if_name'].has_options = True
 _LOGICALINTERFACEINFO.fields_by_name['if_name']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002\010\001')

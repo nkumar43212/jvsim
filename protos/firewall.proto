@@ -28,10 +28,10 @@
 // This file defines the messages in Protocol Buffers used by
 // the firewall sensor. The top-level message is Firewall.
 //
+// Version 1.1
+//
 
-syntax = "proto2";
-
-import "jvision_top.proto";
+import "telemetry_top.proto";
 
 //
 // This occupies branch 6 from JuniperNetworksSensors

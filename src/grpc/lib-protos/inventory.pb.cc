@@ -130,22 +130,22 @@ void protobuf_AddDesc_inventory_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::protobuf_AddDesc_jvision_5ftop_2eproto();
+  ::protobuf_AddDesc_telemetry_5ftop_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\017inventory.proto\032\021jvision_top.proto\"*\n\t"
-    "Inventory\022\035\n\tcomponent\030\001 \003(\0132\n.Component"
-    "\"\343\001\n\tComponent\022\014\n\004name\030\001 \002(\t\022\025\n\rserial_n"
-    "umber\030\002 \001(\r\022\023\n\013part_number\030\003 \001(\r\022\023\n\013desc"
-    "ription\030\004 \001(\t\022\034\n\004type\030\005 \001(\0162\016.ComponentT"
-    "ype\022$\n\nproperties\030\006 \003(\0132\020.InventoryKeyVa"
-    "l\022+\n\021operational_state\030\007 \003(\0132\020.Inventory"
-    "KeyVal\022\026\n\016sub_components\030\010 \003(\t\"D\n\017Invent"
-    "oryKeyVal\022\013\n\003key\030\001 \002(\t\022\021\n\tint_value\030\002 \001("
-    "\003\022\021\n\tstr_value\030\003 \001(\t*K\n\rComponentType\022\010\n"
-    "\004Null\020\000\022\010\n\004Port\020\001\022\014\n\010Linecard\020\002\022\t\n\005Optic"
-    "\020\003\022\r\n\tBackplane\020\004:\?\n\022jnpr_inventory_ext\022"
-    "\027.JuniperNetworksSensors\030\r \001(\0132\n.Invento"
-    "ry", 522);
+    "\n\017inventory.proto\032\023telemetry_top.proto\"*"
+    "\n\tInventory\022\035\n\tcomponent\030\001 \003(\0132\n.Compone"
+    "nt\"\343\001\n\tComponent\022\014\n\004name\030\001 \002(\t\022\025\n\rserial"
+    "_number\030\002 \001(\r\022\023\n\013part_number\030\003 \001(\r\022\023\n\013de"
+    "scription\030\004 \001(\t\022\034\n\004type\030\005 \001(\0162\016.Componen"
+    "tType\022$\n\nproperties\030\006 \003(\0132\020.InventoryKey"
+    "Val\022+\n\021operational_state\030\007 \003(\0132\020.Invento"
+    "ryKeyVal\022\026\n\016sub_components\030\010 \003(\t\"D\n\017Inve"
+    "ntoryKeyVal\022\013\n\003key\030\001 \002(\t\022\021\n\tint_value\030\002 "
+    "\001(\003\022\021\n\tstr_value\030\003 \001(\t*K\n\rComponentType\022"
+    "\010\n\004Null\020\000\022\010\n\004Port\020\001\022\014\n\010Linecard\020\002\022\t\n\005Opt"
+    "ic\020\003\022\r\n\tBackplane\020\004:\?\n\022jnpr_inventory_ex"
+    "t\022\027.JuniperNetworksSensors\030\r \001(\0132\n.Inven"
+    "tory", 524);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "inventory.proto", &protobuf_RegisterTypes);
   Inventory::default_instance_ = new Inventory();

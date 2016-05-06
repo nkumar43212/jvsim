@@ -146,21 +146,21 @@ void protobuf_AddDesc_packet_5fstats_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::protobuf_AddDesc_jvision_5ftop_2eproto();
+  ::protobuf_AddDesc_telemetry_5ftop_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\022packet_stats.proto\032\021jvision_top.proto\""
-    "y\n\020PacketStatistics\022\'\n\014packet_stats\030\001 \003("
-    "\0132\021.PacketStatsClass\022<\n\020packet_stats_pfe"
-    "\030\002 \003(\0132\".PacketStatsPacketForwardingEngi"
-    "ne\"d\n!PacketStatsPacketForwardingEngine\022"
-    "\026\n\016pfe_identifier\030\001 \002(\t\022\'\n\014packet_stats\030"
-    "\002 \003(\0132\021.PacketStatsClass\"F\n\020PacketStatsC"
-    "lass\022\014\n\004name\030\001 \002(\t\022$\n\007counter\030\002 \002(\0132\023.Pa"
-    "cketStatsCounter\"S\n\022PacketStatsCounter\022\024"
-    "\n\014packet_count\030\001 \002(\004\022\022\n\nbyte_count\030\002 \001(\004"
-    "\022\023\n\013packet_rate\030\003 \001(\004:N\n\032jnpr_packet_sta"
-    "tistics_ext\022\027.JuniperNetworksSensors\030\n \001"
-    "(\0132\021.PacketStatistics", 501);
+    "\n\022packet_stats.proto\032\023telemetry_top.prot"
+    "o\"y\n\020PacketStatistics\022\'\n\014packet_stats\030\001 "
+    "\003(\0132\021.PacketStatsClass\022<\n\020packet_stats_p"
+    "fe\030\002 \003(\0132\".PacketStatsPacketForwardingEn"
+    "gine\"d\n!PacketStatsPacketForwardingEngin"
+    "e\022\026\n\016pfe_identifier\030\001 \002(\t\022\'\n\014packet_stat"
+    "s\030\002 \003(\0132\021.PacketStatsClass\"F\n\020PacketStat"
+    "sClass\022\014\n\004name\030\001 \002(\t\022$\n\007counter\030\002 \002(\0132\023."
+    "PacketStatsCounter\"S\n\022PacketStatsCounter"
+    "\022\024\n\014packet_count\030\001 \002(\004\022\022\n\nbyte_count\030\002 \001"
+    "(\004\022\023\n\013packet_rate\030\003 \001(\004:N\n\032jnpr_packet_s"
+    "tatistics_ext\022\027.JuniperNetworksSensors\030\n"
+    " \001(\0132\021.PacketStatistics", 503);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "packet_stats.proto", &protobuf_RegisterTypes);
   PacketStatistics::default_instance_ = new PacketStatistics();

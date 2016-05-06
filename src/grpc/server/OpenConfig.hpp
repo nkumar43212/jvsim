@@ -11,7 +11,7 @@
 
 #include <string>
 #include <map>
-#include "jvision_top.pb.h"
+#include "telemetry_top.pb.h"
 #include "agent.grpc.pb.h"
 #include "AgentServerLog.hpp"
 

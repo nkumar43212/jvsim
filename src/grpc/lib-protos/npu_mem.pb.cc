@@ -150,22 +150,22 @@ void protobuf_AddDesc_npu_5fmem_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::protobuf_AddDesc_jvision_5ftop_2eproto();
+  ::protobuf_AddDesc_telemetry_5ftop_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\rnpu_mem.proto\032\021jvision_top.proto\"E\n!Ne"
-    "tworkProcessorMemoryUtilization\022 \n\014memor"
-    "y_stats\030\001 \003(\0132\n.NpuMemory\"k\n\tNpuMemory\022\022"
-    "\n\nidentifier\030\001 \002(\t\022\"\n\007summary\030\002 \003(\0132\021.Np"
-    "uMemorySummary\022&\n\tpartition\030\003 \003(\0132\023.NpuM"
-    "emoryPartition\"_\n\020NpuMemorySummary\022\025\n\rre"
-    "source_name\030\001 \001(\t\022\014\n\004size\030\002 \001(\004\022\021\n\talloc"
-    "ated\030\003 \001(\004\022\023\n\013utilization\030\004 \001(\005\"\203\001\n\022NpuM"
-    "emoryPartition\022\014\n\004name\030\001 \001(\t\022\030\n\020applicat"
-    "ion_name\030\002 \001(\t\022\027\n\017bytes_allocated\030\003 \001(\r\022"
-    "\030\n\020allocation_count\030\004 \001(\r\022\022\n\nfree_count\030"
-    "\005 \001(\r:S\n\016npu_memory_ext\022\027.JuniperNetwork"
-    "sSensors\030\013 \001(\0132\".NetworkProcessorMemoryU"
-    "tilization", 530);
+    "\n\rnpu_mem.proto\032\023telemetry_top.proto\"E\n!"
+    "NetworkProcessorMemoryUtilization\022 \n\014mem"
+    "ory_stats\030\001 \003(\0132\n.NpuMemory\"k\n\tNpuMemory"
+    "\022\022\n\nidentifier\030\001 \002(\t\022\"\n\007summary\030\002 \003(\0132\021."
+    "NpuMemorySummary\022&\n\tpartition\030\003 \003(\0132\023.Np"
+    "uMemoryPartition\"_\n\020NpuMemorySummary\022\025\n\r"
+    "resource_name\030\001 \001(\t\022\014\n\004size\030\002 \001(\004\022\021\n\tall"
+    "ocated\030\003 \001(\004\022\023\n\013utilization\030\004 \001(\005\"\203\001\n\022Np"
+    "uMemoryPartition\022\014\n\004name\030\001 \001(\t\022\030\n\020applic"
+    "ation_name\030\002 \001(\t\022\027\n\017bytes_allocated\030\003 \001("
+    "\r\022\030\n\020allocation_count\030\004 \001(\r\022\022\n\nfree_coun"
+    "t\030\005 \001(\r:S\n\016npu_memory_ext\022\027.JuniperNetwo"
+    "rksSensors\030\013 \001(\0132\".NetworkProcessorMemor"
+    "yUtilization", 532);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "npu_mem.proto", &protobuf_RegisterTypes);
   NetworkProcessorMemoryUtilization::default_instance_ = new NetworkProcessorMemoryUtilization();

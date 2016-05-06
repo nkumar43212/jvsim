@@ -98,13 +98,13 @@ void protobuf_AddDesc_test_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::protobuf_AddDesc_jvision_5ftop_2eproto();
+  ::protobuf_AddDesc_telemetry_5ftop_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\ntest.proto\032\021jvision_top.proto\"(\n\004Test\022"
-    " \n\ntest_stats\030\001 \003(\0132\014.TestElement\"\'\n\013Tes"
-    "tElement\022\n\n\002id\030\001 \002(\r\022\014\n\004name\030\002 \002(\t:5\n\rjn"
-    "pr_test_ext\022\027.JuniperNetworksSensors\030\010 \001"
-    "(\0132\005.Test", 169);
+    "\n\ntest.proto\032\023telemetry_top.proto\"(\n\004Tes"
+    "t\022 \n\ntest_stats\030\001 \003(\0132\014.TestElement\"\'\n\013T"
+    "estElement\022\n\n\002id\030\001 \002(\r\022\014\n\004name\030\002 \002(\t:5\n\r"
+    "jnpr_test_ext\022\027.JuniperNetworksSensors\030\010"
+    " \001(\0132\005.Test", 171);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "test.proto", &protobuf_RegisterTypes);
   Test::default_instance_ = new Test();

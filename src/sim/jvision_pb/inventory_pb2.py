@@ -12,16 +12,16 @@ from google.protobuf import descriptor_pb2
 _sym_db = _symbol_database.Default()
 
 
-import jvision_top_pb2 as jvision__top__pb2
+import telemetry_top_pb2 as telemetry__top__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='inventory.proto',
   package='',
   syntax='proto2',
-  serialized_pb=b'\n\x0finventory.proto\x1a\x11jvision_top.proto\"*\n\tInventory\x12\x1d\n\tcomponent\x18\x01 \x03(\x0b\x32\n.Component\"\xe3\x01\n\tComponent\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\x15\n\rserial_number\x18\x02 \x01(\r\x12\x13\n\x0bpart_number\x18\x03 \x01(\r\x12\x13\n\x0b\x64\x65scription\x18\x04 \x01(\t\x12\x1c\n\x04type\x18\x05 \x01(\x0e\x32\x0e.ComponentType\x12$\n\nproperties\x18\x06 \x03(\x0b\x32\x10.InventoryKeyVal\x12+\n\x11operational_state\x18\x07 \x03(\x0b\x32\x10.InventoryKeyVal\x12\x16\n\x0esub_components\x18\x08 \x03(\t\"D\n\x0fInventoryKeyVal\x12\x0b\n\x03key\x18\x01 \x02(\t\x12\x11\n\tint_value\x18\x02 \x01(\x03\x12\x11\n\tstr_value\x18\x03 \x01(\t*K\n\rComponentType\x12\x08\n\x04Null\x10\x00\x12\x08\n\x04Port\x10\x01\x12\x0c\n\x08Linecard\x10\x02\x12\t\n\x05Optic\x10\x03\x12\r\n\tBackplane\x10\x04:?\n\x12jnpr_inventory_ext\x12\x17.JuniperNetworksSensors\x18\r \x01(\x0b\x32\n.Inventory'
+  serialized_pb=b'\n\x0finventory.proto\x1a\x13telemetry_top.proto\"*\n\tInventory\x12\x1d\n\tcomponent\x18\x01 \x03(\x0b\x32\n.Component\"\xe3\x01\n\tComponent\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\x15\n\rserial_number\x18\x02 \x01(\r\x12\x13\n\x0bpart_number\x18\x03 \x01(\r\x12\x13\n\x0b\x64\x65scription\x18\x04 \x01(\t\x12\x1c\n\x04type\x18\x05 \x01(\x0e\x32\x0e.ComponentType\x12$\n\nproperties\x18\x06 \x03(\x0b\x32\x10.InventoryKeyVal\x12+\n\x11operational_state\x18\x07 \x03(\x0b\x32\x10.InventoryKeyVal\x12\x16\n\x0esub_components\x18\x08 \x03(\t\"D\n\x0fInventoryKeyVal\x12\x0b\n\x03key\x18\x01 \x02(\t\x12\x11\n\tint_value\x18\x02 \x01(\x03\x12\x11\n\tstr_value\x18\x03 \x01(\t*K\n\rComponentType\x12\x08\n\x04Null\x10\x00\x12\x08\n\x04Port\x10\x01\x12\x0c\n\x08Linecard\x10\x02\x12\t\n\x05Optic\x10\x03\x12\r\n\tBackplane\x10\x04:?\n\x12jnpr_inventory_ext\x12\x17.JuniperNetworksSensors\x18\r \x01(\x0b\x32\n.Inventory'
   ,
-  dependencies=[jvision__top__pb2.DESCRIPTOR,])
+  dependencies=[telemetry__top__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _COMPONENTTYPE = _descriptor.EnumDescriptor(
@@ -53,8 +53,8 @@ _COMPONENTTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=382,
-  serialized_end=457,
+  serialized_start=384,
+  serialized_end=459,
 )
 _sym_db.RegisterEnumDescriptor(_COMPONENTTYPE)
 
@@ -101,8 +101,8 @@ _INVENTORY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=38,
-  serialized_end=80,
+  serialized_start=40,
+  serialized_end=82,
 )
 
 
@@ -181,8 +181,8 @@ _COMPONENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=83,
-  serialized_end=310,
+  serialized_start=85,
+  serialized_end=312,
 )
 
 
@@ -226,8 +226,8 @@ _INVENTORYKEYVAL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=312,
-  serialized_end=380,
+  serialized_start=314,
+  serialized_end=382,
 )
 
 _INVENTORY.fields_by_name['component'].message_type = _COMPONENT
@@ -262,6 +262,6 @@ InventoryKeyVal = _reflection.GeneratedProtocolMessageType('InventoryKeyVal', (_
 _sym_db.RegisterMessage(InventoryKeyVal)
 
 jnpr_inventory_ext.message_type = _INVENTORY
-jvision__top__pb2.JuniperNetworksSensors.RegisterExtension(jnpr_inventory_ext)
+telemetry__top__pb2.JuniperNetworksSensors.RegisterExtension(jnpr_inventory_ext)
 
 # @@protoc_insertion_point(module_scope)

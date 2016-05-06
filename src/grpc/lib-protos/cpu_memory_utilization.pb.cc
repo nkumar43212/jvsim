@@ -127,21 +127,22 @@ void protobuf_AddDesc_cpu_5fmemory_5futilization_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::protobuf_AddDesc_jvision_5ftop_2eproto();
+  ::protobuf_AddDesc_telemetry_5ftop_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\034cpu_memory_utilization.proto\032\021jvision_"
-    "top.proto\"I\n\024CpuMemoryUtilization\0221\n\013uti"
-    "lization\030\001 \003(\0132\034.CpuMemoryUtilizationSum"
-    "mary\"\255\001\n\033CpuMemoryUtilizationSummary\022\014\n\004"
-    "name\030\001 \001(\t\022\014\n\004size\030\002 \001(\004\022\027\n\017bytes_alloca"
-    "ted\030\003 \001(\004\022\023\n\013utilization\030\004 \001(\005\022D\n\027applic"
-    "ation_utilization\030\005 \003(\0132#.CpuMemoryUtili"
-    "zationPerApplication\"\213\001\n\"CpuMemoryUtiliz"
-    "ationPerApplication\022\014\n\004name\030\001 \001(\t\022\027\n\017byt"
-    "es_allocated\030\002 \001(\004\022\023\n\013allocations\030\003 \001(\004\022"
-    "\r\n\005frees\030\004 \001(\004\022\032\n\022allocations_failed\030\005 \001"
-    "(\004:K\n\023cpu_memory_util_ext\022\027.JuniperNetwo"
-    "rksSensors\030\001 \001(\0132\025.CpuMemoryUtilization", 519);
+    "\n\034cpu_memory_utilization.proto\032\023telemetr"
+    "y_top.proto\"I\n\024CpuMemoryUtilization\0221\n\013u"
+    "tilization\030\001 \003(\0132\034.CpuMemoryUtilizationS"
+    "ummary\"\255\001\n\033CpuMemoryUtilizationSummary\022\014"
+    "\n\004name\030\001 \001(\t\022\014\n\004size\030\002 \001(\004\022\027\n\017bytes_allo"
+    "cated\030\003 \001(\004\022\023\n\013utilization\030\004 \001(\005\022D\n\027appl"
+    "ication_utilization\030\005 \003(\0132#.CpuMemoryUti"
+    "lizationPerApplication\"\213\001\n\"CpuMemoryUtil"
+    "izationPerApplication\022\014\n\004name\030\001 \001(\t\022\027\n\017b"
+    "ytes_allocated\030\002 \001(\004\022\023\n\013allocations\030\003 \001("
+    "\004\022\r\n\005frees\030\004 \001(\004\022\032\n\022allocations_failed\030\005"
+    " \001(\004:K\n\023cpu_memory_util_ext\022\027.JuniperNet"
+    "worksSensors\030\001 \001(\0132\025.CpuMemoryUtilizatio"
+    "n", 521);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "cpu_memory_utilization.proto", &protobuf_RegisterTypes);
   CpuMemoryUtilization::default_instance_ = new CpuMemoryUtilization();

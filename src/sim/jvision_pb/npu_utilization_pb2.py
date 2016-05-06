@@ -11,16 +11,16 @@ from google.protobuf import descriptor_pb2
 _sym_db = _symbol_database.Default()
 
 
-import jvision_top_pb2 as jvision__top__pb2
+import telemetry_top_pb2 as telemetry__top__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='npu_utilization.proto',
   package='',
   syntax='proto2',
-  serialized_pb=b'\n\x15npu_utilization.proto\x1a\x11jvision_top.proto\"C\n\x1bNetworkProcessorUtilization\x12$\n\x0enpu_util_stats\x18\x01 \x03(\x0b\x32\x0c.Utilization\"q\n\x0bUtilization\x12\x12\n\nidentifier\x18\x01 \x02(\t\x12\x13\n\x0butilization\x18\x02 \x01(\r\x12\x1c\n\x07packets\x18\x03 \x03(\x0b\x32\x0b.PacketLoad\x12\x1b\n\x06memory\x18\x04 \x03(\x0b\x32\x0b.MemoryLoad\"\xba\x01\n\nMemoryLoad\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0c\x61verage_util\x18\x02 \x01(\r\x12\x14\n\x0chighest_util\x18\x03 \x01(\r\x12\x13\n\x0blowest_util\x18\x04 \x01(\r\x12\x1e\n\x16\x61verage_cache_hit_rate\x18\x05 \x01(\r\x12\x1e\n\x16highest_cache_hit_rate\x18\x06 \x01(\r\x12\x1d\n\x15lowest_cache_hit_rate\x18\x07 \x01(\r\"\xa2\x01\n\nPacketLoad\x12\x12\n\nidentifier\x18\x01 \x02(\t\x12\x0c\n\x04rate\x18\x02 \x01(\x04\x12\'\n\x1f\x61verage_instructions_per_packet\x18\x03 \x01(\r\x12&\n\x1e\x61verage_wait_cycles_per_packet\x18\x04 \x01(\r\x12!\n\x19\x61verage_cycles_per_packet\x18\x05 \x01(\r:W\n\x18jnpr_npu_utilization_ext\x12\x17.JuniperNetworksSensors\x18\x0c \x01(\x0b\x32\x1c.NetworkProcessorUtilization'
+  serialized_pb=b'\n\x15npu_utilization.proto\x1a\x13telemetry_top.proto\"C\n\x1bNetworkProcessorUtilization\x12$\n\x0enpu_util_stats\x18\x01 \x03(\x0b\x32\x0c.Utilization\"q\n\x0bUtilization\x12\x12\n\nidentifier\x18\x01 \x02(\t\x12\x13\n\x0butilization\x18\x02 \x01(\r\x12\x1c\n\x07packets\x18\x03 \x03(\x0b\x32\x0b.PacketLoad\x12\x1b\n\x06memory\x18\x04 \x03(\x0b\x32\x0b.MemoryLoad\"\xba\x01\n\nMemoryLoad\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0c\x61verage_util\x18\x02 \x01(\r\x12\x14\n\x0chighest_util\x18\x03 \x01(\r\x12\x13\n\x0blowest_util\x18\x04 \x01(\r\x12\x1e\n\x16\x61verage_cache_hit_rate\x18\x05 \x01(\r\x12\x1e\n\x16highest_cache_hit_rate\x18\x06 \x01(\r\x12\x1d\n\x15lowest_cache_hit_rate\x18\x07 \x01(\r\"\xa2\x01\n\nPacketLoad\x12\x12\n\nidentifier\x18\x01 \x02(\t\x12\x0c\n\x04rate\x18\x02 \x01(\x04\x12\'\n\x1f\x61verage_instructions_per_packet\x18\x03 \x01(\r\x12&\n\x1e\x61verage_wait_cycles_per_packet\x18\x04 \x01(\r\x12!\n\x19\x61verage_cycles_per_packet\x18\x05 \x01(\r:W\n\x18jnpr_npu_utilization_ext\x12\x17.JuniperNetworksSensors\x18\x0c \x01(\x0b\x32\x1c.NetworkProcessorUtilization'
   ,
-  dependencies=[jvision__top__pb2.DESCRIPTOR,])
+  dependencies=[telemetry__top__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 
@@ -60,8 +60,8 @@ _NETWORKPROCESSORUTILIZATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=44,
-  serialized_end=111,
+  serialized_start=46,
+  serialized_end=113,
 )
 
 
@@ -112,8 +112,8 @@ _UTILIZATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=113,
-  serialized_end=226,
+  serialized_start=115,
+  serialized_end=228,
 )
 
 
@@ -185,8 +185,8 @@ _MEMORYLOAD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=229,
-  serialized_end=415,
+  serialized_start=231,
+  serialized_end=417,
 )
 
 
@@ -244,8 +244,8 @@ _PACKETLOAD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=418,
-  serialized_end=580,
+  serialized_start=420,
+  serialized_end=582,
 )
 
 _NETWORKPROCESSORUTILIZATION.fields_by_name['npu_util_stats'].message_type = _UTILIZATION
@@ -286,6 +286,6 @@ PacketLoad = _reflection.GeneratedProtocolMessageType('PacketLoad', (_message.Me
 _sym_db.RegisterMessage(PacketLoad)
 
 jnpr_npu_utilization_ext.message_type = _NETWORKPROCESSORUTILIZATION
-jvision__top__pb2.JuniperNetworksSensors.RegisterExtension(jnpr_npu_utilization_ext)
+telemetry__top__pb2.JuniperNetworksSensors.RegisterExtension(jnpr_npu_utilization_ext)
 
 # @@protoc_insertion_point(module_scope)

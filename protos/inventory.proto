@@ -27,8 +27,7 @@
 // under the License.
 //
 
-syntax = "proto2";
-import "jvision_top.proto";
+import "telemetry_top.proto";
 
 //
 // this occupies branch 13 from JuniperNetworksSensors

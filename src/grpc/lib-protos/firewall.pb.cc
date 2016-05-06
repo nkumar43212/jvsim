@@ -225,34 +225,35 @@ void protobuf_AddDesc_firewall_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::protobuf_AddDesc_jvision_5ftop_2eproto();
+  ::protobuf_AddDesc_telemetry_5ftop_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\016firewall.proto\032\021jvision_top.proto\"2\n\010F"
-    "irewall\022&\n\016firewall_stats\030\001 \003(\0132\016.Firewa"
-    "llStats\"\364\001\n\rFirewallStats\022\032\n\013filter_name"
-    "\030\001 \002(\tB\005\202@\002\010\001\022\030\n\ttimestamp\030\002 \001(\004B\005\202@\002\020\001\022"
-    "\"\n\014memory_usage\030\003 \003(\0132\014.MemoryUsage\022$\n\rc"
-    "ounter_stats\030\004 \003(\0132\r.CounterStats\022$\n\rpol"
-    "icer_stats\030\005 \003(\0132\r.PolicerStats\022=\n\032hiera"
-    "rchical_policer_stats\030\006 \003(\0132\031.Hierarchic"
-    "alPolicerStats\"<\n\013MemoryUsage\022\023\n\004name\030\001 "
-    "\002(\tB\005\202@\002\010\001\022\030\n\tallocated\030\002 \001(\004B\005\202@\002 \001\"Q\n\014"
-    "CounterStats\022\023\n\004name\030\001 \002(\tB\005\202@\002\010\001\022\026\n\007pac"
-    "kets\030\002 \001(\004B\005\202@\002\030\001\022\024\n\005bytes\030\003 \001(\004B\005\202@\002\030\001\""
-    "\240\001\n\014PolicerStats\022\023\n\004name\030\001 \002(\tB\005\202@\002\010\001\022\"\n"
-    "\023out_of_spec_packets\030\002 \001(\004B\005\202@\002\030\001\022 \n\021out"
-    "_of_spec_bytes\030\003 \001(\004B\005\202@\002\030\001\0225\n\026extended_"
-    "policer_stats\030\004 \001(\0132\025.ExtendedPolicerSta"
-    "ts\"\232\001\n\024ExtendedPolicerStats\022\036\n\017offered_p"
-    "ackets\030\001 \001(\004B\005\202@\002\030\001\022\034\n\roffered_bytes\030\002 \001"
-    "(\004B\005\202@\002\030\001\022\"\n\023transmitted_packets\030\003 \001(\004B\005"
-    "\202@\002\030\001\022 \n\021transmitted_bytes\030\004 \001(\004B\005\202@\002\030\001\""
-    "\257\001\n\030HierarchicalPolicerStats\022\023\n\004name\030\001 \002"
-    "(\tB\005\202@\002\010\001\022\036\n\017premium_packets\030\002 \001(\004B\005\202@\002\030"
-    "\001\022\034\n\rpremium_bytes\030\003 \001(\004B\005\202@\002\030\001\022 \n\021aggre"
-    "gate_packets\030\004 \001(\004B\005\202@\002\030\001\022\036\n\017aggregate_b"
-    "ytes\030\005 \001(\004B\005\202@\002\030\001:=\n\021jnpr_firewall_ext\022\027"
-    ".JuniperNetworksSensors\030\006 \001(\0132\t.Firewall", 1040);
+    "\n\016firewall.proto\032\023telemetry_top.proto\"2\n"
+    "\010Firewall\022&\n\016firewall_stats\030\001 \003(\0132\016.Fire"
+    "wallStats\"\364\001\n\rFirewallStats\022\032\n\013filter_na"
+    "me\030\001 \002(\tB\005\202@\002\010\001\022\030\n\ttimestamp\030\002 \001(\004B\005\202@\002\020"
+    "\001\022\"\n\014memory_usage\030\003 \003(\0132\014.MemoryUsage\022$\n"
+    "\rcounter_stats\030\004 \003(\0132\r.CounterStats\022$\n\rp"
+    "olicer_stats\030\005 \003(\0132\r.PolicerStats\022=\n\032hie"
+    "rarchical_policer_stats\030\006 \003(\0132\031.Hierarch"
+    "icalPolicerStats\"<\n\013MemoryUsage\022\023\n\004name\030"
+    "\001 \002(\tB\005\202@\002\010\001\022\030\n\tallocated\030\002 \001(\004B\005\202@\002 \001\"Q"
+    "\n\014CounterStats\022\023\n\004name\030\001 \002(\tB\005\202@\002\010\001\022\026\n\007p"
+    "ackets\030\002 \001(\004B\005\202@\002\030\001\022\024\n\005bytes\030\003 \001(\004B\005\202@\002\030"
+    "\001\"\240\001\n\014PolicerStats\022\023\n\004name\030\001 \002(\tB\005\202@\002\010\001\022"
+    "\"\n\023out_of_spec_packets\030\002 \001(\004B\005\202@\002\030\001\022 \n\021o"
+    "ut_of_spec_bytes\030\003 \001(\004B\005\202@\002\030\001\0225\n\026extende"
+    "d_policer_stats\030\004 \001(\0132\025.ExtendedPolicerS"
+    "tats\"\232\001\n\024ExtendedPolicerStats\022\036\n\017offered"
+    "_packets\030\001 \001(\004B\005\202@\002\030\001\022\034\n\roffered_bytes\030\002"
+    " \001(\004B\005\202@\002\030\001\022\"\n\023transmitted_packets\030\003 \001(\004"
+    "B\005\202@\002\030\001\022 \n\021transmitted_bytes\030\004 \001(\004B\005\202@\002\030"
+    "\001\"\257\001\n\030HierarchicalPolicerStats\022\023\n\004name\030\001"
+    " \002(\tB\005\202@\002\010\001\022\036\n\017premium_packets\030\002 \001(\004B\005\202@"
+    "\002\030\001\022\034\n\rpremium_bytes\030\003 \001(\004B\005\202@\002\030\001\022 \n\021agg"
+    "regate_packets\030\004 \001(\004B\005\202@\002\030\001\022\036\n\017aggregate"
+    "_bytes\030\005 \001(\004B\005\202@\002\030\001:=\n\021jnpr_firewall_ext"
+    "\022\027.JuniperNetworksSensors\030\006 \001(\0132\t.Firewa"
+    "ll", 1042);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "firewall.proto", &protobuf_RegisterTypes);
   Firewall::default_instance_ = new Firewall();
