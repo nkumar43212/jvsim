@@ -67,5 +67,8 @@ RUN cd /home \
 && export LD_LIBRARY_PATH=/usr/local/lib \
 && export ROOTPATH=/home/jvsim \
 && make all
+# Expose the default telemetry GRPC agent server.
+# Change to desired value if needed.
+EXPOSE 50051
 
 
