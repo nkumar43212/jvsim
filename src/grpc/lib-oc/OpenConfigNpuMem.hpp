@@ -10,7 +10,7 @@
 #define OpenConfigNpuMem_hpp
 
 #include "OpenConfig.hpp"
-#include "jvision_top.pb.h"
+#include "telemetry_top.pb.h"
 #include "npu_mem.pb.h"
 
 class OpenConfigNpuMem : public OpenConfig {

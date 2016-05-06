@@ -8,7 +8,7 @@
 //
 
 #include <iostream>
-#include "jvision_top.pb.h"
+#include "telemetry_top.pb.h"
 #include "lib_oc.h"
 
 #include "OpenConfigNpuUtilization.hpp"

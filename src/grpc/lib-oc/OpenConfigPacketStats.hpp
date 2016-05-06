@@ -10,7 +10,7 @@
 #define OpenConfigPacketStats_hpp
 
 #include "OpenConfig.hpp"
-#include "jvision_top.pb.h"
+#include "telemetry_top.pb.h"
 #include "packet_stats.pb.h"
 
 class OpenConfigPacketStats : public OpenConfig {

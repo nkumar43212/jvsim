@@ -10,7 +10,7 @@
 #define OpenConfigPort_hpp
 
 #include "OpenConfig.hpp"
-#include "jvision_top.pb.h"
+#include "telemetry_top.pb.h"
 #include "port.pb.h"
 
 class OpenConfigPort : public OpenConfig {

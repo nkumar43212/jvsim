@@ -10,7 +10,7 @@
 #define OpenConfigFirewall_hpp
 
 #include "OpenConfig.hpp"
-#include "jvision_top.pb.h"
+#include "telemetry_top.pb.h"
 #include "firewall.pb.h"
 
 class OpenConfigFirewall : public OpenConfig {

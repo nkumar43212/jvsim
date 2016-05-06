@@ -10,7 +10,7 @@
 #define OpenConfigNpuUtilization_hpp
 
 #include "OpenConfig.hpp"
-#include "jvision_top.pb.h"
+#include "telemetry_top.pb.h"
 #include "npu_utilization.pb.h"
 
 class OpenConfigNpuUtilization : public OpenConfig {

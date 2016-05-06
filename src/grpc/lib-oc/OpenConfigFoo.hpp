@@ -9,9 +9,8 @@
 #ifndef OpenConfigFoo_hpp
 #define OpenConfigFoo_hpp
 
-#include <stdio.h>
 #include "OpenConfig.hpp"
-#include "jvision_top.pb.h"
+#include "telemetry_top.pb.h"
 #include "Foo.pb.h"
 
 class OpenConfigFoo : public OpenConfig {

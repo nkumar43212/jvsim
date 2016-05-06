@@ -10,7 +10,7 @@
 #define OpenConfigOptics_hpp
 
 #include "OpenConfig.hpp"
-#include "jvision_top.pb.h"
+#include "telemetry_top.pb.h"
 #include "optics.pb.h"
 
 class OpenConfigOptics : public OpenConfig {

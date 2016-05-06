@@ -10,7 +10,7 @@
 #define OpenConfigCpuMemoryUtilization_hpp
 
 #include "OpenConfig.hpp"
-#include "jvision_top.pb.h"
+#include "telemetry_top.pb.h"
 #include "cpu_memory_utilization.pb.h"
 
 class OpenConfigCpuMemoryUtilization : public OpenConfig {

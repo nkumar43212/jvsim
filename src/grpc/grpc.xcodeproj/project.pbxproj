@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		052D26A41CDD472A00C1B7F9 /* OpenConfigOptics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 052D26A31CDD472A00C1B7F9 /* OpenConfigOptics.cpp */; };
 		0537F4E01CCC01B100BD519B /* OCTelemetryJson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0537F4DF1CCC01B100BD519B /* OCTelemetryJson.cpp */; };
 		0537F4E41CCEA3CC00BD519B /* OCTelemetryJsonGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0537F4E21CCEA3CC00BD519B /* OCTelemetryJsonGenerator.cpp */; };
 		0537F4E51CCEA68200BD519B /* OCTelemetryJsonGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0537F4E21CCEA3CC00BD519B /* OCTelemetryJsonGenerator.cpp */; };
@@ -150,6 +151,8 @@
 
 /* Begin PBXFileReference section */
 		052D26A11CD9D55800C1B7F9 /* openconfig_mgd.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = openconfig_mgd.proto; path = ../../../protos/openconfig_mgd.proto; sourceTree = "<group>"; };
+		052D26A21CDD472A00C1B7F9 /* OpenConfigOptics.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = OpenConfigOptics.hpp; sourceTree = "<group>"; };
+		052D26A31CDD472A00C1B7F9 /* OpenConfigOptics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OpenConfigOptics.cpp; sourceTree = "<group>"; };
 		0537F4DF1CCC01B100BD519B /* OCTelemetryJson.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OCTelemetryJson.cpp; sourceTree = "<group>"; };
 		0537F4E11CCC01C200BD519B /* OCTelemetryJson.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = OCTelemetryJson.hpp; sourceTree = "<group>"; };
 		0537F4E21CCEA3CC00BD519B /* OCTelemetryJsonGenerator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OCTelemetryJsonGenerator.cpp; sourceTree = "<group>"; };
@@ -461,20 +464,22 @@
 				946703CA1C64786E00E73BF5 /* Makefile */,
 				946703CC1C64786E00E73BF5 /* genxlate.py */,
 				946703DB1C650CD700E73BF5 /* oc.cpp */,
-				05C1BED61CC81DB500A6A342 /* OpenConfigNpuUtilization.cpp */,
-				05C1BED71CC81DB500A6A342 /* OpenConfigNpuUtilization.hpp */,
-				949DD7881C8BA28D0062F934 /* OpenConfigPacketStats.hpp */,
-				949DD7891C8BA28D0062F934 /* OpenConfigPacketStats.cpp */,
-				94E7E3EA1CD1C03C007D1B3C /* OpenConfigNpuMem.hpp */,
-				94E7E3EB1CD1C03C007D1B3C /* OpenConfigNpuMem.cpp */,
 				94E7E3ED1CD1E1DD007D1B3C /* OpenConfigCpuMemoryUtilization.hpp */,
 				94E7E3EE1CD1E1DD007D1B3C /* OpenConfigCpuMemoryUtilization.cpp */,
-				946703CD1C64786E00E73BF5 /* OpenConfigPort.hpp */,
-				94AC9A701C7529890034AF1A /* OpenConfigPort.cpp */,
-				05C1BEDA1CC824C000A6A342 /* OpenConfigLogicalPort.hpp */,
-				05C1BED91CC824C000A6A342 /* OpenConfigLogicalPort.cpp */,
 				946703CF1C64786E00E73BF5 /* OpenConfigFirewall.hpp */,
 				946703D01C64786E00E73BF5 /* OpenConfigFirewall.cpp */,
+				05C1BEDA1CC824C000A6A342 /* OpenConfigLogicalPort.hpp */,
+				05C1BED91CC824C000A6A342 /* OpenConfigLogicalPort.cpp */,
+				94E7E3EA1CD1C03C007D1B3C /* OpenConfigNpuMem.hpp */,
+				94E7E3EB1CD1C03C007D1B3C /* OpenConfigNpuMem.cpp */,
+				05C1BED71CC81DB500A6A342 /* OpenConfigNpuUtilization.hpp */,
+				05C1BED61CC81DB500A6A342 /* OpenConfigNpuUtilization.cpp */,
+				052D26A21CDD472A00C1B7F9 /* OpenConfigOptics.hpp */,
+				052D26A31CDD472A00C1B7F9 /* OpenConfigOptics.cpp */,
+				949DD7881C8BA28D0062F934 /* OpenConfigPacketStats.hpp */,
+				949DD7891C8BA28D0062F934 /* OpenConfigPacketStats.cpp */,
+				946703CD1C64786E00E73BF5 /* OpenConfigPort.hpp */,
+				94AC9A701C7529890034AF1A /* OpenConfigPort.cpp */,
 				946703C51C64782500E73BF5 /* main.cpp */,
 			);
 			path = "lib-oc";
@@ -798,6 +803,7 @@
 				05C1BED81CC81DB500A6A342 /* OpenConfigNpuUtilization.cpp in Sources */,
 				946703C61C64782500E73BF5 /* main.cpp in Sources */,
 				94E7E3EC1CD1C03C007D1B3C /* OpenConfigNpuMem.cpp in Sources */,
+				052D26A41CDD472A00C1B7F9 /* OpenConfigOptics.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

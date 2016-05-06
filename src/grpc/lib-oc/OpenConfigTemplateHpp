@@ -10,7 +10,7 @@
 #define OpenConfig@_hpp
 
 #include "OpenConfig.hpp"
-#include "jvision_top.pb.h"
+#include "telemetry_top.pb.h"
 #include "$.pb.h"
 
 class OpenConfig@ : public OpenConfig {
