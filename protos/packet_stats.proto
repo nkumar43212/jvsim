@@ -40,7 +40,7 @@ import "telemetry_top.proto";
 // This occupies branch 3 from JuniperNetworksSensors
 //
 extend JuniperNetworksSensors {
-    optional PacketStatistics jnpr_packet_statistics_ext        = 10;
+    optional PacketStatistics jnpr_packet_statistics_ext        = 8;
 }
 
 message PacketStatistics {
