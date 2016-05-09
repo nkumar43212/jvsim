@@ -159,7 +159,7 @@ void protobuf_AddDesc_packet_5fstats_2eproto() {
     "PacketStatsCounter\"S\n\022PacketStatsCounter"
     "\022\024\n\014packet_count\030\001 \002(\004\022\022\n\nbyte_count\030\002 \001"
     "(\004\022\023\n\013packet_rate\030\003 \001(\004:N\n\032jnpr_packet_s"
-    "tatistics_ext\022\027.JuniperNetworksSensors\030\n"
+    "tatistics_ext\022\027.JuniperNetworksSensors\030\010"
     " \001(\0132\021.PacketStatistics", 503);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "packet_stats.proto", &protobuf_RegisterTypes);
@@ -169,7 +169,7 @@ void protobuf_AddDesc_packet_5fstats_2eproto() {
   PacketStatsCounter::default_instance_ = new PacketStatsCounter();
   ::google::protobuf::internal::ExtensionSet::RegisterMessageExtension(
     &::JuniperNetworksSensors::default_instance(),
-    10, 11, false, false,
+    8, 11, false, false,
     &::PacketStatistics::default_instance());
   PacketStatistics::default_instance_->InitAsDefaultInstance();
   PacketStatsPacketForwardingEngine::default_instance_->InitAsDefaultInstance();
