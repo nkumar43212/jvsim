@@ -38,36 +38,36 @@ Since jvsim has dependencies on several open source components (like gRPC, proto
 # Running gRPC server and client to enable telemetry on Junos device (non-jVsim mode):
 * Start Mosquitto broker on Junos device.  Mosquitto broker can be started with below config on Junos device.  
   > set system services extension-service notification allow-clients address 0.0.0.0/0
-* Edit config/agent_server.ini
-  * [junos-device]
-    device_mgd_ip       = w.x.y.z           ; IP address of JUNOS device  
-    device_mgd_port     = 50060             ; Port of MGD Lego API service  
+* Edit config/agent_server.ini  
+  [junos-device]  
+  device_mgd_ip       = w.x.y.z           ; IP address of JUNOS device  
+  device_mgd_port     = 50060             ; Port of MGD Lego API service  
 
-  * [mqtt]
-    mqtt_broker_ip      = w.x.y.z           ; IP address of MQTT broker  
+  [mqtt]  
+  mqtt_broker_ip      = w.x.y.z           ; IP address of MQTT broker  
 
-  * [other-knobs]
-    system_mode         = proc              ; Valid options: null, file, proc  
-* Start the server
+  [other-knobs]
+  system_mode         = proc              ; Valid options: null, file, proc  
+* Start the server  
   > bin/linux/agent_server -c config/agent_server.ini &
-* Start the client
-  > bin/linux/agent_client
+* Start the client  
+  > bin/linux/agent_client  
   * jvsim> help
-  * jvsim> subscribe <subscription-name> <sample-frequency> <path>+
+  * jvsim> subscribe <subscription-name> <sample-frequency> <path>+  
     e.g.: jvsim> subscribe abbas-test 1 /junos/system/linecard/cpu/memory/ /junos/system/linecard/npu/memory/
-* On new shell, telemetry data is dumped in client log file
-  > tail -f abbas-test
-    0:Logging enabled --
+* On new shell, telemetry data is dumped in client log file  
+  > tail -f abbas-test  
+    0:Logging enabled --  
 
-    1:Message Size = 14630
-    2:system_id: "sdn-st-mx480-a:0.0.0.0"
-    component_id: 1
-    path: "/1000"
-    timestamp: 1462906772655
-    kv {
-      key: "oc-path/cpu-memory-utilization/Kernel/size"
-      int_value: 1864553756
-    }
+    1:Message Size = 14630  
+    2:system_id: "sdn-st-mx480-a:0.0.0.0"  
+    component_id: 1  
+    path: "/1000"  
+    timestamp: 1462906772655  
+    kv {  
+      key: "oc-path/cpu-memory-utilization/Kernel/size"  
+      int_value: 1864553756  
+    }  
 
 # Layout
 Important directories in the project are 
