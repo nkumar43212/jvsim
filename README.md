@@ -55,8 +55,8 @@ Since jvsim has dependencies on several open source components (like gRPC, proto
   * jvsim> help
   * jvsim> subscribe <subscription-name> <sample-frequency> <path>+  
     e.g.: jvsim> subscribe abbas-test 1 /junos/system/linecard/cpu/memory/ /junos/system/linecard/npu/memory/
-* On new shell, telemetry data is dumped in client log file  
-  > tail -f abbas-test  
+* Telemetry data is dumped in client log file. Check in new shell prompt 
+  > tail -f abbas-test 
     0:Logging enabled --  
 
     1:Message Size = 14630  
