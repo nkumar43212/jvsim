@@ -36,18 +36,18 @@ Since jvsim has dependencies on several open source components (like gRPC, proto
          -d  : run data streamers
 
 # Running gRPC server and client to enable telemetry on Junos device (non-jVsim mode):
-* Start Mosquitto broker on Junos device.  Mosquitto broker can be started with below config on Junos device.
-    > set system services extension-service notification allow-clients address 0.0.0.0/0
+* Start Mosquitto broker on Junos device.  Mosquitto broker can be started with below config on Junos device.  
+  > set system services extension-service notification allow-clients address 0.0.0.0/0
 * Edit config/agent_server.ini
   * [junos-device]
-    device_mgd_ip       = w.x.y.z           ; IP address of JUNOS device
-    device_mgd_port     = 50060             ; Port of MGD Lego API service
+    device_mgd_ip       = w.x.y.z           ; IP address of JUNOS device  
+    device_mgd_port     = 50060             ; Port of MGD Lego API service  
 
   * [mqtt]
-    mqtt_broker_ip      = w.x.y.z           ; IP address of MQTT broker
+    mqtt_broker_ip      = w.x.y.z           ; IP address of MQTT broker  
 
   * [other-knobs]
-    system_mode         = proc              ; Valid options: null, file, proc
+    system_mode         = proc              ; Valid options: null, file, proc  
 * Start the server
   > bin/linux/agent_server -c config/agent_server.ini &
 * Start the client
