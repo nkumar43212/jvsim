@@ -46,17 +46,17 @@ Since jvsim has dependencies on several open source components (like gRPC, proto
   [mqtt]  
   mqtt_broker_ip      = w.x.y.z           ; IP address of MQTT broker  
 
-  [other-knobs]
+  [other-knobs]  
   system_mode         = proc              ; Valid options: null, file, proc  
 * Start the server  
   > bin/linux/agent_server -c config/agent_server.ini &
 * Start the client  
   > bin/linux/agent_client  
   * jvsim> help
-  * jvsim> subscribe /<subscription-name/> /<sample-frequency/> /<path/>+  
+  * jvsim> subscribe subscription-name sample-frequency path+  
     e.g.: jvsim> subscribe abbas-test 1 /junos/system/linecard/cpu/memory/ /junos/system/linecard/npu/memory/
 * Telemetry data is dumped in client log file. Check in new shell prompt 
-  > tail /-f abbas-test  
+  > tail -f abbas-test  
 
     0:Logging enabled --  
 
@@ -66,8 +66,8 @@ Since jvsim has dependencies on several open source components (like gRPC, proto
     path: "/1000"  
     timestamp: 1462906772655  
     kv {  
-      key: "oc-path/cpu-memory-utilization/Kernel/size"  
-      int_value: 1864553756  
+        key: "oc-path/cpu-memory-utilization/Kernel/size"  
+        int_value: 1864553756  
     }  
 
 # Layout
