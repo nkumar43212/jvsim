@@ -36,9 +36,8 @@ Since jvsim has dependencies on several open source components (like gRPC, proto
          -d  : run data streamers
 
 # Running gRPC server and client to enable telemetry on Junos device (non-jVsim mode):
-* Starting Mosquitto broker on Junos device
-  * Mosquitto broker can be started with config as below.
-    # set system services extension-service notification allow-clients address 0.0.0.0/0
+* Start Mosquitto broker on Junos device.  Mosquitto broker can be started with below config on Junos device.
+    > set system services extension-service notification allow-clients address 0.0.0.0/0
 * Edit config/agent_server.ini
   * [junos-device]
     device_mgd_ip       = w.x.y.z           ; IP address of JUNOS device
@@ -50,14 +49,14 @@ Since jvsim has dependencies on several open source components (like gRPC, proto
   * [other-knobs]
     system_mode         = proc              ; Valid options: null, file, proc
 * Start the server
-  # bin/linux/agent_server -c config/agent_server.ini &
+  > bin/linux/agent_server -c config/agent_server.ini &
 * Start the client
-  # bin/linux/agent_client
+  > bin/linux/agent_client
   * jvsim> help
   * jvsim> subscribe <subscription-name> <sample-frequency> <path>+
     e.g.: jvsim> subscribe abbas-test 1 /junos/system/linecard/cpu/memory/ /junos/system/linecard/npu/memory/
 * On new shell, telemetry data is dumped in client log file
-  # tail -f abbas-test
+  > tail -f abbas-test
     0:Logging enabled --
 
     1:Message Size = 14630
