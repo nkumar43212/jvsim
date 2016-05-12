@@ -7,6 +7,10 @@
 //
 
 #include "OpenConfigNpuMem.hpp"
+#include "oc.hpp"
+
+std::string BASE_OC_PATH_NPU("/oc-path/components/component/subcomponents/subcomponent");
+std::string OC_ATTRIBUTE_NPU("memory");
 
 void
 OpenConfigNpuMem::iterate (JuniperNetworksSensors *handle, Telemetry::OpenConfigData *datap)
@@ -15,10 +19,7 @@ OpenConfigNpuMem::iterate (JuniperNetworksSensors *handle, Telemetry::OpenConfig
     Telemetry::KeyValue *kv;
     
     for (int i = 0; i < message->memory_stats_size(); i++) {
-        std::string master_key = "oc-path/network-processor-memory-utilization/" + message->memory_stats(i).identifier();
-        kv = datap->add_kv();
-        kv->set_key("__prefix__");
-        kv->set_str_value(master_key);
+        oc_set_prefix(datap, BASE_OC_PATH_NPU, message->memory_stats(i).identifier(), OC_ATTRIBUTE_NPU);
         
         for (int j = 0; j < message->memory_stats(i).summary_size(); j++) {
             const NpuMemorySummary &summary = message->memory_stats(i).summary(j);

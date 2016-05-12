@@ -7,6 +7,10 @@
 //
 
 #include "OpenConfigPacketStats.hpp"
+#include "oc.hpp"
+
+std::string BASE_OC_PATH_PACKET_STATS("/oc-path/components/component/subcomponents/subcomponent");
+std::string OC_ATTRIBUTE_PACKET_STATS("packet_statistics");
 
 void
 OpenConfigPacketStats::iterate (JuniperNetworksSensors *handle, Telemetry::OpenConfigData *datap)
@@ -15,10 +19,9 @@ OpenConfigPacketStats::iterate (JuniperNetworksSensors *handle, Telemetry::OpenC
     int i;
     Telemetry::KeyValue *kv;
 
-    std::string master_key = "oc-path/packet-statistics/";
-    kv = datap->add_kv();
-    kv->set_key("__prefix__");
-    kv->set_str_value(master_key);
+    // Add Prefix
+    std::string name_str = "FPC" + std::to_string(datap->component_id()) + ":CPU0";
+    oc_set_prefix(datap, BASE_OC_PATH_PACKET_STATS, name_str, OC_ATTRIBUTE_PACKET_STATS);
 
     for (i = 0; i < message->packet_stats_size(); i++) {
         const PacketStatsClass &classp = message->packet_stats(i);
@@ -31,9 +34,8 @@ OpenConfigPacketStats::iterate (JuniperNetworksSensors *handle, Telemetry::OpenC
     for (i = 0; i < message->packet_stats_pfe_size(); i++) {
         const PacketStatsPacketForwardingEngine &pfe = message->packet_stats_pfe(i);
 
-        kv = datap->add_kv();
-        kv->set_key("__prefix__");
-        kv->set_str_value("pfe/" + pfe.pfe_identifier());
+        // Add Prefix
+        oc_set_prefix(datap, BASE_OC_PATH_PACKET_STATS, pfe.pfe_identifier(), OC_ATTRIBUTE_PACKET_STATS);
         for (int j = 0; j < pfe.packet_stats_size(); j++) {
             const PacketStatsClass &classp = pfe.packet_stats(j);
             

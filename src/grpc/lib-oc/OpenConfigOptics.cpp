@@ -7,6 +7,10 @@
 //
 
 #include "OpenConfigOptics.hpp"
+#include "oc.hpp"
+
+std::string BASE_OC_PATH_OPTICS("/oc-path/interfaces/interface");
+std::string BASE_OC_PATH_OPTICS_ATTR("optics");
 
 void
 OpenConfigOptics::iterate (JuniperNetworksSensors *handle, Telemetry::OpenConfigData *datap)
@@ -19,10 +23,9 @@ OpenConfigOptics::iterate (JuniperNetworksSensors *handle, Telemetry::OpenConfig
         const OpticsInfos& element = message->optics_diag(i);
         const OpticsDiagStats &diags = element.optics_diag_stats();
 
-        kv = datap->add_kv();
-        kv->set_key("__prefix__");
-        kv->set_str_value("oc-path/optics/" + element.if_name());
-        
+        // Prefix
+        oc_set_prefix(datap, BASE_OC_PATH_OPTICS, element.if_name(), BASE_OC_PATH_OPTICS_ATTR);
+
 	if (diags.module_temp()) {
 		kv = datap->add_kv();
 		kv->set_key("module_temp");

@@ -14,37 +14,37 @@
 	"sensors": {
 	    "test": {
 	        "resource": "test",
-	    	"count": "4",
+	    	"count": "1",
 		"interval": "1"
 	    },
 
 	    "ifds": {
 		"resource": "port",
-		"count": "100",
+		"count": "1",
 		"interval": "1"
 	    },
 
 	    "optics": {
 		"resource": "optics",
-		"count": "100",
+		"count": "1",
 		"interval": "1"
 	    },
 
             "iptunnels_stats": {
 		"resource": "iptunnels",
-		"count": "3",
+		"count": "1",
 		"interval": "1"
             },
 
             "lsp_stats": {
 		"resource": "lsp_stats",
-		"count": "0",
+		"count": "1",
 		"interval": "1"
             },
 	
  	    "firewall": {
 		"resource": "firewall",
-		"count": "10",
+		"count": "1",
 		"interval": "1"
 	    },
 

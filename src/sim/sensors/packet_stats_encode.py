@@ -18,7 +18,7 @@ def jv_encode_packet_stats(jnpr, index, lc_slot, system_params):
     x = 0
     for x in range(0, system_params['pfe_count']):
         pfe_record   = packet_stats.packet_stats_pfe.add();
-        pfe_record.pfe_identifier = "pfe" + str(x);
+        pfe_record.pfe_identifier = "FPC" + str(lc_slot) + ":NPU" + str(x);
 
         record  = pfe_record.packet_stats.add();
         record.name  = "v4_discards";

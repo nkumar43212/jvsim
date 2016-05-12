@@ -19,6 +19,7 @@
 #include "OpenConfigNpuMem.hpp"
 #include "OpenConfigCpuMemoryUtilization.hpp"
 #include "OpenConfigOptics.hpp"
+#include "OpenConfigLspStats.hpp"
 //@header
 
 void
@@ -32,6 +33,7 @@ lib_oc_init ()
     OpenConfigNpuMem	 *npu_mem = new OpenConfigNpuMem;
     OpenConfigCpuMemoryUtilization	 *cpu_memory_utilization = new OpenConfigCpuMemoryUtilization;
     OpenConfigOptics	 *optics = new OpenConfigOptics;
+    OpenConfigLspStats	 *lsp_stats = new OpenConfigLspStats;
 //@next
 }
 
@@ -61,6 +63,9 @@ get_oc_extension_type (JuniperNetworksSensors *handle)
     }
     if (handle->HasExtension(jnpr_optics_ext)) {
         return "jnpr_optics_ext";
+    }
+    if (handle->HasExtension(jnpr_lsp_statistics_ext)) {
+        return "jnpr_lsp_statistics_ext";
     }
 //@ext_type
     return "unknown";

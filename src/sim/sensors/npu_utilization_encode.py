@@ -7,7 +7,7 @@ def jv_encode_npu_utilization(jnpr, index, lc_slot, system_params):
     x = 0
     for x in range(0, system_params['pfe_count']):
         npu_stats = npu.npu_util_stats.add();
-        npu_stats.identifier = "pfe" + str(lc_slot) + "/" + str(x);
+        npu_stats.identifier = "FPC" + str(lc_slot) + ":NPU" + str(x);
         npu_stats.utilization = 50 + x;
 
         #Packet loads for different memories

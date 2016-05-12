@@ -7,6 +7,10 @@
 //
 
 #include "OpenConfigCpuMemoryUtilization.hpp"
+#include "oc.hpp"
+
+std::string BASE_OC_PATH_CPU("/oc-path/components/component/subcomponents/subcomponent");
+std::string OC_ATTRIBUTE_CPU("memory_utilization");
 
 void
 OpenConfigCpuMemoryUtilization::iterate (JuniperNetworksSensors *handle, Telemetry::OpenConfigData *datap)
@@ -14,21 +18,25 @@ OpenConfigCpuMemoryUtilization::iterate (JuniperNetworksSensors *handle, Telemet
     CpuMemoryUtilization *message = handle->MutableExtension(cpu_memory_util_ext);
     Telemetry::KeyValue *kv;
     
+    // Add Prefix
+    std::string name_str = "FPC" + std::to_string(datap->component_id()) + ":CPU0";
+    oc_set_prefix(datap, BASE_OC_PATH_CPU, name_str, OC_ATTRIBUTE_CPU);
+
     for (int i = 0; i < message->utilization_size(); i++) {
         const CpuMemoryUtilizationSummary& summary = message->utilization(i);
         
         kv = datap->add_kv();
-        kv->set_key("oc-path/cpu-memory-utilization/" + summary.name() + "/size");
+        kv->set_key(summary.name() + "/size");
         kv->set_int_value(summary.size());
         
         
         kv = datap->add_kv();
-        kv->set_key("oc-path/cpu-memory-utilization/" + summary.name() + "/bytes_allocated");
+        kv->set_key(summary.name() + "/bytes_allocated");
         kv->set_int_value(summary.bytes_allocated());
         
         
         kv = datap->add_kv();
-        kv->set_key("oc-path/cpu-memory-utilization/" + summary.name() + "/utilization");
+        kv->set_key(summary.name() + "/utilization");
         kv->set_int_value(summary.utilization());
         
         
@@ -36,19 +44,19 @@ OpenConfigCpuMemoryUtilization::iterate (JuniperNetworksSensors *handle, Telemet
             const CpuMemoryUtilizationPerApplication &app = summary.application_utilization(j);
             
             kv = datap->add_kv();
-            kv->set_key("oc-path/cpu-memory-utilization/" + summary.name() + "/applications/" + app.name() + "/bytes_allocated");
+            kv->set_key(summary.name() + "/applications/" + app.name() + "/bytes_allocated");
             kv->set_int_value(app.bytes_allocated());
             
             kv = datap->add_kv();
-            kv->set_key("oc-path/cpu-memory-utilization/" + summary.name() + "/applications/" + app.name() + "/allocations");
+            kv->set_key(summary.name() + "/applications/" + app.name() + "/allocations");
             kv->set_int_value(app.allocations());
             
             kv = datap->add_kv();
-            kv->set_key("oc-path/cpu-memory-utilization/" + summary.name() + "/applications/" + app.name() + "/frees");
+            kv->set_key(summary.name() + "/applications/" + app.name() + "/frees");
             kv->set_int_value(app.frees());
             
             kv = datap->add_kv();
-            kv->set_key("oc-path/cpu-memory-utilization/" + summary.name() + "/applications/" + app.name() + "/allocations_failed");
+            kv->set_key(summary.name() + "/applications/" + app.name() + "/allocations_failed");
             kv->set_int_value(app.allocations_failed());
         }
     }
