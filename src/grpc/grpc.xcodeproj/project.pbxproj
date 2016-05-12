@@ -12,6 +12,7 @@
 		0537F4E41CCEA3CC00BD519B /* OCTelemetryJsonGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0537F4E21CCEA3CC00BD519B /* OCTelemetryJsonGenerator.cpp */; };
 		0537F4E51CCEA68200BD519B /* OCTelemetryJsonGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0537F4E21CCEA3CC00BD519B /* OCTelemetryJsonGenerator.cpp */; };
 		0537F4E61CCEA6B000BD519B /* OCTelemetryJson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0537F4DF1CCC01B100BD519B /* OCTelemetryJson.cpp */; };
+		0584266C1CE4DD21003D866B /* OpenConfigLspStats.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0584266A1CE4DD21003D866B /* OpenConfigLspStats.cpp */; };
 		05BD33AC1CD2CEF90059EF17 /* GlobalConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BD33AA1CD2CEF90059EF17 /* GlobalConfig.cpp */; };
 		05BD33AE1CD2F3B60059EF17 /* AgentServerCmdOptions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94A291FB1C80FAF2004BB6C3 /* AgentServerCmdOptions.cpp */; };
 		05BD33AF1CD324080059EF17 /* GlobalConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BD33AA1CD2CEF90059EF17 /* GlobalConfig.cpp */; };
@@ -158,6 +159,9 @@
 		0537F4E21CCEA3CC00BD519B /* OCTelemetryJsonGenerator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OCTelemetryJsonGenerator.cpp; sourceTree = "<group>"; };
 		0537F4E31CCEA3CC00BD519B /* OCTelemetryJsonGenerator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = OCTelemetryJsonGenerator.hpp; sourceTree = "<group>"; };
 		0537F4E71CCEB1ED00BD519B /* mgd_service.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = mgd_service.proto; path = ../../../protos/mgd_service.proto; sourceTree = "<group>"; };
+		058426691CE4DD09003D866B /* oc.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = oc.hpp; sourceTree = "<group>"; };
+		0584266A1CE4DD21003D866B /* OpenConfigLspStats.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OpenConfigLspStats.cpp; sourceTree = "<group>"; };
+		0584266B1CE4DD21003D866B /* OpenConfigLspStats.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = OpenConfigLspStats.hpp; sourceTree = "<group>"; };
 		058673341CB4620500C8DF1F /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		058673361CB462A100C8DF1F /* agent.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = agent.pb.h; path = lib/h/agent.pb.h; sourceTree = SOURCE_ROOT; };
 		058673371CB462C200C8DF1F /* agent.grpc.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = agent.grpc.pb.h; path = lib/h/agent.grpc.pb.h; sourceTree = SOURCE_ROOT; };
@@ -464,12 +468,15 @@
 				946703CA1C64786E00E73BF5 /* Makefile */,
 				946703CC1C64786E00E73BF5 /* genxlate.py */,
 				946703DB1C650CD700E73BF5 /* oc.cpp */,
+				058426691CE4DD09003D866B /* oc.hpp */,
 				94E7E3ED1CD1E1DD007D1B3C /* OpenConfigCpuMemoryUtilization.hpp */,
 				94E7E3EE1CD1E1DD007D1B3C /* OpenConfigCpuMemoryUtilization.cpp */,
 				946703CF1C64786E00E73BF5 /* OpenConfigFirewall.hpp */,
 				946703D01C64786E00E73BF5 /* OpenConfigFirewall.cpp */,
 				05C1BEDA1CC824C000A6A342 /* OpenConfigLogicalPort.hpp */,
 				05C1BED91CC824C000A6A342 /* OpenConfigLogicalPort.cpp */,
+				0584266A1CE4DD21003D866B /* OpenConfigLspStats.cpp */,
+				0584266B1CE4DD21003D866B /* OpenConfigLspStats.hpp */,
 				94E7E3EA1CD1C03C007D1B3C /* OpenConfigNpuMem.hpp */,
 				94E7E3EB1CD1C03C007D1B3C /* OpenConfigNpuMem.cpp */,
 				05C1BED71CC81DB500A6A342 /* OpenConfigNpuUtilization.hpp */,
@@ -802,6 +809,7 @@
 				94E7E3EF1CD1E1DD007D1B3C /* OpenConfigCpuMemoryUtilization.cpp in Sources */,
 				05C1BED81CC81DB500A6A342 /* OpenConfigNpuUtilization.cpp in Sources */,
 				946703C61C64782500E73BF5 /* main.cpp in Sources */,
+				0584266C1CE4DD21003D866B /* OpenConfigLspStats.cpp in Sources */,
 				94E7E3EC1CD1C03C007D1B3C /* OpenConfigNpuMem.cpp in Sources */,
 				052D26A41CDD472A00C1B7F9 /* OpenConfigOptics.cpp in Sources */,
 			);

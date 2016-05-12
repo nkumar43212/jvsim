@@ -148,7 +148,6 @@ public:
                 AgentConsolidatorSystemHandlePtr csh =
                                             _system_subscription->getHandle(i);
                 id_idx_t isubid = csh->getInternalSubscriptionId();
-                // TODO ABBAS === test this
                 Subscribe("/" + std::to_string(isubid));
             }
         }
@@ -169,7 +168,6 @@ public:
                 AgentConsolidatorSystemHandlePtr csh =
                 _system_subscription->getHandle(i);
                 id_idx_t isubid = csh->getInternalSubscriptionId();
-                // TODO ABBAS === test this
                 Subscribe("/" + std::to_string(isubid));
             }
         }
