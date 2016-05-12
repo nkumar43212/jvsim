@@ -68,6 +68,10 @@
          </CommandLineArgument>
          <CommandLineArgument
             argument = "--gtest_filter=AgentConsolidatorProcTest.*"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "--gtest_filter=AgentClientOpen*.*"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
@@ -85,7 +89,7 @@
       </CommandLineArguments>
       <EnvironmentVariables>
          <EnvironmentVariable
-            key = "ROOTDIR"
+            key = "ROOTPATH"
             value = "/Users/nitin/tmp/jvsim"
             isEnabled = "YES">
          </EnvironmentVariable>

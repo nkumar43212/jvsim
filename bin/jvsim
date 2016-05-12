@@ -12,11 +12,12 @@ run_server=0
 run_client=0
 run_usage=0
 run_test=0
+run_oc_test=0
 run_mgd=0
 run_data=0
 
 #Parse out the arguments
-while getopts "ucsktmd" opt; do
+while getopts "ucsktomd" opt; do
   case $opt in
     u)
       run_usage=1
@@ -37,6 +38,9 @@ while getopts "ucsktmd" opt; do
     t)
       run_test=1
       ;;
+    o)
+      run_oc_test=1
+      ;;
     d)
       run_data=1
       ;;
@@ -49,12 +53,13 @@ done
 
 if [ $run_usage != 0 ] 
 then
-    echo "usage: jvsim [-u] [-k] [-s] [-c] [-m] [-d]"
+    echo "usage: jvsim [-u] [-k] [-s] [-c] [-m] [-d] [-t] [-o]"
     echo " -k  : cleanup and exit"
     echo " -s  : run server"
     echo " -m  : run simulation management daemon server"
     echo " -c  : run interactive client"
     echo " -t  : run test harness"
+    echo " -o  : run openconfig tests"
     echo " -d  : run data streamers"
     exit
 fi
@@ -149,6 +154,17 @@ ps -ef | grep agent_server | grep -v "grep" | awk '{print $2}' | xargs kill > /d
 ps -ef | grep mgd_server | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
 fi
 
+#Do we execute openconfig specific tests
+if [ $run_oc_test != 0 ]
+then
+$TESTPATH/agent_test --gtest_filter=AgentClientOpenConfigTest*
+
+#clean up all the processes
+ps -ef | grep publish.py | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
+ps -ef | grep mosquitto | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
+ps -ef | grep agent_server | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
+ps -ef | grep mgd_server | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
+fi
 
 #Start the interactive client
 if [ $run_client != 0 ]

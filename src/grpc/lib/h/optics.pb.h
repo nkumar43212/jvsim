@@ -209,24 +209,17 @@ class OpticsInfos : public ::google::protobuf::Message {
   ::std::string* release_if_name();
   void set_allocated_if_name(::std::string* if_name);
 
-  // optional uint64 init_time = 2;
-  bool has_init_time() const;
-  void clear_init_time();
-  static const int kInitTimeFieldNumber = 2;
-  ::google::protobuf::uint64 init_time() const;
-  void set_init_time(::google::protobuf::uint64 value);
-
-  // optional uint32 snmp_if_index = 3;
+  // optional uint32 snmp_if_index = 2;
   bool has_snmp_if_index() const;
   void clear_snmp_if_index();
-  static const int kSnmpIfIndexFieldNumber = 3;
+  static const int kSnmpIfIndexFieldNumber = 2;
   ::google::protobuf::uint32 snmp_if_index() const;
   void set_snmp_if_index(::google::protobuf::uint32 value);
 
-  // optional .OpticsDiagStats optics_diag_stats = 4;
+  // optional .OpticsDiagStats optics_diag_stats = 3;
   bool has_optics_diag_stats() const;
   void clear_optics_diag_stats();
-  static const int kOpticsDiagStatsFieldNumber = 4;
+  static const int kOpticsDiagStatsFieldNumber = 3;
   const ::OpticsDiagStats& optics_diag_stats() const;
   ::OpticsDiagStats* mutable_optics_diag_stats();
   ::OpticsDiagStats* release_optics_diag_stats();
@@ -236,8 +229,6 @@ class OpticsInfos : public ::google::protobuf::Message {
  private:
   inline void set_has_if_name();
   inline void clear_has_if_name();
-  inline void set_has_init_time();
-  inline void clear_has_init_time();
   inline void set_has_snmp_if_index();
   inline void clear_has_snmp_if_index();
   inline void set_has_optics_diag_stats();
@@ -247,7 +238,6 @@ class OpticsInfos : public ::google::protobuf::Message {
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
   ::google::protobuf::internal::ArenaStringPtr if_name_;
-  ::google::protobuf::uint64 init_time_;
   ::OpticsDiagStats* optics_diag_stats_;
   ::google::protobuf::uint32 snmp_if_index_;
   friend void  protobuf_AddDesc_optics_2eproto();
@@ -1358,7 +1348,7 @@ class OpticsDiagStats : public ::google::protobuf::Message {
 };
 // ===================================================================
 
-static const int kJnprOpticsExtFieldNumber = 15;
+static const int kJnprOpticsExtFieldNumber = 10;
 extern ::google::protobuf::internal::ExtensionIdentifier< ::JuniperNetworksSensors,
     ::google::protobuf::internal::MessageTypeTraits< ::Optics >, 11, false >
   jnpr_optics_ext;
@@ -1455,39 +1445,15 @@ inline void OpticsInfos::set_allocated_if_name(::std::string* if_name) {
   // @@protoc_insertion_point(field_set_allocated:OpticsInfos.if_name)
 }
 
-// optional uint64 init_time = 2;
-inline bool OpticsInfos::has_init_time() const {
+// optional uint32 snmp_if_index = 2;
+inline bool OpticsInfos::has_snmp_if_index() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void OpticsInfos::set_has_init_time() {
+inline void OpticsInfos::set_has_snmp_if_index() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void OpticsInfos::clear_has_init_time() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void OpticsInfos::clear_init_time() {
-  init_time_ = GOOGLE_ULONGLONG(0);
-  clear_has_init_time();
-}
-inline ::google::protobuf::uint64 OpticsInfos::init_time() const {
-  // @@protoc_insertion_point(field_get:OpticsInfos.init_time)
-  return init_time_;
-}
-inline void OpticsInfos::set_init_time(::google::protobuf::uint64 value) {
-  set_has_init_time();
-  init_time_ = value;
-  // @@protoc_insertion_point(field_set:OpticsInfos.init_time)
-}
-
-// optional uint32 snmp_if_index = 3;
-inline bool OpticsInfos::has_snmp_if_index() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void OpticsInfos::set_has_snmp_if_index() {
-  _has_bits_[0] |= 0x00000004u;
-}
 inline void OpticsInfos::clear_has_snmp_if_index() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline void OpticsInfos::clear_snmp_if_index() {
   snmp_if_index_ = 0u;
@@ -1503,15 +1469,15 @@ inline void OpticsInfos::set_snmp_if_index(::google::protobuf::uint32 value) {
   // @@protoc_insertion_point(field_set:OpticsInfos.snmp_if_index)
 }
 
-// optional .OpticsDiagStats optics_diag_stats = 4;
+// optional .OpticsDiagStats optics_diag_stats = 3;
 inline bool OpticsInfos::has_optics_diag_stats() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
 inline void OpticsInfos::set_has_optics_diag_stats() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000004u;
 }
 inline void OpticsInfos::clear_has_optics_diag_stats() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline void OpticsInfos::clear_optics_diag_stats() {
   if (optics_diag_stats_ != NULL) optics_diag_stats_->::OpticsDiagStats::Clear();

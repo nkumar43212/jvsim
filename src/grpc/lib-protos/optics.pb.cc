@@ -53,9 +53,8 @@ void protobuf_AssignDesc_optics_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Optics, _internal_metadata_),
       -1);
   OpticsInfos_descriptor_ = file->message_type(1);
-  static const int OpticsInfos_offsets_[4] = {
+  static const int OpticsInfos_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsInfos, if_name_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsInfos, init_time_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsInfos, snmp_if_index_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsInfos, optics_diag_stats_),
   };
@@ -227,138 +226,138 @@ void protobuf_AddDesc_optics_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\014optics.proto\032\023telemetry_top.proto\"+\n\006O"
     "ptics\022!\n\013Optics_diag\030\001 \003(\0132\014.OpticsInfos"
-    "\"|\n\013OpticsInfos\022\026\n\007if_name\030\001 \002(\tB\005\202@\002\010\001\022"
-    "\021\n\tinit_time\030\002 \001(\004\022\025\n\rsnmp_if_index\030\003 \001("
-    "\r\022+\n\021optics_diag_stats\030\004 \001(\0132\020.OpticsDia"
-    "gStats\"\322\'\n\017OpticsDiagStats\022\032\n\013module_tem"
-    "p\030\001 \001(\005B\005\202@\002 \001\022\034\n\rmodule_temp_c\030\002 \001(\001B\005\202"
-    "@\002 \001\022\034\n\rmodule_temp_f\030\003 \001(\001B\005\202@\002 \001\022\036\n\017mo"
-    "dule_temp_set\030\004 \001(\005B\005\202@\002 \001\0220\n!receiver_s"
-    "ignal_ave_optical_power\030\005 \001(\005B\005\202@\002 \001\0223\n$"
-    "receiver_signal_ave_optical_power_mw\030\006 \001"
-    "(\001B\005\202@\002 \001\0224\n%receiver_signal_ave_optical"
-    "_power_dbm\030\007 \001(\001B\005\202@\002 \001\0224\n%receiver_sign"
-    "al_ave_optical_power_set\030\010 \001(\005B\005\202@\002 \001\022!\n"
-    "\022laser_output_power\030\t \001(\005B\005\202@\002 \001\022$\n\025lase"
-    "r_output_power_mw\030\n \001(\001B\005\202@\002 \001\022%\n\026laser_"
-    "output_power_dbm\030\013 \001(\001B\005\202@\002 \001\022%\n\026laser_o"
-    "utput_power_set\030\014 \001(\005B\005\202@\002 \001\022/\n module_t"
-    "emp_high_alarm_threshold\030\r \001(\005B\005\202@\002 \001\0221\n"
-    "\"module_temp_high_alarm_threshold_c\030\016 \001("
-    "\001B\005\202@\002 \001\0221\n\"module_temp_high_alarm_thres"
-    "hold_f\030\017 \001(\001B\005\202@\002 \001\0223\n$module_temp_high_"
-    "alarm_threshold_set\030\020 \001(\005B\005\202@\002 \001\022.\n\037modu"
-    "le_temp_low_alarm_threshold\030\021 \001(\005B\005\202@\002 \001"
-    "\0220\n!module_temp_low_alarm_threshold_c\030\022 "
-    "\001(\001B\005\202@\002 \001\0220\n!module_temp_low_alarm_thre"
-    "shold_f\030\023 \001(\001B\005\202@\002 \001\0222\n#module_temp_low_"
-    "alarm_threshold_set\030\024 \001(\005B\005\202@\002 \001\0221\n\"modu"
-    "le_temp_high_warning_threshold\030\025 \001(\005B\005\202@"
-    "\002 \001\0223\n$module_temp_high_warning_threshol"
-    "d_c\030\026 \001(\001B\005\202@\002 \001\0223\n$module_temp_high_war"
-    "ning_threshold_f\030\027 \001(\001B\005\202@\002 \001\0225\n&module_"
-    "temp_high_warning_threshold_set\030\030 \001(\005B\005\202"
-    "@\002 \001\0220\n!module_temp_low_warning_threshol"
-    "d\030\031 \001(\005B\005\202@\002 \001\0222\n#module_temp_low_warnin"
-    "g_threshold_c\030\032 \001(\001B\005\202@\002 \001\0222\n#module_tem"
-    "p_low_warning_threshold_f\030\033 \001(\001B\005\202@\002 \001\0224"
-    "\n%module_temp_low_warning_threshold_set\030"
-    "\034 \001(\005B\005\202@\002 \001\0226\n\'laser_output_power_high_"
-    "alarm_threshold\030\035 \001(\005B\005\202@\002 \001\0229\n*laser_ou"
-    "tput_power_high_alarm_threshold_mw\030\036 \001(\001"
-    "B\005\202@\002 \001\022:\n+laser_output_power_high_alarm"
-    "_threshold_dbm\030\037 \001(\001B\005\202@\002 \001\022:\n+laser_out"
-    "put_power_high_alarm_threshold_set\030  \001(\005"
-    "B\005\202@\002 \001\0225\n&laser_output_power_low_alarm_"
-    "threshold\030! \001(\005B\005\202@\002 \001\0228\n)laser_output_p"
-    "ower_low_alarm_threshold_mw\030\" \001(\001B\005\202@\002 \001"
+    "\"i\n\013OpticsInfos\022\026\n\007if_name\030\001 \002(\tB\005\202@\002\010\001\022"
+    "\025\n\rsnmp_if_index\030\002 \001(\r\022+\n\021optics_diag_st"
+    "ats\030\003 \001(\0132\020.OpticsDiagStats\"\322\'\n\017OpticsDi"
+    "agStats\022\032\n\013module_temp\030\001 \001(\005B\005\202@\002 \001\022\034\n\rm"
+    "odule_temp_c\030\002 \001(\001B\005\202@\002 \001\022\034\n\rmodule_temp"
+    "_f\030\003 \001(\001B\005\202@\002 \001\022\036\n\017module_temp_set\030\004 \001(\005"
+    "B\005\202@\002 \001\0220\n!receiver_signal_ave_optical_p"
+    "ower\030\005 \001(\005B\005\202@\002 \001\0223\n$receiver_signal_ave"
+    "_optical_power_mw\030\006 \001(\001B\005\202@\002 \001\0224\n%receiv"
+    "er_signal_ave_optical_power_dbm\030\007 \001(\001B\005\202"
+    "@\002 \001\0224\n%receiver_signal_ave_optical_powe"
+    "r_set\030\010 \001(\005B\005\202@\002 \001\022!\n\022laser_output_power"
+    "\030\t \001(\005B\005\202@\002 \001\022$\n\025laser_output_power_mw\030\n"
+    " \001(\001B\005\202@\002 \001\022%\n\026laser_output_power_dbm\030\013 "
+    "\001(\001B\005\202@\002 \001\022%\n\026laser_output_power_set\030\014 \001"
+    "(\005B\005\202@\002 \001\022/\n module_temp_high_alarm_thre"
+    "shold\030\r \001(\005B\005\202@\002 \001\0221\n\"module_temp_high_a"
+    "larm_threshold_c\030\016 \001(\001B\005\202@\002 \001\0221\n\"module_"
+    "temp_high_alarm_threshold_f\030\017 \001(\001B\005\202@\002 \001"
+    "\0223\n$module_temp_high_alarm_threshold_set"
+    "\030\020 \001(\005B\005\202@\002 \001\022.\n\037module_temp_low_alarm_t"
+    "hreshold\030\021 \001(\005B\005\202@\002 \001\0220\n!module_temp_low"
+    "_alarm_threshold_c\030\022 \001(\001B\005\202@\002 \001\0220\n!modul"
+    "e_temp_low_alarm_threshold_f\030\023 \001(\001B\005\202@\002 "
+    "\001\0222\n#module_temp_low_alarm_threshold_set"
+    "\030\024 \001(\005B\005\202@\002 \001\0221\n\"module_temp_high_warnin"
+    "g_threshold\030\025 \001(\005B\005\202@\002 \001\0223\n$module_temp_"
+    "high_warning_threshold_c\030\026 \001(\001B\005\202@\002 \001\0223\n"
+    "$module_temp_high_warning_threshold_f\030\027 "
+    "\001(\001B\005\202@\002 \001\0225\n&module_temp_high_warning_t"
+    "hreshold_set\030\030 \001(\005B\005\202@\002 \001\0220\n!module_temp"
+    "_low_warning_threshold\030\031 \001(\005B\005\202@\002 \001\0222\n#m"
+    "odule_temp_low_warning_threshold_c\030\032 \001(\001"
+    "B\005\202@\002 \001\0222\n#module_temp_low_warning_thres"
+    "hold_f\030\033 \001(\001B\005\202@\002 \001\0224\n%module_temp_low_w"
+    "arning_threshold_set\030\034 \001(\005B\005\202@\002 \001\0226\n\'las"
+    "er_output_power_high_alarm_threshold\030\035 \001"
+    "(\005B\005\202@\002 \001\0229\n*laser_output_power_high_ala"
+    "rm_threshold_mw\030\036 \001(\001B\005\202@\002 \001\022:\n+laser_ou"
+    "tput_power_high_alarm_threshold_dbm\030\037 \001("
+    "\001B\005\202@\002 \001\022:\n+laser_output_power_high_alar"
+    "m_threshold_set\030  \001(\005B\005\202@\002 \001\0225\n&laser_ou"
+    "tput_power_low_alarm_threshold\030! \001(\005B\005\202@"
+    "\002 \001\0228\n)laser_output_power_low_alarm_thre"
+    "shold_mw\030\" \001(\001B\005\202@\002 \001\0229\n*laser_output_po"
+    "wer_low_alarm_threshold_dbm\030# \001(\001B\005\202@\002 \001"
     "\0229\n*laser_output_power_low_alarm_thresho"
-    "ld_dbm\030# \001(\001B\005\202@\002 \001\0229\n*laser_output_powe"
-    "r_low_alarm_threshold_set\030$ \001(\005B\005\202@\002 \001\0228"
-    "\n)laser_output_power_high_warning_thresh"
-    "old\030% \001(\005B\005\202@\002 \001\022;\n,laser_output_power_h"
-    "igh_warning_threshold_mw\030& \001(\001B\005\202@\002 \001\022<\n"
-    "-laser_output_power_high_warning_thresho"
-    "ld_dbm\030\' \001(\001B\005\202@\002 \001\022<\n-laser_output_powe"
-    "r_high_warning_threshold_set\030( \001(\005B\005\202@\002 "
-    "\001\0227\n(laser_output_power_low_warning_thre"
-    "shold\030) \001(\005B\005\202@\002 \001\022:\n+laser_output_power"
-    "_low_warning_threshold_mw\030* \001(\001B\005\202@\002 \001\022;"
-    "\n,laser_output_power_low_warning_thresho"
-    "ld_dbm\030+ \001(\001B\005\202@\002 \001\022;\n,laser_output_powe"
-    "r_low_warning_threshold_set\030, \001(\005B\005\202@\002 \001"
-    "\0222\n#laser_rx_power_high_alarm_threshold\030"
-    "- \001(\005B\005\202@\002 \001\0225\n&laser_rx_power_high_alar"
-    "m_threshold_mw\030. \001(\001B\005\202@\002 \001\0226\n\'laser_rx_"
-    "power_high_alarm_threshold_dbm\030/ \001(\001B\005\202@"
-    "\002 \001\0226\n\'laser_rx_power_high_alarm_thresho"
-    "ld_set\0300 \001(\005B\005\202@\002 \001\0221\n\"laser_rx_power_lo"
-    "w_alarm_threshold\0301 \001(\005B\005\202@\002 \001\0224\n%laser_"
-    "rx_power_low_alarm_threshold_mw\0302 \001(\001B\005\202"
-    "@\002 \001\0225\n&laser_rx_power_low_alarm_thresho"
-    "ld_dbm\0303 \001(\001B\005\202@\002 \001\0225\n&laser_rx_power_lo"
-    "w_alarm_threshold_set\0304 \001(\005B\005\202@\002 \001\0224\n%la"
-    "ser_rx_power_high_warning_threshold\0305 \001("
-    "\005B\005\202@\002 \001\0227\n(laser_rx_power_high_warning_"
-    "threshold_mw\0306 \001(\001B\005\202@\002 \001\0228\n)laser_rx_po"
-    "wer_high_warning_threshold_dbm\0307 \001(\001B\005\202@"
-    "\002 \001\0228\n)laser_rx_power_high_warning_thres"
-    "hold_set\0308 \001(\005B\005\202@\002 \001\0223\n$laser_rx_power_"
-    "low_warning_threshold\0309 \001(\005B\005\202@\002 \001\0226\n\'la"
-    "ser_rx_power_low_warning_threshold_mw\030: "
-    "\001(\001B\005\202@\002 \001\0227\n(laser_rx_power_low_warning"
-    "_threshold_dbm\030; \001(\001B\005\202@\002 \001\0227\n(laser_rx_"
-    "power_low_warning_threshold_set\030< \001(\005B\005\202"
-    "@\002 \001\022\032\n\013lane_number\030= \001(\005B\005\202@\002 \001\022\036\n\017lane"
-    "_laser_temp\030> \001(\005B\005\202@\002 \001\022 \n\021lane_laser_t"
-    "emp_c\030\? \001(\001B\005\202@\002 \001\022 \n\021lane_laser_temp_f\030"
-    "@ \001(\001B\005\202@\002 \001\022\"\n\023lane_laser_temp_set\030A \001("
-    "\005B\005\202@\002 \001\022&\n\027lane_laser_output_power\030B \001("
-    "\005B\005\202@\002 \001\022)\n\032lane_laser_output_power_mw\030C"
-    " \001(\001B\005\202@\002 \001\022*\n\033lane_laser_output_power_d"
-    "bm\030D \001(\001B\005\202@\002 \001\022*\n\033lane_laser_output_pow"
-    "er_set\030E \001(\005B\005\202@\002 \001\022(\n\031lane_laser_receiv"
-    "er_power\030F \001(\005B\005\202@\002 \001\022+\n\034lane_laser_rece"
-    "iver_power_mw\030G \001(\001B\005\202@\002 \001\022,\n\035lane_laser"
-    "_receiver_power_dbm\030H \001(\001B\005\202@\002 \001\022,\n\035lane"
-    "_laser_receiver_power_set\030I \001(\005B\005\202@\002 \001\022-"
-    "\n\036lane_laser_temp_high_alarm_set\030J \001(\005B\005"
-    "\202@\002 \001\022)\n\032lane_laser_temp_high_alarm\030K \001("
-    "\005B\005\202@\002 \001\022,\n\035lane_laser_temp_low_alarm_se"
-    "t\030L \001(\005B\005\202@\002 \001\022(\n\031lane_laser_temp_low_al"
-    "arm\030M \001(\005B\005\202@\002 \001\022/\n lane_laser_temp_high"
-    "_warning_set\030N \001(\005B\005\202@\002 \001\022+\n\034lane_laser_"
-    "temp_high_warning\030O \001(\005B\005\202@\002 \001\0225\n&lane_l"
-    "aser_output_power_high_alarm_set\030P \001(\005B\005"
-    "\202@\002 \001\0221\n\"lane_laser_output_power_high_al"
-    "arm\030Q \001(\005B\005\202@\002 \001\0224\n%lane_laser_output_po"
-    "wer_low_alarm_set\030R \001(\005B\005\202@\002 \001\0220\n!lane_l"
-    "aser_output_power_low_alarm\030S \001(\005B\005\202@\002 \001"
-    "\0227\n(lane_laser_output_power_high_warning"
-    "_set\030T \001(\005B\005\202@\002 \001\0223\n$lane_laser_output_p"
-    "ower_high_warning\030U \001(\005B\005\202@\002 \001\0226\n\'lane_l"
-    "aser_output_power_low_warning_set\030V \001(\005B"
-    "\005\202@\002 \001\0222\n#lane_laser_output_power_low_wa"
-    "rning\030W \001(\005B\005\202@\002 \001\0227\n(lane_laser_receive"
-    "r_power_high_alarm_set\030X \001(\005B\005\202@\002 \001\0223\n$l"
-    "ane_laser_receiver_power_high_alarm\030Y \001("
-    "\005B\005\202@\002 \001\0226\n\'lane_laser_receiver_power_lo"
-    "w_alarm_set\030Z \001(\005B\005\202@\002 \001\0222\n#lane_laser_r"
-    "eceiver_power_low_alarm\030[ \001(\005B\005\202@\002 \001\0229\n*"
-    "lane_laser_receiver_power_high_warning_s"
-    "et\030\\ \001(\005B\005\202@\002 \001\0225\n&lane_laser_receiver_p"
-    "ower_high_warning\030] \001(\005B\005\202@\002 \001\0228\n)lane_l"
-    "aser_receiver_power_low_warning_set\030^ \001("
-    "\005B\005\202@\002 \001\0224\n%lane_laser_receiver_power_lo"
-    "w_warning\030_ \001(\005B\005\202@\002 \001\022\032\n\013optics_type\030` "
-    "\001(\005B\005\202@\002 \001\022$\n\025optics_alarm_validity\030a \001("
-    "\005B\005\202@\002 \001\022 \n\021optics_capability\030b \001(\005B\005\202@\002"
-    " \001\022\036\n\017active_lane_map\030c \001(\005B\005\202@\002 \001\022#\n\024la"
-    "ne_alarms_warnings\030d \001(\005B\005\202@\002 \001\022.\n\037lane_"
-    "laser_temp_low_warning_set\030e \001(\005B\005\202@\002 \001\022"
-    "*\n\033lane_laser_temp_low_warning\030f \001(\005B\005\202@"
-    "\002 \001:9\n\017jnpr_optics_ext\022\027.JuniperNetworks"
-    "Sensors\030\017 \001(\0132\007.Optics", 5342);
+    "ld_set\030$ \001(\005B\005\202@\002 \001\0228\n)laser_output_powe"
+    "r_high_warning_threshold\030% \001(\005B\005\202@\002 \001\022;\n"
+    ",laser_output_power_high_warning_thresho"
+    "ld_mw\030& \001(\001B\005\202@\002 \001\022<\n-laser_output_power"
+    "_high_warning_threshold_dbm\030\' \001(\001B\005\202@\002 \001"
+    "\022<\n-laser_output_power_high_warning_thre"
+    "shold_set\030( \001(\005B\005\202@\002 \001\0227\n(laser_output_p"
+    "ower_low_warning_threshold\030) \001(\005B\005\202@\002 \001\022"
+    ":\n+laser_output_power_low_warning_thresh"
+    "old_mw\030* \001(\001B\005\202@\002 \001\022;\n,laser_output_powe"
+    "r_low_warning_threshold_dbm\030+ \001(\001B\005\202@\002 \001"
+    "\022;\n,laser_output_power_low_warning_thres"
+    "hold_set\030, \001(\005B\005\202@\002 \001\0222\n#laser_rx_power_"
+    "high_alarm_threshold\030- \001(\005B\005\202@\002 \001\0225\n&las"
+    "er_rx_power_high_alarm_threshold_mw\030. \001("
+    "\001B\005\202@\002 \001\0226\n\'laser_rx_power_high_alarm_th"
+    "reshold_dbm\030/ \001(\001B\005\202@\002 \001\0226\n\'laser_rx_pow"
+    "er_high_alarm_threshold_set\0300 \001(\005B\005\202@\002 \001"
+    "\0221\n\"laser_rx_power_low_alarm_threshold\0301"
+    " \001(\005B\005\202@\002 \001\0224\n%laser_rx_power_low_alarm_"
+    "threshold_mw\0302 \001(\001B\005\202@\002 \001\0225\n&laser_rx_po"
+    "wer_low_alarm_threshold_dbm\0303 \001(\001B\005\202@\002 \001"
+    "\0225\n&laser_rx_power_low_alarm_threshold_s"
+    "et\0304 \001(\005B\005\202@\002 \001\0224\n%laser_rx_power_high_w"
+    "arning_threshold\0305 \001(\005B\005\202@\002 \001\0227\n(laser_r"
+    "x_power_high_warning_threshold_mw\0306 \001(\001B"
+    "\005\202@\002 \001\0228\n)laser_rx_power_high_warning_th"
+    "reshold_dbm\0307 \001(\001B\005\202@\002 \001\0228\n)laser_rx_pow"
+    "er_high_warning_threshold_set\0308 \001(\005B\005\202@\002"
+    " \001\0223\n$laser_rx_power_low_warning_thresho"
+    "ld\0309 \001(\005B\005\202@\002 \001\0226\n\'laser_rx_power_low_wa"
+    "rning_threshold_mw\030: \001(\001B\005\202@\002 \001\0227\n(laser"
+    "_rx_power_low_warning_threshold_dbm\030; \001("
+    "\001B\005\202@\002 \001\0227\n(laser_rx_power_low_warning_t"
+    "hreshold_set\030< \001(\005B\005\202@\002 \001\022\032\n\013lane_number"
+    "\030= \001(\005B\005\202@\002 \001\022\036\n\017lane_laser_temp\030> \001(\005B\005"
+    "\202@\002 \001\022 \n\021lane_laser_temp_c\030\? \001(\001B\005\202@\002 \001\022"
+    " \n\021lane_laser_temp_f\030@ \001(\001B\005\202@\002 \001\022\"\n\023lan"
+    "e_laser_temp_set\030A \001(\005B\005\202@\002 \001\022&\n\027lane_la"
+    "ser_output_power\030B \001(\005B\005\202@\002 \001\022)\n\032lane_la"
+    "ser_output_power_mw\030C \001(\001B\005\202@\002 \001\022*\n\033lane"
+    "_laser_output_power_dbm\030D \001(\001B\005\202@\002 \001\022*\n\033"
+    "lane_laser_output_power_set\030E \001(\005B\005\202@\002 \001"
+    "\022(\n\031lane_laser_receiver_power\030F \001(\005B\005\202@\002"
+    " \001\022+\n\034lane_laser_receiver_power_mw\030G \001(\001"
+    "B\005\202@\002 \001\022,\n\035lane_laser_receiver_power_dbm"
+    "\030H \001(\001B\005\202@\002 \001\022,\n\035lane_laser_receiver_pow"
+    "er_set\030I \001(\005B\005\202@\002 \001\022-\n\036lane_laser_temp_h"
+    "igh_alarm_set\030J \001(\005B\005\202@\002 \001\022)\n\032lane_laser"
+    "_temp_high_alarm\030K \001(\005B\005\202@\002 \001\022,\n\035lane_la"
+    "ser_temp_low_alarm_set\030L \001(\005B\005\202@\002 \001\022(\n\031l"
+    "ane_laser_temp_low_alarm\030M \001(\005B\005\202@\002 \001\022/\n"
+    " lane_laser_temp_high_warning_set\030N \001(\005B"
+    "\005\202@\002 \001\022+\n\034lane_laser_temp_high_warning\030O"
+    " \001(\005B\005\202@\002 \001\0225\n&lane_laser_output_power_h"
+    "igh_alarm_set\030P \001(\005B\005\202@\002 \001\0221\n\"lane_laser"
+    "_output_power_high_alarm\030Q \001(\005B\005\202@\002 \001\0224\n"
+    "%lane_laser_output_power_low_alarm_set\030R"
+    " \001(\005B\005\202@\002 \001\0220\n!lane_laser_output_power_l"
+    "ow_alarm\030S \001(\005B\005\202@\002 \001\0227\n(lane_laser_outp"
+    "ut_power_high_warning_set\030T \001(\005B\005\202@\002 \001\0223"
+    "\n$lane_laser_output_power_high_warning\030U"
+    " \001(\005B\005\202@\002 \001\0226\n\'lane_laser_output_power_l"
+    "ow_warning_set\030V \001(\005B\005\202@\002 \001\0222\n#lane_lase"
+    "r_output_power_low_warning\030W \001(\005B\005\202@\002 \001\022"
+    "7\n(lane_laser_receiver_power_high_alarm_"
+    "set\030X \001(\005B\005\202@\002 \001\0223\n$lane_laser_receiver_"
+    "power_high_alarm\030Y \001(\005B\005\202@\002 \001\0226\n\'lane_la"
+    "ser_receiver_power_low_alarm_set\030Z \001(\005B\005"
+    "\202@\002 \001\0222\n#lane_laser_receiver_power_low_a"
+    "larm\030[ \001(\005B\005\202@\002 \001\0229\n*lane_laser_receiver"
+    "_power_high_warning_set\030\\ \001(\005B\005\202@\002 \001\0225\n&"
+    "lane_laser_receiver_power_high_warning\030]"
+    " \001(\005B\005\202@\002 \001\0228\n)lane_laser_receiver_power"
+    "_low_warning_set\030^ \001(\005B\005\202@\002 \001\0224\n%lane_la"
+    "ser_receiver_power_low_warning\030_ \001(\005B\005\202@"
+    "\002 \001\022\032\n\013optics_type\030` \001(\005B\005\202@\002 \001\022$\n\025optic"
+    "s_alarm_validity\030a \001(\005B\005\202@\002 \001\022 \n\021optics_"
+    "capability\030b \001(\005B\005\202@\002 \001\022\036\n\017active_lane_m"
+    "ap\030c \001(\005B\005\202@\002 \001\022#\n\024lane_alarms_warnings\030"
+    "d \001(\005B\005\202@\002 \001\022.\n\037lane_laser_temp_low_warn"
+    "ing_set\030e \001(\005B\005\202@\002 \001\022*\n\033lane_laser_temp_"
+    "low_warning\030f \001(\005B\005\202@\002 \001:9\n\017jnpr_optics_"
+    "ext\022\027.JuniperNetworksSensors\030\n \001(\0132\007.Opt"
+    "ics", 5323);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "optics.proto", &protobuf_RegisterTypes);
   Optics::default_instance_ = new Optics();
@@ -366,7 +365,7 @@ void protobuf_AddDesc_optics_2eproto() {
   OpticsDiagStats::default_instance_ = new OpticsDiagStats();
   ::google::protobuf::internal::ExtensionSet::RegisterMessageExtension(
     &::JuniperNetworksSensors::default_instance(),
-    15, 11, false, false,
+    10, 11, false, false,
     &::Optics::default_instance());
   Optics::default_instance_->InitAsDefaultInstance();
   OpticsInfos::default_instance_->InitAsDefaultInstance();
@@ -662,7 +661,6 @@ Optics::optics_diag() const {
 
 #ifndef _MSC_VER
 const int OpticsInfos::kIfNameFieldNumber;
-const int OpticsInfos::kInitTimeFieldNumber;
 const int OpticsInfos::kSnmpIfIndexFieldNumber;
 const int OpticsInfos::kOpticsDiagStatsFieldNumber;
 #endif  // !_MSC_VER
@@ -689,7 +687,6 @@ void OpticsInfos::SharedCtor() {
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
   if_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  init_time_ = GOOGLE_ULONGLONG(0);
   snmp_if_index_ = 0u;
   optics_diag_stats_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -733,11 +730,10 @@ OpticsInfos* OpticsInfos::New(::google::protobuf::Arena* arena) const {
 }
 
 void OpticsInfos::Clear() {
-  if (_has_bits_[0 / 32] & 15u) {
+  if (_has_bits_[0 / 32] & 7u) {
     if (has_if_name()) {
       if_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
-    init_time_ = GOOGLE_ULONGLONG(0);
     snmp_if_index_ = 0u;
     if (has_optics_diag_stats()) {
       if (optics_diag_stats_ != NULL) optics_diag_stats_->::OpticsDiagStats::Clear();
@@ -771,28 +767,13 @@ bool OpticsInfos::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(16)) goto parse_init_time;
+        if (input->ExpectTag(16)) goto parse_snmp_if_index;
         break;
       }
 
-      // optional uint64 init_time = 2;
+      // optional uint32 snmp_if_index = 2;
       case 2: {
         if (tag == 16) {
-         parse_init_time:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
-                 input, &init_time_)));
-          set_has_init_time();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(24)) goto parse_snmp_if_index;
-        break;
-      }
-
-      // optional uint32 snmp_if_index = 3;
-      case 3: {
-        if (tag == 24) {
          parse_snmp_if_index:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
@@ -801,13 +782,13 @@ bool OpticsInfos::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(34)) goto parse_optics_diag_stats;
+        if (input->ExpectTag(26)) goto parse_optics_diag_stats;
         break;
       }
 
-      // optional .OpticsDiagStats optics_diag_stats = 4;
-      case 4: {
-        if (tag == 34) {
+      // optional .OpticsDiagStats optics_diag_stats = 3;
+      case 3: {
+        if (tag == 26) {
          parse_optics_diag_stats:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_optics_diag_stats()));
@@ -853,20 +834,15 @@ void OpticsInfos::SerializeWithCachedSizes(
       1, this->if_name(), output);
   }
 
-  // optional uint64 init_time = 2;
-  if (has_init_time()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->init_time(), output);
-  }
-
-  // optional uint32 snmp_if_index = 3;
+  // optional uint32 snmp_if_index = 2;
   if (has_snmp_if_index()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->snmp_if_index(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->snmp_if_index(), output);
   }
 
-  // optional .OpticsDiagStats optics_diag_stats = 4;
+  // optional .OpticsDiagStats optics_diag_stats = 3;
   if (has_optics_diag_stats()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      4, *this->optics_diag_stats_, output);
+      3, *this->optics_diag_stats_, output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -890,21 +866,16 @@ void OpticsInfos::SerializeWithCachedSizes(
         1, this->if_name(), target);
   }
 
-  // optional uint64 init_time = 2;
-  if (has_init_time()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->init_time(), target);
-  }
-
-  // optional uint32 snmp_if_index = 3;
+  // optional uint32 snmp_if_index = 2;
   if (has_snmp_if_index()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->snmp_if_index(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->snmp_if_index(), target);
   }
 
-  // optional .OpticsDiagStats optics_diag_stats = 4;
+  // optional .OpticsDiagStats optics_diag_stats = 3;
   if (has_optics_diag_stats()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        4, *this->optics_diag_stats_, target);
+        3, *this->optics_diag_stats_, target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -924,22 +895,15 @@ int OpticsInfos::ByteSize() const {
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->if_name());
   }
-  if (_has_bits_[1 / 32] & 14u) {
-    // optional uint64 init_time = 2;
-    if (has_init_time()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt64Size(
-          this->init_time());
-    }
-
-    // optional uint32 snmp_if_index = 3;
+  if (_has_bits_[1 / 32] & 6u) {
+    // optional uint32 snmp_if_index = 2;
     if (has_snmp_if_index()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
           this->snmp_if_index());
     }
 
-    // optional .OpticsDiagStats optics_diag_stats = 4;
+    // optional .OpticsDiagStats optics_diag_stats = 3;
     if (has_optics_diag_stats()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -977,9 +941,6 @@ void OpticsInfos::MergeFrom(const OpticsInfos& from) {
       set_has_if_name();
       if_name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.if_name_);
     }
-    if (from.has_init_time()) {
-      set_init_time(from.init_time());
-    }
     if (from.has_snmp_if_index()) {
       set_snmp_if_index(from.snmp_if_index());
     }
@@ -1016,7 +977,6 @@ void OpticsInfos::Swap(OpticsInfos* other) {
 }
 void OpticsInfos::InternalSwap(OpticsInfos* other) {
   if_name_.Swap(&other->if_name_);
-  std::swap(init_time_, other->init_time_);
   std::swap(snmp_if_index_, other->snmp_if_index_);
   std::swap(optics_diag_stats_, other->optics_diag_stats_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
@@ -1088,39 +1048,15 @@ void OpticsInfos::clear_if_name() {
   // @@protoc_insertion_point(field_set_allocated:OpticsInfos.if_name)
 }
 
-// optional uint64 init_time = 2;
-bool OpticsInfos::has_init_time() const {
+// optional uint32 snmp_if_index = 2;
+bool OpticsInfos::has_snmp_if_index() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-void OpticsInfos::set_has_init_time() {
+void OpticsInfos::set_has_snmp_if_index() {
   _has_bits_[0] |= 0x00000002u;
 }
-void OpticsInfos::clear_has_init_time() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-void OpticsInfos::clear_init_time() {
-  init_time_ = GOOGLE_ULONGLONG(0);
-  clear_has_init_time();
-}
- ::google::protobuf::uint64 OpticsInfos::init_time() const {
-  // @@protoc_insertion_point(field_get:OpticsInfos.init_time)
-  return init_time_;
-}
- void OpticsInfos::set_init_time(::google::protobuf::uint64 value) {
-  set_has_init_time();
-  init_time_ = value;
-  // @@protoc_insertion_point(field_set:OpticsInfos.init_time)
-}
-
-// optional uint32 snmp_if_index = 3;
-bool OpticsInfos::has_snmp_if_index() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-void OpticsInfos::set_has_snmp_if_index() {
-  _has_bits_[0] |= 0x00000004u;
-}
 void OpticsInfos::clear_has_snmp_if_index() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000002u;
 }
 void OpticsInfos::clear_snmp_if_index() {
   snmp_if_index_ = 0u;
@@ -1136,15 +1072,15 @@ void OpticsInfos::clear_snmp_if_index() {
   // @@protoc_insertion_point(field_set:OpticsInfos.snmp_if_index)
 }
 
-// optional .OpticsDiagStats optics_diag_stats = 4;
+// optional .OpticsDiagStats optics_diag_stats = 3;
 bool OpticsInfos::has_optics_diag_stats() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
 void OpticsInfos::set_has_optics_diag_stats() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000004u;
 }
 void OpticsInfos::clear_has_optics_diag_stats() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 void OpticsInfos::clear_optics_diag_stats() {
   if (optics_diag_stats_ != NULL) optics_diag_stats_->::OpticsDiagStats::Clear();

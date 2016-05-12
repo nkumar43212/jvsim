@@ -472,7 +472,7 @@ class PacketStatsCounter : public ::google::protobuf::Message {
 };
 // ===================================================================
 
-static const int kJnprPacketStatisticsExtFieldNumber = 10;
+static const int kJnprPacketStatisticsExtFieldNumber = 8;
 extern ::google::protobuf::internal::ExtensionIdentifier< ::JuniperNetworksSensors,
     ::google::protobuf::internal::MessageTypeTraits< ::PacketStatistics >, 11, false >
   jnpr_packet_statistics_ext;
