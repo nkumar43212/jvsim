@@ -61,6 +61,12 @@
             ReferencedContainer = "container:grpc.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <CommandLineArguments>
+         <CommandLineArgument
+            argument = "--gtest_filter=AgentConsolidatorProcTest.getSystem"
+            isEnabled = "YES">
+         </CommandLineArgument>
+      </CommandLineArguments>
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "ROOTPATH"
