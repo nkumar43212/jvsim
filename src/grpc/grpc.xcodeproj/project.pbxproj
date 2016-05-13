@@ -163,6 +163,7 @@
 		058426691CE4DD09003D866B /* oc.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = oc.hpp; sourceTree = "<group>"; };
 		0584266A1CE4DD21003D866B /* OpenConfigLspStats.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OpenConfigLspStats.cpp; sourceTree = "<group>"; };
 		0584266B1CE4DD21003D866B /* OpenConfigLspStats.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = OpenConfigLspStats.hpp; sourceTree = "<group>"; };
+		0584266D1CE54781003D866B /* agent_test_oc.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = agent_test_oc.hpp; sourceTree = "<group>"; };
 		058673341CB4620500C8DF1F /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		058673361CB462A100C8DF1F /* agent.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = agent.pb.h; path = lib/h/agent.pb.h; sourceTree = SOURCE_ROOT; };
 		058673371CB462C200C8DF1F /* agent.grpc.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = agent.grpc.pb.h; path = lib/h/agent.grpc.pb.h; sourceTree = SOURCE_ROOT; };
@@ -447,6 +448,7 @@
 				94AC4F271CA315D100AFDFE0 /* agent_test_consolidator_proc.cpp */,
 				94AC4F281CA315D100AFDFE0 /* agent_test_consolidator_proc.hpp */,
 				940C7CDF1CE50446004ED81D /* agent_test_oc.cpp */,
+				0584266D1CE54781003D866B /* agent_test_oc.hpp */,
 			);
 			path = test;
 			sourceTree = "<group>";

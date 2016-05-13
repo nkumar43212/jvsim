@@ -63,7 +63,7 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "-c ${PROJECT_DIR}/../../config/agent_server.ini"
+            argument = "-l ${PROJECT_DIR}/../../logs/agent_server.log -p"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>

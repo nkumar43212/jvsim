@@ -108,26 +108,24 @@ AgentServer::telemetrySubscribe (ServerContext *context,
     sub->enable();
     sub->setActive(true);
 
-    bool client_disconnected = false;
-    // Wait till the subscription gets cancelled or it expires
-    while (!sub->expired() && sub->getActive()) {
-        if (sub->getTransport()->getServerContext()->IsCancelled() == true) {
-            // Client is disconnected
-            client_disconnected = true;
-            sub->setActive(false);
-        }
+    // Wait till the subscription expires or client disconnects or
+    // cancel subscription was invoked
+    while (!sub->expired() && !sub->getClientDisconnects() && sub->getActive()){
         sleep(1);
     }
 
     // Guard the add request
     std::lock_guard<std::mutex> guard(_delete_initiate_mutex);
 
-    // Streaming over. Either client terminated or sub expired
-    if (client_disconnected || sub->expired()) {
-        _logger->log("Channel disconnected or Subscription expired: ID = " +
-                     std::to_string(id));
-        // cleanup subscription gracefully
-        _cleanupSubscription(sub);
+    // Streaming over. Handle either client disconnects or sub expired
+    // Subscription cancel was already handled
+    if (sub->getActive()) {
+        if (sub->expired() || sub->getClientDisconnects()) {
+            _logger->log("Channel disconnected or Subscription expired: ID = " +
+                         std::to_string(id));
+            // cleanup subscription gracefully
+            _cleanupSubscription(sub);
+        }
     }
 
     log_str = std::to_string(sub->getId());

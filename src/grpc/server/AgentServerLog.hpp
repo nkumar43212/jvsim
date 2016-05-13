@@ -64,7 +64,6 @@ public:
     void enable ()
     {
         _level = 1;
-        std::cout << "Enabled logging to :" << _logfile << "\n";
         log("Logging enabled --\n");
     }
 

@@ -61,6 +61,8 @@ public:
     AgentConsolidatorHandle *getSystemSubscription()
                                            { return _system_subscription; }
     AgentServerTransport* getTransport()             { return _transport; }
+    bool        getClientDisconnects()
+                    { return _transport->getServerContext()->IsCancelled(); }
 
     // Construction
     AgentSubscription (std::string name,

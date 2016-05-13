@@ -64,6 +64,10 @@
       <CommandLineArguments>
          <CommandLineArgument
             argument = "--gtest_filter=AgentConsolidatorProcTest.getSystem"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "--gtest_filter=AgentClientOpenConfigTest*"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
