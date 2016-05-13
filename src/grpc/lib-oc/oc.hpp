@@ -19,7 +19,7 @@
     std::string START_DELIM("[name='");                             \
     std::string END_DELIM("']/");                                   \
     prefix_str = std::string(base_str + START_DELIM + name_str +    \
-                             END_DELIM + oc_attr);                  \
+                             END_DELIM + oc_attr + "/");            \
     kv->set_str_value(prefix_str);                                  \
 } while (0)
 

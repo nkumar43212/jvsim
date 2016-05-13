@@ -9,7 +9,7 @@
 #include "OpenConfigLogicalPort.hpp"
 #include "oc.hpp"
 
-std::string BASE_OC_PATH_IFL("/oc-path/sub-interfaces/interface");
+std::string BASE_OC_PATH_IFL("/oc-path/interfaces/interface");
 
 void
 OpenConfigLogicalPort::iterate (JuniperNetworksSensors *handle, Telemetry::OpenConfigData *datap)
@@ -21,9 +21,23 @@ OpenConfigLogicalPort::iterate (JuniperNetworksSensors *handle, Telemetry::OpenC
     size = portp->interface_info_size();
     for (i = 0; i < size; i++) {
         LogicalInterfaceInfo *ifl_infop = portp->mutable_interface_info(i);
+        std::string ifl_name = ifl_infop->if_name();
+
+        size_t pos = ifl_name.find(".", 0);
+        std::string port_name; 
+        std::string unit;
+        if (pos != std::string::npos) {
+            // Found matching "."
+            port_name = ifl_name.substr(0, pos);
+            unit      = ifl_name.substr(pos+1);
+        } else {
+            port_name = ifl_name;
+            unit      = "0";
+        }
 
         // Prefix
-        oc_set_prefix_no_attr(datap, BASE_OC_PATH_IFL, ifl_infop->if_name());
+        std::string sub_unit_str("subinterfaces/subinterface[index='" + unit + "']");
+        oc_set_prefix(datap, BASE_OC_PATH_IFL, port_name, sub_unit_str);
 
         kv = datap->add_kv();
         kv->set_key("init_time");
