@@ -33,17 +33,17 @@ TEST_F(AgentClientOpenConfigTest, oc_paths) {
     
     // Add all the paths we want
     std::string test_paths[] = {
-        "firewall",
-        "npu_mem",
         "cpu_mem",
-        "npu_utilization",
-        "packet_stats",
-        "lsp_stats",
-        "port",
+        "firewall",
         "logical_port",
-        "optics"
+        "lsp_stats",
+        "npu_mem",
+        "npu_utilization",
+        "optics",
+        "packet_stats",
+        "port"
     };
-    int test_paths_count = 9;
+    int test_paths_count = sizeof(test_paths)/sizeof(std::string);
 
     for (int i = 0; i < test_paths_count; i++) {
         path = request.add_path_list();
@@ -51,7 +51,7 @@ TEST_F(AgentClientOpenConfigTest, oc_paths) {
         path->set_sample_frequency(10);
         SubscriptionAdditionalConfig *add_config =
                                         request.mutable_additional_config();
-        add_config->set_limit_records(10);
+        add_config->set_limit_records(test_paths_count+1);
     }
 
     // Create a reader
@@ -105,7 +105,7 @@ TEST_F(AgentClientOpenConfigTest, oc_paths) {
         }
         record_read++;
         
-        if (record_read == 9) {
+        if (record_read == test_paths_count) {
             stop_reading = true;
         }
     }

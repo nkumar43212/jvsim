@@ -1,0 +1,82 @@
+{
+    "system": {
+        "infrastructure": {
+	    "linecard": "1",
+            "pfe_count": "1",
+	    "id": "2.2.2.1"
+	},
+
+	"operational-state": {
+            "xe-0/0/1" : "down",
+            "xe-0/0/2" : "down"
+        },
+
+	"sensors": {
+	    "test": {
+	        "resource": "test",
+	    	"count": "1",
+		"interval": "1"
+	    },
+
+	    "ifds": {
+		"resource": "port",
+		"count": "1",
+		"interval": "1"
+	    },
+
+	    "optics": {
+		"resource": "optics",
+		"count": "1",
+		"interval": "1"
+	    },
+
+            "iptunnels_stats": {
+		"resource": "iptunnels",
+		"count": "1",
+		"interval": "1"
+            },
+
+            "lsp_stats": {
+		"resource": "lsp_stats",
+		"count": "1",
+		"interval": "1"
+            },
+	
+ 	    "firewall": {
+		"resource": "firewall",
+		"count": "1",
+		"interval": "1"
+	    },
+
+	    "ifls": {
+		"resource": "logical_port",
+		"count": "1",
+		"interval": "1"
+	    }, 
+
+	    "packet_stats": {
+                "resource": "packet_stats",
+                "count": "1",
+                "interval": "1"
+            }, 
+
+	    "npu_util": {
+                "resource": "npu_utilization",
+                "count": "1",
+                "interval": "1"
+            },
+
+	    "cpu_mem": {
+                "resource": "cpu_mem",
+                "count": "1",
+                "interval": "1"
+            },
+
+	    "npu_mem": {
+                "resource": "npu_mem",
+                "count": "1",
+                "interval": "1"
+            }
+	}
+    }
+}

@@ -102,16 +102,16 @@ void protobuf_AddDesc_test_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\ntest.proto\032\023telemetry_top.proto\"(\n\004Tes"
     "t\022 \n\ntest_stats\030\001 \003(\0132\014.TestElement\"\'\n\013T"
-    "estElement\022\n\n\002id\030\001 \002(\r\022\014\n\004name\030\002 \002(\t:5\n\r"
-    "jnpr_test_ext\022\027.JuniperNetworksSensors\030\010"
-    " \001(\0132\005.Test", 171);
+    "estElement\022\n\n\002id\030\001 \002(\r\022\014\n\004name\030\002 \002(\t:6\n\r"
+    "jnpr_test_ext\022\027.JuniperNetworksSensors\030\220"
+    "\003 \001(\0132\005.Test", 172);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "test.proto", &protobuf_RegisterTypes);
   Test::default_instance_ = new Test();
   TestElement::default_instance_ = new TestElement();
   ::google::protobuf::internal::ExtensionSet::RegisterMessageExtension(
     &::JuniperNetworksSensors::default_instance(),
-    8, 11, false, false,
+    400, 11, false, false,
     &::Test::default_instance());
   Test::default_instance_->InitAsDefaultInstance();
   TestElement::default_instance_->InitAsDefaultInstance();

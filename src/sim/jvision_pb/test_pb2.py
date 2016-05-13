@@ -18,16 +18,16 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='test.proto',
   package='',
   syntax='proto2',
-  serialized_pb=b'\n\ntest.proto\x1a\x13telemetry_top.proto\"(\n\x04Test\x12 \n\ntest_stats\x18\x01 \x03(\x0b\x32\x0c.TestElement\"\'\n\x0bTestElement\x12\n\n\x02id\x18\x01 \x02(\r\x12\x0c\n\x04name\x18\x02 \x02(\t:5\n\rjnpr_test_ext\x12\x17.JuniperNetworksSensors\x18\x08 \x01(\x0b\x32\x05.Test'
+  serialized_pb=b'\n\ntest.proto\x1a\x13telemetry_top.proto\"(\n\x04Test\x12 \n\ntest_stats\x18\x01 \x03(\x0b\x32\x0c.TestElement\"\'\n\x0bTestElement\x12\n\n\x02id\x18\x01 \x02(\r\x12\x0c\n\x04name\x18\x02 \x02(\t:6\n\rjnpr_test_ext\x12\x17.JuniperNetworksSensors\x18\x90\x03 \x01(\x0b\x32\x05.Test'
   ,
   dependencies=[telemetry__top__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 
-JNPR_TEST_EXT_FIELD_NUMBER = 8
+JNPR_TEST_EXT_FIELD_NUMBER = 400
 jnpr_test_ext = _descriptor.FieldDescriptor(
   name='jnpr_test_ext', full_name='jnpr_test_ext', index=0,
-  number=8, type=11, cpp_type=10, label=1,
+  number=400, type=11, cpp_type=10, label=1,
   has_default_value=False, default_value=None,
   message_type=None, enum_type=None, containing_type=None,
   is_extension=True, extension_scope=None,

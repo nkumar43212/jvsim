@@ -18,16 +18,16 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='packet_stats.proto',
   package='',
   syntax='proto2',
-  serialized_pb=b'\n\x12packet_stats.proto\x1a\x13telemetry_top.proto\"y\n\x10PacketStatistics\x12\'\n\x0cpacket_stats\x18\x01 \x03(\x0b\x32\x11.PacketStatsClass\x12<\n\x10packet_stats_pfe\x18\x02 \x03(\x0b\x32\".PacketStatsPacketForwardingEngine\"d\n!PacketStatsPacketForwardingEngine\x12\x16\n\x0epfe_identifier\x18\x01 \x02(\t\x12\'\n\x0cpacket_stats\x18\x02 \x03(\x0b\x32\x11.PacketStatsClass\"F\n\x10PacketStatsClass\x12\x0c\n\x04name\x18\x01 \x02(\t\x12$\n\x07\x63ounter\x18\x02 \x02(\x0b\x32\x13.PacketStatsCounter\"S\n\x12PacketStatsCounter\x12\x14\n\x0cpacket_count\x18\x01 \x02(\x04\x12\x12\n\nbyte_count\x18\x02 \x01(\x04\x12\x13\n\x0bpacket_rate\x18\x03 \x01(\x04:N\n\x1ajnpr_packet_statistics_ext\x12\x17.JuniperNetworksSensors\x18\n \x01(\x0b\x32\x11.PacketStatistics'
+  serialized_pb=b'\n\x12packet_stats.proto\x1a\x13telemetry_top.proto\"y\n\x10PacketStatistics\x12\'\n\x0cpacket_stats\x18\x01 \x03(\x0b\x32\x11.PacketStatsClass\x12<\n\x10packet_stats_pfe\x18\x02 \x03(\x0b\x32\".PacketStatsPacketForwardingEngine\"d\n!PacketStatsPacketForwardingEngine\x12\x16\n\x0epfe_identifier\x18\x01 \x02(\t\x12\'\n\x0cpacket_stats\x18\x02 \x03(\x0b\x32\x11.PacketStatsClass\"F\n\x10PacketStatsClass\x12\x0c\n\x04name\x18\x01 \x02(\t\x12$\n\x07\x63ounter\x18\x02 \x02(\x0b\x32\x13.PacketStatsCounter\"S\n\x12PacketStatsCounter\x12\x14\n\x0cpacket_count\x18\x01 \x02(\x04\x12\x12\n\nbyte_count\x18\x02 \x01(\x04\x12\x13\n\x0bpacket_rate\x18\x03 \x01(\x04:N\n\x1ajnpr_packet_statistics_ext\x12\x17.JuniperNetworksSensors\x18\x08 \x01(\x0b\x32\x11.PacketStatistics'
   ,
   dependencies=[telemetry__top__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 
-JNPR_PACKET_STATISTICS_EXT_FIELD_NUMBER = 10
+JNPR_PACKET_STATISTICS_EXT_FIELD_NUMBER = 8
 jnpr_packet_statistics_ext = _descriptor.FieldDescriptor(
   name='jnpr_packet_statistics_ext', full_name='jnpr_packet_statistics_ext', index=0,
-  number=10, type=11, cpp_type=10, label=1,
+  number=8, type=11, cpp_type=10, label=1,
   has_default_value=False, default_value=None,
   message_type=None, enum_type=None, containing_type=None,
   is_extension=True, extension_scope=None,

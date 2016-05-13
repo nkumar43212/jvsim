@@ -4,7 +4,7 @@ import "telemetry_top.proto";
 // This occupies branch 6 from JuniperNetworksSensors
 //
 extend JuniperNetworksSensors {
-    optional Test jnpr_test_ext   = 8;
+    optional Test jnpr_test_ext   = 400;
 }
 
 message Test {

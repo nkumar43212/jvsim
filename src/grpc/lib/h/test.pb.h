@@ -239,7 +239,7 @@ class TestElement : public ::google::protobuf::Message {
 };
 // ===================================================================
 
-static const int kJnprTestExtFieldNumber = 8;
+static const int kJnprTestExtFieldNumber = 400;
 extern ::google::protobuf::internal::ExtensionIdentifier< ::JuniperNetworksSensors,
     ::google::protobuf::internal::MessageTypeTraits< ::Test >, 11, false >
   jnpr_test_ext;

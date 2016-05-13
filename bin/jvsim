@@ -12,7 +12,7 @@ run_server=0
 run_client=0
 run_usage=0
 run_test=0
-run_oc_test=0
+run_test_oc=0
 run_mgd=0
 run_data=0
 
@@ -39,7 +39,7 @@ while getopts "ucsktomd" opt; do
       run_test=1
       ;;
     o)
-      run_oc_test=1
+      run_test_oc=1
       ;;
     d)
       run_data=1
@@ -51,7 +51,7 @@ while getopts "ucsktomd" opt; do
   esac
 done
 
-if [ $run_usage != 0 ] 
+if [ $run_usage != 0 ]
 then
     echo "usage: jvsim [-u] [-k] [-s] [-c] [-m] [-d] [-t] [-o]"
     echo " -k  : cleanup and exit"
@@ -112,63 +112,65 @@ sleep 1
 #Start the data streamers
 if [ $run_data != 0 ]
 then
-echo "---- sensors          : $SENSORS"
-SYSTEM_DESCRIPTION="$CONFIG/system.json"
-SIM_SRCDIR="$ROOTPATH/src/sim"
-python3 $SENSORS $SYSTEM_DESCRIPTION $LOGPATH $SIM_SRCDIR 
+    echo "---- sensors          : $SENSORS"
+    if [ $run_test_oc != 0 ]
+    then
+        SYSTEM_DESCRIPTION="$CONFIG/system.test_oc.json"
+    else
+        SYSTEM_DESCRIPTION="$CONFIG/system.json"
+    fi
+    SIM_SRCDIR="$ROOTPATH/src/sim"
+    python3 $SENSORS $SYSTEM_DESCRIPTION $LOGPATH $SIM_SRCDIR
 fi
 
 #Do we start MGD ?
 if [ $run_mgd != 0 ]
 then
-echo "---- Mgd Server        : $MGD"
-$MGD $MGDLOG &
+    echo "---- Mgd Server        : $MGD"
+    $MGD $MGDLOG &
 fi
 
 #Start the gRPC server
 if [ $run_server != 0 ]
 then
-
-
-if [ $run_mgd != 0 ]
-then
-    $SERVERPATH/agent_server -l $SERVERLOG -p &
-    echo "-------- Started Server Proc: $SERVERPATH/agent_server -l $SERVERLOG -p"
-else
-    $SERVERPATH/agent_server -l $SERVERLOG -f $SYSTEM_FILE &
-    echo "-------- Started Server: $SERVERPATH/agent_server -l $SERVERLOG -f $SYSTEM_FILE"
-fi
-
+    if [ $run_mgd != 0 ]
+    then
+        $SERVERPATH/agent_server -l $SERVERLOG -p &
+        echo "-------- Started Server Proc: $SERVERPATH/agent_server -l $SERVERLOG -p"
+    else
+        $SERVERPATH/agent_server -l $SERVERLOG -f $SYSTEM_FILE &
+        echo "-------- Started Server: $SERVERPATH/agent_server -l $SERVERLOG -f $SYSTEM_FILE"
+    fi
 fi
 sleep 2
 
 #Do we execute the unit tests
 if [ $run_test != 0 ]
 then
-$TESTPATH/agent_test
+    $TESTPATH/agent_test
 
-#clean up all the processes
-ps -ef | grep publish.py | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
-ps -ef | grep mosquitto | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
-ps -ef | grep agent_server | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
-ps -ef | grep mgd_server | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
+    #clean up all the processes
+    ps -ef | grep publish.py | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
+    ps -ef | grep mosquitto | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
+    ps -ef | grep agent_server | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
+    ps -ef | grep mgd_server | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
 fi
 
 #Do we execute openconfig specific tests
-if [ $run_oc_test != 0 ]
+if [ $run_test_oc != 0 ]
 then
-$TESTPATH/agent_test --gtest_filter=AgentClientOpenConfigTest*
+    $TESTPATH/agent_test --gtest_filter=AgentClientOpenConfigTest*
 
-#clean up all the processes
-ps -ef | grep publish.py | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
-ps -ef | grep mosquitto | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
-ps -ef | grep agent_server | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
-ps -ef | grep mgd_server | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
+    #clean up all the processes
+    ps -ef | grep publish.py | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
+    ps -ef | grep mosquitto | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
+    ps -ef | grep agent_server | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
+    ps -ef | grep mgd_server | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
 fi
 
 #Start the interactive client
 if [ $run_client != 0 ]
 then
-echo "-------- Started Client: $CLIENTPATH/agent_client $CLIENTLOG"
-$CLIENTPATH/agent_client $CLIENTLOG 
+    echo "-------- Started Client: $CLIENTPATH/agent_client $CLIENTLOG"
+    $CLIENTPATH/agent_client $CLIENTLOG
 fi
