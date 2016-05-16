@@ -42,6 +42,18 @@ GlobalConfig::is_valid_system_mode (std::string system_mode)
     return false;
 }
 
+bool
+GlobalConfig::is_valid_running_mode (std::string running_mode)
+{
+    if (running_mode == RUNNING_MODE_ON_BOX) {
+        return true;
+    }
+    if (running_mode == RUNNING_MODE_OFF_BOX) {
+        return true;
+    }
+    return false;
+}
+
 std::ostream&
 operator<<(std::ostream& os, GlobalConfig& gc)
 {
@@ -73,7 +85,7 @@ operator<<(std::ostream& os, GlobalConfig& gc)
                                 << gc.udp_server_ip << std::endl;
     os << "UDP server port              : "
                                 << gc.udp_server_port << std::endl;
-    
+
     os << "Subscribe topic name         : "
                                 << gc.subscribe_topic_name << std::endl;
     os << "System Mode                  : "
@@ -84,6 +96,8 @@ operator<<(std::ostream& os, GlobalConfig& gc)
         os << "System file name             : "
                                 << gc.system_file_name << std::endl;
     }
+    os << "Running Mode                 : "
+                                << gc.running_mode << std::endl;
 
     os << std::endl;
     return os;
@@ -167,6 +181,13 @@ GlobalConfig::parse(std::string filename, GlobalConfig &global_config)
                                                "system_file_name",
                                                global_config.system_file_name);
     }
-    
+
+    std::string running_mode = reader.Get(INI_SECTION_OTHER_KNOBS,
+                                          "running_mode",
+                                          global_config.running_mode);
+    if (GlobalConfig::is_valid_running_mode(running_mode)) {
+        global_config.running_mode = running_mode;
+    }
+
     std::cout << global_config;
 }

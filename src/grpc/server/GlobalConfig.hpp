@@ -47,6 +47,9 @@
 #define SYSTEM_FILE_PATH                "/var/log"
 #define SYSTEM_FILE_NAME                "sim_system.log"
 
+#define RUNNING_MODE_ON_BOX             "on-box"
+#define RUNNING_MODE_OFF_BOX            "off-box"
+
 // Global Config object
 class GlobalConfig {
 public:
@@ -71,6 +74,8 @@ public:
     std::string     system_file_path;
     std::string     system_file_name;
     
+    std::string     running_mode;
+
     GlobalConfig() {
         grpc_server_ip          = GRPC_SERVER_IP;
         grpc_server_port        = GRPC_SERVER_PORT;
@@ -91,10 +96,13 @@ public:
         system_mode             = SYSTEM_MODE_PROC;
         system_file_path        = SYSTEM_FILE_PATH;
         system_file_name        = SYSTEM_FILE_NAME;
+
+        running_mode            = RUNNING_MODE_ON_BOX;
     }
 
     static bool is_valid_subscription_topic_name(std::string sub_topic);
     static bool is_valid_system_mode(std::string system_mode);
+    static bool is_valid_running_mode(std::string running_mode);
     friend std::ostream& operator<<(std::ostream& os, GlobalConfig& gc);
     static void parse(std::string filename, GlobalConfig &global_config);
 };
