@@ -183,6 +183,7 @@
 		05C1BEDA1CC824C000A6A342 /* OpenConfigLogicalPort.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = OpenConfigLogicalPort.hpp; sourceTree = "<group>"; };
 		05C1BEDC1CC94D0800A6A342 /* AgentUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AgentUtils.cpp; sourceTree = "<group>"; };
 		05C1BEDE1CC94D1700A6A342 /* AgentUtils.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AgentUtils.hpp; sourceTree = "<group>"; };
+		05EF80711CEA8C190032A538 /* authentication_service.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = authentication_service.proto; path = ../../../protos/authentication_service.proto; sourceTree = "<group>"; };
 		940C7CDF1CE50446004ED81D /* agent_test_oc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = agent_test_oc.cpp; sourceTree = "<group>"; };
 		9467029A1C64348C00E73BF5 /* grpc */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = grpc; sourceTree = BUILT_PRODUCTS_DIR; };
 		946702A81C6471ED00E73BF5 /* client */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = client; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -501,6 +502,7 @@
 			isa = PBXGroup;
 			children = (
 				058673341CB4620500C8DF1F /* Makefile */,
+				05EF80711CEA8C190032A538 /* authentication_service.proto */,
 				0537F4E71CCEB1ED00BD519B /* mgd_service.proto */,
 				052D26A11CD9D55800C1B7F9 /* openconfig_mgd.proto */,
 				94AC4F1C1CA1EFD500AFDFE0 /* main.cpp */,

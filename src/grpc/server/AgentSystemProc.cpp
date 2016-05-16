@@ -82,16 +82,68 @@ AgentSystemProc::_sendOCMessagetoMgd (std::string &config,
 #else
 
 grpc::Status
+AgentSystemProc::_authenticateChannel (std::shared_ptr<grpc::Channel> &channel)
+{
+    _logger->log("Requesting login authentication from device");
+
+    auth_stub_ = Login::NewStub(channel);
+
+    LoginRequest login_request;
+    LoginReply login_reply;
+    grpc::ClientContext login_context;
+
+    // Fill in login details
+    login_request.set_user_name(global_config.device_user_name);
+    login_request.set_password(global_config.device_password);
+    login_request.set_client_id("Telemetry-service-client");
+
+    // Set authentication timeout
+    std::chrono::system_clock::time_point deadline =
+    std::chrono::system_clock::now() +
+    std::chrono::seconds(CLIENT_CONN_TIMEOUT);
+    login_context.set_deadline(deadline);
+
+    // Issue LoginCheck API
+    grpc::Status status = auth_stub_->LoginCheck(&login_context,
+                                                 login_request,
+                                                 &login_reply);
+    if (status.ok() && login_reply.result()) {
+        _logger->log("Login Authentication Successful");
+    } else {
+        ++_authentication_failure;
+        _logger->log("Login Authentication Failed");
+        return status.CANCELLED;
+    }
+    return status;
+}
+
+grpc::Status
 AgentSystemProc::_sendJunosMessagetoMgd (std::string &config,
                                          SystemId id,
                                          management::ConfigCommands cmdcode)
 {
-    // Create a client
-    std::string mgd_address(global_config.device_mgd_ip + ":" +
-                            std::to_string(global_config.device_mgd_port));
+    // Set mgd address
+    std::string mgd_address;
+    if (global_config.running_mode == RUNNING_MODE_OFF_BOX) {
+        mgd_address = global_config.device_mgd_ip + ":" +
+                      std::to_string(global_config.device_mgd_port);
+    } else {
+        mgd_address = "unix:" + global_config.device_mgd_unix_socket;
+    }
     std::shared_ptr<grpc::Channel> channel = grpc::CreateChannel(
                                                    mgd_address,
                                                    grpc::InsecureCredentials());
+
+    // Off-box mode requires login authentication
+    if (global_config.running_mode == RUNNING_MODE_OFF_BOX) {
+        // Authenticate the channel
+        grpc::Status status = _authenticateChannel(channel);
+        if (status.ok() == false) {
+            return status;
+        }
+    }
+
+    // Now issue the config command
     stub_ = ManagementRpcApi::NewStub(channel);
 
     // Form the mgd request
@@ -260,9 +312,14 @@ AgentSystemProc::systemRemove (SystemId id, const Telemetry::Path *request_path)
 Telemetry::Path *
 AgentSystemProc::systemGet (SystemId id)
 {
-    // Create a client
-    std::string mgd_address(global_config.device_mgd_ip + ":" +
-                            std::to_string(global_config.device_mgd_port));
+    // Set mgd address
+    std::string mgd_address;
+    if (global_config.running_mode == RUNNING_MODE_OFF_BOX) {
+        mgd_address = global_config.device_mgd_ip + ":" +
+        std::to_string(global_config.device_mgd_port);
+    } else {
+        mgd_address = "unix:" + global_config.device_mgd_unix_socket;
+    }
     std::shared_ptr<grpc::Channel> channel = grpc::CreateChannel(
                                                 mgd_address,
                                                 grpc::InsecureCredentials());
@@ -313,6 +370,15 @@ AgentSystemProc::systemGet (SystemId id)
     path->set_sample_frequency(std::stoi(sample_frequency_str));
     return path;
 #else
+    // Off-box mode requires login authentication
+    if (global_config.running_mode == RUNNING_MODE_OFF_BOX) {
+        // Authenticate the channel
+        grpc::Status status = _authenticateChannel(channel);
+        if (status.ok() == false) {
+            return NULL;
+        }
+    }
+
     // Junos Config
     // Form the request
     GetEphemeralConfigRequest   get_eph_request;

@@ -106,7 +106,7 @@ public:
         system_file_path        = SYSTEM_FILE_PATH;
         system_file_name        = SYSTEM_FILE_NAME;
 
-        running_mode            = RUNNING_MODE_ON_BOX;
+        running_mode            = RUNNING_MODE_OFF_BOX;
     }
 
     static bool is_valid_subscription_topic_name(std::string sub_topic);

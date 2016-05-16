@@ -19,6 +19,8 @@
     #include "mgd_service.pb.h"
     #include "mgd_service.grpc.pb.h"
 #endif
+#include "authentication_service.pb.h"
+#include "authentication_service.grpc.pb.h"
 
 using grpc::Server;
 using grpc::ServerBuilder;
@@ -63,6 +65,10 @@ using management::GetEphemeralConfigResponse_ResponseList;
 
 #endif
 
+using authentication::Login;
+using authentication::LoginRequest;
+using authentication::LoginReply;
+
 #if defined(__OC_Telemetry_Config__)
 class MgdServer final : public OpenconfigRpcApi::Service {
 #else
@@ -94,6 +100,19 @@ class MgdServer final : public ManagementRpcApi::Service {
 
 public:
     MgdServer (AgentServerLog *logger) : _logger(logger) {}
+};
+
+class LoginServer final : public Login::Service {
+    // Logging service
+    AgentServerLog *_logger;
+
+    // Login Service
+    Status LoginCheck(ServerContext* context,
+                      const LoginRequest* request,
+                      LoginReply* response) override;
+
+    public:
+    LoginServer (AgentServerLog *logger) : _logger(logger) {}
 };
 
 #endif /* MgdServer_hpp */

@@ -187,3 +187,22 @@ MgdServer::GetEphemeralConfig(ServerContext* context,
 }
 
 #endif
+
+
+Status
+LoginServer::LoginCheck (ServerContext* context,
+                         const LoginRequest* request, LoginReply* response)
+{
+    // Log the event
+    std::string formatted;
+    google::protobuf::TextFormat::PrintToString(*request, &formatted);
+    _logger->log(formatted);
+
+    if (request->user_name() == "regress" && request->password() == "MaRtInI") {
+        response->set_result(true);
+        return Status::OK;
+    } else {
+        response->set_result(false);
+        return Status::CANCELLED;
+    }
+}

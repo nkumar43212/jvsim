@@ -20,6 +20,9 @@
     #include "mgd_service.grpc.pb.h"
 #endif
 
+#include "authentication_service.pb.h"
+#include "authentication_service.grpc.pb.h"
+
 using grpc::Channel;
 using grpc::ClientContext;
 using grpc::ClientReader;
@@ -62,9 +65,20 @@ using management::GetEphemeralConfigResponse_ResponseList;
 
 #endif
 
+using authentication::Login;
+
+using authentication::LoginRequest;
+using authentication::LoginReply;
+
 class AgentSystemProc : public AgentSystem {
+private:
+    uint64_t _authentication_failure;
+
 public:
-    AgentSystemProc (AgentServerLog *logger) : AgentSystem(logger) {}
+    AgentSystemProc (AgentServerLog *logger) : AgentSystem(logger)
+    {
+        _authentication_failure = 0;
+    }
 
     // The stub for the RPC
 #if defined(__OC_Telemetry_Config__)
@@ -74,6 +88,8 @@ public:
                                      openconfig::SetConfigCommands cmdcode);
 #else
     std::unique_ptr<ManagementRpcApi::Stub> stub_;
+    std::unique_ptr<Login::Stub> auth_stub_;
+    grpc::Status _authenticateChannel(std::shared_ptr<grpc::Channel> &channel);
     grpc::Status _sendJunosMessagetoMgd(std::string &config,
                                         SystemId id,
                                         management::ConfigCommands cmdcode);

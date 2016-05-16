@@ -15,7 +15,8 @@ void
 RunServer (AgentServerLog *logger)
 {
     std::string server_address("0.0.0.0:50050");
-    MgdServer service(logger);
+    MgdServer service_mgd(logger);
+    LoginServer service_login(logger);
     ServerBuilder builder;
 
     // Listen on the given address without any authentication mechanism.
@@ -23,7 +24,8 @@ RunServer (AgentServerLog *logger)
 
     // Register "service" as the instance through which we'll communicate with
     // clients. In this case it corresponds to an *synchronous* service.
-    builder.RegisterService(&service);
+    builder.RegisterService(&service_mgd);
+    builder.RegisterService(&service_login);
 
     // Finally assemble the server.
     std::unique_ptr<Server> server(builder.BuildAndStart());
