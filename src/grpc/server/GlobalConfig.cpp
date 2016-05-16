@@ -69,10 +69,16 @@ operator<<(std::ostream& os, GlobalConfig& gc)
     os << "Telemetry GRPC log file name : "
                                 << gc.grpc_log_file_name << std::endl;
 
+    os << "Device MGD Unix socket       : "
+                                << gc.device_mgd_unix_socket << std::endl;
     os << "Device MGD ip                : "
                                 << gc.device_mgd_ip << std::endl;
     os << "Device MGD port              : "
                                 << gc.device_mgd_port << std::endl;
+    os << "Device Username              : "
+                                << gc.device_user_name << std::endl;
+    os << "Device Password              : "
+                                << gc.device_password << std::endl;
 
     os << "MQTT broker ip               : "
                                 << gc.mqtt_broker_ip << std::endl;
@@ -129,6 +135,9 @@ GlobalConfig::parse(std::string filename, GlobalConfig &global_config)
                                               global_config.grpc_log_file_name);
 
     // INI_SECTION_JUNOS_DEVICE
+    global_config.device_mgd_unix_socket = reader.Get(INI_SECTION_JUNOS_DEVICE,
+                                          "device_mgd_unix_socket",
+                                          global_config.device_mgd_unix_socket);
     global_config.device_mgd_ip = reader.Get(INI_SECTION_JUNOS_DEVICE,
                                              "device_mgd_ip",
                                              global_config.device_mgd_ip);
@@ -136,6 +145,12 @@ GlobalConfig::parse(std::string filename, GlobalConfig &global_config)
                                              INI_SECTION_JUNOS_DEVICE,
                                              "device_mgd_port",
                                              global_config.device_mgd_port);
+    global_config.device_user_name = reader.Get(INI_SECTION_JUNOS_DEVICE,
+                                             "device_user_name",
+                                             global_config.device_user_name);
+    global_config.device_password = reader.Get(INI_SECTION_JUNOS_DEVICE,
+                                             "device_password",
+                                             global_config.device_password);
 
     // INI_SECTION_MQTT
     global_config.mqtt_broker_ip = reader.Get(INI_SECTION_MQTT,

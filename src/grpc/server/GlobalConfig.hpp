@@ -21,8 +21,11 @@
 
 // Junos device related
 #define INI_SECTION_JUNOS_DEVICE        "junos-device"
+#define DEVICE_MGD_UNIX_SOCKET          "/var/run/japi_mgd"
 #define DEVICE_MGD_IP                   "localhost"
 #define DEVICE_MGD_PORT                 50050
+#define DEVICE_USER_NAME                "regress"
+#define DEVICE_PASSWORD                 "MaRtInI"
 
 // MQTT related
 #define INI_SECTION_MQTT                "mqtt"
@@ -58,8 +61,11 @@ public:
     std::string     grpc_log_file_path;
     std::string     grpc_log_file_name;
 
+    std::string     device_mgd_unix_socket;
     std::string     device_mgd_ip;
     int             device_mgd_port;
+    std::string     device_user_name;
+    std::string     device_password;
 
     std::string     mqtt_broker_ip;
     int             mqtt_broker_port;
@@ -82,8 +88,11 @@ public:
         grpc_log_file_path      = GRPC_LOG_FILE_PATH;
         grpc_log_file_name      = GRPC_LOG_FILE_NAME;
 
+        device_mgd_unix_socket  = DEVICE_MGD_UNIX_SOCKET;
         device_mgd_ip           = DEVICE_MGD_IP;
         device_mgd_port         = DEVICE_MGD_PORT;
+        device_user_name        = DEVICE_USER_NAME;
+        device_password         = DEVICE_PASSWORD;
 
         mqtt_broker_ip          = MQTT_BROKER_IP;
         mqtt_broker_port        = MQTT_BROKER_PORT;
