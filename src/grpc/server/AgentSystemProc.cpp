@@ -99,8 +99,8 @@ AgentSystemProc::_authenticateChannel (std::shared_ptr<grpc::Channel> &channel)
 
     // Set authentication timeout
     std::chrono::system_clock::time_point deadline =
-    std::chrono::system_clock::now() +
-    std::chrono::seconds(CLIENT_CONN_TIMEOUT);
+                                    std::chrono::system_clock::now() +
+                                    std::chrono::seconds(CLIENT_CONN_TIMEOUT);
     login_context.set_deadline(deadline);
 
     // Issue LoginCheck API
@@ -112,8 +112,11 @@ AgentSystemProc::_authenticateChannel (std::shared_ptr<grpc::Channel> &channel)
     } else {
         ++_authentication_failure;
         _logger->log("Login Authentication Failed");
+        auth_stub_ = NULL;
         return status.CANCELLED;
     }
+    // Clear the auth_stub_
+    auth_stub_ = NULL;
     return status;
 }
 
@@ -183,6 +186,7 @@ AgentSystemProc::_sendJunosMessagetoMgd (std::string &config,
                      std::to_string(status.error_code()) + ". " +
                      "Error message: " + status.error_message());
 
+        stub_ = NULL;
         return status;
     }
 
@@ -197,6 +201,7 @@ AgentSystemProc::_sendJunosMessagetoMgd (std::string &config,
         // Indicate failed status
         status = grpc::Status(grpc::StatusCode::UNKNOWN, "");
 
+        stub_ = NULL;
         return status;
     }
 
@@ -217,9 +222,12 @@ AgentSystemProc::_sendJunosMessagetoMgd (std::string &config,
             // Indicate failed status
             status = grpc::Status(grpc::StatusCode::UNKNOWN, "");
 
+        stub_ = NULL;
         return status;
     }
 
+    // Clear the stub_
+    stub_ = NULL;
     return status;
 }
 
