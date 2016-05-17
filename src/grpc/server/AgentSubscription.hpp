@@ -30,7 +30,7 @@ extern std::map<id_idx_t, AgentSubscription *> store;
 
 class AgentSubscription : public MessageBus {
     // Subscription Identifier
-    uint32_t       _id;
+    id_idx_t       _id;
 
     // Name to identify the subscription
     std::string    _name;

@@ -12,7 +12,7 @@
 #include "lib_oc.h"
 
 // Store of all active subscriptions
-std::map<uint32_t, AgentSubscription *> store;
+std::map<id_idx_t, AgentSubscription *> store;
 
 void
 AgentSubscription::on_message(const struct mosquitto_message* mosqmessage)
