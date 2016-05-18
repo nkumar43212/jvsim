@@ -2,7 +2,11 @@
 //  AgentMessageBus.hpp
 //  Telemetry Agent
 //
-//  Created by NITIN KUMAR on 1/19/16.
+//  Created: 1/19/16.
+//
+//  Authors: NITIN KUMAR
+//           ABBAS SAKARWALA
+//
 //  Copyright © 2016 Juniper Networks. All rights reserved.
 //
 
@@ -18,66 +22,71 @@
 #include "Counter.hpp"
 #include "GlobalConfig.hpp"
 
+typedef std::map<const std::string, Counter>        topicCounterMap;
+
 class Mqtt: public mosqpp::mosquittopp {
 
 public:
     AgentSubscriptionLimits _limits;
     bool _limits_reached;
- 
+
     uint64_t stats_connect;
     uint64_t stats_disconnect;
     uint64_t stats_subscribes;
     uint64_t stats_unscubscribes;
     Counter  messages;
-    std::map<const std::string, Counter> stats_topics;
+    topicCounterMap stats_topics;
 
-    Mqtt(const std::string name, AgentSubscriptionLimits limits) : mosquittopp::mosquittopp (name.c_str()), messages("MessageCount", true)
+    Mqtt(const std::string name, AgentSubscriptionLimits limits) :
+        mosquittopp::mosquittopp (name.c_str()),
+        messages("MessageCount-" + name, true)
     {
         _limits = limits;
         _limits_reached = false;
         stats_connect = stats_disconnect = 0;
         stats_subscribes = stats_unscubscribes = 0;
     }
-    
+
     ~Mqtt ()
     {
         messages.disableRate();
     }
-    
+
     virtual void on_connect (int rc)
     {
         stats_connect++;
     }
-    
+
     virtual void on_disconnect (int rc)
     {
         stats_disconnect++;
     }
-    
+
     virtual void on_subscribe (int mid, int qos_count, const int *granted_qos)
     {
         stats_subscribes++;
     }
-    
+
     virtual void on_unsubscribe(int mid)
     {
         stats_unscubscribes++;
     }
-    
+
     virtual void on_message (const struct mosquitto_message* mosqmessage)
     {
         messages.increment(1, mosqmessage->payloadlen);
         if (stats_topics.count(mosqmessage->topic) == 0) {
             stats_topics[mosqmessage->topic] = Counter(mosqmessage->topic);
         }
-        
+
         stats_topics[mosqmessage->topic].increment(1, mosqmessage->payloadlen);
         if (_limits.expired(messages.getPackets())) {
             _limits_reached = true;
         }
     }
-    
-    void getOperational (GetOperationalStateReply* operational_reply, Telemetry::VerbosityLevel verbosity)
+
+    void getOperational (GetOperationalStateReply* operational_reply,
+                         Telemetry::VerbosityLevel verbosity)
     {
         Telemetry::KeyValue *kv;
 
@@ -111,7 +120,7 @@ public:
         kv->set_int_value(stats_disconnect);
 
         // All topic subscriptions
-        for (std::map<const std::string, Counter>::iterator itr = stats_topics.begin();
+        for (topicCounterMap::iterator itr = stats_topics.begin();
              itr != stats_topics.end(); itr++) {
             kv = operational_reply->add_kv();
             kv->set_key("packets:xpath:" + itr->first);
