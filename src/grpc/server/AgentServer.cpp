@@ -2,14 +2,20 @@
 //  AgentServer.cpp
 //  Telemetry Agent
 //
-//  Created by NITIN KUMAR on 12/29/15.
-//  Copyright © 2015 Juniper Networks. All rights reserved.
+//  Created: 12/29/15.
+//
+//  Authors: NITIN KUMAR
+//           ABBAS SAKARWALA
+//
+//  Copyright © 2016 Juniper Networks. All rights reserved.
 //
 
 // Header files
 #include "AgentServer.h"
 #include "AgentServerTransport.hpp"
 #include "AgentUtils.hpp"
+#include "AgentSubscriptionUdpWorker.hpp"
+#include "UdpReceiver.hpp"
 
 Status
 AgentServer::telemetrySubscribe (ServerContext *context,
@@ -91,6 +97,24 @@ AgentServer::telemetrySubscribe (ServerContext *context,
         return _sendMetaDataInfo(context, writer, reply);
     }
 
+    // Now do things for Udp receiver
+    AgentSubscriptionUdpWorker *sub_udp_worker = NULL;
+    if (global_config.udp_server_module) {
+        sub_udp_worker =
+                    AgentSubscriptionUdpWorker::createSubscriptionUdpWorker(id,
+                                                    system_handle,
+                                                    transport,
+                                                    path_list);
+        // Add worker in udpreceiver
+        udpreceiver->add_worker(sub->getId(), sub_udp_worker);
+
+        // Add external to internal list mappings
+        for (int i = 0; i < system_handle->getHandleCount(); i++) {
+            udpreceiver->add_mapping(sub_udp_worker->getId(),
+                    system_handle->getHandle(i)->getInternalSubscriptionId());
+        }
+    }
+
     // Send back the response on the metadata channel
     response->set_subscription_id(sub->getId());
 
@@ -123,6 +147,11 @@ AgentServer::telemetrySubscribe (ServerContext *context,
         if (sub->expired() || sub->getClientDisconnects()) {
             _logger->log("Channel disconnected or Subscription expired: ID = " +
                          std::to_string(id));
+            // cleanup udp worker subscription gracefully
+            if (global_config.udp_server_module) {
+                _cleanupSubscriptionUdpWorker(sub_udp_worker);
+            }
+
             // cleanup subscription gracefully
             _cleanupSubscription(sub);
         }
@@ -133,6 +162,11 @@ AgentServer::telemetrySubscribe (ServerContext *context,
 
     // Delete transport object
     delete transport;
+
+    // Delete udp worker subscriber object
+    if (global_config.udp_server_module) {
+        delete sub_udp_worker;
+    }
 
     // Delete subscriber object
     delete sub;
@@ -152,6 +186,24 @@ AgentServer::cancelTelemetrySubscription (ServerContext* context,
 
     // Guard the add request
     std::lock_guard<std::mutex> guard(_delete_initiate_mutex);
+
+    // Lookup the udp worker subscription
+    if (global_config.udp_server_module) {
+        AgentSubscriptionUdpWorker *sub_udp_worker =
+                    AgentSubscriptionUdpWorker::findSubscription(
+                                            cancel_request->subscription_id());
+        if (!sub_udp_worker) {
+            std::string err_str = "UDP Subscription Not Found. ID = " +
+            std::to_string(cancel_request->subscription_id());
+            cancel_reply->set_code(Telemetry::ReturnCode::NO_SUBSCRIPTION_ENTRY);
+            cancel_reply->set_code_str(err_str);
+            _logger->log(err_str);
+            return Status::OK;
+        }
+
+        // cleanup udp worker subscription gracefully
+        _cleanupSubscriptionUdpWorker(sub_udp_worker);
+    }
 
     // Lookup the subscription
     AgentSubscription *sub = AgentSubscription::findSubscription(
@@ -363,4 +415,33 @@ AgentServer::_cleanupSubscription (AgentSubscription *sub)
 
     // Turn it off
     sub->setActive(false);
+}
+
+void
+AgentServer::_cleanupSubscriptionUdpWorker (
+                                AgentSubscriptionUdpWorker *sub_udp_worker)
+{
+    if (sub_udp_worker == NULL) {
+        // Bail out
+        return;
+    }
+
+    // Cancel the subscription on the udp receiver
+    for (int i = 0;
+         i < sub_udp_worker->getSystemSubscription()->getHandleCount(); i++) {
+        udpreceiver->del_mapping(sub_udp_worker->getId(),
+                                 sub_udp_worker->getSystemSubscription()->
+                                    getHandle(i)->getInternalSubscriptionId());
+    }
+
+    // Remove worker thread from udp receiver
+    udpreceiver->del_worker(sub_udp_worker->getId(), sub_udp_worker);
+    sub_udp_worker->setTerminate();
+    std::thread *sub_udp_worker_thr = sub_udp_worker->getThread();
+
+    if (sub_udp_worker_thr->joinable())
+        sub_udp_worker_thr->join();
+
+    // Remove the udp worker subscription
+    AgentSubscriptionUdpWorker::deleteSubscription(sub_udp_worker->getId());
 }

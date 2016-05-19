@@ -2,12 +2,17 @@
 //  main.cpp
 //  Telemetry Agent
 //
-//  Created by NITIN KUMAR on 12/29/15.
-//  Copyright © 2015 Juniper Networks. All rights reserved.
+//  Created: 12/29/15.
+//
+//  Authors: NITIN KUMAR
+//           ABBAS SAKARWALA
+//
+//  Copyright © 2016 Juniper Networks. All rights reserved.
 //
 
 // Header files
 #include <iostream>
+#include <thread>
 #include "AgentServer.h"
 #include "AgentServerCmdOptions.hpp"
 #include "AgentSystemFactory.hpp"
@@ -15,6 +20,7 @@
 #include "AgentSubscription.hpp"
 #include "lib_oc.h"
 #include "GlobalConfig.hpp"
+#include "UdpReceiver.hpp"
 
 // Class/Function Implementation
 void
@@ -129,6 +135,15 @@ main (int argc, char * argv[])
 
     // Create a handle for the system
     AgentSystem *sys_handle = CreateSystemHandle(&opts, logger);
+
+    // Start a UDP thread if requested
+    if (global_config.udp_server_module) {
+        udpreceiver = new UdpReceiver(logger,
+                                      std::stoi(global_config.udp_server_ip),
+                                      global_config.udp_server_port);
+        std::thread udpreceiverthread([]() { (*udpreceiver)(); });
+        udpreceiverthread.detach();
+    }
 
     // Start the server
     RunServer(logger, sys_handle);

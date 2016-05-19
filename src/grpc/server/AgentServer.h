@@ -2,8 +2,13 @@
 //  AgentServer.h
 //  Telemetry Agent
 //
-//  Created by NITIN KUMAR on 12/29/15.
-//  Copyright © 2015 Juniper Networks. All rights reserved.
+//
+//  Created: 12/29/15.
+//
+//  Authors: NITIN KUMAR
+//           ABBAS SAKARWALA
+//
+//  Copyright © 2016 Juniper Networks. All rights reserved.
 //
 
 #ifndef AgentServer_h
@@ -15,6 +20,7 @@
 #include "AgentServerLog.hpp"
 #include "AgentServerIdManager.hpp"
 #include "AgentSubscription.hpp"
+#include "AgentSubscriptionUdpWorker.hpp"
 #include "AgentConsolidator.hpp"
 #include "AgentSystem.hpp"
 
@@ -29,7 +35,8 @@ class AgentServer final : public Telemetry::OpenConfigTelemetry::Service {
     // Consolidator that consolidates requests into JUNOS
     AgentConsolidator _consolidator;
 
-    // Global lock so that we serialize delete operations due to client termination or cancelSubscription
+    // Global lock so that we serialize delete operations
+    // due to client termination or cancelSubscription
     std::mutex    _delete_initiate_mutex;
 
     // Internal functions
@@ -37,6 +44,8 @@ class AgentServer final : public Telemetry::OpenConfigTelemetry::Service {
                              ServerWriter<OpenConfigData>* writer,
                              SubscriptionReply& reply);
     void _cleanupSubscription(AgentSubscription *sub);
+    void _cleanupSubscriptionUdpWorker(
+                              AgentSubscriptionUdpWorker *sub_udp_worker);
 
     // The Interface
     Status telemetrySubscribe(ServerContext* context,
