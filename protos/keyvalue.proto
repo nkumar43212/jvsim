@@ -31,7 +31,7 @@
 // Version 1.0
 //
 
-syntax = "proto2";
+syntax="proto2";
 import "telemetry_top.proto";
 
 message keyvalue {
@@ -51,4 +51,3 @@ message kvresponse {
 extend JuniperNetworksSensors {
     optional kvresponse kvresponseExt = 2000;
 }
-
