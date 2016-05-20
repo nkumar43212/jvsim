@@ -1,5 +1,16 @@
 #!/bin/bash
 
+#Util function to pause for user input
+pause () {
+    read -p "$*"
+}
+
+#Util function to display message
+display () {
+    message=$1
+    echo '******'  $message  '******'
+}
+
 #Cleanup any existing jvtest processes
 ps -ef | grep publish.py | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
 ps -ef | grep mosquitto | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
@@ -27,21 +38,27 @@ while getopts "ucsktomd" opt; do
       exit
       ;;
     m)
+      display "Enable MGD simulator"
       run_mgd=1
       ;;
     s)
+      display "Enable GRPC server"
       run_server=1
       ;;
     c)
+      display "Enable GRPC client"
       run_client=1
       ;;
     t)
+      display "Execute All testcases"
       run_test=1
       ;;
     o)
+      display "Execute OpenConfig testcases"
       run_test_oc=1
       ;;
     d)
+      display "Enable Data streamers simulator"
       run_data=1
       ;;
     \?)
@@ -68,13 +85,17 @@ fi
 #If the root path is not bail
 : ${ROOTPATH?"Need to set ROOTPATH"}
 
+display 'Current ROOTPATH: '${ROOTPATH}
+echo ''
+pause 'Press [Enter] key to continue or [Ctrl+C] to modify any parameters ...'
+
 #What is the platform we are executing on
 platform='unknown'
 unamestr=`uname`
 if [[ "$unamestr" == 'Linux' ]]; then
-   platform='linux'
+    platform='linux'
 elif [[ "$unamestr" == 'Darwin' ]]; then
-   platform='mac'
+    platform='mac'
 fi
 
 #Derive all paths
