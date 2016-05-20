@@ -11,11 +11,23 @@ display () {
     echo '******'  $message  '******'
 }
 
-#Cleanup any existing jvtest processes
-ps -ef | grep publish.py | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
-ps -ef | grep mosquitto | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
-ps -ef | grep agent_server | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
-ps -ef | grep mgd_server | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
+#Util function to restore mqtt log
+restore_mqtt_log () {
+    #restore default mqtt log
+    MQTTLOG="\$ROOTPATH/logs/jv_test_mosquitto.log"
+    echo "log_dest file $MQTTLOG" > $MQTTCONFIG
+}
+
+#Util function to cleanup any existing jvtest processes
+kill_all_processes () {
+    ps -ef | grep publish.py | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
+    ps -ef | grep mosquitto | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
+    ps -ef | grep agent_server | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
+    ps -ef | grep mgd_server | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
+}
+
+#Start with killing previous running processes
+kill_all_processes
 
 #Default values
 run_cleanup=0
@@ -128,6 +140,7 @@ MQTTCONFIG="$CONFIG/mosquitto.conf"
 echo "log_dest file $MQTTLOG" > $MQTTCONFIG
 $MQTTBIN -v -c $MQTTCONFIG -d
 echo "---- Mosquitto        : $MQTTBIN"
+echo "---- Mosquitto Log    : $MQTTLOG"
 sleep 1
 
 #Start the data streamers
@@ -169,24 +182,16 @@ sleep 2
 if [ $run_test != 0 ]
 then
     $TESTPATH/agent_test
-
-    #clean up all the processes
-    ps -ef | grep publish.py | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
-    ps -ef | grep mosquitto | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
-    ps -ef | grep agent_server | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
-    ps -ef | grep mgd_server | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
+    kill_all_processes
+    restore_mqtt_log
 fi
 
 #Do we execute openconfig specific tests
 if [ $run_test_oc != 0 ]
 then
     $TESTPATH/agent_test --gtest_filter=AgentClientOpenConfigTest*
-
-    #clean up all the processes
-    ps -ef | grep publish.py | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
-    ps -ef | grep mosquitto | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
-    ps -ef | grep agent_server | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
-    ps -ef | grep mgd_server | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
+    kill_all_processes
+    restore_mqtt_log
 fi
 
 #Start the interactive client
