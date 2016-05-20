@@ -98,7 +98,7 @@ public:
         bzero(&_server, length);
         _server.sin_family = AF_INET;
         _server.sin_addr.s_addr = SERVER_IP; // INADDR_ANY
-        _server.sin_port=htons(SERVER_PORT);
+        _server.sin_port=SERVER_PORT;
 
         // Lets look here
         _request = (struct Request*) malloc(sizeof(Request));

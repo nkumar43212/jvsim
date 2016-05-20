@@ -20,7 +20,6 @@ UdpReceiver* udpreceiver;
 void
 UdpReceiver::operator()()
 {
-    int length = sizeof(_server);
     ssize_t no_of_bytes;
 
     /* create the socket */
@@ -32,28 +31,26 @@ UdpReceiver::operator()()
     }
     
     /* bind port to the IP */
-    if(bind(_sock, (struct sockaddr *)&_server, length)<0) {
+    if(bind(_sock, (struct sockaddr *)&_server, sizeof(_server))<0) {
         _logger->log("Bind socket error on port " +
                      std::to_string(_server.sin_port));
         exit(1);
     }
 
-    char server_ip[100];
+    char server_ip[20];
     inet_ntop(AF_INET, &(_server.sin_addr), &server_ip[0], INET_ADDRSTRLEN);
     std::string server_ip_str(server_ip);
     _logger->log("UDP Receiver thread ready to listen on ip: " +
                  server_ip_str + " port: " +
-                 // std::to_string(_server.sin_addr.s_addr) + " port: " +
                  std::to_string(_server.sin_port));
 
     /* continuously listen on the specified port */
     while (true) {
         no_of_bytes = recvfrom(_sock, _request->buf, PACKET_SIZE, 0,
                      (struct sockaddr *)&_request->from, &_request->fromlen);
-        //int port = ntohs(_request->from.sin_port);
-    
         if(no_of_bytes < 0) {
             _recvfrom_error++;
+            // TODO ABBAS --- supress this later
             _logger->log("Error: recvfrom no_of_bytes < 0");
         }
         else {
@@ -61,26 +58,23 @@ UdpReceiver::operator()()
             _total_pkts_received++;
             _messages.increment(1, no_of_bytes);
 
-            // std::cout << "(" << count << ")request_buf(" << port << "): " << request->buf << std::endl;
-            // time_t now = time(0);
-            // char* dt = ctime(&now);
-            // std::cout << "The local date and time is: " << dt << std::endl;
+            // TODO ABBAS --- supress this later
             if (_total_pkts_received % 1000 == 0) {
                 _logger->log("Count = " + std::to_string(_total_pkts_received));
-                // sleep(100);
             }
+
             // Extract the subscription id
             // first four bytes is subscription id
             id_idx_t *pIntid = (id_idx_t *)_request->buf;
             id_idx_t int_id = ntohl(*pIntid);
-            
+
             // Per int_id counter
             if (_stats_topics.count(int_id) == 0) {
                 _stats_topics[int_id] = Counter(std::to_string(int_id));
             }
             _stats_topics[int_id].increment(1, no_of_bytes-sizeof(id_idx_t));
 
-            //std::cout << "Int id = " << int_id << std::endl;
+            // std::cout << "Int id = " << int_id << std::endl;
             std::lock_guard<std::mutex> guard(_udpreceiver_mutex);
 
             // Find the external id vector list
@@ -92,7 +86,7 @@ UdpReceiver::operator()()
                 v = itr->second;
             } else {
                 // std::cout << "Error ... missing internal id mapping to "
-                //          << "external id mapping: " << n << std::endl;
+                //           << "external id mapping: " << n << std::endl;
                 _int_to_ext_list_not_found++;
                 continue;
             }
@@ -106,13 +100,15 @@ UdpReceiver::operator()()
                     wp = itr->second;
                 } else {
                     // std::cout << "Error cannot find worker for "
-                    // << ext_id << std::endl;
+                    //           << ext_id << std::endl;
                     _worker_not_found++;
                     continue;
                 }
                 {
                     std::unique_lock<std::mutex> l(wp->_m);
-                    wp->_q.push(_request->buf+sizeof(id_idx_t));
+                    std::vector<unsigned char> vec(_request->buf+sizeof(id_idx_t),
+                                                   _request->buf+no_of_bytes);
+                    wp->_q.push(vec);
                     l.unlock();
                     wp->_c.notify_one();
                 }

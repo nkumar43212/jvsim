@@ -2,7 +2,11 @@
 //  AgentServerCmdOptions.cpp
 //  Telemetry Agent
 //
-//  Created by NITIN KUMAR on 2/26/16.
+//  Created: 2/26/16.
+//
+//  Authors: NITIN KUMAR
+//           ABBAS SAKARWALA
+//
 //  Copyright © 2016 Juniper Networks. All rights reserved.
 //
 
@@ -102,7 +106,8 @@ AgentServerCmdOptions::parseArgs (int argc, char **argv)
                 } else if (isprint (optopt)) {
                     std::cout << "Unknown Option" << std::endl;
                 } else {
-                    std::cout << "Unknown option character `\\x%x'.\n" << optopt;
+                    std::cout << "Unknown option character `\\x%x'." << optopt
+                              << std::endl;
                 }
                 return false;
 

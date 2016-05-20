@@ -2,7 +2,11 @@
 //  AgentConsolidatorSystem.cpp
 //  Telemetry Agent
 //
-//  Created by NITIN KUMAR on 2/19/16.
+//  Created: 2/19/16.
+//
+//  Authors: NITIN KUMAR
+//           ABBAS SAKARWALA
+//
 //  Copyright © 2016 Juniper Networks. All rights reserved.
 //
 
@@ -13,7 +17,7 @@
 #include "AgentUtils.hpp"
 
 // For now defined as global but should make it part of Consolidator class ???
-// TODO ABBAS
+// TODO ABBAS --- review with Nitin
 static AgentServerIdManager<std::bitset<INTERNAL_SUBSCRIPTION_ID_SPACE_SIZE>>
                     InternalIdGenerator(INTERNAL_SUBSCRIPTION_ID_SPACE_MIN);
 

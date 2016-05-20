@@ -35,10 +35,8 @@ class AgentSubscriptionUdpWorker {
 private:
     std::mutex                  _m;
     std::condition_variable     _c;
-    std::queue<std::string>     _q;
+    std::queue<std::vector<unsigned char>>     _q;
     bool                        _dont_terminate;
-    //  Only needed to synchronize I/O - TODO ABBAS --- remove
-    static std::mutex           _mm;
 
     // Subscription Identifier
     id_idx_t       _id;

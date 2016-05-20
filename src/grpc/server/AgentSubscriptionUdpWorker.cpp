@@ -28,16 +28,16 @@ AgentSubscriptionUdpWorker::operator()()
         int curr_cnt = 0;
         if (!_q.empty() && curr_cnt < 10) {
             {
-                //std::unique_lock<std::mutex> lz(_mm);
-                // std::cerr << _q.size() << "#" << _id << " " << _q.front() << std::endl;
-                // std::cerr << "#" << _id << ":" << _q.front().size() << std::endl;
+                // std::cerr << _q.size()  << "#" << _id << " "
+                // << _q.front() << "#" << _q.front().size() << std::endl;
                 _messages.increment(1, _q.front().size());
                 _total_pkt_recvd++;
 
                 // TODO ABBAS - ----- ????
                 OpenConfigData *oc_data = new OpenConfigData;
 
-                oc_data->ParseFromString(_q.front());
+                // DeSerialize
+                oc_data->ParseFromArray(_q.front().data(),(int)_q.front().size());
 
                 // Send it over to the server via the transport channel
                 if (_dont_terminate) {
@@ -49,7 +49,5 @@ AgentSubscriptionUdpWorker::operator()()
             _q.pop();
             curr_cnt++;
         }
-        // std::unique_lock<std::mutex> lz(_mm);
-        // std::cerr << n << ": " << _q.size() << std::endl;
     }
 }
