@@ -1,0 +1,37 @@
+#
+# $Id$
+#
+# Copyright (c) 2014, Juniper Networks, Inc.
+# All rights reserved.
+#
+
+.PATH: ${RELSRCTOP_DIST}/mosquitto/lib
+
+SRCS = \
+	logging_mosq.c \
+	memory_mosq.c \
+	messages_mosq.c \
+	mosquitto.c \
+	net_mosq.c \
+	read_handle.c \
+	read_handle_client.c \
+	read_handle_shared.c \
+	send_client_mosq.c \
+	send_mosq.c \
+	srv_mosq.c \
+	thread_mosq.c \
+	time_mosq.c \
+	tls_mosq.c \
+	util_mosq.c \
+	will_mosq.c \
+
+CFLAGS += \
+	-I${.CURDIR} \
+	-I${RELSRCTOP_DIST}/mosquitto/lib
+
+.include <bsd.lib.mk>
+
+CC := /volume/hab/Linux/Ubuntu-12.04/x86_64/llvm/3.5/20150720/i386-unknown-freebsd/bin/i386-unknown-freebsd10.1-clang
+NO_INLINE_FUNCTIONS_CALLED_ONCE := ""
+AR := /volume/hab/Linux/Ubuntu-12.04/x86_64/llvm/3.5/20150720/i386-unknown-freebsd/bin/i386-unknown-freebsd10.1-ar
+

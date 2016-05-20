@@ -1,0 +1,14 @@
+# $Id$
+
+# Pick up a signed manifest
+%INCLUDE% hashlist.manifest.in
+
+#%INCLUDE% certs.manifest.in sed -n '/etc.db/s,no_symlink,,p'
+
+# Required Junos binaries
+%TOPDIR%/junos/usr.sbin/server/na-telemetry.dml store=usr/lib/dd/na-telemetry.dml user=root group=wheel uid=0 gid=0 mode=555
+%TOPDIR%/junos/usr.sbin/server/na-grpcd store=usr/sbin/na-grpcd user=root group=wheel uid=0 gid=0 mode=555
+%TOPDIR%/junos/usr.sbin/server/na-grpc-server.ini store=var/etc/na-grpc-server.ini user=root group=wheel uid=0 gid=0 mode=555
+%TOPDIR%/junos/libexec/mosquitto/na-mqttd store=usr/sbin/na-mqttd user=root group=wheel uid=0 gid=0 mode=555
+%TOPDIR%/junos/libexec/mosquitto/na-mqtt.conf store=var/etc/na-mqtt.conf user=root group=wheel uid=0 gid=0 mode=555
+#%TOPDIR%/libgcc_s.so store=usr/lib32/libgcc_s.so.1 user=root group=wheel uid=0 gid=0 mode=555
