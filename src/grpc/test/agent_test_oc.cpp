@@ -41,7 +41,8 @@ TEST_F(AgentClientOpenConfigTest, oc_paths) {
         "npu_utilization",
         "optics",
         "packet_stats",
-        "port"
+        "port",
+        "oc"
     };
     int test_paths_count = sizeof(test_paths)/sizeof(std::string);
 

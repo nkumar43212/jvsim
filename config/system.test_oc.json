@@ -72,6 +72,12 @@
                 "interval": "1"
             },
 
+	    "oc": {
+                "resource": "oc",
+                "count": "1",
+                "interval": "1"
+            },
+
 	    "npu_mem": {
                 "resource": "npu_mem",
                 "count": "1",
