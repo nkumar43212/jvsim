@@ -13,17 +13,18 @@
 #define AgentSubscriptionLimits_hpp
 
 #include <iostream>
+#include <cstring>
 
 class AgentSubscriptionLimits {
     uint64_t _records;
     uint64_t _seconds;
     time_t   _start_time;
-    
+
 public:
     AgentSubscriptionLimits (uint64_t records = 0, uint64_t seconds = 0) :
                              _records(records), _seconds(seconds)
     {
-        memset(&_start_time, 0, sizeof(_start_time));
+        std::memset(&_start_time, 0, sizeof(_start_time));
     }
 
     uint64_t getSeconds () { return _seconds; }
