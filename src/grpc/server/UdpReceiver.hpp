@@ -16,8 +16,8 @@
 #include <map>
 //#include <stdlib.h>
 //#include <unistd.h>
-//#include <sys/socket.h>
-//#include <netinet/in.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
 #include <netdb.h>
 
 #include "AgentSubscriptionUdpWorker.hpp"

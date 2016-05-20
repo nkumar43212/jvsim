@@ -1,0 +1,32 @@
+<daemon-table>
+
+    <default-package>na-telemetry</default-package>
+    <default-binary-path>/usr/sbin/</default-binary-path>
+
+    <daemon-entry>
+	<name>na-grpcd</name>
+	<ui-name>na-grpc-server</ui-name>
+        <init-args>-c /var/etc/na-grpc-server.ini</init-args>
+	<description>Daemon providing gRPC interfaces</description>
+        <pid-name>/var/run/na-grpcd.pid</pid-name>
+	<product>ptx3000 ptx5000 ptx9000 mx960 mx480 mx240 mx2010 mx2020</product>
+        <noversion/>
+	<restart/>
+	<mode-protocol-master/>
+	<optional/>
+    </daemon-entry>
+
+    <daemon-entry>
+        <name>na-mqttd</name>
+        <ui-name>na-mqtt</ui-name>
+        <init-args>-c /var/etc/na-mqtt.conf</init-args>
+        <description>Message bus for telemetry</description>
+        <pid-name>/var/run/na-mosquitto.pid</pid-name>
+        <product>ptx3000 ptx5000 ptx9000 mx960 mx480 mx240 mx2010 mx2020</product>
+        <noversion/>
+        <restart/>
+        <mode-protocol-master/>
+        <optional/>
+    </daemon-entry>
+
+</daemon-table>

@@ -1,0 +1,61 @@
+#
+# $Id$
+#
+# Copyright (c) 2015, Juniper Networks, Inc.
+# All rights reserved.
+#
+
+.PATH: ${RELSRCTOP_DIST}/mosquitto/src
+
+SRCS += \
+	bridge.c \
+	conf.c \
+	context.c \
+	database.c \
+	logging.c \
+	loop.c \
+	mosquitto.c \
+	net.c \
+	persist.c \
+	read_handle.c \
+	read_handle_client.c \
+	read_handle_server.c \
+	security.c \
+	security_default.c \
+	send_server.c \
+	subs.c \
+	sys_tree.c 
+
+.PATH: ${RELSRCTOP_DIST}/mosquitto/lib
+
+SRCS += \
+	memory_mosq.c \
+	net_mosq.c \
+	read_handle_shared.c \
+	send_client_mosq.c \
+	send_mosq.c \
+	time_mosq.c \
+	util_mosq.c \
+	will_mosq.c
+
+CFLAGS += \
+	-DWITH_BROKER \
+	-DWITH_BRIDGE \
+	-DWITH_SYS_TREE \
+	-DVERSION=\"1.3.5\" \
+	-DTIMESTAMP="\"${TIME_STAMP}\"" \
+	-DWITH_JUNOS_IRI \
+	-I${.CURDIR} \
+	-I${RELSRCTOP_JUNOS}/libexec/mosquitto \
+	-I${RELSRCTOP_DIST}/mosquitto/src \
+	-I${RELSRCTOP_DIST}/mosquitto/lib \
+
+LDFLAGS :=
+LDADD := -lm -L/volume/publish/dev/occam/llvm-3.5/freebsd/stable_10/current/stage/i386/usr/lib -L/volume/publish/dev/occam/llvm-3.5/sysroot/stable_10/current/i386-unknown-freebsd10.1/usr/lib
+
+.include <bsd.prog.mk>
+
+CC := /volume/hab/Linux/Ubuntu-12.04/x86_64/llvm/3.5/20150720/i386-unknown-freebsd/bin/i386-unknown-freebsd10.1-clang
+_CC := /volume/hab/Linux/Ubuntu-12.04/x86_64/llvm/3.5/20150720/i386-unknown-freebsd/bin/i386-unknown-freebsd10.1-clang -v
+NO_INLINE_FUNCTIONS_CALLED_ONCE :=
+
