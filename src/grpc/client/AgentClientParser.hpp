@@ -3,6 +3,8 @@
 //  agent-jv-client
 //
 //  Created by NITIN KUMAR on 1/22/16.
+//  CoAuthors: ABBAS SAKARWALA
+//
 //  Copyright © 2016 Juniper Networks. All rights reserved.
 //
 
@@ -13,8 +15,8 @@
 #include <iostream>
 #include <sstream>
 
-#define MAX_BUFFER 100
-#define MAX_ARGS   10
+#define MAX_BUFFER          1024
+#define MAX_ARGS            40
 
 typedef void (*CmdHandler)(int argc, const char *argv[]);
 typedef struct entry_ {
@@ -31,7 +33,7 @@ extern uint32_t agent_client_commands_count;
 // Container to pass arguments to handler thread
 class CommandContext {
     int          argument_count;
-    const char  *arguments[40];
+    const char  *arguments[MAX_ARGS];
     entry_t     *entry;
 
 public:
@@ -95,7 +97,7 @@ public:
 
     void clean (const char *cmd[])
     {
-        for (int a=0; a < 40; a++) {
+        for (int a=0; a < MAX_ARGS; a++) {
             cmd[a] = NULL;
         }
     }
@@ -103,7 +105,7 @@ public:
     int parseArg (char* cnd, const char* cmd[], char input[])
     {
         std::cout << "jvsim> ";
-        std::cin.getline(input, 80);
+        std::cin.getline(input, MAX_BUFFER);
         cnd = strtok(input, " ");
 
         int i = 0;
@@ -152,8 +154,8 @@ public:
     void parseLoop (void)
     {
         char* cnd;
-        const char* cmd[40];
-        char input[50];
+        const char* cmd[MAX_ARGS];
+        char input[MAX_BUFFER];
         int  argc;
 
         do {
