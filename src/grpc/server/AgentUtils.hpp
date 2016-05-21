@@ -2,7 +2,10 @@
 //  AgentSystem.hpp
 //  Telemetry Agent
 //
-//  Created by ABBAS SAKARWALA on 4/21/16.
+//  Created: 4/21/16.
+//
+//  Authors: ABBAS SAKARWALA
+//
 //  Copyright © 2016 Juniper Networks. All rights reserved.
 //
 
@@ -16,7 +19,8 @@
 class AgentUtils {
 
 public:
-    static std::string getMessageString(const google::protobuf::Message& message);
+    static std::string getMessageString(const google::protobuf::Message& message,
+                                        bool single_line = true);
     static void SearchNReplaceString (std::string& subject,
                                       const std::string& search,
                                       const std::string& replace);
