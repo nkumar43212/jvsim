@@ -56,7 +56,7 @@ public:
         char timestr[20] = {0};
         std::strftime(timestr, sizeof(timestr),
                       time_format, std::localtime(&now));
-        _outputFile << timestr << "#" << _sequence_number << " "
+        _outputFile << timestr << "#" << _sequence_number << "# "
                     << message << std::endl;
         _outputFile.flush();
         _sequence_number++;

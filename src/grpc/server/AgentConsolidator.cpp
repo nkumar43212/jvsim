@@ -2,7 +2,11 @@
 //  AgentConsolidator.cpp
 //  Telemetry Agent
 //
-//  Created by NITIN KUMAR on 2/19/16.
+//  Created: 2/19/16.
+//
+//  Authors: NITIN KUMAR
+//           ABBAS SAKARWALA
+//
 //  Copyright © 2016 Juniper Networks. All rights reserved.
 //
 #include "AgentConsolidator.hpp"
@@ -59,11 +63,12 @@ AgentConsolidator::removeRequest (AgentConsolidatorHandle *handle)
     }
 
     // Make a note
-    _logger->log("Remove Request ID: " + std::to_string(handle->getSubscriptionId()));
+    _logger->log("Remove Request ID: " +
+                 std::to_string(handle->getSubscriptionId()));
 
-    // Iterate through the handle and remove the references to the system handles
-    // The last reference will call the destructor of the system handle which will
-    // remove the subscription from the system.
+    // Iterate through the handle & remove the references to the system handles
+    // The last reference will call the destructor of the system handle which
+    // will remove the subscription from the system.
     for (int i = 0; i < handle->getHandleCount(); i++) {
         AgentConsolidatorSystemHandlePtr ptr = handle->getHandle(i);
         if (!ptr->destroy(getSystemHandle())) {
@@ -88,7 +93,8 @@ AgentConsolidator::getRequest (AgentConsolidatorHandle *handle, bool cached)
     }
 
     // Make a note
-    _logger->log("Get request ID:" + std::to_string(handle->getSubscriptionId()));
+    _logger->log("Get request ID:" +
+                 std::to_string(handle->getSubscriptionId()));
 
     // Build the answer
     SubscriptionRequest *request_list = new Telemetry::SubscriptionRequest;
