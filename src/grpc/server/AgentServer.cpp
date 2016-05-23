@@ -22,12 +22,18 @@ AgentServer::telemetrySubscribe (ServerContext *context,
                                  const SubscriptionRequest *request,
                                  ServerWriter<OpenConfigData>* writer)
 {
-    PathList    path_list;
     std::string log_str;
+    PathList    path_list;
     AgentConsolidatorHandle *system_handle;
     SubscriptionRequest *validated_request;
     SubscriptionReply reply;
     SubscriptionResponse *response = reply.mutable_response();
+
+    // Log this event
+    log_str = __FUNCTION__;
+    log_str.append("->");
+    log_str.append(AgentUtils::getMessageString(*request));
+    _logger->log(log_str);
 
     // Validate path list
     if (request->path_list_size() == 0) {
@@ -38,6 +44,7 @@ AgentServer::telemetrySubscribe (ServerContext *context,
     }
 
     // Get all the paths that we are interested in
+    log_str = "";
     for (int i = 0; i < request->path_list_size(); i++) {
         path_list.push_back(request->path_list(i).path());
         log_str += request->path_list(i).path();
@@ -180,9 +187,13 @@ AgentServer::cancelTelemetrySubscription (ServerContext* context,
                                 const CancelSubscriptionRequest* cancel_request,
                                 CancelSubscriptionReply* cancel_reply)
 {
-    // Make a note
-    _logger->log("cancelTelemetrySubscription: ID = " +
-                 std::to_string(cancel_request->subscription_id()));
+    std::string log_str;
+
+    // Log this event
+    log_str = __FUNCTION__;
+    log_str.append("->");
+    log_str.append(AgentUtils::getMessageString(*cancel_request));
+    _logger->log(log_str);
 
     // Guard the add request
     std::lock_guard<std::mutex> guard(_delete_initiate_mutex);
@@ -237,11 +248,15 @@ AgentServer::getTelemetrySubscriptions (ServerContext* context,
                             const GetSubscriptionsRequest* get_request,
                             GetSubscriptionsReply* get_reply)
 {
+    std::string log_str;
     AgentSubscription *sub;
     id_idx_t subscription_id = get_request->subscription_id();
 
-    _logger->log("getTelemetrySubscriptions: ID = " +
-                 std::to_string(subscription_id));
+    // Log this event
+    log_str = __FUNCTION__;
+    log_str.append("->");
+    log_str.append(AgentUtils::getMessageString(*get_request));
+    _logger->log(log_str);
 
     if (subscription_id != 0xFFFFFFFF) {
         // Lookup the subscription
@@ -296,14 +311,16 @@ AgentServer::getTelemetryOperationalState (ServerContext* context,
                         const GetOperationalStateRequest* operational_request,
                         GetOperationalStateReply* operational_reply)
 {
+    std::string log_str;
     id_idx_t subscription_id = operational_request->subscription_id();
     Telemetry::VerbosityLevel verbosity = operational_request->verbosity();
     Telemetry::KeyValue *kv;
 
-    // Make a note
-    _logger->log("getTelemetryOperationalState: ID = " +
-                 std::to_string(subscription_id) +
-                 " Verbosity = " + std::to_string(verbosity));
+    // Log this event
+    log_str = __FUNCTION__;
+    log_str.append("->");
+    log_str.append(AgentUtils::getMessageString(*operational_request));
+    _logger->log(log_str);
 
     if (subscription_id != 0) {
         if (subscription_id != 0xFFFFFFFF) {
@@ -368,6 +385,14 @@ AgentServer::getDataEncodings (ServerContext* context,
                                const DataEncodingRequest* data_enc_request,
                                DataEncodingReply* data_enc_reply)
 {
+    std::string log_str;
+
+    // Log this event
+    log_str = __FUNCTION__;
+    log_str.append("->");
+    log_str.append(AgentUtils::getMessageString(*data_enc_request));
+    _logger->log(log_str);
+
     data_enc_reply->add_encoding_list(Telemetry::EncodingType::PROTO3);
     return Status::OK;
 }

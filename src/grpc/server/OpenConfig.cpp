@@ -37,9 +37,10 @@ OpenConfig::display (AgentServerLog *logger)
 {
     std::map<std::string, OpenConfig *>::iterator itr;
     
-    logger->log("Registered Translators:\n");
-    for (itr = openconfig_registry.begin(); itr != openconfig_registry.end(); itr++) {
-        std::string msg = "OC Translator = " + itr->first + "\n";
+    logger->log("Registered Translators:");
+    for (itr = openconfig_registry.begin(); itr != openconfig_registry.end();
+         itr++) {
+        std::string msg = "OC Translator = " + itr->first;
         logger->log(msg);
     }
 }

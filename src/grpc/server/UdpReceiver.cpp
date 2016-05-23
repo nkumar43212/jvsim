@@ -40,9 +40,8 @@ UdpReceiver::operator()()
     char server_ip[20];
     inet_ntop(AF_INET, &(_server.sin_addr), &server_ip[0], INET_ADDRSTRLEN);
     std::string server_ip_str(server_ip);
-    _logger->log("UDP Receiver thread ready to listen on ip: " +
-                 server_ip_str + " port: " +
-                 std::to_string(_server.sin_port));
+    _logger->log("UDP Receiver ready. Listening on IP=" + server_ip_str +
+                 ", Port=" + std::to_string(_server.sin_port));
 
     /* continuously listen on the specified port */
     while (true) {
