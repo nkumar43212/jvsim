@@ -42,7 +42,10 @@ protected:
     uint64_t _error_system_count;
 
 public:
-    AgentSystem (AgentServerLog *logger) : _logger(logger) {}
+    AgentSystem (AgentServerLog *logger) : _logger(logger)
+    {
+        _add_system_count = _remove_system_count = _error_system_count = 0;
+    }
 
     AgentServerLog  *getLogger (void)       { return _logger; }
 
