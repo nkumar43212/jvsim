@@ -63,6 +63,13 @@ AgentSubscription::on_message(const struct mosquitto_message* mosqmessage)
         _oc_lookup_failures++;
         return;
     }
+    
+    // Insert export timestamp. The timestamp in the agent header corresponds
+    // to time at the source. Inserting the current time will give us an 
+    // idea of any latencies inside the system
+    oc->insertExportTimestamp(&oc_data);
+
+    // Iterate through the internal fields and translate them to OC
     oc->iterate(JuniperNetworksSensors_handle, &oc_data);
 
     // Send it over to the server via the transport channel

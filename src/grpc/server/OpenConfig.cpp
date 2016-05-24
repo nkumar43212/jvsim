@@ -7,6 +7,8 @@
 //
 
 #include <iostream>
+#include <unistd.h>
+#include <sys/time.h>
 #include "OpenConfig.hpp"
 
 void
@@ -43,4 +45,19 @@ OpenConfig::display (AgentServerLog *logger)
         std::string msg = "OC Translator = " + itr->first;
         logger->log(msg);
     }
+}
+
+void 
+OpenConfig::insertExportTimestamp (Telemetry::OpenConfigData *datap)
+{
+    struct timeval tv;
+    Telemetry::KeyValue *kv;
+
+    // What is the time now
+    gettimeofday(&tv, NULL); 
+
+    // Add the key
+    kv = datap->add_kv();
+    kv->set_key("__timestamp__");
+    kv->set_uint_value(tv.tv_sec * 1000000 + tv.tv_usec);
 }
