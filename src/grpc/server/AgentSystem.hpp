@@ -2,7 +2,11 @@
 //  AgentSystem.hpp
 //  Telemetry Agent
 //
-//  Created by NITIN KUMAR on 2/21/16.
+//  Created: 2/21/16.
+//
+//  Authors: NITIN KUMAR
+//           ABBAS SAKARWALA
+//
 //  Copyright © 2016 Juniper Networks. All rights reserved.
 //
 
@@ -42,7 +46,10 @@ protected:
     uint64_t _error_system_count;
 
 public:
-    AgentSystem (AgentServerLog *logger) : _logger(logger) {}
+    AgentSystem (AgentServerLog *logger) : _logger(logger)
+    {
+        _add_system_count = _remove_system_count = _error_system_count = 0;
+    }
 
     AgentServerLog  *getLogger (void)       { return _logger; }
 

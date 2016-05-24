@@ -20,6 +20,7 @@
 #include "AgentServerProtos.h"
 #include "AgentSubscriptionLimits.hpp"
 #include "Counter.hpp"
+#include "AgentServerLog.hpp"
 #include "GlobalConfig.hpp"
 
 typedef std::map<const std::string, Counter>        topicCounterMap;
@@ -27,24 +28,33 @@ typedef std::map<const std::string, Counter>        topicCounterMap;
 class Mqtt: public mosqpp::mosquittopp {
 
 public:
+    // Identify the name of Mqtt subscriber
+    std::string _name;
+
     AgentSubscriptionLimits _limits;
     bool _limits_reached;
 
     uint64_t stats_connect;
     uint64_t stats_disconnect;
     uint64_t stats_subscribes;
-    uint64_t stats_unscubscribes;
+    uint64_t stats_unsubscribes;
     Counter  messages;
     topicCounterMap stats_topics;
 
-    Mqtt(const std::string name, AgentSubscriptionLimits limits) :
+    // Log reference
+    AgentServerLog *_logger;
+
+    Mqtt(const std::string name, AgentSubscriptionLimits limits,
+         AgentServerLog *logger) :
         mosquittopp::mosquittopp (name.c_str()),
+        _name(name),
+        _logger(logger),
         messages("MessageCount-" + name, true)
     {
         _limits = limits;
         _limits_reached = false;
         stats_connect = stats_disconnect = 0;
-        stats_subscribes = stats_unscubscribes = 0;
+        stats_subscribes = stats_unsubscribes = 0;
     }
 
     ~Mqtt ()
@@ -55,11 +65,13 @@ public:
     virtual void on_connect (int rc)
     {
         stats_connect++;
+        _logger->log("Subscription " + _name + " MQTT bus connected.");
     }
 
     virtual void on_disconnect (int rc)
     {
         stats_disconnect++;
+        _logger->log("Subscription " + _name + " MQTT bus disconnected.");
     }
 
     virtual void on_subscribe (int mid, int qos_count, const int *granted_qos)
@@ -69,7 +81,7 @@ public:
 
     virtual void on_unsubscribe(int mid)
     {
-        stats_unscubscribes++;
+        stats_unsubscribes++;
     }
 
     virtual void on_message (const struct mosquitto_message* mosqmessage)
@@ -145,8 +157,12 @@ public:
 class MessageBus : public Mqtt {
    public:
     MessageBus (const std::string client_name,
-                AgentSubscriptionLimits limits) : Mqtt(client_name, limits)
+                AgentSubscriptionLimits limits,
+                AgentServerLog *logger) :
+                Mqtt(client_name, limits, logger)
     {
+        _logger->log("Subscription " + client_name +
+                     " initiating MQTT bus connection.");
         connect(global_config.mqtt_broker_ip.c_str(),
                 global_config.mqtt_broker_port);
         loop_start();
@@ -154,11 +170,15 @@ class MessageBus : public Mqtt {
 
     void Subscribe (const std::string resource)
     {
+        _logger->log("Subscription " + _name +
+                     " subscribe path: " + resource);
         subscribe(0, resource.c_str());
     }
 
     void unSubscribe (const std::string resource)
     {
+        _logger->log("Subscription " + _name +
+                     " unsubscribe path: " + resource);
         unsubscribe(0, resource.c_str());
     }
 };
