@@ -2,7 +2,11 @@
 //  AgentSubscription.hpp
 //  Telemetry Agent
 //
-//  Created by NITIN KUMAR on 1/19/16.
+//  Created: 1/19/16.
+//
+//  Authors: NITIN KUMAR
+//           ABBAS SAKARWALA
+//
 //  Copyright © 2016 Juniper Networks. All rights reserved.
 //
 
@@ -32,8 +36,7 @@ class AgentSubscription : public MessageBus {
     // Subscription Identifier
     id_idx_t       _id;
 
-    // Name to identify the subscription
-    std::string    _name;
+    // Path list
     PathList       _path_list;
 
     // Transport Handle
@@ -67,8 +70,9 @@ public:
     // Construction
     AgentSubscription (std::string name,
                        AgentServerTransport *transport,
-                       AgentSubscriptionLimits limits) :
-                       MessageBus(name, limits),
+                       AgentSubscriptionLimits limits,
+                       AgentServerLog *logger) :
+                       MessageBus(name, limits, logger),
                        _transport(transport)
     {
         _oc_lookup_failures = _stream_alloc_failures = _stream_parse_failures = 0;
@@ -79,20 +83,20 @@ public:
                                     AgentServerTransport *transport,
                                     PathList path_list,
                                     AgentSubscriptionLimits limits,
+                                    AgentServerLog *logger,
                                     char *name = NULL)
     {
         std::string client_name = name ? name : "client-" + std::to_string(id);
 
         // Allocate the object
         AgentSubscription *sub;
-        sub = new AgentSubscription(client_name, transport, limits);
+        sub = new AgentSubscription(client_name, transport, limits, logger);
         if (!sub) {
             return NULL;
         }
 
         sub->_system_subscription = system_handle;
         sub->_id                  = id;
-        sub->_name                = client_name;
         sub->_path_list           = path_list;
         store[sub->_id]           = sub;
 
@@ -170,7 +174,7 @@ public:
                 AgentConsolidatorSystemHandlePtr csh =
                 _system_subscription->getHandle(i);
                 id_idx_t isubid = csh->getInternalSubscriptionId();
-                Subscribe("/" + std::to_string(isubid));
+                unSubscribe("/" + std::to_string(isubid));
             }
         }
     }

@@ -93,7 +93,8 @@ AgentServer::telemetrySubscribe (ServerContext *context,
                                                             system_handle,
                                                             transport,
                                                             path_list,
-                                                            limits);
+                                                            limits,
+                                                            _logger);
     if (!sub) {
         // Delete allocated id
         _id_manager.deallocate(id);
