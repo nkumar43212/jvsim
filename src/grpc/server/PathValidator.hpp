@@ -13,6 +13,7 @@
 #define PathValidator_hpp
 
 #include <string>
+#include <memory>
 #include "agent.pb.h"
 #include "json/json.h"
 #include "AgentServerLog.hpp"
