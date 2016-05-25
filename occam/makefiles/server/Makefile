@@ -22,7 +22,7 @@ SRCS +=	\
 	AgentMessageBus.cpp \
 	AgentServerCmdOptions.cpp \
 	AgentServer.cpp \
-        AgentServerIdManager.cpp \
+	AgentServerIdManager.cpp \
 	AgentSubscription.cpp \
 	AgentSubscriptionLimits.cpp \
 	AgentSubscriptionUdpWorker.cpp \
@@ -41,6 +41,7 @@ SRCS +=	\
 	OCTelemetryJson.cpp \
 	OCTelemetryJsonGenerator.cpp \
 	OpenConfig.cpp \
+	PathValidator.cpp \
 	UdpReceiver.cpp
 	
 CFLAGS += -I. -I${.CURDIR}
