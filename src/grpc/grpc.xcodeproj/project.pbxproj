@@ -193,6 +193,7 @@
 		05EF80711CEA8C190032A538 /* authentication_service.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = authentication_service.proto; path = ../../../protos/authentication_service.proto; sourceTree = "<group>"; };
 		05FA5C251CF5AEEF00F90E30 /* PathValidator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PathValidator.cpp; sourceTree = "<group>"; };
 		05FA5C261CF5AEEF00F90E30 /* PathValidator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PathValidator.hpp; sourceTree = "<group>"; };
+		05FA5C281CF5BA6700F90E30 /* ocpaths.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = ocpaths.json; path = ../../../config/ocpaths.json; sourceTree = "<group>"; };
 		940C7CDF1CE50446004ED81D /* agent_test_oc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = agent_test_oc.cpp; sourceTree = "<group>"; };
 		9467029A1C64348C00E73BF5 /* grpc */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = grpc; sourceTree = BUILT_PRODUCTS_DIR; };
 		946702A81C6471ED00E73BF5 /* client */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = client; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -392,6 +393,7 @@
 			children = (
 				946702DB1C6474FB00E73BF5 /* Makefile */,
 				05BD33AD1CD2EA080059EF17 /* agent_server.ini */,
+				05FA5C281CF5BA6700F90E30 /* ocpaths.json */,
 				946702DC1C6474FB00E73BF5 /* main.cpp */,
 				94AC9A821C7799BA0034AF1A /* AgentConsolidator.cpp */,
 				94AC9A8C1C77BCF50034AF1A /* AgentConsolidatorSystem.cpp */,

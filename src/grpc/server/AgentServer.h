@@ -23,6 +23,7 @@
 #include "AgentSubscriptionUdpWorker.hpp"
 #include "AgentConsolidator.hpp"
 #include "AgentSystem.hpp"
+#include "PathValidator.hpp"
 
 
 class AgentServer final : public Telemetry::OpenConfigTelemetry::Service {
@@ -38,6 +39,9 @@ class AgentServer final : public Telemetry::OpenConfigTelemetry::Service {
     // Global lock so that we serialize delete operations
     // due to client termination or cancelSubscription
     std::mutex    _delete_initiate_mutex;
+
+    // Path Validator
+    PathValidator *_path_validator;
 
     // Internal functions
     Status _sendMetaDataInfo(ServerContext* context,
@@ -65,9 +69,11 @@ class AgentServer final : public Telemetry::OpenConfigTelemetry::Service {
                         DataEncodingReply* data_enc_reply) override;
 
 public:
-    AgentServer (AgentServerLog *logger, AgentSystem *sys_handle) :
+    AgentServer (AgentServerLog *logger, AgentSystem *sys_handle,
+                 PathValidator *path_validator) :
                  _logger(logger),
-                 _consolidator(sys_handle, logger) {}
+                 _consolidator(sys_handle, logger),
+                 _path_validator(path_validator) {}
 };
 
 #endif /* AgentServer_h */

@@ -24,11 +24,12 @@
 
 // Class/Function Implementation
 void
-RunServer (AgentServerLog *logger, AgentSystem *sys_handle)
+RunServer (AgentServerLog *logger, AgentSystem *sys_handle,
+           PathValidator *path_validator)
 {
     std::string server_address(global_config.grpc_server_ip + ":" +
                                std::to_string(global_config.grpc_server_port));
-    AgentServer service(logger, sys_handle);
+    AgentServer service(logger, sys_handle, path_validator);
     ServerBuilder builder;
 
     // Listen on the given address without any authentication mechanism.
@@ -136,6 +137,15 @@ main (int argc, char * argv[])
     // Create a handle for the system
     AgentSystem *sys_handle = CreateSystemHandle(&opts, logger);
 
+    // Create a PathValidator object
+    PathValidator *path_validator = NULL;
+    if (global_config.validate_ocpaths) {
+        path_validator = new PathValidator(logger);
+        path_validator->build_path_information_db(global_config.ocpath_file_path
+                                     + "/"  + global_config.ocpath_file_name);
+        path_validator->print_path_information_db();
+    }
+
     // Start a UDP thread if requested
     if (global_config.udp_server_module) {
         udpreceiver = new UdpReceiver(logger,
@@ -146,5 +156,5 @@ main (int argc, char * argv[])
     }
 
     // Start the server
-    RunServer(logger, sys_handle);
+    RunServer(logger, sys_handle, path_validator);
 }

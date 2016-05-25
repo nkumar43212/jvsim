@@ -104,6 +104,14 @@ operator<<(std::ostream& os, GlobalConfig& gc)
     }
     os << "Running Mode                 : "
                                 << gc.running_mode << std::endl;
+    os << "Validate OCPaths             : "
+                                << gc.validate_ocpaths << std::endl;
+    if (gc.validate_ocpaths) {
+        os << "OCPath json file path        : "
+                                << gc.ocpath_file_path << std::endl;
+        os << "OCPath json file name        : "
+                                << gc.ocpath_file_name << std::endl;
+    }
 
     os << std::endl;
     return os;
@@ -203,6 +211,15 @@ GlobalConfig::parse(std::string filename, GlobalConfig &global_config)
     if (GlobalConfig::is_valid_running_mode(running_mode)) {
         global_config.running_mode = running_mode;
     }
+    global_config.validate_ocpaths = reader.GetBoolean(INI_SECTION_OTHER_KNOBS,
+                                            "validate_ocpaths",
+                                            global_config.validate_ocpaths);
+    global_config.ocpath_file_path = reader.Get(INI_SECTION_OTHER_KNOBS,
+                                            "ocpath_file_path",
+                                            global_config.ocpath_file_path);
+    global_config.ocpath_file_name = reader.Get(INI_SECTION_OTHER_KNOBS,
+                                            "ocpath_file_name",
+                                            global_config.ocpath_file_name);
 
     std::cout << global_config;
 }

@@ -53,6 +53,10 @@
 #define RUNNING_MODE_ON_BOX             "on-box"
 #define RUNNING_MODE_OFF_BOX            "off-box"
 
+#define VALIDATE_OCPATHS                false
+#define OCPATHS_FILE_PATH               "/tmp"
+#define OCPATHS_FILE_NAME               "ocpaths.json"
+
 // Global Config object
 class GlobalConfig {
 public:
@@ -82,6 +86,10 @@ public:
     
     std::string     running_mode;
 
+    bool            validate_ocpaths;
+    std::string     ocpath_file_path;
+    std::string     ocpath_file_name;
+
     GlobalConfig() {
         grpc_server_ip          = GRPC_SERVER_IP;
         grpc_server_port        = GRPC_SERVER_PORT;
@@ -107,6 +115,10 @@ public:
         system_file_name        = SYSTEM_FILE_NAME;
 
         running_mode            = RUNNING_MODE_OFF_BOX;
+
+        validate_ocpaths        = VALIDATE_OCPATHS;
+        ocpath_file_path        = OCPATHS_FILE_PATH;
+        ocpath_file_name        = OCPATHS_FILE_NAME;
     }
 
     static bool is_valid_subscription_topic_name(std::string sub_topic);
