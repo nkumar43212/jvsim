@@ -446,7 +446,7 @@ TEST_F(AgentClientTest, get_oper_all) {
     Telemetry::KeyValue *kv;
     std::string subscription_id_str("subscription_id");
     std::string total_subscriptions_str("total_subscriptions");
-    std::string total_message_str("total_message_count");
+    std::string mqtt_total_message_str("mqtt-total_message_count");
     // std::string agent_stats_str("agent-stats");
     // std::string begin_str("begin");
     int64_t subscription_count = 0, total_subscriptions = 0;
@@ -459,7 +459,7 @@ TEST_F(AgentClientTest, get_oper_all) {
         if (kv->key() == total_subscriptions_str) {
             total_subscriptions = kv->int_value();
         }
-        if (kv->key() == total_message_str) {
+        if (kv->key() == mqtt_total_message_str) {
             found = true;
         }
     }
