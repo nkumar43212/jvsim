@@ -271,9 +271,9 @@ AgentServer::getTelemetrySubscriptions (ServerContext* context,
             sub_reply = get_reply->add_subscription_list();
             SubscriptionResponse *sub_resp = sub_reply->mutable_response();
             sub_resp->set_subscription_id(sub->getId());
-            
+
             PathList pathList = sub->getPathList();
-            
+
             for (PathList::iterator it = pathList.begin();
                  it != pathList.end(); ++it) {
                 Telemetry::Path *path = sub_reply->add_path_list();
@@ -344,6 +344,23 @@ AgentServer::getTelemetryOperationalState (ServerContext* context,
             }
             // Get all the statistics for this subscription
             sub->getOperational(operational_reply, verbosity);
+
+            // Now lookup the udp worker subscription
+            if (global_config.udp_server_module) {
+                AgentSubscriptionUdpWorker *sub_udp_worker =
+                AgentSubscriptionUdpWorker::findSubscription(subscription_id);
+                if (!sub_udp_worker) {
+                    std::string err_str = "UDP Subscription Not Found. ID = " +
+                    std::to_string(subscription_id);
+                    _logger->log(err_str);
+                    kv = operational_reply->add_kv();
+                    kv->set_key("error");
+                    kv->set_str_value("Subscription Not Found");
+                    return Status::OK;
+                }
+                // Get all the statistics for this subscription
+                sub_udp_worker->getOperational(operational_reply, verbosity);
+            }
             return Status::OK;
         } else {
             // Get all subscription stats
@@ -430,7 +447,7 @@ AgentServer::_cleanupSubscription (AgentSubscription *sub)
 
     // Disconnect and stop the MQTT loop
     sub->disconnect();
-    sub->loop_stop();
+    sub->loop_stop(true); // Force loop termination --- TODO ABBAS
 
     // Remove the subscription from the system
     _consolidator.removeRequest(sub->getSystemSubscription());

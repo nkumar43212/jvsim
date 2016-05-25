@@ -30,6 +30,9 @@ typedef std::vector<std::string> PathList;
 class AgentSubscriptionUdpWorker;
 extern std::map<id_idx_t, AgentSubscriptionUdpWorker *> store2;
 
+// Counter
+typedef std::map<const std::string, Counter>        topicCounterMap;
+
 // AgentSubscriptionUdpWorker definition
 class AgentSubscriptionUdpWorker {
 private:
@@ -59,7 +62,7 @@ private:
     uint64_t        _total_pkt_recvd;
     
     Counter         _messages;
-    std::map<const std::string, Counter> stats_topics;
+    topicCounterMap stats_topics;
 
     // Reader may write into our queue
     friend class UdpReceiver;
@@ -98,6 +101,10 @@ public:
     AgentConsolidatorHandle *getSystemSubscription()
                                            { return _system_subscription; }
     std::thread *getThread()               { return _sub_udp_worker_thr; }
+    void        getOperational(GetOperationalStateReply* operational_reply,
+                               Telemetry::VerbosityLevel verbosity);
+    void        _getOperational_path(GetOperationalStateReply* operational_reply,
+                                     Telemetry::VerbosityLevel verbosity);
 
     static AgentSubscriptionUdpWorker* createSubscriptionUdpWorker (id_idx_t id,
                                         AgentConsolidatorHandle *system_handle,

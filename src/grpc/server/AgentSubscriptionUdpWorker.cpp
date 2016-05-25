@@ -51,3 +51,65 @@ AgentSubscriptionUdpWorker::operator()()
         }
     }
 }
+void
+AgentSubscriptionUdpWorker::_getOperational_path (
+                             GetOperationalStateReply* operational_reply,
+                             Telemetry::VerbosityLevel verbosity)
+{
+    Telemetry::KeyValue *kv;
+    // All topic subscriptions
+    for (topicCounterMap::iterator itr = stats_topics.begin();
+         itr != stats_topics.end(); itr++) {
+        kv = operational_reply->add_kv();
+        kv->set_key("udp-packets:xpath:" + itr->first);
+        kv->set_int_value(itr->second.getPackets());
+
+        kv = operational_reply->add_kv();
+        kv->set_key("udp-packet_rates:xpath:" + itr->first);
+        kv->set_int_value(itr->second.getPacketRate());
+
+        kv = operational_reply->add_kv();
+        kv->set_key("udp-bytes:xpath:" + itr->first);
+        kv->set_int_value(itr->second.getBytes());
+
+        kv = operational_reply->add_kv();
+        kv->set_key("udp-byte_rates:xpath:" + itr->first);
+        kv->set_int_value(itr->second.getByteRate());
+    }
+}
+
+void
+AgentSubscriptionUdpWorker::getOperational (
+                            GetOperationalStateReply* operational_reply,
+                            Telemetry::VerbosityLevel verbosity)
+{
+    // Total Message Count
+    Telemetry::KeyValue *kv;
+    kv = operational_reply->add_kv();
+    kv->set_key("udp-total_pkt_received");
+    kv->set_int_value(_total_pkt_recvd);
+
+    kv = operational_reply->add_kv();
+    kv->set_key("udp-total_message_count");
+    kv->set_int_value(_messages.getPackets());
+
+    kv = operational_reply->add_kv();
+    kv->set_key("udp-total_message_count_rate");
+    kv->set_int_value(_messages.getPacketRate());
+
+    kv = operational_reply->add_kv();
+    kv->set_key("udp-total_message_bytes");
+    kv->set_int_value(_messages.getBytes());
+
+    kv = operational_reply->add_kv();
+    kv->set_key("udp-total_message_byte_rate");
+    kv->set_int_value(_messages.getByteRate());
+
+    // If verbose mose is not set, we are done
+    if (verbosity == Telemetry::VerbosityLevel::TERSE) {
+        return;
+    }
+
+    // Get stats from the message bus interface
+    _getOperational_path(operational_reply, verbosity);
+}

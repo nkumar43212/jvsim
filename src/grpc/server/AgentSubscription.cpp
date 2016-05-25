@@ -2,7 +2,11 @@
 //  AgentSubscription.cpp
 //  Telemetry Agent
 //
-//  Created by NITIN KUMAR on 1/19/16.
+//  Created: 1/19/16.
+//
+//  Authors: NITIN KUMAR
+//           ABBAS SAKARWALA
+//
 //  Copyright © 2016 Juniper Networks. All rights reserved.
 //
 
@@ -80,4 +84,46 @@ AgentSubscription::on_message(const struct mosquitto_message* mosqmessage)
     // Done
     delete stream;
     return;
+}
+
+void
+AgentSubscription::getOperational (GetOperationalStateReply* operational_reply,
+                                   Telemetry::VerbosityLevel verbosity)
+{
+    // Get stats from the message bus interface
+    MessageBus::getOperational(operational_reply, verbosity);
+
+    // If verbose mose is not set, we are done
+    if (verbosity == Telemetry::VerbosityLevel::TERSE) {
+        return;
+    }
+
+    // Failures
+    Telemetry::KeyValue *kv;
+    kv = operational_reply->add_kv();
+    kv->set_key("mqtt-translation_failures");
+    kv->set_int_value(_oc_lookup_failures);
+
+    kv = operational_reply->add_kv();
+    kv->set_key("mqtt-stream_open_failures");
+    kv->set_int_value(_stream_alloc_failures);
+
+    kv = operational_reply->add_kv();
+    kv->set_key("mqtt-stream_parse_failures");
+    kv->set_int_value(_stream_parse_failures);
+}
+
+bool
+AgentSubscription::getClientDisconnects (void)
+{
+    if (_transport) {
+        if (_transport->getServerContext()) {
+            if (_transport->getServerContext()->IsCancelled()) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+    return true;
 }

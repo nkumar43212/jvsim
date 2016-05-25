@@ -64,8 +64,9 @@ public:
     AgentConsolidatorHandle *getSystemSubscription()
                                            { return _system_subscription; }
     AgentServerTransport* getTransport()             { return _transport; }
-    bool        getClientDisconnects()
-                    { return _transport->getServerContext()->IsCancelled(); }
+    bool        getClientDisconnects(void);
+    void        getOperational(GetOperationalStateReply* operational_reply,
+                               Telemetry::VerbosityLevel verbosity);
 
     // Construction
     AgentSubscription (std::string name,
@@ -187,32 +188,6 @@ public:
     void setActive (bool value)
     {
         _active = value;
-    }
-    
-    void getOperational (GetOperationalStateReply* operational_reply,
-                         Telemetry::VerbosityLevel verbosity)
-    {
-        // Get stats from the message bus interface
-        MessageBus::getOperational(operational_reply, verbosity);
-
-        // If verbose mose is not set, we are done
-        if (verbosity == Telemetry::VerbosityLevel::TERSE) {
-            return;
-        }
-
-        // Failures
-        Telemetry::KeyValue *kv;
-        kv = operational_reply->add_kv();
-        kv->set_key("translation_failures");
-        kv->set_int_value(_oc_lookup_failures);
-
-        kv = operational_reply->add_kv();
-        kv->set_key("stream_open_failures");
-        kv->set_int_value(_stream_alloc_failures);
-
-        kv = operational_reply->add_kv();
-        kv->set_key("stream_parse_failures");
-        kv->set_int_value(_stream_parse_failures);
     }
 
     virtual void on_message(const struct mosquitto_message* mosqmessage);

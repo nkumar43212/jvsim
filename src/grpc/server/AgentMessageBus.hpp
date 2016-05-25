@@ -104,17 +104,17 @@ public:
 
         // Total Message Count
         kv = operational_reply->add_kv();
-        kv->set_key("total_message_count");
+        kv->set_key("mqtt-total_message_count");
         kv->set_int_value(messages.getPackets());
         kv = operational_reply->add_kv();
-        kv->set_key("total_message_count_rate");
+        kv->set_key("mqtt-total_message_count_rate");
         kv->set_int_value(messages.getPacketRate());
 
         kv = operational_reply->add_kv();
-        kv->set_key("total_message_bytes");
+        kv->set_key("mqtt-total_message_bytes");
         kv->set_int_value(messages.getBytes());
         kv = operational_reply->add_kv();
-        kv->set_key("total_message_byte_rate");
+        kv->set_key("mqtt-total_message_byte_rate");
         kv->set_int_value(messages.getByteRate());
 
         // Continue only if verbose output is desired
@@ -124,30 +124,30 @@ public:
 
         // Broker Connections
         kv = operational_reply->add_kv();
-        kv->set_key("message_bus_connects");
+        kv->set_key("mqtt-message_bus_connects");
         kv->set_int_value(stats_connect);
 
         kv = operational_reply->add_kv();
-        kv->set_key("message_bus_disconnects");
+        kv->set_key("mqtt-message_bus_disconnects");
         kv->set_int_value(stats_disconnect);
 
         // All topic subscriptions
         for (topicCounterMap::iterator itr = stats_topics.begin();
              itr != stats_topics.end(); itr++) {
             kv = operational_reply->add_kv();
-            kv->set_key("packets:xpath:" + itr->first);
+            kv->set_key("mqtt-packets:xpath:" + itr->first);
             kv->set_int_value(itr->second.getPackets());
 
             kv = operational_reply->add_kv();
-            kv->set_key("packet_rates:xpath:" + itr->first);
+            kv->set_key("mqtt-packet_rates:xpath:" + itr->first);
             kv->set_int_value(itr->second.getPacketRate());
 
             kv = operational_reply->add_kv();
-            kv->set_key("bytes:xpath:" + itr->first);
+            kv->set_key("mqtt-bytes:xpath:" + itr->first);
             kv->set_int_value(itr->second.getBytes());
 
             kv = operational_reply->add_kv();
-            kv->set_key("byte_rates:xpath:" + itr->first);
+            kv->set_key("mqtt-byte_rates:xpath:" + itr->first);
             kv->set_int_value(itr->second.getByteRate());
         }
     }
