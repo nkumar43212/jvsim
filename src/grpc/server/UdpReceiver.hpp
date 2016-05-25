@@ -114,7 +114,7 @@ public:
 
     void operator()();
     void add_worker(int ext_id, AgentSubscriptionUdpWorker *wp);
-    void del_worker(int ext_id, AgentSubscriptionUdpWorker *wp);
+    void del_worker(int ext_id);
     void add_mapping(int ext_id, int int_id);
     void del_mapping(int ext_id, int int_id);
 };

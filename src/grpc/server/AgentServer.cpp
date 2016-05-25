@@ -355,7 +355,7 @@ AgentServer::getTelemetryOperationalState (ServerContext* context,
                     _logger->log(err_str);
                     kv = operational_reply->add_kv();
                     kv->set_key("error");
-                    kv->set_str_value("Subscription Not Found");
+                    kv->set_str_value("UDP Subscription Not Found");
                     return Status::OK;
                 }
                 // Get all the statistics for this subscription
@@ -372,6 +372,24 @@ AgentServer::getTelemetryOperationalState (ServerContext* context,
                 kv->set_int_value(sub->getId());
                 // Get all the statistics for this subscription
                 sub->getOperational(operational_reply, verbosity);
+
+                // Now lookup the udp worker subscription
+                if (global_config.udp_server_module) {
+                    AgentSubscriptionUdpWorker *sub_udp_worker =
+                     AgentSubscriptionUdpWorker::findSubscription(sub->getId());
+                    if (!sub_udp_worker) {
+                        std::string err_str = "UDP Subscription Not Found. ID = "
+                                             + std::to_string(subscription_id);
+                        _logger->log(err_str);
+                        kv = operational_reply->add_kv();
+                        kv->set_key("error");
+                        kv->set_str_value("UDP Subscription Not Found");
+                    } else {
+                        // Get all the statistics for this subscription
+                        sub_udp_worker->getOperational(operational_reply,
+                                                       verbosity);
+                    }
+                }
 
                 // Move to the next entry
                 sub = AgentSubscription::getNext(sub->getId());
@@ -478,7 +496,7 @@ AgentServer::_cleanupSubscriptionUdpWorker (
     }
 
     // Remove worker thread from udp receiver
-    udpreceiver->del_worker(sub_udp_worker->getId(), sub_udp_worker);
+    udpreceiver->del_worker(sub_udp_worker->getId());
     sub_udp_worker->setTerminate();
     std::thread *sub_udp_worker_thr = sub_udp_worker->getThread();
 

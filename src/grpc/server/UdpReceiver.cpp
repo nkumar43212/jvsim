@@ -140,7 +140,7 @@ UdpReceiver::add_worker (int ext_id, AgentSubscriptionUdpWorker *wp)
 }
 
 void
-UdpReceiver::del_worker(int ext_id, AgentSubscriptionUdpWorker *wp)
+UdpReceiver::del_worker(int ext_id)
 {
     _logger->log("Delete Worker Mapping Ext id = " + std::to_string(ext_id));
     
