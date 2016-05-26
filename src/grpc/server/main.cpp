@@ -141,8 +141,12 @@ main (int argc, char * argv[])
     PathValidator *path_validator = NULL;
     if (global_config.validate_ocpaths) {
         path_validator = new PathValidator(logger);
-        path_validator->build_path_information_db(global_config.ocpath_file_path
-                                     + "/"  + global_config.ocpath_file_name);
+        bool status = path_validator->build_path_information_db(
+                                    global_config.ocpath_file_path + "/" +
+                                    global_config.ocpath_file_name);
+        if (!status) {
+            exit(0);
+        }
         path_validator->print_path_information_db();
     }
 

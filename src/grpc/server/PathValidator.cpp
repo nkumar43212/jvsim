@@ -16,7 +16,7 @@
 // PathInformation store
 PathInformationDB path_information_db;
 
-void
+bool
 PathValidator::_read_path_information_file (std::string filename,
                                            Json::Value &path_information_json)
 {
@@ -37,8 +37,9 @@ PathValidator::_read_path_information_file (std::string filename,
         // _logger->log(styledWriter.write(path_information_json));
     } else {
         _logger->log("Json file \"" + filename + "\" parsing error");
-        exit(0);
+        return false;
     }
+    return true;
 }
 
 uint32_t
@@ -51,19 +52,23 @@ PathValidator::_roundToThousandths (uint32_t num, uint32_t max)
     return num;
 }
 
-void
+bool
 PathValidator::build_path_information_db (std::string filename)
 {
     Json::Value path_information_json;
 
     // Read from file and conver to json
-    _read_path_information_file(filename, path_information_json);
+    bool status;
+    status = _read_path_information_file(filename, path_information_json);
+    if (!status) {
+        return status;
+    }
 
     // Look for valid_paths
     path_information_json = path_information_json["valid_paths"];
     if (path_information_json == Json::nullValue) {
         _logger->log("\'valid_paths\' list keyword missing");
-        exit(0);
+        return false;
     }
 
     // Extract from array
@@ -85,7 +90,7 @@ PathValidator::build_path_information_db (std::string filename)
                 _logger->log("Path " + std::to_string(i) +
                              " --> Missing \'path\' keyword");
                 // continue;
-                exit(0);
+                return false;
             } else {
                 PathInformationPtr pPathInformation =
                     std::make_shared<PathInformation>(obj["path"].asString());
@@ -121,8 +126,9 @@ PathValidator::build_path_information_db (std::string filename)
         }
     } else {
         _logger->log("Invalid json format");
-        exit(0);
+        return  false;
     }
+    return true;
 }
 
 void

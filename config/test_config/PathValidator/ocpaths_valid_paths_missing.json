@@ -1,0 +1,93 @@
+{
+    "XXXXX___valid_paths___XXXXX":
+    [
+        {
+            "path" : "/junos/system/linecard/cpu/memory/",
+            "filter_support" : true,
+            "suppress_unchanged_support" : false,
+            "max_silent_interval_support" : false,
+            "sample_frequency" :
+            {
+                "min" : 2000,
+                "max" : 3600000
+            }
+        },
+        {
+            "path" : "/junos/system/linecard/fabric/",
+            "filter_support" : true,
+            "suppress_unchanged_support" : false,
+            "max_silent_interval_support" : false,
+            "sample_frequency" :
+            {
+                "min" : 2000,
+                "max" : 3600000
+            }
+        },
+        {
+            "path" : "/junos/system/linecard/firewall/",
+            "filter_support" : true,
+            "suppress_unchanged_support" : false,
+            "max_silent_interval_support" : false,
+            "sample_frequency" :
+            {
+                "min" : 2000,
+                "max" : 3600000
+            }
+        },
+        {
+            "path" : "/junos/system/linecard/interface/",
+            "filter_support" : true,
+            "suppress_unchanged_support" : false,
+            "max_silent_interval_support" : false,
+            "sample_frequency" :
+            {
+                "min" : 2000,
+                "max" : 3600000
+            }
+        },
+        {
+            "path" : "/junos/system/linecard/interface/logical/usage/",
+            "filter_support" : true,
+            "suppress_unchanged_support" : false,
+            "max_silent_interval_support" : false,
+            "sample_frequency" :
+            {
+                "min" : 2000,
+                "max" : 3600000
+            }
+        },
+        {
+            "path" : "/junos/system/linecard/npu/memory/",
+            "filter_support" : true,
+            "suppress_unchanged_support" : false,
+            "max_silent_interval_support" : false,
+            "sample_frequency" :
+            {
+                "min" : 2000,
+                "max" : 3600000
+            }
+        },
+        {
+            "path" : "/junos/system/linecard/optics/usage/",
+            "filter_support" : true,
+            "suppress_unchanged_support" : false,
+            "max_silent_interval_support" : false,
+            "sample_frequency" :
+            {
+                "min" : 2000,
+                "max" : 3600000
+            }
+        },
+        {
+            "path" : "/junos/system/linecard/packet/usage/",
+            "filter_support" : true,
+            "suppress_unchanged_support" : false,
+            "max_silent_interval_support" : false,
+            "sample_frequency" :
+            {
+                "min" : 2000,
+                "max" : 3600000
+            }
+        }
+    ]
+}

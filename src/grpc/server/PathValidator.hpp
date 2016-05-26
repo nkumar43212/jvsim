@@ -48,7 +48,7 @@ typedef std::map<std::string, PathInformationPtr> PathInformationDB;
 
 class PathValidator {
     AgentServerLog *_logger;
-    void _read_path_information_file(std::string filename,
+    bool _read_path_information_file(std::string filename,
                                      Json::Value &path_information_json);
     uint32_t _roundToThousandths(uint32_t num, uint32_t max);
 public:
@@ -61,7 +61,7 @@ public:
         // Delete the store
         delete_path_information_db();
     }
-    void build_path_information_db(std::string filename);
+    bool build_path_information_db(std::string filename);
     void print_path_information_db(void);
     void delete_path_information_db(void);
     void validate_path(Telemetry::Path &path);

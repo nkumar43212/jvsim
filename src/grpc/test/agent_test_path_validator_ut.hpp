@@ -39,8 +39,12 @@ public:
         logger     = new AgentServerLog(path_validator_log);
         logger->enable();
         path_validator = new PathValidator(logger);
-        path_validator->build_path_information_db(root_path +
-                                                  "/config/ocpaths.json");
+        bool status = path_validator->build_path_information_db(root_path +
+                                                    "/config/ocpaths.json");
+        EXPECT_TRUE(status);
+        if (!status) {
+            exit(0);
+        }
         path_validator->print_path_information_db();
     }
 
