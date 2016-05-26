@@ -29,6 +29,7 @@
 		05C1BEDD1CC94D0800A6A342 /* AgentUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05C1BEDC1CC94D0800A6A342 /* AgentUtils.cpp */; };
 		05C1BEDF1CC94ED700A6A342 /* AgentUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05C1BEDC1CC94D0800A6A342 /* AgentUtils.cpp */; };
 		05FA5C271CF5AEEF00F90E30 /* PathValidator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05FA5C251CF5AEEF00F90E30 /* PathValidator.cpp */; };
+		05FA5C2B1CF6675500F90E30 /* agent_test_id_manager_ut.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05FA5C291CF6675500F90E30 /* agent_test_id_manager_ut.cpp */; };
 		940C7CE01CE50446004ED81D /* agent_test_oc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 940C7CDF1CE50446004ED81D /* agent_test_oc.cpp */; };
 		9436D96C1C8549E700356B6F /* AgentSystemProc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94FB18981C85032400791B3A /* AgentSystemProc.cpp */; };
 		946702CC1C64734E00E73BF5 /* AgentServerLog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 946702C81C64734E00E73BF5 /* AgentServerLog.cpp */; };
@@ -194,6 +195,8 @@
 		05FA5C251CF5AEEF00F90E30 /* PathValidator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PathValidator.cpp; sourceTree = "<group>"; };
 		05FA5C261CF5AEEF00F90E30 /* PathValidator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PathValidator.hpp; sourceTree = "<group>"; };
 		05FA5C281CF5BA6700F90E30 /* ocpaths.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = ocpaths.json; path = ../../../config/ocpaths.json; sourceTree = "<group>"; };
+		05FA5C291CF6675500F90E30 /* agent_test_id_manager_ut.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = agent_test_id_manager_ut.cpp; sourceTree = "<group>"; };
+		05FA5C2A1CF6675500F90E30 /* agent_test_id_manager_ut.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = agent_test_id_manager_ut.hpp; sourceTree = "<group>"; };
 		940C7CDF1CE50446004ED81D /* agent_test_oc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = agent_test_oc.cpp; sourceTree = "<group>"; };
 		9467029A1C64348C00E73BF5 /* grpc */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = grpc; sourceTree = BUILT_PRODUCTS_DIR; };
 		946702A81C6471ED00E73BF5 /* client */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = client; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -457,14 +460,16 @@
 			isa = PBXGroup;
 			children = (
 				946703DD1C65134700E73BF5 /* Makefile */,
-				946703DF1C65134700E73BF5 /* agent_test.cpp */,
-				946703DE1C65134700E73BF5 /* agent_test.hpp */,
+				05FA5C291CF6675500F90E30 /* agent_test_id_manager_ut.cpp */,
+				05FA5C2A1CF6675500F90E30 /* agent_test_id_manager_ut.hpp */,
 				94AC9A6A1C7459B80034AF1A /* agent_test_server.cpp */,
 				94AC9A6B1C7459B80034AF1A /* agent_test_server.hpp */,
 				94AC9A7F1C76FDDC0034AF1A /* agent_test_consolidator.cpp */,
 				94AC9A801C76FDDC0034AF1A /* agent_test_consolidator.hpp */,
 				94AC4F271CA315D100AFDFE0 /* agent_test_consolidator_proc.cpp */,
 				94AC4F281CA315D100AFDFE0 /* agent_test_consolidator_proc.hpp */,
+				946703DF1C65134700E73BF5 /* agent_test.cpp */,
+				946703DE1C65134700E73BF5 /* agent_test.hpp */,
 				940C7CDF1CE50446004ED81D /* agent_test_oc.cpp */,
 				0584266D1CE54781003D866B /* agent_test_oc.hpp */,
 			);
@@ -799,6 +804,7 @@
 				94AC9AA31C7A1F2F0034AF1A /* AgentSystem.cpp in Sources */,
 				94A291FE1C8101AF004BB6C3 /* AgentSystemFactory.cpp in Sources */,
 				94AC9A6C1C7459B80034AF1A /* agent_test_server.cpp in Sources */,
+				05FA5C2B1CF6675500F90E30 /* agent_test_id_manager_ut.cpp in Sources */,
 				94AC9A691C7459900034AF1A /* AgentServerIdManager.cpp in Sources */,
 				94AC9A901C77DACE0034AF1A /* AgentConsolidatorSystem.cpp in Sources */,
 				94AC4F291CA315D100AFDFE0 /* agent_test_consolidator_proc.cpp in Sources */,

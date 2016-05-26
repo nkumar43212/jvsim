@@ -37,10 +37,7 @@ gtest_main.a : gtest-all.o gtest_main.o
 	cp gtest_main.a ../lib/gtest_main.a
 
 # Build unit tests
-agent_test.o : agent_test.cpp agent_test_oc.cpp agent_test_server.cpp agent_test.hpp $(GTEST_HEADERS) agent_test_consolidator.cpp agent_test_consolidator_proc.cpp
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c agent_test.cpp
-
-agent_test : agent_test.o agent_test_oc.o agent_test_server.o gtest_main.a agent_test_consolidator.o agent_test_consolidator_proc.o
+agent_test : gtest_main.a agent_test_id_manager_ut.o agent_test_server.o agent_test_consolidator.o agent_test_consolidator_proc.o  agent_test.o agent_test_oc.o
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
 
 install: agent_test
