@@ -10,7 +10,7 @@
 //
 
 #include "gtest/gtest.h"
-#include "agent_test_server.hpp"
+#include "agent_test_arg_parser_ut.hpp"
 #include "AgentServerCmdOptions.hpp"
 
 // Command Lineparsing
