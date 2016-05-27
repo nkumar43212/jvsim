@@ -71,16 +71,63 @@ TEST_F(PathValidatorTest, sample_frequency_max) {
     _valid_path_test(path_validator, 3600001, 3600000);
 }
 
-void
-_various_invalid_parsing_errors (std::string root_path, std::string filename)
+AgentServerLog *
+_init_logger (std::string root_path)
 {
     // Initialize logger
     std::string path_validator_log = root_path + "/logs/temp";
     AgentServerLog *temp_logger = new AgentServerLog(path_validator_log);
     temp_logger->enable();
 
+    return temp_logger;
+}
+
+PathValidator *
+_init_path_validator (std::string root_path, AgentServerLog *temp_logger)
+{
     // Initialize path validator
-    PathValidator *path_validator_temp = new PathValidator(temp_logger);
+    PathValidator *path_validator = new PathValidator(temp_logger);
+
+    return path_validator;
+}
+
+TEST_F(PathValidatorTest, filter_unsupported) {
+    AgentServerLog *temp_logger = _init_logger(root_path);
+    PathValidator *path_validator_temp = _init_path_validator(root_path,
+                                                              temp_logger);
+
+    // Provide invalid json file
+    bool status  = path_validator_temp->build_path_information_db(root_path +
+        "/config/test_config/PathValidator/ocpaths_filter_unsupported.json");
+    EXPECT_TRUE(status);
+
+    // Create path and check accepted_path
+    Telemetry::Path path, accepted_path;
+
+    // Create path
+    path.set_path("/junos/system/linecard/fabric/");
+    path.set_filter("*.*");
+
+    // Copy path to accepted path
+    accepted_path.CopyFrom(path);
+
+    // Now validate
+    path_validator_temp->validate_path(accepted_path);
+
+    EXPECT_STREQ(path.path().c_str(), accepted_path.path().c_str());
+    EXPECT_STREQ("", accepted_path.filter().c_str());
+    EXPECT_EQ(2000, accepted_path.sample_frequency());
+
+    delete path_validator_temp;
+    delete temp_logger;
+}
+
+void
+_various_invalid_parsing_errors (std::string root_path, std::string filename)
+{
+    AgentServerLog *temp_logger = _init_logger(root_path);
+    PathValidator *path_validator_temp = _init_path_validator(root_path,
+                                                              temp_logger);
 
     // Provide invalid json file
     bool status  = path_validator_temp->build_path_information_db(root_path +
