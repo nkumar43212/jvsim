@@ -67,6 +67,12 @@ AgentServerCmdOptions::printUsage (void)
     std::cout << "    -c  : ini config file" << std::endl;
 }
 
+void
+AgentServerCmdOptions::resetArgs (void)
+{
+    optind = 1;
+}
+
 bool
 AgentServerCmdOptions::parseArgs (int argc, char **argv)
 {
@@ -113,6 +119,7 @@ AgentServerCmdOptions::parseArgs (int argc, char **argv)
                     std::cout << "Unknown option character `\\x%x'." << optopt
                               << std::endl;
                 }
+                resetArgs();
                 return false;
 
             case ':': {

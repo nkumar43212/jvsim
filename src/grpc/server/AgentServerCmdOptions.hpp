@@ -52,7 +52,7 @@ public:
     void setINIConfigFile(std::string ini_config_file);
     void printUsage(void);
     bool parseArgs(int argc, char **argv);
-
+    void resetArgs(void);
 };
 
 #endif /* AgentServerCmdOptions_hpp */
