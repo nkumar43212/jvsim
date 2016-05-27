@@ -1,5 +1,5 @@
 //
-//  agent_test_consolidator_proc.hpp
+//  agent_test_consolidator_proc_ut.hpp
 //
 //  Created: 3/23/16.
 //
@@ -9,8 +9,8 @@
 //  Copyright © 2016 Juniper Networks. All rights reserved.
 //
 
-#ifndef agent_test_consolidator_proc_hpp
-#define agent_test_consolidator_proc_hpp
+#ifndef agent_test_consolidator_proc_ut_hpp
+#define agent_test_consolidator_proc_ut_hpp
 
 #include "AgentServerLog.hpp"
 #include "AgentSystemFactory.hpp"
@@ -53,4 +53,4 @@ public:
     static void *create(void *);
 };
 
-#endif /* agent_test_consolidator_proc_hpp */
+#endif /* agent_test_consolidator_proc_ut_hpp */

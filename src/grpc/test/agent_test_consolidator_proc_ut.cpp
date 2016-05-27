@@ -13,8 +13,7 @@
 #include <functional>
 #include <string>
 #include "gtest/gtest.h"
-#include "agent_test_consolidator_proc.hpp"
-#include "AgentSystemProc.hpp"
+#include "agent_test_consolidator_proc_ut.hpp"
 
 TEST_F(AgentConsolidatorProcTest, create) {
     EXPECT_TRUE(sys_handle != nullptr);
