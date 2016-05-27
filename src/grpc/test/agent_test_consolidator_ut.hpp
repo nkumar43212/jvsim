@@ -12,8 +12,9 @@
 #ifndef agent_test_consolidator_ut_hpp
 #define agent_test_consolidator_ut_hpp
 
-#include "AgentSystemFactory.hpp"
+#include "AgentServerLog.hpp"
 #include "AgentConsolidator.hpp"
+#include "AgentSystemFactory.hpp"
 
 #define AGENTCONSOLIDATORLOG            "consolidator"
 #define AGENT_SYSTEMFACTORY_LOG         "filemode_test"
@@ -63,4 +64,5 @@ public:
     TestArgs(AgentConsolidator *cons_val, uint32_t id_val):
              cons(cons_val), id(id_val) {}
 };
+
 #endif /* agent_test_consolidator_ut_hpp */

@@ -14,7 +14,6 @@
 #include <string>
 #include "gtest/gtest.h"
 #include "agent_test_consolidator_ut.hpp"
-#include "AgentServerLog.hpp"
 
 TEST_F(AgentConsolidatorTest, add) {
     AgentConsolidatorHandle *handle;
@@ -169,4 +168,8 @@ AgentConsolidatorTest::create (void *args)
     cons->removeRequest(handle);
 
     return NULL;
+}
+
+TEST_F(AgentConsolidatorTest, print_description) {
+    cons->description();
 }
