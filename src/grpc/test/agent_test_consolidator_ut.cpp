@@ -35,7 +35,7 @@ TEST_F(AgentConsolidatorTest, add) {
 
     // Simple check get call is good
     SubscriptionRequest *test_ptr;
-    test_ptr = cons->getRequest(handle);
+    test_ptr = cons->getRequest(handle, false);
     EXPECT_TRUE(test_ptr != NULL);
 
     // Remove it now
