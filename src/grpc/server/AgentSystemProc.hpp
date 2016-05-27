@@ -84,6 +84,8 @@ public:
         _authentication_failure = 0;
     }
 
+    ~AgentSystemProc () {}
+
     // The stub for the RPC
 #if defined(__OC_Telemetry_Config__)
     std::unique_ptr<OpenconfigRpcApi::Stub> stub_;

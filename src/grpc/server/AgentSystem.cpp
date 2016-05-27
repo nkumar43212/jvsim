@@ -2,7 +2,11 @@
 //  AgentSystem.cpp
 //  Telemetry Agent
 //
-//  Created by NITIN KUMAR on 2/21/16.
+//  Created: 2/21/16.
+//
+//  Authors: NITIN KUMAR
+//           ABBAS SAKARWALA
+//
 //  Copyright © 2016 Juniper Networks. All rights reserved.
 //
 

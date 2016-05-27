@@ -22,6 +22,7 @@ class AgentSystemFile: public AgentSystem {
 public:
     AgentSystemFile (AgentServerLog *logger, std::string file_name) :
                                 AgentSystem(logger), _outputFile(file_name) {}
+    ~AgentSystemFile() {}
 
     void systemAdd(SystemId id, const Telemetry::Path *request_path);
     void systemRemove(SystemId id, const Telemetry::Path *request_path);

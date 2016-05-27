@@ -51,6 +51,8 @@ public:
         _add_system_count = _remove_system_count = _error_system_count = 0;
     }
 
+    virtual ~AgentSystem () {};
+
     AgentServerLog  *getLogger (void)       { return _logger; }
 
     virtual void systemAdd(SystemId sys_id,

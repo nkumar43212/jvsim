@@ -15,6 +15,7 @@
 #include "AgentSystemFactory.hpp"
 #include "AgentConsolidator.hpp"
 
+#define AGENTCONSOLIDATORLOG            "consolidator"
 #define AGENT_SYSTEMFACTORY_LOG         "filemode_test"
 
 // This is a test class
@@ -31,7 +32,7 @@ public:
         if (env_rp != NULL) {
             // if ROOTPATH env variable is set, set default log path
             agent_server_log = (std::string)env_rp +
-                               "/logs/" + AGENTSERVER_LOGFILE;
+                               "/logs/" + AGENTCONSOLIDATORLOG;
             agent_systemfactory_log = (std::string)env_rp +
                                "/logs/" + AGENT_SYSTEMFACTORY_LOG;
         } else {
@@ -48,6 +49,7 @@ public:
     void TearDown (void)
     {
         delete cons;
+        delete sys_handle;
         delete logger;
     }
 

@@ -2,7 +2,11 @@
 //  AgentSystemFactory.cpp
 //  Telemetry Agent
 //
-//  Created by NITIN KUMAR on 2/25/16.
+//  Created: 2/25/16.
+//
+//  Authors: NITIN KUMAR
+//           ABBAS SAKARWALA
+//
 //  Copyright © 2016 Juniper Networks. All rights reserved.
 //
 
