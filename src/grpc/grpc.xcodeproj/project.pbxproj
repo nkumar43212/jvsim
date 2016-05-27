@@ -13,6 +13,8 @@
 		0537F4E51CCEA68200BD519B /* OCTelemetryJsonGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0537F4E21CCEA3CC00BD519B /* OCTelemetryJsonGenerator.cpp */; };
 		0537F4E61CCEA6B000BD519B /* OCTelemetryJson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0537F4DF1CCC01B100BD519B /* OCTelemetryJson.cpp */; };
 		053D479D1CF7CB4B00B94071 /* agent_test_consolidator_ut.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 053D479B1CF7CB4B00B94071 /* agent_test_consolidator_ut.cpp */; };
+		053D47A01CF7E5F300B94071 /* agent_test_consolidator_null_ut.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 053D479E1CF7E5F300B94071 /* agent_test_consolidator_null_ut.cpp */; };
+		053D47A31CF7E88B00B94071 /* agent_test_consolidator_proc_ut.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 053D47A11CF7E88B00B94071 /* agent_test_consolidator_proc_ut.cpp */; };
 		0584266C1CE4DD21003D866B /* OpenConfigLspStats.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0584266A1CE4DD21003D866B /* OpenConfigLspStats.cpp */; };
 		058AC3E61CED1CA80024FBD6 /* UdpReceiver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 058AC3E41CED1CA80024FBD6 /* UdpReceiver.cpp */; };
 		058AC3E91CED21AC0024FBD6 /* AgentSubscriptionUdpWorker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 058AC3E71CED21AC0024FBD6 /* AgentSubscriptionUdpWorker.cpp */; };
@@ -64,7 +66,6 @@
 		94A292061C827C9F004BB6C3 /* AgentSystemNull.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94A291FF1C822019004BB6C3 /* AgentSystemNull.cpp */; };
 		94AC4F1D1CA1EFD500AFDFE0 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94AC4F1C1CA1EFD500AFDFE0 /* main.cpp */; };
 		94AC4F261CA1F3B100AFDFE0 /* MgdServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94AC4F241CA1F3B100AFDFE0 /* MgdServer.cpp */; };
-		94AC4F291CA315D100AFDFE0 /* agent_test_consolidator_proc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94AC4F271CA315D100AFDFE0 /* agent_test_consolidator_proc.cpp */; };
 		94AC9A411C6A91CD0034AF1A /* gtest_main.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94AC9A401C6A91CD0034AF1A /* gtest_main.a */; };
 		94AC9A431C6A98780034AF1A /* libclient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94AC9A421C6A98780034AF1A /* libclient.a */; };
 		94AC9A681C74500F0034AF1A /* AgentServerIdManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94AC9A661C74500F0034AF1A /* AgentServerIdManager.cpp */; };
@@ -168,6 +169,10 @@
 		0537F4E71CCEB1ED00BD519B /* mgd_service.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = mgd_service.proto; path = ../../../protos/mgd_service.proto; sourceTree = "<group>"; };
 		053D479B1CF7CB4B00B94071 /* agent_test_consolidator_ut.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = agent_test_consolidator_ut.cpp; sourceTree = "<group>"; };
 		053D479C1CF7CB4B00B94071 /* agent_test_consolidator_ut.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = agent_test_consolidator_ut.hpp; sourceTree = "<group>"; };
+		053D479E1CF7E5F300B94071 /* agent_test_consolidator_null_ut.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = agent_test_consolidator_null_ut.cpp; sourceTree = "<group>"; };
+		053D479F1CF7E5F300B94071 /* agent_test_consolidator_null_ut.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = agent_test_consolidator_null_ut.hpp; sourceTree = "<group>"; };
+		053D47A11CF7E88B00B94071 /* agent_test_consolidator_proc_ut.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = agent_test_consolidator_proc_ut.cpp; sourceTree = "<group>"; };
+		053D47A21CF7E88B00B94071 /* agent_test_consolidator_proc_ut.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = agent_test_consolidator_proc_ut.hpp; sourceTree = "<group>"; };
 		058426691CE4DD09003D866B /* oc.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = oc.hpp; sourceTree = "<group>"; };
 		0584266A1CE4DD21003D866B /* OpenConfigLspStats.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OpenConfigLspStats.cpp; sourceTree = "<group>"; };
 		0584266B1CE4DD21003D866B /* OpenConfigLspStats.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = OpenConfigLspStats.hpp; sourceTree = "<group>"; };
@@ -264,8 +269,6 @@
 		94AC4F1C1CA1EFD500AFDFE0 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		94AC4F241CA1F3B100AFDFE0 /* MgdServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MgdServer.cpp; sourceTree = "<group>"; };
 		94AC4F251CA1F3B100AFDFE0 /* MgdServer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MgdServer.hpp; sourceTree = "<group>"; };
-		94AC4F271CA315D100AFDFE0 /* agent_test_consolidator_proc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = agent_test_consolidator_proc.cpp; sourceTree = "<group>"; };
-		94AC4F281CA315D100AFDFE0 /* agent_test_consolidator_proc.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = agent_test_consolidator_proc.hpp; sourceTree = "<group>"; };
 		94AC9A401C6A91CD0034AF1A /* gtest_main.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = gtest_main.a; path = lib/gtest_main.a; sourceTree = "<group>"; };
 		94AC9A421C6A98780034AF1A /* libclient.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libclient.a; path = lib/libclient.a; sourceTree = "<group>"; };
 		94AC9A661C74500F0034AF1A /* AgentServerIdManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AgentServerIdManager.cpp; sourceTree = "<group>"; };
@@ -472,8 +475,10 @@
 				05FA5C301CF6819A00F90E30 /* agent_test_path_validator_ut.hpp */,
 				053D479B1CF7CB4B00B94071 /* agent_test_consolidator_ut.cpp */,
 				053D479C1CF7CB4B00B94071 /* agent_test_consolidator_ut.hpp */,
-				94AC4F271CA315D100AFDFE0 /* agent_test_consolidator_proc.cpp */,
-				94AC4F281CA315D100AFDFE0 /* agent_test_consolidator_proc.hpp */,
+				053D479E1CF7E5F300B94071 /* agent_test_consolidator_null_ut.cpp */,
+				053D479F1CF7E5F300B94071 /* agent_test_consolidator_null_ut.hpp */,
+				053D47A11CF7E88B00B94071 /* agent_test_consolidator_proc_ut.cpp */,
+				053D47A21CF7E88B00B94071 /* agent_test_consolidator_proc_ut.hpp */,
 				946703DF1C65134700E73BF5 /* agent_test.cpp */,
 				946703DE1C65134700E73BF5 /* agent_test.hpp */,
 				940C7CDF1CE50446004ED81D /* agent_test_oc.cpp */,
@@ -806,15 +811,16 @@
 				05BD33BB1CD4027A0059EF17 /* JunosTelemetryJsonGenerator.cpp in Sources */,
 				946703E11C65134700E73BF5 /* agent_test.cpp in Sources */,
 				05BD33B71CD3FF550059EF17 /* JunosTelemetryJson.cpp in Sources */,
+				053D47A01CF7E5F300B94071 /* agent_test_consolidator_null_ut.cpp in Sources */,
 				05BD33B61CD3ED0C0059EF17 /* JsonUtils.cpp in Sources */,
 				94AC9AA31C7A1F2F0034AF1A /* AgentSystem.cpp in Sources */,
 				05FA5C321CF6856600F90E30 /* PathValidator.cpp in Sources */,
 				94A291FE1C8101AF004BB6C3 /* AgentSystemFactory.cpp in Sources */,
 				05FA5C2B1CF6675500F90E30 /* agent_test_id_manager_ut.cpp in Sources */,
+				053D47A31CF7E88B00B94071 /* agent_test_consolidator_proc_ut.cpp in Sources */,
 				94AC9A691C7459900034AF1A /* AgentServerIdManager.cpp in Sources */,
 				05FA5C311CF6819A00F90E30 /* agent_test_path_validator_ut.cpp in Sources */,
 				94AC9A901C77DACE0034AF1A /* AgentConsolidatorSystem.cpp in Sources */,
-				94AC4F291CA315D100AFDFE0 /* agent_test_consolidator_proc.cpp in Sources */,
 				940C7CE01CE50446004ED81D /* agent_test_oc.cpp in Sources */,
 				05BD33AF1CD324080059EF17 /* GlobalConfig.cpp in Sources */,
 				05FA5C2E1CF67EC600F90E30 /* agent_test_arg_parser_ut.cpp in Sources */,

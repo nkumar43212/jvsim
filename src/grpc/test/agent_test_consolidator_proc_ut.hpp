@@ -1,16 +1,22 @@
 //
 //  agent_test_consolidator_proc.hpp
-//  agent-jv
 //
-//  Created by NITIN KUMAR on 3/23/16.
+//  Created: 3/23/16.
+//
+//  Authors: NITIN KUMAR
+//           ABBAS SAKARWALA
+//
 //  Copyright © 2016 Juniper Networks. All rights reserved.
 //
 
 #ifndef agent_test_consolidator_proc_hpp
 #define agent_test_consolidator_proc_hpp
 
+#include "AgentServerLog.hpp"
 #include "AgentSystemFactory.hpp"
 #include "AgentConsolidator.hpp"
+
+#define AGENTCONSOLIDATORPROCLOG            "consolidator_proc"
 
 // This is a test class
 class AgentConsolidatorProcTest: public testing::Test {
@@ -40,6 +46,7 @@ public:
     void TearDown (void)
     {
         delete cons;
+        delete sys_handle;
         delete logger;
     }
 

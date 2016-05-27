@@ -1,8 +1,11 @@
 //
 //  agent_test_consolidator_proc.cpp
-//  agent-jv
 //
-//  Created by NITIN KUMAR on 3/23/16.
+//  Created: 3/23/16.
+//
+//  Authors: NITIN KUMAR
+//           ABBAS SAKARWALA
+//
 //  Copyright © 2016 Juniper Networks. All rights reserved.
 //
 
@@ -11,8 +14,6 @@
 #include <string>
 #include "gtest/gtest.h"
 #include "agent_test_consolidator_proc.hpp"
-#include "AgentConsolidator.hpp"
-#include "AgentServerLog.hpp"
 #include "AgentSystemProc.hpp"
 
 TEST_F(AgentConsolidatorProcTest, create) {
