@@ -101,6 +101,25 @@ TEST(args_parser, invalid_arg_non_print) {
     EXPECT_EQ(false, status);
 }
 
+TEST(args_parser, colon_arg) {
+    AgentServerCmdOptions opts;
+    char *argv[] = {(char *)"test", (char *)":", (char *)"-n", NULL};
+
+    bool status = opts.parseArgs(3, argv);
+
+    EXPECT_EQ(false, status);
+    EXPECT_EQ(false, opts.isSystemModeNull());
+}
+
+TEST(args_parser, missing_hyphen_arg) {
+    AgentServerCmdOptions opts;
+    char *argv[] = {(char *)"test", (char *)"R", NULL};
+
+    bool status = opts.parseArgs(2, argv);
+
+    EXPECT_EQ(false, status);
+}
+
 TEST(args_parser, usage) {
     AgentServerCmdOptions opts;
     char *argv[] = {(char *)"test", (char *)"-u", NULL};

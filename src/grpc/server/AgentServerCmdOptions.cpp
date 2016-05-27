@@ -121,15 +121,15 @@ AgentServerCmdOptions::parseArgs (int argc, char **argv)
                 }
                 resetArgs();
                 return false;
-
-            case ':': {
-                std::cout << "Unknown Option" << std::endl;
-                break;
-            }
         }
     }
 
-    resetArgs();
+    if (optind < argc) {
+        resetArgs();
+        return false;
+    }
+
     // Return the status correctly
+    resetArgs();
     return true;
 }
