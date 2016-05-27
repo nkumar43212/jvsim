@@ -37,7 +37,7 @@ gtest_main.a : gtest-all.o gtest_main.o
 	cp gtest_main.a ../lib/gtest_main.a
 
 # Build unit tests
-agent_test : gtest_main.a agent_test_id_manager_ut.o agent_test_arg_parser_ut.o agent_test_path_validator_ut.o agent_test_consolidator_ut.o agent_test_consolidator_null_ut.o agent_test_consolidator_proc_ut.o  agent_test_oc.o agent_test.o
+agent_test : gtest_main.a agent_test_id_manager_ut.o agent_test_arg_parser_ut.o agent_test_path_validator_ut.o agent_test_global_config_ut.o agent_test_consolidator_ut.o agent_test_consolidator_null_ut.o agent_test_consolidator_proc_ut.o  agent_test_oc.o agent_test.o
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
 
 install: agent_test
