@@ -84,7 +84,11 @@ main (int argc, char * argv[])
     // If ini file is defined, invoke Global Config Parser
     ini_config_file = opts.getIniConfigFile();
     if (ini_config_file != NULL) {
-        GlobalConfig::parse(std::string(ini_config_file), global_config);
+        bool parse_status = GlobalConfig::parse(std::string(ini_config_file),
+                                                global_config);
+        if (!parse_status) {
+            exit(0);
+        }
 
         // Set logger information
         std::string log_file_str = global_config.grpc_log_file_path + "/" +

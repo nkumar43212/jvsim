@@ -2,7 +2,10 @@
 //  GlobalConfig.cpp
 //  Telemetry Agent
 //
-//  Created by ABBAS SAKARWALA on 4/27/16.
+//  Created: 4/27/16.
+//
+//  Authors: ABBAS SAKARWALA
+//
 //  Copyright © 2016 Juniper Networks. All rights reserved.
 //
 
@@ -117,14 +120,15 @@ operator<<(std::ostream& os, GlobalConfig& gc)
     return os;
 }
 
-void
+bool
 GlobalConfig::parse(std::string filename, GlobalConfig &global_config)
 {
     INIReader reader(filename);
     
     if (reader.ParseError() < 0) {
         std::cout << "Can't load INI file = " << filename << std::endl;
-        exit(1);
+        // parse error
+        return false;
     }
 
     // INI_SECTION_TELEMETRY_GRPC
@@ -222,4 +226,7 @@ GlobalConfig::parse(std::string filename, GlobalConfig &global_config)
                                             global_config.ocpath_file_name);
 
     std::cout << global_config;
+
+    // parse successful
+    return true;
 }

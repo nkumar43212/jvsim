@@ -2,7 +2,10 @@
 //  GlobalConfig.hpp
 //  Telemetry Agent
 //
-//  Created by ABBAS SAKARWALA on 4/27/16.
+//  Created: 4/27/16.
+//
+//  Authors: ABBAS SAKARWALA
+//
 //  Copyright © 2016 Juniper Networks. All rights reserved.
 //
 
@@ -125,7 +128,7 @@ public:
     static bool is_valid_system_mode(std::string system_mode);
     static bool is_valid_running_mode(std::string running_mode);
     friend std::ostream& operator<<(std::ostream& os, GlobalConfig& gc);
-    static void parse(std::string filename, GlobalConfig &global_config);
+    static bool parse(std::string filename, GlobalConfig &global_config);
 };
 
 // Global configuration object
