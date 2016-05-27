@@ -2,7 +2,11 @@
 //  AgentServerCmdOptions.hpp
 //  Telemetry Agent
 //
-//  Created by NITIN KUMAR on 2/26/16.
+//  Created: 2/26/16.
+//
+//  Authors: NITIN KUMAR
+//           ABBAS SAKARWALA
+//
 //  Copyright © 2016 Juniper Networks. All rights reserved.
 //
 
@@ -30,6 +34,9 @@ public:
         _ini_config_file = NULL;
     }
 
+    ~AgentServerCmdOptions() {
+    }
+
     char *getLogFile(void)          { return _logfile; }
     char *getSystemFileName(void)   { return _system_file_name; }
     bool isSystemModeNull(void)     { return _null_mode; }
@@ -42,6 +49,7 @@ public:
     void setFileName(std::string file);
     void setNullMode(bool mode);
     void setProcMode(bool mode);
+    void setINIConfigFile(std::string ini_config_file);
     void printUsage(void);
     bool parseArgs(int argc, char **argv);
 

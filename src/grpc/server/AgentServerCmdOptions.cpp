@@ -47,6 +47,13 @@ AgentServerCmdOptions::setProcMode (bool mode)
 }
 
 void
+AgentServerCmdOptions::setINIConfigFile (std::string ini_config_file)
+{
+    std::string *str = new std::string(ini_config_file);
+    _ini_config_file = (char *) str->c_str();
+}
+
+void
 AgentServerCmdOptions::printUsage (void)
 {
     std::cout << "Usage: agent_server [-u/-h] [-n] [-p] [-f] <filename> "
@@ -73,29 +80,26 @@ AgentServerCmdOptions::parseArgs (int argc, char **argv)
                 break;
 
             case 'n':
-                _null_mode = true;
+                setNullMode(true);
                 break;
 
             case 'p':
-                _proc_mode = true;
+                setProcMode(true);
                 break;
 
             case 'f': {
-                std::string *str = new std::string(optarg);
-                _system_file_name = (char *) str->c_str();
-                _file_mode = true;
+                setFileName(std::string(optarg));
+                setFileMode(true);
                 break;
             }
 
             case 'l': {
-                std::string *str = new std::string(optarg);
-                _logfile = (char *) str->c_str();
+                setLogFile(std::string(optarg));
                 break;
             }
 
             case 'c': {
-                std::string *str = new std::string(optarg);
-                _ini_config_file = (char *) str->c_str();
+                setINIConfigFile(std::string(optarg));
                 break;
             }
 
