@@ -55,6 +55,12 @@ TEST_F(AgentConsolidatorProcTest, get) {
         }
         EXPECT_TRUE(found);
     }
+
+    // Remove it now
+    cons->removeRequest(handle);
+    EXPECT_EQ(0, cons->getSystemRequestCount());
+    EXPECT_EQ(1, cons->getRemCount());
+    EXPECT_EQ(0, cons->getErrors());
 }
 
 TEST_F(AgentConsolidatorProcTest, getSystem) {
@@ -88,4 +94,9 @@ TEST_F(AgentConsolidatorProcTest, getSystem) {
         }
         EXPECT_TRUE(found);
     }
+
+    // Remove it now
+    cons->removeRequest(handle);
+    EXPECT_EQ(0, cons->getSystemRequestCount());
+    EXPECT_EQ(0, cons->getErrors());
 }
