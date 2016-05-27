@@ -1,13 +1,16 @@
 //
-//  agent_test_consolidator.hpp
-//  agent-jv
+//  agent_test_consolidator_ut.hpp
 //
-//  Created by NITIN KUMAR on 2/18/16.
+//  Created: 2/18/16.
+//
+//  Authors: NITIN KUMAR
+//           ABBAS SAKARWALA
+//
 //  Copyright © 2016 Juniper Networks. All rights reserved.
 //
 
-#ifndef agent_test_consolidator_hpp
-#define agent_test_consolidator_hpp
+#ifndef agent_test_consolidator_ut_hpp
+#define agent_test_consolidator_ut_hpp
 
 #include "AgentSystemFactory.hpp"
 #include "AgentConsolidator.hpp"
@@ -58,4 +61,4 @@ public:
     TestArgs(AgentConsolidator *cons_val, uint32_t id_val):
              cons(cons_val), id(id_val) {}
 };
-#endif /* agent_test_consolidator_hpp */
+#endif /* agent_test_consolidator_ut_hpp */
