@@ -82,7 +82,7 @@ AgentServerCmdOptions::parseArgs (int argc, char **argv)
             case 'u':
             case 'h':
                 printUsage();
-                exit(0);
+                return false;
                 break;
 
             case 'n':
