@@ -82,8 +82,8 @@ AgentServerCmdOptions::parseArgs (int argc, char **argv)
             case 'u':
             case 'h':
                 printUsage();
+                resetArgs();
                 return false;
-                break;
 
             case 'n':
                 setNullMode(true);
@@ -129,7 +129,7 @@ AgentServerCmdOptions::parseArgs (int argc, char **argv)
         }
     }
 
-    optind = 1;
+    resetArgs();
     // Return the status correctly
     return true;
 }
