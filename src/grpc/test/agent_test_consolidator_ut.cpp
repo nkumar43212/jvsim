@@ -33,6 +33,11 @@ TEST_F(AgentConsolidatorTest, add) {
     EXPECT_EQ(1, cons->getAddCount());
     EXPECT_EQ(0, cons->getErrors());
 
+    // Simple check get call is good
+    SubscriptionRequest *test_ptr;
+    test_ptr = cons->getRequest(handle);
+    EXPECT_TRUE(test_ptr != NULL);
+
     // Remove it now
     cons->removeRequest(handle);
     EXPECT_EQ(0, cons->getSystemRequestCount());
