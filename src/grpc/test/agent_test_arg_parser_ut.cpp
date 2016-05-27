@@ -108,7 +108,6 @@ TEST(args_parser, colon_arg) {
     bool status = opts.parseArgs(3, argv);
 
     EXPECT_EQ(false, status);
-    EXPECT_EQ(false, opts.isSystemModeNull());
 }
 
 TEST(args_parser, missing_hyphen_arg) {
