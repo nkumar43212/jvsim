@@ -32,7 +32,7 @@ public:
         if (env_rp != NULL) {
             // if ROOTPATH env variable is set, set default log path
             agent_server_log = (std::string)env_rp +
-                               "/logs/" + AGENTSERVER_LOGFILE;
+                               "/logs/" + AGENTCONSOLIDATORPROCLOG;
         } else {
             std::cerr << "Please setup ROOTPATH environment variable."
                       << std::endl;
