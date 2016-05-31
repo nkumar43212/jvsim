@@ -87,6 +87,7 @@ main (int argc, char * argv[])
         bool parse_status = GlobalConfig::parse(std::string(ini_config_file),
                                                 global_config);
         if (!parse_status) {
+            std::cerr << "INI config file parse failed" << std::endl;
             exit(0);
         }
 
@@ -149,6 +150,7 @@ main (int argc, char * argv[])
                                     global_config.ocpath_file_path + "/" +
                                     global_config.ocpath_file_name);
         if (!status) {
+            logger->log("PathValidator build_path failed. Terminating");
             exit(0);
         }
         path_validator->print_path_information_db();
