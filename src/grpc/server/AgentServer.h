@@ -2,7 +2,6 @@
 //  AgentServer.h
 //  Telemetry Agent
 //
-//
 //  Created: 12/29/15.
 //
 //  Authors: NITIN KUMAR

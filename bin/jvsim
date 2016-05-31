@@ -149,7 +149,7 @@ then
     echo "---- sensors          : $SENSORS"
     if [ $run_test_oc != 0 ]
     then
-        SYSTEM_DESCRIPTION="$CONFIG/system.test_oc.json"
+        SYSTEM_DESCRIPTION="$CONFIG/test_config/TestOC/system.test_oc.json"
     else
         SYSTEM_DESCRIPTION="$CONFIG/system.json"
     fi

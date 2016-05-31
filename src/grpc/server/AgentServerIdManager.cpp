@@ -1,7 +1,5 @@
 //
 //  AgentServerIdManager.cpp
-//
-//  AgentServerCmdOptions.hpp
 //  Telemetry Agent
 //
 //  Created: 2/16/16.
