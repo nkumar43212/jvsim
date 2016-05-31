@@ -3,6 +3,8 @@
 //  agent-jv-client
 //
 //  Created by NITIN KUMAR on 12/29/15.
+//  CoAuthors: ABBAS SAKARWALA
+//
 //  Copyright © 2015 Juniper Networks. All rights reserved.
 //
 
@@ -103,6 +105,7 @@ public:
                             uint32_t limit_records = 0,
                             uint32_t limit_seconds = 0);
     void cancelSubscribeTelemetry(void);
+    void cancelSubscribeTelemetryId(uint32_t subscription_id);
     void listSubscriptions(uint32_t subscription_id);
     void getOperational(uint32_t subscription_id,
                         Telemetry::VerbosityLevel verbosity);

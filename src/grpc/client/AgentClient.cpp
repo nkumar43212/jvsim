@@ -3,6 +3,8 @@
 //  agent-jv-client
 //
 //  Created by NITIN KUMAR on 12/29/15.
+//  CoAuthors: ABBAS SAKARWALA
+//
 //  Copyright © 2015 Juniper Networks. All rights reserved.
 //
 
@@ -197,6 +199,24 @@ AgentClient::cancelSubscribeTelemetry (void)
         // Break the read loop
         _active = false;
     }
+}
+
+void
+AgentClient::cancelSubscribeTelemetryId (uint32_t subscription_id)
+{
+    std::cout << std::endl << "Unsubscribe Subcription Id = "
+                           << subscription_id << std::endl;
+
+    // Send over the unsubscribe
+    ClientContext context;
+    CancelSubscriptionRequest request;
+    CancelSubscriptionReply reply;
+    request.set_subscription_id(subscription_id);
+    stub_->cancelTelemetrySubscription(&context, request, &reply);
+
+    // What did the server tell us ?
+    std::cout << "Server Response code : " << reply.code() << std::endl;
+    std::cout << "Server Response string : " << reply.code_str() << std::endl;
 }
 
 void

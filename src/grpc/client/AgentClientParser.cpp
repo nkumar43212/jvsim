@@ -3,6 +3,8 @@
 //  agent-jv-client
 //
 //  Created by NITIN KUMAR on 1/22/16.
+//  CoAuthors: ABBAS SAKARWALA
+//
 //  Copyright © 2016 Juniper Networks. All rights reserved.
 //
 
@@ -174,6 +176,24 @@ handle_unsubscribe (int argc, const char *argv[])
 }
 
 void
+handle_unsubscribe_id (int argc, const char *argv[])
+{
+    uint32_t subscription_id = atoi(argv[1]);
+    std::string client_name(AGENTCLIENT_MGMT);
+    AgentClient *client;
+
+    // Find this client
+    client = AgentClient::find(client_name);
+    if (!client) {
+        std::cout << "Failed to find client: " << client_name << std::endl;
+        return;
+    }
+
+    client->cancelSubscribeTelemetryId(subscription_id);
+    // Leave the delete of client in the subscription thread
+}
+
+void
 handle_list_all (int argc, const char *argv[])
 {
     AgentClient *mgmt = AgentClient::find(AGENTCLIENT_MGMT);
@@ -309,6 +329,14 @@ entry_t agent_client_commands [] = {
         .e_help    = std::string("Unsubscribe an existing request by specifying the subscription name"),
         .e_usage   = std::string("unsubscribe <subscription-name>"),
         .e_handler = handle_unsubscribe
+    },
+
+    {
+        .e_cmd     = std::string("unsubscribe_id"),
+        .e_argc    = 2,
+        .e_help    = std::string("Unsubscribe an existing request by specifying the subscription id"),
+        .e_usage   = std::string("unsubscribe <subscription-id>"),
+        .e_handler = handle_unsubscribe_id
     },
 
     {
