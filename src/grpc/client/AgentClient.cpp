@@ -139,15 +139,19 @@ AgentClient::subscribeTelemetry (std::vector<std::string> path_list,
     // Std on the terminal
     std::cout << std::endl << "Received Subcription Id = "
               << _subscription_id << std::endl;
-    for (int i = 0; i < reply.path_list_size(); i++) {
-        // Convert request to string
-        std::string message_str;
-        // Serialize the data in text format
-        google::protobuf::TextFormat::Printer printer;
-        // Use single line mode
-        printer.SetSingleLineMode(true);
-        printer.PrintToString(reply.path_list(i), &message_str);
-        std::cout << "Path[" << i << "]: " << message_str << std::endl;
+    if (reply.path_list_size()) {
+        for (int i = 0; i < reply.path_list_size(); i++) {
+            // Convert request to string
+            std::string message_str;
+            // Serialize the data in text format
+            google::protobuf::TextFormat::Printer printer;
+            // Use single line mode
+            printer.SetSingleLineMode(true);
+            printer.PrintToString(reply.path_list(i), &message_str);
+            std::cout << "Path[" << i << "]: " << message_str << std::endl;
+        }
+    } else {
+        std::cout << "*** No Paths accepted ***" << std::endl;
     }
 
     // Log file handle
