@@ -26,7 +26,8 @@ public:
         if (env_rp != NULL) {
             // if ROOTPATH env variable is set, set default log path
             root_path = (std::string)env_rp;
-            global_config_ini = (std::string)env_rp +"/config/agent_server.ini";
+            global_config_ini = (std::string)env_rp +
+                "/config/test_config/GlobalConfig/agent_server.ini";
         } else {
             std::cerr << "Please setup ROOTPATH environment variable."
             << std::endl;

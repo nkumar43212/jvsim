@@ -140,8 +140,14 @@ AgentClient::subscribeTelemetry (std::vector<std::string> path_list,
     std::cout << std::endl << "Received Subcription Id = "
               << _subscription_id << std::endl;
     for (int i = 0; i < reply.path_list_size(); i++) {
-        std::cout << "Path[" << i << "]: " << reply.path_list(i).path()
-                  << std::endl;
+        // Convert request to string
+        std::string message_str;
+        // Serialize the data in text format
+        google::protobuf::TextFormat::Printer printer;
+        // Use single line mode
+        printer.SetSingleLineMode(true);
+        printer.PrintToString(reply.path_list(i), &message_str);
+        std::cout << "Path[" << i << "]: " << message_str << std::endl;
     }
 
     // Log file handle

@@ -66,6 +66,10 @@
             argument = "-c ${PROJECT_DIR}/../../config/agent_server.ini"
             isEnabled = "YES">
          </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-c ${PROJECT_DIR}/../../config/test_config/INIFile/agent_server.ini"
+            isEnabled = "NO">
+         </CommandLineArgument>
       </CommandLineArguments>
       <EnvironmentVariables>
          <EnvironmentVariable

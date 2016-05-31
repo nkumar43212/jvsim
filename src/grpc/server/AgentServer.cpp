@@ -23,7 +23,7 @@ AgentServer::telemetrySubscribe (ServerContext *context,
                                  ServerWriter<OpenConfigData>* writer)
 {
     std::string log_str;
-    PathList    path_list;
+    PathList    final_path_list;
     AgentConsolidatorHandle *system_handle;
     SubscriptionRequest *validated_request;
     SubscriptionReply reply;
@@ -43,16 +43,8 @@ AgentServer::telemetrySubscribe (ServerContext *context,
         return _sendMetaDataInfo(context, writer, reply);
     }
 
-    // Get all the paths that we are interested in
-    log_str = "";
-    for (int i = 0; i < request->path_list_size(); i++) {
-        path_list.push_back(request->path_list(i).path());
-        log_str += request->path_list(i).path();
-        log_str += ":";
-    }
-
     // Make a note
-    _logger->log("Subscription-Begin: " + log_str);
+    _logger->log("Subscription-Begin");
 
     // Allocate an ID
     id_idx_t id = _id_manager.allocate();
@@ -67,14 +59,32 @@ AgentServer::telemetrySubscribe (ServerContext *context,
     log_str = std::to_string(id);
     _logger->log("Subscription-Allocate: ID = " + log_str);
 
-    // Validate request against capability (for now hardcoded)
-    // TODO ABBAS
+    // Validate request against capability (path validator fields)
+    // (for now capability is hardcoded in a file)
     validated_request = new SubscriptionRequest();
-    validated_request->CopyFrom(*request);
+    if (global_config.validate_ocpaths) {
+        Telemetry::SubscriptionAdditionalConfig *add_config =
+                                new Telemetry::SubscriptionAdditionalConfig();
+        add_config->CopyFrom(request->additional_config());
+        validated_request->set_allocated_additional_config(add_config);
+        _logger->log("Validating paths ...");
+        for (int i = 0; i < request->path_list_size(); i++) {
+            Telemetry::Path path = request->path_list(i);
+            _path_validator->validate_path(path);
+            if (path.ByteSize() != 0) {
+                Telemetry::Path *p_path = validated_request->add_path_list();
+                p_path->CopyFrom(path);
+            }
+        }
+        log_str = "Validated Paths->";
+        log_str.append(AgentUtils::getMessageString(*validated_request));
+        _logger->log(log_str);
+    } else {
+        validated_request->CopyFrom(*request);
+    }
 
     // Create a subscription into the system
     system_handle = _consolidator.addRequest(id, validated_request);
-    delete validated_request;
     if (!system_handle) {
         // Delete allocated id
         _id_manager.deallocate(id);
@@ -82,17 +92,28 @@ AgentServer::telemetrySubscribe (ServerContext *context,
         response->set_subscription_id(_id_manager.getNullIdentifier());
         _logger->log(
                 "Subscription-stream-end: Error, Internal System Failure");
+        delete validated_request;
         return _sendMetaDataInfo(context, writer, reply);
     }
 
+    // Get all the paths that we are interested in
+    log_str = "";
+    for (int i = 0; i < validated_request->path_list_size(); i++) {
+        final_path_list.push_back(validated_request->path_list(i).path());
+        log_str += validated_request->path_list(i).path();
+        log_str += ":";
+    }
+    _logger->log("Final-path-list: " + log_str);
+
     // Create a subscription
     AgentServerTransport *transport = new AgentServerTransport(context, writer);
-    AgentSubscriptionLimits limits(request->additional_config().limit_records(),
-                            request->additional_config().limit_time_seconds());
+    AgentSubscriptionLimits limits(
+                validated_request->additional_config().limit_records(),
+                validated_request->additional_config().limit_time_seconds());
     AgentSubscription *sub = AgentSubscription::createSubscription(id,
                                                             system_handle,
                                                             transport,
-                                                            path_list,
+                                                            final_path_list,
                                                             limits,
                                                             _logger);
     if (!sub) {
@@ -102,6 +123,8 @@ AgentServer::telemetrySubscribe (ServerContext *context,
         response->set_subscription_id(_id_manager.getNullIdentifier());
         _logger->log(
                 "Subscription-stream-end: Error, Subscription Creation Error");
+        delete validated_request;
+        delete transport;
         return _sendMetaDataInfo(context, writer, reply);
     }
 
@@ -112,7 +135,7 @@ AgentServer::telemetrySubscribe (ServerContext *context,
                     AgentSubscriptionUdpWorker::createSubscriptionUdpWorker(id,
                                                     system_handle,
                                                     transport,
-                                                    path_list);
+                                                    final_path_list);
         // Add worker in udpreceiver
         udpreceiver->add_worker(sub->getId(), sub_udp_worker);
 
@@ -127,12 +150,11 @@ AgentServer::telemetrySubscribe (ServerContext *context,
     response->set_subscription_id(sub->getId());
 
     // Send path info back to the client
-    // TODO ABBAS : Need to add more than just path details based on capability
-    PathList pList = sub->getPathList();
-    for (PathList::iterator it = pList.begin(); it < pList.end(); it++) {
+    for (int i = 0; i < validated_request->path_list_size(); i++) {
         Telemetry::Path *p_tpath = reply.add_path_list();
-        p_tpath->set_path(*it);
+        p_tpath->CopyFrom(validated_request->path_list(i));
     }
+
     // Don't start MQTT subscription till we send this response
     _sendMetaDataInfo(context, writer, reply);
 
@@ -167,6 +189,10 @@ AgentServer::telemetrySubscribe (ServerContext *context,
 
     log_str = std::to_string(sub->getId());
     _logger->log("Subscription-stream-end: ID = " + log_str);
+
+
+    // Delete validated_request
+    delete validated_request;
 
     // Delete transport object
     delete transport;
