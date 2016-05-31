@@ -17,33 +17,38 @@ typedef ClientReader<OpenConfigData> AgentClientReader;
 // This is a test class
 class AgentClientTest: public testing::Test {
 public:
+    std::string CLIENT_LOGDIR;
+    std::string GRPC_SERVER_IP_PORT;
+
     void SetUp (void)
     {
         std::string CLIENT_LOGDIR;
         char *env_rp = std::getenv("ROOTPATH");
         if (env_rp != NULL) {
             // if ROOTPATH env variable is set, set default log path
-            CLIENT_LOGDIR = (std::string)env_rp + "/tmp/";
+            CLIENT_LOGDIR = (std::string)env_rp + "/logs/";
         } else {
             std::cerr << "Please setup ROOTPATH environment variable."
                       << std::endl;
             exit(1);
         }
+        GRPC_SERVER_IP_PORT = std::string("localhost:50051");
     }
 
     void TearDown (void)
     {
     }
 
-    std::string CLIENT_LOGDIR;
     static void *create_subscriptions(void *args);
     static void *delete_subscriptions(void *args);
 };
 
 class TestArgs {
 public:
-    TestArgs (int i, Telemetry::OpenConfigData *d, int N, std::string cd):
+    TestArgs (int i, Telemetry::OpenConfigData *d, int N, std::string cd,
+              std::string grpc_server_ip_port):
              index(i), data(d), max_data_size(N), client_logdir(cd),
+             grpc_server_ip_port(grpc_server_ip_port),
              data_size(0), limit_record(0),
              return_before_graceful_terminate(false) {}
 
@@ -54,6 +59,7 @@ public:
     int limit_record;
     bool return_before_graceful_terminate;
     std::string client_logdir;
+    std::string grpc_server_ip_port;
     uint32_t subscription_id;
     AgentClient *client;
 };

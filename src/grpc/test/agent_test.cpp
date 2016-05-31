@@ -11,8 +11,6 @@
 #include <google/protobuf/text_format.h>
 #include <google/protobuf/io/zero_copy_stream.h>
 
-#define GRPC_SERVER_IP_PORT     "localhost:50051"
-
 TEST_F(AgentClientTest, subscribe_and_force_terminate) {
     AgentClient *client;
     uint32_t subscription_id;
@@ -259,7 +257,8 @@ TEST_F(AgentClientTest, multiple_subscribe) {
     // Spawn the N subscribers
     for (int i = 0; i < n; i++) {
         data[i] = new Telemetry::OpenConfigData[MAX_RECS];
-        args[i] = new TestArgs(i, data[i], MAX_RECS, CLIENT_LOGDIR);
+        args[i] = new TestArgs(i, data[i], MAX_RECS, CLIENT_LOGDIR,
+                               GRPC_SERVER_IP_PORT);
         args[i]->limit_record = 5;
         pthread_create(&tid[i], NULL, AgentClientTest::create_subscriptions,
                        (void *)(args[i]));
@@ -311,7 +310,8 @@ TEST_F(AgentClientTest, verify_multiple_subscribe) {
     // Spawn the N subscribers
     for (int i = 0; i < n; i++) {
         data[i] = new Telemetry::OpenConfigData[MAX_RECS];
-        args[i] = new TestArgs(i, data[i], MAX_RECS, CLIENT_LOGDIR);
+        args[i] = new TestArgs(i, data[i], MAX_RECS, CLIENT_LOGDIR,
+                               GRPC_SERVER_IP_PORT);
         args[i]->limit_record = 50000;
         args[i]->return_before_graceful_terminate = true;
         pthread_create(&tid[i], NULL, AgentClientTest::create_subscriptions,
@@ -396,7 +396,8 @@ TEST_F(AgentClientTest, get_oper_all) {
     // Spawn the N subscribers
     for (int i = 0; i < n; i++) {
         data[i] = new Telemetry::OpenConfigData[MAX_RECS];
-        args[i] = new TestArgs(i, data[i], MAX_RECS, CLIENT_LOGDIR);
+        args[i] = new TestArgs(i, data[i], MAX_RECS, CLIENT_LOGDIR,
+                               GRPC_SERVER_IP_PORT);
         args[i]->limit_record = 50000;
         args[i]->return_before_graceful_terminate = true;
         pthread_create(&tid[i], NULL, AgentClientTest::create_subscriptions,
@@ -515,8 +516,9 @@ AgentClientTest::create_subscriptions (void *args)
 
     // Create the test client
     std::string client_name("client-" + std::to_string(test_args->index));
-    client = AgentClient::create(grpc::CreateChannel(GRPC_SERVER_IP_PORT,
-                                 grpc::InsecureCredentials()),
+    client = AgentClient::create(grpc::CreateChannel(
+                                   test_args->grpc_server_ip_port,
+                                   grpc::InsecureCredentials()),
                                  client_name, 0, test_args->client_logdir);
     EXPECT_TRUE(client != NULL);
     if (!client) {
