@@ -15,6 +15,7 @@
 #include <google/protobuf/text_format.h>
 #include <google/protobuf/io/zero_copy_stream.h>
 #include "AgentClientLag.hpp"
+#include "AgentTelegrafLog.hpp"
 
 // List of active clients
 using std::map;
@@ -84,6 +85,7 @@ AgentClient::print (void)
 void
 AgentClient::subscribeTelemetry (std::vector<std::string> path_list,
                                  uint32_t sample_frequency,
+				 bool     telegraf,
                                  uint32_t limit_records,
                                  uint32_t limit_seconds)
 {
@@ -158,6 +160,9 @@ AgentClient::subscribeTelemetry (std::vector<std::string> path_list,
     AgentServerLog *logger = new AgentServerLog(_logfile);
     logger->enable();
 
+    // Telegraf file handle
+    AgentTelegrafLog *telegraf_logger = new AgentTelegrafLog(_logfile);
+
     // Start reading the stream
     OpenConfigData kv;
     while (reader->Read(&kv) && _active) {
@@ -172,6 +177,11 @@ AgentClient::subscribeTelemetry (std::vector<std::string> path_list,
 
         // If this is a port interface subscription update the LAG
         AgentLag::updateStats(&kv);
+
+        // Are we to send a telegram ?
+        if (telegraf) {
+            telegraf_logger->updateStats(&kv);   
+        }
     }
 
     // Cleanup
@@ -179,6 +189,7 @@ AgentClient::subscribeTelemetry (std::vector<std::string> path_list,
               << _subscription_id << std::endl;
 
     delete logger;
+    delete telegraf_logger;
     reader->Finish();
 }
 

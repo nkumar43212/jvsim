@@ -57,6 +57,39 @@ handle_subscribe (int argc, const char *argv[])
 }
 
 void
+handle_subscribe_telegraf (int argc, const char *argv[])
+{
+    std::string client_name(argv[1]);
+    AgentClient *client;
+
+    // Find this client
+    client = AgentClient::find(client_name);
+    if (client != NULL) {
+        std::cout << "Client already exist: " << client_name << std::endl;
+        return;
+    }
+
+    // Create a client
+    client = AgentClient::create(grpc::CreateChannel(AGENT_SERVER_IP_PORT,
+                                 grpc::InsecureCredentials()),
+                                 client_name,
+                                 global_id++,
+                                 parser->getLogDir());
+
+    // Sample Frequency
+    uint32_t sample_frequency = atoi(argv[2]);
+
+    // collect the list of paths
+    std::vector<std::string> path_list;
+    for (int i = 3; argv[i]; i++) {
+        path_list.push_back(argv[i]);
+    }
+
+    client->subscribeTelemetry(path_list, sample_frequency, true);
+    delete client;
+}
+
+void
 handle_subscribe_limits (int argc, const char *argv[])
 {
     std::string client_name(argv[1]);
@@ -88,7 +121,7 @@ handle_subscribe_limits (int argc, const char *argv[])
     }
 
     client->subscribeTelemetry(path_list, sample_frequency,
-                               limit_records, limit_seconds);
+                               false, limit_records, limit_seconds);
     delete client;
 }
 
@@ -305,6 +338,14 @@ entry_t agent_client_commands [] = {
         .e_help    = std::string("Subscribe to a jvision sensor by specifying a list of paths"),
         .e_usage   = std::string("subscribe <subscription-name> <sample-frequency> <path>+"),
         .e_handler = handle_subscribe
+    },
+
+    {
+        .e_cmd     = std::string("subscribe-telegraf"),
+        .e_argc    = 4,
+        .e_help    = std::string("Subscribe to a jvision sensor by specifying a list of paths"),
+        .e_usage   = std::string("subscribe-telegraf <graf-filename> <subscription-name> <sample-frequency> <path>+"),
+        .e_handler = handle_subscribe_telegraf
     },
 
     {

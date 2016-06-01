@@ -45,13 +45,19 @@ public:
     }
 
     // Write to the logger
-    void log (std::string message)
+    void log (std::string message, bool raw = false)
     {
         if (_level == 0) {
             return;
         }
 
         std::lock_guard<std::mutex> guard(_log_mutex);
+        if (raw) {
+            _outputFile << message << std::endl;
+            _outputFile.flush();
+            return;
+        }
+
         std::time_t now = std::time(NULL);
         char timestr[20] = {0};
         std::strftime(timestr, sizeof(timestr),
