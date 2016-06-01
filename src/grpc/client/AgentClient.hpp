@@ -46,8 +46,8 @@ using Telemetry::VerbosityLevel;
 using Telemetry::EncodingType;
 
 // AGENT_SERVER_ADDRESS
-//#define AGENT_SERVER_IP_PORT            "localhost:50051"
-#define AGENT_SERVER_IP_PORT              "10.209.16.147:50051"
+#define AGENT_SERVER_IP_PORT            "localhost:50051"
+//#define AGENT_SERVER_IP_PORT              "10.209.16.147:50051"
 
 // Name of Management Client
 #define AGENTCLIENT_MGMT "Management-Client"

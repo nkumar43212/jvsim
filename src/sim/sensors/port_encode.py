@@ -17,7 +17,7 @@ def jv_encode_port(jnpr, index, lc_slot, system_params):
     port.egress_stats.if_mc_pkts = random.randint(1, 7000000); 
     port.egress_stats.if_bc_pkts = random.randint(1, 7000000); 
     port.ingress_stats.if_pkts   = random.randint(1, 7000000);
-    port.ingress_stats.if_octets = random.randint(1, 1000000);
+    port.ingress_stats.if_octets = 0;
     port.ingress_stats.if_1sec_pkts   = 0;
     port.ingress_stats.if_1sec_octets = 0;
     port.ingress_stats.if_uc_pkts = random.randint(1, 7000000);

@@ -26,6 +26,10 @@ OpenConfigPacketStats::iterate (JuniperNetworksSensors *handle, Telemetry::OpenC
     for (i = 0; i < message->packet_stats_size(); i++) {
         const PacketStatsClass &classp = message->packet_stats(i);
         
+        if (!classp.counter().packet_count()) {
+            continue;
+        }
+
         kv = datap->add_kv();
         kv->set_key(classp.name());
         kv->set_int_value(classp.counter().packet_count());
@@ -39,6 +43,10 @@ OpenConfigPacketStats::iterate (JuniperNetworksSensors *handle, Telemetry::OpenC
         for (int j = 0; j < pfe.packet_stats_size(); j++) {
             const PacketStatsClass &classp = pfe.packet_stats(j);
             
+            if (!classp.counter().packet_count()) {
+                continue;
+            }
+
             kv = datap->add_kv();
             kv->set_key(classp.name());
             kv->set_int_value(classp.counter().packet_count());

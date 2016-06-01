@@ -47,6 +47,10 @@ OpenConfigNpuUtilization::iterate (JuniperNetworksSensors *handle, Telemetry::Op
         for (int j = 0; j < util.packets_size(); j++) {
             const PacketLoad &packet = util.packets(j);
 
+            if (!packet.rate()) {
+                continue;
+            }
+
             kv = datap->add_kv();
             kv->set_key("packet/" + packet.identifier() + "/rate");
             kv->set_int_value(packet.rate());

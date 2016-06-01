@@ -22,6 +22,10 @@ OpenConfigLspStats::iterate (JuniperNetworksSensors *handle, Telemetry::OpenConf
     for (int i = 0; i < message->lsp_stats_records_size(); i++) {
         const LspStatsRecord& record = message->lsp_stats_records(i);
 
+        if (!record.packets()) {
+            continue;
+        }
+
         // Add Prefix
         oc_set_prefix(datap, BASE_OC_PATH_LSP, record.name(), BASE_OC_PATH_LSP_ATTR);
 

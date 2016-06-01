@@ -42,52 +42,58 @@ OpenConfigPort::iterate (JuniperNetworksSensors *handle, Telemetry::OpenConfigDa
         }
 
         // Counters
-        kv = datap->add_kv();
-        kv->set_key("counters/out_octets");
-        kv->set_int_value(ifd_infop->mutable_egress_stats()->if_octets());
+        if (ifd_infop->mutable_egress_stats()->if_octets()) {
+            kv = datap->add_kv();
+            kv->set_key("counters/out_octets");
+            kv->set_int_value(ifd_infop->mutable_egress_stats()->if_octets());
 
-        kv = datap->add_kv();
-        kv->set_key("counters/out_packets");
-        kv->set_int_value(ifd_infop->mutable_egress_stats()->if_pkts());
+            kv = datap->add_kv();
+            kv->set_key("counters/out_packets");
+            kv->set_int_value(ifd_infop->mutable_egress_stats()->if_pkts());
 
-        kv = datap->add_kv();
-        kv->set_key("counters/out-unicast-pkts");
-        kv->set_int_value(ifd_infop->mutable_egress_stats()->if_uc_pkts());
+            kv = datap->add_kv();
+            kv->set_key("counters/out-unicast-pkts");
+            kv->set_int_value(ifd_infop->mutable_egress_stats()->if_uc_pkts());
 
-        kv = datap->add_kv();
-        kv->set_key("counters/out-multicast-pkts");
-        kv->set_int_value(ifd_infop->mutable_egress_stats()->if_mc_pkts());
+            kv = datap->add_kv();
+            kv->set_key("counters/out-multicast-pkts");
+            kv->set_int_value(ifd_infop->mutable_egress_stats()->if_mc_pkts());
 
-        kv = datap->add_kv();
-        kv->set_key("counters/out-broadcast-pkts");
-        kv->set_int_value(ifd_infop->mutable_egress_stats()->if_bc_pkts());
+            kv = datap->add_kv();
+            kv->set_key("counters/out-broadcast-pkts");
+            kv->set_int_value(ifd_infop->mutable_egress_stats()->if_bc_pkts());
 
-        kv = datap->add_kv();
-        kv->set_key("counters/out-discards");
-        kv->set_int_value(ifd_infop->mutable_egress_stats()->if_error());
+            kv = datap->add_kv();
+            kv->set_key("counters/out-discards");
+            kv->set_int_value(ifd_infop->mutable_egress_stats()->if_error());
+        }
 
-        kv = datap->add_kv();
-        kv->set_key("counters/in-octets");
-        kv->set_int_value(ifd_infop->mutable_ingress_stats()->if_octets());
+        if (ifd_infop->mutable_ingress_stats()->if_octets()) {
+            kv = datap->add_kv();
+            kv->set_key("counters/in-octets");
+            kv->set_int_value(ifd_infop->mutable_ingress_stats()->if_octets());
 
-        kv = datap->add_kv();
-        kv->set_key("counters/in-packets");
-        kv->set_int_value(ifd_infop->mutable_ingress_stats()->if_pkts());
+            kv = datap->add_kv();
+            kv->set_key("counters/in-packets");
+            kv->set_int_value(ifd_infop->mutable_ingress_stats()->if_pkts());
 
-        kv = datap->add_kv();
-        kv->set_key("counters/in-unicast-pkts");
-        kv->set_int_value(ifd_infop->mutable_ingress_stats()->if_uc_pkts());
+            kv = datap->add_kv();
+            kv->set_key("counters/in-unicast-pkts");
+            kv->set_int_value(ifd_infop->mutable_ingress_stats()->if_uc_pkts());
 
-        kv = datap->add_kv();
-        kv->set_key("counters/in-multicast-pkts");
-        kv->set_int_value(ifd_infop->mutable_ingress_stats()->if_mc_pkts());
+            kv = datap->add_kv();
+            kv->set_key("counters/in-multicast-pkts");
+            kv->set_int_value(ifd_infop->mutable_ingress_stats()->if_mc_pkts());
         
-        kv = datap->add_kv();
-        kv->set_key("counters/in-broadcast-pkts");
-        kv->set_int_value(ifd_infop->mutable_ingress_stats()->if_bc_pkts());
+            kv = datap->add_kv();
+            kv->set_key("counters/in-broadcast-pkts");
+            kv->set_int_value(ifd_infop->mutable_ingress_stats()->if_bc_pkts());
+        }
         
-        kv = datap->add_kv();
-        kv->set_key("counters/in-errors");
-        kv->set_int_value(ifd_infop->mutable_ingress_errors()->if_in_errors());
+        if (ifd_infop->mutable_ingress_errors()->if_in_errors()) {
+           kv = datap->add_kv();
+           kv->set_key("counters/in-errors");
+           kv->set_int_value(ifd_infop->mutable_ingress_errors()->if_in_errors());
+        }
     }
 }

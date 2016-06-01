@@ -28,18 +28,26 @@ OpenConfigNpuMem::iterate (JuniperNetworksSensors *handle, Telemetry::OpenConfig
             kv->set_key("summary/" + summary.resource_name() + "/size");
             kv->set_int_value(summary.size());
             
-            kv = datap->add_kv();
-            kv->set_key("summary/" + summary.resource_name() + "/allocated");
-            kv->set_int_value(summary.allocated());
+            if (summary.allocated()) {
+                kv = datap->add_kv();
+                kv->set_key("summary/" + summary.resource_name() + "/allocated");
+                kv->set_int_value(summary.allocated());
+            }
             
-            kv = datap->add_kv();
-            kv->set_key("summary/" + summary.resource_name() + "/utilization");
-            kv->set_int_value(summary.utilization());
+            if (summary.utilization()) {
+                kv = datap->add_kv();
+                kv->set_key("summary/" + summary.resource_name() + "/utilization");
+                kv->set_int_value(summary.utilization());
+            }
         }
         
         for (int j = 0; j < message->memory_stats(i).partition_size(); j++) {
             const NpuMemoryPartition &partition = message->memory_stats(i).partition(j);
             
+            if (!partition.bytes_allocated()) {
+                continue;
+            }
+
             kv = datap->add_kv();
             kv->set_key("partition/" + partition.application_name() + "/partition_name");
             kv->set_str_value(partition.name());

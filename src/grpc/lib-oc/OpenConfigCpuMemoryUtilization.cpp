@@ -29,20 +29,21 @@ OpenConfigCpuMemoryUtilization::iterate (JuniperNetworksSensors *handle, Telemet
         kv->set_key(summary.name() + "/size");
         kv->set_int_value(summary.size());
         
-        
         kv = datap->add_kv();
         kv->set_key(summary.name() + "/bytes_allocated");
         kv->set_int_value(summary.bytes_allocated());
-        
         
         kv = datap->add_kv();
         kv->set_key(summary.name() + "/utilization");
         kv->set_int_value(summary.utilization());
         
-        
         for (int j = 0; j < summary.application_utilization_size(); j++) {
             const CpuMemoryUtilizationPerApplication &app = summary.application_utilization(j);
             
+            if (!app.bytes_allocated()) {
+                continue;
+            }
+
             kv = datap->add_kv();
             kv->set_key(summary.name() + "/applications/" + app.name() + "/bytes_allocated");
             kv->set_int_value(app.bytes_allocated());
@@ -50,7 +51,7 @@ OpenConfigCpuMemoryUtilization::iterate (JuniperNetworksSensors *handle, Telemet
             kv = datap->add_kv();
             kv->set_key(summary.name() + "/applications/" + app.name() + "/allocations");
             kv->set_int_value(app.allocations());
-            
+
             kv = datap->add_kv();
             kv->set_key(summary.name() + "/applications/" + app.name() + "/frees");
             kv->set_int_value(app.frees());

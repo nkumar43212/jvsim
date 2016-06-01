@@ -29,6 +29,10 @@ OpenConfigFirewall::iterate (JuniperNetworksSensors *handle, Telemetry::OpenConf
         for (j = 0; j < filter.memory_usage_size(); j++) {
             const MemoryUsage& mem = filter.memory_usage(j);
             
+            if (!mem.allocated()) {
+                continue;
+            }
+
             kv = datap->add_kv();
             kv->set_key("memory_usage/" + mem.name());
             kv->set_int_value(mem.allocated());
@@ -37,6 +41,10 @@ OpenConfigFirewall::iterate (JuniperNetworksSensors *handle, Telemetry::OpenConf
         for (j = 0; j < filter.counter_stats_size(); j++) {
             const CounterStats& cntr = filter.counter_stats(j);
             
+            if (!cntr.packets()) {
+                continue;
+            }
+
             kv = datap->add_kv();
             kv->set_key("counters/packets/" + cntr.name());
             kv->set_int_value(cntr.packets());
@@ -49,6 +57,10 @@ OpenConfigFirewall::iterate (JuniperNetworksSensors *handle, Telemetry::OpenConf
         for (j = 0; j < filter.policer_stats_size(); j++) {
             const PolicerStats& pol = filter.policer_stats(j);
             
+            if (!pol.out_of_spec_packets()) {
+                continue;
+            }
+
             kv = datap->add_kv();
             kv->set_key("policers/out-of-spec-packets/" + pol.name());
             kv->set_int_value(pol.out_of_spec_packets());

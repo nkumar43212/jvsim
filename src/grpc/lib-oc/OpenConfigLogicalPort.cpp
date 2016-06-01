@@ -56,28 +56,32 @@ OpenConfigLogicalPort::iterate (JuniperNetworksSensors *handle, Telemetry::OpenC
         kv->set_str_value(ifl_infop->mutable_op_state()->operational_status());
 
         // Counters
-        kv = datap->add_kv();
-        kv->set_key("counters/out_octets");
-        kv->set_int_value(ifl_infop->mutable_egress_stats()->if_octets());
+        if (ifl_infop->mutable_egress_stats()->if_octets()) {
+            kv = datap->add_kv();
+            kv->set_key("counters/out_octets");
+            kv->set_int_value(ifl_infop->mutable_egress_stats()->if_octets());
 
-        kv = datap->add_kv();
-        kv->set_key("counters/out_packets");
-        kv->set_int_value(ifl_infop->mutable_egress_stats()->if_pkts());
+            kv = datap->add_kv();
+            kv->set_key("counters/out_packets");
+            kv->set_int_value(ifl_infop->mutable_egress_stats()->if_pkts());
+        }
 
-        kv = datap->add_kv();
-        kv->set_key("counters/in-octets");
-        kv->set_int_value(ifl_infop->mutable_ingress_stats()->if_octets());
+        if (ifl_infop->mutable_ingress_stats()->if_octets()) {
+            kv = datap->add_kv();
+            kv->set_key("counters/in-octets");
+            kv->set_int_value(ifl_infop->mutable_ingress_stats()->if_octets());
 
-        kv = datap->add_kv();
-        kv->set_key("counters/in-packets");
-        kv->set_int_value(ifl_infop->mutable_ingress_stats()->if_pkts());
+            kv = datap->add_kv();
+            kv->set_key("counters/in-packets");
+            kv->set_int_value(ifl_infop->mutable_ingress_stats()->if_pkts());
 
-        kv = datap->add_kv();
-        kv->set_key("counters/in-unicast-pkts");
-        kv->set_int_value(ifl_infop->mutable_ingress_stats()->if_ucast_pkts());
+            kv = datap->add_kv();
+            kv->set_key("counters/in-unicast-pkts");
+            kv->set_int_value(ifl_infop->mutable_ingress_stats()->if_ucast_pkts());
 
-        kv = datap->add_kv();
-        kv->set_key("counters/in-multicast-pkts");
-        kv->set_int_value(ifl_infop->mutable_ingress_stats()->if_mcast_pkts());
+            kv = datap->add_kv();
+            kv->set_key("counters/in-multicast-pkts");
+            kv->set_int_value(ifl_infop->mutable_ingress_stats()->if_mcast_pkts());
+        }
     }
 }

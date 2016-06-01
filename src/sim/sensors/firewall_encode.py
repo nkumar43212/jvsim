@@ -17,4 +17,9 @@ def jv_encode_firewall(jnpr, index, lc_slot, system_params):
         cnt.name = "cnt-" + str(c);
         cnt.packets = 1000;
         cnt.bytes   = 6000;
+
+        cnt = fw_stats.counter_stats.add();
+        cnt.name = "cnt000-" + str(c);
+        cnt.packets = 0;
+        cnt.bytes   = 0;
    

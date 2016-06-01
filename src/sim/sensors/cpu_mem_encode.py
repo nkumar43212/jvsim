@@ -49,7 +49,7 @@ def jv_encode_cpu_mem(jnpr, index, lc_slot, system_params):
 
     app = cpu_stats.application_utilization.add();
     app.name = "ifl";
-    app.bytes_allocated = 10;
-    app.allocations_failed = 100;
-    app.frees = 4;
+    app.bytes_allocated = 0;
+    app.allocations_failed = 0;
+    app.frees = 0;
 
