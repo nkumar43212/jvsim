@@ -41,7 +41,7 @@ class AgentTelegrafLog {
             }
 
             // Get the interface name
-            const Telemetry::KeyValue &kv1 = data->kv(0);
+            const Telemetry::KeyValue &kv1 = data->kv(1);
             if (kv1.key() != "__prefix__") {
                 return;
             }
