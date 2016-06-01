@@ -2,7 +2,10 @@
 //  OCTelemetryJson.cpp
 //  Telemetry Agent
 //
-//  Created by ABBAS SAKARWALA on 4/22/16.
+//  Created: 4/22/16.
+//
+//  Authors: ABBAS SAKARWALA
+//
 //  Copyright © 2016 Juniper Networks. All rights reserved.
 //
 
@@ -176,7 +179,7 @@ void
 OCTelemetryJson::set_json_subscription (bool mqtt,
                                         uint32_t internal_subscription_id,
                                         std::string sensor_group_name,
-                                        uint32_t sampling_frequency,
+                                        uint32_t sample_frequency,
                                         std::string destination_group_name,
                                         Json::Value *json_obj)
 {
@@ -187,7 +190,7 @@ OCTelemetryJson::set_json_subscription (bool mqtt,
                                                             sensor_group_name;
     (*json_obj)["subscriptions"]["persistent"]["subscription"]
        ["sensor-profiles"]["sensor-profile"]["config"]["sample-interval"] =
-                                        std::to_string(sampling_frequency);
+                                        std::to_string(sample_frequency);
     if (mqtt == false) {
         (*json_obj)["subscriptions"]["persistent"]["subscription"]
             ["destination-groups"]["destination-group"]["config"]["group-id"] =
