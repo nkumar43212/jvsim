@@ -2,7 +2,10 @@
 //  JunosTelemetryJsonGenerator.cpp
 //  Telemetry Agent
 //
-//  Created by ABBAS SAKARWALA on 4/29/16.
+//  Created: 4/29/16.
+//
+//  Authors: ABBAS SAKARWALA
+//
 //  Copyright © 2016 Juniper Networks. All rights reserved.
 //
 
@@ -10,6 +13,8 @@
 #include "JunosTelemetryJson.hpp"
 #include "JsonUtils.hpp"
 #include "AgentUtils.hpp"
+
+#define MILLISECS_TO_SECS(msec)     (msec/1000)
 
 std::string
 JunosTelemetryJsonGenerator::generate_json_junos_config (bool add,
@@ -74,7 +79,8 @@ JunosTelemetryJsonGenerator::generate_json_junos_config (bool add,
                                                export_profile_name,
                                                path->path(),
                                                path->filter(),
-                                               path->sample_frequency(),
+                                               MILLISECS_TO_SECS(
+                                                    path->sample_frequency()),
                                                internal_subscription_id,
                                                &sensor_config_json);
 

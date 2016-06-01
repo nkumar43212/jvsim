@@ -2,7 +2,10 @@
 //  JunosTelemetryJsonGenerator.hpp
 //  Telemetry Agent
 //
-//  Created by ABBAS SAKARWALA on 4/29/16.
+//  Created: 4/29/16.
+//
+//  Authors: ABBAS SAKARWALA
+//
 //  Copyright © 2016 Juniper Networks. All rights reserved.
 //
 

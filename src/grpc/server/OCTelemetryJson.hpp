@@ -2,7 +2,10 @@
 //  OCTelemetryJson.hpp
 //  Telemetry Agent
 //
-//  Created by ABBAS SAKARWALA on 4/22/16.
+//  Created: 4/22/16.
+//
+//  Authors: ABBAS SAKARWALA
+//
 //  Copyright © 2016 Juniper Networks. All rights reserved.
 //
 
@@ -33,7 +36,7 @@ public:
     static void set_json_subscription(bool mqtt,
                                       uint32_t internal_subscription_id,
                                       std::string sensor_group_name,
-                                      uint32_t sampling_frequency,
+                                      uint32_t sample_frequency,
                                       std::string destination_group_name,
                                       Json::Value *json_obj);
 };

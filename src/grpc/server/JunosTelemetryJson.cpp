@@ -2,7 +2,10 @@
 //  JunosTelemetryJson.cpp
 //  Telemetry Agent
 //
-//  Created by ABBAS SAKARWALA on 4/29/16.
+//  Created: 4/29/16.
+//
+//  Authors: ABBAS SAKARWALA
+//
 //  Copyright © 2016 Juniper Networks. All rights reserved.
 //
 
@@ -129,7 +132,7 @@ JunosTelemetryJson::set_json_sensor_config (bool add,
                                             std::string export_profile_name,
                                             std::string path,
                                             std::string filter,
-                                            uint32_t sampling_frequency,
+                                            uint32_t sample_frequency_in_secs,
                                             uint32_t internal_subscription_id,
                                             Json::Value *json_obj)
 {
@@ -158,7 +161,7 @@ JunosTelemetryJson::set_json_sensor_config (bool add,
                        .removeMember("resource-filter");
         }
         (*json_obj)["configuration"]["services"]["analytics"]["sensor"][0]
-                   ["reporting-rate"] = std::to_string(sampling_frequency);
+                   ["reporting-rate"] = std::to_string(sample_frequency_in_secs);
         (*json_obj)["configuration"]["services"]["analytics"]["sensor"][0]
                    ["subscription-id"] =
                                     std::to_string(internal_subscription_id);

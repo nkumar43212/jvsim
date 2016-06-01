@@ -2,9 +2,12 @@
 //  JsonUtils.cpp
 //  Telemetry Agent
 //
-//  Created by ABBAS SAKARWALA on 4/29/16.
-//  Copyright © 2016 Juniper Networks. All rights reserved.
+//  Created: 4/29/16.
 //
+//  Authors: ABBAS SAKARWALA
+//
+//  Copyright © 2016 Juniper Networks. All rights reserved.
+///
 
 #include "JsonUtils.hpp"
 

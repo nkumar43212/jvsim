@@ -2,7 +2,10 @@
 //  JunosTelemetryJson.hpp
 //  Telemetry Agent
 //
-//  Created by ABBAS SAKARWALA on 4/29/16.
+//  Created: 4/29/16.
+//
+//  Authors: ABBAS SAKARWALA
+//
 //  Copyright © 2016 Juniper Networks. All rights reserved.
 //
 
@@ -35,7 +38,7 @@ public:
                                        std::string export_profile_name,
                                        std::string path,
                                        std::string filter,
-                                       uint32_t sampling_frequency,
+                                       uint32_t sample_frequency_in_secs,
                                        uint32_t internal_subscription_id,
                                        Json::Value *json_obj);
 };
