@@ -341,14 +341,6 @@ entry_t agent_client_commands [] = {
     },
 
     {
-        .e_cmd     = std::string("subscribe-telegraf"),
-        .e_argc    = 4,
-        .e_help    = std::string("Subscribe to a jvision sensor by specifying a list of paths"),
-        .e_usage   = std::string("subscribe-telegraf <graf-filename> <subscription-name> <sample-frequency> <path>+"),
-        .e_handler = handle_subscribe_telegraf
-    },
-
-    {
         .e_cmd     = std::string("subscribe_limits"),
         .e_argc    = 6,
         .e_help    = std::string("Subscribe with record and second limits to the session"),
@@ -362,6 +354,14 @@ entry_t agent_client_commands [] = {
         .e_help    = std::string("Create N subscriptions"),
         .e_usage   = std::string("subscribe_n <count> <subscription-name> <sample-frequency> <path>+"),
         .e_handler = handle_subscribe_multiple
+    },
+
+    {
+        .e_cmd     = std::string("subscribe_telegraf"),
+        .e_argc    = 4,
+        .e_help    = std::string("Subscribe and generate telegraf log to a jvision sensor by specifying a list of paths. Telegraf log file is subscription-name.teldata"),
+        .e_usage   = std::string("subscribe_telegraf <subscription-name> <sample-frequency> <path>+"),
+        .e_handler = handle_subscribe_telegraf
     },
 
     {

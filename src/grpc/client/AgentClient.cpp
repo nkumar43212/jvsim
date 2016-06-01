@@ -85,7 +85,7 @@ AgentClient::print (void)
 void
 AgentClient::subscribeTelemetry (std::vector<std::string> path_list,
                                  uint32_t sample_frequency,
-				 bool     telegraf,
+                                 bool     telegraf,
                                  uint32_t limit_records,
                                  uint32_t limit_seconds)
 {

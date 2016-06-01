@@ -1,8 +1,10 @@
 //
 //  AgentTelegrafLog
+//  agent-jv-client
 //
-//  Created by NITIN KUMAR on 2/17/16.
-//  Copyright © 2016 Juniper Networks. All rights reserved.
+//  Created by NITIN KUMAR on 5/31/15.
+//
+//  Copyright © 2015 Juniper Networks. All rights reserved.
 //
 
 #include <string>
@@ -66,9 +68,11 @@ class AgentTelegrafLog {
             buildLine(resource, sysname, name + ifname, ts);
         }
 
-        void buildLine(const std::string resource, const std::string sysname, const std::string ifname, uint64_t ts)
+        void buildLine(const std::string resource, const std::string sysname,
+                       const std::string ifname, uint64_t ts)
         {
-            std::string logStr = resource  + "," + sysname + "," + ifname + " " + std::to_string(ts);
+            std::string logStr = resource  + "," + sysname + "," +
+                                 ifname + " " + std::to_string(ts);
             _logger->log(logStr, true);
         }
 };
