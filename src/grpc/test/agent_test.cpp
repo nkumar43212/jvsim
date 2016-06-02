@@ -472,7 +472,7 @@ TEST_F(AgentClientTest, get_oper_all) {
     for (int i = 0; i < n; i++) {
         AgentClientTest::delete_subscriptions((void *) args[i]);
     }
-    
+
     // Reader finish must have automatically terminated all clients.
     // Verify the same.
     // Check whether all subscriptions exist ?
@@ -485,8 +485,9 @@ TEST_F(AgentClientTest, get_oper_all) {
     EXPECT_EQ(0, get_reply_2.subscription_list_size());
 }
 
-TEST_F(AgentClientTest, encoding) {
+TEST_F(AgentClientTest, subscribe_and_path_validation_2v_1inv) {
     AgentClient *client;
+    uint32_t subscription_id;
     
     // Create the test client
     std::string mgmt_client_name(AGENTCLIENT_MGMT);
@@ -498,11 +499,160 @@ TEST_F(AgentClientTest, encoding) {
         return;
     }
     EXPECT_TRUE(client->stub_ != NULL);
+
+    // Create a request
+    SubscriptionRequest request;
+    Path *path;
+    // Send 3 paths (1 valid, 2 invalid)
+    path = request.add_path_list();
+    path->set_path("firewall");
+    path->set_sample_frequency(4600);
+    path = request.add_path_list();
+    path->set_path("port");
+    path->set_sample_frequency(4400);
+    path = request.add_path_list();
+    path->set_path("invalid-resource");
+    path->set_sample_frequency(5000);
+
+    // Create a reader
+    ClientContext context;
+    std::multimap<grpc::string_ref, grpc::string_ref> server_metadata;
+    std::multimap<grpc::string_ref, grpc::string_ref>::iterator metadata_itr;
+    std::unique_ptr<AgentClientReader>
+    reader(client->stub_->telemetrySubscribe(&context, request));
+    EXPECT_TRUE(reader != NULL);
+
+    // Wait for the initial meta data to come back
+    reader->WaitForInitialMetadata();
+    server_metadata = context.GetServerInitialMetadata();
+    metadata_itr = server_metadata.find("init-response");
+    EXPECT_TRUE(metadata_itr != server_metadata.end());
+    std::string tmp = metadata_itr->second.data();
+    // Use Textformat Printer APIs to convert to right format
+    // std::cout << "Data received = " << tmp << std::endl;
+    google::protobuf::TextFormat::Parser parser;
+    SubscriptionReply reply;
+    SubscriptionResponse *response;
+    parser.ParseFromString(tmp, &reply);
+    response = reply.mutable_response();
+    subscription_id = response->subscription_id();
+    EXPECT_GT(subscription_id, 0);
+    EXPECT_EQ(2, reply.path_list_size());
+    for (int i = 0; i < reply.path_list_size(); i++) {
+        Path path = reply.path_list(i);
+        if (i == 0) {
+            EXPECT_EQ("firewall", path.path());
+            EXPECT_EQ(5000, path.sample_frequency());
+        } else if (i == 1) {
+            EXPECT_EQ("port", path.path());
+            EXPECT_EQ(4000, path.sample_frequency());
+        }
+    }
+
+    // Dont wait to read anything for now
     
+    // Unsubscribe
+    ClientContext context_cancel;
+    CancelSubscriptionRequest cancel_request;
+    CancelSubscriptionReply cancel_reply;
+    cancel_request.set_subscription_id(subscription_id);
+    client->stub_->cancelTelemetrySubscription(&context_cancel,
+                                               cancel_request, &cancel_reply);
+    EXPECT_EQ(Telemetry::ReturnCode::SUCCESS, cancel_reply.code());
+    const char * code_str = cancel_reply.code_str().c_str();
+    std::string expected = "Subscription Successfully Deleted";
+    const char * expected_str = expected.c_str();
+    EXPECT_STREQ(expected_str, code_str);
+}
+
+TEST_F(AgentClientTest, subscribe_and_path_validation_Allinv) {
+    AgentClient *client;
+    uint32_t subscription_id;
+
+    // Create the test client
+    std::string mgmt_client_name(AGENTCLIENT_MGMT);
+    client = AgentClient::create(grpc::CreateChannel(GRPC_SERVER_IP_PORT,
+                                 grpc::InsecureCredentials()),
+                                 mgmt_client_name, 0, CLIENT_LOGDIR);
+    EXPECT_TRUE(client != NULL);
+    if (!client) {
+        return;
+    }
+    EXPECT_TRUE(client->stub_ != NULL);
+
+    // Create a request
+    SubscriptionRequest request;
+    Path *path;
+    // Send 3 paths (3 invalid)
+    path = request.add_path_list();
+    path->set_path("firewall-1"); // Note, "firewall-1" and not "firewall"
+    path->set_sample_frequency(4600);
+    path = request.add_path_list();
+    path->set_path("port-1");
+    path->set_sample_frequency(4400);
+    path = request.add_path_list();
+    path->set_path("invalid-resource");
+    path->set_sample_frequency(5000);
+
+    // Create a reader
+    ClientContext context;
+    std::multimap<grpc::string_ref, grpc::string_ref> server_metadata;
+    std::multimap<grpc::string_ref, grpc::string_ref>::iterator metadata_itr;
+    std::unique_ptr<AgentClientReader>
+    reader(client->stub_->telemetrySubscribe(&context, request));
+    EXPECT_TRUE(reader != NULL);
+
+    // Wait for the initial meta data to come back
+    reader->WaitForInitialMetadata();
+    server_metadata = context.GetServerInitialMetadata();
+    metadata_itr = server_metadata.find("init-response");
+    EXPECT_TRUE(metadata_itr != server_metadata.end());
+    std::string tmp = metadata_itr->second.data();
+    // Use Textformat Printer APIs to convert to right format
+    // std::cout << "Data received = " << tmp << std::endl;
+    google::protobuf::TextFormat::Parser parser;
+    SubscriptionReply reply;
+    SubscriptionResponse *response;
+    parser.ParseFromString(tmp, &reply);
+    response = reply.mutable_response();
+    subscription_id = response->subscription_id();
+    EXPECT_GT(subscription_id, 0);
+    EXPECT_EQ(0, reply.path_list_size());
+
+    // Dont wait to read anything for now
+
+    // Unsubscribe
+    ClientContext context_cancel;
+    CancelSubscriptionRequest cancel_request;
+    CancelSubscriptionReply cancel_reply;
+    cancel_request.set_subscription_id(subscription_id);
+    client->stub_->cancelTelemetrySubscription(&context_cancel,
+                                               cancel_request, &cancel_reply);
+    EXPECT_EQ(Telemetry::ReturnCode::SUCCESS, cancel_reply.code());
+    const char * code_str = cancel_reply.code_str().c_str();
+    std::string expected = "Subscription Successfully Deleted";
+    const char * expected_str = expected.c_str();
+    EXPECT_STREQ(expected_str, code_str);
+}
+
+TEST_F(AgentClientTest, encoding) {
+    AgentClient *client;
+
+    // Create the test client
+    std::string mgmt_client_name(AGENTCLIENT_MGMT);
+    client = AgentClient::create(grpc::CreateChannel(GRPC_SERVER_IP_PORT,
+                                 grpc::InsecureCredentials()),
+                                 mgmt_client_name, 0, CLIENT_LOGDIR);
+    EXPECT_TRUE(client != NULL);
+    if (!client) {
+        return;
+    }
+    EXPECT_TRUE(client->stub_ != NULL);
+
     ClientContext context;
     DataEncodingRequest enc_request;
     DataEncodingReply enc_reply;
-    
+
     client->stub_->getDataEncodings(&context, enc_request, &enc_reply);
     EXPECT_EQ(1, enc_reply.encoding_list_size());
     EXPECT_EQ(Telemetry::EncodingType::PROTO3, enc_reply.encoding_list(0));
