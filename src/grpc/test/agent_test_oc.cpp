@@ -1,8 +1,10 @@
 //
 //  agent_test_oc.cpp
-//  agent-jv
 //
-//  Created by NITIN KUMAR on 5/12/16.
+//  Created: 5/12/16.
+//
+//  Authors: NITIN KUMAR
+//
 //  Copyright © 2016 Juniper Networks. All rights reserved.
 //
 
