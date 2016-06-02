@@ -17,6 +17,8 @@
 // :-/ globals
 extern uint32_t global_id;
 AgentParser *parser;
+std::string server_ip("localhost");
+std::string server_port("50051");
 
 int main(int argc, const char * argv[])
 {

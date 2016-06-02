@@ -330,6 +330,27 @@ handle_print_lag (int argc, const char *argv[])
     }
 }
 
+void
+handle_set_server (int argc, const char *argv[])
+{
+    if (strcmp(argv[1], "default") == 0) {
+        server_ip   = "localhost";
+        server_port = "50051";
+        return;
+    }
+
+    server_ip = argv[1];
+    if (argc > 2) {
+        server_port = argv[2];
+    }
+}
+
+void
+handle_get_server (int argc, const char *argv[])
+{
+    std::cout << "Server IP = " << AGENT_SERVER_IP_PORT << "\n";
+}
+
 // Add new commands here
 entry_t agent_client_commands [] = {    
     {
@@ -338,6 +359,22 @@ entry_t agent_client_commands [] = {
         .e_help    = std::string("Subscribe to a jvision sensor by specifying a list of paths"),
         .e_usage   = std::string("subscribe <subscription-name> <sample-frequency> <path>+"),
         .e_handler = handle_subscribe
+    },
+
+    {
+        .e_cmd     = std::string("set-server"),
+        .e_argc    = 2,
+        .e_help    = std::string("Set server's ip and port (optional) to establish gRPC connection"),
+        .e_usage   = std::string("set-server <server_ip> [port]"),
+        .e_handler = handle_set_server
+    },
+
+    {
+        .e_cmd     = std::string("get-server"),
+        .e_argc    = 1,
+        .e_help    = std::string("Get server's ip and port to establish gRPC connection"),
+        .e_usage   = std::string("get-server"),
+        .e_handler = handle_get_server
     },
 
     {
