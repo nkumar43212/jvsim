@@ -63,12 +63,36 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "--gtest_filter=AgentConsolidatorProcTest.getSystem"
+            argument = "--gtest_filter=id_manager.*"
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "--gtest_filter=AgentClientOpenConfigTest*"
+            argument = "--gtest_filter=AgentConsolidatorNullTest.*"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "--gtest_filter=GlobalConfigTest.*"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "--gtest_filter=AgentClientTest.*"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "--gtest_filter=AgentClientTest.subscribe_and_path_validation_*"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "--gtest_filter=Counter.*"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "--gtest_filter=LogTest.*"
             isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "--gtest_filter=AgentClientOpenConfigTest*"
+            isEnabled = "NO">
          </CommandLineArgument>
       </CommandLineArguments>
       <EnvironmentVariables>

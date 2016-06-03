@@ -357,7 +357,7 @@ recreate_mgmt:
 void
 handle_get_server (int argc, const char *argv[])
 {
-    std::cout << "Server IP = " << AGENT_SERVER_IP_PORT << "\n";
+    std::cout << "Server Address = " << AGENT_SERVER_IP_PORT << "\n";
 }
 
 // Add new commands here

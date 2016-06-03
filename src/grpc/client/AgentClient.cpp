@@ -17,6 +17,10 @@
 #include "AgentClientLag.hpp"
 #include "AgentTelegrafLog.hpp"
 
+// Server address
+std::string server_ip("localhost");
+std::string server_port("50051");
+
 // List of active clients
 using std::map;
 map<const std::string, AgentClient *> active_clients;
@@ -56,7 +60,6 @@ AgentClient::~AgentClient (void)
 void
 AgentClient::rehome (void)
 {
-    cancelSubscribeTelemetry();
     stub_ = OpenConfigTelemetry::NewStub(grpc::CreateChannel(AGENT_SERVER_IP_PORT,
                                          grpc::InsecureCredentials()));
 }
