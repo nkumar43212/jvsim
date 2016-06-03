@@ -69,7 +69,7 @@ public:
     }
 
     // Write to logger conditionally
-    void log (const char *filter, std::string message)
+    void logfilter (std::string message, std::string filter)
     {
         std::size_t found = message.find(filter);
 
