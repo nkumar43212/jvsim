@@ -10,6 +10,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <cstdio>
 #include <iterator>
 #include <algorithm>
 #include "gtest/gtest.h"
@@ -63,6 +64,9 @@ TEST_F(LogTest, create_default_file) {
     // Enable
     logger->enable();
     EXPECT_EQ(2, readLines(AGENTSERVER_LOGFILE));
+
+    // delete file
+    std::remove(AGENTSERVER_LOGFILE);
 
     delete logger;
 }
