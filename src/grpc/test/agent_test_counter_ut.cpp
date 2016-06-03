@@ -43,45 +43,47 @@ TEST(Counter, static_counter_1) {
 }
 
 TEST(Counter, static_counter_2) {
-    // Create counter
-    Counter c2("static_counter_2");
-
-    // Enable the rate thread
-    c2.enableRate();
+    // Create counter and enable
+    Counter c2("static_counter_2", true);
+    sleep(1);
 
     // Increment values
     c2.increment(100, 10000);
-    sleep(1);
     EXPECT_EQ(100, c2.getPackets());
     EXPECT_EQ(10000, c2.getBytes());
 
     // Increment values cont'd
     c2.increment(500, 50000);
-    sleep(1);
     EXPECT_EQ(600, c2.getPackets());
     EXPECT_EQ(60000, c2.getBytes());
 
+    sleep(1);
+
     // Increment values cont'd
     c2.increment(100, 10000);
-    sleep(1);
     EXPECT_EQ(700, c2.getPackets());
     EXPECT_EQ(70000, c2.getBytes());
 
     // Increment values cont'd
     c2.increment(500, 50000);
-    sleep(1);
     EXPECT_EQ(1200, c2.getPackets());
     EXPECT_EQ(120000, c2.getBytes());
-    EXPECT_EQ(500, c2.getPacketRate());
-    EXPECT_EQ(50000, c2.getByteRate());
 
+    sleep(1);
+
+    uint64_t packet_rate = c2.getPacketRate();
+    uint64_t byte_rate = c2.getByteRate();
+    if (packet_rate && byte_rate) {
+        EXPECT_EQ(600, packet_rate);
+        EXPECT_EQ(60000,byte_rate);
+    }
     c2.description();
 
     // Stop the rate thread
     c2.disableRate();
 }
 
-#define RUN_TEST_COUNT  10
+#define RUN_TEST_COUNT  15
 void *
 incr_counter (void *context)
 {
@@ -106,7 +108,7 @@ TEST(Counter, dynamic_counter) {
     pthread_create(&counter_test, NULL, incr_counter, (void *) c);
 
     // Sleep random secs and check rate
-    sleep(5);
+    sleep(RUN_TEST_COUNT/2);
     EXPECT_EQ(100, c->getPacketRate());
     EXPECT_EQ(100, c->getByteRate());
     c->description();
