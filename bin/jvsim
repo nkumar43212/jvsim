@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Change internal field separator
+IFS='%'
+
 #Util function to pause for user input
 pause () {
     read -p "$*"
@@ -24,6 +27,22 @@ kill_all_processes () {
     ps -ef | grep mosquitto | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
     ps -ef | grep agent_server | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
     ps -ef | grep mgd_server | grep -v "grep" | awk '{print $2}' | xargs kill > /dev/null 2>&1
+}
+
+run_sed () {
+    #src and dst are find and replace strings
+    src=$1
+    dst=$2
+    #file to apply sed and resulting file
+    orig_file=$3
+    final_file=$4
+
+    # substitute command
+    sub_cmd=s/$src/$dst/
+    # echo $sub_cmd
+
+    # Apply sed
+    sed -e $sub_cmd <$orig_file >$final_file
 }
 
 #Start with killing previous running processes
@@ -167,13 +186,88 @@ fi
 #Start the gRPC server
 if [ $run_server != 0 ]
 then
+    #INI file
+    ini_file_path=$CONFIG/test_config/SimServerConfig
+    ini_file=$ini_file_path/agent_server.ini
+    test_ini_file=$ini_file_path/agent_server_test.ini
+    test_ini_file_2=$ini_file_path/agent_server_test_2.ini
+
+    #Change the log file location
+    #format the src to substitute
+    src_str_original='grpc_log_file_path  = /tmp'
+    src_str_corrected=${src_str_original//\//\\/}
+    src_str=$src_str_corrected
+    # echo $src_str
+
+    #get the destination to substitute with
+    dst_str_file=$LOGPATH
+    dst_str_file_corrected=${dst_str_file//\//\\/}
+    dst_str='grpc_log_file_path = '$dst_str_file_corrected
+    # echo $dst_str
+
+    #Run substitution
+    run_sed $src_str $dst_str $ini_file $test_ini_file
+
+    #Change the PathValidator file location
+    #format the src to substitute
+    src_str_original='ocpath_file_path    = /tmp'
+    src_str_corrected=${src_str_original//\//\\/}
+    src_str=$src_str_corrected
+    # echo $src_str
+
+    #get the destination to substitute with
+    dst_str_file=$ini_file_path
+    dst_str_file_corrected=${dst_str_file//\//\\/}
+    dst_str='ocpath_file_path = '$dst_str_file_corrected
+    # echo $dst_str
+
+    #Run substitution
+    run_sed $src_str $dst_str $test_ini_file $test_ini_file_2
+
+    # Rename the file --- important step
+    mv $test_ini_file_2 $test_ini_file
+
+    if [ $run_mgd == 0 ]
+    then
+        #Change system_mode to file
+        #format the src to substitute
+        src_str_original='system_mode         = proc'
+        src_str_corrected=${src_str_original//\//\\/}
+        src_str=$src_str_corrected
+        # echo $src_str
+
+        #get the destination to substitute with
+        dst_str_original='system_mode         = file'
+        dst_str_corrected=${dst_str_original//\//\\/}
+        dst_str=$dst_str_corrected
+        # echo $dst_str
+
+        #Run substitution
+        run_sed $src_str $dst_str $test_ini_file $test_ini_file_2
+
+        #Change system_file_path
+        #format the src to substitute
+        src_str_original='system_file_path    = /tmp'
+        src_str_corrected=${src_str_original//\//\\/}
+        src_str=$src_str_corrected
+        # echo $src_str
+
+        #get the destination to substitute with
+        dst_str_file=$LOGPATH
+        dst_str_file_corrected=${dst_str_file//\//\\/}
+        dst_str='system_file_path = '$dst_str_file_corrected
+        # echo $dst_str
+
+        #Run substitution
+        run_sed $src_str $dst_str $test_ini_file_2 $test_ini_file
+    fi
+
+    $SERVERPATH/agent_server -c $test_ini_file &
     if [ $run_mgd != 0 ]
     then
-        $SERVERPATH/agent_server -l $SERVERLOG -p &
-        echo "-------- Started Server Proc: $SERVERPATH/agent_server -l $SERVERLOG -p"
+        echo "-------- Started Server Proc: $SERVERPATH/agent_server -c $test_ini_file"
     else
-        $SERVERPATH/agent_server -l $SERVERLOG -f $SYSTEM_FILE &
-        echo "-------- Started Server: $SERVERPATH/agent_server -l $SERVERLOG -f $SYSTEM_FILE"
+        echo "-------- Started Server File: $SERVERPATH/agent_server -c $test_ini_file"
     fi
 fi
 sleep 2

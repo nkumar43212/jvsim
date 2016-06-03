@@ -16,6 +16,7 @@
 		053D47A01CF7E5F300B94071 /* agent_test_consolidator_null_ut.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 053D479E1CF7E5F300B94071 /* agent_test_consolidator_null_ut.cpp */; };
 		053D47A31CF7E88B00B94071 /* agent_test_consolidator_proc_ut.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 053D47A11CF7E88B00B94071 /* agent_test_consolidator_proc_ut.cpp */; };
 		053D47A61CF85A5600B94071 /* agent_test_global_config_ut.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 053D47A41CF85A5600B94071 /* agent_test_global_config_ut.cpp */; };
+		053D47AF1D00E73C00B94071 /* agent_test_counter_ut.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 053D47AD1D00E73C00B94071 /* agent_test_counter_ut.cpp */; };
 		0584266C1CE4DD21003D866B /* OpenConfigLspStats.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0584266A1CE4DD21003D866B /* OpenConfigLspStats.cpp */; };
 		058AC3E61CED1CA80024FBD6 /* UdpReceiver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 058AC3E41CED1CA80024FBD6 /* UdpReceiver.cpp */; };
 		058AC3E91CED21AC0024FBD6 /* AgentSubscriptionUdpWorker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 058AC3E71CED21AC0024FBD6 /* AgentSubscriptionUdpWorker.cpp */; };
@@ -176,6 +177,11 @@
 		053D47A21CF7E88B00B94071 /* agent_test_consolidator_proc_ut.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = agent_test_consolidator_proc_ut.hpp; sourceTree = "<group>"; };
 		053D47A41CF85A5600B94071 /* agent_test_global_config_ut.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = agent_test_global_config_ut.cpp; sourceTree = "<group>"; };
 		053D47A51CF85A5600B94071 /* agent_test_global_config_ut.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = agent_test_global_config_ut.hpp; sourceTree = "<group>"; };
+		053D47AA1CFECA5600B94071 /* AgentTelegrafLog.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AgentTelegrafLog.hpp; sourceTree = "<group>"; };
+		053D47AB1D00DF5C00B94071 /* agent_server.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = agent_server.ini; path = ../../../config/test_config/SimServerConfig/agent_server.ini; sourceTree = "<group>"; };
+		053D47AC1D00DF5C00B94071 /* ocpaths.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = ocpaths.json; path = ../../../config/test_config/SimServerConfig/ocpaths.json; sourceTree = "<group>"; };
+		053D47AD1D00E73C00B94071 /* agent_test_counter_ut.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = agent_test_counter_ut.cpp; sourceTree = "<group>"; };
+		053D47AE1D00E73C00B94071 /* agent_test_counter_ut.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = agent_test_counter_ut.hpp; sourceTree = "<group>"; };
 		058426691CE4DD09003D866B /* oc.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = oc.hpp; sourceTree = "<group>"; };
 		0584266A1CE4DD21003D866B /* OpenConfigLspStats.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OpenConfigLspStats.cpp; sourceTree = "<group>"; };
 		0584266B1CE4DD21003D866B /* OpenConfigLspStats.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = OpenConfigLspStats.hpp; sourceTree = "<group>"; };
@@ -397,6 +403,7 @@
 				946703A01C6475EE00E73BF5 /* AgentClient.hpp */,
 				94AC9A731C7546280034AF1A /* AgentClientLag.hpp */,
 				9467039E1C6475EE00E73BF5 /* AgentClientParser.hpp */,
+				053D47AA1CFECA5600B94071 /* AgentTelegrafLog.hpp */,
 			);
 			path = client;
 			sourceTree = "<group>";
@@ -469,6 +476,8 @@
 		946702BF1C64724900E73BF5 /* test */ = {
 			isa = PBXGroup;
 			children = (
+				053D47AB1D00DF5C00B94071 /* agent_server.ini */,
+				053D47AC1D00DF5C00B94071 /* ocpaths.json */,
 				946703DD1C65134700E73BF5 /* Makefile */,
 				05FA5C291CF6675500F90E30 /* agent_test_id_manager_ut.cpp */,
 				05FA5C2A1CF6675500F90E30 /* agent_test_id_manager_ut.hpp */,
@@ -484,6 +493,8 @@
 				053D479F1CF7E5F300B94071 /* agent_test_consolidator_null_ut.hpp */,
 				053D47A11CF7E88B00B94071 /* agent_test_consolidator_proc_ut.cpp */,
 				053D47A21CF7E88B00B94071 /* agent_test_consolidator_proc_ut.hpp */,
+				053D47AD1D00E73C00B94071 /* agent_test_counter_ut.cpp */,
+				053D47AE1D00E73C00B94071 /* agent_test_counter_ut.hpp */,
 				946703DF1C65134700E73BF5 /* agent_test.cpp */,
 				946703DE1C65134700E73BF5 /* agent_test.hpp */,
 				940C7CDF1CE50446004ED81D /* agent_test_oc.cpp */,
@@ -807,6 +818,7 @@
 			files = (
 				053D479D1CF7CB4B00B94071 /* agent_test_consolidator_ut.cpp in Sources */,
 				05BD33AE1CD2F3B60059EF17 /* AgentServerCmdOptions.cpp in Sources */,
+				053D47AF1D00E73C00B94071 /* agent_test_counter_ut.cpp in Sources */,
 				05C1BEDF1CC94ED700A6A342 /* AgentUtils.cpp in Sources */,
 				9436D96C1C8549E700356B6F /* AgentSystemProc.cpp in Sources */,
 				94A292061C827C9F004BB6C3 /* AgentSystemNull.cpp in Sources */,

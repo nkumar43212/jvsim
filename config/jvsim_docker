@@ -1,17 +1,17 @@
-FROM ubuntu:14.04                                                                                     
-MAINTAINER Surya Nimmagadda                                                                           
+FROM ubuntu:14.04
+MAINTAINER Surya Nimmagadda <nscsekhar@juniper.net> && Abbas Sakarwala <abbas@juniper.net>
 
 # Install base packages
-RUN cd /home  \        
+RUN cd /home  \
+&& sudo apt-get update \
 && sudo apt-get install -y git wget curl zip unzip \
-&& apt-get update \                                 
 && sudo apt-get install -y build-essential autoconf libtool \
 && apt-get install -y python \
 && apt-get install -y python-setuptools
 
 # Install GRPC and GPB
 RUN cd /home \
-&& git clone -b  release-0_11 https://github.com/grpc/grpc grpc \
+&& git clone -b release-0_11 https://github.com/grpc/grpc grpc \
 && cd /home/grpc \
 && git submodule update --init \
 && make \

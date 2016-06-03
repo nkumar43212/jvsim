@@ -1,0 +1,126 @@
+{
+    "valid_paths":
+    [
+        {
+            "path" : "port",
+            "filter_support" : true,
+            "suppress_unchanged_support" : false,
+            "max_silent_interval_support" : false,
+            "sample_frequency" :
+            {
+                "min" : 2000,
+                "max" : 3600000
+            }
+        },
+        {
+            "path" : "optics",
+            "filter_support" : true,
+            "suppress_unchanged_support" : false,
+            "max_silent_interval_support" : false,
+            "sample_frequency" :
+            {
+                "min" : 2000,
+                "max" : 3600000
+            }
+        },
+        {
+            "path" : "iptunnels",
+            "filter_support" : true,
+            "suppress_unchanged_support" : false,
+            "max_silent_interval_support" : false,
+            "sample_frequency" :
+            {
+                "min" : 2000,
+                "max" : 3600000
+            }
+        },
+        {
+            "path" : "lsp_stats",
+            "filter_support" : true,
+            "suppress_unchanged_support" : false,
+            "max_silent_interval_support" : false,
+            "sample_frequency" :
+            {
+                "min" : 2000,
+                "max" : 3600000
+            }
+        },
+        {
+            "path" : "firewall",
+            "filter_support" : true,
+            "suppress_unchanged_support" : false,
+            "max_silent_interval_support" : false,
+            "sample_frequency" :
+            {
+                "min" : 2000,
+                "max" : 3600000
+            }
+        },
+        {
+            "path" : "logical_port",
+            "filter_support" : true,
+            "suppress_unchanged_support" : false,
+            "max_silent_interval_support" : false,
+            "sample_frequency" :
+            {
+                "min" : 2000,
+                "max" : 3600000
+            }
+        },
+        {
+            "path" : "packet_stats",
+            "filter_support" : true,
+            "suppress_unchanged_support" : false,
+            "max_silent_interval_support" : false,
+            "sample_frequency" :
+            {
+                "min" : 2000,
+                "max" : 3600000
+            }
+        },
+        {
+            "path" : "npu_utilization",
+            "filter_support" : true,
+            "suppress_unchanged_support" : false,
+            "max_silent_interval_support" : false,
+            "sample_frequency" :
+            {
+                "min" : 2000,
+                "max" : 3600000
+            }
+        },
+        {
+            "path" : "cpu_mem",
+            "filter_support" : true,
+            "suppress_unchanged_support" : false,
+            "max_silent_interval_support" : false,
+            "sample_frequency" :
+            {
+                "min" : 2000,
+                "max" : 3600000
+            }
+        },
+        {
+            "path" : "oc",
+            "filter_support" : true,
+            "suppress_unchanged_support" : false,
+            "max_silent_interval_support" : false,
+            "sample_frequency" :
+            {
+                "min" : 2000,
+                "max" : 3600000
+            }
+        },
+        {
+            "path" : "npu_mem",
+            "filter_support" : true,
+            "suppress_unchanged_support" : false,
+            "max_silent_interval_support" : false,
+            "sample_frequency" :
+            {
+                "min" : 2000,
+                "max" : 3600000
+            }
+        }
+    ]
+}

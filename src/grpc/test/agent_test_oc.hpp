@@ -1,8 +1,10 @@
 //
 //  agent_test_oc.hpp
-//  agent-jv
 //
-//  Created by ABBAS SAKARWALA on 5/12/16.
+//  Created: 5/12/16.
+//
+//  Authors: ABBAS SAKARWALA
+//
 //  Copyright © 2016 Juniper Networks. All rights reserved.
 //
 

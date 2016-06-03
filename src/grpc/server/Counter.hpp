@@ -37,7 +37,8 @@ class Counter {
     // Is rate calculation enabled
     pthread_t _rate_thread;
 
-    // The scan internal of the rate thread, which wakes up every so often to compute deltas
+    // The scan internal of the rate thread,
+    // which wakes up every so often to compute deltas
     uint32_t  _rate_scan_interval;
 
     // Manage Rate calculation routines
@@ -54,7 +55,8 @@ class Counter {
     void startRate(void *context)
     {
         if (!_rate_thread) {
-            pthread_create(&_rate_thread, NULL, CounterRateHandleCallback, context);
+            pthread_create(&_rate_thread, NULL,
+                           CounterRateHandleCallback, context);
         }
     }
 
@@ -65,7 +67,7 @@ class Counter {
     }
 
 public:
-    Counter (const std::string name = "", bool enable_rate = false) : _name(name)
+    Counter (const std::string name = "", bool enable_rate = false): _name(name)
     {
         _packets = _packets_reference = 0;
         _bytes   = _bytes_reference   = 0;
@@ -123,21 +125,21 @@ public:
         _bytes_reference   = _bytes;
     }
 
-    void enableRate  ()
+    void enableRate (void)
     {
         if (!_rate_thread) {
             startRate((void *) this);
         }
     }
 
-    void disableRate ()
+    void disableRate (void)
     {
         if (_rate_thread) {
             stopRate();
         }
     }
 
-    void reset ()
+    void reset (void)
     {
         _packets     = 0;
         _bytes       = 0;
@@ -145,18 +147,16 @@ public:
         _byte_rate   = 0;
     }
 
-    void description ()
+    void description (void)
     {
         std::cout << "Name = " << _name << std::endl;
         std::cout << "packets = " << _packets
                   << " , bytes = " << _bytes << std::endl;
         if (_rate_thread) {
             std::cout << "pps     = " << _packet_rate
-                  << " , Bps = " << _byte_rate << std::endl;
+                      << " , Bps = " << _byte_rate << std::endl;
         }
     }
-
-    static void tests();
 };
 
 #endif /* Counter_hpp */

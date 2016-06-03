@@ -7,3 +7,4 @@ src/grpc/client/client
 src/grpc/server/server
 src/grpc/test/agent_test
 src/grpc/mgd_server/mgd_server
+config/test_config/SimServerConfig/agent_server_test.ini

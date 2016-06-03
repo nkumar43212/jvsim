@@ -46,11 +46,15 @@ using Telemetry::VerbosityLevel;
 using Telemetry::EncodingType;
 
 // AGENT_SERVER_ADDRESS
+<<<<<<< HEAD
 extern std::string server_ip, server_port;
 #define AGENT_SERVER_IP_PORT  (std::string((server_ip + ":" + server_port)))
+=======
+#define AGENT_SERVER_IP_PORT    "localhost:50051"
+>>>>>>> 6eac09efa6ad6d3d4c713bc36092ec1a6c19a215
 
 // Name of Management Client
-#define AGENTCLIENT_MGMT "Management-Client"
+#define AGENTCLIENT_MGMT        "Management-Client"
 
 // AgentClient Class
 class AgentClient {
