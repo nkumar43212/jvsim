@@ -92,6 +92,7 @@ public:
                                const std::string& logfile_dir);
     static AgentClient *find(std::string name);
     static void         print(void);
+    void                rehome(void);
 
     std::string getName (void)          { return _name;                  }
     bool        getActive (void)        { return _active;                }

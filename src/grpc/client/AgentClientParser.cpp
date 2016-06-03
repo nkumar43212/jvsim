@@ -336,6 +336,7 @@ handle_set_server (int argc, const char *argv[])
     if (strcmp(argv[1], "default") == 0) {
         server_ip   = "localhost";
         server_port = "50051";
+        goto recreate_mgmt;
         return;
     }
 
@@ -343,6 +344,14 @@ handle_set_server (int argc, const char *argv[])
     if (argc > 2) {
         server_port = argv[2];
     }
+
+recreate_mgmt:
+     AgentClient *mgmt = AgentClient::find(AGENTCLIENT_MGMT);
+     if (!mgmt) {
+         std::cout << "This is strange. Didn't find the management client\n";
+         return;
+     }
+     mgmt->rehome();
 }
 
 void

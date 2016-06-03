@@ -53,6 +53,14 @@ AgentClient::~AgentClient (void)
     }
 }
 
+void
+AgentClient::rehome (void)
+{
+    cancelSubscribeTelemetry();
+    stub_ = OpenConfigTelemetry::NewStub(grpc::CreateChannel(AGENT_SERVER_IP_PORT,
+                                         grpc::InsecureCredentials()));
+}
+
 AgentClient *
 AgentClient::find (std::string name)
 {
