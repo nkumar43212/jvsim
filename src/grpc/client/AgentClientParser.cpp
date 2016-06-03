@@ -362,7 +362,6 @@ entry_t agent_client_commands [] = {
     },
 
     {
-<<<<<<< HEAD
         .e_cmd     = std::string("set-server"),
         .e_argc    = 2,
         .e_help    = std::string("Set server's ip and port (optional) to establish gRPC connection"),
@@ -379,16 +378,6 @@ entry_t agent_client_commands [] = {
     },
 
     {
-        .e_cmd     = std::string("subscribe-telegraf"),
-        .e_argc    = 4,
-        .e_help    = std::string("Subscribe to a jvision sensor by specifying a list of paths"),
-        .e_usage   = std::string("subscribe-telegraf <graf-filename> <subscription-name> <sample-frequency> <path>+"),
-        .e_handler = handle_subscribe_telegraf
-    },
-
-    {
-=======
->>>>>>> 6eac09efa6ad6d3d4c713bc36092ec1a6c19a215
         .e_cmd     = std::string("subscribe_limits"),
         .e_argc    = 6,
         .e_help    = std::string("Subscribe with record and second limits to the session"),
