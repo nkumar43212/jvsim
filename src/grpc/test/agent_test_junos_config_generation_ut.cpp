@@ -209,7 +209,7 @@ TEST(JsonConfigGeneration, qfx_add_sensor_config) {
 TEST(JsonConfigGeneration, qfx_delete_sensor_config) {
     bool add = false;
 
-    bool udp = false;
+    bool udp = true;
     std::string udp_server_ip = "1.1.1.1";
     uint32_t udp_server_port = 10000;
     id_idx_t subscription_id = 1000;
