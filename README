@@ -1,20 +1,24 @@
 A new sensor simulation can be added as follows
 
-1) Add a new entry to the system config file 
+1) Add a new entry to the system.json and system.test_oc.json
+   config file in config/test_config/SimServerConfig/
 
-2) Add proto file to $SB/protos
+2) Add a new entry to ocpath.json
+   config file in config/test_config/SimServerConfig/
 
-3) Compile proto file
+3) Add proto file to $SB/protos
+
+4) Compile proto file
      - cd $SB/src/grpc/lib-protos; make
      - cd $SB/src/sim/sensors; make
 
-4) Add encoder to create mock data
+5) Add encoder to create mock data
      - cd $SB/src/sim/sensors
      - Update jv_protos.py
      - Create a new file foo_encode.py
      - Add the routine foo_encode
 
-5) Add translator to lib-oc
+6) Add translator to lib-oc
      - cd $SB/src/grpc/lib-oc
      - python genxlate.py <proto-file-name> (e.g.: python genxlate.py foo)
      - A new file "OpenConfigFoo.cpp" will get generated
