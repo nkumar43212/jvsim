@@ -60,6 +60,13 @@ JunosTelemetryJsonGenerator::generate_json_junos_config (bool add,
                                                 udp_server_ip,
                                                 udp_server_port,
                                                 &streaming_server_json);
+
+        // This is a small hack, we never delete udp streaming server ever
+        // In future, we can configure this one time and never come here
+        // TODO ABBAS
+        if (!add) {
+            streaming_server_json = Json::nullValue;
+        }
     }
 
     // Create sensor
