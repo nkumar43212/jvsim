@@ -45,6 +45,38 @@ TEST_F(AgentConsolidatorTest, add) {
     EXPECT_EQ(0, cons->getErrors());
 }
 
+TEST_F(AgentConsolidatorTest, add_with_filter) {
+    AgentConsolidatorHandle *handle;
+    SubscriptionRequest request;
+    Telemetry::Path *path;
+
+    // Build a request
+    path = request.add_path_list();
+    path->set_path("firewall");
+    path->set_filter("*.*");
+    path = request.add_path_list();
+    path->set_path("port");
+    path->set_filter("xe-0/0/0");
+
+    // Add it to the consolidator
+    handle = cons->addRequest(61, &request);
+    EXPECT_TRUE(handle != NULL);
+    EXPECT_EQ(2, cons->getSystemRequestCount());
+    EXPECT_EQ(1, cons->getAddCount());
+    EXPECT_EQ(0, cons->getErrors());
+
+    // Simple check get call is good
+    SubscriptionRequest *test_ptr;
+    test_ptr = cons->getRequest(handle, false);
+    EXPECT_TRUE(test_ptr != NULL);
+
+    // Remove it now
+    cons->removeRequest(handle);
+    EXPECT_EQ(0, cons->getSystemRequestCount());
+    EXPECT_EQ(1, cons->getRemCount());
+    EXPECT_EQ(0, cons->getErrors());
+}
+
 TEST_F(AgentConsolidatorTest, add_multiple) {
     AgentConsolidatorHandle *handle1, *handle2;
     SubscriptionRequest request;
