@@ -13,6 +13,7 @@
 #include "AgentSystemFile.hpp"
 #include "OCTelemetryJsonGenerator.hpp"
 #include "JunosTelemetryJsonGenerator.hpp"
+#include "GlobalConfig.hpp"
 
 void
 AgentSystemFile::systemAdd (SystemId id, const Telemetry::Path *request_path)
@@ -28,9 +29,13 @@ AgentSystemFile::systemAdd (SystemId id, const Telemetry::Path *request_path)
 #else
     // Generate the Jsonized Junos configuration
     bool add = true;
-    bool mqtt = true;
     std::string config = JunosTelemetryJsonGenerator::generate_json_junos_config
-                         (add, mqtt, (id_idx_t)id.getId(), request_path);
+                         (add,
+                          global_config.udp_server_module,
+                          global_config.udp_server_ip,
+                          global_config.udp_server_port,
+                          (id_idx_t)id.getId(),
+                          request_path);
 #endif
 
     // Write it out
@@ -53,9 +58,13 @@ AgentSystemFile::systemRemove (SystemId id, const Telemetry::Path *request_path)
 #else
     // Generate the Jsonized Junos configuration
     bool add = false;
-    bool mqtt = true;
     std::string config = JunosTelemetryJsonGenerator::generate_json_junos_config
-                         (add, mqtt, (id_idx_t)id.getId(), request_path);
+                         (add,
+                          global_config.udp_server_module,
+                          global_config.udp_server_ip,
+                          global_config.udp_server_port,
+                          (id_idx_t)id.getId(),
+                          request_path);
 #endif
 
     // Write it out

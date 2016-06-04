@@ -261,9 +261,10 @@ AgentSystemProc::systemAdd (SystemId id, const Telemetry::Path *request_path)
     // Junos Config
     std::string config;
     bool add = true;
-    bool mqtt = true;
     config = JunosTelemetryJsonGenerator::generate_json_junos_config(add,
-                                    mqtt,
+                                    global_config.udp_server_module,
+                                    global_config.udp_server_ip,
+                                    global_config.udp_server_port,
                                     (id_idx_t)id.getId(),
                                     request_path);
     Status status = _sendJunosMessagetoMgd(config, id,
@@ -303,9 +304,10 @@ AgentSystemProc::systemRemove (SystemId id, const Telemetry::Path *request_path)
     // Junos Config
     std::string config;
     bool add = false;
-    bool mqtt = true;
     config = JunosTelemetryJsonGenerator::generate_json_junos_config(add,
-                                    mqtt,
+                                    global_config.udp_server_module,
+                                    global_config.udp_server_ip,
+                                    global_config.udp_server_port,
                                     (id_idx_t)id.getId(),
                                     request_path);
     Status status = _sendJunosMessagetoMgd(config, id,

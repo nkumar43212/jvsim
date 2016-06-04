@@ -32,7 +32,7 @@ public:
                                           uint32_t grpc_udp_port,
                                           Json::Value *json_obj);
     static void set_json_sensor_config(bool add,
-                                       bool mqtt,
+                                       bool udp,
                                        std::string sensor_name,
                                        std::string streaming_server_name,
                                        std::string export_profile_name,

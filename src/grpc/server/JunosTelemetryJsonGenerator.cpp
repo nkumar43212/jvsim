@@ -15,12 +15,15 @@
 #include "AgentUtils.hpp"
 
 #define MILLISECS_TO_SECS(msec)     (msec/1000)
+#define GRPC_UDP_COLLECTOR_NAME     "grpc_udp_collector"
 
 std::string
 JunosTelemetryJsonGenerator::generate_json_junos_config (bool add,
-                                          bool mqtt,
-                                          id_idx_t internal_subscription_id,
-                                          const Telemetry::Path *path)
+                                        bool udp,
+                                        std::string udp_server_ip,
+                                        uint32_t udp_server_port,
+                                        id_idx_t internal_subscription_id,
+                                        const Telemetry::Path *path)
 {
     bool parsingSuccessful;
 
@@ -38,27 +41,26 @@ JunosTelemetryJsonGenerator::generate_json_junos_config (bool add,
                                       std::to_string(internal_subscription_id);
     JunosTelemetryJson::set_json_export_profile(add,
                                                 export_profile_name,
-                                                mqtt ? "grpc" : "udp",
+                                                udp ? "udp" : "grpc",
                                                 &export_profile_json);
 
     // Create streaming-server
     Json::Value streaming_server_json;
-    // TODO ABBAS - For QFX platform
-#if 0
-    parsingSuccessful =
-    JsonUtils::parse_string_to_json_obj(streaming_server,
-                                        streaming_server_json);
-    if (parsingSuccessful == false) {
-        // Mark error and return empty string
-        return "";
-    }
+    if (udp) {
+        parsingSuccessful = JsonUtils::parse_string_to_json_obj(streaming_server,
+                                                        streaming_server_json);
+        if (parsingSuccessful == false) {
+            // Mark error and return empty string
+            return "";
+        }
 
-    // Set values in streaming-server
-    JunosTelemetryJson::set_json_streaming_server(add,
-                                                  "GRPC_UDP_COLLECTOR",
-                                                  "1.1.1.1", 10000,
-                                                  &streaming_server_json);
-#endif
+        // Set values in streaming-server
+        JunosTelemetryJson::set_json_streaming_server(add,
+                                                GRPC_UDP_COLLECTOR_NAME,
+                                                udp_server_ip,
+                                                udp_server_port,
+                                                &streaming_server_json);
+    }
 
     // Create sensor
     Json::Value sensor_config_json;
@@ -73,9 +75,9 @@ JunosTelemetryJsonGenerator::generate_json_junos_config (bool add,
     std::string sensor_name = "sensor_" +
                               std::to_string(internal_subscription_id);
     JunosTelemetryJson::set_json_sensor_config(add,
-                                               mqtt,
+                                               udp,
                                                sensor_name,
-                                               "GRPC_UDP_COLLECTOR",
+                                               GRPC_UDP_COLLECTOR_NAME,
                                                export_profile_name,
                                                path->path(),
                                                path->filter(),

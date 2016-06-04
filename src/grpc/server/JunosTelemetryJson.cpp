@@ -126,7 +126,7 @@ JunosTelemetryJson::set_json_streaming_server (bool add,
 
 void
 JunosTelemetryJson::set_json_sensor_config (bool add,
-                                            bool mqtt,
+                                            bool udp,
                                             std::string sensor_name,
                                             std::string streaming_server_name,
                                             std::string export_profile_name,
@@ -142,7 +142,7 @@ JunosTelemetryJson::set_json_sensor_config (bool add,
         // Modify necessary fields
         (*json_obj)["configuration"]["services"]["analytics"]["sensor"][0]
                    .removeMember("@");
-        if (mqtt == false) {
+        if (udp) {
             (*json_obj)["configuration"]["services"]["analytics"]["sensor"][0]
                        ["server-name"] = streaming_server_name;
         } else {
