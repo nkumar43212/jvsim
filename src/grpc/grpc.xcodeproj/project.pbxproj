@@ -18,7 +18,7 @@
 		053D47A61CF85A5600B94071 /* agent_test_global_config_ut.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 053D47A41CF85A5600B94071 /* agent_test_global_config_ut.cpp */; };
 		053D47AF1D00E73C00B94071 /* agent_test_counter_ut.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 053D47AD1D00E73C00B94071 /* agent_test_counter_ut.cpp */; };
 		053D47B21D01023200B94071 /* agent_test_log_ut.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 053D47B01D01023200B94071 /* agent_test_log_ut.cpp */; };
-		053D47B51D026CA900B94071 /* agent_test_json_config_generation_ut.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 053D47B31D026CA900B94071 /* agent_test_json_config_generation_ut.cpp */; };
+		053D47B81D027ACC00B94071 /* agent_test_junos_config_generation_ut.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 053D47B61D027ACC00B94071 /* agent_test_junos_config_generation_ut.cpp */; };
 		0584266C1CE4DD21003D866B /* OpenConfigLspStats.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0584266A1CE4DD21003D866B /* OpenConfigLspStats.cpp */; };
 		058AC3E61CED1CA80024FBD6 /* UdpReceiver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 058AC3E41CED1CA80024FBD6 /* UdpReceiver.cpp */; };
 		058AC3E91CED21AC0024FBD6 /* AgentSubscriptionUdpWorker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 058AC3E71CED21AC0024FBD6 /* AgentSubscriptionUdpWorker.cpp */; };
@@ -186,8 +186,8 @@
 		053D47AE1D00E73C00B94071 /* agent_test_counter_ut.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = agent_test_counter_ut.hpp; sourceTree = "<group>"; };
 		053D47B01D01023200B94071 /* agent_test_log_ut.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = agent_test_log_ut.cpp; sourceTree = "<group>"; };
 		053D47B11D01023200B94071 /* agent_test_log_ut.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = agent_test_log_ut.hpp; sourceTree = "<group>"; };
-		053D47B31D026CA900B94071 /* agent_test_json_config_generation_ut.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = agent_test_json_config_generation_ut.cpp; sourceTree = "<group>"; };
-		053D47B41D026CA900B94071 /* agent_test_json_config_generation_ut.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = agent_test_json_config_generation_ut.hpp; sourceTree = "<group>"; };
+		053D47B61D027ACC00B94071 /* agent_test_junos_config_generation_ut.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = agent_test_junos_config_generation_ut.cpp; sourceTree = "<group>"; };
+		053D47B71D027ACC00B94071 /* agent_test_junos_config_generation_ut.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = agent_test_junos_config_generation_ut.hpp; sourceTree = "<group>"; };
 		058426691CE4DD09003D866B /* oc.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = oc.hpp; sourceTree = "<group>"; };
 		0584266A1CE4DD21003D866B /* OpenConfigLspStats.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OpenConfigLspStats.cpp; sourceTree = "<group>"; };
 		0584266B1CE4DD21003D866B /* OpenConfigLspStats.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = OpenConfigLspStats.hpp; sourceTree = "<group>"; };
@@ -503,8 +503,8 @@
 				053D47AE1D00E73C00B94071 /* agent_test_counter_ut.hpp */,
 				053D47B01D01023200B94071 /* agent_test_log_ut.cpp */,
 				053D47B11D01023200B94071 /* agent_test_log_ut.hpp */,
-				053D47B31D026CA900B94071 /* agent_test_json_config_generation_ut.cpp */,
-				053D47B41D026CA900B94071 /* agent_test_json_config_generation_ut.hpp */,
+				053D47B61D027ACC00B94071 /* agent_test_junos_config_generation_ut.cpp */,
+				053D47B71D027ACC00B94071 /* agent_test_junos_config_generation_ut.hpp */,
 				946703DF1C65134700E73BF5 /* agent_test.cpp */,
 				946703DE1C65134700E73BF5 /* agent_test.hpp */,
 				940C7CDF1CE50446004ED81D /* agent_test_oc.cpp */,
@@ -831,6 +831,7 @@
 				053D47AF1D00E73C00B94071 /* agent_test_counter_ut.cpp in Sources */,
 				05C1BEDF1CC94ED700A6A342 /* AgentUtils.cpp in Sources */,
 				9436D96C1C8549E700356B6F /* AgentSystemProc.cpp in Sources */,
+				053D47B81D027ACC00B94071 /* agent_test_junos_config_generation_ut.cpp in Sources */,
 				94A292061C827C9F004BB6C3 /* AgentSystemNull.cpp in Sources */,
 				0537F4E51CCEA68200BD519B /* OCTelemetryJsonGenerator.cpp in Sources */,
 				94A292051C827C95004BB6C3 /* AgentSystemFile.cpp in Sources */,
@@ -839,7 +840,6 @@
 				05BD33BB1CD4027A0059EF17 /* JunosTelemetryJsonGenerator.cpp in Sources */,
 				946703E11C65134700E73BF5 /* agent_test.cpp in Sources */,
 				05BD33B71CD3FF550059EF17 /* JunosTelemetryJson.cpp in Sources */,
-				053D47B51D026CA900B94071 /* agent_test_json_config_generation_ut.cpp in Sources */,
 				053D47A01CF7E5F300B94071 /* agent_test_consolidator_null_ut.cpp in Sources */,
 				05BD33B61CD3ED0C0059EF17 /* JsonUtils.cpp in Sources */,
 				94AC9AA31C7A1F2F0034AF1A /* AgentSystem.cpp in Sources */,

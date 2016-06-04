@@ -1,5 +1,5 @@
 //
-//  agent_test_json_config_generation_ut.cpp
+//  agent_test_junos_config_generation_ut.cpp
 //
 //  Created: 6/3/16.
 //
@@ -10,7 +10,7 @@
 
 #include <algorithm>
 #include "gtest/gtest.h"
-#include "agent_test_json_config_generation_ut.hpp"
+#include "agent_test_junos_config_generation_ut.hpp"
 #include "AgentServerIdManager.hpp"
 #include "JunosTelemetryJsonGenerator.hpp"
 
