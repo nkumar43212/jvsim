@@ -44,3 +44,12 @@ TEST_F(AgentConsolidatorNullTest, add) {
     EXPECT_EQ(1, cons->getRemCount());
     EXPECT_EQ(0, cons->getErrors());
 }
+
+TEST_F(AgentConsolidatorNullTest, SystemId) {
+    SystemId *sys_id = new SystemId(100);
+
+    EXPECT_EQ(100, sys_id->getId());
+    sys_id->description();
+
+    delete sys_id;
+}
