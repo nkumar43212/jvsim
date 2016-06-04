@@ -88,6 +88,10 @@
          </CommandLineArgument>
          <CommandLineArgument
             argument = "--gtest_filter=LogTest.*"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "--gtest_filter=JsonConfigGeneration.*"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
