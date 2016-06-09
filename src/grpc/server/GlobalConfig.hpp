@@ -17,6 +17,7 @@
 
 // GRPC related
 #define INI_SECTION_TELEMETRY_GRPC      "telemetry-grpc"
+#define GRPC_SERVER_UNIX_SOCKET         "/var/run/japi_na_grpcd"
 #define GRPC_SERVER_IP                  "0.0.0.0"
 #define GRPC_SERVER_PORT                50051
 #define GRPC_LOG_FILE_PATH              "/var/log"
@@ -41,6 +42,13 @@
 #define UDP_SERVER_IP                   "0.0.0.0"
 #define UDP_SERVER_PORT                 10000
 
+// JSD related
+#define INI_SECTION_JSD                 "jsd"
+#define JSD_INIT_REGISTRATION           false
+#define JSD_NUM_OF_RETRIES              5
+#define JSD_JSON_FILE_PATH              "/tmp"
+#define JSD_JSON_FILE_NAME              "agent.json"
+
 // OTHER knobs related
 #define INI_SECTION_OTHER_KNOBS         "other-knobs"
 #define TOPIC_INTERNAL_SUB_ID           "internal-subscription-id"
@@ -63,6 +71,7 @@
 // Global Config object
 class GlobalConfig {
 public:
+    std::string     grpc_server_unix_socket;
     std::string     grpc_server_ip;
     int             grpc_server_port;
     std::string     grpc_log_file_path;
@@ -81,6 +90,11 @@ public:
     std::string     udp_server_ip;
     int             udp_server_port;
 
+    bool            jsd_init_registration;
+    int             jsd_num_of_retries;
+    std::string     jsd_json_file_path;
+    std::string     jsd_json_file_name;
+
     std::string     subscribe_topic_name;
     
     std::string     system_mode;
@@ -94,6 +108,7 @@ public:
     std::string     ocpath_file_name;
 
     GlobalConfig() {
+        grpc_server_unix_socket = GRPC_SERVER_UNIX_SOCKET;
         grpc_server_ip          = GRPC_SERVER_IP;
         grpc_server_port        = GRPC_SERVER_PORT;
         grpc_log_file_path      = GRPC_LOG_FILE_PATH;
@@ -111,6 +126,11 @@ public:
         udp_server_module       = UDP_SERVER_MODULE;
         udp_server_ip           = UDP_SERVER_IP;
         udp_server_port         = UDP_SERVER_PORT;
+
+        jsd_init_registration   = JSD_INIT_REGISTRATION;
+        jsd_num_of_retries      = JSD_NUM_OF_RETRIES;
+        jsd_json_file_path      = JSD_JSON_FILE_PATH;
+        jsd_json_file_name      = JSD_JSON_FILE_NAME;
 
         subscribe_topic_name    = SUBSCRIPTION_TOPIC_NAME;
         system_mode             = SYSTEM_MODE_PROC;

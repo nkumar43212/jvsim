@@ -63,6 +63,8 @@ operator<<(std::ostream& os, GlobalConfig& gc)
     os << "GLOBAL CONFIGURATION:" << std::endl;
     os << "--------------------"  << std::endl;
 
+    os << "Telemetry GRPC server unix s : "
+                                << gc.grpc_server_unix_socket << std::endl;
     os << "Telemetry GRPC server ip     : "
                                 << gc.grpc_server_ip << std::endl;
     os << "Telemetry GRPC server port   : "
@@ -94,6 +96,17 @@ operator<<(std::ostream& os, GlobalConfig& gc)
                                 << gc.udp_server_ip << std::endl;
     os << "UDP server port              : "
                                 << gc.udp_server_port << std::endl;
+
+    os << "JSD init registration        : "
+                                << gc.jsd_init_registration << std::endl;
+    if (gc.jsd_init_registration) {
+        os << "JSD number of retries        : "
+                                << gc.jsd_num_of_retries << std::endl;
+        os << "JSD json file path           : "
+                                << gc.jsd_json_file_path << std::endl;
+        os << "JSD json file name           : "
+                                << gc.jsd_json_file_name << std::endl;
+    }
 
     os << "Subscribe topic name         : "
                                 << gc.subscribe_topic_name << std::endl;
@@ -132,6 +145,10 @@ GlobalConfig::parse(std::string filename, GlobalConfig &global_config)
     }
 
     // INI_SECTION_TELEMETRY_GRPC
+    global_config.grpc_server_unix_socket = reader.Get(
+                                        INI_SECTION_TELEMETRY_GRPC,
+                                        "grpc_server_unix_socket",
+                                        global_config.grpc_server_unix_socket);
     global_config.grpc_server_ip = reader.Get(INI_SECTION_TELEMETRY_GRPC,
                                               "grpc_server_ip",
                                               global_config.grpc_server_ip);
@@ -184,6 +201,20 @@ GlobalConfig::parse(std::string filename, GlobalConfig &global_config)
                                              INI_SECTION_UDP,
                                              "udp_server_port",
                                              global_config.udp_server_port);
+
+    // INI_SECTION_JSD
+    global_config.jsd_init_registration = reader.GetBoolean(INI_SECTION_JSD,
+                                            "init_registration",
+                                            global_config.jsd_init_registration);
+    global_config.jsd_num_of_retries = (int)reader.GetInteger(INI_SECTION_JSD,
+                                            "number_of_retries",
+                                            global_config.jsd_num_of_retries);
+    global_config.jsd_json_file_path = reader.Get(INI_SECTION_JSD,
+                                            "json_file_path",
+                                            global_config.jsd_json_file_path);
+    global_config.jsd_json_file_name = reader.Get(INI_SECTION_JSD,
+                                            "json_file_name",
+                                            global_config.jsd_json_file_name);
 
     // INI_SECTION_OTHER_KNOBS
     std::string subscribe_topic_name = reader.Get(
