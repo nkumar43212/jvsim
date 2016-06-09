@@ -3,6 +3,8 @@
 //  Junos MGD
 //
 //  Created by NITIN KUMAR on 3/22/16.
+//  CoAuthor: ABBAS SAKARWALA
+//
 //  Copyright © 2016 Juniper Networks. All rights reserved.
 //
 
@@ -21,6 +23,8 @@
 #endif
 #include "authentication_service.pb.h"
 #include "authentication_service.grpc.pb.h"
+#include "registration_service.pb.h"
+#include "registration_service.grpc.pb.h"
 
 using grpc::Server;
 using grpc::ServerBuilder;
@@ -63,17 +67,21 @@ using management::GetEphemeralConfigRequest;
 using management::GetEphemeralConfigResponse;
 using management::GetEphemeralConfigResponse_ResponseList;
 
-#endif
+#endif // __OC_Telemetry_Config__
 
 using authentication::Login;
 using authentication::LoginRequest;
 using authentication::LoginReply;
 
+using registration::Register;
+using registration::RegisterRequest;
+using registration::RegisterReply;
+
 #if defined(__OC_Telemetry_Config__)
 class MgdServer final : public OpenconfigRpcApi::Service {
 #else
 class MgdServer final : public ManagementRpcApi::Service {
-#endif
+#endif // __OC_Telemetry_Config__
 
     // Logging service
     AgentServerLog *_logger;
@@ -96,7 +104,7 @@ class MgdServer final : public ManagementRpcApi::Service {
     Status GetEphemeralConfig(ServerContext* context,
                const GetEphemeralConfigRequest* get_eph_request,
                GetEphemeralConfigResponse* get_eph_response) override;
-#endif
+#endif // __OC_Telemetry_Config__
 
 public:
     MgdServer (AgentServerLog *logger) : _logger(logger) {}
@@ -113,6 +121,19 @@ class LoginServer final : public Login::Service {
 
     public:
     LoginServer (AgentServerLog *logger) : _logger(logger) {}
+};
+
+class RegisterServer final : public Register::Service {
+    // Logging service
+    AgentServerLog *_logger;
+
+    // Register Service
+    Status RegisterService(ServerContext* context,
+                           const RegisterRequest* request,
+                           RegisterReply* response) override;
+
+    public:
+    RegisterServer (AgentServerLog *logger) : _logger(logger) {}
 };
 
 #endif /* MgdServer_hpp */

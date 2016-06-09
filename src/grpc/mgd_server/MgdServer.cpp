@@ -3,6 +3,8 @@
 //  Junos MGD
 //
 //  Created by NITIN KUMAR on 3/22/16.
+//  CoAuthor: ABBAS SAKARWALA
+//
 //  Copyright © 2016 Juniper Networks. All rights reserved.
 //
 
@@ -205,4 +207,54 @@ LoginServer::LoginCheck (ServerContext* context,
         response->set_result(false);
         return Status::CANCELLED;
     }
+}
+
+Status
+RegisterServer::RegisterService (ServerContext* context,
+                                 const RegisterRequest* request,
+                                 RegisterReply* response)
+{
+    // Log the event
+    std::string formatted;
+    google::protobuf::TextFormat::PrintToString(*request, &formatted);
+    _logger->log(formatted);
+
+    // Register id not specified
+    if (request->register_id().length() == 0) {
+        response->set_result(false);
+        response->set_error("Missing register_id");
+        return Status::OK;
+    }
+
+    // Target not specified
+    if (request->target().length() == 0) {
+        response->set_result(false);
+        response->set_error("Missing target");
+        return Status::OK;
+    }
+
+    // Input type not specified
+    switch (request->input_type_case()) {
+        case registration::RegisterRequest::kFileInput:
+            if (request->file_input().length() == 0) {
+                response->set_result(false);
+                response->set_error("File input cannot be empty");
+                return Status::OK;
+            }
+            break;
+        case registration::RegisterRequest::kJsonInput:
+            if (request->json_input().length() == 0) {
+                response->set_result(false);
+                response->set_error("Json input cannot be empty");
+                return Status::OK;
+            }
+            break;
+        default:
+            _logger->log("Cannot come here");
+            break;
+    }
+
+    // return sucess
+    response->set_result(true);
+    return Status::OK;
 }

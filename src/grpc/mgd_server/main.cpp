@@ -3,6 +3,8 @@
 //  Junos MGD
 //
 //  Created by NITIN KUMAR on 3/22/16.
+//  CoAuthor: ABBAS SAKARWALA
+//
 //  Copyright © 2016 Juniper Networks. All rights reserved.
 //
 
@@ -17,6 +19,7 @@ RunServer (AgentServerLog *logger)
     std::string server_address("0.0.0.0:50050");
     MgdServer service_mgd(logger);
     LoginServer service_login(logger);
+    RegisterServer service_register(logger);
     ServerBuilder builder;
 
     // Listen on the given address without any authentication mechanism.
@@ -26,6 +29,7 @@ RunServer (AgentServerLog *logger)
     // clients. In this case it corresponds to an *synchronous* service.
     builder.RegisterService(&service_mgd);
     builder.RegisterService(&service_login);
+    builder.RegisterService(&service_register);
 
     // Finally assemble the server.
     std::unique_ptr<Server> server(builder.BuildAndStart());
