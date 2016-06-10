@@ -60,6 +60,7 @@ public:
     virtual void systemRemove(SystemId sys_id,
                               const Telemetry::Path *request_path) = 0;
     virtual Telemetry::Path * systemGet(SystemId sys_id) = 0;
+    virtual bool systemClearAll(void) = 0;
 };
 
 #endif /* AgentSystem_hpp */

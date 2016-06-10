@@ -445,3 +445,33 @@ AgentSystemProc::systemGet (SystemId id)
     return path;
 #endif
 }
+
+bool
+AgentSystemProc::systemClearAll (void)
+{
+#if defined(__OC_Telemetry_Config__)
+    // OpenConfig Config
+    // Not supported
+    return true;
+
+#else
+
+    // Junos Config
+    std::string config;
+    config = JunosTelemetryJsonGenerator::generate_json_clear_all_junos_config();
+
+    SystemId id(0);
+    Status status = _sendJunosMessagetoMgd(config, id,
+                                management::ConfigCommands::DELETE_CONFIG);
+    if (status.ok()) {
+        _logger->log("MGD command DELETE_CONFIG passed. Config pushed: " +
+                     config);
+        return true;
+    } else {
+        _logger->log("MGD command DELETE_CONFIG failed. Config pushed: " +
+                     config);
+        return false;
+    }
+
+#endif
+}

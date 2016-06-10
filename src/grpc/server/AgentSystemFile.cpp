@@ -78,3 +78,22 @@ AgentSystemFile::systemGet (SystemId sys_id)
 {
     return NULL;
 }
+
+bool
+AgentSystemFile::systemClearAll (void)
+{
+#if defined(__OC_Telemetry_Config__)
+    std::string config = "Unsupported for now";
+#else
+    // Generate the Jsonized Junos configuration
+    std::string config =
+        JunosTelemetryJsonGenerator::generate_json_clear_all_junos_config();
+#endif
+
+    // Write it out
+    _outputFile << "ClearAll config: " << std::endl;
+    _outputFile << config << std::endl;
+    _outputFile.flush();
+
+    return true;
+}

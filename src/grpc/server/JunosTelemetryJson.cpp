@@ -77,6 +77,19 @@ std::string sensor_config = R"(
 }
 )";
 
+// Junos analytics configuration
+std::string clear_all_config = R"(
+{
+    "configuration" : {
+        "services" : {
+            "analytics" : {
+                "@" : { "operation" : "delete" }
+            }
+        }
+    }
+}
+)";
+
 void
 JunosTelemetryJson::set_json_export_profile (bool add,
                                              std::string export_profile_name,

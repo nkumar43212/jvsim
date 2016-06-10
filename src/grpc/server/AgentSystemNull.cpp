@@ -29,3 +29,9 @@ AgentSystemNull::systemGet (SystemId sys_id)
 {
     return NULL;
 }
+
+bool
+AgentSystemNull::systemClearAll (void)
+{
+    return AgentSystem::systemClearAll();
+}

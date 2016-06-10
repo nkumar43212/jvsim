@@ -104,6 +104,7 @@ public:
     void systemAdd(SystemId id, const Telemetry::Path *request_path);
     void systemRemove(SystemId id, const Telemetry::Path *request_path);
     Telemetry::Path * systemGet(SystemId sys_id);
+    bool systemClearAll(void);
 };
 
 #endif /* AgentSystemProc_hpp */

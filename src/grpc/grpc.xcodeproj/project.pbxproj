@@ -35,6 +35,7 @@
 		05C1BEDB1CC824C000A6A342 /* OpenConfigLogicalPort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05C1BED91CC824C000A6A342 /* OpenConfigLogicalPort.cpp */; };
 		05C1BEDD1CC94D0800A6A342 /* AgentUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05C1BEDC1CC94D0800A6A342 /* AgentUtils.cpp */; };
 		05C1BEDF1CC94ED700A6A342 /* AgentUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05C1BEDC1CC94D0800A6A342 /* AgentUtils.cpp */; };
+		05F265BF1D0A25B20033769E /* AgentRestart.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05F265BC1D0A225D0033769E /* AgentRestart.cpp */; };
 		05FA5C271CF5AEEF00F90E30 /* PathValidator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05FA5C251CF5AEEF00F90E30 /* PathValidator.cpp */; };
 		05FA5C2B1CF6675500F90E30 /* agent_test_id_manager_ut.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05FA5C291CF6675500F90E30 /* agent_test_id_manager_ut.cpp */; };
 		05FA5C2E1CF67EC600F90E30 /* agent_test_arg_parser_ut.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05FA5C2C1CF67EC600F90E30 /* agent_test_arg_parser_ut.cpp */; };
@@ -217,6 +218,9 @@
 		05C1BEDE1CC94D1700A6A342 /* AgentUtils.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AgentUtils.hpp; sourceTree = "<group>"; };
 		05EF80711CEA8C190032A538 /* authentication_service.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = authentication_service.proto; path = ../../../protos/authentication_service.proto; sourceTree = "<group>"; };
 		05F265BA1D08DE350033769E /* registration_service.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = registration_service.proto; path = ../../../protos/registration_service.proto; sourceTree = "<group>"; };
+		05F265BB1D0A21940033769E /* agent.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = agent.json; path = ../../../config/agent.json; sourceTree = "<group>"; };
+		05F265BC1D0A225D0033769E /* AgentRestart.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AgentRestart.cpp; sourceTree = "<group>"; };
+		05F265BD1D0A225D0033769E /* AgentRestart.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AgentRestart.hpp; sourceTree = "<group>"; };
 		05FA5C251CF5AEEF00F90E30 /* PathValidator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PathValidator.cpp; sourceTree = "<group>"; };
 		05FA5C261CF5AEEF00F90E30 /* PathValidator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PathValidator.hpp; sourceTree = "<group>"; };
 		05FA5C281CF5BA6700F90E30 /* ocpaths.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = ocpaths.json; path = ../../../config/ocpaths.json; sourceTree = "<group>"; };
@@ -421,7 +425,9 @@
 				946702DB1C6474FB00E73BF5 /* Makefile */,
 				05BD33AD1CD2EA080059EF17 /* agent_server.ini */,
 				05FA5C281CF5BA6700F90E30 /* ocpaths.json */,
+				05F265BB1D0A21940033769E /* agent.json */,
 				946702DC1C6474FB00E73BF5 /* main.cpp */,
+				05F265BC1D0A225D0033769E /* AgentRestart.cpp */,
 				94AC9A821C7799BA0034AF1A /* AgentConsolidator.cpp */,
 				94AC9A8C1C77BCF50034AF1A /* AgentConsolidatorSystem.cpp */,
 				946702CB1C64734E00E73BF5 /* AgentMessageBus.cpp */,
@@ -448,6 +454,7 @@
 				946702D61C64739A00E73BF5 /* OpenConfig.cpp */,
 				05FA5C251CF5AEEF00F90E30 /* PathValidator.cpp */,
 				058AC3E41CED1CA80024FBD6 /* UdpReceiver.cpp */,
+				05F265BD1D0A225D0033769E /* AgentRestart.hpp */,
 				94AC9A831C7799BA0034AF1A /* AgentConsolidator.hpp */,
 				94AC9A8D1C77BCF50034AF1A /* AgentConsolidatorSystem.hpp */,
 				946702D41C64739A00E73BF5 /* AgentMessageBus.hpp */,
@@ -815,6 +822,7 @@
 				94A292041C8278F0004BB6C3 /* AgentSystemFile.cpp in Sources */,
 				946702D91C64739A00E73BF5 /* AgentSubscription.cpp in Sources */,
 				946702CC1C64734E00E73BF5 /* AgentServerLog.cpp in Sources */,
+				05F265BF1D0A25B20033769E /* AgentRestart.cpp in Sources */,
 				946702D81C64739A00E73BF5 /* AgentSubscriptionLimits.cpp in Sources */,
 				0537F4E41CCEA3CC00BD519B /* OCTelemetryJsonGenerator.cpp in Sources */,
 				946702D71C64739A00E73BF5 /* Counter.cpp in Sources */,

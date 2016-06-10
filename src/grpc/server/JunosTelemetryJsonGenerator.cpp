@@ -109,3 +109,26 @@ JunosTelemetryJsonGenerator::generate_json_junos_config (bool add,
     final_str = "<configuration-json>" + final_str + "</configuration-json>";
     return final_str;
 }
+
+std::string
+JunosTelemetryJsonGenerator::generate_json_clear_all_junos_config (void)
+{
+    bool parsingSuccessful;
+
+    // Create clear_all_config
+    Json::Value clear_all_json;
+    parsingSuccessful = JsonUtils::parse_string_to_json_obj(clear_all_config,
+                                                            clear_all_json);
+    if (parsingSuccessful == false) {
+        // Mark error and return empty string
+        return "";
+    }
+
+    // Clear All config string
+    std::string final_str = JsonUtils::write_json_obj_to_string(clear_all_json);
+
+    // ABBAS SPECIAL FIX --- Prepend and Append this special tag
+    final_str = "<configuration-json>" + final_str + "</configuration-json>";
+    return final_str;
+
+}

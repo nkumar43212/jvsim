@@ -18,6 +18,7 @@
 extern std::string export_profile;
 extern std::string streaming_server;
 extern std::string sensor_config;
+extern std::string clear_all_config;
 
 // Junos configuration methods for setting various Json configuration
 class JunosTelemetryJson {

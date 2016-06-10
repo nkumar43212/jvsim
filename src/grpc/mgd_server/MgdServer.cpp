@@ -130,7 +130,18 @@ MgdServer::EditEphemeralConfig (ServerContext* context,
         eph_config_db[request_id] = cmd;
     } else {
         // delete
-        eph_config_db.erase(request_id);
+        if (request_id == 0) {
+            _logger->log("Iterate to clear");
+            // Iterate to clear
+            for (EphConfigDB::iterator it = eph_config_db.begin();
+                 it != eph_config_db.end(); ++it) {
+                _logger->log(std::to_string(it->first));
+                delete it->second;
+            }
+            eph_config_db.clear();
+        } else {
+            eph_config_db.erase(request_id);
+        }
     }
 
     edit_eph_response->set_request_id(request_id);

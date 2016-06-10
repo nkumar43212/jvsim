@@ -16,6 +16,7 @@
 #include "AgentServer.h"
 #include "AgentServerCmdOptions.hpp"
 #include "AgentSystemFactory.hpp"
+#include "AgentRestart.hpp"
 #include "OpenConfig.hpp"
 #include "AgentSubscription.hpp"
 #include "lib_oc.h"
@@ -141,6 +142,9 @@ main (int argc, char * argv[])
 
     // Create a handle for the system
     AgentSystem *sys_handle = CreateSystemHandle(&opts, logger);
+
+    // On start up/restart execute necessary functionality
+    on_startup(logger, sys_handle);
 
     // Create a PathValidator object
     PathValidator *path_validator = NULL;

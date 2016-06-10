@@ -46,3 +46,15 @@ AgentSystem::systemRemove (SystemId id, const Telemetry::Path *request_path)
     // One more
     _remove_system_count++;
 }
+
+bool
+AgentSystem::systemClearAll (void)
+{
+    // Operation
+    std::string log_str = "SystemClearAll()";
+
+    // Write it
+    _logger->log(log_str);
+
+    return true;
+}
