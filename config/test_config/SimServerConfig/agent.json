@@ -1,0 +1,527 @@
+{
+  "packageTable": [
+    {
+      "Telemetry": {
+        "imports": "",
+        "messageTable": [
+          {
+            "TelemetrySubscriptionRequest": [
+              {
+                "1": {
+                  "name": "input",
+                  "label": "PROTOBUF_C_LABEL_OPTIONAL",
+                  "type": "PROTOBUF_C_TYPE_MESSAGE",
+                  "flags": 0,
+                  "unionId": 65535,
+                  "subMessage": "TelemetrySubscriptionInput"
+                }
+              },
+              {
+                "2": {
+                  "name": "path_list",
+                  "label": "PROTOBUF_C_LABEL_REPEATED",
+                  "type": "PROTOBUF_C_TYPE_MESSAGE",
+                  "flags": 0,
+                  "unionId": 65535,
+                  "subMessage": "TelemetryPath"
+                }
+              },
+              {
+                "3": {
+                  "name": "additional_config",
+                  "label": "PROTOBUF_C_LABEL_OPTIONAL",
+                  "type": "PROTOBUF_C_TYPE_MESSAGE",
+                  "flags": 0,
+                  "unionId": 65535,
+                  "subMessage": "TelemetrySubscriptionAdditionalConfig"
+                }
+              }
+            ]
+          },
+          {
+            "TelemetrySubscriptionInput": [
+              {
+                "1": {
+                  "name": "collector_list",
+                  "label": "PROTOBUF_C_LABEL_REPEATED",
+                  "type": "PROTOBUF_C_TYPE_MESSAGE",
+                  "flags": 0,
+                  "unionId": 65535,
+                  "subMessage": "TelemetryCollector"
+                }
+              }
+            ]
+          },
+          {
+            "TelemetryCollector": [
+              {
+                "1": {
+                  "name": "address",
+                  "label": "PROTOBUF_C_LABEL_OPTIONAL",
+                  "type": "PROTOBUF_C_TYPE_STRING",
+                  "flags": 0,
+                  "unionId": 65535,
+                  "subMessage": "NULL"
+                }
+              },
+              {
+                "2": {
+                  "name": "port",
+                  "label": "PROTOBUF_C_LABEL_OPTIONAL",
+                  "type": "PROTOBUF_C_TYPE_UINT32",
+                  "flags": 0,
+                  "unionId": 65535,
+                  "subMessage": "NULL"
+                }
+              }
+            ]
+          },
+          {
+            "TelemetryPath": [
+              {
+                "1": {
+                  "name": "path",
+                  "label": "PROTOBUF_C_LABEL_OPTIONAL",
+                  "type": "PROTOBUF_C_TYPE_STRING",
+                  "flags": 0,
+                  "unionId": 65535,
+                  "subMessage": "NULL"
+                }
+              },
+              {
+                "2": {
+                  "name": "filter",
+                  "label": "PROTOBUF_C_LABEL_OPTIONAL",
+                  "type": "PROTOBUF_C_TYPE_STRING",
+                  "flags": 0,
+                  "unionId": 65535,
+                  "subMessage": "NULL"
+                }
+              },
+              {
+                "3": {
+                  "name": "suppress_unchanged",
+                  "label": "PROTOBUF_C_LABEL_OPTIONAL",
+                  "type": "PROTOBUF_C_TYPE_BOOL",
+                  "flags": 0,
+                  "unionId": 65535,
+                  "subMessage": "NULL"
+                }
+              },
+              {
+                "4": {
+                  "name": "max_silent_interval",
+                  "label": "PROTOBUF_C_LABEL_OPTIONAL",
+                  "type": "PROTOBUF_C_TYPE_UINT32",
+                  "flags": 0,
+                  "unionId": 65535,
+                  "subMessage": "NULL"
+                }
+              },
+              {
+                "5": {
+                  "name": "sample_frequency",
+                  "label": "PROTOBUF_C_LABEL_OPTIONAL",
+                  "type": "PROTOBUF_C_TYPE_UINT32",
+                  "flags": 0,
+                  "unionId": 65535,
+                  "subMessage": "NULL"
+                }
+              }
+            ]
+          },
+          {
+            "TelemetrySubscriptionAdditionalConfig": [
+              {
+                "1": {
+                  "name": "limit_records",
+                  "label": "PROTOBUF_C_LABEL_OPTIONAL",
+                  "type": "PROTOBUF_C_TYPE_INT32",
+                  "flags": 0,
+                  "unionId": 65535,
+                  "subMessage": "NULL"
+                }
+              },
+              {
+                "2": {
+                  "name": "limit_time_seconds",
+                  "label": "PROTOBUF_C_LABEL_OPTIONAL",
+                  "type": "PROTOBUF_C_TYPE_INT32",
+                  "flags": 0,
+                  "unionId": 65535,
+                  "subMessage": "NULL"
+                }
+              }
+            ]
+          },
+          {
+            "TelemetrySubscriptionReply": [
+              {
+                "1": {
+                  "name": "response",
+                  "label": "PROTOBUF_C_LABEL_OPTIONAL",
+                  "type": "PROTOBUF_C_TYPE_MESSAGE",
+                  "flags": 0,
+                  "unionId": 65535,
+                  "subMessage": "TelemetrySubscriptionResponse"
+                }
+              },
+              {
+                "2": {
+                  "name": "path_list",
+                  "label": "PROTOBUF_C_LABEL_REPEATED",
+                  "type": "PROTOBUF_C_TYPE_MESSAGE",
+                  "flags": 0,
+                  "unionId": 65535,
+                  "subMessage": "TelemetryPath"
+                }
+              }
+            ]
+          },
+          {
+            "TelemetrySubscriptionResponse": [
+              {
+                "1": {
+                  "name": "subscription_id",
+                  "label": "PROTOBUF_C_LABEL_OPTIONAL",
+                  "type": "PROTOBUF_C_TYPE_UINT32",
+                  "flags": 0,
+                  "unionId": 65535,
+                  "subMessage": "NULL"
+                }
+              }
+            ]
+          },
+          {
+            "TelemetryOpenConfigData": [
+              {
+                "1": {
+                  "name": "system_id",
+                  "label": "PROTOBUF_C_LABEL_OPTIONAL",
+                  "type": "PROTOBUF_C_TYPE_STRING",
+                  "flags": 0,
+                  "unionId": 65535,
+                  "subMessage": "NULL"
+                }
+              },
+              {
+                "2": {
+                  "name": "component_id",
+                  "label": "PROTOBUF_C_LABEL_OPTIONAL",
+                  "type": "PROTOBUF_C_TYPE_UINT32",
+                  "flags": 0,
+                  "unionId": 65535,
+                  "subMessage": "NULL"
+                }
+              },
+              {
+                "3": {
+                  "name": "sub_component_id",
+                  "label": "PROTOBUF_C_LABEL_OPTIONAL",
+                  "type": "PROTOBUF_C_TYPE_UINT32",
+                  "flags": 0,
+                  "unionId": 65535,
+                  "subMessage": "NULL"
+                }
+              },
+              {
+                "4": {
+                  "name": "path",
+                  "label": "PROTOBUF_C_LABEL_OPTIONAL",
+                  "type": "PROTOBUF_C_TYPE_STRING",
+                  "flags": 0,
+                  "unionId": 65535,
+                  "subMessage": "NULL"
+                }
+              },
+              {
+                "5": {
+                  "name": "sequence_number",
+                  "label": "PROTOBUF_C_LABEL_OPTIONAL",
+                  "type": "PROTOBUF_C_TYPE_UINT64",
+                  "flags": 0,
+                  "unionId": 65535,
+                  "subMessage": "NULL"
+                }
+              },
+              {
+                "6": {
+                  "name": "timestamp",
+                  "label": "PROTOBUF_C_LABEL_OPTIONAL",
+                  "type": "PROTOBUF_C_TYPE_UINT64",
+                  "flags": 0,
+                  "unionId": 65535,
+                  "subMessage": "NULL"
+                }
+              },
+              {
+                "7": {
+                  "name": "kv",
+                  "label": "PROTOBUF_C_LABEL_REPEATED",
+                  "type": "PROTOBUF_C_TYPE_MESSAGE",
+                  "flags": 0,
+                  "unionId": 65535,
+                  "subMessage": "TelemetryKeyValue"
+                }
+              }
+            ]
+          },
+          {
+            "TelemetryKeyValue": [
+              {
+                "1": {
+                  "name": "key",
+                  "label": "PROTOBUF_C_LABEL_OPTIONAL",
+                  "type": "PROTOBUF_C_TYPE_STRING",
+                  "flags": 0,
+                  "unionId": 65535,
+                  "subMessage": "NULL"
+                }
+              },
+              {
+                "5": {
+                  "name": "double_value",
+                  "label": "PROTOBUF_C_LABEL_OPTIONAL",
+                  "type": "PROTOBUF_C_TYPE_DOUBLE",
+                  "flags": 4,
+                  "unionId": 5,
+                  "subMessage": "NULL"
+                }
+              },
+              {
+                "6": {
+                  "name": "int_value",
+                  "label": "PROTOBUF_C_LABEL_OPTIONAL",
+                  "type": "PROTOBUF_C_TYPE_INT64",
+                  "flags": 4,
+                  "unionId": 5,
+                  "subMessage": "NULL"
+                }
+              },
+              {
+                "7": {
+                  "name": "uint_value",
+                  "label": "PROTOBUF_C_LABEL_OPTIONAL",
+                  "type": "PROTOBUF_C_TYPE_UINT64",
+                  "flags": 4,
+                  "unionId": 5,
+                  "subMessage": "NULL"
+                }
+              },
+              {
+                "8": {
+                  "name": "sint_value",
+                  "label": "PROTOBUF_C_LABEL_OPTIONAL",
+                  "type": "PROTOBUF_C_TYPE_SINT64",
+                  "flags": 4,
+                  "unionId": 5,
+                  "subMessage": "NULL"
+                }
+              },
+              {
+                "9": {
+                  "name": "bool_value",
+                  "label": "PROTOBUF_C_LABEL_OPTIONAL",
+                  "type": "PROTOBUF_C_TYPE_BOOL",
+                  "flags": 4,
+                  "unionId": 5,
+                  "subMessage": "NULL"
+                }
+              },
+              {
+                "10": {
+                  "name": "str_value",
+                  "label": "PROTOBUF_C_LABEL_OPTIONAL",
+                  "type": "PROTOBUF_C_TYPE_STRING",
+                  "flags": 4,
+                  "unionId": 5,
+                  "subMessage": "NULL"
+                }
+              },
+              {
+                "11": {
+                  "name": "bytes_value",
+                  "label": "PROTOBUF_C_LABEL_OPTIONAL",
+                  "type": "PROTOBUF_C_TYPE_BYTES",
+                  "flags": 4,
+                  "unionId": 5,
+                  "subMessage": "NULL"
+                }
+              }
+            ]
+          },
+          {
+            "TelemetryCancelSubscriptionRequest": [
+              {
+                "1": {
+                  "name": "subscription_id",
+                  "label": "PROTOBUF_C_LABEL_OPTIONAL",
+                  "type": "PROTOBUF_C_TYPE_UINT32",
+                  "flags": 0,
+                  "unionId": 65535,
+                  "subMessage": "NULL"
+                }
+              }
+            ]
+          },
+          {
+            "TelemetryCancelSubscriptionReply": [
+              {
+                "1": {
+                  "name": "code",
+                  "label": "PROTOBUF_C_LABEL_OPTIONAL",
+                  "type": "PROTOBUF_C_TYPE_ENUM",
+                  "flags": 0,
+                  "unionId": 65535,
+                  "subMessage": "NULL"
+                }
+              },
+              {
+                "2": {
+                  "name": "code_str",
+                  "label": "PROTOBUF_C_LABEL_OPTIONAL",
+                  "type": "PROTOBUF_C_TYPE_STRING",
+                  "flags": 0,
+                  "unionId": 65535,
+                  "subMessage": "NULL"
+                }
+              }
+            ]
+          },
+          {
+            "TelemetryGetSubscriptionsRequest": [
+              {
+                "1": {
+                  "name": "subscription_id",
+                  "label": "PROTOBUF_C_LABEL_OPTIONAL",
+                  "type": "PROTOBUF_C_TYPE_UINT32",
+                  "flags": 0,
+                  "unionId": 65535,
+                  "subMessage": "NULL"
+                }
+              }
+            ]
+          },
+          {
+            "TelemetryGetSubscriptionsReply": [
+              {
+                "1": {
+                  "name": "subscription_list",
+                  "label": "PROTOBUF_C_LABEL_REPEATED",
+                  "type": "PROTOBUF_C_TYPE_MESSAGE",
+                  "flags": 0,
+                  "unionId": 65535,
+                  "subMessage": "TelemetrySubscriptionReply"
+                }
+              }
+            ]
+          },
+          {
+            "TelemetryGetOperationalStateRequest": [
+              {
+                "1": {
+                  "name": "subscription_id",
+                  "label": "PROTOBUF_C_LABEL_OPTIONAL",
+                  "type": "PROTOBUF_C_TYPE_UINT32",
+                  "flags": 0,
+                  "unionId": 65535,
+                  "subMessage": "NULL"
+                }
+              },
+              {
+                "2": {
+                  "name": "verbosity",
+                  "label": "PROTOBUF_C_LABEL_OPTIONAL",
+                  "type": "PROTOBUF_C_TYPE_ENUM",
+                  "flags": 0,
+                  "unionId": 65535,
+                  "subMessage": "NULL"
+                }
+              }
+            ]
+          },
+          {
+            "TelemetryGetOperationalStateReply": [
+              {
+                "1": {
+                  "name": "kv",
+                  "label": "PROTOBUF_C_LABEL_REPEATED",
+                  "type": "PROTOBUF_C_TYPE_MESSAGE",
+                  "flags": 0,
+                  "unionId": 65535,
+                  "subMessage": "TelemetryKeyValue"
+                }
+              }
+            ]
+          },
+          {
+            "TelemetryDataEncodingRequest": [
+            ]
+          },
+          {
+            "TelemetryDataEncodingReply": [
+              {
+                "1": {
+                  "name": "encoding_list",
+                  "label": "PROTOBUF_C_LABEL_REPEATED",
+                  "type": "PROTOBUF_C_TYPE_ENUM",
+                  "flags": 0,
+                  "unionId": 65535,
+                  "subMessage": "NULL"
+                }
+              }
+            ]
+          }
+        ],
+
+        "rpcTable" : [
+          {
+            "/Telemetry.OpenConfigTelemetry/telemetrySubscribe": {
+              "inMsgDescriptor": "TelemetrySubscriptionRequest",
+              "outMsgDescriptor": "TelemetryOpenConfigData",
+              "dName": "none",
+              "target": "none",
+              "isStreamAPI": true
+            }
+          },
+          {
+            "/Telemetry.OpenConfigTelemetry/cancelTelemetrySubscription": {
+              "inMsgDescriptor": "TelemetryCancelSubscriptionRequest",
+              "outMsgDescriptor": "TelemetryCancelSubscriptionReply",
+              "dName": "none",
+              "target": "none",
+              "isStreamAPI": false
+            }
+          },
+          {
+            "/Telemetry.OpenConfigTelemetry/getTelemetrySubscriptions": {
+              "inMsgDescriptor": "TelemetryGetSubscriptionsRequest",
+              "outMsgDescriptor": "TelemetryGetSubscriptionsReply",
+              "dName": "none",
+              "target": "none",
+              "isStreamAPI": false
+            }
+          },
+          {
+            "/Telemetry.OpenConfigTelemetry/getTelemetryOperationalState": {
+              "inMsgDescriptor": "TelemetryGetOperationalStateRequest",
+              "outMsgDescriptor": "TelemetryGetOperationalStateReply",
+              "dName": "none",
+              "target": "none",
+              "isStreamAPI": false
+            }
+          },
+          {
+            "/Telemetry.OpenConfigTelemetry/getDataEncodings": {
+              "inMsgDescriptor": "TelemetryDataEncodingRequest",
+              "outMsgDescriptor": "TelemetryDataEncodingReply",
+              "dName": "none",
+              "target": "none",
+              "isStreamAPI": false
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

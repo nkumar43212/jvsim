@@ -99,7 +99,7 @@ AgentSystemProc::_authenticateChannel (std::shared_ptr<grpc::Channel> &channel)
     // Fill in login details
     login_request.set_user_name(global_config.device_user_name);
     login_request.set_password(global_config.device_password);
-    login_request.set_client_id("Telemetry-service-client");
+    login_request.set_client_id(INI_SECTION_TELEMETRY_GRPC);
 
     // Set authentication timeout
     std::chrono::system_clock::time_point deadline =
@@ -330,7 +330,7 @@ AgentSystemProc::systemGet (SystemId id)
     std::string mgd_address;
     if (global_config.running_mode == RUNNING_MODE_OFF_BOX) {
         mgd_address = global_config.device_mgd_ip + ":" +
-        std::to_string(global_config.device_mgd_port);
+                      std::to_string(global_config.device_mgd_port);
     } else {
         mgd_address = "unix:" + global_config.device_mgd_unix_socket;
     }
