@@ -144,7 +144,10 @@ main (int argc, char * argv[])
     AgentSystem *sys_handle = CreateSystemHandle(&opts, logger);
 
     // On start up/restart execute necessary functionality
-    on_startup(logger, sys_handle);
+    if (!on_startup(logger, sys_handle)) {
+        logger->log("Failed in startup module. Terminating");
+        exit(0);
+    }
 
     // Create a PathValidator object
     PathValidator *path_validator = NULL;
