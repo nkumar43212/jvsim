@@ -192,6 +192,7 @@ then
     test_ini_file=$ini_file_path/agent_server_test.ini
     test_ini_file_2=$ini_file_path/agent_server_test_2.ini
 
+    #1.
     #Change the log file location
     #format the src to substitute
     src_str_original='grpc_log_file_path  = /tmp'
@@ -208,6 +209,7 @@ then
     #Run substitution
     run_sed $src_str $dst_str $ini_file $test_ini_file
 
+    #2.
     #Change the PathValidator file location
     #format the src to substitute
     src_str_original='ocpath_file_path    = /tmp'
@@ -224,11 +226,30 @@ then
     #Run substitution
     run_sed $src_str $dst_str $test_ini_file $test_ini_file_2
 
-    # Rename the file --- important step
-    mv $test_ini_file_2 $test_ini_file
+    #3.
+    #Change the JSD registration agent.json file path
+    #format the src to substitute
+    src_str_original='json_file_path      = /tmp'
+    src_str_corrected=${src_str_original//\//\\/}
+    src_str=$src_str_corrected
+    # echo $src_str
+
+    #get the destination to substitute with
+    dst_str_file=$ini_file_path
+    dst_str_file_corrected=${dst_str_file//\//\\/}
+    dst_str='json_file_path = '$dst_str_file_corrected
+    # echo $dst_str
+
+    #Run substitution
+    run_sed $src_str $dst_str $test_ini_file_2 $test_ini_file
+
+    #Note the file is renamed to desired $test_ini_file
+    #Remove unwanted files
+    rm -Rf $test_ini_file_2
 
     if [ $run_mgd == 0 ]
     then
+        #1.
         #Change system_mode to file
         #format the src to substitute
         src_str_original='system_mode         = proc'
@@ -245,6 +266,7 @@ then
         #Run substitution
         run_sed $src_str $dst_str $test_ini_file $test_ini_file_2
 
+        #2.
         #Change system_file_path
         #format the src to substitute
         src_str_original='system_file_path    = /tmp'
