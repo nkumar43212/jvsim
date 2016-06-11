@@ -15,7 +15,7 @@
 #include "JunosTelemetryJsonGenerator.hpp"
 #include "GlobalConfig.hpp"
 
-void
+bool
 AgentSystemFile::systemAdd (SystemId id, const Telemetry::Path *request_path)
 {
     // The common interface
@@ -42,9 +42,11 @@ AgentSystemFile::systemAdd (SystemId id, const Telemetry::Path *request_path)
     _outputFile << "Push config (" << id.getId() << "):" << std::endl;
     _outputFile << config << std::endl;
     _outputFile.flush();
+
+    return true;
 }
 
-void
+bool
 AgentSystemFile::systemRemove (SystemId id, const Telemetry::Path *request_path)
 {
     // The common interface
@@ -71,6 +73,8 @@ AgentSystemFile::systemRemove (SystemId id, const Telemetry::Path *request_path)
     _outputFile << "Remove config (" << id.getId() << "):" << std::endl;
     _outputFile << config << std::endl;
     _outputFile.flush();
+
+    return true;
 }
 
 Telemetry::Path *

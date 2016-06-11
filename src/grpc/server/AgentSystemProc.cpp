@@ -237,7 +237,7 @@ AgentSystemProc::_sendJunosMessagetoMgd (std::string &config,
 
 #endif
 
-void
+bool
 AgentSystemProc::systemAdd (SystemId id, const Telemetry::Path *request_path)
 {
 #if defined(__OC_Telemetry_Config__)
@@ -256,7 +256,9 @@ AgentSystemProc::systemAdd (SystemId id, const Telemetry::Path *request_path)
         _logger->log("MGD command UPDATE_CONFIG passed. Request_id: " +
                      std::to_string(id.getId()) +
                      " Path: " + AgentUtils::getMessageString(*request_path));
+        return true;
     }
+    return false;
 #else
     // Junos Config
     std::string config;
@@ -276,11 +278,13 @@ AgentSystemProc::systemAdd (SystemId id, const Telemetry::Path *request_path)
         _logger->log("MGD command UPDATE_CONFIG passed. Request_id: " +
                      std::to_string(id.getId()) +
                      " Path: " + AgentUtils::getMessageString(*request_path));
+        return true;
     }
-#endif
+    return false;
+#endif //__OC_Telemetry_Config__
 }
 
-void
+bool
 AgentSystemProc::systemRemove (SystemId id, const Telemetry::Path *request_path)
 {
 #if defined(__OC_Telemetry_Config__)
@@ -299,7 +303,9 @@ AgentSystemProc::systemRemove (SystemId id, const Telemetry::Path *request_path)
         _logger->log("MGD command DELETE_CONFIG passed. Request_id: " +
                      std::to_string(id.getId()) +
                      " Path: " + AgentUtils::getMessageString(*request_path));
+        return true;
     }
+    return false;
 #else
     // Junos Config
     std::string config;
@@ -319,8 +325,10 @@ AgentSystemProc::systemRemove (SystemId id, const Telemetry::Path *request_path)
         _logger->log("MGD command DELETE_CONFIG passed. Request_id: " +
                      std::to_string(id.getId()) +
                      " Path: " + AgentUtils::getMessageString(*request_path));
+        return true;
     }
-#endif
+    return false;
+#endif // __OC_Telemetry_Config__
 }
 
 Telemetry::Path *
