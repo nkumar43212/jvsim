@@ -56,19 +56,31 @@ RUN apt-get -y install ssh \
 
 ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
-ENTRYPOINT service ssh restart && bash
-EXPOSE 22
 
-# JVSIM
-RUN cd /home \
-&& git clone https://github.com/nkumar43212/jvsim.git \
-&& cd /home/jvsim \
-&& sudo ldconfig \
+
+
+ENV ROOTPATH=/home/jvsim
+ENV LD_LIBRARY_PATH=/usr/local/lib
+
+RUN  mkdir /home/jvsim
+COPY bin /home/jvsim/bin
+COPY config /home/jvsim/config
+RUN  mkdir /home/jvsim/logs
+COPY occam /home/jvsim/occam
+COPY protos /home/jvsim/protos
+COPY src /home/jvsim/src
+COPY Makefile /home/jvsim/Makefile
+
+WORKDIR /home/jvsim
+
+RUN sudo ldconfig \
 && export LD_LIBRARY_PATH=/usr/local/lib \
 && export ROOTPATH=/home/jvsim \
 && make all
+
 # Expose the default telemetry GRPC agent server.
 # Change to desired value if needed.
 EXPOSE 50051
+EXPOSE 22
 
-
+CMD service ssh restart && bash
