@@ -10,23 +10,24 @@ LIB = protos
 .PATH: ${.CURDIR}
 
 SRCS = \
-        agent.pb.cc \
+	agent.pb.cc \
 	authentication_service.pb.cc \
-        cpu_memory_utilization.pb.cc \
-        firewall.pb.cc \
-        Foo.pb.cc \
-        inventory.pb.cc \
-        iptunnels.pb.cc \
+	cpu_memory_utilization.pb.cc \
+	firewall.pb.cc \
+	Foo.pb.cc \
+	inventory.pb.cc \
+	iptunnels.pb.cc \
 	keyvalue.pb.cc \
-        logical_port.pb.cc \
-        lsp_stats.pb.cc \
-        mgd_service.pb.cc \
-        npu_mem.pb.cc \
-        npu_utilization.pb.cc \
-        openconfig_mgd.pb.cc \
-        optics.pb.cc \
-        packet_stats.pb.cc \
+	logical_port.pb.cc \
+	lsp_stats.pb.cc \
+	mgd_service.pb.cc \
+	npu_mem.pb.cc \
+	npu_utilization.pb.cc \
+	openconfig_mgd.pb.cc \
+	optics.pb.cc \
+	packet_stats.pb.cc \
 	port.pb.cc \
+	registration_service.pb.cc \
 	telemetry_top.pb.cc \
 	test.pb.cc \
 
