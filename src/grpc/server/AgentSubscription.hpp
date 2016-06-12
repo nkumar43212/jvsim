@@ -173,7 +173,7 @@ public:
             int total_handles = _system_subscription->getHandleCount();
             for (int i = 0; i < total_handles; i++) {
                 AgentConsolidatorSystemHandlePtr csh =
-                _system_subscription->getHandle(i);
+                                            _system_subscription->getHandle(i);
                 id_idx_t isubid = csh->getInternalSubscriptionId();
                 unSubscribe("/" + std::to_string(isubid));
             }
