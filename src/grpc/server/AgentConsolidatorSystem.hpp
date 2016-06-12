@@ -2,7 +2,11 @@
 //  AgentConsolidatorSystem.hpp
 //  Telemetry Agent
 //
-//  Created by NITIN KUMAR on 2/19/16.
+//  Created: 2/19/16.
+//
+//  Authors: NITIN KUMAR
+//           ABBAS SAKARWALA
+//
 //  Copyright © 2016 Juniper Networks. All rights reserved.
 //
 
@@ -43,7 +47,7 @@ public:
 
     // Object lifecycle
     static std::shared_ptr<AgentConsolidatorSystemHandle>
-    create(AgentSystem *sys_handle, const Telemetry::Path *request_path);
+        create(AgentSystem *sys_handle, const Telemetry::Path *request_path);
 
     // Free up a system handle
     bool destroy(AgentSystem *sys_handle);
@@ -53,11 +57,11 @@ public:
 
     // Class interface
     static std::shared_ptr<AgentConsolidatorSystemHandle>
-    find(const Telemetry::Path *request_path);
-    static void insert(AgentSystem *sys_handle,
+                find(const Telemetry::Path *request_path);
+    static bool insert(AgentSystem *sys_handle,
                        const Telemetry::Path *request_path,
                        std::shared_ptr<AgentConsolidatorSystemHandle> syshandle);
-    static void remove(AgentSystem *sys_handle,
+    static bool remove(AgentSystem *sys_handle,
                        const Telemetry::Path *request_path);
     static uint32_t getCount(void);
     void description(void);

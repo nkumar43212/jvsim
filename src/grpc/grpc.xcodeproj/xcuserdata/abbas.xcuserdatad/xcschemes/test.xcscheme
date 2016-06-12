@@ -67,8 +67,8 @@
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "--gtest_filter=AgentConsolidatorNullTest.*"
-            isEnabled = "NO">
+            argument = "--gtest_filter=AgentConsolidator*.*"
+            isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "--gtest_filter=GlobalConfigTest.*"

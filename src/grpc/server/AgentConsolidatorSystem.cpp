@@ -53,10 +53,21 @@ AgentConsolidatorSystemHandle::create (AgentSystem *sys_handle,
     sys_handle->getLogger()->log("Reserved Internal Id = " +
                                  std::to_string(_i_s_id));
     handle->setInternalSubscriptionId(_i_s_id);
-    insert(sys_handle, request_path, handle);
+    bool result = insert(sys_handle, request_path, handle);
+    // If insert successful
+    if (result) {
+        sys_handle->getLogger()->log("ConsolidatorSystemHandle create successful.");
+        return handle;
+    }
 
-    sys_handle->getLogger()->log("ConsolidatorSystemHandle create successful.");
-    return handle;
+    // Insert has failed, revert needed things again
+    // Deallocate internal subscriber id
+    sys_handle->getLogger()->log("Deleted Internal Id = " +
+                                 std::to_string(_i_s_id));
+    bool bad;
+    InternalIdGenerator.deallocate(_i_s_id, &bad);
+
+    return NULL;
 }
 
 bool
@@ -108,7 +119,7 @@ AgentConsolidatorSystemHandle::find (const Telemetry::Path *request_path)
     return itr->second;
 }
 
-void
+bool
 AgentConsolidatorSystemHandle::insert (AgentSystem *sys_handle,
                         const Telemetry::Path *request_path,
                         AgentConsolidatorSystemHandlePtr consolidatorsyshandle)
@@ -120,14 +131,24 @@ AgentConsolidatorSystemHandle::insert (AgentSystem *sys_handle,
     sysdb[request_path_str] = consolidatorsyshandle;
 
     // Generate a request towards the system
-    sys_handle->systemAdd(
+    bool result = sys_handle->systemAdd(
                 SystemId(consolidatorsyshandle->getInternalSubscriptionId()),
                 request_path);
 
+    // request failed
+    if (!result) {
+        sys_handle->getLogger()->log("System add failed for " +
+                                     request_path_str);
+        // Detach from the sysdb
+        sysdb.erase(request_path_str);
+        return false;
+    }
+
     sys_handle->getLogger()->log("Inserted " + request_path_str);
+    return true;
 }
 
-void
+bool
 AgentConsolidatorSystemHandle::remove (AgentSystem *sys_handle,
                                        const Telemetry::Path *request_path)
 {
@@ -139,22 +160,29 @@ AgentConsolidatorSystemHandle::remove (AgentSystem *sys_handle,
     if (itr == sysdb.end()) {
         sys_handle->getLogger()->log("Remove could not find: " +
                                      request_path_str);
-        return;
+        return false;
     }
 
-    sys_handle->systemRemove(SystemId(itr->second->getInternalSubscriptionId()),
+    bool result = sys_handle->systemRemove(SystemId(itr->second->getInternalSubscriptionId()),
                              request_path);
+    // request failed
+    if (!result) {
+        sys_handle->getLogger()->log("System remove failed for " +
+                                     request_path_str);
+    }
     // Delete the Internal ID
     id_idx_t _i_s_id = itr->second->getInternalSubscriptionId();
     sys_handle->getLogger()->log("Deleted Internal Id = " +
                                  std::to_string(_i_s_id));
     bool bad;
     InternalIdGenerator.deallocate(_i_s_id, &bad);
-    
+
     // Detach from the sysdb
     sysdb.erase(itr);
 
     sys_handle->getLogger()->log("Removed " + request_path_str);
+
+    return result;
 }
 
 Telemetry::Path *

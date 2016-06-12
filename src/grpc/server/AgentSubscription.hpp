@@ -79,6 +79,10 @@ public:
         _oc_lookup_failures = _stream_alloc_failures = _stream_parse_failures = 0;
     }
 
+    ~AgentSubscription () {
+        _path_list.clear();
+    }
+
     static AgentSubscription* createSubscription (id_idx_t id,
                                     AgentConsolidatorHandle *system_handle,
                                     AgentServerTransport *transport,

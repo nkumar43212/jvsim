@@ -26,6 +26,7 @@ AgentServer::telemetrySubscribe (ServerContext *context,
     PathList    final_path_list;
     AgentConsolidatorHandle *system_handle;
     SubscriptionRequest *validated_request;
+    SubscriptionRequest *system_accepted_request;
     SubscriptionReply reply;
     SubscriptionResponse *response = reply.mutable_response();
 
@@ -84,7 +85,16 @@ AgentServer::telemetrySubscribe (ServerContext *context,
     }
 
     // Create a subscription into the system
-    system_handle = _consolidator.addRequest(id, validated_request);
+    system_accepted_request = new SubscriptionRequest();
+    Telemetry::SubscriptionAdditionalConfig *add_config =
+                                new Telemetry::SubscriptionAdditionalConfig();
+    add_config->CopyFrom(validated_request->additional_config());
+    system_accepted_request->set_allocated_additional_config(add_config);
+    system_handle = _consolidator.addRequest(id, validated_request,
+                                             system_accepted_request);
+    log_str = "System Accepted Paths->";
+    log_str.append(AgentUtils::getMessageString(*system_accepted_request));
+    _logger->log(log_str);
     if (!system_handle) {
         // Delete allocated id
         _id_manager.deallocate(id);
@@ -93,14 +103,15 @@ AgentServer::telemetrySubscribe (ServerContext *context,
         _logger->log(
                 "Subscription-stream-end: Error, Internal System Failure");
         delete validated_request;
+        delete system_accepted_request;
         return _sendMetaDataInfo(context, writer, reply);
     }
 
     // Get all the paths that we are interested in
     log_str = "";
-    for (int i = 0; i < validated_request->path_list_size(); i++) {
-        final_path_list.push_back(validated_request->path_list(i).path());
-        log_str += validated_request->path_list(i).path();
+    for (int i = 0; i < system_accepted_request->path_list_size(); i++) {
+        final_path_list.push_back(system_accepted_request->path_list(i).path());
+        log_str += system_accepted_request->path_list(i).path();
         log_str += ":";
     }
     _logger->log("Final-path-list: " + log_str);
@@ -108,8 +119,8 @@ AgentServer::telemetrySubscribe (ServerContext *context,
     // Create a subscription
     AgentServerTransport *transport = new AgentServerTransport(context, writer);
     AgentSubscriptionLimits limits(
-                validated_request->additional_config().limit_records(),
-                validated_request->additional_config().limit_time_seconds());
+            system_accepted_request->additional_config().limit_records(),
+            system_accepted_request->additional_config().limit_time_seconds());
     AgentSubscription *sub = AgentSubscription::createSubscription(id,
                                                             system_handle,
                                                             transport,
@@ -124,6 +135,7 @@ AgentServer::telemetrySubscribe (ServerContext *context,
         _logger->log(
                 "Subscription-stream-end: Error, Subscription Creation Error");
         delete validated_request;
+        delete system_accepted_request;
         delete transport;
         return _sendMetaDataInfo(context, writer, reply);
     }
@@ -150,9 +162,9 @@ AgentServer::telemetrySubscribe (ServerContext *context,
     response->set_subscription_id(sub->getId());
 
     // Send path info back to the client
-    for (int i = 0; i < validated_request->path_list_size(); i++) {
+    for (int i = 0; i < system_accepted_request->path_list_size(); i++) {
         Telemetry::Path *p_tpath = reply.add_path_list();
-        p_tpath->CopyFrom(validated_request->path_list(i));
+        p_tpath->CopyFrom(system_accepted_request->path_list(i));
     }
 
     // Don't start MQTT subscription till we send this response
@@ -193,6 +205,9 @@ AgentServer::telemetrySubscribe (ServerContext *context,
 
     // Delete validated_request
     delete validated_request;
+
+    // Delete system_accepted_request
+    delete system_accepted_request;
 
     // Delete transport object
     delete transport;
@@ -495,7 +510,7 @@ AgentServer::_cleanupSubscription (AgentSubscription *sub)
 
     // Remove the subscription from the system
     _consolidator.removeRequest(sub->getSystemSubscription());
-    
+
     // Remove the subscription
     AgentSubscription::deleteSubscription(sub->getId());
     _id_manager.deallocate(sub->getId());

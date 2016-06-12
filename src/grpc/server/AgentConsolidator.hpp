@@ -2,7 +2,11 @@
 //  AgentConsolidator.hpp
 //  Telemetry Agent
 //
-//  Created by NITIN KUMAR on 2/19/16.
+//  Created: 2/19/16.
+//
+//  Authors: NITIN KUMAR
+//           ABBAS SAKARWALA
+//
 //  Copyright © 2016 Juniper Networks. All rights reserved.
 //
 
@@ -60,7 +64,8 @@ public:
 
     // Create a request into the system.
     AgentConsolidatorHandle * addRequest(const id_idx_t subscription_id,
-                                         const SubscriptionRequest *request);
+                                         const SubscriptionRequest *request,
+                                         SubscriptionRequest *system_accepted_request);
 
     // Remove an earlier created request
     void removeRequest(AgentConsolidatorHandle *handle);

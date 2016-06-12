@@ -22,6 +22,7 @@ TEST_F(AgentConsolidatorProcTest, create) {
 TEST_F(AgentConsolidatorProcTest, get) {
     AgentConsolidatorHandle *handle;
     SubscriptionRequest request;
+    SubscriptionRequest system_accepted_request;
     Telemetry::Path *path;
 
     // Build a request
@@ -31,11 +32,15 @@ TEST_F(AgentConsolidatorProcTest, get) {
     path->set_path("port");
 
     // Add it to the consolidator
-    handle = cons->addRequest(101, &request);
+    handle = cons->addRequest(101, &request, &system_accepted_request);
     EXPECT_TRUE(handle != NULL);
     EXPECT_EQ(2, cons->getSystemRequestCount());
     EXPECT_EQ(1, cons->getAddCount());
     EXPECT_EQ(0, cons->getErrors());
+    for (int i = 0; i < request.path_list_size(); i++) {
+        EXPECT_STREQ(request.path_list(i).path().c_str(),
+                     system_accepted_request.path_list(i).path().c_str());
+    }
 
     // Retrieve the request back and check whether it is the same
     SubscriptionRequest *ptr;
@@ -66,6 +71,7 @@ TEST_F(AgentConsolidatorProcTest, get) {
 TEST_F(AgentConsolidatorProcTest, getSystem) {
     AgentConsolidatorHandle *handle;
     SubscriptionRequest request;
+    SubscriptionRequest system_accepted_request;
     Telemetry::Path *path;
 
     // Build a request
@@ -73,8 +79,12 @@ TEST_F(AgentConsolidatorProcTest, getSystem) {
     path->set_path("firewall");
 
     // Add it to the consolidator
-    handle = cons->addRequest(101, &request);
+    handle = cons->addRequest(101, &request, &system_accepted_request);
     EXPECT_TRUE(handle != NULL);
+    for (int i = 0; i < request.path_list_size(); i++) {
+        EXPECT_STREQ(request.path_list(i).path().c_str(),
+                     system_accepted_request.path_list(i).path().c_str());
+    }
 
     // Retrieve the request back and check whether it is the same
     SubscriptionRequest *ptr;

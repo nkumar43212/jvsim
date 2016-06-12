@@ -18,6 +18,7 @@
 TEST_F(AgentConsolidatorNullTest, add) {
     AgentConsolidatorHandle *handle;
     SubscriptionRequest request;
+    SubscriptionRequest system_accepted_request;
     Telemetry::Path *path;
 
     // Build a request
@@ -27,11 +28,15 @@ TEST_F(AgentConsolidatorNullTest, add) {
     path->set_path("port");
 
     // Add it to the consolidator
-    handle = cons->addRequest(61, &request);
+    handle = cons->addRequest(61, &request, &system_accepted_request);
     EXPECT_TRUE(handle != NULL);
     EXPECT_EQ(2, cons->getSystemRequestCount());
     EXPECT_EQ(1, cons->getAddCount());
     EXPECT_EQ(0, cons->getErrors());
+    for (int i = 0; i < request.path_list_size(); i++) {
+        EXPECT_STREQ(request.path_list(i).path().c_str(),
+                     system_accepted_request.path_list(i).path().c_str());
+    }
 
     // Simple check get call is good
     SubscriptionRequest *test_ptr;
