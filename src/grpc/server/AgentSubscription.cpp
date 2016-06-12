@@ -65,6 +65,7 @@ AgentSubscription::on_message(const struct mosquitto_message* mosqmessage)
     OpenConfig *oc = OpenConfig::find(ext_type);
     if (!oc) {
         _oc_lookup_failures++;
+        delete stream;
         return;
     }
     
