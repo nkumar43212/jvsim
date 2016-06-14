@@ -100,6 +100,8 @@ operator<<(std::ostream& os, GlobalConfig& gc)
     os << "JSD init registration        : "
                                 << gc.jsd_init_registration << std::endl;
     if (gc.jsd_init_registration) {
+        os << "JSD unix socket              : "
+                                << gc.jsd_unix_socket << std::endl;
         os << "JSD number of retries        : "
                                 << gc.jsd_num_of_retries << std::endl;
         os << "JSD json file path           : "
@@ -137,7 +139,7 @@ bool
 GlobalConfig::parse(std::string filename, GlobalConfig &global_config)
 {
     INIReader reader(filename);
-    
+
     if (reader.ParseError() < 0) {
         std::cout << "Can't load INI file = " << filename << std::endl;
         // parse error
@@ -206,6 +208,9 @@ GlobalConfig::parse(std::string filename, GlobalConfig &global_config)
     global_config.jsd_init_registration = reader.GetBoolean(INI_SECTION_JSD,
                                             "init_registration",
                                             global_config.jsd_init_registration);
+    global_config.jsd_unix_socket = reader.Get(INI_SECTION_JSD,
+                                            "jsd_unix_socket",
+                                            global_config.jsd_unix_socket);
     global_config.jsd_num_of_retries = (int)reader.GetInteger(INI_SECTION_JSD,
                                             "number_of_retries",
                                             global_config.jsd_num_of_retries);
