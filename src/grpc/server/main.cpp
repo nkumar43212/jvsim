@@ -28,13 +28,20 @@ void
 RunServer (AgentServerLog *logger, AgentSystem *sys_handle,
            PathValidator *path_validator)
 {
-    std::string server_address(global_config.grpc_server_ip + ":" +
-                               std::to_string(global_config.grpc_server_port));
+    // This is NA grpc server address as configured by the user
+    std::string my_server_address;
+    if (global_config.running_mode == RUNNING_MODE_OFF_BOX) {
+        my_server_address = global_config.grpc_server_ip + ":" +
+                            std::to_string(global_config.grpc_server_port);
+    } else {
+        my_server_address = "unix:" + global_config.grpc_server_unix_socket;
+    }
     AgentServer service(logger, sys_handle, path_validator);
     ServerBuilder builder;
 
     // Listen on the given address without any authentication mechanism.
-    builder.AddListeningPort(server_address, grpc::InsecureServerCredentials());
+    builder.AddListeningPort(my_server_address,
+                             grpc::InsecureServerCredentials());
 
     // Register "service" as the instance through which we'll communicate with
     // clients. In this case it corresponds to an *synchronous* service.
@@ -42,7 +49,7 @@ RunServer (AgentServerLog *logger, AgentSystem *sys_handle,
 
     // Finally assemble the server.
     std::unique_ptr<Server> server(builder.BuildAndStart());
-    std::cout << "Server listening on " << server_address << std::endl;
+    std::cout << "Server listening on " << my_server_address << std::endl;
 
     // Wait for the server to shutdown. Note that some other thread must be
     // responsible for shutting down the server for this call to ever return.
