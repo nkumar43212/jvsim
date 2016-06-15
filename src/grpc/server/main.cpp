@@ -23,6 +23,8 @@
 #include "GlobalConfig.hpp"
 #include "UdpReceiver.hpp"
 
+extern int pid_lock (const char *filename);
+
 // Class/Function Implementation
 void
 RunServer (AgentServerLog *logger, AgentSystem *sys_handle,
@@ -79,6 +81,11 @@ CreateSystemHandle (AgentServerCmdOptions *cmd_options,
 int
 main (int argc, char * argv[])
 {
+    if (pid_lock("/var/run/na-grpcd.pid") < 0) {
+      printf ("na-grpcd already running!");
+      return -1;
+    }
+
     // Get all command line options
     AgentServerCmdOptions opts;
     if (!opts.parseArgs(argc, argv)) {
