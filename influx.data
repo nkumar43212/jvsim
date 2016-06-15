@@ -1,5 +1,5 @@
 interface,sysname=1.1.1.1,ifname=xe-0/0/0 tx_packets=100,rx_packets=1000 1434055562000000000
 interface,sysname=1.1.1.1,ifname=xe-0/0/0 tx_packets=110,rx_packets=1100 1434055563000000000
-interface,sysname=1.1.1.1,ifname=xe-0/0/0 tx_packets=120,tx_packets=1200 1434055564000000000
+interface,sysname=1.1.1.1,ifname=xe-0/0/0 tx_packets=120,rx_packets=1200 1434055564000000000
 interface,sysname=1.1.1.1,ifname=xe-0/0/0 tx_packets=130,rx_packets=1300 1434055565000000000
 
