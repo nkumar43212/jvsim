@@ -107,18 +107,14 @@ _jsd_register (AgentServerLog *_logger, Json::Value &registration_obj)
         jsd_address = global_config.device_mgd_ip + ":" +
                       std::to_string(global_config.device_mgd_port);
     } else {
-        // Hardcode the jsd address
-        // TODO ABBAS --- revisit if needed
-        // both in-box and off-box uses this mechanism for now
-        jsd_address = global_config.device_mgd_ip + ":" +
-                      std::to_string(global_config.device_mgd_port);;
+        // unix domain socket
+        jsd_address = "unix:" + global_config.jsd_unix_socket;
     }
     std::shared_ptr<grpc::Channel> channel = grpc::CreateChannel(
                                                 jsd_address,
                                                 grpc::InsecureCredentials());
 
     // Off-box mode requires login authentication
-    // Check this for on-box --- TODO ABBAS
     if (global_config.running_mode == RUNNING_MODE_OFF_BOX) {
         // Authenticate the channel
         grpc::Status status = _authenticateChannel(_logger, channel);

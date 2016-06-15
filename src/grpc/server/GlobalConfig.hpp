@@ -45,6 +45,7 @@
 // JSD related
 #define INI_SECTION_JSD                 "jsd"
 #define JSD_INIT_REGISTRATION           false
+#define JSD_UNIX_SOCKET                 "/var/run/japi_jsd"
 #define JSD_NUM_OF_RETRIES              5
 #define JSD_JSON_FILE_PATH              "/tmp"
 #define JSD_JSON_FILE_NAME              "agent.json"
@@ -91,6 +92,7 @@ public:
     int             udp_server_port;
 
     bool            jsd_init_registration;
+    std::string     jsd_unix_socket;
     int             jsd_num_of_retries;
     std::string     jsd_json_file_path;
     std::string     jsd_json_file_name;
@@ -128,6 +130,7 @@ public:
         udp_server_port         = UDP_SERVER_PORT;
 
         jsd_init_registration   = JSD_INIT_REGISTRATION;
+        jsd_unix_socket         = JSD_UNIX_SOCKET;
         jsd_num_of_retries      = JSD_NUM_OF_RETRIES;
         jsd_json_file_path      = JSD_JSON_FILE_PATH;
         jsd_json_file_name      = JSD_JSON_FILE_NAME;
