@@ -14,6 +14,7 @@ SRCS = \
 	authentication_service.grpc.pb.cc \
 	mgd_service.grpc.pb.cc \
 	openconfig_mgd.grpc.pb.cc \
+	registration_service.grpc.pb.cc \
 
 CFLAGS += -I${RELSRCTOP}/junos/lib/h/
 

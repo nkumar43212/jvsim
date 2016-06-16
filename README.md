@@ -9,31 +9,29 @@ jvsim is a simulation of all the modules that participate in a jVision ecosystem
   * The process that implements the telemetry interface
   * The interface is specified by a Google RPC service
 * **gRPC Client**
-  * A test client is included with this project. 
+  * A test client is included with this project.
   * An interactive CLI is provided which enables invoking various jVision RPCs
 
 
 # Docker installation
 Since jvsim has dependencies on several open source components (like gRPC, protocol buffers), it is easier to run the simulator as a docker container, where all these packages are installed as part of the container creation. The following simple steps will enable this
 * Install docker on your server [Skip if already installed] "https://docs.docker.com/engine/installation/linux/ubuntulinux/"
-* Copy jvsim docker file  [https://github.com/nkumar43212/jvsim/blob/master/config/jvsim_docker]
-* docker build  -t jvsim_cont -f jvsim_docker .
-* docker run --name jvsim_cont -t -i jvsim_cont  /bin/bash
-* Inside the container 
-  * cd /home/jvsim
-  * export ROOTPATH=/home/jvsim
-  * make
+* git clone  https://github.com/nkumar43212/jvsim.git
+* docker build -t jvsim .
+* docker run --name jvsim_cont -t -i jvsim
+* Inside the container
   * bin/jvsim  -s -t  [This runs the server (-s) and the test harness (-t)]
 
 # jVsim Runtime Options
     bin/jvsim -u
-        usage: jvsim [-u] [-k] [-s] [-c] [-m] [-d]
+        usage: jvsim [-u] [-k] [-s] [-c] [-m] [-d] [-i]
          -k  : cleanup and exit
          -s  : run server
          -m  : run simulation management daemon server
          -c  : run interactive client
          -t  : run test harness
          -d  : run data streamers
+         -i  : run in container mode
 
 # Running gRPC server and client to enable telemetry on Junos device (non-jVsim mode):
 * Start Mosquitto broker on Junos device.  Mosquitto broker can be started with below config on Junos device.  
@@ -55,7 +53,7 @@ Since jvsim has dependencies on several open source components (like gRPC, proto
   * jvsim> help
   * jvsim> subscribe subscription-name sample-frequency path+  
     e.g.: jvsim> subscribe abbas-test 1 /junos/system/linecard/cpu/memory/ /junos/system/linecard/npu/memory/
-* Telemetry data is dumped in client log file. Check in new shell prompt 
+* Telemetry data is dumped in client log file. Check in new shell prompt
   > tail -f abbas-test  
 
     0:Logging enabled --  
@@ -71,17 +69,16 @@ Since jvsim has dependencies on several open source components (like gRPC, proto
     }  
 
 # Layout
-Important directories in the project are 
-* **protos/** includes all the .proto files used by the simulation. 
+Important directories in the project are
+* **protos/** includes all the .proto files used by the simulation.
   * Native GPB based encoding used by linecard sensors
-  * Encodings used in the gRPC service. 
+  * Encodings used in the gRPC service.
 * **src/grpc/server** is the implementation of the gRPC server
 * **src/grpc/client** is an interactive client which can be used to explore the RPC interface
 * **src/grpc/mgd_server** is the simulation of JUNOS mgd lego API implementation (GRPC)
 * **src/grpc/test** is a test harness where select workflows are automated into gtest based unit tests
 * **src/sim** is the simulation of all the data sensors that produce simulated telemetry data
-* **logs/** will have the runtime logs produced by different components. Some important files to look out for 
+* **logs/** will have the runtime logs produced by different components. Some important files to look out for
   * **agent_server.log** Produced by the server
-  * **jv_test_mosquitto.log** The mosquitto broker is run in a verbose mode. This file has all the logs from the broker process 
+  * **jv_test_mosquitto.log** The mosquitto broker is run in a verbose mode. This file has all the logs from the broker process
   * **port.N, firewall.N, lsp_stats.N** are the logs for each of the sensors. There is a separate log file for each linecard slot (N)
-

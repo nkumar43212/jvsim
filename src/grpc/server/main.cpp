@@ -22,19 +22,31 @@
 #include "lib_oc.h"
 #include "GlobalConfig.hpp"
 #include "UdpReceiver.hpp"
+#include "PidFileUtils.hpp"
+
+// NA pid location (should we add in config ???)
+// TODO ABBAS
+#define NA_GRPCD_PID                "/var/run/na-grpcd.pid"
 
 // Class/Function Implementation
 void
 RunServer (AgentServerLog *logger, AgentSystem *sys_handle,
            PathValidator *path_validator)
 {
-    std::string server_address(global_config.grpc_server_ip + ":" +
-                               std::to_string(global_config.grpc_server_port));
+    // This is NA grpc server address as configured by the user
+    std::string my_server_address;
+    if (global_config.running_mode == RUNNING_MODE_OFF_BOX) {
+        my_server_address = global_config.grpc_server_ip + ":" +
+                            std::to_string(global_config.grpc_server_port);
+    } else {
+        my_server_address = "unix:" + global_config.grpc_server_unix_socket;
+    }
     AgentServer service(logger, sys_handle, path_validator);
     ServerBuilder builder;
 
     // Listen on the given address without any authentication mechanism.
-    builder.AddListeningPort(server_address, grpc::InsecureServerCredentials());
+    builder.AddListeningPort(my_server_address,
+                             grpc::InsecureServerCredentials());
 
     // Register "service" as the instance through which we'll communicate with
     // clients. In this case it corresponds to an *synchronous* service.
@@ -42,7 +54,7 @@ RunServer (AgentServerLog *logger, AgentSystem *sys_handle,
 
     // Finally assemble the server.
     std::unique_ptr<Server> server(builder.BuildAndStart());
-    std::cout << "Server listening on " << server_address << std::endl;
+    std::cout << "Server listening on " << my_server_address << std::endl;
 
     // Wait for the server to shutdown. Note that some other thread must be
     // responsible for shutting down the server for this call to ever return.
@@ -133,6 +145,14 @@ main (int argc, char * argv[])
     logger = new AgentServerLog(log_file);
     logger->enable();
 
+    // Pid check for on-box mode
+    if (global_config.running_mode == RUNNING_MODE_ON_BOX){
+        if (pid_lock(NA_GRPCD_PID, logger) < 0) {
+            logger->log("Already running. Check pid. Terminating");
+            exit(0);
+        }
+    }
+
     // Initialize interface with Mosquitto Library
     mosqpp::lib_init();
 
@@ -144,7 +164,10 @@ main (int argc, char * argv[])
     AgentSystem *sys_handle = CreateSystemHandle(&opts, logger);
 
     // On start up/restart execute necessary functionality
-    on_startup(logger, sys_handle);
+    if (!on_startup(logger, sys_handle)) {
+        logger->log("Failed in startup module. Terminating");
+        exit(0);
+    }
 
     // Create a PathValidator object
     PathValidator *path_validator = NULL;

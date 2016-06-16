@@ -38,6 +38,10 @@ SRCS += \
 	util_mosq.c \
 	will_mosq.c
 
+.PATH: ${.CURDIR}
+
+SRCS += pid_file_utils.c
+
 CFLAGS += \
 	-DWITH_BROKER \
 	-DWITH_BRIDGE \
@@ -45,6 +49,7 @@ CFLAGS += \
 	-DVERSION=\"1.3.5\" \
 	-DTIMESTAMP="\"${TIME_STAMP}\"" \
 	-DWITH_JUNOS_IRI \
+	-DJUNOS_LOCK_PID_FILE \
 	-I${.CURDIR} \
 	-I${RELSRCTOP_JUNOS}/libexec/mosquitto \
 	-I${RELSRCTOP_DIST}/mosquitto/src \

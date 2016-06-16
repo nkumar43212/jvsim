@@ -57,9 +57,10 @@ run_test=0
 run_test_oc=0
 run_mgd=0
 run_data=0
+run_container=0
 
 #Parse out the arguments
-while getopts "ucsktomd" opt; do
+while getopts "ucsktomdi" opt; do
   case $opt in
     u)
       run_usage=1
@@ -92,6 +93,10 @@ while getopts "ucsktomd" opt; do
       display "Enable Data streamers simulator"
       run_data=1
       ;;
+    i)
+      display "Run in container mode (no daemon, no user input)"
+      run_container=1
+      ;;
     \?)
       echo "Invalid option: -$OPTARG" >&2
       exit 1
@@ -101,7 +106,7 @@ done
 
 if [ $run_usage != 0 ]
 then
-    echo "usage: jvsim [-u] [-k] [-s] [-c] [-m] [-d] [-t] [-o]"
+    echo "usage: jvsim [-u] [-k] [-s] [-c] [-m] [-d] [-t] [-o] [-i]"
     echo " -k  : cleanup and exit"
     echo " -s  : run server"
     echo " -m  : run simulation management daemon server"
@@ -109,6 +114,7 @@ then
     echo " -t  : run test harness"
     echo " -o  : run openconfig tests"
     echo " -d  : run data streamers"
+    echo " -i  : run container mode"
     exit
 fi
 
@@ -118,7 +124,9 @@ fi
 
 display 'Current ROOTPATH: '${ROOTPATH}
 echo ''
-pause 'Press [Enter] key to continue or [Ctrl+C] to modify any parameters ...'
+if [[ $run_container == 0 ]]; then
+  pause 'Press [Enter] key to continue or [Ctrl+C] to modify any parameters ...'
+fi
 
 #What is the platform we are executing on
 platform='unknown'
@@ -192,6 +200,7 @@ then
     test_ini_file=$ini_file_path/agent_server_test.ini
     test_ini_file_2=$ini_file_path/agent_server_test_2.ini
 
+    #1.
     #Change the log file location
     #format the src to substitute
     src_str_original='grpc_log_file_path  = /tmp'
@@ -208,6 +217,7 @@ then
     #Run substitution
     run_sed $src_str $dst_str $ini_file $test_ini_file
 
+    #2.
     #Change the PathValidator file location
     #format the src to substitute
     src_str_original='ocpath_file_path    = /tmp'
@@ -224,11 +234,30 @@ then
     #Run substitution
     run_sed $src_str $dst_str $test_ini_file $test_ini_file_2
 
-    # Rename the file --- important step
-    mv $test_ini_file_2 $test_ini_file
+    #3.
+    #Change the JSD registration agent.json file path
+    #format the src to substitute
+    src_str_original='json_file_path      = /tmp'
+    src_str_corrected=${src_str_original//\//\\/}
+    src_str=$src_str_corrected
+    # echo $src_str
+
+    #get the destination to substitute with
+    dst_str_file=$ini_file_path
+    dst_str_file_corrected=${dst_str_file//\//\\/}
+    dst_str='json_file_path = '$dst_str_file_corrected
+    # echo $dst_str
+
+    #Run substitution
+    run_sed $src_str $dst_str $test_ini_file_2 $test_ini_file
+
+    #Note the file is renamed to desired $test_ini_file
+    #Remove unwanted files
+    rm -Rf $test_ini_file_2
 
     if [ $run_mgd == 0 ]
     then
+        #1.
         #Change system_mode to file
         #format the src to substitute
         src_str_original='system_mode         = proc'
@@ -245,6 +274,7 @@ then
         #Run substitution
         run_sed $src_str $dst_str $test_ini_file $test_ini_file_2
 
+        #2.
         #Change system_file_path
         #format the src to substitute
         src_str_original='system_file_path    = /tmp'
@@ -262,7 +292,13 @@ then
         run_sed $src_str $dst_str $test_ini_file_2 $test_ini_file
     fi
 
-    $SERVERPATH/agent_server -c $test_ini_file &
+    ## If running in container mode we don't start the server in the background
+    if [[ $run_container == 0 ]]; then
+      $SERVERPATH/agent_server -c $test_ini_file &
+    else
+      $SERVERPATH/agent_server -c $test_ini_file
+    fi
+
     if [ $run_mgd != 0 ]
     then
         echo "-------- Started Server Proc: $SERVERPATH/agent_server -c $test_ini_file"

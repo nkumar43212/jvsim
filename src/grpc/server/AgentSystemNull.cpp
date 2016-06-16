@@ -12,16 +12,16 @@
 
 #include "AgentSystemNull.hpp"
 
-void
+bool
 AgentSystemNull::systemAdd (SystemId id, const Telemetry::Path *request_path)
 {
-    AgentSystem::systemAdd(id, request_path);
+    return AgentSystem::systemAdd(id, request_path);
 }
 
-void
+bool
 AgentSystemNull::systemRemove (SystemId id, const Telemetry::Path *request_path)
 {
-    AgentSystem::systemRemove(id, request_path);
+    return AgentSystem::systemRemove(id, request_path);
 }
 
 Telemetry::Path *

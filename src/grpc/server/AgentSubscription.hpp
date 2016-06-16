@@ -79,6 +79,10 @@ public:
         _oc_lookup_failures = _stream_alloc_failures = _stream_parse_failures = 0;
     }
 
+    ~AgentSubscription () {
+        _path_list.clear();
+    }
+
     static AgentSubscription* createSubscription (id_idx_t id,
                                     AgentConsolidatorHandle *system_handle,
                                     AgentServerTransport *transport,
@@ -173,7 +177,7 @@ public:
             int total_handles = _system_subscription->getHandleCount();
             for (int i = 0; i < total_handles; i++) {
                 AgentConsolidatorSystemHandlePtr csh =
-                _system_subscription->getHandle(i);
+                                            _system_subscription->getHandle(i);
                 id_idx_t isubid = csh->getInternalSubscriptionId();
                 unSubscribe("/" + std::to_string(isubid));
             }

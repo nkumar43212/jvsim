@@ -36,6 +36,7 @@
 		05C1BEDD1CC94D0800A6A342 /* AgentUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05C1BEDC1CC94D0800A6A342 /* AgentUtils.cpp */; };
 		05C1BEDF1CC94ED700A6A342 /* AgentUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05C1BEDC1CC94D0800A6A342 /* AgentUtils.cpp */; };
 		05F265BF1D0A25B20033769E /* AgentRestart.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05F265BC1D0A225D0033769E /* AgentRestart.cpp */; };
+		05F265C41D123FC40033769E /* PidFileUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05F265C31D123FC40033769E /* PidFileUtils.cpp */; };
 		05FA5C271CF5AEEF00F90E30 /* PathValidator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05FA5C251CF5AEEF00F90E30 /* PathValidator.cpp */; };
 		05FA5C2B1CF6675500F90E30 /* agent_test_id_manager_ut.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05FA5C291CF6675500F90E30 /* agent_test_id_manager_ut.cpp */; };
 		05FA5C2E1CF67EC600F90E30 /* agent_test_arg_parser_ut.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05FA5C2C1CF67EC600F90E30 /* agent_test_arg_parser_ut.cpp */; };
@@ -221,6 +222,8 @@
 		05F265BB1D0A21940033769E /* agent.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = agent.json; path = ../../../config/agent.json; sourceTree = "<group>"; };
 		05F265BC1D0A225D0033769E /* AgentRestart.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AgentRestart.cpp; sourceTree = "<group>"; };
 		05F265BD1D0A225D0033769E /* AgentRestart.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AgentRestart.hpp; sourceTree = "<group>"; };
+		05F265C21D1239270033769E /* PidFileUtils.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PidFileUtils.hpp; sourceTree = "<group>"; };
+		05F265C31D123FC40033769E /* PidFileUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PidFileUtils.cpp; sourceTree = "<group>"; };
 		05FA5C251CF5AEEF00F90E30 /* PathValidator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PathValidator.cpp; sourceTree = "<group>"; };
 		05FA5C261CF5AEEF00F90E30 /* PathValidator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PathValidator.hpp; sourceTree = "<group>"; };
 		05FA5C281CF5BA6700F90E30 /* ocpaths.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = ocpaths.json; path = ../../../config/ocpaths.json; sourceTree = "<group>"; };
@@ -453,6 +456,7 @@
 				0537F4E21CCEA3CC00BD519B /* OCTelemetryJsonGenerator.cpp */,
 				946702D61C64739A00E73BF5 /* OpenConfig.cpp */,
 				05FA5C251CF5AEEF00F90E30 /* PathValidator.cpp */,
+				05F265C31D123FC40033769E /* PidFileUtils.cpp */,
 				058AC3E41CED1CA80024FBD6 /* UdpReceiver.cpp */,
 				05F265BD1D0A225D0033769E /* AgentRestart.hpp */,
 				94AC9A831C7799BA0034AF1A /* AgentConsolidator.hpp */,
@@ -482,6 +486,7 @@
 				0537F4E31CCEA3CC00BD519B /* OCTelemetryJsonGenerator.hpp */,
 				946702D51C64739A00E73BF5 /* OpenConfig.hpp */,
 				05FA5C261CF5AEEF00F90E30 /* PathValidator.hpp */,
+				05F265C21D1239270033769E /* PidFileUtils.hpp */,
 				058AC3E51CED1CA80024FBD6 /* UdpReceiver.hpp */,
 			);
 			path = server;
@@ -801,6 +806,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05F265C41D123FC40033769E /* PidFileUtils.cpp in Sources */,
 				94FB189A1C85032400791B3A /* AgentSystemProc.cpp in Sources */,
 				94A291FD1C80FAF2004BB6C3 /* AgentServerCmdOptions.cpp in Sources */,
 				94AC9AA21C7A1CD60034AF1A /* AgentSystem.cpp in Sources */,

@@ -55,9 +55,9 @@ public:
 
     AgentServerLog  *getLogger (void)       { return _logger; }
 
-    virtual void systemAdd(SystemId sys_id,
+    virtual bool systemAdd(SystemId sys_id,
                            const Telemetry::Path *request_path) = 0;
-    virtual void systemRemove(SystemId sys_id,
+    virtual bool systemRemove(SystemId sys_id,
                               const Telemetry::Path *request_path) = 0;
     virtual Telemetry::Path * systemGet(SystemId sys_id) = 0;
     virtual bool systemClearAll(void) = 0;

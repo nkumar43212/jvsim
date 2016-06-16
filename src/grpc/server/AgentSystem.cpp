@@ -13,7 +13,7 @@
 #include "AgentSystem.hpp"
 #include "AgentUtils.hpp"
 
-void
+bool
 AgentSystem::systemAdd (SystemId id, const Telemetry::Path *request_path)
 {
     // Operation
@@ -28,9 +28,11 @@ AgentSystem::systemAdd (SystemId id, const Telemetry::Path *request_path)
 
     // One more
     _add_system_count++;
+
+    return true;
 }
 
-void
+bool
 AgentSystem::systemRemove (SystemId id, const Telemetry::Path *request_path)
 {
     // Operation
@@ -45,6 +47,8 @@ AgentSystem::systemRemove (SystemId id, const Telemetry::Path *request_path)
 
     // One more
     _remove_system_count++;
+
+    return true;
 }
 
 bool

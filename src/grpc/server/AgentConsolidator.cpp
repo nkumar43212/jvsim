@@ -14,7 +14,8 @@
 // Create a request
 AgentConsolidatorHandle *
 AgentConsolidator::addRequest (const id_idx_t subscription_id,
-                               const SubscriptionRequest *request)
+                               const SubscriptionRequest *request,
+                               SubscriptionRequest *system_accepted_request)
 {
     AgentConsolidatorHandle *ptr = new AgentConsolidatorHandle(subscription_id);
 
@@ -37,14 +38,24 @@ AgentConsolidator::addRequest (const id_idx_t subscription_id,
                                                       &request->path_list(i));
         // Failure condition
         if (!consolidatorsyshandle) {
-            removeRequest(ptr);
-            _error_count_create++;
-            return NULL;
+            continue;
         }
+
+        Telemetry::Path *p_path = system_accepted_request->add_path_list();
+        p_path->CopyFrom(request->path_list(i));
 
         // Store the handle
         ptr->addHandle(consolidatorsyshandle);
     }
+
+#if 0 /* We will let user explicitly delete subscription for now */
+    // If atleast one path is accepted
+    if (system_accepted_request->path_list_size() == 0) {
+        removeRequest(ptr);
+        _error_count_create++;
+        return NULL;
+    }
+#endif
 
     ++_add_count;
     return ptr;

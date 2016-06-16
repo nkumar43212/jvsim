@@ -24,8 +24,8 @@ public:
                                 AgentSystem(logger), _outputFile(file_name) {}
     ~AgentSystemFile() {}
 
-    void systemAdd(SystemId id, const Telemetry::Path *request_path);
-    void systemRemove(SystemId id, const Telemetry::Path *request_path);
+    bool systemAdd(SystemId id, const Telemetry::Path *request_path);
+    bool systemRemove(SystemId id, const Telemetry::Path *request_path);
     Telemetry::Path * systemGet(SystemId sys_id);
     bool systemClearAll(void);
 };

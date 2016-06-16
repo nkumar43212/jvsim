@@ -99,7 +99,7 @@ AgentSystemProc::_authenticateChannel (std::shared_ptr<grpc::Channel> &channel)
     // Fill in login details
     login_request.set_user_name(global_config.device_user_name);
     login_request.set_password(global_config.device_password);
-    login_request.set_client_id("Telemetry-service-client");
+    login_request.set_client_id(INI_SECTION_TELEMETRY_GRPC);
 
     // Set authentication timeout
     std::chrono::system_clock::time_point deadline =
@@ -237,7 +237,7 @@ AgentSystemProc::_sendJunosMessagetoMgd (std::string &config,
 
 #endif
 
-void
+bool
 AgentSystemProc::systemAdd (SystemId id, const Telemetry::Path *request_path)
 {
 #if defined(__OC_Telemetry_Config__)
@@ -256,7 +256,9 @@ AgentSystemProc::systemAdd (SystemId id, const Telemetry::Path *request_path)
         _logger->log("MGD command UPDATE_CONFIG passed. Request_id: " +
                      std::to_string(id.getId()) +
                      " Path: " + AgentUtils::getMessageString(*request_path));
+        return true;
     }
+    return false;
 #else
     // Junos Config
     std::string config;
@@ -276,11 +278,13 @@ AgentSystemProc::systemAdd (SystemId id, const Telemetry::Path *request_path)
         _logger->log("MGD command UPDATE_CONFIG passed. Request_id: " +
                      std::to_string(id.getId()) +
                      " Path: " + AgentUtils::getMessageString(*request_path));
+        return true;
     }
-#endif
+    return false;
+#endif //__OC_Telemetry_Config__
 }
 
-void
+bool
 AgentSystemProc::systemRemove (SystemId id, const Telemetry::Path *request_path)
 {
 #if defined(__OC_Telemetry_Config__)
@@ -299,7 +303,9 @@ AgentSystemProc::systemRemove (SystemId id, const Telemetry::Path *request_path)
         _logger->log("MGD command DELETE_CONFIG passed. Request_id: " +
                      std::to_string(id.getId()) +
                      " Path: " + AgentUtils::getMessageString(*request_path));
+        return true;
     }
+    return false;
 #else
     // Junos Config
     std::string config;
@@ -319,8 +325,10 @@ AgentSystemProc::systemRemove (SystemId id, const Telemetry::Path *request_path)
         _logger->log("MGD command DELETE_CONFIG passed. Request_id: " +
                      std::to_string(id.getId()) +
                      " Path: " + AgentUtils::getMessageString(*request_path));
+        return true;
     }
-#endif
+    return false;
+#endif // __OC_Telemetry_Config__
 }
 
 Telemetry::Path *
@@ -330,7 +338,7 @@ AgentSystemProc::systemGet (SystemId id)
     std::string mgd_address;
     if (global_config.running_mode == RUNNING_MODE_OFF_BOX) {
         mgd_address = global_config.device_mgd_ip + ":" +
-        std::to_string(global_config.device_mgd_port);
+                      std::to_string(global_config.device_mgd_port);
     } else {
         mgd_address = "unix:" + global_config.device_mgd_unix_socket;
     }
