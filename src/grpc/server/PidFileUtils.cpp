@@ -5,6 +5,7 @@
 //  Created: 6/15/16.
 //
 //  Authors: VIVEK M
+//           ABBAS SAKARWALA
 //
 //  Copyright © 2016 Juniper Networks. All rights reserved.
 //
@@ -13,22 +14,29 @@
 #include <sys/file.h>
 #include <unistd.h>
 #include <sys/errno.h>
+#include <string.h>
 #include "PidFileUtils.hpp"
 
+AgentServerLog *_logger;
+
 static int
-_pid_open (const char *filename)
+_pid_open (std::string filename)
 {
+    std::string log_str;
     int fd;
 
-    fd = open(filename, O_CREAT|O_RDWR, 0644);
+    fd = open(filename.c_str(), O_CREAT|O_RDWR, 0644);
     if (fd < 0) {
-        printf("error opening %s for writing: %s", filename, strerror(errno));
+        log_str = std::string(strerror(errno));
+        _logger->log("<pid> Error opening " + filename + " for writing: " +
+                     log_str);
         return -1;
     }
 
     if (flock(fd, LOCK_EX|LOCK_NB) < 0) {
-        printf("unable to lock %s: %s", filename, strerror(errno));
-        printf("is another copy of this program running?");
+        log_str = std::string(strerror(errno));
+        _logger->log("<pid> Unable to lock " + filename + ": " + log_str);
+        _logger->log("<pid> Is another copy of this program running ?");
         close(fd);
         return -1;
     }
@@ -37,37 +45,45 @@ _pid_open (const char *filename)
 }
 
 static int
-pid_update (int fd)
+_pid_update (int fd)
 {
+    std::string log_str;
     char pid_buf[11]; /* An int32 converts to 10 bytes */
 
     memset(pid_buf, '\0', sizeof(pid_buf));
     snprintf(pid_buf, sizeof pid_buf, "%d\n", getpid());
 
     if (lseek(fd, 0, SEEK_SET) < 0) {
-        printf("%s: lseek: %s", __FUNCTION__, strerror(errno));
+        log_str = std::string(strerror(errno));
+        _logger->log("<pid> lseek: " + log_str);
         return -1;
     }
 
     if (write(fd, pid_buf, strlen(pid_buf)) < 0) {
-        printf("%s: write: %s", __FUNCTION__, strerror(errno));
-        return -1;              /* failure */
+        log_str = std::string(strerror(errno));
+        _logger->log("<pid> write: " + log_str);
+        return -1;
     }
 
-    return 0;                   /* success */
+    return 0;
 }
 
 int
-pid_lock (const char *filename)
+pid_lock (std::string filename, AgentServerLog *logger)
 {
+    // First set the logger
+    _logger = logger;
+
     int fd;
 
+    // Open file
     fd = _pid_open(filename);
     if (fd < 0) {
         return fd;
     }
 
-    if (pid_update(fd) < 0) {
+    // Update file with pid value
+    if (_pid_update(fd) < 0) {
         close(fd);
         return -1;
     }

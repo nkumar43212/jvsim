@@ -12,6 +12,8 @@
 #ifndef PidFileUtils_hpp
 #define PidFileUtils_hpp
 
-int pid_lock (const char *filename);
+#include "AgentServerLog.hpp"
+
+int pid_lock(std::string filename, AgentServerLog *logger);
 
 #endif /* PidFileUtils_hpp */

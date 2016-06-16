@@ -147,7 +147,7 @@ main (int argc, char * argv[])
 
     // Pid check for on-box mode
     if (global_config.running_mode == RUNNING_MODE_ON_BOX){
-        if (pid_lock(NA_GRPCD_PID) < 0) {
+        if (pid_lock(NA_GRPCD_PID, logger) < 0) {
             logger->log("Already running. Check pid. Terminating");
             exit(0);
         }
