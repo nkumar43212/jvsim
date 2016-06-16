@@ -42,8 +42,8 @@ SRCS +=	\
 	OCTelemetryJson.cpp \
 	OCTelemetryJsonGenerator.cpp \
 	OpenConfig.cpp \
-	pid_file_utils.cpp \
 	PathValidator.cpp \
+	PidFileUtils.cpp \
 	UdpReceiver.cpp
 	
 CFLAGS += -I. -I${.CURDIR}

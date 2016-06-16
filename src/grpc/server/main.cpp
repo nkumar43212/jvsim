@@ -22,8 +22,11 @@
 #include "lib_oc.h"
 #include "GlobalConfig.hpp"
 #include "UdpReceiver.hpp"
+#include "PidFileUtils.hpp"
 
-extern int pid_lock (const char *filename);
+// NA pid location (should we add in config ???)
+// TODO ABBAS
+#define NA_GRPCD_PID                "/var/run/na-grpcd.pid"
 
 // Class/Function Implementation
 void
@@ -81,11 +84,6 @@ CreateSystemHandle (AgentServerCmdOptions *cmd_options,
 int
 main (int argc, char * argv[])
 {
-    if (pid_lock("/var/run/na-grpcd.pid") < 0) {
-      printf ("na-grpcd already running!");
-      return -1;
-    }
-
     // Get all command line options
     AgentServerCmdOptions opts;
     if (!opts.parseArgs(argc, argv)) {
@@ -146,6 +144,14 @@ main (int argc, char * argv[])
     AgentServerLog *logger;
     logger = new AgentServerLog(log_file);
     logger->enable();
+
+    // Pid check for on-box mode
+    if (global_config.running_mode == RUNNING_MODE_ON_BOX){
+        if (pid_lock(NA_GRPCD_PID) < 0) {
+            logger->log("Already running. Check pid. Terminating");
+            exit(0);
+        }
+    }
 
     // Initialize interface with Mosquitto Library
     mosqpp::lib_init();

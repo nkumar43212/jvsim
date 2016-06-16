@@ -1,10 +1,19 @@
+//
+//  PidFileUtils.cpp
+//  Telemetry Agent
+//
+//  Created: 6/15/16.
+//
+//  Authors: VIVEK M
+//
+//  Copyright © 2016 Juniper Networks. All rights reserved.
+//
+
+#include <iostream>
 #include <sys/file.h>
-#include <stdio.h>
 #include <unistd.h>
 #include <sys/errno.h>
-#include <string.h>
-
-int pid_lock (const char *filename);
+#include "PidFileUtils.hpp"
 
 static int
 _pid_open (const char *filename)
