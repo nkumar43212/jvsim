@@ -153,6 +153,12 @@ class RegisterRequest : public ::google::protobuf::Message {
   ::std::string* release_register_id();
   void set_allocated_register_id(::std::string* register_id);
 
+  // optional bool skip_authentication = 5;
+  void clear_skip_authentication();
+  static const int kSkipAuthenticationFieldNumber = 5;
+  bool skip_authentication() const;
+  void set_skip_authentication(bool value);
+
   InputTypeCase input_type_case() const;
   // @@protoc_insertion_point(class_scope:registration.RegisterRequest)
  private:
@@ -167,6 +173,7 @@ class RegisterRequest : public ::google::protobuf::Message {
   bool _is_default_instance_;
   ::google::protobuf::internal::ArenaStringPtr target_;
   ::google::protobuf::internal::ArenaStringPtr register_id_;
+  bool skip_authentication_;
   union InputTypeUnion {
     InputTypeUnion() {}
     ::google::protobuf::internal::ArenaStringPtr json_input_;
@@ -524,6 +531,20 @@ inline void RegisterRequest::set_allocated_register_id(::std::string* register_i
   }
   register_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), register_id);
   // @@protoc_insertion_point(field_set_allocated:registration.RegisterRequest.register_id)
+}
+
+// optional bool skip_authentication = 5;
+inline void RegisterRequest::clear_skip_authentication() {
+  skip_authentication_ = false;
+}
+inline bool RegisterRequest::skip_authentication() const {
+  // @@protoc_insertion_point(field_get:registration.RegisterRequest.skip_authentication)
+  return skip_authentication_;
+}
+inline void RegisterRequest::set_skip_authentication(bool value) {
+  
+  skip_authentication_ = value;
+  // @@protoc_insertion_point(field_set:registration.RegisterRequest.skip_authentication)
 }
 
 inline bool RegisterRequest::has_input_type() const {

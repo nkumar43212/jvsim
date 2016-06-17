@@ -15,7 +15,7 @@ message RegisterRequest {
      */
     string json_input = 1;
     // Absolute file path on the router containing json input
-    string file_input   = 2;
+    string file_input = 2;
   }
 
   /*
@@ -35,6 +35,13 @@ message RegisterRequest {
     * contents in that file.
     */
     string register_id = 4;
+
+    /*
+     * Boolean variable to indicate if JSD should skip LoginCheck()
+     * for RPCs executed from this package for clients if they
+     * are connected using a secure channel
+     */
+     bool skip_authentication = 5;
 }
 
 /* The response message containing success or failure of the service.

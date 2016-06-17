@@ -244,6 +244,13 @@ RegisterServer::RegisterService (ServerContext* context,
         return Status::OK;
     }
 
+    // If skip authentication is not set correctly
+    if (!request->skip_authentication()) {
+        response->set_result(false);
+        response->set_error("Missing skip_authentication");
+        return Status::OK;
+    }
+
     // Input type not specified
     switch (request->input_type_case()) {
         case registration::RegisterRequest::kFileInput:

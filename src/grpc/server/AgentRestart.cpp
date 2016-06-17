@@ -141,6 +141,7 @@ _jsd_register (AgentServerLog *_logger, Json::Value &registration_obj)
         reg_request.set_target("unix:" + global_config.grpc_server_unix_socket);
     }
     reg_request.set_register_id("na-grpcd");
+    reg_request.set_skip_authentication(true);
 
     // Send over the request
     RegisterReply reg_reply;

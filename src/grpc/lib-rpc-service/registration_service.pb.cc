@@ -41,11 +41,12 @@ void protobuf_AssignDesc_registration_5fservice_2eproto() {
       "registration_service.proto");
   GOOGLE_CHECK(file != NULL);
   RegisterRequest_descriptor_ = file->message_type(0);
-  static const int RegisterRequest_offsets_[5] = {
+  static const int RegisterRequest_offsets_[6] = {
     PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET(RegisterRequest_default_oneof_instance_, json_input_),
     PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET(RegisterRequest_default_oneof_instance_, file_input_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RegisterRequest, target_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RegisterRequest, register_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RegisterRequest, skip_authentication_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RegisterRequest, input_type_),
   };
   RegisterRequest_reflection_ =
@@ -113,13 +114,14 @@ void protobuf_AddDesc_registration_5fservice_2eproto() {
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\032registration_service.proto\022\014registrati"
-    "on\"p\n\017RegisterRequest\022\024\n\njson_input\030\001 \001("
-    "\tH\000\022\024\n\nfile_input\030\002 \001(\tH\000\022\016\n\006target\030\003 \001("
-    "\t\022\023\n\013register_id\030\004 \001(\tB\014\n\ninput_type\".\n\r"
-    "RegisterReply\022\016\n\006result\030\001 \001(\010\022\r\n\005error\030\002"
-    " \001(\t2[\n\010Register\022O\n\017RegisterService\022\035.re"
-    "gistration.RegisterRequest\032\033.registratio"
-    "n.RegisterReply\"\000b\006proto3", 305);
+    "on\"\215\001\n\017RegisterRequest\022\024\n\njson_input\030\001 \001"
+    "(\tH\000\022\024\n\nfile_input\030\002 \001(\tH\000\022\016\n\006target\030\003 \001"
+    "(\t\022\023\n\013register_id\030\004 \001(\t\022\033\n\023skip_authenti"
+    "cation\030\005 \001(\010B\014\n\ninput_type\".\n\rRegisterRe"
+    "ply\022\016\n\006result\030\001 \001(\010\022\r\n\005error\030\002 \001(\t2[\n\010Re"
+    "gister\022O\n\017RegisterService\022\035.registration"
+    ".RegisterRequest\032\033.registration.Register"
+    "Reply\"\000b\006proto3", 335);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "registration_service.proto", &protobuf_RegisterTypes);
   RegisterRequest::default_instance_ = new RegisterRequest();
@@ -154,6 +156,7 @@ const int RegisterRequest::kJsonInputFieldNumber;
 const int RegisterRequest::kFileInputFieldNumber;
 const int RegisterRequest::kTargetFieldNumber;
 const int RegisterRequest::kRegisterIdFieldNumber;
+const int RegisterRequest::kSkipAuthenticationFieldNumber;
 #endif  // !_MSC_VER
 
 RegisterRequest::RegisterRequest()
@@ -182,6 +185,7 @@ void RegisterRequest::SharedCtor() {
   _cached_size_ = 0;
   target_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   register_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  skip_authentication_ = false;
   clear_has_input_type();
 }
 
@@ -246,6 +250,7 @@ void RegisterRequest::clear_input_type() {
 void RegisterRequest::Clear() {
   target_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   register_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  skip_authentication_ = false;
   clear_input_type();
 }
 
@@ -322,6 +327,21 @@ bool RegisterRequest::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(40)) goto parse_skip_authentication;
+        break;
+      }
+
+      // optional bool skip_authentication = 5;
+      case 5: {
+        if (tag == 40) {
+         parse_skip_authentication:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &skip_authentication_)));
+
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -390,6 +410,11 @@ void RegisterRequest::SerializeWithCachedSizes(
       4, this->register_id(), output);
   }
 
+  // optional bool skip_authentication = 5;
+  if (this->skip_authentication() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(5, this->skip_authentication(), output);
+  }
+
   // @@protoc_insertion_point(serialize_end:registration.RegisterRequest)
 }
 
@@ -440,6 +465,11 @@ void RegisterRequest::SerializeWithCachedSizes(
         4, this->register_id(), target);
   }
 
+  // optional bool skip_authentication = 5;
+  if (this->skip_authentication() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(5, this->skip_authentication(), target);
+  }
+
   // @@protoc_insertion_point(serialize_to_array_end:registration.RegisterRequest)
   return target;
 }
@@ -459,6 +489,11 @@ int RegisterRequest::ByteSize() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->register_id());
+  }
+
+  // optional bool skip_authentication = 5;
+  if (this->skip_authentication() != 0) {
+    total_size += 1 + 1;
   }
 
   switch (input_type_case()) {
@@ -521,6 +556,9 @@ void RegisterRequest::MergeFrom(const RegisterRequest& from) {
 
     register_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.register_id_);
   }
+  if (from.skip_authentication() != 0) {
+    set_skip_authentication(from.skip_authentication());
+  }
 }
 
 void RegisterRequest::CopyFrom(const ::google::protobuf::Message& from) {
@@ -547,6 +585,7 @@ void RegisterRequest::Swap(RegisterRequest* other) {
 void RegisterRequest::InternalSwap(RegisterRequest* other) {
   target_.Swap(&other->target_);
   register_id_.Swap(&other->register_id_);
+  std::swap(skip_authentication_, other->skip_authentication_);
   std::swap(input_type_, other->input_type_);
   std::swap(_oneof_case_[0], other->_oneof_case_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
@@ -808,6 +847,20 @@ void RegisterRequest::clear_register_id() {
   }
   register_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), register_id);
   // @@protoc_insertion_point(field_set_allocated:registration.RegisterRequest.register_id)
+}
+
+// optional bool skip_authentication = 5;
+void RegisterRequest::clear_skip_authentication() {
+  skip_authentication_ = false;
+}
+ bool RegisterRequest::skip_authentication() const {
+  // @@protoc_insertion_point(field_get:registration.RegisterRequest.skip_authentication)
+  return skip_authentication_;
+}
+ void RegisterRequest::set_skip_authentication(bool value) {
+  
+  skip_authentication_ = value;
+  // @@protoc_insertion_point(field_set:registration.RegisterRequest.skip_authentication)
 }
 
 bool RegisterRequest::has_input_type() const {
