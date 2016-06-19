@@ -49,8 +49,7 @@ AgentSubscription::on_message(const struct mosquitto_message* mosqmessage)
     oc_data.set_system_id(stream->system_id());
     oc_data.set_component_id(stream->component_id());
     oc_data.set_sub_component_id(stream->sub_component_id());
-    // TODO ABBAS --- Change this to extracted path from sensor_name
-    oc_data.set_path(topic);
+    oc_data.set_path(stream->sensor_name());
     oc_data.set_sequence_number(stream->sequence_number());
     oc_data.set_timestamp(stream->timestamp());
 
@@ -127,4 +126,24 @@ AgentSubscription::getClientDisconnects (void)
         }
     }
     return true;
+}
+
+void AgentSubscription::on_connect (int rc)
+{
+    // Add all the corresponding subscriptions
+    if (global_config.subscribe_topic_name == TOPIC_PATH) {
+        for (PathList::iterator itr = _path_list.begin();
+             itr != _path_list.end();
+             itr++) {
+            Subscribe(*itr);
+        }
+    } else if (global_config.subscribe_topic_name == TOPIC_INTERNAL_SUB_ID) {
+        int total_handles = _system_subscription->getHandleCount();
+        for (int i = 0; i < total_handles; i++) {
+            AgentConsolidatorSystemHandlePtr csh =
+                                        _system_subscription->getHandle(i);
+            id_idx_t isubid = csh->getInternalSubscriptionId();
+            Subscribe("/" + std::to_string(isubid));
+        }
+    }
 }
