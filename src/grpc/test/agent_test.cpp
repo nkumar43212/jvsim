@@ -757,3 +757,160 @@ AgentClientTest::delete_subscriptions (void *args)
 
     return NULL;
 }
+
+/* *********************** SPECIAL STRESS TESTS ************************* */
+
+#define LOCAL_TEST
+#define STRESS_TEST_SUB_UNSUB               100
+#ifdef LOCAL_TEST
+    // Add all the paths we want
+    std::string test_paths[] = {
+        "cpu_mem",
+        "firewall",
+        "logical_port",
+        "lsp_stats",
+        "npu_mem",
+        "npu_utilization",
+        "optics",
+        "packet_stats",
+        "port",
+        "oc"
+    };
+    int test_paths_count = sizeof(test_paths)/sizeof(std::string);
+
+#else
+    // Add all the paths we want
+    std::string test_paths[] = {
+        "/junos/system/linecard/interface/",
+        "/junos/system/linecard/cpu/memory/",
+        "/junos/system/linecard/npu/memory/",
+        "/lacp"
+    };
+    int test_paths_count = sizeof(test_paths)/sizeof(std::string);
+
+#endif /* #ifdef LOCAL_TEST */
+
+TEST_F(AgentClientTest, stress_test_sub_unsub) {
+    int count = 0;
+    while (count < STRESS_TEST_SUB_UNSUB) {
+        AgentClient *client;
+        uint32_t subscription_id;
+        std::string grpc_server_ip_port(GRPC_SERVER_IP_PORT);
+
+        // Create the test client
+        std::string client_name("stress_test");
+        client = AgentClient::create(grpc::CreateChannel(grpc_server_ip_port,
+                                     grpc::InsecureCredentials()),
+                                     client_name, 0, CLIENT_LOGDIR);
+        EXPECT_TRUE(client != NULL);
+        if (!client) {
+            return;
+        }
+        EXPECT_TRUE(client->stub_ != NULL);
+
+        // Create a request
+        SubscriptionRequest request;
+        Path *path;
+        path = request.add_path_list();
+        path->set_path(test_paths[0].c_str());
+        path->set_sample_frequency(2000);
+        path = request.add_path_list();
+        path->set_path(test_paths[1].c_str());
+        path->set_sample_frequency(2000);
+        path = request.add_path_list();
+        path->set_path(test_paths[2].c_str());
+        path->set_sample_frequency(2000);
+        path = request.add_path_list();
+        path->set_path(test_paths[3].c_str());
+        path->set_sample_frequency(3000);
+        SubscriptionAdditionalConfig *add_config =
+                                        request.mutable_additional_config();
+        add_config->set_limit_records(0);
+
+        // Create a reader
+        ClientContext context;
+        std::multimap<grpc::string_ref, grpc::string_ref> server_metadata;
+        std::multimap<grpc::string_ref, grpc::string_ref>::iterator metadata_itr;
+        std::unique_ptr<AgentClientReader>
+        reader(client->stub_->telemetrySubscribe(&context, request));
+        EXPECT_TRUE(reader != NULL);
+
+        // Wait for the initial meta data to come back
+        reader->WaitForInitialMetadata();
+        server_metadata = context.GetServerInitialMetadata();
+        metadata_itr = server_metadata.find("init-response");
+        EXPECT_TRUE(metadata_itr != server_metadata.end());
+        std::string tmp = metadata_itr->second.data();
+        // Use Textformat Printer APIs to convert to right format
+        // std::cout << "Data received = " << tmp << std::endl;
+        google::protobuf::TextFormat::Parser parser;
+        SubscriptionReply reply;
+        SubscriptionResponse *response;
+        parser.ParseFromString(tmp, &reply);
+        response = reply.mutable_response();
+        subscription_id = response->subscription_id();
+        EXPECT_GT(subscription_id, 0);
+
+        // Dont wait to read anything for now
+        sleep(1);
+
+        // Unsubscribe
+        ClientContext context_cancel;
+        CancelSubscriptionRequest cancel_request;
+        CancelSubscriptionReply cancel_reply;
+        cancel_request.set_subscription_id(subscription_id);
+        client->stub_->cancelTelemetrySubscription(&context_cancel,
+                                            cancel_request, &cancel_reply);
+        EXPECT_EQ(Telemetry::ReturnCode::SUCCESS, cancel_reply.code());
+        const char * code_str = cancel_reply.code_str().c_str();
+        std::string expected = "Subscription Successfully Deleted";
+        const char * expected_str = expected.c_str();
+        EXPECT_STREQ(expected_str, code_str);
+
+        // Increment the count
+        count++;
+
+        // Display to user the progress
+        if ((count % 10) == 0) {
+            std::cout << "Ran " << count << " of "
+                    << STRESS_TEST_SUB_UNSUB << std::endl;
+        }
+    }
+
+    // Validate no subscription left
+    AgentClient *mgmt_client;
+    std::string grpc_server_ip_port(GRPC_SERVER_IP_PORT);
+
+    // Create the test client
+    std::string mgmt_client_name(AGENTCLIENT_MGMT);
+    mgmt_client = AgentClient::create(grpc::CreateChannel(grpc_server_ip_port,
+                                      grpc::InsecureCredentials()),
+                                      mgmt_client_name, 0, CLIENT_LOGDIR);
+    EXPECT_TRUE(mgmt_client != NULL);
+    if (!mgmt_client) {
+        return;
+    }
+    EXPECT_TRUE(mgmt_client->stub_ != NULL);
+
+    // Operational state
+    ClientContext  operational_context;
+    GetOperationalStateRequest  operational_request;
+    GetOperationalStateReply operational_reply;
+    operational_request.set_subscription_id(0xFFFFFFFF);
+    operational_request.set_verbosity(Telemetry::VerbosityLevel::DETAIL);
+    mgmt_client->stub_->getTelemetryOperationalState(&operational_context,
+                                    operational_request, &operational_reply);
+
+    Telemetry::KeyValue *kv;
+    std::string total_subscriptions_str("total_subscriptions");
+    // std::string agent_stats_str("agent-stats");
+    // std::string begin_str("begin");
+    int64_t total_subscriptions = 0;
+    for (int lz = 0; lz < operational_reply.kv_size(); lz++) {
+        kv = operational_reply.mutable_kv(lz);
+        if (kv->key() == total_subscriptions_str) {
+            total_subscriptions = kv->int_value();
+        }
+    }
+    EXPECT_EQ(0, total_subscriptions);
+}
