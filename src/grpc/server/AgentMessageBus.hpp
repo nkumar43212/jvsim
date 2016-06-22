@@ -161,6 +161,11 @@ class MessageBus : public Mqtt {
                 AgentServerLog *logger) :
                 Mqtt(client_name, limits, logger)
     {
+        _logger->log("Subscription " + client_name +
+                     " initiating MQTT bus connection.");
+        connect(global_config.mqtt_broker_ip.c_str(),
+                global_config.mqtt_broker_port);
+        loop_start();
     }
 
     void Subscribe (const std::string resource)
@@ -175,15 +180,6 @@ class MessageBus : public Mqtt {
         _logger->log("Subscription " + _name +
                      " unsubscribe path: " + resource);
         unsubscribe(0, resource.c_str());
-    }
-
-    void BusConnect (void)
-    {
-        _logger->log("Subscription " + _name +
-                     " initiating MQTT bus connection.");
-        connect(global_config.mqtt_broker_ip.c_str(),
-                global_config.mqtt_broker_port);
-        loop_start();
     }
 };
 
