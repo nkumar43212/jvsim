@@ -24,21 +24,21 @@ OpenConfigNpuMem::iterate (JuniperNetworksSensors *handle, Telemetry::OpenConfig
         for (int j = 0; j < message->memory_stats(i).summary_size(); j++) {
             const NpuMemorySummary &summary = message->memory_stats(i).summary(j);
             
+            if (!summary.allocated()) {
+                continue;
+            }
+
             kv = datap->add_kv();
             kv->set_key("summary/" + summary.resource_name() + "/size");
-            kv->set_int_value(summary.size());
+            kv->set_uint_value(summary.size());
             
-            if (summary.allocated()) {
-                kv = datap->add_kv();
-                kv->set_key("summary/" + summary.resource_name() + "/allocated");
-                kv->set_int_value(summary.allocated());
-            }
+            kv = datap->add_kv();
+            kv->set_key("summary/" + summary.resource_name() + "/allocated");
+            kv->set_uint_value(summary.allocated());
             
-            if (summary.utilization()) {
-                kv = datap->add_kv();
-                kv->set_key("summary/" + summary.resource_name() + "/utilization");
-                kv->set_int_value(summary.utilization());
-            }
+            kv = datap->add_kv();
+            kv->set_key("summary/" + summary.resource_name() + "/utilization");
+            kv->set_int_value(summary.utilization());
         }
         
         for (int j = 0; j < message->memory_stats(i).partition_size(); j++) {
