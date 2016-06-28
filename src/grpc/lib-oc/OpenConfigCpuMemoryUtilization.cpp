@@ -24,14 +24,18 @@ OpenConfigCpuMemoryUtilization::iterate (JuniperNetworksSensors *handle, Telemet
 
     for (int i = 0; i < message->utilization_size(); i++) {
         const CpuMemoryUtilizationSummary& summary = message->utilization(i);
-        
+       
+        if (!summary.bytes_allocated()) {
+            continue;
+        }
+ 
         kv = datap->add_kv();
         kv->set_key(summary.name() + "/size");
-        kv->set_int_value(summary.size());
+        kv->set_uint_value(summary.size());
         
         kv = datap->add_kv();
         kv->set_key(summary.name() + "/bytes_allocated");
-        kv->set_int_value(summary.bytes_allocated());
+        kv->set_uint_value(summary.bytes_allocated());
         
         kv = datap->add_kv();
         kv->set_key(summary.name() + "/utilization");
@@ -46,19 +50,19 @@ OpenConfigCpuMemoryUtilization::iterate (JuniperNetworksSensors *handle, Telemet
 
             kv = datap->add_kv();
             kv->set_key(summary.name() + "/applications/" + app.name() + "/bytes_allocated");
-            kv->set_int_value(app.bytes_allocated());
+            kv->set_uint_value(app.bytes_allocated());
             
             kv = datap->add_kv();
             kv->set_key(summary.name() + "/applications/" + app.name() + "/allocations");
-            kv->set_int_value(app.allocations());
+            kv->set_uint_value(app.allocations());
 
             kv = datap->add_kv();
             kv->set_key(summary.name() + "/applications/" + app.name() + "/frees");
-            kv->set_int_value(app.frees());
+            kv->set_uint_value(app.frees());
             
             kv = datap->add_kv();
             kv->set_key(summary.name() + "/applications/" + app.name() + "/allocations_failed");
-            kv->set_int_value(app.allocations_failed());
+            kv->set_uint_value(app.allocations_failed());
         }
     }
 }

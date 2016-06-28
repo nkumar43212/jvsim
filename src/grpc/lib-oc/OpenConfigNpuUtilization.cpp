@@ -41,25 +41,19 @@ OpenConfigNpuUtilization::iterate (JuniperNetworksSensors *handle, Telemetry::Op
 
             kv = datap->add_kv();
             kv->set_key("memory/" + mem.name() + "/lowest_util");
-            kv->set_int_value(mem.highest_util());
+            kv->set_int_value(mem.lowest_util());
 
-            if (mem.average_cache_hit_rate()) {
-                kv = datap->add_kv();
-                kv->set_key("memory/" + mem.name() + "/average_cache_hit_rate");
-                kv->set_int_value(mem.average_cache_hit_rate());
-            }
+            kv = datap->add_kv();
+            kv->set_key("memory/" + mem.name() + "/average_cache_hit_rate");
+            kv->set_int_value(mem.average_cache_hit_rate());
 
-            if (mem.highest_cache_hit_rate()) {
-                kv = datap->add_kv();
-                kv->set_key("memory/" + mem.name() + "/highest_cache_hit_rate");
-                kv->set_int_value(mem.highest_cache_hit_rate());
-            }
+            kv = datap->add_kv();
+            kv->set_key("memory/" + mem.name() + "/highest_cache_hit_rate");
+            kv->set_int_value(mem.highest_cache_hit_rate());
 
-            if (mem.lowest_cache_hit_rate()) {
-                kv = datap->add_kv();
-                kv->set_key("memory/" + mem.name() + "/lowest_cache_hit_rate");
-                kv->set_int_value(mem.lowest_cache_hit_rate());
-            }
+            kv = datap->add_kv();
+            kv->set_key("memory/" + mem.name() + "/lowest_cache_hit_rate");
+            kv->set_int_value(mem.lowest_cache_hit_rate());
         }
 
         for (int j = 0; j < util.packets_size(); j++) {
@@ -71,7 +65,7 @@ OpenConfigNpuUtilization::iterate (JuniperNetworksSensors *handle, Telemetry::Op
 
             kv = datap->add_kv();
             kv->set_key("packet/" + packet.identifier() + "/rate");
-            kv->set_int_value(packet.rate());
+            kv->set_uint_value(packet.rate());
         }
     }
 }
