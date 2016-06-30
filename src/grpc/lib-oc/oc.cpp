@@ -21,6 +21,7 @@
 #include "OpenConfigOptics.hpp"
 #include "OpenConfigLspStats.hpp"
 #include "OpenConfigKeyvalue.hpp"
+#include "OpenConfigInlineJflow.hpp"
 //@header
 
 void
@@ -36,6 +37,7 @@ lib_oc_init ()
     OpenConfigOptics	 *optics = new OpenConfigOptics;
     OpenConfigLspStats	 *lsp_stats = new OpenConfigLspStats;
     OpenConfigKeyvalue	 *keyvalue = new OpenConfigKeyvalue;
+    OpenConfigInlineJflow	 *inline_jflow = new OpenConfigInlineJflow;
 //@next
 }
 
@@ -71,6 +73,9 @@ get_oc_extension_type (JuniperNetworksSensors *handle)
     }
     if (handle->HasExtension(kvresponseExt)) {
         return "kvresponseExt";
+    }
+    if (handle->HasExtension(inline_jflow_stats_ext)) {
+        return "inline_jflow_stats_ext";
     }
 //@ext_type
     return "unknown";
