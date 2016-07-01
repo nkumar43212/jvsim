@@ -22,6 +22,8 @@
 		0584266C1CE4DD21003D866B /* OpenConfigLspStats.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0584266A1CE4DD21003D866B /* OpenConfigLspStats.cpp */; };
 		058AC3E61CED1CA80024FBD6 /* UdpReceiver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 058AC3E41CED1CA80024FBD6 /* UdpReceiver.cpp */; };
 		058AC3E91CED21AC0024FBD6 /* AgentSubscriptionUdpWorker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 058AC3E71CED21AC0024FBD6 /* AgentSubscriptionUdpWorker.cpp */; };
+		058E42D41D25DFFA00AE0FE9 /* OpenConfigInlineJflow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 058E42D21D25DFFA00AE0FE9 /* OpenConfigInlineJflow.cpp */; };
+		058E42D71D25E01600AE0FE9 /* OpenConfigKeyvalue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 058E42D51D25E01600AE0FE9 /* OpenConfigKeyvalue.cpp */; };
 		05BD33AC1CD2CEF90059EF17 /* GlobalConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BD33AA1CD2CEF90059EF17 /* GlobalConfig.cpp */; };
 		05BD33AE1CD2F3B60059EF17 /* AgentServerCmdOptions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94A291FB1C80FAF2004BB6C3 /* AgentServerCmdOptions.cpp */; };
 		05BD33AF1CD324080059EF17 /* GlobalConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05BD33AA1CD2CEF90059EF17 /* GlobalConfig.cpp */; };
@@ -201,6 +203,10 @@
 		058AC3E51CED1CA80024FBD6 /* UdpReceiver.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = UdpReceiver.hpp; sourceTree = "<group>"; };
 		058AC3E71CED21AC0024FBD6 /* AgentSubscriptionUdpWorker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AgentSubscriptionUdpWorker.cpp; sourceTree = "<group>"; };
 		058AC3E81CED21AC0024FBD6 /* AgentSubscriptionUdpWorker.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AgentSubscriptionUdpWorker.hpp; sourceTree = "<group>"; };
+		058E42D21D25DFFA00AE0FE9 /* OpenConfigInlineJflow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OpenConfigInlineJflow.cpp; sourceTree = "<group>"; };
+		058E42D31D25DFFA00AE0FE9 /* OpenConfigInlineJflow.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = OpenConfigInlineJflow.hpp; sourceTree = "<group>"; };
+		058E42D51D25E01600AE0FE9 /* OpenConfigKeyvalue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OpenConfigKeyvalue.cpp; sourceTree = "<group>"; };
+		058E42D61D25E01600AE0FE9 /* OpenConfigKeyvalue.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = OpenConfigKeyvalue.hpp; sourceTree = "<group>"; };
 		05AA6FEE1CB992D900966978 /* agent.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = agent.proto; path = ../../../protos/agent.proto; sourceTree = "<group>"; };
 		05BD33AA1CD2CEF90059EF17 /* GlobalConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GlobalConfig.cpp; sourceTree = "<group>"; };
 		05BD33AB1CD2CEF90059EF17 /* GlobalConfig.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GlobalConfig.hpp; sourceTree = "<group>"; };
@@ -551,6 +557,10 @@
 				94E7E3EE1CD1E1DD007D1B3C /* OpenConfigCpuMemoryUtilization.cpp */,
 				946703CF1C64786E00E73BF5 /* OpenConfigFirewall.hpp */,
 				946703D01C64786E00E73BF5 /* OpenConfigFirewall.cpp */,
+				058E42D31D25DFFA00AE0FE9 /* OpenConfigInlineJflow.hpp */,
+				058E42D21D25DFFA00AE0FE9 /* OpenConfigInlineJflow.cpp */,
+				058E42D61D25E01600AE0FE9 /* OpenConfigKeyvalue.hpp */,
+				058E42D51D25E01600AE0FE9 /* OpenConfigKeyvalue.cpp */,
 				05C1BEDA1CC824C000A6A342 /* OpenConfigLogicalPort.hpp */,
 				05C1BED91CC824C000A6A342 /* OpenConfigLogicalPort.cpp */,
 				0584266B1CE4DD21003D866B /* OpenConfigLspStats.hpp */,
@@ -899,9 +909,11 @@
 				94AC9A711C7529890034AF1A /* OpenConfigPort.cpp in Sources */,
 				949DD78A1C8BA28D0062F934 /* OpenConfigPacketStats.cpp in Sources */,
 				946703DC1C650CD700E73BF5 /* oc.cpp in Sources */,
+				058E42D71D25E01600AE0FE9 /* OpenConfigKeyvalue.cpp in Sources */,
 				946703D41C64786E00E73BF5 /* OpenConfigFirewall.cpp in Sources */,
 				94E7E3EF1CD1E1DD007D1B3C /* OpenConfigCpuMemoryUtilization.cpp in Sources */,
 				05C1BED81CC81DB500A6A342 /* OpenConfigNpuUtilization.cpp in Sources */,
+				058E42D41D25DFFA00AE0FE9 /* OpenConfigInlineJflow.cpp in Sources */,
 				946703C61C64782500E73BF5 /* main.cpp in Sources */,
 				0584266C1CE4DD21003D866B /* OpenConfigLspStats.cpp in Sources */,
 				94E7E3EC1CD1C03C007D1B3C /* OpenConfigNpuMem.cpp in Sources */,
