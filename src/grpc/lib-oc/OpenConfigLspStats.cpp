@@ -9,8 +9,8 @@
 #include "OpenConfigLspStats.hpp"
 #include "oc.hpp"
 
-std::string BASE_OC_PATH_LSP("/oc-path/mpls/lsps/constrained-path");
-std::string BASE_OC_PATH_LSP_ATTR("statistics");
+std::string BASE_OC_PATH_LSP("/mpls/lsps/constrained-path/tunnels/tunnel");
+std::string BASE_OC_PATH_LSP_ATTR("state/counters");
 
 void
 OpenConfigLspStats::iterate (JuniperNetworksSensors *handle, Telemetry::OpenConfigData *datap)
