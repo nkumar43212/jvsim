@@ -68,15 +68,15 @@
          </CommandLineArgument>
          <CommandLineArgument
             argument = "--gtest_filter=AgentConsolidator*.*"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "--gtest_filter=GlobalConfigTest.*"
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "--gtest_filter=AgentClientTest.*"
-            isEnabled = "NO">
+            argument = "--gtest_filter=AgentClientTest.stress_test*"
+            isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "--gtest_filter=AgentClientTest.subscribe_and_path_validation_*"

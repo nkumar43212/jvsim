@@ -784,6 +784,7 @@ AgentClientTest::delete_subscriptions (void *args)
         "/junos/system/linecard/interface/",
         "/junos/system/linecard/cpu/memory/",
         "/junos/system/linecard/npu/memory/",
+        "/junos/system/linecard/npu/utilization/",
         "/lacp"
     };
     int test_paths_count = sizeof(test_paths)/sizeof(std::string);
@@ -796,6 +797,11 @@ TEST_F(AgentClientTest, stress_test_sub_unsub) {
         AgentClient *client;
         uint32_t subscription_id;
         std::string grpc_server_ip_port(GRPC_SERVER_IP_PORT);
+
+#ifndef LOCAL_TEST
+        // Sleep a sec before test
+        sleep(1);
+#endif /* #ifndef LOCAL_TEST */
 
         // Create the test client
         std::string client_name("stress_test");
