@@ -227,7 +227,7 @@ AgentClient::cancelSubscribeTelemetry (void)
     std::cout << "Server Response code : " << reply.code() << std::endl;
     std::cout << "Server Response string : " << reply.code_str() << std::endl;
 
-    if (reply.code() == Telemetry::SUCCESS) {
+    if (reply.code() == telemetry::SUCCESS) {
         // Break the read loop
         _active = false;
     }
@@ -268,7 +268,7 @@ AgentClient::listSubscriptions (uint32_t subscription_id)
                   << sub_response.subscription_id() << std::endl;
         int path_list_size = sub_reply->path_list_size();
         for (int lz = 0; lz < path_list_size; lz++) {
-            Telemetry::Path path = sub_reply->path_list(lz);
+            telemetry::Path path = sub_reply->path_list(lz);
             std::cout << "Path[" << lz << "]: " << path.path() << std::endl;
         }
     }
@@ -276,12 +276,12 @@ AgentClient::listSubscriptions (uint32_t subscription_id)
 
 void
 AgentClient::getOperational (uint32_t subscription_id,
-                             Telemetry::VerbosityLevel verbosity)
+                             telemetry::VerbosityLevel verbosity)
 {
     ClientContext  context;
     GetOperationalStateRequest  operational_request;
     GetOperationalStateReply operational_reply;
-    Telemetry::KeyValue *kv;
+    telemetry::KeyValue *kv;
     std::string subscription_id_str("subscription_id");
     std::string agent_stats_str("agent-stats");
     std::string begin_str("begin");

@@ -13,11 +13,11 @@ std::string BASE_OC_PATH_PACKET_STATS("/oc-path/components/component/subcomponen
 std::string OC_ATTRIBUTE_PACKET_STATS("packet_statistics");
 
 void
-OpenConfigPacketStats::iterate (JuniperNetworksSensors *handle, Telemetry::OpenConfigData *datap)
+OpenConfigPacketStats::iterate (JuniperNetworksSensors *handle, telemetry::OpenConfigData *datap)
 {
     PacketStatistics *message = handle->MutableExtension(jnpr_packet_statistics_ext);
     int i;
-    Telemetry::KeyValue *kv;
+    telemetry::KeyValue *kv;
 
     // Add Prefix
     std::string name_str = "FPC" + std::to_string(datap->component_id()) + ":CPU0";

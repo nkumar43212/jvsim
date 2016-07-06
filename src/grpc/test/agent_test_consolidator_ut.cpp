@@ -19,7 +19,7 @@ TEST_F(AgentConsolidatorTest, add) {
     AgentConsolidatorHandle *handle;
     SubscriptionRequest request;
     SubscriptionRequest system_accepted_request;
-    Telemetry::Path *path;
+    telemetry::Path *path;
 
     // Build a request of valid paths
     path = request.add_path_list();
@@ -54,7 +54,7 @@ TEST_F(AgentConsolidatorTest, add_with_filter) {
     AgentConsolidatorHandle *handle;
     SubscriptionRequest request;
     SubscriptionRequest system_accepted_request;
-    Telemetry::Path *path;
+    telemetry::Path *path;
 
     // Build a request
     path = request.add_path_list();
@@ -91,7 +91,7 @@ TEST_F(AgentConsolidatorTest, add_multiple) {
     AgentConsolidatorHandle *handle1, *handle2;
     SubscriptionRequest request;
     SubscriptionRequest system_accepted_request;
-    Telemetry::Path *path;
+    telemetry::Path *path;
 
     // Build a request
     path = request.add_path_list();
@@ -137,7 +137,7 @@ TEST_F(AgentConsolidatorTest, add_multiple_frequency) {
     AgentConsolidatorHandle *handle1, *handle2;
     SubscriptionRequest request1, request2;
     SubscriptionRequest system_accepted_request1, system_accepted_request2;
-    Telemetry::Path *path;
+    telemetry::Path *path;
 
     // Build a request
     path = request1.add_path_list();
@@ -211,7 +211,7 @@ AgentConsolidatorTest::create (void *args)
     AgentConsolidatorHandle *handle;
     SubscriptionRequest request;
     SubscriptionRequest system_accepted_request;
-    Telemetry::Path *path;
+    telemetry::Path *path;
 
     // Build a request
     path = request.add_path_list();

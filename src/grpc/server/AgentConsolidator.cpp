@@ -41,7 +41,7 @@ AgentConsolidator::addRequest (const id_idx_t subscription_id,
             continue;
         }
 
-        Telemetry::Path *p_path = system_accepted_request->add_path_list();
+        telemetry::Path *p_path = system_accepted_request->add_path_list();
         p_path->CopyFrom(request->path_list(i));
 
         // Store the handle
@@ -108,7 +108,7 @@ AgentConsolidator::getRequest (AgentConsolidatorHandle *handle, bool cached)
                  std::to_string(handle->getSubscriptionId()));
 
     // Build the answer
-    SubscriptionRequest *request_list = new Telemetry::SubscriptionRequest;
+    SubscriptionRequest *request_list = new telemetry::SubscriptionRequest;
     if (!request_list) {
         return NULL;
     }
@@ -122,15 +122,15 @@ AgentConsolidator::getRequest (AgentConsolidatorHandle *handle, bool cached)
 
         // Return the local state in the consolidator
         if (cached) {
-            Telemetry::Path *path = request_list->add_path_list();
+            telemetry::Path *path = request_list->add_path_list();
             path->CopyFrom(*ptr->getPath());
             continue;
         }
 
         // Query the system
-        Telemetry::Path *p = ptr->get(getSystemHandle());
+        telemetry::Path *p = ptr->get(getSystemHandle());
         if (p) {
-            Telemetry::Path *path = request_list->add_path_list();
+            telemetry::Path *path = request_list->add_path_list();
             path->CopyFrom(*p);
         }
     }

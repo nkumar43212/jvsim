@@ -20,7 +20,7 @@ public:
         OpenConfig::registerSelf("cpu_memory_util_ext", this);
     }
     
-    void   iterate (JuniperNetworksSensors *handle, Telemetry::OpenConfigData *datap);
+    void   iterate (JuniperNetworksSensors *handle, telemetry::OpenConfigData *datap);
 };
 
 #endif /* OpenConfigCpuMemoryUtilization_hpp */

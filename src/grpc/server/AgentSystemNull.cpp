@@ -13,18 +13,18 @@
 #include "AgentSystemNull.hpp"
 
 bool
-AgentSystemNull::systemAdd (SystemId id, const Telemetry::Path *request_path)
+AgentSystemNull::systemAdd (SystemId id, const telemetry::Path *request_path)
 {
     return AgentSystem::systemAdd(id, request_path);
 }
 
 bool
-AgentSystemNull::systemRemove (SystemId id, const Telemetry::Path *request_path)
+AgentSystemNull::systemRemove (SystemId id, const telemetry::Path *request_path)
 {
     return AgentSystem::systemRemove(id, request_path);
 }
 
-Telemetry::Path *
+telemetry::Path *
 AgentSystemNull::systemGet (SystemId sys_id)
 {
     return NULL;

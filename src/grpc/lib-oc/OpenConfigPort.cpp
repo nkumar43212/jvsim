@@ -13,11 +13,11 @@ std::string BASE_OC_PATH_PORT("/oc-path/interfaces/interface");
 std::string BASE_OC_PATH_PORT_ATTR("interface-counters-state");
 
 void
-OpenConfigPort::iterate (JuniperNetworksSensors *handle, Telemetry::OpenConfigData *datap)
+OpenConfigPort::iterate (JuniperNetworksSensors *handle, telemetry::OpenConfigData *datap)
 {
     int i, size;
     GPort *portp = handle->MutableExtension(jnpr_interface_ext);
-    Telemetry::KeyValue *kv;
+    telemetry::KeyValue *kv;
 
     size = portp->interface_stats_size();
     for (i = 0; i < size; i++) {

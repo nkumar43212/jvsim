@@ -48,7 +48,7 @@ public:
 
 class TestArgs {
 public:
-    TestArgs (int i, Telemetry::OpenConfigData *d, int N, std::string cd,
+    TestArgs (int i, telemetry::OpenConfigData *d, int N, std::string cd,
               std::string grpc_server_ip_port):
              index(i), data(d), max_data_size(N), client_logdir(cd),
              grpc_server_ip_port(grpc_server_ip_port),
@@ -56,7 +56,7 @@ public:
              return_before_graceful_terminate(false) {}
 
     int    index;
-    Telemetry::OpenConfigData *data;
+    telemetry::OpenConfigData *data;
     int max_data_size;
     int data_size;
     int limit_record;

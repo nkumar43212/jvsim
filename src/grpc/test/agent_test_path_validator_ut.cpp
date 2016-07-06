@@ -21,7 +21,7 @@ _valid_path_test (PathValidator *path_validator,
                   u_int32_t sample_frequency_expected)
 {
     // Create path and check accepted_path
-    Telemetry::Path path, accepted_path;
+    telemetry::Path path, accepted_path;
 
     // Create path
     path.set_path("/junos/system/linecard/cpu/memory/");
@@ -47,7 +47,7 @@ TEST_F(PathValidatorTest, good_path) {
 
 TEST_F(PathValidatorTest, bad_path) {
     // Create path and check accepted_path
-    Telemetry::Path path, accepted_path;
+    telemetry::Path path, accepted_path;
 
     // Create path
     path.set_path("/thisisbadpath");
@@ -102,7 +102,7 @@ TEST_F(PathValidatorTest, filter_unsupported) {
     EXPECT_TRUE(status);
 
     // Create path and check accepted_path
-    Telemetry::Path path, accepted_path;
+    telemetry::Path path, accepted_path;
 
     // Create path
     path.set_path("/junos/system/linecard/fabric/");

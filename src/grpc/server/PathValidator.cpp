@@ -168,7 +168,7 @@ PathValidator::delete_path_information_db (void)
 }
 
 void
-PathValidator::validate_path (Telemetry::Path &path)
+PathValidator::validate_path (telemetry::Path &path)
 {
     // Search the db
     PathInformationPtr pPathInformation = path_information_db[path.path()];

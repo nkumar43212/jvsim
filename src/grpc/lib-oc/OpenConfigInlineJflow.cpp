@@ -13,10 +13,10 @@ std::string BASE_OC_PATH_JFLOW("/oc-path/components/component/subcomponents/subc
 std::string OC_ATTRIBUTE_JFLOW("jflow");
 
 void
-OpenConfigInlineJflow::iterate (JuniperNetworksSensors *handle, Telemetry::OpenConfigData *datap)
+OpenConfigInlineJflow::iterate (JuniperNetworksSensors *handle, telemetry::OpenConfigData *datap)
 {
     InlineJflow *message = handle->MutableExtension(inline_jflow_stats_ext);
-    Telemetry::KeyValue *kv;
+    telemetry::KeyValue *kv;
     
     // Add Prefix
     std::string name_str = "FPC" + std::to_string(datap->component_id()) + ":CPU0";

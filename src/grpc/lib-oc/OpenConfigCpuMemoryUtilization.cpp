@@ -13,10 +13,10 @@ std::string BASE_OC_PATH_CPU("/oc-path/components/component/subcomponents/subcom
 std::string OC_ATTRIBUTE_CPU("memory_utilization");
 
 void
-OpenConfigCpuMemoryUtilization::iterate (JuniperNetworksSensors *handle, Telemetry::OpenConfigData *datap)
+OpenConfigCpuMemoryUtilization::iterate (JuniperNetworksSensors *handle, telemetry::OpenConfigData *datap)
 {
     CpuMemoryUtilization *message = handle->MutableExtension(cpu_memory_util_ext);
-    Telemetry::KeyValue *kv;
+    telemetry::KeyValue *kv;
     
     // Add Prefix
     std::string name_str = "FPC" + std::to_string(datap->component_id()) + ":CPU0";

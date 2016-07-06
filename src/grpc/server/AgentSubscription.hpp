@@ -66,7 +66,7 @@ public:
     AgentServerTransport* getTransport()             { return _transport; }
     bool        getClientDisconnects(void);
     void        getOperational(GetOperationalStateReply* operational_reply,
-                               Telemetry::VerbosityLevel verbosity);
+                               telemetry::VerbosityLevel verbosity);
 
     // Construction
     AgentSubscription (std::string name,

@@ -20,7 +20,7 @@ public:
         OpenConfig::registerSelf("jnpr_interface_ext", this);
     }
     
-    void   iterate (JuniperNetworksSensors *handle, Telemetry::OpenConfigData *datap);
+    void   iterate (JuniperNetworksSensors *handle, telemetry::OpenConfigData *datap);
 };
 
 #endif /* OpenConfigPort_hpp */

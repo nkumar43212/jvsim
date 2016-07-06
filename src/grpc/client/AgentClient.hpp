@@ -22,28 +22,28 @@ using grpc::ClientContext;
 using grpc::ClientReader;
 using grpc::Status;
 
-using Telemetry::OpenConfigTelemetry;
+using telemetry::OpenConfigTelemetry;
 
-using Telemetry::CancelSubscriptionReply;
-using Telemetry::CancelSubscriptionRequest;
-using Telemetry::Collector;
-using Telemetry::DataEncodingReply;
-using Telemetry::DataEncodingRequest;
-using Telemetry::GetOperationalStateReply;
-using Telemetry::GetOperationalStateRequest;
-using Telemetry::GetSubscriptionsReply;
-using Telemetry::GetSubscriptionsRequest;
-using Telemetry::KeyValue;
-using Telemetry::OpenConfigData;
-using Telemetry::Path;
-using Telemetry::SubscriptionAdditionalConfig;
-using Telemetry::SubscriptionInput;
-using Telemetry::SubscriptionReply;
-using Telemetry::SubscriptionRequest;
-using Telemetry::SubscriptionResponse;
-using Telemetry::ReturnCode;
-using Telemetry::VerbosityLevel;
-using Telemetry::EncodingType;
+using telemetry::CancelSubscriptionReply;
+using telemetry::CancelSubscriptionRequest;
+using telemetry::Collector;
+using telemetry::DataEncodingReply;
+using telemetry::DataEncodingRequest;
+using telemetry::GetOperationalStateReply;
+using telemetry::GetOperationalStateRequest;
+using telemetry::GetSubscriptionsReply;
+using telemetry::GetSubscriptionsRequest;
+using telemetry::KeyValue;
+using telemetry::OpenConfigData;
+using telemetry::Path;
+using telemetry::SubscriptionAdditionalConfig;
+using telemetry::SubscriptionInput;
+using telemetry::SubscriptionReply;
+using telemetry::SubscriptionRequest;
+using telemetry::SubscriptionResponse;
+using telemetry::ReturnCode;
+using telemetry::VerbosityLevel;
+using telemetry::EncodingType;
 
 // AGENT_SERVER_ADDRESS
 extern std::string server_ip, server_port;
@@ -111,7 +111,7 @@ public:
     void cancelSubscribeTelemetryId(uint32_t subscription_id);
     void listSubscriptions(uint32_t subscription_id);
     void getOperational(uint32_t subscription_id,
-                        Telemetry::VerbosityLevel verbosity);
+                        telemetry::VerbosityLevel verbosity);
 
     void errorMsg (std::string err_str, Status code)
     {

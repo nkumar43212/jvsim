@@ -12,11 +12,11 @@
 std::string BASE_OC_PATH_FW("/oc-path/firewalls/");
 
 void
-OpenConfigFirewall::iterate (JuniperNetworksSensors *handle, Telemetry::OpenConfigData *datap)
+OpenConfigFirewall::iterate (JuniperNetworksSensors *handle, telemetry::OpenConfigData *datap)
 {
     Firewall *message = handle->MutableExtension(jnpr_firewall_ext);
     int i, j;
-    Telemetry::KeyValue *kv;
+    telemetry::KeyValue *kv;
 
     for (i = 0; i < message->firewall_stats_size(); i++) {
         const FirewallStats& filter = message->firewall_stats(i);

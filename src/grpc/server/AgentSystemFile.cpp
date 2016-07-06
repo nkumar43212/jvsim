@@ -16,7 +16,7 @@
 #include "GlobalConfig.hpp"
 
 bool
-AgentSystemFile::systemAdd (SystemId id, const Telemetry::Path *request_path)
+AgentSystemFile::systemAdd (SystemId id, const telemetry::Path *request_path)
 {
     // The common interface
     AgentSystem::systemAdd(id, request_path);
@@ -47,7 +47,7 @@ AgentSystemFile::systemAdd (SystemId id, const Telemetry::Path *request_path)
 }
 
 bool
-AgentSystemFile::systemRemove (SystemId id, const Telemetry::Path *request_path)
+AgentSystemFile::systemRemove (SystemId id, const telemetry::Path *request_path)
 {
     // The common interface
     AgentSystem::systemRemove(id, request_path);
@@ -77,7 +77,7 @@ AgentSystemFile::systemRemove (SystemId id, const Telemetry::Path *request_path)
     return true;
 }
 
-Telemetry::Path *
+telemetry::Path *
 AgentSystemFile::systemGet (SystemId sys_id)
 {
     return NULL;

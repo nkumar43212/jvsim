@@ -20,7 +20,7 @@ public:
         OpenConfig::registerSelf("inline_jflow_stats_ext", this);
     }
     
-    void   iterate (JuniperNetworksSensors *handle, Telemetry::OpenConfigData *datap);
+    void   iterate (JuniperNetworksSensors *handle, telemetry::OpenConfigData *datap);
 };
 
 #endif /* OpenConfigInlineJflow_hpp */

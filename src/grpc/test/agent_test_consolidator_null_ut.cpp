@@ -19,7 +19,7 @@ TEST_F(AgentConsolidatorNullTest, add) {
     AgentConsolidatorHandle *handle;
     SubscriptionRequest request;
     SubscriptionRequest system_accepted_request;
-    Telemetry::Path *path;
+    telemetry::Path *path;
 
     // Build a request
     path = request.add_path_list();

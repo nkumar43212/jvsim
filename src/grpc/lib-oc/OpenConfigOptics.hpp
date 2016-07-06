@@ -20,7 +20,7 @@ public:
         OpenConfig::registerSelf("jnpr_optics_ext", this);
     }
     
-    void   iterate (JuniperNetworksSensors *handle, Telemetry::OpenConfigData *datap);
+    void   iterate (JuniperNetworksSensors *handle, telemetry::OpenConfigData *datap);
 };
 
 #endif /* OpenConfigOptics_hpp */

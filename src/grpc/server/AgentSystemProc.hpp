@@ -101,9 +101,9 @@ public:
                                         management::ConfigCommands cmdcode);
 #endif
 
-    bool systemAdd(SystemId id, const Telemetry::Path *request_path);
-    bool systemRemove(SystemId id, const Telemetry::Path *request_path);
-    Telemetry::Path * systemGet(SystemId sys_id);
+    bool systemAdd(SystemId id, const telemetry::Path *request_path);
+    bool systemRemove(SystemId id, const telemetry::Path *request_path);
+    telemetry::Path * systemGet(SystemId sys_id);
     bool systemClearAll(void);
 };
 

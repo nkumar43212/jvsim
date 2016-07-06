@@ -41,7 +41,7 @@ public:
     static void             addLag(AgentLag *lag);
     static AgentLag *       findLag(const std::string lag_name);
     static void             print(void);
-    static void             updateStats(Telemetry::OpenConfigData *data);
+    static void             updateStats(telemetry::OpenConfigData *data);
 
     void addMember (AgentMemberInterface *child)
     {

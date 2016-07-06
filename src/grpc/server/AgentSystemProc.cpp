@@ -238,7 +238,7 @@ AgentSystemProc::_sendJunosMessagetoMgd (std::string &config,
 #endif
 
 bool
-AgentSystemProc::systemAdd (SystemId id, const Telemetry::Path *request_path)
+AgentSystemProc::systemAdd (SystemId id, const telemetry::Path *request_path)
 {
 #if defined(__OC_Telemetry_Config__)
     // OpenConfig Config
@@ -285,7 +285,7 @@ AgentSystemProc::systemAdd (SystemId id, const Telemetry::Path *request_path)
 }
 
 bool
-AgentSystemProc::systemRemove (SystemId id, const Telemetry::Path *request_path)
+AgentSystemProc::systemRemove (SystemId id, const telemetry::Path *request_path)
 {
 #if defined(__OC_Telemetry_Config__)
     // OpenConfig Config
@@ -331,7 +331,7 @@ AgentSystemProc::systemRemove (SystemId id, const Telemetry::Path *request_path)
 #endif // __OC_Telemetry_Config__
 }
 
-Telemetry::Path *
+telemetry::Path *
 AgentSystemProc::systemGet (SystemId id)
 {
     // Set mgd address
@@ -379,7 +379,7 @@ AgentSystemProc::systemGet (SystemId id)
 
     // Convert to path
     // TODO ABBAS - FIX THIS HOLISTICALLY LATER
-    Telemetry::Path *path = new Telemetry::Path();
+    telemetry::Path *path = new telemetry::Path();
     Json::Value json_obj;
     JsonUtils::parse_string_to_json_obj(response_json_str,
                                         json_obj);
@@ -439,7 +439,7 @@ AgentSystemProc::systemGet (SystemId id)
 
     // Convert to path
     // TODO ABBAS - FIX THIS HOLISTICALLY LATER
-    Telemetry::Path *path = new Telemetry::Path();
+    telemetry::Path *path = new telemetry::Path();
     Json::Value json_obj;
     JsonUtils::parse_string_to_json_obj(response_json_str,
                                         json_obj);

@@ -64,16 +64,16 @@ AgentServer::telemetrySubscribe (ServerContext *context,
     // (for now capability is hardcoded in a file)
     validated_request = new SubscriptionRequest();
     if (global_config.validate_ocpaths) {
-        Telemetry::SubscriptionAdditionalConfig *add_config =
-                                new Telemetry::SubscriptionAdditionalConfig();
+        telemetry::SubscriptionAdditionalConfig *add_config =
+                                new telemetry::SubscriptionAdditionalConfig();
         add_config->CopyFrom(request->additional_config());
         validated_request->set_allocated_additional_config(add_config);
         _logger->log("Validating paths ...");
         for (int i = 0; i < request->path_list_size(); i++) {
-            Telemetry::Path path = request->path_list(i);
+            telemetry::Path path = request->path_list(i);
             _path_validator->validate_path(path);
             if (path.ByteSize() != 0) {
-                Telemetry::Path *p_path = validated_request->add_path_list();
+                telemetry::Path *p_path = validated_request->add_path_list();
                 p_path->CopyFrom(path);
             }
         }
@@ -86,8 +86,8 @@ AgentServer::telemetrySubscribe (ServerContext *context,
 
     // Create a subscription into the system
     system_accepted_request = new SubscriptionRequest();
-    Telemetry::SubscriptionAdditionalConfig *add_config =
-                                new Telemetry::SubscriptionAdditionalConfig();
+    telemetry::SubscriptionAdditionalConfig *add_config =
+                                new telemetry::SubscriptionAdditionalConfig();
     add_config->CopyFrom(validated_request->additional_config());
     system_accepted_request->set_allocated_additional_config(add_config);
     system_handle = _consolidator.addRequest(id, validated_request,
@@ -163,7 +163,7 @@ AgentServer::telemetrySubscribe (ServerContext *context,
 
     // Send path info back to the client
     for (int i = 0; i < system_accepted_request->path_list_size(); i++) {
-        Telemetry::Path *p_tpath = reply.add_path_list();
+        telemetry::Path *p_tpath = reply.add_path_list();
         p_tpath->CopyFrom(system_accepted_request->path_list(i));
     }
 
@@ -248,7 +248,7 @@ AgentServer::cancelTelemetrySubscription (ServerContext* context,
         if (!sub_udp_worker) {
             std::string err_str = "UDP Subscription Not Found. ID = " +
             std::to_string(cancel_request->subscription_id());
-            cancel_reply->set_code(Telemetry::ReturnCode::NO_SUBSCRIPTION_ENTRY);
+            cancel_reply->set_code(telemetry::ReturnCode::NO_SUBSCRIPTION_ENTRY);
             cancel_reply->set_code_str(err_str);
             _logger->log(err_str);
             return Status::OK;
@@ -264,7 +264,7 @@ AgentServer::cancelTelemetrySubscription (ServerContext* context,
     if (!sub) {
         std::string err_str = "Subscription Not Found. ID = " +
                             std::to_string(cancel_request->subscription_id());
-        cancel_reply->set_code(Telemetry::ReturnCode::NO_SUBSCRIPTION_ENTRY);
+        cancel_reply->set_code(telemetry::ReturnCode::NO_SUBSCRIPTION_ENTRY);
         cancel_reply->set_code_str(err_str);
         _logger->log(err_str);
         return Status::OK;
@@ -276,7 +276,7 @@ AgentServer::cancelTelemetrySubscription (ServerContext* context,
     // Note, do not delete here, leave it to subscription thread
     // delete sub;
 
-    cancel_reply->set_code(Telemetry::SUCCESS);
+    cancel_reply->set_code(telemetry::SUCCESS);
     cancel_reply->set_code_str("Subscription Successfully Deleted");
     _logger->log("cancelTelemetrySubscriptionEnd: ID = " +
                  std::to_string(cancel_request->subscription_id()));
@@ -317,7 +317,7 @@ AgentServer::getTelemetrySubscriptions (ServerContext* context,
 
             for (PathList::iterator it = pathList.begin();
                  it != pathList.end(); ++it) {
-                Telemetry::Path *path = sub_reply->add_path_list();
+                telemetry::Path *path = sub_reply->add_path_list();
                 path->set_path(*it);
             }
         }
@@ -335,7 +335,7 @@ AgentServer::getTelemetrySubscriptions (ServerContext* context,
 
             for (PathList::iterator it = pathList.begin();
                  it != pathList.end(); ++it) {
-                Telemetry::Path *path = sub_reply->add_path_list();
+                telemetry::Path *path = sub_reply->add_path_list();
                 path->set_path(*it);
             }
 
@@ -355,8 +355,8 @@ AgentServer::getTelemetryOperationalState (ServerContext* context,
 {
     std::string log_str;
     id_idx_t subscription_id = operational_request->subscription_id();
-    Telemetry::VerbosityLevel verbosity = operational_request->verbosity();
-    Telemetry::KeyValue *kv;
+    telemetry::VerbosityLevel verbosity = operational_request->verbosity();
+    telemetry::KeyValue *kv;
 
     // Log this event
     log_str = __FUNCTION__;
@@ -470,7 +470,7 @@ AgentServer::getDataEncodings (ServerContext* context,
     log_str.append(AgentUtils::getMessageString(*data_enc_request));
     _logger->log(log_str);
 
-    data_enc_reply->add_encoding_list(Telemetry::EncodingType::PROTO3);
+    data_enc_reply->add_encoding_list(telemetry::EncodingType::PROTO3);
     return Status::OK;
 }
 

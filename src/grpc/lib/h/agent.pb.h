@@ -30,7 +30,7 @@
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 
-namespace Telemetry {
+namespace telemetry {
 
 // Internal implementation detail -- do not call these.
 void protobuf_AddDesc_agent_2eproto();
@@ -180,44 +180,44 @@ class SubscriptionRequest : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional .Telemetry.SubscriptionInput input = 1;
+  // optional .telemetry.SubscriptionInput input = 1;
   bool has_input() const;
   void clear_input();
   static const int kInputFieldNumber = 1;
-  const ::Telemetry::SubscriptionInput& input() const;
-  ::Telemetry::SubscriptionInput* mutable_input();
-  ::Telemetry::SubscriptionInput* release_input();
-  void set_allocated_input(::Telemetry::SubscriptionInput* input);
+  const ::telemetry::SubscriptionInput& input() const;
+  ::telemetry::SubscriptionInput* mutable_input();
+  ::telemetry::SubscriptionInput* release_input();
+  void set_allocated_input(::telemetry::SubscriptionInput* input);
 
-  // repeated .Telemetry.Path path_list = 2;
+  // repeated .telemetry.Path path_list = 2;
   int path_list_size() const;
   void clear_path_list();
   static const int kPathListFieldNumber = 2;
-  const ::Telemetry::Path& path_list(int index) const;
-  ::Telemetry::Path* mutable_path_list(int index);
-  ::Telemetry::Path* add_path_list();
-  ::google::protobuf::RepeatedPtrField< ::Telemetry::Path >*
+  const ::telemetry::Path& path_list(int index) const;
+  ::telemetry::Path* mutable_path_list(int index);
+  ::telemetry::Path* add_path_list();
+  ::google::protobuf::RepeatedPtrField< ::telemetry::Path >*
       mutable_path_list();
-  const ::google::protobuf::RepeatedPtrField< ::Telemetry::Path >&
+  const ::google::protobuf::RepeatedPtrField< ::telemetry::Path >&
       path_list() const;
 
-  // optional .Telemetry.SubscriptionAdditionalConfig additional_config = 3;
+  // optional .telemetry.SubscriptionAdditionalConfig additional_config = 3;
   bool has_additional_config() const;
   void clear_additional_config();
   static const int kAdditionalConfigFieldNumber = 3;
-  const ::Telemetry::SubscriptionAdditionalConfig& additional_config() const;
-  ::Telemetry::SubscriptionAdditionalConfig* mutable_additional_config();
-  ::Telemetry::SubscriptionAdditionalConfig* release_additional_config();
-  void set_allocated_additional_config(::Telemetry::SubscriptionAdditionalConfig* additional_config);
+  const ::telemetry::SubscriptionAdditionalConfig& additional_config() const;
+  ::telemetry::SubscriptionAdditionalConfig* mutable_additional_config();
+  ::telemetry::SubscriptionAdditionalConfig* release_additional_config();
+  void set_allocated_additional_config(::telemetry::SubscriptionAdditionalConfig* additional_config);
 
-  // @@protoc_insertion_point(class_scope:Telemetry.SubscriptionRequest)
+  // @@protoc_insertion_point(class_scope:telemetry.SubscriptionRequest)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   bool _is_default_instance_;
-  ::Telemetry::SubscriptionInput* input_;
-  ::google::protobuf::RepeatedPtrField< ::Telemetry::Path > path_list_;
-  ::Telemetry::SubscriptionAdditionalConfig* additional_config_;
+  ::telemetry::SubscriptionInput* input_;
+  ::google::protobuf::RepeatedPtrField< ::telemetry::Path > path_list_;
+  ::telemetry::SubscriptionAdditionalConfig* additional_config_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_agent_2eproto();
   friend void protobuf_AssignDesc_agent_2eproto();
@@ -284,24 +284,24 @@ class SubscriptionInput : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .Telemetry.Collector collector_list = 1;
+  // repeated .telemetry.Collector collector_list = 1;
   int collector_list_size() const;
   void clear_collector_list();
   static const int kCollectorListFieldNumber = 1;
-  const ::Telemetry::Collector& collector_list(int index) const;
-  ::Telemetry::Collector* mutable_collector_list(int index);
-  ::Telemetry::Collector* add_collector_list();
-  ::google::protobuf::RepeatedPtrField< ::Telemetry::Collector >*
+  const ::telemetry::Collector& collector_list(int index) const;
+  ::telemetry::Collector* mutable_collector_list(int index);
+  ::telemetry::Collector* add_collector_list();
+  ::google::protobuf::RepeatedPtrField< ::telemetry::Collector >*
       mutable_collector_list();
-  const ::google::protobuf::RepeatedPtrField< ::Telemetry::Collector >&
+  const ::google::protobuf::RepeatedPtrField< ::telemetry::Collector >&
       collector_list() const;
 
-  // @@protoc_insertion_point(class_scope:Telemetry.SubscriptionInput)
+  // @@protoc_insertion_point(class_scope:telemetry.SubscriptionInput)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   bool _is_default_instance_;
-  ::google::protobuf::RepeatedPtrField< ::Telemetry::Collector > collector_list_;
+  ::google::protobuf::RepeatedPtrField< ::telemetry::Collector > collector_list_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_agent_2eproto();
   friend void protobuf_AssignDesc_agent_2eproto();
@@ -385,7 +385,7 @@ class Collector : public ::google::protobuf::Message {
   ::google::protobuf::uint32 port() const;
   void set_port(::google::protobuf::uint32 value);
 
-  // @@protoc_insertion_point(class_scope:Telemetry.Collector)
+  // @@protoc_insertion_point(class_scope:telemetry.Collector)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -498,7 +498,7 @@ class Path : public ::google::protobuf::Message {
   ::google::protobuf::uint32 sample_frequency() const;
   void set_sample_frequency(::google::protobuf::uint32 value);
 
-  // @@protoc_insertion_point(class_scope:Telemetry.Path)
+  // @@protoc_insertion_point(class_scope:telemetry.Path)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -586,7 +586,7 @@ class SubscriptionAdditionalConfig : public ::google::protobuf::Message {
   ::google::protobuf::int32 limit_time_seconds() const;
   void set_limit_time_seconds(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:Telemetry.SubscriptionAdditionalConfig)
+  // @@protoc_insertion_point(class_scope:telemetry.SubscriptionAdditionalConfig)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -659,34 +659,34 @@ class SubscriptionReply : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional .Telemetry.SubscriptionResponse response = 1;
+  // optional .telemetry.SubscriptionResponse response = 1;
   bool has_response() const;
   void clear_response();
   static const int kResponseFieldNumber = 1;
-  const ::Telemetry::SubscriptionResponse& response() const;
-  ::Telemetry::SubscriptionResponse* mutable_response();
-  ::Telemetry::SubscriptionResponse* release_response();
-  void set_allocated_response(::Telemetry::SubscriptionResponse* response);
+  const ::telemetry::SubscriptionResponse& response() const;
+  ::telemetry::SubscriptionResponse* mutable_response();
+  ::telemetry::SubscriptionResponse* release_response();
+  void set_allocated_response(::telemetry::SubscriptionResponse* response);
 
-  // repeated .Telemetry.Path path_list = 2;
+  // repeated .telemetry.Path path_list = 2;
   int path_list_size() const;
   void clear_path_list();
   static const int kPathListFieldNumber = 2;
-  const ::Telemetry::Path& path_list(int index) const;
-  ::Telemetry::Path* mutable_path_list(int index);
-  ::Telemetry::Path* add_path_list();
-  ::google::protobuf::RepeatedPtrField< ::Telemetry::Path >*
+  const ::telemetry::Path& path_list(int index) const;
+  ::telemetry::Path* mutable_path_list(int index);
+  ::telemetry::Path* add_path_list();
+  ::google::protobuf::RepeatedPtrField< ::telemetry::Path >*
       mutable_path_list();
-  const ::google::protobuf::RepeatedPtrField< ::Telemetry::Path >&
+  const ::google::protobuf::RepeatedPtrField< ::telemetry::Path >&
       path_list() const;
 
-  // @@protoc_insertion_point(class_scope:Telemetry.SubscriptionReply)
+  // @@protoc_insertion_point(class_scope:telemetry.SubscriptionReply)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   bool _is_default_instance_;
-  ::Telemetry::SubscriptionResponse* response_;
-  ::google::protobuf::RepeatedPtrField< ::Telemetry::Path > path_list_;
+  ::telemetry::SubscriptionResponse* response_;
+  ::google::protobuf::RepeatedPtrField< ::telemetry::Path > path_list_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_agent_2eproto();
   friend void protobuf_AssignDesc_agent_2eproto();
@@ -759,7 +759,7 @@ class SubscriptionResponse : public ::google::protobuf::Message {
   ::google::protobuf::uint32 subscription_id() const;
   void set_subscription_id(::google::protobuf::uint32 value);
 
-  // @@protoc_insertion_point(class_scope:Telemetry.SubscriptionResponse)
+  // @@protoc_insertion_point(class_scope:telemetry.SubscriptionResponse)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -877,19 +877,19 @@ class OpenConfigData : public ::google::protobuf::Message {
   ::google::protobuf::uint64 timestamp() const;
   void set_timestamp(::google::protobuf::uint64 value);
 
-  // repeated .Telemetry.KeyValue kv = 7;
+  // repeated .telemetry.KeyValue kv = 7;
   int kv_size() const;
   void clear_kv();
   static const int kKvFieldNumber = 7;
-  const ::Telemetry::KeyValue& kv(int index) const;
-  ::Telemetry::KeyValue* mutable_kv(int index);
-  ::Telemetry::KeyValue* add_kv();
-  ::google::protobuf::RepeatedPtrField< ::Telemetry::KeyValue >*
+  const ::telemetry::KeyValue& kv(int index) const;
+  ::telemetry::KeyValue* mutable_kv(int index);
+  ::telemetry::KeyValue* add_kv();
+  ::google::protobuf::RepeatedPtrField< ::telemetry::KeyValue >*
       mutable_kv();
-  const ::google::protobuf::RepeatedPtrField< ::Telemetry::KeyValue >&
+  const ::google::protobuf::RepeatedPtrField< ::telemetry::KeyValue >&
       kv() const;
 
-  // @@protoc_insertion_point(class_scope:Telemetry.OpenConfigData)
+  // @@protoc_insertion_point(class_scope:telemetry.OpenConfigData)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -900,7 +900,7 @@ class OpenConfigData : public ::google::protobuf::Message {
   ::google::protobuf::internal::ArenaStringPtr path_;
   ::google::protobuf::uint64 sequence_number_;
   ::google::protobuf::uint64 timestamp_;
-  ::google::protobuf::RepeatedPtrField< ::Telemetry::KeyValue > kv_;
+  ::google::protobuf::RepeatedPtrField< ::telemetry::KeyValue > kv_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_agent_2eproto();
   friend void protobuf_AssignDesc_agent_2eproto();
@@ -1063,7 +1063,7 @@ class KeyValue : public ::google::protobuf::Message {
   void set_allocated_bytes_value(::std::string* bytes_value);
 
   ValueCase value_case() const;
-  // @@protoc_insertion_point(class_scope:Telemetry.KeyValue)
+  // @@protoc_insertion_point(class_scope:telemetry.KeyValue)
  private:
   inline void set_has_double_value();
   inline void set_has_int_value();
@@ -1164,7 +1164,7 @@ class CancelSubscriptionRequest : public ::google::protobuf::Message {
   ::google::protobuf::uint32 subscription_id() const;
   void set_subscription_id(::google::protobuf::uint32 value);
 
-  // @@protoc_insertion_point(class_scope:Telemetry.CancelSubscriptionRequest)
+  // @@protoc_insertion_point(class_scope:telemetry.CancelSubscriptionRequest)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -1236,11 +1236,11 @@ class CancelSubscriptionReply : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional .Telemetry.ReturnCode code = 1;
+  // optional .telemetry.ReturnCode code = 1;
   void clear_code();
   static const int kCodeFieldNumber = 1;
-  ::Telemetry::ReturnCode code() const;
-  void set_code(::Telemetry::ReturnCode value);
+  ::telemetry::ReturnCode code() const;
+  void set_code(::telemetry::ReturnCode value);
 
   // optional string code_str = 2;
   void clear_code_str();
@@ -1253,7 +1253,7 @@ class CancelSubscriptionReply : public ::google::protobuf::Message {
   ::std::string* release_code_str();
   void set_allocated_code_str(::std::string* code_str);
 
-  // @@protoc_insertion_point(class_scope:Telemetry.CancelSubscriptionReply)
+  // @@protoc_insertion_point(class_scope:telemetry.CancelSubscriptionReply)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -1332,7 +1332,7 @@ class GetSubscriptionsRequest : public ::google::protobuf::Message {
   ::google::protobuf::uint32 subscription_id() const;
   void set_subscription_id(::google::protobuf::uint32 value);
 
-  // @@protoc_insertion_point(class_scope:Telemetry.GetSubscriptionsRequest)
+  // @@protoc_insertion_point(class_scope:telemetry.GetSubscriptionsRequest)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -1404,24 +1404,24 @@ class GetSubscriptionsReply : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .Telemetry.SubscriptionReply subscription_list = 1;
+  // repeated .telemetry.SubscriptionReply subscription_list = 1;
   int subscription_list_size() const;
   void clear_subscription_list();
   static const int kSubscriptionListFieldNumber = 1;
-  const ::Telemetry::SubscriptionReply& subscription_list(int index) const;
-  ::Telemetry::SubscriptionReply* mutable_subscription_list(int index);
-  ::Telemetry::SubscriptionReply* add_subscription_list();
-  ::google::protobuf::RepeatedPtrField< ::Telemetry::SubscriptionReply >*
+  const ::telemetry::SubscriptionReply& subscription_list(int index) const;
+  ::telemetry::SubscriptionReply* mutable_subscription_list(int index);
+  ::telemetry::SubscriptionReply* add_subscription_list();
+  ::google::protobuf::RepeatedPtrField< ::telemetry::SubscriptionReply >*
       mutable_subscription_list();
-  const ::google::protobuf::RepeatedPtrField< ::Telemetry::SubscriptionReply >&
+  const ::google::protobuf::RepeatedPtrField< ::telemetry::SubscriptionReply >&
       subscription_list() const;
 
-  // @@protoc_insertion_point(class_scope:Telemetry.GetSubscriptionsReply)
+  // @@protoc_insertion_point(class_scope:telemetry.GetSubscriptionsReply)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   bool _is_default_instance_;
-  ::google::protobuf::RepeatedPtrField< ::Telemetry::SubscriptionReply > subscription_list_;
+  ::google::protobuf::RepeatedPtrField< ::telemetry::SubscriptionReply > subscription_list_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_agent_2eproto();
   friend void protobuf_AssignDesc_agent_2eproto();
@@ -1494,13 +1494,13 @@ class GetOperationalStateRequest : public ::google::protobuf::Message {
   ::google::protobuf::uint32 subscription_id() const;
   void set_subscription_id(::google::protobuf::uint32 value);
 
-  // optional .Telemetry.VerbosityLevel verbosity = 2;
+  // optional .telemetry.VerbosityLevel verbosity = 2;
   void clear_verbosity();
   static const int kVerbosityFieldNumber = 2;
-  ::Telemetry::VerbosityLevel verbosity() const;
-  void set_verbosity(::Telemetry::VerbosityLevel value);
+  ::telemetry::VerbosityLevel verbosity() const;
+  void set_verbosity(::telemetry::VerbosityLevel value);
 
-  // @@protoc_insertion_point(class_scope:Telemetry.GetOperationalStateRequest)
+  // @@protoc_insertion_point(class_scope:telemetry.GetOperationalStateRequest)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -1573,24 +1573,24 @@ class GetOperationalStateReply : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .Telemetry.KeyValue kv = 1;
+  // repeated .telemetry.KeyValue kv = 1;
   int kv_size() const;
   void clear_kv();
   static const int kKvFieldNumber = 1;
-  const ::Telemetry::KeyValue& kv(int index) const;
-  ::Telemetry::KeyValue* mutable_kv(int index);
-  ::Telemetry::KeyValue* add_kv();
-  ::google::protobuf::RepeatedPtrField< ::Telemetry::KeyValue >*
+  const ::telemetry::KeyValue& kv(int index) const;
+  ::telemetry::KeyValue* mutable_kv(int index);
+  ::telemetry::KeyValue* add_kv();
+  ::google::protobuf::RepeatedPtrField< ::telemetry::KeyValue >*
       mutable_kv();
-  const ::google::protobuf::RepeatedPtrField< ::Telemetry::KeyValue >&
+  const ::google::protobuf::RepeatedPtrField< ::telemetry::KeyValue >&
       kv() const;
 
-  // @@protoc_insertion_point(class_scope:Telemetry.GetOperationalStateReply)
+  // @@protoc_insertion_point(class_scope:telemetry.GetOperationalStateReply)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   bool _is_default_instance_;
-  ::google::protobuf::RepeatedPtrField< ::Telemetry::KeyValue > kv_;
+  ::google::protobuf::RepeatedPtrField< ::telemetry::KeyValue > kv_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_agent_2eproto();
   friend void protobuf_AssignDesc_agent_2eproto();
@@ -1657,7 +1657,7 @@ class DataEncodingRequest : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // @@protoc_insertion_point(class_scope:Telemetry.DataEncodingRequest)
+  // @@protoc_insertion_point(class_scope:telemetry.DataEncodingRequest)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -1728,17 +1728,17 @@ class DataEncodingReply : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .Telemetry.EncodingType encoding_list = 1;
+  // repeated .telemetry.EncodingType encoding_list = 1;
   int encoding_list_size() const;
   void clear_encoding_list();
   static const int kEncodingListFieldNumber = 1;
-  ::Telemetry::EncodingType encoding_list(int index) const;
-  void set_encoding_list(int index, ::Telemetry::EncodingType value);
-  void add_encoding_list(::Telemetry::EncodingType value);
+  ::telemetry::EncodingType encoding_list(int index) const;
+  void set_encoding_list(int index, ::telemetry::EncodingType value);
+  void add_encoding_list(::telemetry::EncodingType value);
   const ::google::protobuf::RepeatedField<int>& encoding_list() const;
   ::google::protobuf::RepeatedField<int>* mutable_encoding_list();
 
-  // @@protoc_insertion_point(class_scope:Telemetry.DataEncodingReply)
+  // @@protoc_insertion_point(class_scope:telemetry.DataEncodingReply)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -1761,7 +1761,7 @@ class DataEncodingReply : public ::google::protobuf::Message {
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // SubscriptionRequest
 
-// optional .Telemetry.SubscriptionInput input = 1;
+// optional .telemetry.SubscriptionInput input = 1;
 inline bool SubscriptionRequest::has_input() const {
   return !_is_default_instance_ && input_ != NULL;
 }
@@ -1769,25 +1769,25 @@ inline void SubscriptionRequest::clear_input() {
   if (GetArenaNoVirtual() == NULL && input_ != NULL) delete input_;
   input_ = NULL;
 }
-inline const ::Telemetry::SubscriptionInput& SubscriptionRequest::input() const {
-  // @@protoc_insertion_point(field_get:Telemetry.SubscriptionRequest.input)
+inline const ::telemetry::SubscriptionInput& SubscriptionRequest::input() const {
+  // @@protoc_insertion_point(field_get:telemetry.SubscriptionRequest.input)
   return input_ != NULL ? *input_ : *default_instance_->input_;
 }
-inline ::Telemetry::SubscriptionInput* SubscriptionRequest::mutable_input() {
+inline ::telemetry::SubscriptionInput* SubscriptionRequest::mutable_input() {
   
   if (input_ == NULL) {
-    input_ = new ::Telemetry::SubscriptionInput;
+    input_ = new ::telemetry::SubscriptionInput;
   }
-  // @@protoc_insertion_point(field_mutable:Telemetry.SubscriptionRequest.input)
+  // @@protoc_insertion_point(field_mutable:telemetry.SubscriptionRequest.input)
   return input_;
 }
-inline ::Telemetry::SubscriptionInput* SubscriptionRequest::release_input() {
+inline ::telemetry::SubscriptionInput* SubscriptionRequest::release_input() {
   
-  ::Telemetry::SubscriptionInput* temp = input_;
+  ::telemetry::SubscriptionInput* temp = input_;
   input_ = NULL;
   return temp;
 }
-inline void SubscriptionRequest::set_allocated_input(::Telemetry::SubscriptionInput* input) {
+inline void SubscriptionRequest::set_allocated_input(::telemetry::SubscriptionInput* input) {
   delete input_;
   input_ = input;
   if (input) {
@@ -1795,40 +1795,40 @@ inline void SubscriptionRequest::set_allocated_input(::Telemetry::SubscriptionIn
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:Telemetry.SubscriptionRequest.input)
+  // @@protoc_insertion_point(field_set_allocated:telemetry.SubscriptionRequest.input)
 }
 
-// repeated .Telemetry.Path path_list = 2;
+// repeated .telemetry.Path path_list = 2;
 inline int SubscriptionRequest::path_list_size() const {
   return path_list_.size();
 }
 inline void SubscriptionRequest::clear_path_list() {
   path_list_.Clear();
 }
-inline const ::Telemetry::Path& SubscriptionRequest::path_list(int index) const {
-  // @@protoc_insertion_point(field_get:Telemetry.SubscriptionRequest.path_list)
+inline const ::telemetry::Path& SubscriptionRequest::path_list(int index) const {
+  // @@protoc_insertion_point(field_get:telemetry.SubscriptionRequest.path_list)
   return path_list_.Get(index);
 }
-inline ::Telemetry::Path* SubscriptionRequest::mutable_path_list(int index) {
-  // @@protoc_insertion_point(field_mutable:Telemetry.SubscriptionRequest.path_list)
+inline ::telemetry::Path* SubscriptionRequest::mutable_path_list(int index) {
+  // @@protoc_insertion_point(field_mutable:telemetry.SubscriptionRequest.path_list)
   return path_list_.Mutable(index);
 }
-inline ::Telemetry::Path* SubscriptionRequest::add_path_list() {
-  // @@protoc_insertion_point(field_add:Telemetry.SubscriptionRequest.path_list)
+inline ::telemetry::Path* SubscriptionRequest::add_path_list() {
+  // @@protoc_insertion_point(field_add:telemetry.SubscriptionRequest.path_list)
   return path_list_.Add();
 }
-inline ::google::protobuf::RepeatedPtrField< ::Telemetry::Path >*
+inline ::google::protobuf::RepeatedPtrField< ::telemetry::Path >*
 SubscriptionRequest::mutable_path_list() {
-  // @@protoc_insertion_point(field_mutable_list:Telemetry.SubscriptionRequest.path_list)
+  // @@protoc_insertion_point(field_mutable_list:telemetry.SubscriptionRequest.path_list)
   return &path_list_;
 }
-inline const ::google::protobuf::RepeatedPtrField< ::Telemetry::Path >&
+inline const ::google::protobuf::RepeatedPtrField< ::telemetry::Path >&
 SubscriptionRequest::path_list() const {
-  // @@protoc_insertion_point(field_list:Telemetry.SubscriptionRequest.path_list)
+  // @@protoc_insertion_point(field_list:telemetry.SubscriptionRequest.path_list)
   return path_list_;
 }
 
-// optional .Telemetry.SubscriptionAdditionalConfig additional_config = 3;
+// optional .telemetry.SubscriptionAdditionalConfig additional_config = 3;
 inline bool SubscriptionRequest::has_additional_config() const {
   return !_is_default_instance_ && additional_config_ != NULL;
 }
@@ -1836,25 +1836,25 @@ inline void SubscriptionRequest::clear_additional_config() {
   if (GetArenaNoVirtual() == NULL && additional_config_ != NULL) delete additional_config_;
   additional_config_ = NULL;
 }
-inline const ::Telemetry::SubscriptionAdditionalConfig& SubscriptionRequest::additional_config() const {
-  // @@protoc_insertion_point(field_get:Telemetry.SubscriptionRequest.additional_config)
+inline const ::telemetry::SubscriptionAdditionalConfig& SubscriptionRequest::additional_config() const {
+  // @@protoc_insertion_point(field_get:telemetry.SubscriptionRequest.additional_config)
   return additional_config_ != NULL ? *additional_config_ : *default_instance_->additional_config_;
 }
-inline ::Telemetry::SubscriptionAdditionalConfig* SubscriptionRequest::mutable_additional_config() {
+inline ::telemetry::SubscriptionAdditionalConfig* SubscriptionRequest::mutable_additional_config() {
   
   if (additional_config_ == NULL) {
-    additional_config_ = new ::Telemetry::SubscriptionAdditionalConfig;
+    additional_config_ = new ::telemetry::SubscriptionAdditionalConfig;
   }
-  // @@protoc_insertion_point(field_mutable:Telemetry.SubscriptionRequest.additional_config)
+  // @@protoc_insertion_point(field_mutable:telemetry.SubscriptionRequest.additional_config)
   return additional_config_;
 }
-inline ::Telemetry::SubscriptionAdditionalConfig* SubscriptionRequest::release_additional_config() {
+inline ::telemetry::SubscriptionAdditionalConfig* SubscriptionRequest::release_additional_config() {
   
-  ::Telemetry::SubscriptionAdditionalConfig* temp = additional_config_;
+  ::telemetry::SubscriptionAdditionalConfig* temp = additional_config_;
   additional_config_ = NULL;
   return temp;
 }
-inline void SubscriptionRequest::set_allocated_additional_config(::Telemetry::SubscriptionAdditionalConfig* additional_config) {
+inline void SubscriptionRequest::set_allocated_additional_config(::telemetry::SubscriptionAdditionalConfig* additional_config) {
   delete additional_config_;
   additional_config_ = additional_config;
   if (additional_config) {
@@ -1862,40 +1862,40 @@ inline void SubscriptionRequest::set_allocated_additional_config(::Telemetry::Su
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:Telemetry.SubscriptionRequest.additional_config)
+  // @@protoc_insertion_point(field_set_allocated:telemetry.SubscriptionRequest.additional_config)
 }
 
 // -------------------------------------------------------------------
 
 // SubscriptionInput
 
-// repeated .Telemetry.Collector collector_list = 1;
+// repeated .telemetry.Collector collector_list = 1;
 inline int SubscriptionInput::collector_list_size() const {
   return collector_list_.size();
 }
 inline void SubscriptionInput::clear_collector_list() {
   collector_list_.Clear();
 }
-inline const ::Telemetry::Collector& SubscriptionInput::collector_list(int index) const {
-  // @@protoc_insertion_point(field_get:Telemetry.SubscriptionInput.collector_list)
+inline const ::telemetry::Collector& SubscriptionInput::collector_list(int index) const {
+  // @@protoc_insertion_point(field_get:telemetry.SubscriptionInput.collector_list)
   return collector_list_.Get(index);
 }
-inline ::Telemetry::Collector* SubscriptionInput::mutable_collector_list(int index) {
-  // @@protoc_insertion_point(field_mutable:Telemetry.SubscriptionInput.collector_list)
+inline ::telemetry::Collector* SubscriptionInput::mutable_collector_list(int index) {
+  // @@protoc_insertion_point(field_mutable:telemetry.SubscriptionInput.collector_list)
   return collector_list_.Mutable(index);
 }
-inline ::Telemetry::Collector* SubscriptionInput::add_collector_list() {
-  // @@protoc_insertion_point(field_add:Telemetry.SubscriptionInput.collector_list)
+inline ::telemetry::Collector* SubscriptionInput::add_collector_list() {
+  // @@protoc_insertion_point(field_add:telemetry.SubscriptionInput.collector_list)
   return collector_list_.Add();
 }
-inline ::google::protobuf::RepeatedPtrField< ::Telemetry::Collector >*
+inline ::google::protobuf::RepeatedPtrField< ::telemetry::Collector >*
 SubscriptionInput::mutable_collector_list() {
-  // @@protoc_insertion_point(field_mutable_list:Telemetry.SubscriptionInput.collector_list)
+  // @@protoc_insertion_point(field_mutable_list:telemetry.SubscriptionInput.collector_list)
   return &collector_list_;
 }
-inline const ::google::protobuf::RepeatedPtrField< ::Telemetry::Collector >&
+inline const ::google::protobuf::RepeatedPtrField< ::telemetry::Collector >&
 SubscriptionInput::collector_list() const {
-  // @@protoc_insertion_point(field_list:Telemetry.SubscriptionInput.collector_list)
+  // @@protoc_insertion_point(field_list:telemetry.SubscriptionInput.collector_list)
   return collector_list_;
 }
 
@@ -1908,28 +1908,28 @@ inline void Collector::clear_address() {
   address_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& Collector::address() const {
-  // @@protoc_insertion_point(field_get:Telemetry.Collector.address)
+  // @@protoc_insertion_point(field_get:telemetry.Collector.address)
   return address_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Collector::set_address(const ::std::string& value) {
   
   address_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:Telemetry.Collector.address)
+  // @@protoc_insertion_point(field_set:telemetry.Collector.address)
 }
 inline void Collector::set_address(const char* value) {
   
   address_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:Telemetry.Collector.address)
+  // @@protoc_insertion_point(field_set_char:telemetry.Collector.address)
 }
 inline void Collector::set_address(const char* value, size_t size) {
   
   address_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:Telemetry.Collector.address)
+  // @@protoc_insertion_point(field_set_pointer:telemetry.Collector.address)
 }
 inline ::std::string* Collector::mutable_address() {
   
-  // @@protoc_insertion_point(field_mutable:Telemetry.Collector.address)
+  // @@protoc_insertion_point(field_mutable:telemetry.Collector.address)
   return address_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Collector::release_address() {
@@ -1943,7 +1943,7 @@ inline void Collector::set_allocated_address(::std::string* address) {
     
   }
   address_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), address);
-  // @@protoc_insertion_point(field_set_allocated:Telemetry.Collector.address)
+  // @@protoc_insertion_point(field_set_allocated:telemetry.Collector.address)
 }
 
 // optional uint32 port = 2;
@@ -1951,13 +1951,13 @@ inline void Collector::clear_port() {
   port_ = 0u;
 }
 inline ::google::protobuf::uint32 Collector::port() const {
-  // @@protoc_insertion_point(field_get:Telemetry.Collector.port)
+  // @@protoc_insertion_point(field_get:telemetry.Collector.port)
   return port_;
 }
 inline void Collector::set_port(::google::protobuf::uint32 value) {
   
   port_ = value;
-  // @@protoc_insertion_point(field_set:Telemetry.Collector.port)
+  // @@protoc_insertion_point(field_set:telemetry.Collector.port)
 }
 
 // -------------------------------------------------------------------
@@ -1969,28 +1969,28 @@ inline void Path::clear_path() {
   path_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& Path::path() const {
-  // @@protoc_insertion_point(field_get:Telemetry.Path.path)
+  // @@protoc_insertion_point(field_get:telemetry.Path.path)
   return path_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Path::set_path(const ::std::string& value) {
   
   path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:Telemetry.Path.path)
+  // @@protoc_insertion_point(field_set:telemetry.Path.path)
 }
 inline void Path::set_path(const char* value) {
   
   path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:Telemetry.Path.path)
+  // @@protoc_insertion_point(field_set_char:telemetry.Path.path)
 }
 inline void Path::set_path(const char* value, size_t size) {
   
   path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:Telemetry.Path.path)
+  // @@protoc_insertion_point(field_set_pointer:telemetry.Path.path)
 }
 inline ::std::string* Path::mutable_path() {
   
-  // @@protoc_insertion_point(field_mutable:Telemetry.Path.path)
+  // @@protoc_insertion_point(field_mutable:telemetry.Path.path)
   return path_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Path::release_path() {
@@ -2004,7 +2004,7 @@ inline void Path::set_allocated_path(::std::string* path) {
     
   }
   path_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), path);
-  // @@protoc_insertion_point(field_set_allocated:Telemetry.Path.path)
+  // @@protoc_insertion_point(field_set_allocated:telemetry.Path.path)
 }
 
 // optional string filter = 2;
@@ -2012,28 +2012,28 @@ inline void Path::clear_filter() {
   filter_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& Path::filter() const {
-  // @@protoc_insertion_point(field_get:Telemetry.Path.filter)
+  // @@protoc_insertion_point(field_get:telemetry.Path.filter)
   return filter_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void Path::set_filter(const ::std::string& value) {
   
   filter_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:Telemetry.Path.filter)
+  // @@protoc_insertion_point(field_set:telemetry.Path.filter)
 }
 inline void Path::set_filter(const char* value) {
   
   filter_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:Telemetry.Path.filter)
+  // @@protoc_insertion_point(field_set_char:telemetry.Path.filter)
 }
 inline void Path::set_filter(const char* value, size_t size) {
   
   filter_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:Telemetry.Path.filter)
+  // @@protoc_insertion_point(field_set_pointer:telemetry.Path.filter)
 }
 inline ::std::string* Path::mutable_filter() {
   
-  // @@protoc_insertion_point(field_mutable:Telemetry.Path.filter)
+  // @@protoc_insertion_point(field_mutable:telemetry.Path.filter)
   return filter_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* Path::release_filter() {
@@ -2047,7 +2047,7 @@ inline void Path::set_allocated_filter(::std::string* filter) {
     
   }
   filter_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), filter);
-  // @@protoc_insertion_point(field_set_allocated:Telemetry.Path.filter)
+  // @@protoc_insertion_point(field_set_allocated:telemetry.Path.filter)
 }
 
 // optional bool suppress_unchanged = 3;
@@ -2055,13 +2055,13 @@ inline void Path::clear_suppress_unchanged() {
   suppress_unchanged_ = false;
 }
 inline bool Path::suppress_unchanged() const {
-  // @@protoc_insertion_point(field_get:Telemetry.Path.suppress_unchanged)
+  // @@protoc_insertion_point(field_get:telemetry.Path.suppress_unchanged)
   return suppress_unchanged_;
 }
 inline void Path::set_suppress_unchanged(bool value) {
   
   suppress_unchanged_ = value;
-  // @@protoc_insertion_point(field_set:Telemetry.Path.suppress_unchanged)
+  // @@protoc_insertion_point(field_set:telemetry.Path.suppress_unchanged)
 }
 
 // optional uint32 max_silent_interval = 4;
@@ -2069,13 +2069,13 @@ inline void Path::clear_max_silent_interval() {
   max_silent_interval_ = 0u;
 }
 inline ::google::protobuf::uint32 Path::max_silent_interval() const {
-  // @@protoc_insertion_point(field_get:Telemetry.Path.max_silent_interval)
+  // @@protoc_insertion_point(field_get:telemetry.Path.max_silent_interval)
   return max_silent_interval_;
 }
 inline void Path::set_max_silent_interval(::google::protobuf::uint32 value) {
   
   max_silent_interval_ = value;
-  // @@protoc_insertion_point(field_set:Telemetry.Path.max_silent_interval)
+  // @@protoc_insertion_point(field_set:telemetry.Path.max_silent_interval)
 }
 
 // optional uint32 sample_frequency = 5;
@@ -2083,13 +2083,13 @@ inline void Path::clear_sample_frequency() {
   sample_frequency_ = 0u;
 }
 inline ::google::protobuf::uint32 Path::sample_frequency() const {
-  // @@protoc_insertion_point(field_get:Telemetry.Path.sample_frequency)
+  // @@protoc_insertion_point(field_get:telemetry.Path.sample_frequency)
   return sample_frequency_;
 }
 inline void Path::set_sample_frequency(::google::protobuf::uint32 value) {
   
   sample_frequency_ = value;
-  // @@protoc_insertion_point(field_set:Telemetry.Path.sample_frequency)
+  // @@protoc_insertion_point(field_set:telemetry.Path.sample_frequency)
 }
 
 // -------------------------------------------------------------------
@@ -2101,13 +2101,13 @@ inline void SubscriptionAdditionalConfig::clear_limit_records() {
   limit_records_ = 0;
 }
 inline ::google::protobuf::int32 SubscriptionAdditionalConfig::limit_records() const {
-  // @@protoc_insertion_point(field_get:Telemetry.SubscriptionAdditionalConfig.limit_records)
+  // @@protoc_insertion_point(field_get:telemetry.SubscriptionAdditionalConfig.limit_records)
   return limit_records_;
 }
 inline void SubscriptionAdditionalConfig::set_limit_records(::google::protobuf::int32 value) {
   
   limit_records_ = value;
-  // @@protoc_insertion_point(field_set:Telemetry.SubscriptionAdditionalConfig.limit_records)
+  // @@protoc_insertion_point(field_set:telemetry.SubscriptionAdditionalConfig.limit_records)
 }
 
 // optional int32 limit_time_seconds = 2;
@@ -2115,20 +2115,20 @@ inline void SubscriptionAdditionalConfig::clear_limit_time_seconds() {
   limit_time_seconds_ = 0;
 }
 inline ::google::protobuf::int32 SubscriptionAdditionalConfig::limit_time_seconds() const {
-  // @@protoc_insertion_point(field_get:Telemetry.SubscriptionAdditionalConfig.limit_time_seconds)
+  // @@protoc_insertion_point(field_get:telemetry.SubscriptionAdditionalConfig.limit_time_seconds)
   return limit_time_seconds_;
 }
 inline void SubscriptionAdditionalConfig::set_limit_time_seconds(::google::protobuf::int32 value) {
   
   limit_time_seconds_ = value;
-  // @@protoc_insertion_point(field_set:Telemetry.SubscriptionAdditionalConfig.limit_time_seconds)
+  // @@protoc_insertion_point(field_set:telemetry.SubscriptionAdditionalConfig.limit_time_seconds)
 }
 
 // -------------------------------------------------------------------
 
 // SubscriptionReply
 
-// optional .Telemetry.SubscriptionResponse response = 1;
+// optional .telemetry.SubscriptionResponse response = 1;
 inline bool SubscriptionReply::has_response() const {
   return !_is_default_instance_ && response_ != NULL;
 }
@@ -2136,25 +2136,25 @@ inline void SubscriptionReply::clear_response() {
   if (GetArenaNoVirtual() == NULL && response_ != NULL) delete response_;
   response_ = NULL;
 }
-inline const ::Telemetry::SubscriptionResponse& SubscriptionReply::response() const {
-  // @@protoc_insertion_point(field_get:Telemetry.SubscriptionReply.response)
+inline const ::telemetry::SubscriptionResponse& SubscriptionReply::response() const {
+  // @@protoc_insertion_point(field_get:telemetry.SubscriptionReply.response)
   return response_ != NULL ? *response_ : *default_instance_->response_;
 }
-inline ::Telemetry::SubscriptionResponse* SubscriptionReply::mutable_response() {
+inline ::telemetry::SubscriptionResponse* SubscriptionReply::mutable_response() {
   
   if (response_ == NULL) {
-    response_ = new ::Telemetry::SubscriptionResponse;
+    response_ = new ::telemetry::SubscriptionResponse;
   }
-  // @@protoc_insertion_point(field_mutable:Telemetry.SubscriptionReply.response)
+  // @@protoc_insertion_point(field_mutable:telemetry.SubscriptionReply.response)
   return response_;
 }
-inline ::Telemetry::SubscriptionResponse* SubscriptionReply::release_response() {
+inline ::telemetry::SubscriptionResponse* SubscriptionReply::release_response() {
   
-  ::Telemetry::SubscriptionResponse* temp = response_;
+  ::telemetry::SubscriptionResponse* temp = response_;
   response_ = NULL;
   return temp;
 }
-inline void SubscriptionReply::set_allocated_response(::Telemetry::SubscriptionResponse* response) {
+inline void SubscriptionReply::set_allocated_response(::telemetry::SubscriptionResponse* response) {
   delete response_;
   response_ = response;
   if (response) {
@@ -2162,36 +2162,36 @@ inline void SubscriptionReply::set_allocated_response(::Telemetry::SubscriptionR
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:Telemetry.SubscriptionReply.response)
+  // @@protoc_insertion_point(field_set_allocated:telemetry.SubscriptionReply.response)
 }
 
-// repeated .Telemetry.Path path_list = 2;
+// repeated .telemetry.Path path_list = 2;
 inline int SubscriptionReply::path_list_size() const {
   return path_list_.size();
 }
 inline void SubscriptionReply::clear_path_list() {
   path_list_.Clear();
 }
-inline const ::Telemetry::Path& SubscriptionReply::path_list(int index) const {
-  // @@protoc_insertion_point(field_get:Telemetry.SubscriptionReply.path_list)
+inline const ::telemetry::Path& SubscriptionReply::path_list(int index) const {
+  // @@protoc_insertion_point(field_get:telemetry.SubscriptionReply.path_list)
   return path_list_.Get(index);
 }
-inline ::Telemetry::Path* SubscriptionReply::mutable_path_list(int index) {
-  // @@protoc_insertion_point(field_mutable:Telemetry.SubscriptionReply.path_list)
+inline ::telemetry::Path* SubscriptionReply::mutable_path_list(int index) {
+  // @@protoc_insertion_point(field_mutable:telemetry.SubscriptionReply.path_list)
   return path_list_.Mutable(index);
 }
-inline ::Telemetry::Path* SubscriptionReply::add_path_list() {
-  // @@protoc_insertion_point(field_add:Telemetry.SubscriptionReply.path_list)
+inline ::telemetry::Path* SubscriptionReply::add_path_list() {
+  // @@protoc_insertion_point(field_add:telemetry.SubscriptionReply.path_list)
   return path_list_.Add();
 }
-inline ::google::protobuf::RepeatedPtrField< ::Telemetry::Path >*
+inline ::google::protobuf::RepeatedPtrField< ::telemetry::Path >*
 SubscriptionReply::mutable_path_list() {
-  // @@protoc_insertion_point(field_mutable_list:Telemetry.SubscriptionReply.path_list)
+  // @@protoc_insertion_point(field_mutable_list:telemetry.SubscriptionReply.path_list)
   return &path_list_;
 }
-inline const ::google::protobuf::RepeatedPtrField< ::Telemetry::Path >&
+inline const ::google::protobuf::RepeatedPtrField< ::telemetry::Path >&
 SubscriptionReply::path_list() const {
-  // @@protoc_insertion_point(field_list:Telemetry.SubscriptionReply.path_list)
+  // @@protoc_insertion_point(field_list:telemetry.SubscriptionReply.path_list)
   return path_list_;
 }
 
@@ -2204,13 +2204,13 @@ inline void SubscriptionResponse::clear_subscription_id() {
   subscription_id_ = 0u;
 }
 inline ::google::protobuf::uint32 SubscriptionResponse::subscription_id() const {
-  // @@protoc_insertion_point(field_get:Telemetry.SubscriptionResponse.subscription_id)
+  // @@protoc_insertion_point(field_get:telemetry.SubscriptionResponse.subscription_id)
   return subscription_id_;
 }
 inline void SubscriptionResponse::set_subscription_id(::google::protobuf::uint32 value) {
   
   subscription_id_ = value;
-  // @@protoc_insertion_point(field_set:Telemetry.SubscriptionResponse.subscription_id)
+  // @@protoc_insertion_point(field_set:telemetry.SubscriptionResponse.subscription_id)
 }
 
 // -------------------------------------------------------------------
@@ -2222,28 +2222,28 @@ inline void OpenConfigData::clear_system_id() {
   system_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& OpenConfigData::system_id() const {
-  // @@protoc_insertion_point(field_get:Telemetry.OpenConfigData.system_id)
+  // @@protoc_insertion_point(field_get:telemetry.OpenConfigData.system_id)
   return system_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void OpenConfigData::set_system_id(const ::std::string& value) {
   
   system_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:Telemetry.OpenConfigData.system_id)
+  // @@protoc_insertion_point(field_set:telemetry.OpenConfigData.system_id)
 }
 inline void OpenConfigData::set_system_id(const char* value) {
   
   system_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:Telemetry.OpenConfigData.system_id)
+  // @@protoc_insertion_point(field_set_char:telemetry.OpenConfigData.system_id)
 }
 inline void OpenConfigData::set_system_id(const char* value, size_t size) {
   
   system_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:Telemetry.OpenConfigData.system_id)
+  // @@protoc_insertion_point(field_set_pointer:telemetry.OpenConfigData.system_id)
 }
 inline ::std::string* OpenConfigData::mutable_system_id() {
   
-  // @@protoc_insertion_point(field_mutable:Telemetry.OpenConfigData.system_id)
+  // @@protoc_insertion_point(field_mutable:telemetry.OpenConfigData.system_id)
   return system_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* OpenConfigData::release_system_id() {
@@ -2257,7 +2257,7 @@ inline void OpenConfigData::set_allocated_system_id(::std::string* system_id) {
     
   }
   system_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), system_id);
-  // @@protoc_insertion_point(field_set_allocated:Telemetry.OpenConfigData.system_id)
+  // @@protoc_insertion_point(field_set_allocated:telemetry.OpenConfigData.system_id)
 }
 
 // optional uint32 component_id = 2;
@@ -2265,13 +2265,13 @@ inline void OpenConfigData::clear_component_id() {
   component_id_ = 0u;
 }
 inline ::google::protobuf::uint32 OpenConfigData::component_id() const {
-  // @@protoc_insertion_point(field_get:Telemetry.OpenConfigData.component_id)
+  // @@protoc_insertion_point(field_get:telemetry.OpenConfigData.component_id)
   return component_id_;
 }
 inline void OpenConfigData::set_component_id(::google::protobuf::uint32 value) {
   
   component_id_ = value;
-  // @@protoc_insertion_point(field_set:Telemetry.OpenConfigData.component_id)
+  // @@protoc_insertion_point(field_set:telemetry.OpenConfigData.component_id)
 }
 
 // optional uint32 sub_component_id = 3;
@@ -2279,13 +2279,13 @@ inline void OpenConfigData::clear_sub_component_id() {
   sub_component_id_ = 0u;
 }
 inline ::google::protobuf::uint32 OpenConfigData::sub_component_id() const {
-  // @@protoc_insertion_point(field_get:Telemetry.OpenConfigData.sub_component_id)
+  // @@protoc_insertion_point(field_get:telemetry.OpenConfigData.sub_component_id)
   return sub_component_id_;
 }
 inline void OpenConfigData::set_sub_component_id(::google::protobuf::uint32 value) {
   
   sub_component_id_ = value;
-  // @@protoc_insertion_point(field_set:Telemetry.OpenConfigData.sub_component_id)
+  // @@protoc_insertion_point(field_set:telemetry.OpenConfigData.sub_component_id)
 }
 
 // optional string path = 4;
@@ -2293,28 +2293,28 @@ inline void OpenConfigData::clear_path() {
   path_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& OpenConfigData::path() const {
-  // @@protoc_insertion_point(field_get:Telemetry.OpenConfigData.path)
+  // @@protoc_insertion_point(field_get:telemetry.OpenConfigData.path)
   return path_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void OpenConfigData::set_path(const ::std::string& value) {
   
   path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:Telemetry.OpenConfigData.path)
+  // @@protoc_insertion_point(field_set:telemetry.OpenConfigData.path)
 }
 inline void OpenConfigData::set_path(const char* value) {
   
   path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:Telemetry.OpenConfigData.path)
+  // @@protoc_insertion_point(field_set_char:telemetry.OpenConfigData.path)
 }
 inline void OpenConfigData::set_path(const char* value, size_t size) {
   
   path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:Telemetry.OpenConfigData.path)
+  // @@protoc_insertion_point(field_set_pointer:telemetry.OpenConfigData.path)
 }
 inline ::std::string* OpenConfigData::mutable_path() {
   
-  // @@protoc_insertion_point(field_mutable:Telemetry.OpenConfigData.path)
+  // @@protoc_insertion_point(field_mutable:telemetry.OpenConfigData.path)
   return path_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* OpenConfigData::release_path() {
@@ -2328,7 +2328,7 @@ inline void OpenConfigData::set_allocated_path(::std::string* path) {
     
   }
   path_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), path);
-  // @@protoc_insertion_point(field_set_allocated:Telemetry.OpenConfigData.path)
+  // @@protoc_insertion_point(field_set_allocated:telemetry.OpenConfigData.path)
 }
 
 // optional uint64 sequence_number = 5;
@@ -2336,13 +2336,13 @@ inline void OpenConfigData::clear_sequence_number() {
   sequence_number_ = GOOGLE_ULONGLONG(0);
 }
 inline ::google::protobuf::uint64 OpenConfigData::sequence_number() const {
-  // @@protoc_insertion_point(field_get:Telemetry.OpenConfigData.sequence_number)
+  // @@protoc_insertion_point(field_get:telemetry.OpenConfigData.sequence_number)
   return sequence_number_;
 }
 inline void OpenConfigData::set_sequence_number(::google::protobuf::uint64 value) {
   
   sequence_number_ = value;
-  // @@protoc_insertion_point(field_set:Telemetry.OpenConfigData.sequence_number)
+  // @@protoc_insertion_point(field_set:telemetry.OpenConfigData.sequence_number)
 }
 
 // optional uint64 timestamp = 6;
@@ -2350,42 +2350,42 @@ inline void OpenConfigData::clear_timestamp() {
   timestamp_ = GOOGLE_ULONGLONG(0);
 }
 inline ::google::protobuf::uint64 OpenConfigData::timestamp() const {
-  // @@protoc_insertion_point(field_get:Telemetry.OpenConfigData.timestamp)
+  // @@protoc_insertion_point(field_get:telemetry.OpenConfigData.timestamp)
   return timestamp_;
 }
 inline void OpenConfigData::set_timestamp(::google::protobuf::uint64 value) {
   
   timestamp_ = value;
-  // @@protoc_insertion_point(field_set:Telemetry.OpenConfigData.timestamp)
+  // @@protoc_insertion_point(field_set:telemetry.OpenConfigData.timestamp)
 }
 
-// repeated .Telemetry.KeyValue kv = 7;
+// repeated .telemetry.KeyValue kv = 7;
 inline int OpenConfigData::kv_size() const {
   return kv_.size();
 }
 inline void OpenConfigData::clear_kv() {
   kv_.Clear();
 }
-inline const ::Telemetry::KeyValue& OpenConfigData::kv(int index) const {
-  // @@protoc_insertion_point(field_get:Telemetry.OpenConfigData.kv)
+inline const ::telemetry::KeyValue& OpenConfigData::kv(int index) const {
+  // @@protoc_insertion_point(field_get:telemetry.OpenConfigData.kv)
   return kv_.Get(index);
 }
-inline ::Telemetry::KeyValue* OpenConfigData::mutable_kv(int index) {
-  // @@protoc_insertion_point(field_mutable:Telemetry.OpenConfigData.kv)
+inline ::telemetry::KeyValue* OpenConfigData::mutable_kv(int index) {
+  // @@protoc_insertion_point(field_mutable:telemetry.OpenConfigData.kv)
   return kv_.Mutable(index);
 }
-inline ::Telemetry::KeyValue* OpenConfigData::add_kv() {
-  // @@protoc_insertion_point(field_add:Telemetry.OpenConfigData.kv)
+inline ::telemetry::KeyValue* OpenConfigData::add_kv() {
+  // @@protoc_insertion_point(field_add:telemetry.OpenConfigData.kv)
   return kv_.Add();
 }
-inline ::google::protobuf::RepeatedPtrField< ::Telemetry::KeyValue >*
+inline ::google::protobuf::RepeatedPtrField< ::telemetry::KeyValue >*
 OpenConfigData::mutable_kv() {
-  // @@protoc_insertion_point(field_mutable_list:Telemetry.OpenConfigData.kv)
+  // @@protoc_insertion_point(field_mutable_list:telemetry.OpenConfigData.kv)
   return &kv_;
 }
-inline const ::google::protobuf::RepeatedPtrField< ::Telemetry::KeyValue >&
+inline const ::google::protobuf::RepeatedPtrField< ::telemetry::KeyValue >&
 OpenConfigData::kv() const {
-  // @@protoc_insertion_point(field_list:Telemetry.OpenConfigData.kv)
+  // @@protoc_insertion_point(field_list:telemetry.OpenConfigData.kv)
   return kv_;
 }
 
@@ -2398,28 +2398,28 @@ inline void KeyValue::clear_key() {
   key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& KeyValue::key() const {
-  // @@protoc_insertion_point(field_get:Telemetry.KeyValue.key)
+  // @@protoc_insertion_point(field_get:telemetry.KeyValue.key)
   return key_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void KeyValue::set_key(const ::std::string& value) {
   
   key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:Telemetry.KeyValue.key)
+  // @@protoc_insertion_point(field_set:telemetry.KeyValue.key)
 }
 inline void KeyValue::set_key(const char* value) {
   
   key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:Telemetry.KeyValue.key)
+  // @@protoc_insertion_point(field_set_char:telemetry.KeyValue.key)
 }
 inline void KeyValue::set_key(const char* value, size_t size) {
   
   key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:Telemetry.KeyValue.key)
+  // @@protoc_insertion_point(field_set_pointer:telemetry.KeyValue.key)
 }
 inline ::std::string* KeyValue::mutable_key() {
   
-  // @@protoc_insertion_point(field_mutable:Telemetry.KeyValue.key)
+  // @@protoc_insertion_point(field_mutable:telemetry.KeyValue.key)
   return key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* KeyValue::release_key() {
@@ -2433,7 +2433,7 @@ inline void KeyValue::set_allocated_key(::std::string* key) {
     
   }
   key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), key);
-  // @@protoc_insertion_point(field_set_allocated:Telemetry.KeyValue.key)
+  // @@protoc_insertion_point(field_set_allocated:telemetry.KeyValue.key)
 }
 
 // optional double double_value = 5;
@@ -2450,7 +2450,7 @@ inline void KeyValue::clear_double_value() {
   }
 }
 inline double KeyValue::double_value() const {
-  // @@protoc_insertion_point(field_get:Telemetry.KeyValue.double_value)
+  // @@protoc_insertion_point(field_get:telemetry.KeyValue.double_value)
   if (has_double_value()) {
     return value_.double_value_;
   }
@@ -2462,7 +2462,7 @@ inline void KeyValue::set_double_value(double value) {
     set_has_double_value();
   }
   value_.double_value_ = value;
-  // @@protoc_insertion_point(field_set:Telemetry.KeyValue.double_value)
+  // @@protoc_insertion_point(field_set:telemetry.KeyValue.double_value)
 }
 
 // optional int64 int_value = 6;
@@ -2479,7 +2479,7 @@ inline void KeyValue::clear_int_value() {
   }
 }
 inline ::google::protobuf::int64 KeyValue::int_value() const {
-  // @@protoc_insertion_point(field_get:Telemetry.KeyValue.int_value)
+  // @@protoc_insertion_point(field_get:telemetry.KeyValue.int_value)
   if (has_int_value()) {
     return value_.int_value_;
   }
@@ -2491,7 +2491,7 @@ inline void KeyValue::set_int_value(::google::protobuf::int64 value) {
     set_has_int_value();
   }
   value_.int_value_ = value;
-  // @@protoc_insertion_point(field_set:Telemetry.KeyValue.int_value)
+  // @@protoc_insertion_point(field_set:telemetry.KeyValue.int_value)
 }
 
 // optional uint64 uint_value = 7;
@@ -2508,7 +2508,7 @@ inline void KeyValue::clear_uint_value() {
   }
 }
 inline ::google::protobuf::uint64 KeyValue::uint_value() const {
-  // @@protoc_insertion_point(field_get:Telemetry.KeyValue.uint_value)
+  // @@protoc_insertion_point(field_get:telemetry.KeyValue.uint_value)
   if (has_uint_value()) {
     return value_.uint_value_;
   }
@@ -2520,7 +2520,7 @@ inline void KeyValue::set_uint_value(::google::protobuf::uint64 value) {
     set_has_uint_value();
   }
   value_.uint_value_ = value;
-  // @@protoc_insertion_point(field_set:Telemetry.KeyValue.uint_value)
+  // @@protoc_insertion_point(field_set:telemetry.KeyValue.uint_value)
 }
 
 // optional sint64 sint_value = 8;
@@ -2537,7 +2537,7 @@ inline void KeyValue::clear_sint_value() {
   }
 }
 inline ::google::protobuf::int64 KeyValue::sint_value() const {
-  // @@protoc_insertion_point(field_get:Telemetry.KeyValue.sint_value)
+  // @@protoc_insertion_point(field_get:telemetry.KeyValue.sint_value)
   if (has_sint_value()) {
     return value_.sint_value_;
   }
@@ -2549,7 +2549,7 @@ inline void KeyValue::set_sint_value(::google::protobuf::int64 value) {
     set_has_sint_value();
   }
   value_.sint_value_ = value;
-  // @@protoc_insertion_point(field_set:Telemetry.KeyValue.sint_value)
+  // @@protoc_insertion_point(field_set:telemetry.KeyValue.sint_value)
 }
 
 // optional bool bool_value = 9;
@@ -2566,7 +2566,7 @@ inline void KeyValue::clear_bool_value() {
   }
 }
 inline bool KeyValue::bool_value() const {
-  // @@protoc_insertion_point(field_get:Telemetry.KeyValue.bool_value)
+  // @@protoc_insertion_point(field_get:telemetry.KeyValue.bool_value)
   if (has_bool_value()) {
     return value_.bool_value_;
   }
@@ -2578,7 +2578,7 @@ inline void KeyValue::set_bool_value(bool value) {
     set_has_bool_value();
   }
   value_.bool_value_ = value;
-  // @@protoc_insertion_point(field_set:Telemetry.KeyValue.bool_value)
+  // @@protoc_insertion_point(field_set:telemetry.KeyValue.bool_value)
 }
 
 // optional string str_value = 10;
@@ -2595,21 +2595,21 @@ inline void KeyValue::clear_str_value() {
   }
 }
 inline const ::std::string& KeyValue::str_value() const {
-  // @@protoc_insertion_point(field_get:Telemetry.KeyValue.str_value)
+  // @@protoc_insertion_point(field_get:telemetry.KeyValue.str_value)
   if (has_str_value()) {
     return value_.str_value_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   }
   return *&::google::protobuf::internal::GetEmptyStringAlreadyInited();
 }
 inline void KeyValue::set_str_value(const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:Telemetry.KeyValue.str_value)
+  // @@protoc_insertion_point(field_set:telemetry.KeyValue.str_value)
   if (!has_str_value()) {
     clear_value();
     set_has_str_value();
     value_.str_value_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   }
   value_.str_value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:Telemetry.KeyValue.str_value)
+  // @@protoc_insertion_point(field_set:telemetry.KeyValue.str_value)
 }
 inline void KeyValue::set_str_value(const char* value) {
   if (!has_str_value()) {
@@ -2619,7 +2619,7 @@ inline void KeyValue::set_str_value(const char* value) {
   }
   value_.str_value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:Telemetry.KeyValue.str_value)
+  // @@protoc_insertion_point(field_set_char:telemetry.KeyValue.str_value)
 }
 inline void KeyValue::set_str_value(const char* value, size_t size) {
   if (!has_str_value()) {
@@ -2629,7 +2629,7 @@ inline void KeyValue::set_str_value(const char* value, size_t size) {
   }
   value_.str_value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(
       reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:Telemetry.KeyValue.str_value)
+  // @@protoc_insertion_point(field_set_pointer:telemetry.KeyValue.str_value)
 }
 inline ::std::string* KeyValue::mutable_str_value() {
   if (!has_str_value()) {
@@ -2637,7 +2637,7 @@ inline ::std::string* KeyValue::mutable_str_value() {
     set_has_str_value();
     value_.str_value_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   }
-  // @@protoc_insertion_point(field_mutable:Telemetry.KeyValue.str_value)
+  // @@protoc_insertion_point(field_mutable:telemetry.KeyValue.str_value)
   return value_.str_value_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* KeyValue::release_str_value() {
@@ -2658,7 +2658,7 @@ inline void KeyValue::set_allocated_str_value(::std::string* str_value) {
     value_.str_value_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
         str_value);
   }
-  // @@protoc_insertion_point(field_set_allocated:Telemetry.KeyValue.str_value)
+  // @@protoc_insertion_point(field_set_allocated:telemetry.KeyValue.str_value)
 }
 
 // optional bytes bytes_value = 11;
@@ -2675,21 +2675,21 @@ inline void KeyValue::clear_bytes_value() {
   }
 }
 inline const ::std::string& KeyValue::bytes_value() const {
-  // @@protoc_insertion_point(field_get:Telemetry.KeyValue.bytes_value)
+  // @@protoc_insertion_point(field_get:telemetry.KeyValue.bytes_value)
   if (has_bytes_value()) {
     return value_.bytes_value_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   }
   return *&::google::protobuf::internal::GetEmptyStringAlreadyInited();
 }
 inline void KeyValue::set_bytes_value(const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:Telemetry.KeyValue.bytes_value)
+  // @@protoc_insertion_point(field_set:telemetry.KeyValue.bytes_value)
   if (!has_bytes_value()) {
     clear_value();
     set_has_bytes_value();
     value_.bytes_value_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   }
   value_.bytes_value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:Telemetry.KeyValue.bytes_value)
+  // @@protoc_insertion_point(field_set:telemetry.KeyValue.bytes_value)
 }
 inline void KeyValue::set_bytes_value(const char* value) {
   if (!has_bytes_value()) {
@@ -2699,7 +2699,7 @@ inline void KeyValue::set_bytes_value(const char* value) {
   }
   value_.bytes_value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:Telemetry.KeyValue.bytes_value)
+  // @@protoc_insertion_point(field_set_char:telemetry.KeyValue.bytes_value)
 }
 inline void KeyValue::set_bytes_value(const void* value, size_t size) {
   if (!has_bytes_value()) {
@@ -2709,7 +2709,7 @@ inline void KeyValue::set_bytes_value(const void* value, size_t size) {
   }
   value_.bytes_value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(
       reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:Telemetry.KeyValue.bytes_value)
+  // @@protoc_insertion_point(field_set_pointer:telemetry.KeyValue.bytes_value)
 }
 inline ::std::string* KeyValue::mutable_bytes_value() {
   if (!has_bytes_value()) {
@@ -2717,7 +2717,7 @@ inline ::std::string* KeyValue::mutable_bytes_value() {
     set_has_bytes_value();
     value_.bytes_value_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   }
-  // @@protoc_insertion_point(field_mutable:Telemetry.KeyValue.bytes_value)
+  // @@protoc_insertion_point(field_mutable:telemetry.KeyValue.bytes_value)
   return value_.bytes_value_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* KeyValue::release_bytes_value() {
@@ -2738,7 +2738,7 @@ inline void KeyValue::set_allocated_bytes_value(::std::string* bytes_value) {
     value_.bytes_value_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
         bytes_value);
   }
-  // @@protoc_insertion_point(field_set_allocated:Telemetry.KeyValue.bytes_value)
+  // @@protoc_insertion_point(field_set_allocated:telemetry.KeyValue.bytes_value)
 }
 
 inline bool KeyValue::has_value() const {
@@ -2759,31 +2759,31 @@ inline void CancelSubscriptionRequest::clear_subscription_id() {
   subscription_id_ = 0u;
 }
 inline ::google::protobuf::uint32 CancelSubscriptionRequest::subscription_id() const {
-  // @@protoc_insertion_point(field_get:Telemetry.CancelSubscriptionRequest.subscription_id)
+  // @@protoc_insertion_point(field_get:telemetry.CancelSubscriptionRequest.subscription_id)
   return subscription_id_;
 }
 inline void CancelSubscriptionRequest::set_subscription_id(::google::protobuf::uint32 value) {
   
   subscription_id_ = value;
-  // @@protoc_insertion_point(field_set:Telemetry.CancelSubscriptionRequest.subscription_id)
+  // @@protoc_insertion_point(field_set:telemetry.CancelSubscriptionRequest.subscription_id)
 }
 
 // -------------------------------------------------------------------
 
 // CancelSubscriptionReply
 
-// optional .Telemetry.ReturnCode code = 1;
+// optional .telemetry.ReturnCode code = 1;
 inline void CancelSubscriptionReply::clear_code() {
   code_ = 0;
 }
-inline ::Telemetry::ReturnCode CancelSubscriptionReply::code() const {
-  // @@protoc_insertion_point(field_get:Telemetry.CancelSubscriptionReply.code)
-  return static_cast< ::Telemetry::ReturnCode >(code_);
+inline ::telemetry::ReturnCode CancelSubscriptionReply::code() const {
+  // @@protoc_insertion_point(field_get:telemetry.CancelSubscriptionReply.code)
+  return static_cast< ::telemetry::ReturnCode >(code_);
 }
-inline void CancelSubscriptionReply::set_code(::Telemetry::ReturnCode value) {
+inline void CancelSubscriptionReply::set_code(::telemetry::ReturnCode value) {
   
   code_ = value;
-  // @@protoc_insertion_point(field_set:Telemetry.CancelSubscriptionReply.code)
+  // @@protoc_insertion_point(field_set:telemetry.CancelSubscriptionReply.code)
 }
 
 // optional string code_str = 2;
@@ -2791,28 +2791,28 @@ inline void CancelSubscriptionReply::clear_code_str() {
   code_str_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& CancelSubscriptionReply::code_str() const {
-  // @@protoc_insertion_point(field_get:Telemetry.CancelSubscriptionReply.code_str)
+  // @@protoc_insertion_point(field_get:telemetry.CancelSubscriptionReply.code_str)
   return code_str_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline void CancelSubscriptionReply::set_code_str(const ::std::string& value) {
   
   code_str_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:Telemetry.CancelSubscriptionReply.code_str)
+  // @@protoc_insertion_point(field_set:telemetry.CancelSubscriptionReply.code_str)
 }
 inline void CancelSubscriptionReply::set_code_str(const char* value) {
   
   code_str_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:Telemetry.CancelSubscriptionReply.code_str)
+  // @@protoc_insertion_point(field_set_char:telemetry.CancelSubscriptionReply.code_str)
 }
 inline void CancelSubscriptionReply::set_code_str(const char* value, size_t size) {
   
   code_str_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:Telemetry.CancelSubscriptionReply.code_str)
+  // @@protoc_insertion_point(field_set_pointer:telemetry.CancelSubscriptionReply.code_str)
 }
 inline ::std::string* CancelSubscriptionReply::mutable_code_str() {
   
-  // @@protoc_insertion_point(field_mutable:Telemetry.CancelSubscriptionReply.code_str)
+  // @@protoc_insertion_point(field_mutable:telemetry.CancelSubscriptionReply.code_str)
   return code_str_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* CancelSubscriptionReply::release_code_str() {
@@ -2826,7 +2826,7 @@ inline void CancelSubscriptionReply::set_allocated_code_str(::std::string* code_
     
   }
   code_str_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), code_str);
-  // @@protoc_insertion_point(field_set_allocated:Telemetry.CancelSubscriptionReply.code_str)
+  // @@protoc_insertion_point(field_set_allocated:telemetry.CancelSubscriptionReply.code_str)
 }
 
 // -------------------------------------------------------------------
@@ -2838,46 +2838,46 @@ inline void GetSubscriptionsRequest::clear_subscription_id() {
   subscription_id_ = 0u;
 }
 inline ::google::protobuf::uint32 GetSubscriptionsRequest::subscription_id() const {
-  // @@protoc_insertion_point(field_get:Telemetry.GetSubscriptionsRequest.subscription_id)
+  // @@protoc_insertion_point(field_get:telemetry.GetSubscriptionsRequest.subscription_id)
   return subscription_id_;
 }
 inline void GetSubscriptionsRequest::set_subscription_id(::google::protobuf::uint32 value) {
   
   subscription_id_ = value;
-  // @@protoc_insertion_point(field_set:Telemetry.GetSubscriptionsRequest.subscription_id)
+  // @@protoc_insertion_point(field_set:telemetry.GetSubscriptionsRequest.subscription_id)
 }
 
 // -------------------------------------------------------------------
 
 // GetSubscriptionsReply
 
-// repeated .Telemetry.SubscriptionReply subscription_list = 1;
+// repeated .telemetry.SubscriptionReply subscription_list = 1;
 inline int GetSubscriptionsReply::subscription_list_size() const {
   return subscription_list_.size();
 }
 inline void GetSubscriptionsReply::clear_subscription_list() {
   subscription_list_.Clear();
 }
-inline const ::Telemetry::SubscriptionReply& GetSubscriptionsReply::subscription_list(int index) const {
-  // @@protoc_insertion_point(field_get:Telemetry.GetSubscriptionsReply.subscription_list)
+inline const ::telemetry::SubscriptionReply& GetSubscriptionsReply::subscription_list(int index) const {
+  // @@protoc_insertion_point(field_get:telemetry.GetSubscriptionsReply.subscription_list)
   return subscription_list_.Get(index);
 }
-inline ::Telemetry::SubscriptionReply* GetSubscriptionsReply::mutable_subscription_list(int index) {
-  // @@protoc_insertion_point(field_mutable:Telemetry.GetSubscriptionsReply.subscription_list)
+inline ::telemetry::SubscriptionReply* GetSubscriptionsReply::mutable_subscription_list(int index) {
+  // @@protoc_insertion_point(field_mutable:telemetry.GetSubscriptionsReply.subscription_list)
   return subscription_list_.Mutable(index);
 }
-inline ::Telemetry::SubscriptionReply* GetSubscriptionsReply::add_subscription_list() {
-  // @@protoc_insertion_point(field_add:Telemetry.GetSubscriptionsReply.subscription_list)
+inline ::telemetry::SubscriptionReply* GetSubscriptionsReply::add_subscription_list() {
+  // @@protoc_insertion_point(field_add:telemetry.GetSubscriptionsReply.subscription_list)
   return subscription_list_.Add();
 }
-inline ::google::protobuf::RepeatedPtrField< ::Telemetry::SubscriptionReply >*
+inline ::google::protobuf::RepeatedPtrField< ::telemetry::SubscriptionReply >*
 GetSubscriptionsReply::mutable_subscription_list() {
-  // @@protoc_insertion_point(field_mutable_list:Telemetry.GetSubscriptionsReply.subscription_list)
+  // @@protoc_insertion_point(field_mutable_list:telemetry.GetSubscriptionsReply.subscription_list)
   return &subscription_list_;
 }
-inline const ::google::protobuf::RepeatedPtrField< ::Telemetry::SubscriptionReply >&
+inline const ::google::protobuf::RepeatedPtrField< ::telemetry::SubscriptionReply >&
 GetSubscriptionsReply::subscription_list() const {
-  // @@protoc_insertion_point(field_list:Telemetry.GetSubscriptionsReply.subscription_list)
+  // @@protoc_insertion_point(field_list:telemetry.GetSubscriptionsReply.subscription_list)
   return subscription_list_;
 }
 
@@ -2890,60 +2890,60 @@ inline void GetOperationalStateRequest::clear_subscription_id() {
   subscription_id_ = 0u;
 }
 inline ::google::protobuf::uint32 GetOperationalStateRequest::subscription_id() const {
-  // @@protoc_insertion_point(field_get:Telemetry.GetOperationalStateRequest.subscription_id)
+  // @@protoc_insertion_point(field_get:telemetry.GetOperationalStateRequest.subscription_id)
   return subscription_id_;
 }
 inline void GetOperationalStateRequest::set_subscription_id(::google::protobuf::uint32 value) {
   
   subscription_id_ = value;
-  // @@protoc_insertion_point(field_set:Telemetry.GetOperationalStateRequest.subscription_id)
+  // @@protoc_insertion_point(field_set:telemetry.GetOperationalStateRequest.subscription_id)
 }
 
-// optional .Telemetry.VerbosityLevel verbosity = 2;
+// optional .telemetry.VerbosityLevel verbosity = 2;
 inline void GetOperationalStateRequest::clear_verbosity() {
   verbosity_ = 0;
 }
-inline ::Telemetry::VerbosityLevel GetOperationalStateRequest::verbosity() const {
-  // @@protoc_insertion_point(field_get:Telemetry.GetOperationalStateRequest.verbosity)
-  return static_cast< ::Telemetry::VerbosityLevel >(verbosity_);
+inline ::telemetry::VerbosityLevel GetOperationalStateRequest::verbosity() const {
+  // @@protoc_insertion_point(field_get:telemetry.GetOperationalStateRequest.verbosity)
+  return static_cast< ::telemetry::VerbosityLevel >(verbosity_);
 }
-inline void GetOperationalStateRequest::set_verbosity(::Telemetry::VerbosityLevel value) {
+inline void GetOperationalStateRequest::set_verbosity(::telemetry::VerbosityLevel value) {
   
   verbosity_ = value;
-  // @@protoc_insertion_point(field_set:Telemetry.GetOperationalStateRequest.verbosity)
+  // @@protoc_insertion_point(field_set:telemetry.GetOperationalStateRequest.verbosity)
 }
 
 // -------------------------------------------------------------------
 
 // GetOperationalStateReply
 
-// repeated .Telemetry.KeyValue kv = 1;
+// repeated .telemetry.KeyValue kv = 1;
 inline int GetOperationalStateReply::kv_size() const {
   return kv_.size();
 }
 inline void GetOperationalStateReply::clear_kv() {
   kv_.Clear();
 }
-inline const ::Telemetry::KeyValue& GetOperationalStateReply::kv(int index) const {
-  // @@protoc_insertion_point(field_get:Telemetry.GetOperationalStateReply.kv)
+inline const ::telemetry::KeyValue& GetOperationalStateReply::kv(int index) const {
+  // @@protoc_insertion_point(field_get:telemetry.GetOperationalStateReply.kv)
   return kv_.Get(index);
 }
-inline ::Telemetry::KeyValue* GetOperationalStateReply::mutable_kv(int index) {
-  // @@protoc_insertion_point(field_mutable:Telemetry.GetOperationalStateReply.kv)
+inline ::telemetry::KeyValue* GetOperationalStateReply::mutable_kv(int index) {
+  // @@protoc_insertion_point(field_mutable:telemetry.GetOperationalStateReply.kv)
   return kv_.Mutable(index);
 }
-inline ::Telemetry::KeyValue* GetOperationalStateReply::add_kv() {
-  // @@protoc_insertion_point(field_add:Telemetry.GetOperationalStateReply.kv)
+inline ::telemetry::KeyValue* GetOperationalStateReply::add_kv() {
+  // @@protoc_insertion_point(field_add:telemetry.GetOperationalStateReply.kv)
   return kv_.Add();
 }
-inline ::google::protobuf::RepeatedPtrField< ::Telemetry::KeyValue >*
+inline ::google::protobuf::RepeatedPtrField< ::telemetry::KeyValue >*
 GetOperationalStateReply::mutable_kv() {
-  // @@protoc_insertion_point(field_mutable_list:Telemetry.GetOperationalStateReply.kv)
+  // @@protoc_insertion_point(field_mutable_list:telemetry.GetOperationalStateReply.kv)
   return &kv_;
 }
-inline const ::google::protobuf::RepeatedPtrField< ::Telemetry::KeyValue >&
+inline const ::google::protobuf::RepeatedPtrField< ::telemetry::KeyValue >&
 GetOperationalStateReply::kv() const {
-  // @@protoc_insertion_point(field_list:Telemetry.GetOperationalStateReply.kv)
+  // @@protoc_insertion_point(field_list:telemetry.GetOperationalStateReply.kv)
   return kv_;
 }
 
@@ -2955,33 +2955,33 @@ GetOperationalStateReply::kv() const {
 
 // DataEncodingReply
 
-// repeated .Telemetry.EncodingType encoding_list = 1;
+// repeated .telemetry.EncodingType encoding_list = 1;
 inline int DataEncodingReply::encoding_list_size() const {
   return encoding_list_.size();
 }
 inline void DataEncodingReply::clear_encoding_list() {
   encoding_list_.Clear();
 }
-inline ::Telemetry::EncodingType DataEncodingReply::encoding_list(int index) const {
-  // @@protoc_insertion_point(field_get:Telemetry.DataEncodingReply.encoding_list)
-  return static_cast< ::Telemetry::EncodingType >(encoding_list_.Get(index));
+inline ::telemetry::EncodingType DataEncodingReply::encoding_list(int index) const {
+  // @@protoc_insertion_point(field_get:telemetry.DataEncodingReply.encoding_list)
+  return static_cast< ::telemetry::EncodingType >(encoding_list_.Get(index));
 }
-inline void DataEncodingReply::set_encoding_list(int index, ::Telemetry::EncodingType value) {
+inline void DataEncodingReply::set_encoding_list(int index, ::telemetry::EncodingType value) {
   encoding_list_.Set(index, value);
-  // @@protoc_insertion_point(field_set:Telemetry.DataEncodingReply.encoding_list)
+  // @@protoc_insertion_point(field_set:telemetry.DataEncodingReply.encoding_list)
 }
-inline void DataEncodingReply::add_encoding_list(::Telemetry::EncodingType value) {
+inline void DataEncodingReply::add_encoding_list(::telemetry::EncodingType value) {
   encoding_list_.Add(value);
-  // @@protoc_insertion_point(field_add:Telemetry.DataEncodingReply.encoding_list)
+  // @@protoc_insertion_point(field_add:telemetry.DataEncodingReply.encoding_list)
 }
 inline const ::google::protobuf::RepeatedField<int>&
 DataEncodingReply::encoding_list() const {
-  // @@protoc_insertion_point(field_list:Telemetry.DataEncodingReply.encoding_list)
+  // @@protoc_insertion_point(field_list:telemetry.DataEncodingReply.encoding_list)
   return encoding_list_;
 }
 inline ::google::protobuf::RepeatedField<int>*
 DataEncodingReply::mutable_encoding_list() {
-  // @@protoc_insertion_point(field_mutable_list:Telemetry.DataEncodingReply.encoding_list)
+  // @@protoc_insertion_point(field_mutable_list:telemetry.DataEncodingReply.encoding_list)
   return &encoding_list_;
 }
 
@@ -3021,26 +3021,26 @@ DataEncodingReply::mutable_encoding_list() {
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace Telemetry
+}  // namespace telemetry
 
 #ifndef SWIG
 namespace google {
 namespace protobuf {
 
-template <> struct is_proto_enum< ::Telemetry::ReturnCode> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::telemetry::ReturnCode> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::Telemetry::ReturnCode>() {
-  return ::Telemetry::ReturnCode_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::telemetry::ReturnCode>() {
+  return ::telemetry::ReturnCode_descriptor();
 }
-template <> struct is_proto_enum< ::Telemetry::VerbosityLevel> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::telemetry::VerbosityLevel> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::Telemetry::VerbosityLevel>() {
-  return ::Telemetry::VerbosityLevel_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::telemetry::VerbosityLevel>() {
+  return ::telemetry::VerbosityLevel_descriptor();
 }
-template <> struct is_proto_enum< ::Telemetry::EncodingType> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::telemetry::EncodingType> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::Telemetry::EncodingType>() {
-  return ::Telemetry::EncodingType_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::telemetry::EncodingType>() {
+  return ::telemetry::EncodingType_descriptor();
 }
 
 }  // namespace protobuf

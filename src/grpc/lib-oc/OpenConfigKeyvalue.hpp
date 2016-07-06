@@ -20,7 +20,7 @@ public:
         OpenConfig::registerSelf("kvresponseExt", this);
     }
     
-    void   iterate (JuniperNetworksSensors *handle, Telemetry::OpenConfigData *datap);
+    void   iterate (JuniperNetworksSensors *handle, telemetry::OpenConfigData *datap);
 };
 
 #endif /* OpenConfigKeyvalue_hpp */

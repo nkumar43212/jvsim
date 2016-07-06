@@ -20,7 +20,7 @@ class OCTelemetryJsonGenerator {
 public:
     static std::string generate_json_oc_config (bool mqtt,
                                         id_idx_t internal_subscription_id,
-                                        const Telemetry::Path *path);
+                                        const telemetry::Path *path);
 
 };
 

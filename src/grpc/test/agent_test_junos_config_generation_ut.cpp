@@ -153,7 +153,7 @@ TEST(JsonConfigGeneration, mx_add_sensor_config) {
     std::string udp_server_ip = "1.1.1.1";
     uint32_t udp_server_port = 10000;
     id_idx_t subscription_id = 1000;
-    Telemetry::Path *path = new Telemetry::Path();
+    telemetry::Path *path = new telemetry::Path();
     path->set_path("/junos/system/linecard/npu/memory");
     path->set_filter("*.*");
     path->set_sample_frequency(2000);
@@ -173,7 +173,7 @@ TEST(JsonConfigGeneration, mx_delete_sensor_config) {
     std::string udp_server_ip = "1.1.1.1";
     uint32_t udp_server_port = 10000;
     id_idx_t subscription_id = 1000;
-    Telemetry::Path *path = new Telemetry::Path();
+    telemetry::Path *path = new telemetry::Path();
     path->set_path("/junos/system/linecard/npu/memory");
     path->set_filter("*.*");
     path->set_sample_frequency(2000);
@@ -193,7 +193,7 @@ TEST(JsonConfigGeneration, qfx_add_sensor_config) {
     std::string udp_server_ip = "1.1.1.1";
     uint32_t udp_server_port = 10000;
     id_idx_t subscription_id = 1000;
-    Telemetry::Path *path = new Telemetry::Path();
+    telemetry::Path *path = new telemetry::Path();
     path->set_path("/junos/system/linecard/npu/memory");
     path->set_filter("*.*");
     path->set_sample_frequency(2000);
@@ -213,7 +213,7 @@ TEST(JsonConfigGeneration, qfx_delete_sensor_config) {
     std::string udp_server_ip = "1.1.1.1";
     uint32_t udp_server_port = 10000;
     id_idx_t subscription_id = 1000;
-    Telemetry::Path *path = new Telemetry::Path();
+    telemetry::Path *path = new telemetry::Path();
     path->set_path("/junos/system/linecard/npu/memory");
     path->set_filter("*.*");
     path->set_sample_frequency(2000);

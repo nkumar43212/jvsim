@@ -13,10 +13,10 @@ std::string BASE_OC_PATH_LSP("/mpls/lsps/constrained-path/tunnels/tunnel");
 std::string BASE_OC_PATH_LSP_ATTR("state/counters");
 
 void
-OpenConfigLspStats::iterate (JuniperNetworksSensors *handle, Telemetry::OpenConfigData *datap)
+OpenConfigLspStats::iterate (JuniperNetworksSensors *handle, telemetry::OpenConfigData *datap)
 {
     LspStats *message = handle->MutableExtension(jnpr_lsp_statistics_ext);
-    Telemetry::KeyValue *kv;
+    telemetry::KeyValue *kv;
     
 
     for (int i = 0; i < message->lsp_stats_records_size(); i++) {

@@ -25,7 +25,7 @@
 #include "PathValidator.hpp"
 
 
-class AgentServer final : public Telemetry::OpenConfigTelemetry::Service {
+class AgentServer final : public telemetry::OpenConfigTelemetry::Service {
     // Logging service
     AgentServerLog *_logger;
 

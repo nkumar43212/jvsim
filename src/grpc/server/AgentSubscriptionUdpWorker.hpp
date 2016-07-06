@@ -102,9 +102,9 @@ public:
                                            { return _system_subscription; }
     std::thread *getThread()               { return _sub_udp_worker_thr; }
     void        getOperational(GetOperationalStateReply* operational_reply,
-                               Telemetry::VerbosityLevel verbosity);
+                               telemetry::VerbosityLevel verbosity);
     void        _getOperational_path(GetOperationalStateReply* operational_reply,
-                                     Telemetry::VerbosityLevel verbosity);
+                                     telemetry::VerbosityLevel verbosity);
 
     static AgentSubscriptionUdpWorker* createSubscriptionUdpWorker (id_idx_t id,
                                         AgentConsolidatorHandle *system_handle,

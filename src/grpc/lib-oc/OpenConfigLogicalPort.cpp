@@ -12,11 +12,11 @@
 std::string BASE_OC_PATH_IFL("/oc-path/interfaces/interface");
 
 void
-OpenConfigLogicalPort::iterate (JuniperNetworksSensors *handle, Telemetry::OpenConfigData *datap)
+OpenConfigLogicalPort::iterate (JuniperNetworksSensors *handle, telemetry::OpenConfigData *datap)
 {
     int i, size;
     GLogicalPort *portp = handle->MutableExtension(jnprLogicalInterfaceExt);
-    Telemetry::KeyValue *kv;
+    telemetry::KeyValue *kv;
 
     size = portp->interface_info_size();
     for (i = 0; i < size; i++) {

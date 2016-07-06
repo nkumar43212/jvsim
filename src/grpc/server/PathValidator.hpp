@@ -64,7 +64,7 @@ public:
     bool build_path_information_db(std::string filename);
     void print_path_information_db(void);
     void delete_path_information_db(void);
-    void validate_path(Telemetry::Path &path);
+    void validate_path(telemetry::Path &path);
 };
 
 #endif /* PathValidator_hpp */

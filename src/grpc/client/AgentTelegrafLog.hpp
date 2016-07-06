@@ -26,7 +26,7 @@ class AgentTelegrafLog {
             delete _logger;
         }
 
-        void updateStats(Telemetry::OpenConfigData *data)
+        void updateStats(telemetry::OpenConfigData *data)
         {
             // Should we even process this element sample ?
             if (data->kv_size() < 2) {
@@ -35,13 +35,13 @@ class AgentTelegrafLog {
 
             // Get the timestamp
             uint64_t ts = data->timestamp();
-            const Telemetry::KeyValue &kv = data->kv(0);
+            const telemetry::KeyValue &kv = data->kv(0);
             if (kv.key() == "__timestamp__") {
                 ts = kv.uint_value();
             }
 
             // Get the interface name
-            const Telemetry::KeyValue &kv1 = data->kv(1);
+            const telemetry::KeyValue &kv1 = data->kv(1);
             if (kv1.key() != "__prefix__") {
                 return;
             }

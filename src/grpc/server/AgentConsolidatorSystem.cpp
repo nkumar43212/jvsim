@@ -28,7 +28,7 @@ AgentSystemDB sysdb;
 
 AgentConsolidatorSystemHandlePtr
 AgentConsolidatorSystemHandle::create (AgentSystem *sys_handle,
-                                       const Telemetry::Path *request_path)
+                                       const telemetry::Path *request_path)
 {
     // Find if the request path already exist
     AgentConsolidatorSystemHandlePtr ptr = find(request_path);
@@ -104,7 +104,7 @@ AgentConsolidatorSystemHandle::description (void)
 }
 
 AgentConsolidatorSystemHandlePtr
-AgentConsolidatorSystemHandle::find (const Telemetry::Path *request_path)
+AgentConsolidatorSystemHandle::find (const telemetry::Path *request_path)
 {
     // Convert request to string
     std::string request_path_str = AgentUtils::getMessageString(*request_path);
@@ -121,7 +121,7 @@ AgentConsolidatorSystemHandle::find (const Telemetry::Path *request_path)
 
 bool
 AgentConsolidatorSystemHandle::insert (AgentSystem *sys_handle,
-                        const Telemetry::Path *request_path,
+                        const telemetry::Path *request_path,
                         AgentConsolidatorSystemHandlePtr consolidatorsyshandle)
 {
     // Convert request to string
@@ -150,7 +150,7 @@ AgentConsolidatorSystemHandle::insert (AgentSystem *sys_handle,
 
 bool
 AgentConsolidatorSystemHandle::remove (AgentSystem *sys_handle,
-                                       const Telemetry::Path *request_path)
+                                       const telemetry::Path *request_path)
 {
     // Convert request to string
     std::string request_path_str = AgentUtils::getMessageString(*request_path);
@@ -185,7 +185,7 @@ AgentConsolidatorSystemHandle::remove (AgentSystem *sys_handle,
     return result;
 }
 
-Telemetry::Path *
+telemetry::Path *
 AgentConsolidatorSystemHandle::get (AgentSystem *sys_handle)
 {
     // Convert request to string

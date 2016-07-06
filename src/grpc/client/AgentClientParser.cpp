@@ -243,13 +243,13 @@ handle_list (int argc, const char *argv[])
 void
 handle_get_oper_all (int argc, const char *argv[])
 {
-    Telemetry::VerbosityLevel verbosity = Telemetry::VerbosityLevel::DETAIL;
+    telemetry::VerbosityLevel verbosity = telemetry::VerbosityLevel::DETAIL;
     // Verbosity level
     if (argv[1] != NULL) {
         if (strcmp(argv[1], "brief")) {
-            verbosity = Telemetry::VerbosityLevel::BRIEF;
+            verbosity = telemetry::VerbosityLevel::BRIEF;
         } else if (strcmp(argv[1], "terse")) {
-            verbosity = Telemetry::VerbosityLevel::TERSE;
+            verbosity = telemetry::VerbosityLevel::TERSE;
         }
     }
     AgentClient *mgmt = AgentClient::find(AGENTCLIENT_MGMT);
@@ -265,13 +265,13 @@ handle_get_oper (int argc, const char *argv[])
         return;
     }
 
-    Telemetry::VerbosityLevel verbosity = Telemetry::VerbosityLevel::DETAIL;
+    telemetry::VerbosityLevel verbosity = telemetry::VerbosityLevel::DETAIL;
     // Verbosity level
     if (argv[2] != NULL) {
         if (strcmp(argv[1], "brief")) {
-            verbosity = Telemetry::VerbosityLevel::BRIEF;
+            verbosity = telemetry::VerbosityLevel::BRIEF;
         } else if (strcmp(argv[1], "terse")) {
-            verbosity = Telemetry::VerbosityLevel::TERSE;
+            verbosity = telemetry::VerbosityLevel::TERSE;
         }
     }
     AgentClient *mgmt = AgentClient::find(AGENTCLIENT_MGMT);
@@ -281,13 +281,13 @@ handle_get_oper (int argc, const char *argv[])
 void
 handle_get_oper_mgmt (int argc, const char *argv[])
 {
-    Telemetry::VerbosityLevel verbosity = Telemetry::VerbosityLevel::DETAIL;
+    telemetry::VerbosityLevel verbosity = telemetry::VerbosityLevel::DETAIL;
     // Verbosity level
     if (argv[1] != NULL) {
         if (strcmp(argv[1], "brief")) {
-            verbosity = Telemetry::VerbosityLevel::BRIEF;
+            verbosity = telemetry::VerbosityLevel::BRIEF;
         } else if (strcmp(argv[1], "terse")) {
-            verbosity = Telemetry::VerbosityLevel::TERSE;
+            verbosity = telemetry::VerbosityLevel::TERSE;
         }
     }
     AgentClient *mgmt = AgentClient::find(AGENTCLIENT_MGMT);

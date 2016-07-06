@@ -13,11 +13,11 @@ std::string BASE_OC_PATH_OPTICS("/oc-path/interfaces/interface");
 std::string BASE_OC_PATH_OPTICS_ATTR("optics");
 
 void
-OpenConfigOptics::iterate (JuniperNetworksSensors *handle, Telemetry::OpenConfigData *datap)
+OpenConfigOptics::iterate (JuniperNetworksSensors *handle, telemetry::OpenConfigData *datap)
 {
 
     Optics *message = handle->MutableExtension(jnpr_optics_ext);
-    Telemetry::KeyValue *kv;
+    telemetry::KeyValue *kv;
     
     for (int i = 0; i < message->optics_diag_size(); i++) {
         const OpticsInfos& element = message->optics_diag(i);

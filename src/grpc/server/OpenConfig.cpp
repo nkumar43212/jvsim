@@ -48,10 +48,10 @@ OpenConfig::display (AgentServerLog *logger)
 }
 
 void 
-OpenConfig::insertExportTimestamp (Telemetry::OpenConfigData *datap)
+OpenConfig::insertExportTimestamp (telemetry::OpenConfigData *datap)
 {
     struct timeval tv;
-    Telemetry::KeyValue *kv;
+    telemetry::KeyValue *kv;
 
     // What is the time now
     gettimeofday(&tv, NULL); 

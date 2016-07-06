@@ -54,9 +54,9 @@ AgentSubscriptionUdpWorker::operator()()
 void
 AgentSubscriptionUdpWorker::_getOperational_path (
                              GetOperationalStateReply* operational_reply,
-                             Telemetry::VerbosityLevel verbosity)
+                             telemetry::VerbosityLevel verbosity)
 {
-    Telemetry::KeyValue *kv;
+    telemetry::KeyValue *kv;
     // All topic subscriptions
     for (topicCounterMap::iterator itr = stats_topics.begin();
          itr != stats_topics.end(); itr++) {
@@ -81,10 +81,10 @@ AgentSubscriptionUdpWorker::_getOperational_path (
 void
 AgentSubscriptionUdpWorker::getOperational (
                             GetOperationalStateReply* operational_reply,
-                            Telemetry::VerbosityLevel verbosity)
+                            telemetry::VerbosityLevel verbosity)
 {
     // Total Message Count
-    Telemetry::KeyValue *kv;
+    telemetry::KeyValue *kv;
     kv = operational_reply->add_kv();
     kv->set_key("udp-total_pkt_received");
     kv->set_int_value(_total_pkt_recvd);
@@ -106,7 +106,7 @@ AgentSubscriptionUdpWorker::getOperational (
     kv->set_int_value(_messages.getByteRate());
 
     // If verbose mose is not set, we are done
-    if (verbosity == Telemetry::VerbosityLevel::TERSE) {
+    if (verbosity == telemetry::VerbosityLevel::TERSE) {
         return;
     }
 

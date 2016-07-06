@@ -20,7 +20,7 @@ public:
         OpenConfig::registerSelf("npu_memory_ext", this);
     }
     
-    void   iterate (JuniperNetworksSensors *handle, Telemetry::OpenConfigData *datap);
+    void   iterate (JuniperNetworksSensors *handle, telemetry::OpenConfigData *datap);
 };
 
 #endif /* OpenConfigNpuMem_hpp */

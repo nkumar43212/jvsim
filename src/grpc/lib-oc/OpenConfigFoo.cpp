@@ -9,6 +9,6 @@
 #include "OpenConfigFoo.hpp"
 
 void
-OpenConfigFoo::iterate (JuniperNetworksSensors *handle, Telemetry::OpenConfigData *datap)
+OpenConfigFoo::iterate (JuniperNetworksSensors *handle, telemetry::OpenConfigData *datap)
 {
 }

@@ -43,7 +43,7 @@ AgentSubscription::on_message(const struct mosquitto_message* mosqmessage)
     }
 
     // Build the OpenConfig format desired towards collector
-    Telemetry::OpenConfigData oc_data;
+    telemetry::OpenConfigData oc_data;
 
     // Fill in the common header
     oc_data.set_system_id(stream->system_id());
@@ -89,18 +89,18 @@ AgentSubscription::on_message(const struct mosquitto_message* mosqmessage)
 
 void
 AgentSubscription::getOperational (GetOperationalStateReply* operational_reply,
-                                   Telemetry::VerbosityLevel verbosity)
+                                   telemetry::VerbosityLevel verbosity)
 {
     // Get stats from the message bus interface
     MessageBus::getOperational(operational_reply, verbosity);
 
     // If verbose mose is not set, we are done
-    if (verbosity == Telemetry::VerbosityLevel::TERSE) {
+    if (verbosity == telemetry::VerbosityLevel::TERSE) {
         return;
     }
 
     // Failures
-    Telemetry::KeyValue *kv;
+    telemetry::KeyValue *kv;
     kv = operational_reply->add_kv();
     kv->set_key("mqtt-translation_failures");
     kv->set_int_value(_oc_lookup_failures);

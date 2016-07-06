@@ -23,7 +23,7 @@ public:
                                     std::string udp_server_ip,
                                     uint32_t udp_server_port,
                                     id_idx_t internal_subscription_id,
-                                    const Telemetry::Path *path);
+                                    const telemetry::Path *path);
 
     static std::string generate_json_clear_all_junos_config(void);
 };

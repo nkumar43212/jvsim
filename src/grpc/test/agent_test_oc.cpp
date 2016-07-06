@@ -120,7 +120,7 @@ TEST_F(AgentClientOpenConfigTest, oc_paths) {
     cancel_request.set_subscription_id(subscription_id);
     client->stub_->cancelTelemetrySubscription(&context_cancel,
                                                cancel_request, &cancel_reply);
-    EXPECT_EQ(Telemetry::ReturnCode::SUCCESS, cancel_reply.code());
+    EXPECT_EQ(telemetry::ReturnCode::SUCCESS, cancel_reply.code());
     const char * code_str = cancel_reply.code_str().c_str();
     std::string expected = "Subscription Successfully Deleted";
     const char * expected_str = expected.c_str();

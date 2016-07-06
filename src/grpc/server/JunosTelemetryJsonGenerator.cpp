@@ -23,7 +23,7 @@ JunosTelemetryJsonGenerator::generate_json_junos_config (bool add,
                                         std::string udp_server_ip,
                                         uint32_t udp_server_port,
                                         id_idx_t internal_subscription_id,
-                                        const Telemetry::Path *path)
+                                        const telemetry::Path *path)
 {
     bool parsingSuccessful;
 

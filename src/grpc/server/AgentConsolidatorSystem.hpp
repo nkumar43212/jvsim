@@ -24,7 +24,7 @@
 // we do not create multiple subscriptions on the JUNOS system
 // and reuse the sensors
 class AgentConsolidatorSystemHandle {
-    Telemetry::Path         _path;
+    telemetry::Path         _path;
     id_idx_t                _internal_subscription_id;
     uint64_t                _refcount;
 
@@ -38,31 +38,31 @@ public:
     uint64_t getRef (void)              { return _refcount; }
     void     decRef (void)              { --_refcount;      }
     void     incRef (void)              { ++_refcount;      }
-    void     setPath(const Telemetry::Path *request)
+    void     setPath(const telemetry::Path *request)
                                         { _path.CopyFrom(*request); }
-    const Telemetry::Path *getPath (void)
+    const telemetry::Path *getPath (void)
                                         { return &_path; }
 
     ~AgentConsolidatorSystemHandle() {}
 
     // Object lifecycle
     static std::shared_ptr<AgentConsolidatorSystemHandle>
-        create(AgentSystem *sys_handle, const Telemetry::Path *request_path);
+        create(AgentSystem *sys_handle, const telemetry::Path *request_path);
 
     // Free up a system handle
     bool destroy(AgentSystem *sys_handle);
 
     // Get the contents of the handle from the system. Used by the unit test infra
-    Telemetry::Path *get(AgentSystem *sys_handle);
+    telemetry::Path *get(AgentSystem *sys_handle);
 
     // Class interface
     static std::shared_ptr<AgentConsolidatorSystemHandle>
-                find(const Telemetry::Path *request_path);
+                find(const telemetry::Path *request_path);
     static bool insert(AgentSystem *sys_handle,
-                       const Telemetry::Path *request_path,
+                       const telemetry::Path *request_path,
                        std::shared_ptr<AgentConsolidatorSystemHandle> syshandle);
     static bool remove(AgentSystem *sys_handle,
-                       const Telemetry::Path *request_path);
+                       const telemetry::Path *request_path);
     static uint32_t getCount(void);
     void description(void);
 };

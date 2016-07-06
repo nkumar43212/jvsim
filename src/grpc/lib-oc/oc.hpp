@@ -11,7 +11,7 @@
 #include <iostream>
 
 #define oc_set_prefix(datap, base_str, name_str, oc_attr) do {      \
-    Telemetry::KeyValue *kv;                                        \
+    telemetry::KeyValue *kv;                                        \
     kv = datap->add_kv();                                           \
     kv->set_key("__prefix__");                                      \
                                                                     \
@@ -24,7 +24,7 @@
 } while (0)
 
 #define oc_set_prefix_no_attr(datap, base_str, name_str) do {       \
-    Telemetry::KeyValue *kv;                                        \
+    telemetry::KeyValue *kv;                                        \
     kv = datap->add_kv();                                           \
     kv->set_key("__prefix__");                                      \
                                                                     \

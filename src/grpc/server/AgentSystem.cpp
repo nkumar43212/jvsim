@@ -14,7 +14,7 @@
 #include "AgentUtils.hpp"
 
 bool
-AgentSystem::systemAdd (SystemId id, const Telemetry::Path *request_path)
+AgentSystem::systemAdd (SystemId id, const telemetry::Path *request_path)
 {
     // Operation
     std::string log_str = "SystemAdd(" + std::to_string(id.getId()) + "): ";
@@ -33,7 +33,7 @@ AgentSystem::systemAdd (SystemId id, const Telemetry::Path *request_path)
 }
 
 bool
-AgentSystem::systemRemove (SystemId id, const Telemetry::Path *request_path)
+AgentSystem::systemRemove (SystemId id, const telemetry::Path *request_path)
 {
     // Operation
     std::string log_str = "SystemRemove(" + std::to_string(id.getId()) + "): ";

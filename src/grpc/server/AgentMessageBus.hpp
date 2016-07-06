@@ -98,9 +98,9 @@ public:
     }
 
     void getOperational (GetOperationalStateReply* operational_reply,
-                         Telemetry::VerbosityLevel verbosity)
+                         telemetry::VerbosityLevel verbosity)
     {
-        Telemetry::KeyValue *kv;
+        telemetry::KeyValue *kv;
 
         // Total Message Count
         kv = operational_reply->add_kv();
@@ -118,7 +118,7 @@ public:
         kv->set_int_value(messages.getByteRate());
 
         // Continue only if verbose output is desired
-        if (verbosity == Telemetry::VerbosityLevel::TERSE) {
+        if (verbosity == telemetry::VerbosityLevel::TERSE) {
             return;
         }
 

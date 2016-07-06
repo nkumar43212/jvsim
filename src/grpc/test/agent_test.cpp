@@ -82,7 +82,7 @@ TEST_F(AgentClientTest, subscribe_and_force_terminate) {
     cancel_request.set_subscription_id(subscription_id);
     client->stub_->cancelTelemetrySubscription(&context_cancel,
                                                cancel_request, &cancel_reply);
-    EXPECT_EQ(Telemetry::ReturnCode::NO_SUBSCRIPTION_ENTRY,cancel_reply.code());
+    EXPECT_EQ(telemetry::ReturnCode::NO_SUBSCRIPTION_ENTRY,cancel_reply.code());
     const char * code_str = cancel_reply.code_str().c_str();
     std::string expected = "Subscription Not Found. ID = " +
                             std::to_string(subscription_id);
@@ -148,7 +148,7 @@ TEST_F(AgentClientTest, subscribe_and_graceful_terminate) {
     cancel_request.set_subscription_id(subscription_id);
     client->stub_->cancelTelemetrySubscription(&context_cancel,
                                                cancel_request, &cancel_reply);
-    EXPECT_EQ(Telemetry::ReturnCode::SUCCESS, cancel_reply.code());
+    EXPECT_EQ(telemetry::ReturnCode::SUCCESS, cancel_reply.code());
     const char * code_str = cancel_reply.code_str().c_str();
     std::string expected = "Subscription Successfully Deleted";
     const char * expected_str = expected.c_str();
@@ -218,7 +218,7 @@ TEST_F(AgentClientTest, list) {
         EXPECT_EQ(subscription_id, sub_reply->response().subscription_id());
         int path_list_size = sub_reply->path_list_size();
         for (int lz = 0; lz < path_list_size; lz++) {
-            Telemetry::Path path = sub_reply->path_list(lz);
+            telemetry::Path path = sub_reply->path_list(lz);
             EXPECT_STREQ("firewall", path.path().c_str());
         }
     }
@@ -230,7 +230,7 @@ TEST_F(AgentClientTest, list) {
     cancel_request.set_subscription_id(subscription_id);
     client->stub_->cancelTelemetrySubscription(&context_cancel,
                                                cancel_request, &cancel_reply);
-    EXPECT_EQ(Telemetry::ReturnCode::SUCCESS, cancel_reply.code());
+    EXPECT_EQ(telemetry::ReturnCode::SUCCESS, cancel_reply.code());
     const char * code_str = cancel_reply.code_str().c_str();
     std::string expected = "Subscription Successfully Deleted";
     const char * expected_str = expected.c_str();
@@ -241,7 +241,7 @@ TEST_F(AgentClientTest, list) {
 #define MAX_RECS 100
 TEST_F(AgentClientTest, multiple_subscribe) {
     int n = MAX_SUBS;                      
-    Telemetry::OpenConfigData *data[MAX_SUBS];
+    telemetry::OpenConfigData *data[MAX_SUBS];
     TestArgs              *args[MAX_SUBS];
     pthread_t              tid[MAX_SUBS];
     AgentClient           *mgmt_client;
@@ -259,7 +259,7 @@ TEST_F(AgentClientTest, multiple_subscribe) {
 
     // Spawn the N subscribers
     for (int i = 0; i < n; i++) {
-        data[i] = new Telemetry::OpenConfigData[MAX_RECS];
+        data[i] = new telemetry::OpenConfigData[MAX_RECS];
         args[i] = new TestArgs(i, data[i], MAX_RECS, CLIENT_LOGDIR,
                                GRPC_SERVER_IP_PORT);
         args[i]->limit_record = 5;
@@ -294,7 +294,7 @@ TEST_F(AgentClientTest, multiple_subscribe) {
 
 TEST_F(AgentClientTest, verify_multiple_subscribe) {
     int n = MAX_SUBS;
-    Telemetry::OpenConfigData *data[MAX_SUBS];
+    telemetry::OpenConfigData *data[MAX_SUBS];
     TestArgs              *args[MAX_SUBS];
     pthread_t              tid[MAX_SUBS];
     AgentClient           *mgmt_client;
@@ -312,7 +312,7 @@ TEST_F(AgentClientTest, verify_multiple_subscribe) {
     
     // Spawn the N subscribers
     for (int i = 0; i < n; i++) {
-        data[i] = new Telemetry::OpenConfigData[MAX_RECS];
+        data[i] = new telemetry::OpenConfigData[MAX_RECS];
         args[i] = new TestArgs(i, data[i], MAX_RECS, CLIENT_LOGDIR,
                                GRPC_SERVER_IP_PORT);
         args[i]->limit_record = 50000;
@@ -343,7 +343,7 @@ TEST_F(AgentClientTest, verify_multiple_subscribe) {
                 found = true;
                 int path_list_size = sub_reply->path_list_size();
                 for (int lz = 0; lz < path_list_size; lz++) {
-                    Telemetry::Path path = sub_reply->path_list(lz);
+                    telemetry::Path path = sub_reply->path_list(lz);
                     EXPECT_STREQ("firewall", path.path().c_str());
                 }
                 break;
@@ -380,7 +380,7 @@ TEST_F(AgentClientTest, verify_multiple_subscribe) {
 #define OPER_SUB    5
 TEST_F(AgentClientTest, get_oper_all) {
     int n = OPER_SUB;
-    Telemetry::OpenConfigData *data[MAX_SUBS];
+    telemetry::OpenConfigData *data[MAX_SUBS];
     TestArgs              *args[MAX_SUBS];
     pthread_t              tid[MAX_SUBS];
     AgentClient           *mgmt_client;
@@ -398,7 +398,7 @@ TEST_F(AgentClientTest, get_oper_all) {
     
     // Spawn the N subscribers
     for (int i = 0; i < n; i++) {
-        data[i] = new Telemetry::OpenConfigData[MAX_RECS];
+        data[i] = new telemetry::OpenConfigData[MAX_RECS];
         args[i] = new TestArgs(i, data[i], MAX_RECS, CLIENT_LOGDIR,
                                GRPC_SERVER_IP_PORT);
         args[i]->limit_record = 50000;
@@ -429,7 +429,7 @@ TEST_F(AgentClientTest, get_oper_all) {
                 found = true;
                 int path_list_size = sub_reply->path_list_size();
                 for (int lz = 0; lz < path_list_size; lz++) {
-                    Telemetry::Path path = sub_reply->path_list(lz);
+                    telemetry::Path path = sub_reply->path_list(lz);
                     EXPECT_STREQ("firewall", path.path().c_str());
                 }
                 break;
@@ -443,11 +443,11 @@ TEST_F(AgentClientTest, get_oper_all) {
     GetOperationalStateRequest  operational_request;
     GetOperationalStateReply operational_reply;
     operational_request.set_subscription_id(0xFFFFFFFF);
-    operational_request.set_verbosity(Telemetry::VerbosityLevel::DETAIL);
+    operational_request.set_verbosity(telemetry::VerbosityLevel::DETAIL);
     mgmt_client->stub_->getTelemetryOperationalState(&operational_context,
                                     operational_request, &operational_reply);
 
-    Telemetry::KeyValue *kv;
+    telemetry::KeyValue *kv;
     std::string subscription_id_str("subscription_id");
     std::string total_subscriptions_str("total_subscriptions");
     std::string mqtt_total_message_str("mqtt-total_message_count");
@@ -561,7 +561,7 @@ TEST_F(AgentClientTest, subscribe_and_path_validation_2v_1inv) {
     cancel_request.set_subscription_id(subscription_id);
     client->stub_->cancelTelemetrySubscription(&context_cancel,
                                                cancel_request, &cancel_reply);
-    EXPECT_EQ(Telemetry::ReturnCode::SUCCESS, cancel_reply.code());
+    EXPECT_EQ(telemetry::ReturnCode::SUCCESS, cancel_reply.code());
     const char * code_str = cancel_reply.code_str().c_str();
     std::string expected = "Subscription Successfully Deleted";
     const char * expected_str = expected.c_str();
@@ -631,7 +631,7 @@ TEST_F(AgentClientTest, subscribe_and_path_validation_Allinv) {
     cancel_request.set_subscription_id(subscription_id);
     client->stub_->cancelTelemetrySubscription(&context_cancel,
                                                cancel_request, &cancel_reply);
-    EXPECT_EQ(Telemetry::ReturnCode::SUCCESS, cancel_reply.code());
+    EXPECT_EQ(telemetry::ReturnCode::SUCCESS, cancel_reply.code());
     const char * code_str = cancel_reply.code_str().c_str();
     std::string expected = "Subscription Successfully Deleted";
     const char * expected_str = expected.c_str();
@@ -658,7 +658,7 @@ TEST_F(AgentClientTest, encoding) {
 
     client->stub_->getDataEncodings(&context, enc_request, &enc_reply);
     EXPECT_EQ(1, enc_reply.encoding_list_size());
-    EXPECT_EQ(Telemetry::EncodingType::PROTO3, enc_reply.encoding_list(0));
+    EXPECT_EQ(telemetry::EncodingType::PROTO3, enc_reply.encoding_list(0));
 }
 
 void *
@@ -749,7 +749,7 @@ AgentClientTest::delete_subscriptions (void *args)
     cancel_request.set_subscription_id(test_args->subscription_id);
     test_args->client->stub_->cancelTelemetrySubscription(&context_cancel,
                                                 cancel_request, &cancel_reply);
-    EXPECT_EQ(Telemetry::ReturnCode::SUCCESS, cancel_reply.code());
+    EXPECT_EQ(telemetry::ReturnCode::SUCCESS, cancel_reply.code());
     const char * code_str = cancel_reply.code_str().c_str();
     std::string expected = "Subscription Successfully Deleted";
     const char * expected_str = expected.c_str();
@@ -867,7 +867,7 @@ TEST_F(AgentClientTest, stress_test_sub_unsub) {
         cancel_request.set_subscription_id(subscription_id);
         client->stub_->cancelTelemetrySubscription(&context_cancel,
                                             cancel_request, &cancel_reply);
-        EXPECT_EQ(Telemetry::ReturnCode::SUCCESS, cancel_reply.code());
+        EXPECT_EQ(telemetry::ReturnCode::SUCCESS, cancel_reply.code());
         const char * code_str = cancel_reply.code_str().c_str();
         std::string expected = "Subscription Successfully Deleted";
         const char * expected_str = expected.c_str();
@@ -903,11 +903,11 @@ TEST_F(AgentClientTest, stress_test_sub_unsub) {
     GetOperationalStateRequest  operational_request;
     GetOperationalStateReply operational_reply;
     operational_request.set_subscription_id(0xFFFFFFFF);
-    operational_request.set_verbosity(Telemetry::VerbosityLevel::DETAIL);
+    operational_request.set_verbosity(telemetry::VerbosityLevel::DETAIL);
     mgmt_client->stub_->getTelemetryOperationalState(&operational_context,
                                     operational_request, &operational_reply);
 
-    Telemetry::KeyValue *kv;
+    telemetry::KeyValue *kv;
     std::string total_subscriptions_str("total_subscriptions");
     // std::string agent_stats_str("agent-stats");
     // std::string begin_str("begin");

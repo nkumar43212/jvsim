@@ -16,7 +16,7 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace Telemetry {
+namespace telemetry {
 
 namespace {
 
@@ -472,27 +472,27 @@ void protobuf_AddDesc_agent_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\013agent.proto\022\tTelemetry\"\252\001\n\023Subscriptio"
-    "nRequest\022+\n\005input\030\001 \001(\0132\034.Telemetry.Subs"
-    "criptionInput\022\"\n\tpath_list\030\002 \003(\0132\017.Telem"
-    "etry.Path\022B\n\021additional_config\030\003 \001(\0132\'.T"
+    "\n\013agent.proto\022\ttelemetry\"\252\001\n\023Subscriptio"
+    "nRequest\022+\n\005input\030\001 \001(\0132\034.telemetry.Subs"
+    "criptionInput\022\"\n\tpath_list\030\002 \003(\0132\017.telem"
+    "etry.Path\022B\n\021additional_config\030\003 \001(\0132\'.t"
     "elemetry.SubscriptionAdditionalConfig\"A\n"
     "\021SubscriptionInput\022,\n\016collector_list\030\001 \003"
-    "(\0132\024.Telemetry.Collector\"*\n\tCollector\022\017\n"
+    "(\0132\024.telemetry.Collector\"*\n\tCollector\022\017\n"
     "\007address\030\001 \001(\t\022\014\n\004port\030\002 \001(\r\"w\n\004Path\022\014\n\004"
     "path\030\001 \001(\t\022\016\n\006filter\030\002 \001(\t\022\032\n\022suppress_u"
     "nchanged\030\003 \001(\010\022\033\n\023max_silent_interval\030\004 "
     "\001(\r\022\030\n\020sample_frequency\030\005 \001(\r\"Q\n\034Subscri"
     "ptionAdditionalConfig\022\025\n\rlimit_records\030\001"
     " \001(\005\022\032\n\022limit_time_seconds\030\002 \001(\005\"j\n\021Subs"
-    "criptionReply\0221\n\010response\030\001 \001(\0132\037.Teleme"
+    "criptionReply\0221\n\010response\030\001 \001(\0132\037.teleme"
     "try.SubscriptionResponse\022\"\n\tpath_list\030\002 "
-    "\003(\0132\017.Telemetry.Path\"/\n\024SubscriptionResp"
+    "\003(\0132\017.telemetry.Path\"/\n\024SubscriptionResp"
     "onse\022\027\n\017subscription_id\030\001 \001(\r\"\256\001\n\016OpenCo"
     "nfigData\022\021\n\tsystem_id\030\001 \001(\t\022\024\n\014component"
     "_id\030\002 \001(\r\022\030\n\020sub_component_id\030\003 \001(\r\022\014\n\004p"
     "ath\030\004 \001(\t\022\027\n\017sequence_number\030\005 \001(\004\022\021\n\tti"
-    "mestamp\030\006 \001(\004\022\037\n\002kv\030\007 \003(\0132\023.Telemetry.Ke"
+    "mestamp\030\006 \001(\004\022\037\n\002kv\030\007 \003(\0132\023.telemetry.Ke"
     "yValue\"\273\001\n\010KeyValue\022\013\n\003key\030\001 \001(\t\022\026\n\014doub"
     "le_value\030\005 \001(\001H\000\022\023\n\tint_value\030\006 \001(\003H\000\022\024\n"
     "\nuint_value\030\007 \001(\004H\000\022\024\n\nsint_value\030\010 \001(\022H"
@@ -500,34 +500,34 @@ void protobuf_AddDesc_agent_2eproto() {
     "(\tH\000\022\025\n\013bytes_value\030\013 \001(\014H\000B\007\n\005value\"4\n\031"
     "CancelSubscriptionRequest\022\027\n\017subscriptio"
     "n_id\030\001 \001(\r\"P\n\027CancelSubscriptionReply\022#\n"
-    "\004code\030\001 \001(\0162\025.Telemetry.ReturnCode\022\020\n\010co"
+    "\004code\030\001 \001(\0162\025.telemetry.ReturnCode\022\020\n\010co"
     "de_str\030\002 \001(\t\"2\n\027GetSubscriptionsRequest\022"
     "\027\n\017subscription_id\030\001 \001(\r\"P\n\025GetSubscript"
-    "ionsReply\0227\n\021subscription_list\030\001 \003(\0132\034.T"
+    "ionsReply\0227\n\021subscription_list\030\001 \003(\0132\034.t"
     "elemetry.SubscriptionReply\"c\n\032GetOperati"
     "onalStateRequest\022\027\n\017subscription_id\030\001 \001("
-    "\r\022,\n\tverbosity\030\002 \001(\0162\031.Telemetry.Verbosi"
+    "\r\022,\n\tverbosity\030\002 \001(\0162\031.telemetry.Verbosi"
     "tyLevel\";\n\030GetOperationalStateReply\022\037\n\002k"
-    "v\030\001 \003(\0132\023.Telemetry.KeyValue\"\025\n\023DataEnco"
+    "v\030\001 \003(\0132\023.telemetry.KeyValue\"\025\n\023DataEnco"
     "dingRequest\"C\n\021DataEncodingReply\022.\n\renco"
-    "ding_list\030\001 \003(\0162\027.Telemetry.EncodingType"
+    "ding_list\030\001 \003(\0162\027.telemetry.EncodingType"
     "*G\n\nReturnCode\022\013\n\007SUCCESS\020\000\022\031\n\025NO_SUBSCR"
     "IPTION_ENTRY\020\001\022\021\n\rUNKNOWN_ERROR\020\002*2\n\016Ver"
     "bosityLevel\022\n\n\006DETAIL\020\000\022\t\n\005TERSE\020\001\022\t\n\005BR"
     "IEF\020\002*A\n\014EncodingType\022\r\n\tUNDEFINED\020\000\022\007\n\003"
     "XML\020\001\022\r\n\tJSON_IETF\020\002\022\n\n\006PROTO3\020\0032\374\003\n\023Ope"
     "nConfigTelemetry\022S\n\022telemetrySubscribe\022\036"
-    ".Telemetry.SubscriptionRequest\032\031.Telemet"
+    ".telemetry.SubscriptionRequest\032\031.telemet"
     "ry.OpenConfigData\"\0000\001\022i\n\033cancelTelemetry"
-    "Subscription\022$.Telemetry.CancelSubscript"
-    "ionRequest\032\".Telemetry.CancelSubscriptio"
+    "Subscription\022$.telemetry.CancelSubscript"
+    "ionRequest\032\".telemetry.CancelSubscriptio"
     "nReply\"\000\022c\n\031getTelemetrySubscriptions\022\"."
-    "Telemetry.GetSubscriptionsRequest\032 .Tele"
+    "telemetry.GetSubscriptionsRequest\032 .tele"
     "metry.GetSubscriptionsReply\"\000\022l\n\034getTele"
-    "metryOperationalState\022%.Telemetry.GetOpe"
-    "rationalStateRequest\032#.Telemetry.GetOper"
+    "metryOperationalState\022%.telemetry.GetOpe"
+    "rationalStateRequest\032#.telemetry.GetOper"
     "ationalStateReply\"\000\022R\n\020getDataEncodings\022"
-    "\036.Telemetry.DataEncodingRequest\032\034.Teleme"
+    "\036.telemetry.DataEncodingRequest\032\034.teleme"
     "try.DataEncodingReply\"\000b\006proto3", 2271);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "agent.proto", &protobuf_RegisterTypes);
@@ -643,13 +643,13 @@ const int SubscriptionRequest::kAdditionalConfigFieldNumber;
 SubscriptionRequest::SubscriptionRequest()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:Telemetry.SubscriptionRequest)
+  // @@protoc_insertion_point(constructor:telemetry.SubscriptionRequest)
 }
 
 void SubscriptionRequest::InitAsDefaultInstance() {
   _is_default_instance_ = true;
-  input_ = const_cast< ::Telemetry::SubscriptionInput*>(&::Telemetry::SubscriptionInput::default_instance());
-  additional_config_ = const_cast< ::Telemetry::SubscriptionAdditionalConfig*>(&::Telemetry::SubscriptionAdditionalConfig::default_instance());
+  input_ = const_cast< ::telemetry::SubscriptionInput*>(&::telemetry::SubscriptionInput::default_instance());
+  additional_config_ = const_cast< ::telemetry::SubscriptionAdditionalConfig*>(&::telemetry::SubscriptionAdditionalConfig::default_instance());
 }
 
 SubscriptionRequest::SubscriptionRequest(const SubscriptionRequest& from)
@@ -657,7 +657,7 @@ SubscriptionRequest::SubscriptionRequest(const SubscriptionRequest& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:Telemetry.SubscriptionRequest)
+  // @@protoc_insertion_point(copy_constructor:telemetry.SubscriptionRequest)
 }
 
 void SubscriptionRequest::SharedCtor() {
@@ -668,7 +668,7 @@ void SubscriptionRequest::SharedCtor() {
 }
 
 SubscriptionRequest::~SubscriptionRequest() {
-  // @@protoc_insertion_point(destructor:Telemetry.SubscriptionRequest)
+  // @@protoc_insertion_point(destructor:telemetry.SubscriptionRequest)
   SharedDtor();
 }
 
@@ -716,13 +716,13 @@ bool SubscriptionRequest::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:Telemetry.SubscriptionRequest)
+  // @@protoc_insertion_point(parse_start:telemetry.SubscriptionRequest)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional .Telemetry.SubscriptionInput input = 1;
+      // optional .telemetry.SubscriptionInput input = 1;
       case 1: {
         if (tag == 10) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
@@ -734,7 +734,7 @@ bool SubscriptionRequest::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .Telemetry.Path path_list = 2;
+      // repeated .telemetry.Path path_list = 2;
       case 2: {
         if (tag == 18) {
          parse_path_list:
@@ -751,7 +751,7 @@ bool SubscriptionRequest::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .Telemetry.SubscriptionAdditionalConfig additional_config = 3;
+      // optional .telemetry.SubscriptionAdditionalConfig additional_config = 3;
       case 3: {
         if (tag == 26) {
          parse_additional_config:
@@ -777,84 +777,84 @@ bool SubscriptionRequest::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:Telemetry.SubscriptionRequest)
+  // @@protoc_insertion_point(parse_success:telemetry.SubscriptionRequest)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:Telemetry.SubscriptionRequest)
+  // @@protoc_insertion_point(parse_failure:telemetry.SubscriptionRequest)
   return false;
 #undef DO_
 }
 
 void SubscriptionRequest::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:Telemetry.SubscriptionRequest)
-  // optional .Telemetry.SubscriptionInput input = 1;
+  // @@protoc_insertion_point(serialize_start:telemetry.SubscriptionRequest)
+  // optional .telemetry.SubscriptionInput input = 1;
   if (this->has_input()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, *this->input_, output);
   }
 
-  // repeated .Telemetry.Path path_list = 2;
+  // repeated .telemetry.Path path_list = 2;
   for (unsigned int i = 0, n = this->path_list_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, this->path_list(i), output);
   }
 
-  // optional .Telemetry.SubscriptionAdditionalConfig additional_config = 3;
+  // optional .telemetry.SubscriptionAdditionalConfig additional_config = 3;
   if (this->has_additional_config()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       3, *this->additional_config_, output);
   }
 
-  // @@protoc_insertion_point(serialize_end:Telemetry.SubscriptionRequest)
+  // @@protoc_insertion_point(serialize_end:telemetry.SubscriptionRequest)
 }
 
 ::google::protobuf::uint8* SubscriptionRequest::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:Telemetry.SubscriptionRequest)
-  // optional .Telemetry.SubscriptionInput input = 1;
+  // @@protoc_insertion_point(serialize_to_array_start:telemetry.SubscriptionRequest)
+  // optional .telemetry.SubscriptionInput input = 1;
   if (this->has_input()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         1, *this->input_, target);
   }
 
-  // repeated .Telemetry.Path path_list = 2;
+  // repeated .telemetry.Path path_list = 2;
   for (unsigned int i = 0, n = this->path_list_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         2, this->path_list(i), target);
   }
 
-  // optional .Telemetry.SubscriptionAdditionalConfig additional_config = 3;
+  // optional .telemetry.SubscriptionAdditionalConfig additional_config = 3;
   if (this->has_additional_config()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         3, *this->additional_config_, target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:Telemetry.SubscriptionRequest)
+  // @@protoc_insertion_point(serialize_to_array_end:telemetry.SubscriptionRequest)
   return target;
 }
 
 int SubscriptionRequest::ByteSize() const {
   int total_size = 0;
 
-  // optional .Telemetry.SubscriptionInput input = 1;
+  // optional .telemetry.SubscriptionInput input = 1;
   if (this->has_input()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->input_);
   }
 
-  // optional .Telemetry.SubscriptionAdditionalConfig additional_config = 3;
+  // optional .telemetry.SubscriptionAdditionalConfig additional_config = 3;
   if (this->has_additional_config()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->additional_config_);
   }
 
-  // repeated .Telemetry.Path path_list = 2;
+  // repeated .telemetry.Path path_list = 2;
   total_size += 1 * this->path_list_size();
   for (int i = 0; i < this->path_list_size(); i++) {
     total_size +=
@@ -884,10 +884,10 @@ void SubscriptionRequest::MergeFrom(const SubscriptionRequest& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   path_list_.MergeFrom(from.path_list_);
   if (from.has_input()) {
-    mutable_input()->::Telemetry::SubscriptionInput::MergeFrom(from.input());
+    mutable_input()->::telemetry::SubscriptionInput::MergeFrom(from.input());
   }
   if (from.has_additional_config()) {
-    mutable_additional_config()->::Telemetry::SubscriptionAdditionalConfig::MergeFrom(from.additional_config());
+    mutable_additional_config()->::telemetry::SubscriptionAdditionalConfig::MergeFrom(from.additional_config());
   }
 }
 
@@ -931,7 +931,7 @@ void SubscriptionRequest::InternalSwap(SubscriptionRequest* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // SubscriptionRequest
 
-// optional .Telemetry.SubscriptionInput input = 1;
+// optional .telemetry.SubscriptionInput input = 1;
 bool SubscriptionRequest::has_input() const {
   return !_is_default_instance_ && input_ != NULL;
 }
@@ -939,25 +939,25 @@ void SubscriptionRequest::clear_input() {
   if (GetArenaNoVirtual() == NULL && input_ != NULL) delete input_;
   input_ = NULL;
 }
-const ::Telemetry::SubscriptionInput& SubscriptionRequest::input() const {
-  // @@protoc_insertion_point(field_get:Telemetry.SubscriptionRequest.input)
+const ::telemetry::SubscriptionInput& SubscriptionRequest::input() const {
+  // @@protoc_insertion_point(field_get:telemetry.SubscriptionRequest.input)
   return input_ != NULL ? *input_ : *default_instance_->input_;
 }
-::Telemetry::SubscriptionInput* SubscriptionRequest::mutable_input() {
+::telemetry::SubscriptionInput* SubscriptionRequest::mutable_input() {
   
   if (input_ == NULL) {
-    input_ = new ::Telemetry::SubscriptionInput;
+    input_ = new ::telemetry::SubscriptionInput;
   }
-  // @@protoc_insertion_point(field_mutable:Telemetry.SubscriptionRequest.input)
+  // @@protoc_insertion_point(field_mutable:telemetry.SubscriptionRequest.input)
   return input_;
 }
-::Telemetry::SubscriptionInput* SubscriptionRequest::release_input() {
+::telemetry::SubscriptionInput* SubscriptionRequest::release_input() {
   
-  ::Telemetry::SubscriptionInput* temp = input_;
+  ::telemetry::SubscriptionInput* temp = input_;
   input_ = NULL;
   return temp;
 }
-void SubscriptionRequest::set_allocated_input(::Telemetry::SubscriptionInput* input) {
+void SubscriptionRequest::set_allocated_input(::telemetry::SubscriptionInput* input) {
   delete input_;
   input_ = input;
   if (input) {
@@ -965,40 +965,40 @@ void SubscriptionRequest::set_allocated_input(::Telemetry::SubscriptionInput* in
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:Telemetry.SubscriptionRequest.input)
+  // @@protoc_insertion_point(field_set_allocated:telemetry.SubscriptionRequest.input)
 }
 
-// repeated .Telemetry.Path path_list = 2;
+// repeated .telemetry.Path path_list = 2;
 int SubscriptionRequest::path_list_size() const {
   return path_list_.size();
 }
 void SubscriptionRequest::clear_path_list() {
   path_list_.Clear();
 }
-const ::Telemetry::Path& SubscriptionRequest::path_list(int index) const {
-  // @@protoc_insertion_point(field_get:Telemetry.SubscriptionRequest.path_list)
+const ::telemetry::Path& SubscriptionRequest::path_list(int index) const {
+  // @@protoc_insertion_point(field_get:telemetry.SubscriptionRequest.path_list)
   return path_list_.Get(index);
 }
-::Telemetry::Path* SubscriptionRequest::mutable_path_list(int index) {
-  // @@protoc_insertion_point(field_mutable:Telemetry.SubscriptionRequest.path_list)
+::telemetry::Path* SubscriptionRequest::mutable_path_list(int index) {
+  // @@protoc_insertion_point(field_mutable:telemetry.SubscriptionRequest.path_list)
   return path_list_.Mutable(index);
 }
-::Telemetry::Path* SubscriptionRequest::add_path_list() {
-  // @@protoc_insertion_point(field_add:Telemetry.SubscriptionRequest.path_list)
+::telemetry::Path* SubscriptionRequest::add_path_list() {
+  // @@protoc_insertion_point(field_add:telemetry.SubscriptionRequest.path_list)
   return path_list_.Add();
 }
-::google::protobuf::RepeatedPtrField< ::Telemetry::Path >*
+::google::protobuf::RepeatedPtrField< ::telemetry::Path >*
 SubscriptionRequest::mutable_path_list() {
-  // @@protoc_insertion_point(field_mutable_list:Telemetry.SubscriptionRequest.path_list)
+  // @@protoc_insertion_point(field_mutable_list:telemetry.SubscriptionRequest.path_list)
   return &path_list_;
 }
-const ::google::protobuf::RepeatedPtrField< ::Telemetry::Path >&
+const ::google::protobuf::RepeatedPtrField< ::telemetry::Path >&
 SubscriptionRequest::path_list() const {
-  // @@protoc_insertion_point(field_list:Telemetry.SubscriptionRequest.path_list)
+  // @@protoc_insertion_point(field_list:telemetry.SubscriptionRequest.path_list)
   return path_list_;
 }
 
-// optional .Telemetry.SubscriptionAdditionalConfig additional_config = 3;
+// optional .telemetry.SubscriptionAdditionalConfig additional_config = 3;
 bool SubscriptionRequest::has_additional_config() const {
   return !_is_default_instance_ && additional_config_ != NULL;
 }
@@ -1006,25 +1006,25 @@ void SubscriptionRequest::clear_additional_config() {
   if (GetArenaNoVirtual() == NULL && additional_config_ != NULL) delete additional_config_;
   additional_config_ = NULL;
 }
-const ::Telemetry::SubscriptionAdditionalConfig& SubscriptionRequest::additional_config() const {
-  // @@protoc_insertion_point(field_get:Telemetry.SubscriptionRequest.additional_config)
+const ::telemetry::SubscriptionAdditionalConfig& SubscriptionRequest::additional_config() const {
+  // @@protoc_insertion_point(field_get:telemetry.SubscriptionRequest.additional_config)
   return additional_config_ != NULL ? *additional_config_ : *default_instance_->additional_config_;
 }
-::Telemetry::SubscriptionAdditionalConfig* SubscriptionRequest::mutable_additional_config() {
+::telemetry::SubscriptionAdditionalConfig* SubscriptionRequest::mutable_additional_config() {
   
   if (additional_config_ == NULL) {
-    additional_config_ = new ::Telemetry::SubscriptionAdditionalConfig;
+    additional_config_ = new ::telemetry::SubscriptionAdditionalConfig;
   }
-  // @@protoc_insertion_point(field_mutable:Telemetry.SubscriptionRequest.additional_config)
+  // @@protoc_insertion_point(field_mutable:telemetry.SubscriptionRequest.additional_config)
   return additional_config_;
 }
-::Telemetry::SubscriptionAdditionalConfig* SubscriptionRequest::release_additional_config() {
+::telemetry::SubscriptionAdditionalConfig* SubscriptionRequest::release_additional_config() {
   
-  ::Telemetry::SubscriptionAdditionalConfig* temp = additional_config_;
+  ::telemetry::SubscriptionAdditionalConfig* temp = additional_config_;
   additional_config_ = NULL;
   return temp;
 }
-void SubscriptionRequest::set_allocated_additional_config(::Telemetry::SubscriptionAdditionalConfig* additional_config) {
+void SubscriptionRequest::set_allocated_additional_config(::telemetry::SubscriptionAdditionalConfig* additional_config) {
   delete additional_config_;
   additional_config_ = additional_config;
   if (additional_config) {
@@ -1032,7 +1032,7 @@ void SubscriptionRequest::set_allocated_additional_config(::Telemetry::Subscript
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:Telemetry.SubscriptionRequest.additional_config)
+  // @@protoc_insertion_point(field_set_allocated:telemetry.SubscriptionRequest.additional_config)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -1046,7 +1046,7 @@ const int SubscriptionInput::kCollectorListFieldNumber;
 SubscriptionInput::SubscriptionInput()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:Telemetry.SubscriptionInput)
+  // @@protoc_insertion_point(constructor:telemetry.SubscriptionInput)
 }
 
 void SubscriptionInput::InitAsDefaultInstance() {
@@ -1058,7 +1058,7 @@ SubscriptionInput::SubscriptionInput(const SubscriptionInput& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:Telemetry.SubscriptionInput)
+  // @@protoc_insertion_point(copy_constructor:telemetry.SubscriptionInput)
 }
 
 void SubscriptionInput::SharedCtor() {
@@ -1067,7 +1067,7 @@ void SubscriptionInput::SharedCtor() {
 }
 
 SubscriptionInput::~SubscriptionInput() {
-  // @@protoc_insertion_point(destructor:Telemetry.SubscriptionInput)
+  // @@protoc_insertion_point(destructor:telemetry.SubscriptionInput)
   SharedDtor();
 }
 
@@ -1109,13 +1109,13 @@ bool SubscriptionInput::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:Telemetry.SubscriptionInput)
+  // @@protoc_insertion_point(parse_start:telemetry.SubscriptionInput)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .Telemetry.Collector collector_list = 1;
+      // repeated .telemetry.Collector collector_list = 1;
       case 1: {
         if (tag == 10) {
           DO_(input->IncrementRecursionDepth());
@@ -1144,44 +1144,44 @@ bool SubscriptionInput::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:Telemetry.SubscriptionInput)
+  // @@protoc_insertion_point(parse_success:telemetry.SubscriptionInput)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:Telemetry.SubscriptionInput)
+  // @@protoc_insertion_point(parse_failure:telemetry.SubscriptionInput)
   return false;
 #undef DO_
 }
 
 void SubscriptionInput::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:Telemetry.SubscriptionInput)
-  // repeated .Telemetry.Collector collector_list = 1;
+  // @@protoc_insertion_point(serialize_start:telemetry.SubscriptionInput)
+  // repeated .telemetry.Collector collector_list = 1;
   for (unsigned int i = 0, n = this->collector_list_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, this->collector_list(i), output);
   }
 
-  // @@protoc_insertion_point(serialize_end:Telemetry.SubscriptionInput)
+  // @@protoc_insertion_point(serialize_end:telemetry.SubscriptionInput)
 }
 
 ::google::protobuf::uint8* SubscriptionInput::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:Telemetry.SubscriptionInput)
-  // repeated .Telemetry.Collector collector_list = 1;
+  // @@protoc_insertion_point(serialize_to_array_start:telemetry.SubscriptionInput)
+  // repeated .telemetry.Collector collector_list = 1;
   for (unsigned int i = 0, n = this->collector_list_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         1, this->collector_list(i), target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:Telemetry.SubscriptionInput)
+  // @@protoc_insertion_point(serialize_to_array_end:telemetry.SubscriptionInput)
   return target;
 }
 
 int SubscriptionInput::ByteSize() const {
   int total_size = 0;
 
-  // repeated .Telemetry.Collector collector_list = 1;
+  // repeated .telemetry.Collector collector_list = 1;
   total_size += 1 * this->collector_list_size();
   for (int i = 0; i < this->collector_list_size(); i++) {
     total_size +=
@@ -1250,33 +1250,33 @@ void SubscriptionInput::InternalSwap(SubscriptionInput* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // SubscriptionInput
 
-// repeated .Telemetry.Collector collector_list = 1;
+// repeated .telemetry.Collector collector_list = 1;
 int SubscriptionInput::collector_list_size() const {
   return collector_list_.size();
 }
 void SubscriptionInput::clear_collector_list() {
   collector_list_.Clear();
 }
-const ::Telemetry::Collector& SubscriptionInput::collector_list(int index) const {
-  // @@protoc_insertion_point(field_get:Telemetry.SubscriptionInput.collector_list)
+const ::telemetry::Collector& SubscriptionInput::collector_list(int index) const {
+  // @@protoc_insertion_point(field_get:telemetry.SubscriptionInput.collector_list)
   return collector_list_.Get(index);
 }
-::Telemetry::Collector* SubscriptionInput::mutable_collector_list(int index) {
-  // @@protoc_insertion_point(field_mutable:Telemetry.SubscriptionInput.collector_list)
+::telemetry::Collector* SubscriptionInput::mutable_collector_list(int index) {
+  // @@protoc_insertion_point(field_mutable:telemetry.SubscriptionInput.collector_list)
   return collector_list_.Mutable(index);
 }
-::Telemetry::Collector* SubscriptionInput::add_collector_list() {
-  // @@protoc_insertion_point(field_add:Telemetry.SubscriptionInput.collector_list)
+::telemetry::Collector* SubscriptionInput::add_collector_list() {
+  // @@protoc_insertion_point(field_add:telemetry.SubscriptionInput.collector_list)
   return collector_list_.Add();
 }
-::google::protobuf::RepeatedPtrField< ::Telemetry::Collector >*
+::google::protobuf::RepeatedPtrField< ::telemetry::Collector >*
 SubscriptionInput::mutable_collector_list() {
-  // @@protoc_insertion_point(field_mutable_list:Telemetry.SubscriptionInput.collector_list)
+  // @@protoc_insertion_point(field_mutable_list:telemetry.SubscriptionInput.collector_list)
   return &collector_list_;
 }
-const ::google::protobuf::RepeatedPtrField< ::Telemetry::Collector >&
+const ::google::protobuf::RepeatedPtrField< ::telemetry::Collector >&
 SubscriptionInput::collector_list() const {
-  // @@protoc_insertion_point(field_list:Telemetry.SubscriptionInput.collector_list)
+  // @@protoc_insertion_point(field_list:telemetry.SubscriptionInput.collector_list)
   return collector_list_;
 }
 
@@ -1292,7 +1292,7 @@ const int Collector::kPortFieldNumber;
 Collector::Collector()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:Telemetry.Collector)
+  // @@protoc_insertion_point(constructor:telemetry.Collector)
 }
 
 void Collector::InitAsDefaultInstance() {
@@ -1304,7 +1304,7 @@ Collector::Collector(const Collector& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:Telemetry.Collector)
+  // @@protoc_insertion_point(copy_constructor:telemetry.Collector)
 }
 
 void Collector::SharedCtor() {
@@ -1316,7 +1316,7 @@ void Collector::SharedCtor() {
 }
 
 Collector::~Collector() {
-  // @@protoc_insertion_point(destructor:Telemetry.Collector)
+  // @@protoc_insertion_point(destructor:telemetry.Collector)
   SharedDtor();
 }
 
@@ -1360,7 +1360,7 @@ bool Collector::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:Telemetry.Collector)
+  // @@protoc_insertion_point(parse_start:telemetry.Collector)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -1374,7 +1374,7 @@ bool Collector::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->address().data(), this->address().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "Telemetry.Collector.address"));
+            "telemetry.Collector.address"));
         } else {
           goto handle_unusual;
         }
@@ -1410,23 +1410,23 @@ bool Collector::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:Telemetry.Collector)
+  // @@protoc_insertion_point(parse_success:telemetry.Collector)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:Telemetry.Collector)
+  // @@protoc_insertion_point(parse_failure:telemetry.Collector)
   return false;
 #undef DO_
 }
 
 void Collector::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:Telemetry.Collector)
+  // @@protoc_insertion_point(serialize_start:telemetry.Collector)
   // optional string address = 1;
   if (this->address().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->address().data(), this->address().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "Telemetry.Collector.address");
+      "telemetry.Collector.address");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->address(), output);
   }
@@ -1436,18 +1436,18 @@ void Collector::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->port(), output);
   }
 
-  // @@protoc_insertion_point(serialize_end:Telemetry.Collector)
+  // @@protoc_insertion_point(serialize_end:telemetry.Collector)
 }
 
 ::google::protobuf::uint8* Collector::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:Telemetry.Collector)
+  // @@protoc_insertion_point(serialize_to_array_start:telemetry.Collector)
   // optional string address = 1;
   if (this->address().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->address().data(), this->address().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "Telemetry.Collector.address");
+      "telemetry.Collector.address");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->address(), target);
@@ -1458,7 +1458,7 @@ void Collector::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->port(), target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:Telemetry.Collector)
+  // @@protoc_insertion_point(serialize_to_array_end:telemetry.Collector)
   return target;
 }
 
@@ -1552,28 +1552,28 @@ void Collector::clear_address() {
   address_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  const ::std::string& Collector::address() const {
-  // @@protoc_insertion_point(field_get:Telemetry.Collector.address)
+  // @@protoc_insertion_point(field_get:telemetry.Collector.address)
   return address_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void Collector::set_address(const ::std::string& value) {
   
   address_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:Telemetry.Collector.address)
+  // @@protoc_insertion_point(field_set:telemetry.Collector.address)
 }
  void Collector::set_address(const char* value) {
   
   address_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:Telemetry.Collector.address)
+  // @@protoc_insertion_point(field_set_char:telemetry.Collector.address)
 }
  void Collector::set_address(const char* value, size_t size) {
   
   address_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:Telemetry.Collector.address)
+  // @@protoc_insertion_point(field_set_pointer:telemetry.Collector.address)
 }
  ::std::string* Collector::mutable_address() {
   
-  // @@protoc_insertion_point(field_mutable:Telemetry.Collector.address)
+  // @@protoc_insertion_point(field_mutable:telemetry.Collector.address)
   return address_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Collector::release_address() {
@@ -1587,7 +1587,7 @@ void Collector::clear_address() {
     
   }
   address_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), address);
-  // @@protoc_insertion_point(field_set_allocated:Telemetry.Collector.address)
+  // @@protoc_insertion_point(field_set_allocated:telemetry.Collector.address)
 }
 
 // optional uint32 port = 2;
@@ -1595,13 +1595,13 @@ void Collector::clear_port() {
   port_ = 0u;
 }
  ::google::protobuf::uint32 Collector::port() const {
-  // @@protoc_insertion_point(field_get:Telemetry.Collector.port)
+  // @@protoc_insertion_point(field_get:telemetry.Collector.port)
   return port_;
 }
  void Collector::set_port(::google::protobuf::uint32 value) {
   
   port_ = value;
-  // @@protoc_insertion_point(field_set:Telemetry.Collector.port)
+  // @@protoc_insertion_point(field_set:telemetry.Collector.port)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -1619,7 +1619,7 @@ const int Path::kSampleFrequencyFieldNumber;
 Path::Path()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:Telemetry.Path)
+  // @@protoc_insertion_point(constructor:telemetry.Path)
 }
 
 void Path::InitAsDefaultInstance() {
@@ -1631,7 +1631,7 @@ Path::Path(const Path& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:Telemetry.Path)
+  // @@protoc_insertion_point(copy_constructor:telemetry.Path)
 }
 
 void Path::SharedCtor() {
@@ -1646,7 +1646,7 @@ void Path::SharedCtor() {
 }
 
 Path::~Path() {
-  // @@protoc_insertion_point(destructor:Telemetry.Path)
+  // @@protoc_insertion_point(destructor:telemetry.Path)
   SharedDtor();
 }
 
@@ -1704,7 +1704,7 @@ bool Path::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:Telemetry.Path)
+  // @@protoc_insertion_point(parse_start:telemetry.Path)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -1718,7 +1718,7 @@ bool Path::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->path().data(), this->path().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "Telemetry.Path.path"));
+            "telemetry.Path.path"));
         } else {
           goto handle_unusual;
         }
@@ -1735,7 +1735,7 @@ bool Path::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->filter().data(), this->filter().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "Telemetry.Path.filter"));
+            "telemetry.Path.filter"));
         } else {
           goto handle_unusual;
         }
@@ -1801,23 +1801,23 @@ bool Path::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:Telemetry.Path)
+  // @@protoc_insertion_point(parse_success:telemetry.Path)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:Telemetry.Path)
+  // @@protoc_insertion_point(parse_failure:telemetry.Path)
   return false;
 #undef DO_
 }
 
 void Path::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:Telemetry.Path)
+  // @@protoc_insertion_point(serialize_start:telemetry.Path)
   // optional string path = 1;
   if (this->path().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->path().data(), this->path().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "Telemetry.Path.path");
+      "telemetry.Path.path");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->path(), output);
   }
@@ -1827,7 +1827,7 @@ void Path::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->filter().data(), this->filter().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "Telemetry.Path.filter");
+      "telemetry.Path.filter");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       2, this->filter(), output);
   }
@@ -1847,18 +1847,18 @@ void Path::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->sample_frequency(), output);
   }
 
-  // @@protoc_insertion_point(serialize_end:Telemetry.Path)
+  // @@protoc_insertion_point(serialize_end:telemetry.Path)
 }
 
 ::google::protobuf::uint8* Path::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:Telemetry.Path)
+  // @@protoc_insertion_point(serialize_to_array_start:telemetry.Path)
   // optional string path = 1;
   if (this->path().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->path().data(), this->path().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "Telemetry.Path.path");
+      "telemetry.Path.path");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->path(), target);
@@ -1869,7 +1869,7 @@ void Path::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->filter().data(), this->filter().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "Telemetry.Path.filter");
+      "telemetry.Path.filter");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         2, this->filter(), target);
@@ -1890,7 +1890,7 @@ void Path::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(5, this->sample_frequency(), target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:Telemetry.Path)
+  // @@protoc_insertion_point(serialize_to_array_end:telemetry.Path)
   return target;
 }
 
@@ -2016,28 +2016,28 @@ void Path::clear_path() {
   path_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  const ::std::string& Path::path() const {
-  // @@protoc_insertion_point(field_get:Telemetry.Path.path)
+  // @@protoc_insertion_point(field_get:telemetry.Path.path)
   return path_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void Path::set_path(const ::std::string& value) {
   
   path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:Telemetry.Path.path)
+  // @@protoc_insertion_point(field_set:telemetry.Path.path)
 }
  void Path::set_path(const char* value) {
   
   path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:Telemetry.Path.path)
+  // @@protoc_insertion_point(field_set_char:telemetry.Path.path)
 }
  void Path::set_path(const char* value, size_t size) {
   
   path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:Telemetry.Path.path)
+  // @@protoc_insertion_point(field_set_pointer:telemetry.Path.path)
 }
  ::std::string* Path::mutable_path() {
   
-  // @@protoc_insertion_point(field_mutable:Telemetry.Path.path)
+  // @@protoc_insertion_point(field_mutable:telemetry.Path.path)
   return path_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Path::release_path() {
@@ -2051,7 +2051,7 @@ void Path::clear_path() {
     
   }
   path_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), path);
-  // @@protoc_insertion_point(field_set_allocated:Telemetry.Path.path)
+  // @@protoc_insertion_point(field_set_allocated:telemetry.Path.path)
 }
 
 // optional string filter = 2;
@@ -2059,28 +2059,28 @@ void Path::clear_filter() {
   filter_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  const ::std::string& Path::filter() const {
-  // @@protoc_insertion_point(field_get:Telemetry.Path.filter)
+  // @@protoc_insertion_point(field_get:telemetry.Path.filter)
   return filter_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void Path::set_filter(const ::std::string& value) {
   
   filter_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:Telemetry.Path.filter)
+  // @@protoc_insertion_point(field_set:telemetry.Path.filter)
 }
  void Path::set_filter(const char* value) {
   
   filter_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:Telemetry.Path.filter)
+  // @@protoc_insertion_point(field_set_char:telemetry.Path.filter)
 }
  void Path::set_filter(const char* value, size_t size) {
   
   filter_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:Telemetry.Path.filter)
+  // @@protoc_insertion_point(field_set_pointer:telemetry.Path.filter)
 }
  ::std::string* Path::mutable_filter() {
   
-  // @@protoc_insertion_point(field_mutable:Telemetry.Path.filter)
+  // @@protoc_insertion_point(field_mutable:telemetry.Path.filter)
   return filter_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Path::release_filter() {
@@ -2094,7 +2094,7 @@ void Path::clear_filter() {
     
   }
   filter_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), filter);
-  // @@protoc_insertion_point(field_set_allocated:Telemetry.Path.filter)
+  // @@protoc_insertion_point(field_set_allocated:telemetry.Path.filter)
 }
 
 // optional bool suppress_unchanged = 3;
@@ -2102,13 +2102,13 @@ void Path::clear_suppress_unchanged() {
   suppress_unchanged_ = false;
 }
  bool Path::suppress_unchanged() const {
-  // @@protoc_insertion_point(field_get:Telemetry.Path.suppress_unchanged)
+  // @@protoc_insertion_point(field_get:telemetry.Path.suppress_unchanged)
   return suppress_unchanged_;
 }
  void Path::set_suppress_unchanged(bool value) {
   
   suppress_unchanged_ = value;
-  // @@protoc_insertion_point(field_set:Telemetry.Path.suppress_unchanged)
+  // @@protoc_insertion_point(field_set:telemetry.Path.suppress_unchanged)
 }
 
 // optional uint32 max_silent_interval = 4;
@@ -2116,13 +2116,13 @@ void Path::clear_max_silent_interval() {
   max_silent_interval_ = 0u;
 }
  ::google::protobuf::uint32 Path::max_silent_interval() const {
-  // @@protoc_insertion_point(field_get:Telemetry.Path.max_silent_interval)
+  // @@protoc_insertion_point(field_get:telemetry.Path.max_silent_interval)
   return max_silent_interval_;
 }
  void Path::set_max_silent_interval(::google::protobuf::uint32 value) {
   
   max_silent_interval_ = value;
-  // @@protoc_insertion_point(field_set:Telemetry.Path.max_silent_interval)
+  // @@protoc_insertion_point(field_set:telemetry.Path.max_silent_interval)
 }
 
 // optional uint32 sample_frequency = 5;
@@ -2130,13 +2130,13 @@ void Path::clear_sample_frequency() {
   sample_frequency_ = 0u;
 }
  ::google::protobuf::uint32 Path::sample_frequency() const {
-  // @@protoc_insertion_point(field_get:Telemetry.Path.sample_frequency)
+  // @@protoc_insertion_point(field_get:telemetry.Path.sample_frequency)
   return sample_frequency_;
 }
  void Path::set_sample_frequency(::google::protobuf::uint32 value) {
   
   sample_frequency_ = value;
-  // @@protoc_insertion_point(field_set:Telemetry.Path.sample_frequency)
+  // @@protoc_insertion_point(field_set:telemetry.Path.sample_frequency)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -2151,7 +2151,7 @@ const int SubscriptionAdditionalConfig::kLimitTimeSecondsFieldNumber;
 SubscriptionAdditionalConfig::SubscriptionAdditionalConfig()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:Telemetry.SubscriptionAdditionalConfig)
+  // @@protoc_insertion_point(constructor:telemetry.SubscriptionAdditionalConfig)
 }
 
 void SubscriptionAdditionalConfig::InitAsDefaultInstance() {
@@ -2163,7 +2163,7 @@ SubscriptionAdditionalConfig::SubscriptionAdditionalConfig(const SubscriptionAdd
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:Telemetry.SubscriptionAdditionalConfig)
+  // @@protoc_insertion_point(copy_constructor:telemetry.SubscriptionAdditionalConfig)
 }
 
 void SubscriptionAdditionalConfig::SharedCtor() {
@@ -2174,7 +2174,7 @@ void SubscriptionAdditionalConfig::SharedCtor() {
 }
 
 SubscriptionAdditionalConfig::~SubscriptionAdditionalConfig() {
-  // @@protoc_insertion_point(destructor:Telemetry.SubscriptionAdditionalConfig)
+  // @@protoc_insertion_point(destructor:telemetry.SubscriptionAdditionalConfig)
   SharedDtor();
 }
 
@@ -2228,7 +2228,7 @@ bool SubscriptionAdditionalConfig::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:Telemetry.SubscriptionAdditionalConfig)
+  // @@protoc_insertion_point(parse_start:telemetry.SubscriptionAdditionalConfig)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -2276,17 +2276,17 @@ bool SubscriptionAdditionalConfig::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:Telemetry.SubscriptionAdditionalConfig)
+  // @@protoc_insertion_point(parse_success:telemetry.SubscriptionAdditionalConfig)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:Telemetry.SubscriptionAdditionalConfig)
+  // @@protoc_insertion_point(parse_failure:telemetry.SubscriptionAdditionalConfig)
   return false;
 #undef DO_
 }
 
 void SubscriptionAdditionalConfig::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:Telemetry.SubscriptionAdditionalConfig)
+  // @@protoc_insertion_point(serialize_start:telemetry.SubscriptionAdditionalConfig)
   // optional int32 limit_records = 1;
   if (this->limit_records() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->limit_records(), output);
@@ -2297,12 +2297,12 @@ void SubscriptionAdditionalConfig::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->limit_time_seconds(), output);
   }
 
-  // @@protoc_insertion_point(serialize_end:Telemetry.SubscriptionAdditionalConfig)
+  // @@protoc_insertion_point(serialize_end:telemetry.SubscriptionAdditionalConfig)
 }
 
 ::google::protobuf::uint8* SubscriptionAdditionalConfig::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:Telemetry.SubscriptionAdditionalConfig)
+  // @@protoc_insertion_point(serialize_to_array_start:telemetry.SubscriptionAdditionalConfig)
   // optional int32 limit_records = 1;
   if (this->limit_records() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->limit_records(), target);
@@ -2313,7 +2313,7 @@ void SubscriptionAdditionalConfig::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->limit_time_seconds(), target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:Telemetry.SubscriptionAdditionalConfig)
+  // @@protoc_insertion_point(serialize_to_array_end:telemetry.SubscriptionAdditionalConfig)
   return target;
 }
 
@@ -2406,13 +2406,13 @@ void SubscriptionAdditionalConfig::clear_limit_records() {
   limit_records_ = 0;
 }
  ::google::protobuf::int32 SubscriptionAdditionalConfig::limit_records() const {
-  // @@protoc_insertion_point(field_get:Telemetry.SubscriptionAdditionalConfig.limit_records)
+  // @@protoc_insertion_point(field_get:telemetry.SubscriptionAdditionalConfig.limit_records)
   return limit_records_;
 }
  void SubscriptionAdditionalConfig::set_limit_records(::google::protobuf::int32 value) {
   
   limit_records_ = value;
-  // @@protoc_insertion_point(field_set:Telemetry.SubscriptionAdditionalConfig.limit_records)
+  // @@protoc_insertion_point(field_set:telemetry.SubscriptionAdditionalConfig.limit_records)
 }
 
 // optional int32 limit_time_seconds = 2;
@@ -2420,13 +2420,13 @@ void SubscriptionAdditionalConfig::clear_limit_time_seconds() {
   limit_time_seconds_ = 0;
 }
  ::google::protobuf::int32 SubscriptionAdditionalConfig::limit_time_seconds() const {
-  // @@protoc_insertion_point(field_get:Telemetry.SubscriptionAdditionalConfig.limit_time_seconds)
+  // @@protoc_insertion_point(field_get:telemetry.SubscriptionAdditionalConfig.limit_time_seconds)
   return limit_time_seconds_;
 }
  void SubscriptionAdditionalConfig::set_limit_time_seconds(::google::protobuf::int32 value) {
   
   limit_time_seconds_ = value;
-  // @@protoc_insertion_point(field_set:Telemetry.SubscriptionAdditionalConfig.limit_time_seconds)
+  // @@protoc_insertion_point(field_set:telemetry.SubscriptionAdditionalConfig.limit_time_seconds)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -2441,12 +2441,12 @@ const int SubscriptionReply::kPathListFieldNumber;
 SubscriptionReply::SubscriptionReply()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:Telemetry.SubscriptionReply)
+  // @@protoc_insertion_point(constructor:telemetry.SubscriptionReply)
 }
 
 void SubscriptionReply::InitAsDefaultInstance() {
   _is_default_instance_ = true;
-  response_ = const_cast< ::Telemetry::SubscriptionResponse*>(&::Telemetry::SubscriptionResponse::default_instance());
+  response_ = const_cast< ::telemetry::SubscriptionResponse*>(&::telemetry::SubscriptionResponse::default_instance());
 }
 
 SubscriptionReply::SubscriptionReply(const SubscriptionReply& from)
@@ -2454,7 +2454,7 @@ SubscriptionReply::SubscriptionReply(const SubscriptionReply& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:Telemetry.SubscriptionReply)
+  // @@protoc_insertion_point(copy_constructor:telemetry.SubscriptionReply)
 }
 
 void SubscriptionReply::SharedCtor() {
@@ -2464,7 +2464,7 @@ void SubscriptionReply::SharedCtor() {
 }
 
 SubscriptionReply::~SubscriptionReply() {
-  // @@protoc_insertion_point(destructor:Telemetry.SubscriptionReply)
+  // @@protoc_insertion_point(destructor:telemetry.SubscriptionReply)
   SharedDtor();
 }
 
@@ -2509,13 +2509,13 @@ bool SubscriptionReply::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:Telemetry.SubscriptionReply)
+  // @@protoc_insertion_point(parse_start:telemetry.SubscriptionReply)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional .Telemetry.SubscriptionResponse response = 1;
+      // optional .telemetry.SubscriptionResponse response = 1;
       case 1: {
         if (tag == 10) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
@@ -2527,7 +2527,7 @@ bool SubscriptionReply::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .Telemetry.Path path_list = 2;
+      // repeated .telemetry.Path path_list = 2;
       case 2: {
         if (tag == 18) {
          parse_path_list:
@@ -2557,64 +2557,64 @@ bool SubscriptionReply::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:Telemetry.SubscriptionReply)
+  // @@protoc_insertion_point(parse_success:telemetry.SubscriptionReply)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:Telemetry.SubscriptionReply)
+  // @@protoc_insertion_point(parse_failure:telemetry.SubscriptionReply)
   return false;
 #undef DO_
 }
 
 void SubscriptionReply::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:Telemetry.SubscriptionReply)
-  // optional .Telemetry.SubscriptionResponse response = 1;
+  // @@protoc_insertion_point(serialize_start:telemetry.SubscriptionReply)
+  // optional .telemetry.SubscriptionResponse response = 1;
   if (this->has_response()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, *this->response_, output);
   }
 
-  // repeated .Telemetry.Path path_list = 2;
+  // repeated .telemetry.Path path_list = 2;
   for (unsigned int i = 0, n = this->path_list_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, this->path_list(i), output);
   }
 
-  // @@protoc_insertion_point(serialize_end:Telemetry.SubscriptionReply)
+  // @@protoc_insertion_point(serialize_end:telemetry.SubscriptionReply)
 }
 
 ::google::protobuf::uint8* SubscriptionReply::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:Telemetry.SubscriptionReply)
-  // optional .Telemetry.SubscriptionResponse response = 1;
+  // @@protoc_insertion_point(serialize_to_array_start:telemetry.SubscriptionReply)
+  // optional .telemetry.SubscriptionResponse response = 1;
   if (this->has_response()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         1, *this->response_, target);
   }
 
-  // repeated .Telemetry.Path path_list = 2;
+  // repeated .telemetry.Path path_list = 2;
   for (unsigned int i = 0, n = this->path_list_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         2, this->path_list(i), target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:Telemetry.SubscriptionReply)
+  // @@protoc_insertion_point(serialize_to_array_end:telemetry.SubscriptionReply)
   return target;
 }
 
 int SubscriptionReply::ByteSize() const {
   int total_size = 0;
 
-  // optional .Telemetry.SubscriptionResponse response = 1;
+  // optional .telemetry.SubscriptionResponse response = 1;
   if (this->has_response()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->response_);
   }
 
-  // repeated .Telemetry.Path path_list = 2;
+  // repeated .telemetry.Path path_list = 2;
   total_size += 1 * this->path_list_size();
   for (int i = 0; i < this->path_list_size(); i++) {
     total_size +=
@@ -2644,7 +2644,7 @@ void SubscriptionReply::MergeFrom(const SubscriptionReply& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   path_list_.MergeFrom(from.path_list_);
   if (from.has_response()) {
-    mutable_response()->::Telemetry::SubscriptionResponse::MergeFrom(from.response());
+    mutable_response()->::telemetry::SubscriptionResponse::MergeFrom(from.response());
   }
 }
 
@@ -2687,7 +2687,7 @@ void SubscriptionReply::InternalSwap(SubscriptionReply* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // SubscriptionReply
 
-// optional .Telemetry.SubscriptionResponse response = 1;
+// optional .telemetry.SubscriptionResponse response = 1;
 bool SubscriptionReply::has_response() const {
   return !_is_default_instance_ && response_ != NULL;
 }
@@ -2695,25 +2695,25 @@ void SubscriptionReply::clear_response() {
   if (GetArenaNoVirtual() == NULL && response_ != NULL) delete response_;
   response_ = NULL;
 }
-const ::Telemetry::SubscriptionResponse& SubscriptionReply::response() const {
-  // @@protoc_insertion_point(field_get:Telemetry.SubscriptionReply.response)
+const ::telemetry::SubscriptionResponse& SubscriptionReply::response() const {
+  // @@protoc_insertion_point(field_get:telemetry.SubscriptionReply.response)
   return response_ != NULL ? *response_ : *default_instance_->response_;
 }
-::Telemetry::SubscriptionResponse* SubscriptionReply::mutable_response() {
+::telemetry::SubscriptionResponse* SubscriptionReply::mutable_response() {
   
   if (response_ == NULL) {
-    response_ = new ::Telemetry::SubscriptionResponse;
+    response_ = new ::telemetry::SubscriptionResponse;
   }
-  // @@protoc_insertion_point(field_mutable:Telemetry.SubscriptionReply.response)
+  // @@protoc_insertion_point(field_mutable:telemetry.SubscriptionReply.response)
   return response_;
 }
-::Telemetry::SubscriptionResponse* SubscriptionReply::release_response() {
+::telemetry::SubscriptionResponse* SubscriptionReply::release_response() {
   
-  ::Telemetry::SubscriptionResponse* temp = response_;
+  ::telemetry::SubscriptionResponse* temp = response_;
   response_ = NULL;
   return temp;
 }
-void SubscriptionReply::set_allocated_response(::Telemetry::SubscriptionResponse* response) {
+void SubscriptionReply::set_allocated_response(::telemetry::SubscriptionResponse* response) {
   delete response_;
   response_ = response;
   if (response) {
@@ -2721,36 +2721,36 @@ void SubscriptionReply::set_allocated_response(::Telemetry::SubscriptionResponse
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:Telemetry.SubscriptionReply.response)
+  // @@protoc_insertion_point(field_set_allocated:telemetry.SubscriptionReply.response)
 }
 
-// repeated .Telemetry.Path path_list = 2;
+// repeated .telemetry.Path path_list = 2;
 int SubscriptionReply::path_list_size() const {
   return path_list_.size();
 }
 void SubscriptionReply::clear_path_list() {
   path_list_.Clear();
 }
-const ::Telemetry::Path& SubscriptionReply::path_list(int index) const {
-  // @@protoc_insertion_point(field_get:Telemetry.SubscriptionReply.path_list)
+const ::telemetry::Path& SubscriptionReply::path_list(int index) const {
+  // @@protoc_insertion_point(field_get:telemetry.SubscriptionReply.path_list)
   return path_list_.Get(index);
 }
-::Telemetry::Path* SubscriptionReply::mutable_path_list(int index) {
-  // @@protoc_insertion_point(field_mutable:Telemetry.SubscriptionReply.path_list)
+::telemetry::Path* SubscriptionReply::mutable_path_list(int index) {
+  // @@protoc_insertion_point(field_mutable:telemetry.SubscriptionReply.path_list)
   return path_list_.Mutable(index);
 }
-::Telemetry::Path* SubscriptionReply::add_path_list() {
-  // @@protoc_insertion_point(field_add:Telemetry.SubscriptionReply.path_list)
+::telemetry::Path* SubscriptionReply::add_path_list() {
+  // @@protoc_insertion_point(field_add:telemetry.SubscriptionReply.path_list)
   return path_list_.Add();
 }
-::google::protobuf::RepeatedPtrField< ::Telemetry::Path >*
+::google::protobuf::RepeatedPtrField< ::telemetry::Path >*
 SubscriptionReply::mutable_path_list() {
-  // @@protoc_insertion_point(field_mutable_list:Telemetry.SubscriptionReply.path_list)
+  // @@protoc_insertion_point(field_mutable_list:telemetry.SubscriptionReply.path_list)
   return &path_list_;
 }
-const ::google::protobuf::RepeatedPtrField< ::Telemetry::Path >&
+const ::google::protobuf::RepeatedPtrField< ::telemetry::Path >&
 SubscriptionReply::path_list() const {
-  // @@protoc_insertion_point(field_list:Telemetry.SubscriptionReply.path_list)
+  // @@protoc_insertion_point(field_list:telemetry.SubscriptionReply.path_list)
   return path_list_;
 }
 
@@ -2765,7 +2765,7 @@ const int SubscriptionResponse::kSubscriptionIdFieldNumber;
 SubscriptionResponse::SubscriptionResponse()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:Telemetry.SubscriptionResponse)
+  // @@protoc_insertion_point(constructor:telemetry.SubscriptionResponse)
 }
 
 void SubscriptionResponse::InitAsDefaultInstance() {
@@ -2777,7 +2777,7 @@ SubscriptionResponse::SubscriptionResponse(const SubscriptionResponse& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:Telemetry.SubscriptionResponse)
+  // @@protoc_insertion_point(copy_constructor:telemetry.SubscriptionResponse)
 }
 
 void SubscriptionResponse::SharedCtor() {
@@ -2787,7 +2787,7 @@ void SubscriptionResponse::SharedCtor() {
 }
 
 SubscriptionResponse::~SubscriptionResponse() {
-  // @@protoc_insertion_point(destructor:Telemetry.SubscriptionResponse)
+  // @@protoc_insertion_point(destructor:telemetry.SubscriptionResponse)
   SharedDtor();
 }
 
@@ -2829,7 +2829,7 @@ bool SubscriptionResponse::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:Telemetry.SubscriptionResponse)
+  // @@protoc_insertion_point(parse_start:telemetry.SubscriptionResponse)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -2862,34 +2862,34 @@ bool SubscriptionResponse::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:Telemetry.SubscriptionResponse)
+  // @@protoc_insertion_point(parse_success:telemetry.SubscriptionResponse)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:Telemetry.SubscriptionResponse)
+  // @@protoc_insertion_point(parse_failure:telemetry.SubscriptionResponse)
   return false;
 #undef DO_
 }
 
 void SubscriptionResponse::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:Telemetry.SubscriptionResponse)
+  // @@protoc_insertion_point(serialize_start:telemetry.SubscriptionResponse)
   // optional uint32 subscription_id = 1;
   if (this->subscription_id() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->subscription_id(), output);
   }
 
-  // @@protoc_insertion_point(serialize_end:Telemetry.SubscriptionResponse)
+  // @@protoc_insertion_point(serialize_end:telemetry.SubscriptionResponse)
 }
 
 ::google::protobuf::uint8* SubscriptionResponse::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:Telemetry.SubscriptionResponse)
+  // @@protoc_insertion_point(serialize_to_array_start:telemetry.SubscriptionResponse)
   // optional uint32 subscription_id = 1;
   if (this->subscription_id() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->subscription_id(), target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:Telemetry.SubscriptionResponse)
+  // @@protoc_insertion_point(serialize_to_array_end:telemetry.SubscriptionResponse)
   return target;
 }
 
@@ -2971,13 +2971,13 @@ void SubscriptionResponse::clear_subscription_id() {
   subscription_id_ = 0u;
 }
  ::google::protobuf::uint32 SubscriptionResponse::subscription_id() const {
-  // @@protoc_insertion_point(field_get:Telemetry.SubscriptionResponse.subscription_id)
+  // @@protoc_insertion_point(field_get:telemetry.SubscriptionResponse.subscription_id)
   return subscription_id_;
 }
  void SubscriptionResponse::set_subscription_id(::google::protobuf::uint32 value) {
   
   subscription_id_ = value;
-  // @@protoc_insertion_point(field_set:Telemetry.SubscriptionResponse.subscription_id)
+  // @@protoc_insertion_point(field_set:telemetry.SubscriptionResponse.subscription_id)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -2997,7 +2997,7 @@ const int OpenConfigData::kKvFieldNumber;
 OpenConfigData::OpenConfigData()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:Telemetry.OpenConfigData)
+  // @@protoc_insertion_point(constructor:telemetry.OpenConfigData)
 }
 
 void OpenConfigData::InitAsDefaultInstance() {
@@ -3009,7 +3009,7 @@ OpenConfigData::OpenConfigData(const OpenConfigData& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:Telemetry.OpenConfigData)
+  // @@protoc_insertion_point(copy_constructor:telemetry.OpenConfigData)
 }
 
 void OpenConfigData::SharedCtor() {
@@ -3025,7 +3025,7 @@ void OpenConfigData::SharedCtor() {
 }
 
 OpenConfigData::~OpenConfigData() {
-  // @@protoc_insertion_point(destructor:Telemetry.OpenConfigData)
+  // @@protoc_insertion_point(destructor:telemetry.OpenConfigData)
   SharedDtor();
 }
 
@@ -3085,7 +3085,7 @@ bool OpenConfigData::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:Telemetry.OpenConfigData)
+  // @@protoc_insertion_point(parse_start:telemetry.OpenConfigData)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -3099,7 +3099,7 @@ bool OpenConfigData::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->system_id().data(), this->system_id().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "Telemetry.OpenConfigData.system_id"));
+            "telemetry.OpenConfigData.system_id"));
         } else {
           goto handle_unusual;
         }
@@ -3146,7 +3146,7 @@ bool OpenConfigData::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->path().data(), this->path().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "Telemetry.OpenConfigData.path"));
+            "telemetry.OpenConfigData.path"));
         } else {
           goto handle_unusual;
         }
@@ -3184,7 +3184,7 @@ bool OpenConfigData::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .Telemetry.KeyValue kv = 7;
+      // repeated .telemetry.KeyValue kv = 7;
       case 7: {
         if (tag == 58) {
          parse_kv:
@@ -3214,23 +3214,23 @@ bool OpenConfigData::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:Telemetry.OpenConfigData)
+  // @@protoc_insertion_point(parse_success:telemetry.OpenConfigData)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:Telemetry.OpenConfigData)
+  // @@protoc_insertion_point(parse_failure:telemetry.OpenConfigData)
   return false;
 #undef DO_
 }
 
 void OpenConfigData::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:Telemetry.OpenConfigData)
+  // @@protoc_insertion_point(serialize_start:telemetry.OpenConfigData)
   // optional string system_id = 1;
   if (this->system_id().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->system_id().data(), this->system_id().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "Telemetry.OpenConfigData.system_id");
+      "telemetry.OpenConfigData.system_id");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->system_id(), output);
   }
@@ -3250,7 +3250,7 @@ void OpenConfigData::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->path().data(), this->path().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "Telemetry.OpenConfigData.path");
+      "telemetry.OpenConfigData.path");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       4, this->path(), output);
   }
@@ -3265,24 +3265,24 @@ void OpenConfigData::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(6, this->timestamp(), output);
   }
 
-  // repeated .Telemetry.KeyValue kv = 7;
+  // repeated .telemetry.KeyValue kv = 7;
   for (unsigned int i = 0, n = this->kv_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       7, this->kv(i), output);
   }
 
-  // @@protoc_insertion_point(serialize_end:Telemetry.OpenConfigData)
+  // @@protoc_insertion_point(serialize_end:telemetry.OpenConfigData)
 }
 
 ::google::protobuf::uint8* OpenConfigData::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:Telemetry.OpenConfigData)
+  // @@protoc_insertion_point(serialize_to_array_start:telemetry.OpenConfigData)
   // optional string system_id = 1;
   if (this->system_id().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->system_id().data(), this->system_id().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "Telemetry.OpenConfigData.system_id");
+      "telemetry.OpenConfigData.system_id");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->system_id(), target);
@@ -3303,7 +3303,7 @@ void OpenConfigData::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->path().data(), this->path().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "Telemetry.OpenConfigData.path");
+      "telemetry.OpenConfigData.path");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         4, this->path(), target);
@@ -3319,14 +3319,14 @@ void OpenConfigData::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(6, this->timestamp(), target);
   }
 
-  // repeated .Telemetry.KeyValue kv = 7;
+  // repeated .telemetry.KeyValue kv = 7;
   for (unsigned int i = 0, n = this->kv_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         7, this->kv(i), target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:Telemetry.OpenConfigData)
+  // @@protoc_insertion_point(serialize_to_array_end:telemetry.OpenConfigData)
   return target;
 }
 
@@ -3375,7 +3375,7 @@ int OpenConfigData::ByteSize() const {
         this->timestamp());
   }
 
-  // repeated .Telemetry.KeyValue kv = 7;
+  // repeated .telemetry.KeyValue kv = 7;
   total_size += 1 * this->kv_size();
   for (int i = 0; i < this->kv_size(); i++) {
     total_size +=
@@ -3475,28 +3475,28 @@ void OpenConfigData::clear_system_id() {
   system_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  const ::std::string& OpenConfigData::system_id() const {
-  // @@protoc_insertion_point(field_get:Telemetry.OpenConfigData.system_id)
+  // @@protoc_insertion_point(field_get:telemetry.OpenConfigData.system_id)
   return system_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void OpenConfigData::set_system_id(const ::std::string& value) {
   
   system_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:Telemetry.OpenConfigData.system_id)
+  // @@protoc_insertion_point(field_set:telemetry.OpenConfigData.system_id)
 }
  void OpenConfigData::set_system_id(const char* value) {
   
   system_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:Telemetry.OpenConfigData.system_id)
+  // @@protoc_insertion_point(field_set_char:telemetry.OpenConfigData.system_id)
 }
  void OpenConfigData::set_system_id(const char* value, size_t size) {
   
   system_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:Telemetry.OpenConfigData.system_id)
+  // @@protoc_insertion_point(field_set_pointer:telemetry.OpenConfigData.system_id)
 }
  ::std::string* OpenConfigData::mutable_system_id() {
   
-  // @@protoc_insertion_point(field_mutable:Telemetry.OpenConfigData.system_id)
+  // @@protoc_insertion_point(field_mutable:telemetry.OpenConfigData.system_id)
   return system_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* OpenConfigData::release_system_id() {
@@ -3510,7 +3510,7 @@ void OpenConfigData::clear_system_id() {
     
   }
   system_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), system_id);
-  // @@protoc_insertion_point(field_set_allocated:Telemetry.OpenConfigData.system_id)
+  // @@protoc_insertion_point(field_set_allocated:telemetry.OpenConfigData.system_id)
 }
 
 // optional uint32 component_id = 2;
@@ -3518,13 +3518,13 @@ void OpenConfigData::clear_component_id() {
   component_id_ = 0u;
 }
  ::google::protobuf::uint32 OpenConfigData::component_id() const {
-  // @@protoc_insertion_point(field_get:Telemetry.OpenConfigData.component_id)
+  // @@protoc_insertion_point(field_get:telemetry.OpenConfigData.component_id)
   return component_id_;
 }
  void OpenConfigData::set_component_id(::google::protobuf::uint32 value) {
   
   component_id_ = value;
-  // @@protoc_insertion_point(field_set:Telemetry.OpenConfigData.component_id)
+  // @@protoc_insertion_point(field_set:telemetry.OpenConfigData.component_id)
 }
 
 // optional uint32 sub_component_id = 3;
@@ -3532,13 +3532,13 @@ void OpenConfigData::clear_sub_component_id() {
   sub_component_id_ = 0u;
 }
  ::google::protobuf::uint32 OpenConfigData::sub_component_id() const {
-  // @@protoc_insertion_point(field_get:Telemetry.OpenConfigData.sub_component_id)
+  // @@protoc_insertion_point(field_get:telemetry.OpenConfigData.sub_component_id)
   return sub_component_id_;
 }
  void OpenConfigData::set_sub_component_id(::google::protobuf::uint32 value) {
   
   sub_component_id_ = value;
-  // @@protoc_insertion_point(field_set:Telemetry.OpenConfigData.sub_component_id)
+  // @@protoc_insertion_point(field_set:telemetry.OpenConfigData.sub_component_id)
 }
 
 // optional string path = 4;
@@ -3546,28 +3546,28 @@ void OpenConfigData::clear_path() {
   path_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  const ::std::string& OpenConfigData::path() const {
-  // @@protoc_insertion_point(field_get:Telemetry.OpenConfigData.path)
+  // @@protoc_insertion_point(field_get:telemetry.OpenConfigData.path)
   return path_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void OpenConfigData::set_path(const ::std::string& value) {
   
   path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:Telemetry.OpenConfigData.path)
+  // @@protoc_insertion_point(field_set:telemetry.OpenConfigData.path)
 }
  void OpenConfigData::set_path(const char* value) {
   
   path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:Telemetry.OpenConfigData.path)
+  // @@protoc_insertion_point(field_set_char:telemetry.OpenConfigData.path)
 }
  void OpenConfigData::set_path(const char* value, size_t size) {
   
   path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:Telemetry.OpenConfigData.path)
+  // @@protoc_insertion_point(field_set_pointer:telemetry.OpenConfigData.path)
 }
  ::std::string* OpenConfigData::mutable_path() {
   
-  // @@protoc_insertion_point(field_mutable:Telemetry.OpenConfigData.path)
+  // @@protoc_insertion_point(field_mutable:telemetry.OpenConfigData.path)
   return path_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* OpenConfigData::release_path() {
@@ -3581,7 +3581,7 @@ void OpenConfigData::clear_path() {
     
   }
   path_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), path);
-  // @@protoc_insertion_point(field_set_allocated:Telemetry.OpenConfigData.path)
+  // @@protoc_insertion_point(field_set_allocated:telemetry.OpenConfigData.path)
 }
 
 // optional uint64 sequence_number = 5;
@@ -3589,13 +3589,13 @@ void OpenConfigData::clear_sequence_number() {
   sequence_number_ = GOOGLE_ULONGLONG(0);
 }
  ::google::protobuf::uint64 OpenConfigData::sequence_number() const {
-  // @@protoc_insertion_point(field_get:Telemetry.OpenConfigData.sequence_number)
+  // @@protoc_insertion_point(field_get:telemetry.OpenConfigData.sequence_number)
   return sequence_number_;
 }
  void OpenConfigData::set_sequence_number(::google::protobuf::uint64 value) {
   
   sequence_number_ = value;
-  // @@protoc_insertion_point(field_set:Telemetry.OpenConfigData.sequence_number)
+  // @@protoc_insertion_point(field_set:telemetry.OpenConfigData.sequence_number)
 }
 
 // optional uint64 timestamp = 6;
@@ -3603,42 +3603,42 @@ void OpenConfigData::clear_timestamp() {
   timestamp_ = GOOGLE_ULONGLONG(0);
 }
  ::google::protobuf::uint64 OpenConfigData::timestamp() const {
-  // @@protoc_insertion_point(field_get:Telemetry.OpenConfigData.timestamp)
+  // @@protoc_insertion_point(field_get:telemetry.OpenConfigData.timestamp)
   return timestamp_;
 }
  void OpenConfigData::set_timestamp(::google::protobuf::uint64 value) {
   
   timestamp_ = value;
-  // @@protoc_insertion_point(field_set:Telemetry.OpenConfigData.timestamp)
+  // @@protoc_insertion_point(field_set:telemetry.OpenConfigData.timestamp)
 }
 
-// repeated .Telemetry.KeyValue kv = 7;
+// repeated .telemetry.KeyValue kv = 7;
 int OpenConfigData::kv_size() const {
   return kv_.size();
 }
 void OpenConfigData::clear_kv() {
   kv_.Clear();
 }
-const ::Telemetry::KeyValue& OpenConfigData::kv(int index) const {
-  // @@protoc_insertion_point(field_get:Telemetry.OpenConfigData.kv)
+const ::telemetry::KeyValue& OpenConfigData::kv(int index) const {
+  // @@protoc_insertion_point(field_get:telemetry.OpenConfigData.kv)
   return kv_.Get(index);
 }
-::Telemetry::KeyValue* OpenConfigData::mutable_kv(int index) {
-  // @@protoc_insertion_point(field_mutable:Telemetry.OpenConfigData.kv)
+::telemetry::KeyValue* OpenConfigData::mutable_kv(int index) {
+  // @@protoc_insertion_point(field_mutable:telemetry.OpenConfigData.kv)
   return kv_.Mutable(index);
 }
-::Telemetry::KeyValue* OpenConfigData::add_kv() {
-  // @@protoc_insertion_point(field_add:Telemetry.OpenConfigData.kv)
+::telemetry::KeyValue* OpenConfigData::add_kv() {
+  // @@protoc_insertion_point(field_add:telemetry.OpenConfigData.kv)
   return kv_.Add();
 }
-::google::protobuf::RepeatedPtrField< ::Telemetry::KeyValue >*
+::google::protobuf::RepeatedPtrField< ::telemetry::KeyValue >*
 OpenConfigData::mutable_kv() {
-  // @@protoc_insertion_point(field_mutable_list:Telemetry.OpenConfigData.kv)
+  // @@protoc_insertion_point(field_mutable_list:telemetry.OpenConfigData.kv)
   return &kv_;
 }
-const ::google::protobuf::RepeatedPtrField< ::Telemetry::KeyValue >&
+const ::google::protobuf::RepeatedPtrField< ::telemetry::KeyValue >&
 OpenConfigData::kv() const {
-  // @@protoc_insertion_point(field_list:Telemetry.OpenConfigData.kv)
+  // @@protoc_insertion_point(field_list:telemetry.OpenConfigData.kv)
   return kv_;
 }
 
@@ -3660,7 +3660,7 @@ const int KeyValue::kBytesValueFieldNumber;
 KeyValue::KeyValue()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:Telemetry.KeyValue)
+  // @@protoc_insertion_point(constructor:telemetry.KeyValue)
 }
 
 void KeyValue::InitAsDefaultInstance() {
@@ -3679,7 +3679,7 @@ KeyValue::KeyValue(const KeyValue& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:Telemetry.KeyValue)
+  // @@protoc_insertion_point(copy_constructor:telemetry.KeyValue)
 }
 
 void KeyValue::SharedCtor() {
@@ -3691,7 +3691,7 @@ void KeyValue::SharedCtor() {
 }
 
 KeyValue::~KeyValue() {
-  // @@protoc_insertion_point(destructor:Telemetry.KeyValue)
+  // @@protoc_insertion_point(destructor:telemetry.KeyValue)
   SharedDtor();
 }
 
@@ -3776,7 +3776,7 @@ bool KeyValue::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:Telemetry.KeyValue)
+  // @@protoc_insertion_point(parse_start:telemetry.KeyValue)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -3790,7 +3790,7 @@ bool KeyValue::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->key().data(), this->key().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "Telemetry.KeyValue.key"));
+            "telemetry.KeyValue.key"));
         } else {
           goto handle_unusual;
         }
@@ -3887,7 +3887,7 @@ bool KeyValue::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->str_value().data(), this->str_value().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "Telemetry.KeyValue.str_value"));
+            "telemetry.KeyValue.str_value"));
         } else {
           goto handle_unusual;
         }
@@ -3921,23 +3921,23 @@ bool KeyValue::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:Telemetry.KeyValue)
+  // @@protoc_insertion_point(parse_success:telemetry.KeyValue)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:Telemetry.KeyValue)
+  // @@protoc_insertion_point(parse_failure:telemetry.KeyValue)
   return false;
 #undef DO_
 }
 
 void KeyValue::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:Telemetry.KeyValue)
+  // @@protoc_insertion_point(serialize_start:telemetry.KeyValue)
   // optional string key = 1;
   if (this->key().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->key().data(), this->key().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "Telemetry.KeyValue.key");
+      "telemetry.KeyValue.key");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->key(), output);
   }
@@ -3972,7 +3972,7 @@ void KeyValue::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->str_value().data(), this->str_value().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "Telemetry.KeyValue.str_value");
+      "telemetry.KeyValue.str_value");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       10, this->str_value(), output);
   }
@@ -3983,18 +3983,18 @@ void KeyValue::SerializeWithCachedSizes(
       11, this->bytes_value(), output);
   }
 
-  // @@protoc_insertion_point(serialize_end:Telemetry.KeyValue)
+  // @@protoc_insertion_point(serialize_end:telemetry.KeyValue)
 }
 
 ::google::protobuf::uint8* KeyValue::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:Telemetry.KeyValue)
+  // @@protoc_insertion_point(serialize_to_array_start:telemetry.KeyValue)
   // optional string key = 1;
   if (this->key().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->key().data(), this->key().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "Telemetry.KeyValue.key");
+      "telemetry.KeyValue.key");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->key(), target);
@@ -4030,7 +4030,7 @@ void KeyValue::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->str_value().data(), this->str_value().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "Telemetry.KeyValue.str_value");
+      "telemetry.KeyValue.str_value");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         10, this->str_value(), target);
@@ -4043,7 +4043,7 @@ void KeyValue::SerializeWithCachedSizes(
         11, this->bytes_value(), target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:Telemetry.KeyValue)
+  // @@protoc_insertion_point(serialize_to_array_end:telemetry.KeyValue)
   return target;
 }
 
@@ -4211,28 +4211,28 @@ void KeyValue::clear_key() {
   key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  const ::std::string& KeyValue::key() const {
-  // @@protoc_insertion_point(field_get:Telemetry.KeyValue.key)
+  // @@protoc_insertion_point(field_get:telemetry.KeyValue.key)
   return key_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void KeyValue::set_key(const ::std::string& value) {
   
   key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:Telemetry.KeyValue.key)
+  // @@protoc_insertion_point(field_set:telemetry.KeyValue.key)
 }
  void KeyValue::set_key(const char* value) {
   
   key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:Telemetry.KeyValue.key)
+  // @@protoc_insertion_point(field_set_char:telemetry.KeyValue.key)
 }
  void KeyValue::set_key(const char* value, size_t size) {
   
   key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:Telemetry.KeyValue.key)
+  // @@protoc_insertion_point(field_set_pointer:telemetry.KeyValue.key)
 }
  ::std::string* KeyValue::mutable_key() {
   
-  // @@protoc_insertion_point(field_mutable:Telemetry.KeyValue.key)
+  // @@protoc_insertion_point(field_mutable:telemetry.KeyValue.key)
   return key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* KeyValue::release_key() {
@@ -4246,7 +4246,7 @@ void KeyValue::clear_key() {
     
   }
   key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), key);
-  // @@protoc_insertion_point(field_set_allocated:Telemetry.KeyValue.key)
+  // @@protoc_insertion_point(field_set_allocated:telemetry.KeyValue.key)
 }
 
 // optional double double_value = 5;
@@ -4263,7 +4263,7 @@ void KeyValue::clear_double_value() {
   }
 }
  double KeyValue::double_value() const {
-  // @@protoc_insertion_point(field_get:Telemetry.KeyValue.double_value)
+  // @@protoc_insertion_point(field_get:telemetry.KeyValue.double_value)
   if (has_double_value()) {
     return value_.double_value_;
   }
@@ -4275,7 +4275,7 @@ void KeyValue::clear_double_value() {
     set_has_double_value();
   }
   value_.double_value_ = value;
-  // @@protoc_insertion_point(field_set:Telemetry.KeyValue.double_value)
+  // @@protoc_insertion_point(field_set:telemetry.KeyValue.double_value)
 }
 
 // optional int64 int_value = 6;
@@ -4292,7 +4292,7 @@ void KeyValue::clear_int_value() {
   }
 }
  ::google::protobuf::int64 KeyValue::int_value() const {
-  // @@protoc_insertion_point(field_get:Telemetry.KeyValue.int_value)
+  // @@protoc_insertion_point(field_get:telemetry.KeyValue.int_value)
   if (has_int_value()) {
     return value_.int_value_;
   }
@@ -4304,7 +4304,7 @@ void KeyValue::clear_int_value() {
     set_has_int_value();
   }
   value_.int_value_ = value;
-  // @@protoc_insertion_point(field_set:Telemetry.KeyValue.int_value)
+  // @@protoc_insertion_point(field_set:telemetry.KeyValue.int_value)
 }
 
 // optional uint64 uint_value = 7;
@@ -4321,7 +4321,7 @@ void KeyValue::clear_uint_value() {
   }
 }
  ::google::protobuf::uint64 KeyValue::uint_value() const {
-  // @@protoc_insertion_point(field_get:Telemetry.KeyValue.uint_value)
+  // @@protoc_insertion_point(field_get:telemetry.KeyValue.uint_value)
   if (has_uint_value()) {
     return value_.uint_value_;
   }
@@ -4333,7 +4333,7 @@ void KeyValue::clear_uint_value() {
     set_has_uint_value();
   }
   value_.uint_value_ = value;
-  // @@protoc_insertion_point(field_set:Telemetry.KeyValue.uint_value)
+  // @@protoc_insertion_point(field_set:telemetry.KeyValue.uint_value)
 }
 
 // optional sint64 sint_value = 8;
@@ -4350,7 +4350,7 @@ void KeyValue::clear_sint_value() {
   }
 }
  ::google::protobuf::int64 KeyValue::sint_value() const {
-  // @@protoc_insertion_point(field_get:Telemetry.KeyValue.sint_value)
+  // @@protoc_insertion_point(field_get:telemetry.KeyValue.sint_value)
   if (has_sint_value()) {
     return value_.sint_value_;
   }
@@ -4362,7 +4362,7 @@ void KeyValue::clear_sint_value() {
     set_has_sint_value();
   }
   value_.sint_value_ = value;
-  // @@protoc_insertion_point(field_set:Telemetry.KeyValue.sint_value)
+  // @@protoc_insertion_point(field_set:telemetry.KeyValue.sint_value)
 }
 
 // optional bool bool_value = 9;
@@ -4379,7 +4379,7 @@ void KeyValue::clear_bool_value() {
   }
 }
  bool KeyValue::bool_value() const {
-  // @@protoc_insertion_point(field_get:Telemetry.KeyValue.bool_value)
+  // @@protoc_insertion_point(field_get:telemetry.KeyValue.bool_value)
   if (has_bool_value()) {
     return value_.bool_value_;
   }
@@ -4391,7 +4391,7 @@ void KeyValue::clear_bool_value() {
     set_has_bool_value();
   }
   value_.bool_value_ = value;
-  // @@protoc_insertion_point(field_set:Telemetry.KeyValue.bool_value)
+  // @@protoc_insertion_point(field_set:telemetry.KeyValue.bool_value)
 }
 
 // optional string str_value = 10;
@@ -4408,21 +4408,21 @@ void KeyValue::clear_str_value() {
   }
 }
  const ::std::string& KeyValue::str_value() const {
-  // @@protoc_insertion_point(field_get:Telemetry.KeyValue.str_value)
+  // @@protoc_insertion_point(field_get:telemetry.KeyValue.str_value)
   if (has_str_value()) {
     return value_.str_value_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   }
   return *&::google::protobuf::internal::GetEmptyStringAlreadyInited();
 }
  void KeyValue::set_str_value(const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:Telemetry.KeyValue.str_value)
+  // @@protoc_insertion_point(field_set:telemetry.KeyValue.str_value)
   if (!has_str_value()) {
     clear_value();
     set_has_str_value();
     value_.str_value_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   }
   value_.str_value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:Telemetry.KeyValue.str_value)
+  // @@protoc_insertion_point(field_set:telemetry.KeyValue.str_value)
 }
  void KeyValue::set_str_value(const char* value) {
   if (!has_str_value()) {
@@ -4432,7 +4432,7 @@ void KeyValue::clear_str_value() {
   }
   value_.str_value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:Telemetry.KeyValue.str_value)
+  // @@protoc_insertion_point(field_set_char:telemetry.KeyValue.str_value)
 }
  void KeyValue::set_str_value(const char* value, size_t size) {
   if (!has_str_value()) {
@@ -4442,7 +4442,7 @@ void KeyValue::clear_str_value() {
   }
   value_.str_value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(
       reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:Telemetry.KeyValue.str_value)
+  // @@protoc_insertion_point(field_set_pointer:telemetry.KeyValue.str_value)
 }
  ::std::string* KeyValue::mutable_str_value() {
   if (!has_str_value()) {
@@ -4450,7 +4450,7 @@ void KeyValue::clear_str_value() {
     set_has_str_value();
     value_.str_value_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   }
-  // @@protoc_insertion_point(field_mutable:Telemetry.KeyValue.str_value)
+  // @@protoc_insertion_point(field_mutable:telemetry.KeyValue.str_value)
   return value_.str_value_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* KeyValue::release_str_value() {
@@ -4471,7 +4471,7 @@ void KeyValue::clear_str_value() {
     value_.str_value_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
         str_value);
   }
-  // @@protoc_insertion_point(field_set_allocated:Telemetry.KeyValue.str_value)
+  // @@protoc_insertion_point(field_set_allocated:telemetry.KeyValue.str_value)
 }
 
 // optional bytes bytes_value = 11;
@@ -4488,21 +4488,21 @@ void KeyValue::clear_bytes_value() {
   }
 }
  const ::std::string& KeyValue::bytes_value() const {
-  // @@protoc_insertion_point(field_get:Telemetry.KeyValue.bytes_value)
+  // @@protoc_insertion_point(field_get:telemetry.KeyValue.bytes_value)
   if (has_bytes_value()) {
     return value_.bytes_value_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   }
   return *&::google::protobuf::internal::GetEmptyStringAlreadyInited();
 }
  void KeyValue::set_bytes_value(const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:Telemetry.KeyValue.bytes_value)
+  // @@protoc_insertion_point(field_set:telemetry.KeyValue.bytes_value)
   if (!has_bytes_value()) {
     clear_value();
     set_has_bytes_value();
     value_.bytes_value_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   }
   value_.bytes_value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:Telemetry.KeyValue.bytes_value)
+  // @@protoc_insertion_point(field_set:telemetry.KeyValue.bytes_value)
 }
  void KeyValue::set_bytes_value(const char* value) {
   if (!has_bytes_value()) {
@@ -4512,7 +4512,7 @@ void KeyValue::clear_bytes_value() {
   }
   value_.bytes_value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:Telemetry.KeyValue.bytes_value)
+  // @@protoc_insertion_point(field_set_char:telemetry.KeyValue.bytes_value)
 }
  void KeyValue::set_bytes_value(const void* value, size_t size) {
   if (!has_bytes_value()) {
@@ -4522,7 +4522,7 @@ void KeyValue::clear_bytes_value() {
   }
   value_.bytes_value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(
       reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:Telemetry.KeyValue.bytes_value)
+  // @@protoc_insertion_point(field_set_pointer:telemetry.KeyValue.bytes_value)
 }
  ::std::string* KeyValue::mutable_bytes_value() {
   if (!has_bytes_value()) {
@@ -4530,7 +4530,7 @@ void KeyValue::clear_bytes_value() {
     set_has_bytes_value();
     value_.bytes_value_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   }
-  // @@protoc_insertion_point(field_mutable:Telemetry.KeyValue.bytes_value)
+  // @@protoc_insertion_point(field_mutable:telemetry.KeyValue.bytes_value)
   return value_.bytes_value_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* KeyValue::release_bytes_value() {
@@ -4551,7 +4551,7 @@ void KeyValue::clear_bytes_value() {
     value_.bytes_value_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
         bytes_value);
   }
-  // @@protoc_insertion_point(field_set_allocated:Telemetry.KeyValue.bytes_value)
+  // @@protoc_insertion_point(field_set_allocated:telemetry.KeyValue.bytes_value)
 }
 
 bool KeyValue::has_value() const {
@@ -4574,7 +4574,7 @@ const int CancelSubscriptionRequest::kSubscriptionIdFieldNumber;
 CancelSubscriptionRequest::CancelSubscriptionRequest()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:Telemetry.CancelSubscriptionRequest)
+  // @@protoc_insertion_point(constructor:telemetry.CancelSubscriptionRequest)
 }
 
 void CancelSubscriptionRequest::InitAsDefaultInstance() {
@@ -4586,7 +4586,7 @@ CancelSubscriptionRequest::CancelSubscriptionRequest(const CancelSubscriptionReq
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:Telemetry.CancelSubscriptionRequest)
+  // @@protoc_insertion_point(copy_constructor:telemetry.CancelSubscriptionRequest)
 }
 
 void CancelSubscriptionRequest::SharedCtor() {
@@ -4596,7 +4596,7 @@ void CancelSubscriptionRequest::SharedCtor() {
 }
 
 CancelSubscriptionRequest::~CancelSubscriptionRequest() {
-  // @@protoc_insertion_point(destructor:Telemetry.CancelSubscriptionRequest)
+  // @@protoc_insertion_point(destructor:telemetry.CancelSubscriptionRequest)
   SharedDtor();
 }
 
@@ -4638,7 +4638,7 @@ bool CancelSubscriptionRequest::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:Telemetry.CancelSubscriptionRequest)
+  // @@protoc_insertion_point(parse_start:telemetry.CancelSubscriptionRequest)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -4671,34 +4671,34 @@ bool CancelSubscriptionRequest::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:Telemetry.CancelSubscriptionRequest)
+  // @@protoc_insertion_point(parse_success:telemetry.CancelSubscriptionRequest)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:Telemetry.CancelSubscriptionRequest)
+  // @@protoc_insertion_point(parse_failure:telemetry.CancelSubscriptionRequest)
   return false;
 #undef DO_
 }
 
 void CancelSubscriptionRequest::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:Telemetry.CancelSubscriptionRequest)
+  // @@protoc_insertion_point(serialize_start:telemetry.CancelSubscriptionRequest)
   // optional uint32 subscription_id = 1;
   if (this->subscription_id() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->subscription_id(), output);
   }
 
-  // @@protoc_insertion_point(serialize_end:Telemetry.CancelSubscriptionRequest)
+  // @@protoc_insertion_point(serialize_end:telemetry.CancelSubscriptionRequest)
 }
 
 ::google::protobuf::uint8* CancelSubscriptionRequest::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:Telemetry.CancelSubscriptionRequest)
+  // @@protoc_insertion_point(serialize_to_array_start:telemetry.CancelSubscriptionRequest)
   // optional uint32 subscription_id = 1;
   if (this->subscription_id() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->subscription_id(), target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:Telemetry.CancelSubscriptionRequest)
+  // @@protoc_insertion_point(serialize_to_array_end:telemetry.CancelSubscriptionRequest)
   return target;
 }
 
@@ -4780,13 +4780,13 @@ void CancelSubscriptionRequest::clear_subscription_id() {
   subscription_id_ = 0u;
 }
  ::google::protobuf::uint32 CancelSubscriptionRequest::subscription_id() const {
-  // @@protoc_insertion_point(field_get:Telemetry.CancelSubscriptionRequest.subscription_id)
+  // @@protoc_insertion_point(field_get:telemetry.CancelSubscriptionRequest.subscription_id)
   return subscription_id_;
 }
  void CancelSubscriptionRequest::set_subscription_id(::google::protobuf::uint32 value) {
   
   subscription_id_ = value;
-  // @@protoc_insertion_point(field_set:Telemetry.CancelSubscriptionRequest.subscription_id)
+  // @@protoc_insertion_point(field_set:telemetry.CancelSubscriptionRequest.subscription_id)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -4801,7 +4801,7 @@ const int CancelSubscriptionReply::kCodeStrFieldNumber;
 CancelSubscriptionReply::CancelSubscriptionReply()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:Telemetry.CancelSubscriptionReply)
+  // @@protoc_insertion_point(constructor:telemetry.CancelSubscriptionReply)
 }
 
 void CancelSubscriptionReply::InitAsDefaultInstance() {
@@ -4813,7 +4813,7 @@ CancelSubscriptionReply::CancelSubscriptionReply(const CancelSubscriptionReply& 
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:Telemetry.CancelSubscriptionReply)
+  // @@protoc_insertion_point(copy_constructor:telemetry.CancelSubscriptionReply)
 }
 
 void CancelSubscriptionReply::SharedCtor() {
@@ -4825,7 +4825,7 @@ void CancelSubscriptionReply::SharedCtor() {
 }
 
 CancelSubscriptionReply::~CancelSubscriptionReply() {
-  // @@protoc_insertion_point(destructor:Telemetry.CancelSubscriptionReply)
+  // @@protoc_insertion_point(destructor:telemetry.CancelSubscriptionReply)
   SharedDtor();
 }
 
@@ -4869,20 +4869,20 @@ bool CancelSubscriptionReply::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:Telemetry.CancelSubscriptionReply)
+  // @@protoc_insertion_point(parse_start:telemetry.CancelSubscriptionReply)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional .Telemetry.ReturnCode code = 1;
+      // optional .telemetry.ReturnCode code = 1;
       case 1: {
         if (tag == 8) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          set_code(static_cast< ::Telemetry::ReturnCode >(value));
+          set_code(static_cast< ::telemetry::ReturnCode >(value));
         } else {
           goto handle_unusual;
         }
@@ -4899,7 +4899,7 @@ bool CancelSubscriptionReply::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->code_str().data(), this->code_str().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "Telemetry.CancelSubscriptionReply.code_str"));
+            "telemetry.CancelSubscriptionReply.code_str"));
         } else {
           goto handle_unusual;
         }
@@ -4920,18 +4920,18 @@ bool CancelSubscriptionReply::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:Telemetry.CancelSubscriptionReply)
+  // @@protoc_insertion_point(parse_success:telemetry.CancelSubscriptionReply)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:Telemetry.CancelSubscriptionReply)
+  // @@protoc_insertion_point(parse_failure:telemetry.CancelSubscriptionReply)
   return false;
 #undef DO_
 }
 
 void CancelSubscriptionReply::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:Telemetry.CancelSubscriptionReply)
-  // optional .Telemetry.ReturnCode code = 1;
+  // @@protoc_insertion_point(serialize_start:telemetry.CancelSubscriptionReply)
+  // optional .telemetry.ReturnCode code = 1;
   if (this->code() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       1, this->code(), output);
@@ -4942,18 +4942,18 @@ void CancelSubscriptionReply::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->code_str().data(), this->code_str().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "Telemetry.CancelSubscriptionReply.code_str");
+      "telemetry.CancelSubscriptionReply.code_str");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       2, this->code_str(), output);
   }
 
-  // @@protoc_insertion_point(serialize_end:Telemetry.CancelSubscriptionReply)
+  // @@protoc_insertion_point(serialize_end:telemetry.CancelSubscriptionReply)
 }
 
 ::google::protobuf::uint8* CancelSubscriptionReply::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:Telemetry.CancelSubscriptionReply)
-  // optional .Telemetry.ReturnCode code = 1;
+  // @@protoc_insertion_point(serialize_to_array_start:telemetry.CancelSubscriptionReply)
+  // optional .telemetry.ReturnCode code = 1;
   if (this->code() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       1, this->code(), target);
@@ -4964,20 +4964,20 @@ void CancelSubscriptionReply::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->code_str().data(), this->code_str().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "Telemetry.CancelSubscriptionReply.code_str");
+      "telemetry.CancelSubscriptionReply.code_str");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         2, this->code_str(), target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:Telemetry.CancelSubscriptionReply)
+  // @@protoc_insertion_point(serialize_to_array_end:telemetry.CancelSubscriptionReply)
   return target;
 }
 
 int CancelSubscriptionReply::ByteSize() const {
   int total_size = 0;
 
-  // optional .Telemetry.ReturnCode code = 1;
+  // optional .telemetry.ReturnCode code = 1;
   if (this->code() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->code());
@@ -5058,18 +5058,18 @@ void CancelSubscriptionReply::InternalSwap(CancelSubscriptionReply* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // CancelSubscriptionReply
 
-// optional .Telemetry.ReturnCode code = 1;
+// optional .telemetry.ReturnCode code = 1;
 void CancelSubscriptionReply::clear_code() {
   code_ = 0;
 }
- ::Telemetry::ReturnCode CancelSubscriptionReply::code() const {
-  // @@protoc_insertion_point(field_get:Telemetry.CancelSubscriptionReply.code)
-  return static_cast< ::Telemetry::ReturnCode >(code_);
+ ::telemetry::ReturnCode CancelSubscriptionReply::code() const {
+  // @@protoc_insertion_point(field_get:telemetry.CancelSubscriptionReply.code)
+  return static_cast< ::telemetry::ReturnCode >(code_);
 }
- void CancelSubscriptionReply::set_code(::Telemetry::ReturnCode value) {
+ void CancelSubscriptionReply::set_code(::telemetry::ReturnCode value) {
   
   code_ = value;
-  // @@protoc_insertion_point(field_set:Telemetry.CancelSubscriptionReply.code)
+  // @@protoc_insertion_point(field_set:telemetry.CancelSubscriptionReply.code)
 }
 
 // optional string code_str = 2;
@@ -5077,28 +5077,28 @@ void CancelSubscriptionReply::clear_code_str() {
   code_str_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  const ::std::string& CancelSubscriptionReply::code_str() const {
-  // @@protoc_insertion_point(field_get:Telemetry.CancelSubscriptionReply.code_str)
+  // @@protoc_insertion_point(field_get:telemetry.CancelSubscriptionReply.code_str)
   return code_str_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  void CancelSubscriptionReply::set_code_str(const ::std::string& value) {
   
   code_str_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:Telemetry.CancelSubscriptionReply.code_str)
+  // @@protoc_insertion_point(field_set:telemetry.CancelSubscriptionReply.code_str)
 }
  void CancelSubscriptionReply::set_code_str(const char* value) {
   
   code_str_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:Telemetry.CancelSubscriptionReply.code_str)
+  // @@protoc_insertion_point(field_set_char:telemetry.CancelSubscriptionReply.code_str)
 }
  void CancelSubscriptionReply::set_code_str(const char* value, size_t size) {
   
   code_str_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:Telemetry.CancelSubscriptionReply.code_str)
+  // @@protoc_insertion_point(field_set_pointer:telemetry.CancelSubscriptionReply.code_str)
 }
  ::std::string* CancelSubscriptionReply::mutable_code_str() {
   
-  // @@protoc_insertion_point(field_mutable:Telemetry.CancelSubscriptionReply.code_str)
+  // @@protoc_insertion_point(field_mutable:telemetry.CancelSubscriptionReply.code_str)
   return code_str_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* CancelSubscriptionReply::release_code_str() {
@@ -5112,7 +5112,7 @@ void CancelSubscriptionReply::clear_code_str() {
     
   }
   code_str_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), code_str);
-  // @@protoc_insertion_point(field_set_allocated:Telemetry.CancelSubscriptionReply.code_str)
+  // @@protoc_insertion_point(field_set_allocated:telemetry.CancelSubscriptionReply.code_str)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -5126,7 +5126,7 @@ const int GetSubscriptionsRequest::kSubscriptionIdFieldNumber;
 GetSubscriptionsRequest::GetSubscriptionsRequest()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:Telemetry.GetSubscriptionsRequest)
+  // @@protoc_insertion_point(constructor:telemetry.GetSubscriptionsRequest)
 }
 
 void GetSubscriptionsRequest::InitAsDefaultInstance() {
@@ -5138,7 +5138,7 @@ GetSubscriptionsRequest::GetSubscriptionsRequest(const GetSubscriptionsRequest& 
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:Telemetry.GetSubscriptionsRequest)
+  // @@protoc_insertion_point(copy_constructor:telemetry.GetSubscriptionsRequest)
 }
 
 void GetSubscriptionsRequest::SharedCtor() {
@@ -5148,7 +5148,7 @@ void GetSubscriptionsRequest::SharedCtor() {
 }
 
 GetSubscriptionsRequest::~GetSubscriptionsRequest() {
-  // @@protoc_insertion_point(destructor:Telemetry.GetSubscriptionsRequest)
+  // @@protoc_insertion_point(destructor:telemetry.GetSubscriptionsRequest)
   SharedDtor();
 }
 
@@ -5190,7 +5190,7 @@ bool GetSubscriptionsRequest::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:Telemetry.GetSubscriptionsRequest)
+  // @@protoc_insertion_point(parse_start:telemetry.GetSubscriptionsRequest)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -5223,34 +5223,34 @@ bool GetSubscriptionsRequest::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:Telemetry.GetSubscriptionsRequest)
+  // @@protoc_insertion_point(parse_success:telemetry.GetSubscriptionsRequest)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:Telemetry.GetSubscriptionsRequest)
+  // @@protoc_insertion_point(parse_failure:telemetry.GetSubscriptionsRequest)
   return false;
 #undef DO_
 }
 
 void GetSubscriptionsRequest::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:Telemetry.GetSubscriptionsRequest)
+  // @@protoc_insertion_point(serialize_start:telemetry.GetSubscriptionsRequest)
   // optional uint32 subscription_id = 1;
   if (this->subscription_id() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->subscription_id(), output);
   }
 
-  // @@protoc_insertion_point(serialize_end:Telemetry.GetSubscriptionsRequest)
+  // @@protoc_insertion_point(serialize_end:telemetry.GetSubscriptionsRequest)
 }
 
 ::google::protobuf::uint8* GetSubscriptionsRequest::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:Telemetry.GetSubscriptionsRequest)
+  // @@protoc_insertion_point(serialize_to_array_start:telemetry.GetSubscriptionsRequest)
   // optional uint32 subscription_id = 1;
   if (this->subscription_id() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->subscription_id(), target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:Telemetry.GetSubscriptionsRequest)
+  // @@protoc_insertion_point(serialize_to_array_end:telemetry.GetSubscriptionsRequest)
   return target;
 }
 
@@ -5332,13 +5332,13 @@ void GetSubscriptionsRequest::clear_subscription_id() {
   subscription_id_ = 0u;
 }
  ::google::protobuf::uint32 GetSubscriptionsRequest::subscription_id() const {
-  // @@protoc_insertion_point(field_get:Telemetry.GetSubscriptionsRequest.subscription_id)
+  // @@protoc_insertion_point(field_get:telemetry.GetSubscriptionsRequest.subscription_id)
   return subscription_id_;
 }
  void GetSubscriptionsRequest::set_subscription_id(::google::protobuf::uint32 value) {
   
   subscription_id_ = value;
-  // @@protoc_insertion_point(field_set:Telemetry.GetSubscriptionsRequest.subscription_id)
+  // @@protoc_insertion_point(field_set:telemetry.GetSubscriptionsRequest.subscription_id)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -5352,7 +5352,7 @@ const int GetSubscriptionsReply::kSubscriptionListFieldNumber;
 GetSubscriptionsReply::GetSubscriptionsReply()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:Telemetry.GetSubscriptionsReply)
+  // @@protoc_insertion_point(constructor:telemetry.GetSubscriptionsReply)
 }
 
 void GetSubscriptionsReply::InitAsDefaultInstance() {
@@ -5364,7 +5364,7 @@ GetSubscriptionsReply::GetSubscriptionsReply(const GetSubscriptionsReply& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:Telemetry.GetSubscriptionsReply)
+  // @@protoc_insertion_point(copy_constructor:telemetry.GetSubscriptionsReply)
 }
 
 void GetSubscriptionsReply::SharedCtor() {
@@ -5373,7 +5373,7 @@ void GetSubscriptionsReply::SharedCtor() {
 }
 
 GetSubscriptionsReply::~GetSubscriptionsReply() {
-  // @@protoc_insertion_point(destructor:Telemetry.GetSubscriptionsReply)
+  // @@protoc_insertion_point(destructor:telemetry.GetSubscriptionsReply)
   SharedDtor();
 }
 
@@ -5415,13 +5415,13 @@ bool GetSubscriptionsReply::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:Telemetry.GetSubscriptionsReply)
+  // @@protoc_insertion_point(parse_start:telemetry.GetSubscriptionsReply)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .Telemetry.SubscriptionReply subscription_list = 1;
+      // repeated .telemetry.SubscriptionReply subscription_list = 1;
       case 1: {
         if (tag == 10) {
           DO_(input->IncrementRecursionDepth());
@@ -5450,44 +5450,44 @@ bool GetSubscriptionsReply::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:Telemetry.GetSubscriptionsReply)
+  // @@protoc_insertion_point(parse_success:telemetry.GetSubscriptionsReply)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:Telemetry.GetSubscriptionsReply)
+  // @@protoc_insertion_point(parse_failure:telemetry.GetSubscriptionsReply)
   return false;
 #undef DO_
 }
 
 void GetSubscriptionsReply::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:Telemetry.GetSubscriptionsReply)
-  // repeated .Telemetry.SubscriptionReply subscription_list = 1;
+  // @@protoc_insertion_point(serialize_start:telemetry.GetSubscriptionsReply)
+  // repeated .telemetry.SubscriptionReply subscription_list = 1;
   for (unsigned int i = 0, n = this->subscription_list_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, this->subscription_list(i), output);
   }
 
-  // @@protoc_insertion_point(serialize_end:Telemetry.GetSubscriptionsReply)
+  // @@protoc_insertion_point(serialize_end:telemetry.GetSubscriptionsReply)
 }
 
 ::google::protobuf::uint8* GetSubscriptionsReply::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:Telemetry.GetSubscriptionsReply)
-  // repeated .Telemetry.SubscriptionReply subscription_list = 1;
+  // @@protoc_insertion_point(serialize_to_array_start:telemetry.GetSubscriptionsReply)
+  // repeated .telemetry.SubscriptionReply subscription_list = 1;
   for (unsigned int i = 0, n = this->subscription_list_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         1, this->subscription_list(i), target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:Telemetry.GetSubscriptionsReply)
+  // @@protoc_insertion_point(serialize_to_array_end:telemetry.GetSubscriptionsReply)
   return target;
 }
 
 int GetSubscriptionsReply::ByteSize() const {
   int total_size = 0;
 
-  // repeated .Telemetry.SubscriptionReply subscription_list = 1;
+  // repeated .telemetry.SubscriptionReply subscription_list = 1;
   total_size += 1 * this->subscription_list_size();
   for (int i = 0; i < this->subscription_list_size(); i++) {
     total_size +=
@@ -5556,33 +5556,33 @@ void GetSubscriptionsReply::InternalSwap(GetSubscriptionsReply* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // GetSubscriptionsReply
 
-// repeated .Telemetry.SubscriptionReply subscription_list = 1;
+// repeated .telemetry.SubscriptionReply subscription_list = 1;
 int GetSubscriptionsReply::subscription_list_size() const {
   return subscription_list_.size();
 }
 void GetSubscriptionsReply::clear_subscription_list() {
   subscription_list_.Clear();
 }
-const ::Telemetry::SubscriptionReply& GetSubscriptionsReply::subscription_list(int index) const {
-  // @@protoc_insertion_point(field_get:Telemetry.GetSubscriptionsReply.subscription_list)
+const ::telemetry::SubscriptionReply& GetSubscriptionsReply::subscription_list(int index) const {
+  // @@protoc_insertion_point(field_get:telemetry.GetSubscriptionsReply.subscription_list)
   return subscription_list_.Get(index);
 }
-::Telemetry::SubscriptionReply* GetSubscriptionsReply::mutable_subscription_list(int index) {
-  // @@protoc_insertion_point(field_mutable:Telemetry.GetSubscriptionsReply.subscription_list)
+::telemetry::SubscriptionReply* GetSubscriptionsReply::mutable_subscription_list(int index) {
+  // @@protoc_insertion_point(field_mutable:telemetry.GetSubscriptionsReply.subscription_list)
   return subscription_list_.Mutable(index);
 }
-::Telemetry::SubscriptionReply* GetSubscriptionsReply::add_subscription_list() {
-  // @@protoc_insertion_point(field_add:Telemetry.GetSubscriptionsReply.subscription_list)
+::telemetry::SubscriptionReply* GetSubscriptionsReply::add_subscription_list() {
+  // @@protoc_insertion_point(field_add:telemetry.GetSubscriptionsReply.subscription_list)
   return subscription_list_.Add();
 }
-::google::protobuf::RepeatedPtrField< ::Telemetry::SubscriptionReply >*
+::google::protobuf::RepeatedPtrField< ::telemetry::SubscriptionReply >*
 GetSubscriptionsReply::mutable_subscription_list() {
-  // @@protoc_insertion_point(field_mutable_list:Telemetry.GetSubscriptionsReply.subscription_list)
+  // @@protoc_insertion_point(field_mutable_list:telemetry.GetSubscriptionsReply.subscription_list)
   return &subscription_list_;
 }
-const ::google::protobuf::RepeatedPtrField< ::Telemetry::SubscriptionReply >&
+const ::google::protobuf::RepeatedPtrField< ::telemetry::SubscriptionReply >&
 GetSubscriptionsReply::subscription_list() const {
-  // @@protoc_insertion_point(field_list:Telemetry.GetSubscriptionsReply.subscription_list)
+  // @@protoc_insertion_point(field_list:telemetry.GetSubscriptionsReply.subscription_list)
   return subscription_list_;
 }
 
@@ -5598,7 +5598,7 @@ const int GetOperationalStateRequest::kVerbosityFieldNumber;
 GetOperationalStateRequest::GetOperationalStateRequest()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:Telemetry.GetOperationalStateRequest)
+  // @@protoc_insertion_point(constructor:telemetry.GetOperationalStateRequest)
 }
 
 void GetOperationalStateRequest::InitAsDefaultInstance() {
@@ -5610,7 +5610,7 @@ GetOperationalStateRequest::GetOperationalStateRequest(const GetOperationalState
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:Telemetry.GetOperationalStateRequest)
+  // @@protoc_insertion_point(copy_constructor:telemetry.GetOperationalStateRequest)
 }
 
 void GetOperationalStateRequest::SharedCtor() {
@@ -5621,7 +5621,7 @@ void GetOperationalStateRequest::SharedCtor() {
 }
 
 GetOperationalStateRequest::~GetOperationalStateRequest() {
-  // @@protoc_insertion_point(destructor:Telemetry.GetOperationalStateRequest)
+  // @@protoc_insertion_point(destructor:telemetry.GetOperationalStateRequest)
   SharedDtor();
 }
 
@@ -5675,7 +5675,7 @@ bool GetOperationalStateRequest::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:Telemetry.GetOperationalStateRequest)
+  // @@protoc_insertion_point(parse_start:telemetry.GetOperationalStateRequest)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -5695,7 +5695,7 @@ bool GetOperationalStateRequest::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .Telemetry.VerbosityLevel verbosity = 2;
+      // optional .telemetry.VerbosityLevel verbosity = 2;
       case 2: {
         if (tag == 16) {
          parse_verbosity:
@@ -5703,7 +5703,7 @@ bool GetOperationalStateRequest::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          set_verbosity(static_cast< ::Telemetry::VerbosityLevel >(value));
+          set_verbosity(static_cast< ::telemetry::VerbosityLevel >(value));
         } else {
           goto handle_unusual;
         }
@@ -5724,46 +5724,46 @@ bool GetOperationalStateRequest::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:Telemetry.GetOperationalStateRequest)
+  // @@protoc_insertion_point(parse_success:telemetry.GetOperationalStateRequest)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:Telemetry.GetOperationalStateRequest)
+  // @@protoc_insertion_point(parse_failure:telemetry.GetOperationalStateRequest)
   return false;
 #undef DO_
 }
 
 void GetOperationalStateRequest::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:Telemetry.GetOperationalStateRequest)
+  // @@protoc_insertion_point(serialize_start:telemetry.GetOperationalStateRequest)
   // optional uint32 subscription_id = 1;
   if (this->subscription_id() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->subscription_id(), output);
   }
 
-  // optional .Telemetry.VerbosityLevel verbosity = 2;
+  // optional .telemetry.VerbosityLevel verbosity = 2;
   if (this->verbosity() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       2, this->verbosity(), output);
   }
 
-  // @@protoc_insertion_point(serialize_end:Telemetry.GetOperationalStateRequest)
+  // @@protoc_insertion_point(serialize_end:telemetry.GetOperationalStateRequest)
 }
 
 ::google::protobuf::uint8* GetOperationalStateRequest::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:Telemetry.GetOperationalStateRequest)
+  // @@protoc_insertion_point(serialize_to_array_start:telemetry.GetOperationalStateRequest)
   // optional uint32 subscription_id = 1;
   if (this->subscription_id() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->subscription_id(), target);
   }
 
-  // optional .Telemetry.VerbosityLevel verbosity = 2;
+  // optional .telemetry.VerbosityLevel verbosity = 2;
   if (this->verbosity() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       2, this->verbosity(), target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:Telemetry.GetOperationalStateRequest)
+  // @@protoc_insertion_point(serialize_to_array_end:telemetry.GetOperationalStateRequest)
   return target;
 }
 
@@ -5777,7 +5777,7 @@ int GetOperationalStateRequest::ByteSize() const {
         this->subscription_id());
   }
 
-  // optional .Telemetry.VerbosityLevel verbosity = 2;
+  // optional .telemetry.VerbosityLevel verbosity = 2;
   if (this->verbosity() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->verbosity());
@@ -5855,27 +5855,27 @@ void GetOperationalStateRequest::clear_subscription_id() {
   subscription_id_ = 0u;
 }
  ::google::protobuf::uint32 GetOperationalStateRequest::subscription_id() const {
-  // @@protoc_insertion_point(field_get:Telemetry.GetOperationalStateRequest.subscription_id)
+  // @@protoc_insertion_point(field_get:telemetry.GetOperationalStateRequest.subscription_id)
   return subscription_id_;
 }
  void GetOperationalStateRequest::set_subscription_id(::google::protobuf::uint32 value) {
   
   subscription_id_ = value;
-  // @@protoc_insertion_point(field_set:Telemetry.GetOperationalStateRequest.subscription_id)
+  // @@protoc_insertion_point(field_set:telemetry.GetOperationalStateRequest.subscription_id)
 }
 
-// optional .Telemetry.VerbosityLevel verbosity = 2;
+// optional .telemetry.VerbosityLevel verbosity = 2;
 void GetOperationalStateRequest::clear_verbosity() {
   verbosity_ = 0;
 }
- ::Telemetry::VerbosityLevel GetOperationalStateRequest::verbosity() const {
-  // @@protoc_insertion_point(field_get:Telemetry.GetOperationalStateRequest.verbosity)
-  return static_cast< ::Telemetry::VerbosityLevel >(verbosity_);
+ ::telemetry::VerbosityLevel GetOperationalStateRequest::verbosity() const {
+  // @@protoc_insertion_point(field_get:telemetry.GetOperationalStateRequest.verbosity)
+  return static_cast< ::telemetry::VerbosityLevel >(verbosity_);
 }
- void GetOperationalStateRequest::set_verbosity(::Telemetry::VerbosityLevel value) {
+ void GetOperationalStateRequest::set_verbosity(::telemetry::VerbosityLevel value) {
   
   verbosity_ = value;
-  // @@protoc_insertion_point(field_set:Telemetry.GetOperationalStateRequest.verbosity)
+  // @@protoc_insertion_point(field_set:telemetry.GetOperationalStateRequest.verbosity)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -5889,7 +5889,7 @@ const int GetOperationalStateReply::kKvFieldNumber;
 GetOperationalStateReply::GetOperationalStateReply()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:Telemetry.GetOperationalStateReply)
+  // @@protoc_insertion_point(constructor:telemetry.GetOperationalStateReply)
 }
 
 void GetOperationalStateReply::InitAsDefaultInstance() {
@@ -5901,7 +5901,7 @@ GetOperationalStateReply::GetOperationalStateReply(const GetOperationalStateRepl
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:Telemetry.GetOperationalStateReply)
+  // @@protoc_insertion_point(copy_constructor:telemetry.GetOperationalStateReply)
 }
 
 void GetOperationalStateReply::SharedCtor() {
@@ -5910,7 +5910,7 @@ void GetOperationalStateReply::SharedCtor() {
 }
 
 GetOperationalStateReply::~GetOperationalStateReply() {
-  // @@protoc_insertion_point(destructor:Telemetry.GetOperationalStateReply)
+  // @@protoc_insertion_point(destructor:telemetry.GetOperationalStateReply)
   SharedDtor();
 }
 
@@ -5952,13 +5952,13 @@ bool GetOperationalStateReply::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:Telemetry.GetOperationalStateReply)
+  // @@protoc_insertion_point(parse_start:telemetry.GetOperationalStateReply)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .Telemetry.KeyValue kv = 1;
+      // repeated .telemetry.KeyValue kv = 1;
       case 1: {
         if (tag == 10) {
           DO_(input->IncrementRecursionDepth());
@@ -5987,44 +5987,44 @@ bool GetOperationalStateReply::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:Telemetry.GetOperationalStateReply)
+  // @@protoc_insertion_point(parse_success:telemetry.GetOperationalStateReply)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:Telemetry.GetOperationalStateReply)
+  // @@protoc_insertion_point(parse_failure:telemetry.GetOperationalStateReply)
   return false;
 #undef DO_
 }
 
 void GetOperationalStateReply::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:Telemetry.GetOperationalStateReply)
-  // repeated .Telemetry.KeyValue kv = 1;
+  // @@protoc_insertion_point(serialize_start:telemetry.GetOperationalStateReply)
+  // repeated .telemetry.KeyValue kv = 1;
   for (unsigned int i = 0, n = this->kv_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, this->kv(i), output);
   }
 
-  // @@protoc_insertion_point(serialize_end:Telemetry.GetOperationalStateReply)
+  // @@protoc_insertion_point(serialize_end:telemetry.GetOperationalStateReply)
 }
 
 ::google::protobuf::uint8* GetOperationalStateReply::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:Telemetry.GetOperationalStateReply)
-  // repeated .Telemetry.KeyValue kv = 1;
+  // @@protoc_insertion_point(serialize_to_array_start:telemetry.GetOperationalStateReply)
+  // repeated .telemetry.KeyValue kv = 1;
   for (unsigned int i = 0, n = this->kv_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         1, this->kv(i), target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:Telemetry.GetOperationalStateReply)
+  // @@protoc_insertion_point(serialize_to_array_end:telemetry.GetOperationalStateReply)
   return target;
 }
 
 int GetOperationalStateReply::ByteSize() const {
   int total_size = 0;
 
-  // repeated .Telemetry.KeyValue kv = 1;
+  // repeated .telemetry.KeyValue kv = 1;
   total_size += 1 * this->kv_size();
   for (int i = 0; i < this->kv_size(); i++) {
     total_size +=
@@ -6093,33 +6093,33 @@ void GetOperationalStateReply::InternalSwap(GetOperationalStateReply* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // GetOperationalStateReply
 
-// repeated .Telemetry.KeyValue kv = 1;
+// repeated .telemetry.KeyValue kv = 1;
 int GetOperationalStateReply::kv_size() const {
   return kv_.size();
 }
 void GetOperationalStateReply::clear_kv() {
   kv_.Clear();
 }
-const ::Telemetry::KeyValue& GetOperationalStateReply::kv(int index) const {
-  // @@protoc_insertion_point(field_get:Telemetry.GetOperationalStateReply.kv)
+const ::telemetry::KeyValue& GetOperationalStateReply::kv(int index) const {
+  // @@protoc_insertion_point(field_get:telemetry.GetOperationalStateReply.kv)
   return kv_.Get(index);
 }
-::Telemetry::KeyValue* GetOperationalStateReply::mutable_kv(int index) {
-  // @@protoc_insertion_point(field_mutable:Telemetry.GetOperationalStateReply.kv)
+::telemetry::KeyValue* GetOperationalStateReply::mutable_kv(int index) {
+  // @@protoc_insertion_point(field_mutable:telemetry.GetOperationalStateReply.kv)
   return kv_.Mutable(index);
 }
-::Telemetry::KeyValue* GetOperationalStateReply::add_kv() {
-  // @@protoc_insertion_point(field_add:Telemetry.GetOperationalStateReply.kv)
+::telemetry::KeyValue* GetOperationalStateReply::add_kv() {
+  // @@protoc_insertion_point(field_add:telemetry.GetOperationalStateReply.kv)
   return kv_.Add();
 }
-::google::protobuf::RepeatedPtrField< ::Telemetry::KeyValue >*
+::google::protobuf::RepeatedPtrField< ::telemetry::KeyValue >*
 GetOperationalStateReply::mutable_kv() {
-  // @@protoc_insertion_point(field_mutable_list:Telemetry.GetOperationalStateReply.kv)
+  // @@protoc_insertion_point(field_mutable_list:telemetry.GetOperationalStateReply.kv)
   return &kv_;
 }
-const ::google::protobuf::RepeatedPtrField< ::Telemetry::KeyValue >&
+const ::google::protobuf::RepeatedPtrField< ::telemetry::KeyValue >&
 GetOperationalStateReply::kv() const {
-  // @@protoc_insertion_point(field_list:Telemetry.GetOperationalStateReply.kv)
+  // @@protoc_insertion_point(field_list:telemetry.GetOperationalStateReply.kv)
   return kv_;
 }
 
@@ -6133,7 +6133,7 @@ GetOperationalStateReply::kv() const {
 DataEncodingRequest::DataEncodingRequest()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:Telemetry.DataEncodingRequest)
+  // @@protoc_insertion_point(constructor:telemetry.DataEncodingRequest)
 }
 
 void DataEncodingRequest::InitAsDefaultInstance() {
@@ -6145,7 +6145,7 @@ DataEncodingRequest::DataEncodingRequest(const DataEncodingRequest& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:Telemetry.DataEncodingRequest)
+  // @@protoc_insertion_point(copy_constructor:telemetry.DataEncodingRequest)
 }
 
 void DataEncodingRequest::SharedCtor() {
@@ -6154,7 +6154,7 @@ void DataEncodingRequest::SharedCtor() {
 }
 
 DataEncodingRequest::~DataEncodingRequest() {
-  // @@protoc_insertion_point(destructor:Telemetry.DataEncodingRequest)
+  // @@protoc_insertion_point(destructor:telemetry.DataEncodingRequest)
   SharedDtor();
 }
 
@@ -6195,7 +6195,7 @@ bool DataEncodingRequest::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:Telemetry.DataEncodingRequest)
+  // @@protoc_insertion_point(parse_start:telemetry.DataEncodingRequest)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -6209,24 +6209,24 @@ bool DataEncodingRequest::MergePartialFromCodedStream(
     DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
   }
 success:
-  // @@protoc_insertion_point(parse_success:Telemetry.DataEncodingRequest)
+  // @@protoc_insertion_point(parse_success:telemetry.DataEncodingRequest)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:Telemetry.DataEncodingRequest)
+  // @@protoc_insertion_point(parse_failure:telemetry.DataEncodingRequest)
   return false;
 #undef DO_
 }
 
 void DataEncodingRequest::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:Telemetry.DataEncodingRequest)
-  // @@protoc_insertion_point(serialize_end:Telemetry.DataEncodingRequest)
+  // @@protoc_insertion_point(serialize_start:telemetry.DataEncodingRequest)
+  // @@protoc_insertion_point(serialize_end:telemetry.DataEncodingRequest)
 }
 
 ::google::protobuf::uint8* DataEncodingRequest::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:Telemetry.DataEncodingRequest)
-  // @@protoc_insertion_point(serialize_to_array_end:Telemetry.DataEncodingRequest)
+  // @@protoc_insertion_point(serialize_to_array_start:telemetry.DataEncodingRequest)
+  // @@protoc_insertion_point(serialize_to_array_end:telemetry.DataEncodingRequest)
   return target;
 }
 
@@ -6303,7 +6303,7 @@ const int DataEncodingReply::kEncodingListFieldNumber;
 DataEncodingReply::DataEncodingReply()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:Telemetry.DataEncodingReply)
+  // @@protoc_insertion_point(constructor:telemetry.DataEncodingReply)
 }
 
 void DataEncodingReply::InitAsDefaultInstance() {
@@ -6315,7 +6315,7 @@ DataEncodingReply::DataEncodingReply(const DataEncodingReply& from)
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:Telemetry.DataEncodingReply)
+  // @@protoc_insertion_point(copy_constructor:telemetry.DataEncodingReply)
 }
 
 void DataEncodingReply::SharedCtor() {
@@ -6324,7 +6324,7 @@ void DataEncodingReply::SharedCtor() {
 }
 
 DataEncodingReply::~DataEncodingReply() {
-  // @@protoc_insertion_point(destructor:Telemetry.DataEncodingReply)
+  // @@protoc_insertion_point(destructor:telemetry.DataEncodingReply)
   SharedDtor();
 }
 
@@ -6366,13 +6366,13 @@ bool DataEncodingReply::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:Telemetry.DataEncodingReply)
+  // @@protoc_insertion_point(parse_start:telemetry.DataEncodingReply)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .Telemetry.EncodingType encoding_list = 1;
+      // repeated .telemetry.EncodingType encoding_list = 1;
       case 1: {
         if (tag == 10) {
           ::google::protobuf::uint32 length;
@@ -6383,7 +6383,7 @@ bool DataEncodingReply::MergePartialFromCodedStream(
             DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-            add_encoding_list(static_cast< ::Telemetry::EncodingType >(value));
+            add_encoding_list(static_cast< ::telemetry::EncodingType >(value));
           }
           input->PopLimit(limit);
         } else if (tag == 8) {
@@ -6391,7 +6391,7 @@ bool DataEncodingReply::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          add_encoding_list(static_cast< ::Telemetry::EncodingType >(value));
+          add_encoding_list(static_cast< ::telemetry::EncodingType >(value));
         } else {
           goto handle_unusual;
         }
@@ -6412,18 +6412,18 @@ bool DataEncodingReply::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:Telemetry.DataEncodingReply)
+  // @@protoc_insertion_point(parse_success:telemetry.DataEncodingReply)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:Telemetry.DataEncodingReply)
+  // @@protoc_insertion_point(parse_failure:telemetry.DataEncodingReply)
   return false;
 #undef DO_
 }
 
 void DataEncodingReply::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:Telemetry.DataEncodingReply)
-  // repeated .Telemetry.EncodingType encoding_list = 1;
+  // @@protoc_insertion_point(serialize_start:telemetry.DataEncodingReply)
+  // repeated .telemetry.EncodingType encoding_list = 1;
   if (this->encoding_list_size() > 0) {
     ::google::protobuf::internal::WireFormatLite::WriteTag(
       1,
@@ -6436,13 +6436,13 @@ void DataEncodingReply::SerializeWithCachedSizes(
       this->encoding_list(i), output);
   }
 
-  // @@protoc_insertion_point(serialize_end:Telemetry.DataEncodingReply)
+  // @@protoc_insertion_point(serialize_end:telemetry.DataEncodingReply)
 }
 
 ::google::protobuf::uint8* DataEncodingReply::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:Telemetry.DataEncodingReply)
-  // repeated .Telemetry.EncodingType encoding_list = 1;
+  // @@protoc_insertion_point(serialize_to_array_start:telemetry.DataEncodingReply)
+  // repeated .telemetry.EncodingType encoding_list = 1;
   if (this->encoding_list_size() > 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
       1,
@@ -6455,14 +6455,14 @@ void DataEncodingReply::SerializeWithCachedSizes(
       this->encoding_list(i), target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:Telemetry.DataEncodingReply)
+  // @@protoc_insertion_point(serialize_to_array_end:telemetry.DataEncodingReply)
   return target;
 }
 
 int DataEncodingReply::ByteSize() const {
   int total_size = 0;
 
-  // repeated .Telemetry.EncodingType encoding_list = 1;
+  // repeated .telemetry.EncodingType encoding_list = 1;
   {
     int data_size = 0;
     for (int i = 0; i < this->encoding_list_size(); i++) {
@@ -6540,33 +6540,33 @@ void DataEncodingReply::InternalSwap(DataEncodingReply* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // DataEncodingReply
 
-// repeated .Telemetry.EncodingType encoding_list = 1;
+// repeated .telemetry.EncodingType encoding_list = 1;
 int DataEncodingReply::encoding_list_size() const {
   return encoding_list_.size();
 }
 void DataEncodingReply::clear_encoding_list() {
   encoding_list_.Clear();
 }
- ::Telemetry::EncodingType DataEncodingReply::encoding_list(int index) const {
-  // @@protoc_insertion_point(field_get:Telemetry.DataEncodingReply.encoding_list)
-  return static_cast< ::Telemetry::EncodingType >(encoding_list_.Get(index));
+ ::telemetry::EncodingType DataEncodingReply::encoding_list(int index) const {
+  // @@protoc_insertion_point(field_get:telemetry.DataEncodingReply.encoding_list)
+  return static_cast< ::telemetry::EncodingType >(encoding_list_.Get(index));
 }
- void DataEncodingReply::set_encoding_list(int index, ::Telemetry::EncodingType value) {
+ void DataEncodingReply::set_encoding_list(int index, ::telemetry::EncodingType value) {
   encoding_list_.Set(index, value);
-  // @@protoc_insertion_point(field_set:Telemetry.DataEncodingReply.encoding_list)
+  // @@protoc_insertion_point(field_set:telemetry.DataEncodingReply.encoding_list)
 }
- void DataEncodingReply::add_encoding_list(::Telemetry::EncodingType value) {
+ void DataEncodingReply::add_encoding_list(::telemetry::EncodingType value) {
   encoding_list_.Add(value);
-  // @@protoc_insertion_point(field_add:Telemetry.DataEncodingReply.encoding_list)
+  // @@protoc_insertion_point(field_add:telemetry.DataEncodingReply.encoding_list)
 }
  const ::google::protobuf::RepeatedField<int>&
 DataEncodingReply::encoding_list() const {
-  // @@protoc_insertion_point(field_list:Telemetry.DataEncodingReply.encoding_list)
+  // @@protoc_insertion_point(field_list:telemetry.DataEncodingReply.encoding_list)
   return encoding_list_;
 }
  ::google::protobuf::RepeatedField<int>*
 DataEncodingReply::mutable_encoding_list() {
-  // @@protoc_insertion_point(field_mutable_list:Telemetry.DataEncodingReply.encoding_list)
+  // @@protoc_insertion_point(field_mutable_list:telemetry.DataEncodingReply.encoding_list)
   return &encoding_list_;
 }
 
@@ -6574,6 +6574,6 @@ DataEncodingReply::mutable_encoding_list() {
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace Telemetry
+}  // namespace telemetry
 
 // @@protoc_insertion_point(global_scope)

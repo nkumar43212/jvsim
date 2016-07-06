@@ -13,11 +13,11 @@ std::string BASE_OC_PATH_NPU_UTIL("/oc-path/components/component/subcomponents/s
 std::string OC_ATTRIBUTE_NPU_UTIL("utilization");
 
 void
-OpenConfigNpuUtilization::iterate (JuniperNetworksSensors *handle, Telemetry::OpenConfigData *datap)
+OpenConfigNpuUtilization::iterate (JuniperNetworksSensors *handle, telemetry::OpenConfigData *datap)
 {
     NetworkProcessorUtilization *message = handle->MutableExtension(jnpr_npu_utilization_ext);
     int i;
-    Telemetry::KeyValue *kv;
+    telemetry::KeyValue *kv;
 
     for (i = 0; i < message->npu_util_stats_size(); i++) {
         const Utilization &util = message->npu_util_stats(i);

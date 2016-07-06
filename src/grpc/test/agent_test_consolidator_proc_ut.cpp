@@ -23,7 +23,7 @@ TEST_F(AgentConsolidatorProcTest, get) {
     AgentConsolidatorHandle *handle;
     SubscriptionRequest request;
     SubscriptionRequest system_accepted_request;
-    Telemetry::Path *path;
+    telemetry::Path *path;
 
     // Build a request
     path = request.add_path_list();
@@ -52,7 +52,7 @@ TEST_F(AgentConsolidatorProcTest, get) {
         std::string original_path = request.path_list(j).path();
 
         for (int i = 0; i < ptr->path_list_size(); i++) {
-            Telemetry::Path path = ptr->path_list(i);
+            telemetry::Path path = ptr->path_list(i);
             if (path.path() == original_path) {
                 found = true;
                 break;
@@ -72,7 +72,7 @@ TEST_F(AgentConsolidatorProcTest, getSystem) {
     AgentConsolidatorHandle *handle;
     SubscriptionRequest request;
     SubscriptionRequest system_accepted_request;
-    Telemetry::Path *path;
+    telemetry::Path *path;
 
     // Build a request
     path = request.add_path_list();
@@ -96,7 +96,7 @@ TEST_F(AgentConsolidatorProcTest, getSystem) {
         std::string original_path = request.path_list(j).path();
 
         for (int i = 0; i < ptr->path_list_size(); i++) {
-            Telemetry::Path path = ptr->path_list(i);
+            telemetry::Path path = ptr->path_list(i);
             if (path.path() == original_path) {
                 found = true;
                 break;

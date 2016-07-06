@@ -10,11 +10,11 @@
 #include "oc.hpp"
 
 void
-OpenConfigKeyvalue::iterate (JuniperNetworksSensors *handle, Telemetry::OpenConfigData *datap)
+OpenConfigKeyvalue::iterate (JuniperNetworksSensors *handle, telemetry::OpenConfigData *datap)
 {
     kvresponse *message = handle->MutableExtension(kvresponseExt);
     int i;
-    Telemetry::KeyValue *kv;
+    telemetry::KeyValue *kv;
 
     for (i = 0; i < message->kvpairs_size(); i++) {
         const keyvalue &kvpair = message->kvpairs(i);

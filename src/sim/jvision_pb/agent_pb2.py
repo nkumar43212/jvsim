@@ -16,15 +16,15 @@ _sym_db = _symbol_database.Default()
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='agent.proto',
-  package='Telemetry',
+  package='telemetry',
   syntax='proto3',
-  serialized_pb=b'\n\x0b\x61gent.proto\x12\tTelemetry\"\xaa\x01\n\x13SubscriptionRequest\x12+\n\x05input\x18\x01 \x01(\x0b\x32\x1c.Telemetry.SubscriptionInput\x12\"\n\tpath_list\x18\x02 \x03(\x0b\x32\x0f.Telemetry.Path\x12\x42\n\x11\x61\x64\x64itional_config\x18\x03 \x01(\x0b\x32\'.Telemetry.SubscriptionAdditionalConfig\"A\n\x11SubscriptionInput\x12,\n\x0e\x63ollector_list\x18\x01 \x03(\x0b\x32\x14.Telemetry.Collector\"*\n\tCollector\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\t\x12\x0c\n\x04port\x18\x02 \x01(\r\"w\n\x04Path\x12\x0c\n\x04path\x18\x01 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x02 \x01(\t\x12\x1a\n\x12suppress_unchanged\x18\x03 \x01(\x08\x12\x1b\n\x13max_silent_interval\x18\x04 \x01(\r\x12\x18\n\x10sample_frequency\x18\x05 \x01(\r\"Q\n\x1cSubscriptionAdditionalConfig\x12\x15\n\rlimit_records\x18\x01 \x01(\x05\x12\x1a\n\x12limit_time_seconds\x18\x02 \x01(\x05\"j\n\x11SubscriptionReply\x12\x31\n\x08response\x18\x01 \x01(\x0b\x32\x1f.Telemetry.SubscriptionResponse\x12\"\n\tpath_list\x18\x02 \x03(\x0b\x32\x0f.Telemetry.Path\"/\n\x14SubscriptionResponse\x12\x17\n\x0fsubscription_id\x18\x01 \x01(\r\"\xae\x01\n\x0eOpenConfigData\x12\x11\n\tsystem_id\x18\x01 \x01(\t\x12\x14\n\x0c\x63omponent_id\x18\x02 \x01(\r\x12\x18\n\x10sub_component_id\x18\x03 \x01(\r\x12\x0c\n\x04path\x18\x04 \x01(\t\x12\x17\n\x0fsequence_number\x18\x05 \x01(\x04\x12\x11\n\ttimestamp\x18\x06 \x01(\x04\x12\x1f\n\x02kv\x18\x07 \x03(\x0b\x32\x13.Telemetry.KeyValue\"\xbb\x01\n\x08KeyValue\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x16\n\x0c\x64ouble_value\x18\x05 \x01(\x01H\x00\x12\x13\n\tint_value\x18\x06 \x01(\x03H\x00\x12\x14\n\nuint_value\x18\x07 \x01(\x04H\x00\x12\x14\n\nsint_value\x18\x08 \x01(\x12H\x00\x12\x14\n\nbool_value\x18\t \x01(\x08H\x00\x12\x13\n\tstr_value\x18\n \x01(\tH\x00\x12\x15\n\x0b\x62ytes_value\x18\x0b \x01(\x0cH\x00\x42\x07\n\x05value\"4\n\x19\x43\x61ncelSubscriptionRequest\x12\x17\n\x0fsubscription_id\x18\x01 \x01(\r\"P\n\x17\x43\x61ncelSubscriptionReply\x12#\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x15.Telemetry.ReturnCode\x12\x10\n\x08\x63ode_str\x18\x02 \x01(\t\"2\n\x17GetSubscriptionsRequest\x12\x17\n\x0fsubscription_id\x18\x01 \x01(\r\"P\n\x15GetSubscriptionsReply\x12\x37\n\x11subscription_list\x18\x01 \x03(\x0b\x32\x1c.Telemetry.SubscriptionReply\"c\n\x1aGetOperationalStateRequest\x12\x17\n\x0fsubscription_id\x18\x01 \x01(\r\x12,\n\tverbosity\x18\x02 \x01(\x0e\x32\x19.Telemetry.VerbosityLevel\";\n\x18GetOperationalStateReply\x12\x1f\n\x02kv\x18\x01 \x03(\x0b\x32\x13.Telemetry.KeyValue\"\x15\n\x13\x44\x61taEncodingRequest\"C\n\x11\x44\x61taEncodingReply\x12.\n\rencoding_list\x18\x01 \x03(\x0e\x32\x17.Telemetry.EncodingType*G\n\nReturnCode\x12\x0b\n\x07SUCCESS\x10\x00\x12\x19\n\x15NO_SUBSCRIPTION_ENTRY\x10\x01\x12\x11\n\rUNKNOWN_ERROR\x10\x02*2\n\x0eVerbosityLevel\x12\n\n\x06\x44\x45TAIL\x10\x00\x12\t\n\x05TERSE\x10\x01\x12\t\n\x05\x42RIEF\x10\x02*A\n\x0c\x45ncodingType\x12\r\n\tUNDEFINED\x10\x00\x12\x07\n\x03XML\x10\x01\x12\r\n\tJSON_IETF\x10\x02\x12\n\n\x06PROTO3\x10\x03\x32\xfc\x03\n\x13OpenConfigTelemetry\x12S\n\x12telemetrySubscribe\x12\x1e.Telemetry.SubscriptionRequest\x1a\x19.Telemetry.OpenConfigData\"\x00\x30\x01\x12i\n\x1b\x63\x61ncelTelemetrySubscription\x12$.Telemetry.CancelSubscriptionRequest\x1a\".Telemetry.CancelSubscriptionReply\"\x00\x12\x63\n\x19getTelemetrySubscriptions\x12\".Telemetry.GetSubscriptionsRequest\x1a .Telemetry.GetSubscriptionsReply\"\x00\x12l\n\x1cgetTelemetryOperationalState\x12%.Telemetry.GetOperationalStateRequest\x1a#.Telemetry.GetOperationalStateReply\"\x00\x12R\n\x10getDataEncodings\x12\x1e.Telemetry.DataEncodingRequest\x1a\x1c.Telemetry.DataEncodingReply\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x0b\x61gent.proto\x12\ttelemetry\"\xaa\x01\n\x13SubscriptionRequest\x12+\n\x05input\x18\x01 \x01(\x0b\x32\x1c.telemetry.SubscriptionInput\x12\"\n\tpath_list\x18\x02 \x03(\x0b\x32\x0f.telemetry.Path\x12\x42\n\x11\x61\x64\x64itional_config\x18\x03 \x01(\x0b\x32\'.telemetry.SubscriptionAdditionalConfig\"A\n\x11SubscriptionInput\x12,\n\x0e\x63ollector_list\x18\x01 \x03(\x0b\x32\x14.telemetry.Collector\"*\n\tCollector\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\t\x12\x0c\n\x04port\x18\x02 \x01(\r\"w\n\x04Path\x12\x0c\n\x04path\x18\x01 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x02 \x01(\t\x12\x1a\n\x12suppress_unchanged\x18\x03 \x01(\x08\x12\x1b\n\x13max_silent_interval\x18\x04 \x01(\r\x12\x18\n\x10sample_frequency\x18\x05 \x01(\r\"Q\n\x1cSubscriptionAdditionalConfig\x12\x15\n\rlimit_records\x18\x01 \x01(\x05\x12\x1a\n\x12limit_time_seconds\x18\x02 \x01(\x05\"j\n\x11SubscriptionReply\x12\x31\n\x08response\x18\x01 \x01(\x0b\x32\x1f.telemetry.SubscriptionResponse\x12\"\n\tpath_list\x18\x02 \x03(\x0b\x32\x0f.telemetry.Path\"/\n\x14SubscriptionResponse\x12\x17\n\x0fsubscription_id\x18\x01 \x01(\r\"\xae\x01\n\x0eOpenConfigData\x12\x11\n\tsystem_id\x18\x01 \x01(\t\x12\x14\n\x0c\x63omponent_id\x18\x02 \x01(\r\x12\x18\n\x10sub_component_id\x18\x03 \x01(\r\x12\x0c\n\x04path\x18\x04 \x01(\t\x12\x17\n\x0fsequence_number\x18\x05 \x01(\x04\x12\x11\n\ttimestamp\x18\x06 \x01(\x04\x12\x1f\n\x02kv\x18\x07 \x03(\x0b\x32\x13.telemetry.KeyValue\"\xbb\x01\n\x08KeyValue\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x16\n\x0c\x64ouble_value\x18\x05 \x01(\x01H\x00\x12\x13\n\tint_value\x18\x06 \x01(\x03H\x00\x12\x14\n\nuint_value\x18\x07 \x01(\x04H\x00\x12\x14\n\nsint_value\x18\x08 \x01(\x12H\x00\x12\x14\n\nbool_value\x18\t \x01(\x08H\x00\x12\x13\n\tstr_value\x18\n \x01(\tH\x00\x12\x15\n\x0b\x62ytes_value\x18\x0b \x01(\x0cH\x00\x42\x07\n\x05value\"4\n\x19\x43\x61ncelSubscriptionRequest\x12\x17\n\x0fsubscription_id\x18\x01 \x01(\r\"P\n\x17\x43\x61ncelSubscriptionReply\x12#\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x15.telemetry.ReturnCode\x12\x10\n\x08\x63ode_str\x18\x02 \x01(\t\"2\n\x17GetSubscriptionsRequest\x12\x17\n\x0fsubscription_id\x18\x01 \x01(\r\"P\n\x15GetSubscriptionsReply\x12\x37\n\x11subscription_list\x18\x01 \x03(\x0b\x32\x1c.telemetry.SubscriptionReply\"c\n\x1aGetOperationalStateRequest\x12\x17\n\x0fsubscription_id\x18\x01 \x01(\r\x12,\n\tverbosity\x18\x02 \x01(\x0e\x32\x19.telemetry.VerbosityLevel\";\n\x18GetOperationalStateReply\x12\x1f\n\x02kv\x18\x01 \x03(\x0b\x32\x13.telemetry.KeyValue\"\x15\n\x13\x44\x61taEncodingRequest\"C\n\x11\x44\x61taEncodingReply\x12.\n\rencoding_list\x18\x01 \x03(\x0e\x32\x17.telemetry.EncodingType*G\n\nReturnCode\x12\x0b\n\x07SUCCESS\x10\x00\x12\x19\n\x15NO_SUBSCRIPTION_ENTRY\x10\x01\x12\x11\n\rUNKNOWN_ERROR\x10\x02*2\n\x0eVerbosityLevel\x12\n\n\x06\x44\x45TAIL\x10\x00\x12\t\n\x05TERSE\x10\x01\x12\t\n\x05\x42RIEF\x10\x02*A\n\x0c\x45ncodingType\x12\r\n\tUNDEFINED\x10\x00\x12\x07\n\x03XML\x10\x01\x12\r\n\tJSON_IETF\x10\x02\x12\n\n\x06PROTO3\x10\x03\x32\xfc\x03\n\x13OpenConfigTelemetry\x12S\n\x12telemetrySubscribe\x12\x1e.telemetry.SubscriptionRequest\x1a\x19.telemetry.OpenConfigData\"\x00\x30\x01\x12i\n\x1b\x63\x61ncelTelemetrySubscription\x12$.telemetry.CancelSubscriptionRequest\x1a\".telemetry.CancelSubscriptionReply\"\x00\x12\x63\n\x19getTelemetrySubscriptions\x12\".telemetry.GetSubscriptionsRequest\x1a .telemetry.GetSubscriptionsReply\"\x00\x12l\n\x1cgetTelemetryOperationalState\x12%.telemetry.GetOperationalStateRequest\x1a#.telemetry.GetOperationalStateReply\"\x00\x12R\n\x10getDataEncodings\x12\x1e.telemetry.DataEncodingRequest\x1a\x1c.telemetry.DataEncodingReply\"\x00\x62\x06proto3'
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _RETURNCODE = _descriptor.EnumDescriptor(
   name='ReturnCode',
-  full_name='Telemetry.ReturnCode',
+  full_name='telemetry.ReturnCode',
   filename=None,
   file=DESCRIPTOR,
   values=[
@@ -51,7 +51,7 @@ _sym_db.RegisterEnumDescriptor(_RETURNCODE)
 ReturnCode = enum_type_wrapper.EnumTypeWrapper(_RETURNCODE)
 _VERBOSITYLEVEL = _descriptor.EnumDescriptor(
   name='VerbosityLevel',
-  full_name='Telemetry.VerbosityLevel',
+  full_name='telemetry.VerbosityLevel',
   filename=None,
   file=DESCRIPTOR,
   values=[
@@ -78,7 +78,7 @@ _sym_db.RegisterEnumDescriptor(_VERBOSITYLEVEL)
 VerbosityLevel = enum_type_wrapper.EnumTypeWrapper(_VERBOSITYLEVEL)
 _ENCODINGTYPE = _descriptor.EnumDescriptor(
   name='EncodingType',
-  full_name='Telemetry.EncodingType',
+  full_name='telemetry.EncodingType',
   filename=None,
   file=DESCRIPTOR,
   values=[
@@ -122,27 +122,27 @@ PROTO3 = 3
 
 _SUBSCRIPTIONREQUEST = _descriptor.Descriptor(
   name='SubscriptionRequest',
-  full_name='Telemetry.SubscriptionRequest',
+  full_name='telemetry.SubscriptionRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='input', full_name='Telemetry.SubscriptionRequest.input', index=0,
+      name='input', full_name='telemetry.SubscriptionRequest.input', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='path_list', full_name='Telemetry.SubscriptionRequest.path_list', index=1,
+      name='path_list', full_name='telemetry.SubscriptionRequest.path_list', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='additional_config', full_name='Telemetry.SubscriptionRequest.additional_config', index=2,
+      name='additional_config', full_name='telemetry.SubscriptionRequest.additional_config', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -167,13 +167,13 @@ _SUBSCRIPTIONREQUEST = _descriptor.Descriptor(
 
 _SUBSCRIPTIONINPUT = _descriptor.Descriptor(
   name='SubscriptionInput',
-  full_name='Telemetry.SubscriptionInput',
+  full_name='telemetry.SubscriptionInput',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='collector_list', full_name='Telemetry.SubscriptionInput.collector_list', index=0,
+      name='collector_list', full_name='telemetry.SubscriptionInput.collector_list', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -198,20 +198,20 @@ _SUBSCRIPTIONINPUT = _descriptor.Descriptor(
 
 _COLLECTOR = _descriptor.Descriptor(
   name='Collector',
-  full_name='Telemetry.Collector',
+  full_name='telemetry.Collector',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='address', full_name='Telemetry.Collector.address', index=0,
+      name='address', full_name='telemetry.Collector.address', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='port', full_name='Telemetry.Collector.port', index=1,
+      name='port', full_name='telemetry.Collector.port', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -236,41 +236,41 @@ _COLLECTOR = _descriptor.Descriptor(
 
 _PATH = _descriptor.Descriptor(
   name='Path',
-  full_name='Telemetry.Path',
+  full_name='telemetry.Path',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='path', full_name='Telemetry.Path.path', index=0,
+      name='path', full_name='telemetry.Path.path', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='filter', full_name='Telemetry.Path.filter', index=1,
+      name='filter', full_name='telemetry.Path.filter', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='suppress_unchanged', full_name='Telemetry.Path.suppress_unchanged', index=2,
+      name='suppress_unchanged', full_name='telemetry.Path.suppress_unchanged', index=2,
       number=3, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='max_silent_interval', full_name='Telemetry.Path.max_silent_interval', index=3,
+      name='max_silent_interval', full_name='telemetry.Path.max_silent_interval', index=3,
       number=4, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='sample_frequency', full_name='Telemetry.Path.sample_frequency', index=4,
+      name='sample_frequency', full_name='telemetry.Path.sample_frequency', index=4,
       number=5, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -295,20 +295,20 @@ _PATH = _descriptor.Descriptor(
 
 _SUBSCRIPTIONADDITIONALCONFIG = _descriptor.Descriptor(
   name='SubscriptionAdditionalConfig',
-  full_name='Telemetry.SubscriptionAdditionalConfig',
+  full_name='telemetry.SubscriptionAdditionalConfig',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='limit_records', full_name='Telemetry.SubscriptionAdditionalConfig.limit_records', index=0,
+      name='limit_records', full_name='telemetry.SubscriptionAdditionalConfig.limit_records', index=0,
       number=1, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='limit_time_seconds', full_name='Telemetry.SubscriptionAdditionalConfig.limit_time_seconds', index=1,
+      name='limit_time_seconds', full_name='telemetry.SubscriptionAdditionalConfig.limit_time_seconds', index=1,
       number=2, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -333,20 +333,20 @@ _SUBSCRIPTIONADDITIONALCONFIG = _descriptor.Descriptor(
 
 _SUBSCRIPTIONREPLY = _descriptor.Descriptor(
   name='SubscriptionReply',
-  full_name='Telemetry.SubscriptionReply',
+  full_name='telemetry.SubscriptionReply',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='response', full_name='Telemetry.SubscriptionReply.response', index=0,
+      name='response', full_name='telemetry.SubscriptionReply.response', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='path_list', full_name='Telemetry.SubscriptionReply.path_list', index=1,
+      name='path_list', full_name='telemetry.SubscriptionReply.path_list', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -371,13 +371,13 @@ _SUBSCRIPTIONREPLY = _descriptor.Descriptor(
 
 _SUBSCRIPTIONRESPONSE = _descriptor.Descriptor(
   name='SubscriptionResponse',
-  full_name='Telemetry.SubscriptionResponse',
+  full_name='telemetry.SubscriptionResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='subscription_id', full_name='Telemetry.SubscriptionResponse.subscription_id', index=0,
+      name='subscription_id', full_name='telemetry.SubscriptionResponse.subscription_id', index=0,
       number=1, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -402,55 +402,55 @@ _SUBSCRIPTIONRESPONSE = _descriptor.Descriptor(
 
 _OPENCONFIGDATA = _descriptor.Descriptor(
   name='OpenConfigData',
-  full_name='Telemetry.OpenConfigData',
+  full_name='telemetry.OpenConfigData',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='system_id', full_name='Telemetry.OpenConfigData.system_id', index=0,
+      name='system_id', full_name='telemetry.OpenConfigData.system_id', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='component_id', full_name='Telemetry.OpenConfigData.component_id', index=1,
+      name='component_id', full_name='telemetry.OpenConfigData.component_id', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='sub_component_id', full_name='Telemetry.OpenConfigData.sub_component_id', index=2,
+      name='sub_component_id', full_name='telemetry.OpenConfigData.sub_component_id', index=2,
       number=3, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='path', full_name='Telemetry.OpenConfigData.path', index=3,
+      name='path', full_name='telemetry.OpenConfigData.path', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='sequence_number', full_name='Telemetry.OpenConfigData.sequence_number', index=4,
+      name='sequence_number', full_name='telemetry.OpenConfigData.sequence_number', index=4,
       number=5, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='timestamp', full_name='Telemetry.OpenConfigData.timestamp', index=5,
+      name='timestamp', full_name='telemetry.OpenConfigData.timestamp', index=5,
       number=6, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='kv', full_name='Telemetry.OpenConfigData.kv', index=6,
+      name='kv', full_name='telemetry.OpenConfigData.kv', index=6,
       number=7, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -475,62 +475,62 @@ _OPENCONFIGDATA = _descriptor.Descriptor(
 
 _KEYVALUE = _descriptor.Descriptor(
   name='KeyValue',
-  full_name='Telemetry.KeyValue',
+  full_name='telemetry.KeyValue',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='key', full_name='Telemetry.KeyValue.key', index=0,
+      name='key', full_name='telemetry.KeyValue.key', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='double_value', full_name='Telemetry.KeyValue.double_value', index=1,
+      name='double_value', full_name='telemetry.KeyValue.double_value', index=1,
       number=5, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='int_value', full_name='Telemetry.KeyValue.int_value', index=2,
+      name='int_value', full_name='telemetry.KeyValue.int_value', index=2,
       number=6, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='uint_value', full_name='Telemetry.KeyValue.uint_value', index=3,
+      name='uint_value', full_name='telemetry.KeyValue.uint_value', index=3,
       number=7, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='sint_value', full_name='Telemetry.KeyValue.sint_value', index=4,
+      name='sint_value', full_name='telemetry.KeyValue.sint_value', index=4,
       number=8, type=18, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='bool_value', full_name='Telemetry.KeyValue.bool_value', index=5,
+      name='bool_value', full_name='telemetry.KeyValue.bool_value', index=5,
       number=9, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='str_value', full_name='Telemetry.KeyValue.str_value', index=6,
+      name='str_value', full_name='telemetry.KeyValue.str_value', index=6,
       number=10, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='bytes_value', full_name='Telemetry.KeyValue.bytes_value', index=7,
+      name='bytes_value', full_name='telemetry.KeyValue.bytes_value', index=7,
       number=11, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=b"",
       message_type=None, enum_type=None, containing_type=None,
@@ -548,7 +548,7 @@ _KEYVALUE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
     _descriptor.OneofDescriptor(
-      name='value', full_name='Telemetry.KeyValue.value',
+      name='value', full_name='telemetry.KeyValue.value',
       index=0, containing_type=None, fields=[]),
   ],
   serialized_start=849,
@@ -558,13 +558,13 @@ _KEYVALUE = _descriptor.Descriptor(
 
 _CANCELSUBSCRIPTIONREQUEST = _descriptor.Descriptor(
   name='CancelSubscriptionRequest',
-  full_name='Telemetry.CancelSubscriptionRequest',
+  full_name='telemetry.CancelSubscriptionRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='subscription_id', full_name='Telemetry.CancelSubscriptionRequest.subscription_id', index=0,
+      name='subscription_id', full_name='telemetry.CancelSubscriptionRequest.subscription_id', index=0,
       number=1, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -589,20 +589,20 @@ _CANCELSUBSCRIPTIONREQUEST = _descriptor.Descriptor(
 
 _CANCELSUBSCRIPTIONREPLY = _descriptor.Descriptor(
   name='CancelSubscriptionReply',
-  full_name='Telemetry.CancelSubscriptionReply',
+  full_name='telemetry.CancelSubscriptionReply',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='code', full_name='Telemetry.CancelSubscriptionReply.code', index=0,
+      name='code', full_name='telemetry.CancelSubscriptionReply.code', index=0,
       number=1, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='code_str', full_name='Telemetry.CancelSubscriptionReply.code_str', index=1,
+      name='code_str', full_name='telemetry.CancelSubscriptionReply.code_str', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -627,13 +627,13 @@ _CANCELSUBSCRIPTIONREPLY = _descriptor.Descriptor(
 
 _GETSUBSCRIPTIONSREQUEST = _descriptor.Descriptor(
   name='GetSubscriptionsRequest',
-  full_name='Telemetry.GetSubscriptionsRequest',
+  full_name='telemetry.GetSubscriptionsRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='subscription_id', full_name='Telemetry.GetSubscriptionsRequest.subscription_id', index=0,
+      name='subscription_id', full_name='telemetry.GetSubscriptionsRequest.subscription_id', index=0,
       number=1, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -658,13 +658,13 @@ _GETSUBSCRIPTIONSREQUEST = _descriptor.Descriptor(
 
 _GETSUBSCRIPTIONSREPLY = _descriptor.Descriptor(
   name='GetSubscriptionsReply',
-  full_name='Telemetry.GetSubscriptionsReply',
+  full_name='telemetry.GetSubscriptionsReply',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='subscription_list', full_name='Telemetry.GetSubscriptionsReply.subscription_list', index=0,
+      name='subscription_list', full_name='telemetry.GetSubscriptionsReply.subscription_list', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -689,20 +689,20 @@ _GETSUBSCRIPTIONSREPLY = _descriptor.Descriptor(
 
 _GETOPERATIONALSTATEREQUEST = _descriptor.Descriptor(
   name='GetOperationalStateRequest',
-  full_name='Telemetry.GetOperationalStateRequest',
+  full_name='telemetry.GetOperationalStateRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='subscription_id', full_name='Telemetry.GetOperationalStateRequest.subscription_id', index=0,
+      name='subscription_id', full_name='telemetry.GetOperationalStateRequest.subscription_id', index=0,
       number=1, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='verbosity', full_name='Telemetry.GetOperationalStateRequest.verbosity', index=1,
+      name='verbosity', full_name='telemetry.GetOperationalStateRequest.verbosity', index=1,
       number=2, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -727,13 +727,13 @@ _GETOPERATIONALSTATEREQUEST = _descriptor.Descriptor(
 
 _GETOPERATIONALSTATEREPLY = _descriptor.Descriptor(
   name='GetOperationalStateReply',
-  full_name='Telemetry.GetOperationalStateReply',
+  full_name='telemetry.GetOperationalStateReply',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='kv', full_name='Telemetry.GetOperationalStateReply.kv', index=0,
+      name='kv', full_name='telemetry.GetOperationalStateReply.kv', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -758,7 +758,7 @@ _GETOPERATIONALSTATEREPLY = _descriptor.Descriptor(
 
 _DATAENCODINGREQUEST = _descriptor.Descriptor(
   name='DataEncodingRequest',
-  full_name='Telemetry.DataEncodingRequest',
+  full_name='telemetry.DataEncodingRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
@@ -782,13 +782,13 @@ _DATAENCODINGREQUEST = _descriptor.Descriptor(
 
 _DATAENCODINGREPLY = _descriptor.Descriptor(
   name='DataEncodingReply',
-  full_name='Telemetry.DataEncodingReply',
+  full_name='telemetry.DataEncodingReply',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='encoding_list', full_name='Telemetry.DataEncodingReply.encoding_list', index=0,
+      name='encoding_list', full_name='telemetry.DataEncodingReply.encoding_list', index=0,
       number=1, type=14, cpp_type=8, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -867,119 +867,119 @@ DESCRIPTOR.enum_types_by_name['EncodingType'] = _ENCODINGTYPE
 SubscriptionRequest = _reflection.GeneratedProtocolMessageType('SubscriptionRequest', (_message.Message,), dict(
   DESCRIPTOR = _SUBSCRIPTIONREQUEST,
   __module__ = 'agent_pb2'
-  # @@protoc_insertion_point(class_scope:Telemetry.SubscriptionRequest)
+  # @@protoc_insertion_point(class_scope:telemetry.SubscriptionRequest)
   ))
 _sym_db.RegisterMessage(SubscriptionRequest)
 
 SubscriptionInput = _reflection.GeneratedProtocolMessageType('SubscriptionInput', (_message.Message,), dict(
   DESCRIPTOR = _SUBSCRIPTIONINPUT,
   __module__ = 'agent_pb2'
-  # @@protoc_insertion_point(class_scope:Telemetry.SubscriptionInput)
+  # @@protoc_insertion_point(class_scope:telemetry.SubscriptionInput)
   ))
 _sym_db.RegisterMessage(SubscriptionInput)
 
 Collector = _reflection.GeneratedProtocolMessageType('Collector', (_message.Message,), dict(
   DESCRIPTOR = _COLLECTOR,
   __module__ = 'agent_pb2'
-  # @@protoc_insertion_point(class_scope:Telemetry.Collector)
+  # @@protoc_insertion_point(class_scope:telemetry.Collector)
   ))
 _sym_db.RegisterMessage(Collector)
 
 Path = _reflection.GeneratedProtocolMessageType('Path', (_message.Message,), dict(
   DESCRIPTOR = _PATH,
   __module__ = 'agent_pb2'
-  # @@protoc_insertion_point(class_scope:Telemetry.Path)
+  # @@protoc_insertion_point(class_scope:telemetry.Path)
   ))
 _sym_db.RegisterMessage(Path)
 
 SubscriptionAdditionalConfig = _reflection.GeneratedProtocolMessageType('SubscriptionAdditionalConfig', (_message.Message,), dict(
   DESCRIPTOR = _SUBSCRIPTIONADDITIONALCONFIG,
   __module__ = 'agent_pb2'
-  # @@protoc_insertion_point(class_scope:Telemetry.SubscriptionAdditionalConfig)
+  # @@protoc_insertion_point(class_scope:telemetry.SubscriptionAdditionalConfig)
   ))
 _sym_db.RegisterMessage(SubscriptionAdditionalConfig)
 
 SubscriptionReply = _reflection.GeneratedProtocolMessageType('SubscriptionReply', (_message.Message,), dict(
   DESCRIPTOR = _SUBSCRIPTIONREPLY,
   __module__ = 'agent_pb2'
-  # @@protoc_insertion_point(class_scope:Telemetry.SubscriptionReply)
+  # @@protoc_insertion_point(class_scope:telemetry.SubscriptionReply)
   ))
 _sym_db.RegisterMessage(SubscriptionReply)
 
 SubscriptionResponse = _reflection.GeneratedProtocolMessageType('SubscriptionResponse', (_message.Message,), dict(
   DESCRIPTOR = _SUBSCRIPTIONRESPONSE,
   __module__ = 'agent_pb2'
-  # @@protoc_insertion_point(class_scope:Telemetry.SubscriptionResponse)
+  # @@protoc_insertion_point(class_scope:telemetry.SubscriptionResponse)
   ))
 _sym_db.RegisterMessage(SubscriptionResponse)
 
 OpenConfigData = _reflection.GeneratedProtocolMessageType('OpenConfigData', (_message.Message,), dict(
   DESCRIPTOR = _OPENCONFIGDATA,
   __module__ = 'agent_pb2'
-  # @@protoc_insertion_point(class_scope:Telemetry.OpenConfigData)
+  # @@protoc_insertion_point(class_scope:telemetry.OpenConfigData)
   ))
 _sym_db.RegisterMessage(OpenConfigData)
 
 KeyValue = _reflection.GeneratedProtocolMessageType('KeyValue', (_message.Message,), dict(
   DESCRIPTOR = _KEYVALUE,
   __module__ = 'agent_pb2'
-  # @@protoc_insertion_point(class_scope:Telemetry.KeyValue)
+  # @@protoc_insertion_point(class_scope:telemetry.KeyValue)
   ))
 _sym_db.RegisterMessage(KeyValue)
 
 CancelSubscriptionRequest = _reflection.GeneratedProtocolMessageType('CancelSubscriptionRequest', (_message.Message,), dict(
   DESCRIPTOR = _CANCELSUBSCRIPTIONREQUEST,
   __module__ = 'agent_pb2'
-  # @@protoc_insertion_point(class_scope:Telemetry.CancelSubscriptionRequest)
+  # @@protoc_insertion_point(class_scope:telemetry.CancelSubscriptionRequest)
   ))
 _sym_db.RegisterMessage(CancelSubscriptionRequest)
 
 CancelSubscriptionReply = _reflection.GeneratedProtocolMessageType('CancelSubscriptionReply', (_message.Message,), dict(
   DESCRIPTOR = _CANCELSUBSCRIPTIONREPLY,
   __module__ = 'agent_pb2'
-  # @@protoc_insertion_point(class_scope:Telemetry.CancelSubscriptionReply)
+  # @@protoc_insertion_point(class_scope:telemetry.CancelSubscriptionReply)
   ))
 _sym_db.RegisterMessage(CancelSubscriptionReply)
 
 GetSubscriptionsRequest = _reflection.GeneratedProtocolMessageType('GetSubscriptionsRequest', (_message.Message,), dict(
   DESCRIPTOR = _GETSUBSCRIPTIONSREQUEST,
   __module__ = 'agent_pb2'
-  # @@protoc_insertion_point(class_scope:Telemetry.GetSubscriptionsRequest)
+  # @@protoc_insertion_point(class_scope:telemetry.GetSubscriptionsRequest)
   ))
 _sym_db.RegisterMessage(GetSubscriptionsRequest)
 
 GetSubscriptionsReply = _reflection.GeneratedProtocolMessageType('GetSubscriptionsReply', (_message.Message,), dict(
   DESCRIPTOR = _GETSUBSCRIPTIONSREPLY,
   __module__ = 'agent_pb2'
-  # @@protoc_insertion_point(class_scope:Telemetry.GetSubscriptionsReply)
+  # @@protoc_insertion_point(class_scope:telemetry.GetSubscriptionsReply)
   ))
 _sym_db.RegisterMessage(GetSubscriptionsReply)
 
 GetOperationalStateRequest = _reflection.GeneratedProtocolMessageType('GetOperationalStateRequest', (_message.Message,), dict(
   DESCRIPTOR = _GETOPERATIONALSTATEREQUEST,
   __module__ = 'agent_pb2'
-  # @@protoc_insertion_point(class_scope:Telemetry.GetOperationalStateRequest)
+  # @@protoc_insertion_point(class_scope:telemetry.GetOperationalStateRequest)
   ))
 _sym_db.RegisterMessage(GetOperationalStateRequest)
 
 GetOperationalStateReply = _reflection.GeneratedProtocolMessageType('GetOperationalStateReply', (_message.Message,), dict(
   DESCRIPTOR = _GETOPERATIONALSTATEREPLY,
   __module__ = 'agent_pb2'
-  # @@protoc_insertion_point(class_scope:Telemetry.GetOperationalStateReply)
+  # @@protoc_insertion_point(class_scope:telemetry.GetOperationalStateReply)
   ))
 _sym_db.RegisterMessage(GetOperationalStateReply)
 
 DataEncodingRequest = _reflection.GeneratedProtocolMessageType('DataEncodingRequest', (_message.Message,), dict(
   DESCRIPTOR = _DATAENCODINGREQUEST,
   __module__ = 'agent_pb2'
-  # @@protoc_insertion_point(class_scope:Telemetry.DataEncodingRequest)
+  # @@protoc_insertion_point(class_scope:telemetry.DataEncodingRequest)
   ))
 _sym_db.RegisterMessage(DataEncodingRequest)
 
 DataEncodingReply = _reflection.GeneratedProtocolMessageType('DataEncodingReply', (_message.Message,), dict(
   DESCRIPTOR = _DATAENCODINGREPLY,
   __module__ = 'agent_pb2'
-  # @@protoc_insertion_point(class_scope:Telemetry.DataEncodingReply)
+  # @@protoc_insertion_point(class_scope:telemetry.DataEncodingReply)
   ))
 _sym_db.RegisterMessage(DataEncodingReply)
 
