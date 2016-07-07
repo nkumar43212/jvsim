@@ -14,6 +14,7 @@ SRCS = \
 	OpenConfigCpuMemoryUtilization.cpp \
 	OpenConfigFirewall.cpp \
 	OpenConfigFoo.cpp \
+	OpenConfigInlineJflow.cpp \
 	OpenConfigKeyvalue.cpp \
 	OpenConfigLogicalPort.cpp \
 	OpenConfigLspStats.cpp \

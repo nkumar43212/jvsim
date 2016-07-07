@@ -15,6 +15,7 @@ SRCS = \
 	cpu_memory_utilization.pb.cc \
 	firewall.pb.cc \
 	Foo.pb.cc \
+	inline_jflow.pb.cc \
 	inventory.pb.cc \
 	iptunnels.pb.cc \
 	keyvalue.pb.cc \
