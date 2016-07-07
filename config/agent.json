@@ -1,7 +1,7 @@
 {
   "packageTable": [
     {
-      "Telemetry": {
+      "telemetry": {
         "imports": "",
         "messageTable": [
           {
@@ -476,7 +476,7 @@
 
         "rpcTable" : [
           {
-            "/Telemetry.OpenConfigTelemetry/telemetrySubscribe": {
+            "/telemetry.OpenConfigTelemetry/telemetrySubscribe": {
               "inMsgDescriptor": "TelemetrySubscriptionRequest",
               "outMsgDescriptor": "TelemetryOpenConfigData",
               "dName": "none",
@@ -485,7 +485,7 @@
             }
           },
           {
-            "/Telemetry.OpenConfigTelemetry/cancelTelemetrySubscription": {
+            "/telemetry.OpenConfigTelemetry/cancelTelemetrySubscription": {
               "inMsgDescriptor": "TelemetryCancelSubscriptionRequest",
               "outMsgDescriptor": "TelemetryCancelSubscriptionReply",
               "dName": "none",
@@ -494,7 +494,7 @@
             }
           },
           {
-            "/Telemetry.OpenConfigTelemetry/getTelemetrySubscriptions": {
+            "/telemetry.OpenConfigTelemetry/getTelemetrySubscriptions": {
               "inMsgDescriptor": "TelemetryGetSubscriptionsRequest",
               "outMsgDescriptor": "TelemetryGetSubscriptionsReply",
               "dName": "none",
@@ -503,7 +503,7 @@
             }
           },
           {
-            "/Telemetry.OpenConfigTelemetry/getTelemetryOperationalState": {
+            "/telemetry.OpenConfigTelemetry/getTelemetryOperationalState": {
               "inMsgDescriptor": "TelemetryGetOperationalStateRequest",
               "outMsgDescriptor": "TelemetryGetOperationalStateReply",
               "dName": "none",
@@ -512,7 +512,7 @@
             }
           },
           {
-            "/Telemetry.OpenConfigTelemetry/getDataEncodings": {
+            "/telemetry.OpenConfigTelemetry/getDataEncodings": {
               "inMsgDescriptor": "TelemetryDataEncodingRequest",
               "outMsgDescriptor": "TelemetryDataEncodingReply",
               "dName": "none",
