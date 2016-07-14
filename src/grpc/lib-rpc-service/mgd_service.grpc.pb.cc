@@ -16,6 +16,7 @@ namespace management {
 
 static const char* ManagementRpcApi_method_names[] = {
   "/management.ManagementRpcApi/ExecuteOpCommand",
+  "/management.ManagementRpcApi/ExecuteCfgCommand",
   "/management.ManagementRpcApi/GetEphemeralConfig",
   "/management.ManagementRpcApi/EditEphemeralConfig",
 };
@@ -27,8 +28,9 @@ std::unique_ptr< ManagementRpcApi::Stub> ManagementRpcApi::NewStub(const std::sh
 
 ManagementRpcApi::Stub::Stub(const std::shared_ptr< ::grpc::Channel>& channel)
   : channel_(channel), rpcmethod_ExecuteOpCommand_(ManagementRpcApi_method_names[0], ::grpc::RpcMethod::SERVER_STREAMING, channel)
-  , rpcmethod_GetEphemeralConfig_(ManagementRpcApi_method_names[1], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_EditEphemeralConfig_(ManagementRpcApi_method_names[2], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_ExecuteCfgCommand_(ManagementRpcApi_method_names[1], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GetEphemeralConfig_(ManagementRpcApi_method_names[2], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_EditEphemeralConfig_(ManagementRpcApi_method_names[3], ::grpc::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::ClientReader< ::management::ExecuteOpCommandResponse>* ManagementRpcApi::Stub::ExecuteOpCommandRaw(::grpc::ClientContext* context, const ::management::ExecuteOpCommandRequest& request) {
@@ -37,6 +39,14 @@ ManagementRpcApi::Stub::Stub(const std::shared_ptr< ::grpc::Channel>& channel)
 
 ::grpc::ClientAsyncReader< ::management::ExecuteOpCommandResponse>* ManagementRpcApi::Stub::AsyncExecuteOpCommandRaw(::grpc::ClientContext* context, const ::management::ExecuteOpCommandRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
   return new ::grpc::ClientAsyncReader< ::management::ExecuteOpCommandResponse>(channel_.get(), cq, rpcmethod_ExecuteOpCommand_, context, request, tag);
+}
+
+::grpc::Status ManagementRpcApi::Stub::ExecuteCfgCommand(::grpc::ClientContext* context, const ::management::ExecuteCfgCommandRequest& request, ::management::ExecuteCfgCommandResponse* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_ExecuteCfgCommand_, context, request, response);
+}
+
+::grpc::ClientAsyncResponseReader< ::management::ExecuteCfgCommandResponse>* ManagementRpcApi::Stub::AsyncExecuteCfgCommandRaw(::grpc::ClientContext* context, const ::management::ExecuteCfgCommandRequest& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::management::ExecuteCfgCommandResponse>(channel_.get(), cq, rpcmethod_ExecuteCfgCommand_, context, request);
 }
 
 ::grpc::Status ManagementRpcApi::Stub::GetEphemeralConfig(::grpc::ClientContext* context, const ::management::GetEphemeralConfigRequest& request, ::management::GetEphemeralConfigResponse* response) {
@@ -55,7 +65,7 @@ ManagementRpcApi::Stub::Stub(const std::shared_ptr< ::grpc::Channel>& channel)
   return new ::grpc::ClientAsyncResponseReader< ::management::EditEphemeralConfigResponse>(channel_.get(), cq, rpcmethod_EditEphemeralConfig_, context, request);
 }
 
-ManagementRpcApi::AsyncService::AsyncService() : ::grpc::AsynchronousService(ManagementRpcApi_method_names, 3) {}
+ManagementRpcApi::AsyncService::AsyncService() : ::grpc::AsynchronousService(ManagementRpcApi_method_names, 4) {}
 
 ManagementRpcApi::Service::~Service() {
   delete service_;
@@ -72,6 +82,17 @@ void ManagementRpcApi::AsyncService::RequestExecuteOpCommand(::grpc::ServerConte
   AsynchronousService::RequestServerStreaming(0, context, request, writer, new_call_cq, notification_cq, tag);
 }
 
+::grpc::Status ManagementRpcApi::Service::ExecuteCfgCommand(::grpc::ServerContext* context, const ::management::ExecuteCfgCommandRequest* request, ::management::ExecuteCfgCommandResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+void ManagementRpcApi::AsyncService::RequestExecuteCfgCommand(::grpc::ServerContext* context, ::management::ExecuteCfgCommandRequest* request, ::grpc::ServerAsyncResponseWriter< ::management::ExecuteCfgCommandResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+  AsynchronousService::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+}
+
 ::grpc::Status ManagementRpcApi::Service::GetEphemeralConfig(::grpc::ServerContext* context, const ::management::GetEphemeralConfigRequest* request, ::management::GetEphemeralConfigResponse* response) {
   (void) context;
   (void) request;
@@ -80,7 +101,7 @@ void ManagementRpcApi::AsyncService::RequestExecuteOpCommand(::grpc::ServerConte
 }
 
 void ManagementRpcApi::AsyncService::RequestGetEphemeralConfig(::grpc::ServerContext* context, ::management::GetEphemeralConfigRequest* request, ::grpc::ServerAsyncResponseWriter< ::management::GetEphemeralConfigResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-  AsynchronousService::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+  AsynchronousService::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
 }
 
 ::grpc::Status ManagementRpcApi::Service::EditEphemeralConfig(::grpc::ServerContext* context, const ::management::EditEphemeralConfigRequest* request, ::management::EditEphemeralConfigResponse* response) {
@@ -91,7 +112,7 @@ void ManagementRpcApi::AsyncService::RequestGetEphemeralConfig(::grpc::ServerCon
 }
 
 void ManagementRpcApi::AsyncService::RequestEditEphemeralConfig(::grpc::ServerContext* context, ::management::EditEphemeralConfigRequest* request, ::grpc::ServerAsyncResponseWriter< ::management::EditEphemeralConfigResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-  AsynchronousService::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
+  AsynchronousService::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
 }
 
 ::grpc::RpcService* ManagementRpcApi::Service::service() {
@@ -107,10 +128,15 @@ void ManagementRpcApi::AsyncService::RequestEditEphemeralConfig(::grpc::ServerCo
   service_->AddMethod(new ::grpc::RpcServiceMethod(
       ManagementRpcApi_method_names[1],
       ::grpc::RpcMethod::NORMAL_RPC,
+      new ::grpc::RpcMethodHandler< ManagementRpcApi::Service, ::management::ExecuteCfgCommandRequest, ::management::ExecuteCfgCommandResponse>(
+          std::mem_fn(&ManagementRpcApi::Service::ExecuteCfgCommand), this)));
+  service_->AddMethod(new ::grpc::RpcServiceMethod(
+      ManagementRpcApi_method_names[2],
+      ::grpc::RpcMethod::NORMAL_RPC,
       new ::grpc::RpcMethodHandler< ManagementRpcApi::Service, ::management::GetEphemeralConfigRequest, ::management::GetEphemeralConfigResponse>(
           std::mem_fn(&ManagementRpcApi::Service::GetEphemeralConfig), this)));
   service_->AddMethod(new ::grpc::RpcServiceMethod(
-      ManagementRpcApi_method_names[2],
+      ManagementRpcApi_method_names[3],
       ::grpc::RpcMethod::NORMAL_RPC,
       new ::grpc::RpcMethodHandler< ManagementRpcApi::Service, ::management::EditEphemeralConfigRequest, ::management::EditEphemeralConfigResponse>(
           std::mem_fn(&ManagementRpcApi::Service::EditEphemeralConfig), this)));

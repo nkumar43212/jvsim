@@ -214,13 +214,13 @@ AgentSystemProc::_sendJunosMessagetoMgd (std::string &config,
                                                 edit_eph_response.response(0);
 
     // Check the status
-    if (response.response_code() != management::JunosRpcResponseTypes::OK) {
+    if (response.status() != management::JunosRpcResponseTypes::OK) {
             // Increment count
             ++_error_system_count;
 
             _logger->log("MGD command failed (cmd = " +
                          std::to_string(cmdcode) + "). Error code: " +
-                         std::to_string(response.response_code()) + ". " +
+                         std::to_string(response.status()) + ". " +
                          "Error message: " + response.message());
 
             // Indicate failed status

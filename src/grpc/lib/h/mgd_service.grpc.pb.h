@@ -36,6 +36,10 @@ class ManagementRpcApi GRPC_FINAL {
     std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::management::ExecuteOpCommandResponse>> AsyncExecuteOpCommand(::grpc::ClientContext* context, const ::management::ExecuteOpCommandRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
       return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::management::ExecuteOpCommandResponse>>(AsyncExecuteOpCommandRaw(context, request, cq, tag));
     }
+    virtual ::grpc::Status ExecuteCfgCommand(::grpc::ClientContext* context, const ::management::ExecuteCfgCommandRequest& request, ::management::ExecuteCfgCommandResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::management::ExecuteCfgCommandResponse>> AsyncExecuteCfgCommand(::grpc::ClientContext* context, const ::management::ExecuteCfgCommandRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::management::ExecuteCfgCommandResponse>>(AsyncExecuteCfgCommandRaw(context, request, cq));
+    }
     virtual ::grpc::Status GetEphemeralConfig(::grpc::ClientContext* context, const ::management::GetEphemeralConfigRequest& request, ::management::GetEphemeralConfigResponse* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::management::GetEphemeralConfigResponse>> AsyncGetEphemeralConfig(::grpc::ClientContext* context, const ::management::GetEphemeralConfigRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::management::GetEphemeralConfigResponse>>(AsyncGetEphemeralConfigRaw(context, request, cq));
@@ -47,6 +51,7 @@ class ManagementRpcApi GRPC_FINAL {
   private:
     virtual ::grpc::ClientReaderInterface< ::management::ExecuteOpCommandResponse>* ExecuteOpCommandRaw(::grpc::ClientContext* context, const ::management::ExecuteOpCommandRequest& request) = 0;
     virtual ::grpc::ClientAsyncReaderInterface< ::management::ExecuteOpCommandResponse>* AsyncExecuteOpCommandRaw(::grpc::ClientContext* context, const ::management::ExecuteOpCommandRequest& request, ::grpc::CompletionQueue* cq, void* tag) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::management::ExecuteCfgCommandResponse>* AsyncExecuteCfgCommandRaw(::grpc::ClientContext* context, const ::management::ExecuteCfgCommandRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::management::GetEphemeralConfigResponse>* AsyncGetEphemeralConfigRaw(::grpc::ClientContext* context, const ::management::GetEphemeralConfigRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::management::EditEphemeralConfigResponse>* AsyncEditEphemeralConfigRaw(::grpc::ClientContext* context, const ::management::EditEphemeralConfigRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
@@ -58,6 +63,10 @@ class ManagementRpcApi GRPC_FINAL {
     }
     std::unique_ptr< ::grpc::ClientAsyncReader< ::management::ExecuteOpCommandResponse>> AsyncExecuteOpCommand(::grpc::ClientContext* context, const ::management::ExecuteOpCommandRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
       return std::unique_ptr< ::grpc::ClientAsyncReader< ::management::ExecuteOpCommandResponse>>(AsyncExecuteOpCommandRaw(context, request, cq, tag));
+    }
+    ::grpc::Status ExecuteCfgCommand(::grpc::ClientContext* context, const ::management::ExecuteCfgCommandRequest& request, ::management::ExecuteCfgCommandResponse* response) GRPC_OVERRIDE;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::management::ExecuteCfgCommandResponse>> AsyncExecuteCfgCommand(::grpc::ClientContext* context, const ::management::ExecuteCfgCommandRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::management::ExecuteCfgCommandResponse>>(AsyncExecuteCfgCommandRaw(context, request, cq));
     }
     ::grpc::Status GetEphemeralConfig(::grpc::ClientContext* context, const ::management::GetEphemeralConfigRequest& request, ::management::GetEphemeralConfigResponse* response) GRPC_OVERRIDE;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::management::GetEphemeralConfigResponse>> AsyncGetEphemeralConfig(::grpc::ClientContext* context, const ::management::GetEphemeralConfigRequest& request, ::grpc::CompletionQueue* cq) {
@@ -72,9 +81,11 @@ class ManagementRpcApi GRPC_FINAL {
     std::shared_ptr< ::grpc::Channel> channel_;
     ::grpc::ClientReader< ::management::ExecuteOpCommandResponse>* ExecuteOpCommandRaw(::grpc::ClientContext* context, const ::management::ExecuteOpCommandRequest& request) GRPC_OVERRIDE;
     ::grpc::ClientAsyncReader< ::management::ExecuteOpCommandResponse>* AsyncExecuteOpCommandRaw(::grpc::ClientContext* context, const ::management::ExecuteOpCommandRequest& request, ::grpc::CompletionQueue* cq, void* tag) GRPC_OVERRIDE;
+    ::grpc::ClientAsyncResponseReader< ::management::ExecuteCfgCommandResponse>* AsyncExecuteCfgCommandRaw(::grpc::ClientContext* context, const ::management::ExecuteCfgCommandRequest& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
     ::grpc::ClientAsyncResponseReader< ::management::GetEphemeralConfigResponse>* AsyncGetEphemeralConfigRaw(::grpc::ClientContext* context, const ::management::GetEphemeralConfigRequest& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
     ::grpc::ClientAsyncResponseReader< ::management::EditEphemeralConfigResponse>* AsyncEditEphemeralConfigRaw(::grpc::ClientContext* context, const ::management::EditEphemeralConfigRequest& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
     const ::grpc::RpcMethod rpcmethod_ExecuteOpCommand_;
+    const ::grpc::RpcMethod rpcmethod_ExecuteCfgCommand_;
     const ::grpc::RpcMethod rpcmethod_GetEphemeralConfig_;
     const ::grpc::RpcMethod rpcmethod_EditEphemeralConfig_;
   };
@@ -85,6 +96,7 @@ class ManagementRpcApi GRPC_FINAL {
     Service() : service_(nullptr) {}
     virtual ~Service();
     virtual ::grpc::Status ExecuteOpCommand(::grpc::ServerContext* context, const ::management::ExecuteOpCommandRequest* request, ::grpc::ServerWriter< ::management::ExecuteOpCommandResponse>* writer);
+    virtual ::grpc::Status ExecuteCfgCommand(::grpc::ServerContext* context, const ::management::ExecuteCfgCommandRequest* request, ::management::ExecuteCfgCommandResponse* response);
     virtual ::grpc::Status GetEphemeralConfig(::grpc::ServerContext* context, const ::management::GetEphemeralConfigRequest* request, ::management::GetEphemeralConfigResponse* response);
     virtual ::grpc::Status EditEphemeralConfig(::grpc::ServerContext* context, const ::management::EditEphemeralConfigRequest* request, ::management::EditEphemeralConfigResponse* response);
     ::grpc::RpcService* service() GRPC_OVERRIDE GRPC_FINAL;
@@ -96,6 +108,7 @@ class ManagementRpcApi GRPC_FINAL {
     explicit AsyncService();
     ~AsyncService() {};
     void RequestExecuteOpCommand(::grpc::ServerContext* context, ::management::ExecuteOpCommandRequest* request, ::grpc::ServerAsyncWriter< ::management::ExecuteOpCommandResponse>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag);
+    void RequestExecuteCfgCommand(::grpc::ServerContext* context, ::management::ExecuteCfgCommandRequest* request, ::grpc::ServerAsyncResponseWriter< ::management::ExecuteCfgCommandResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag);
     void RequestGetEphemeralConfig(::grpc::ServerContext* context, ::management::GetEphemeralConfigRequest* request, ::grpc::ServerAsyncResponseWriter< ::management::GetEphemeralConfigResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag);
     void RequestEditEphemeralConfig(::grpc::ServerContext* context, ::management::EditEphemeralConfigRequest* request, ::grpc::ServerAsyncResponseWriter< ::management::EditEphemeralConfigResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag);
   };

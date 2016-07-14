@@ -37,11 +37,14 @@ void protobuf_AddDesc_mgd_5fservice_2eproto();
 void protobuf_AssignDesc_mgd_5fservice_2eproto();
 void protobuf_ShutdownFile_mgd_5fservice_2eproto();
 
+class ConfigCommit;
 class EditEphemeralConfigRequest;
 class EditEphemeralConfigRequest_ConfigOperationList;
 class EditEphemeralConfigResponse;
 class EditEphemeralConfigResponse_ResponseList;
 class EphConfigRequestList;
+class ExecuteCfgCommandRequest;
+class ExecuteCfgCommandResponse;
 class ExecuteOpCommandRequest;
 class ExecuteOpCommandResponse;
 class GetEphemeralConfigRequest;
@@ -98,13 +101,12 @@ inline bool JunosRpcResponseTypes_Parse(
 enum JunosDataEncodingTypes {
   ENCODING_XML = 0,
   ENCODING_JSON = 1,
-  ENCODING_PROTO3 = 2,
   JunosDataEncodingTypes_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
   JunosDataEncodingTypes_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
 bool JunosDataEncodingTypes_IsValid(int value);
 const JunosDataEncodingTypes JunosDataEncodingTypes_MIN = ENCODING_XML;
-const JunosDataEncodingTypes JunosDataEncodingTypes_MAX = ENCODING_PROTO3;
+const JunosDataEncodingTypes JunosDataEncodingTypes_MAX = ENCODING_JSON;
 const int JunosDataEncodingTypes_ARRAYSIZE = JunosDataEncodingTypes_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* JunosDataEncodingTypes_descriptor();
@@ -138,6 +140,73 @@ inline bool ConfigCommands_Parse(
     const ::std::string& name, ConfigCommands* value) {
   return ::google::protobuf::internal::ParseNamedEnum<ConfigCommands>(
     ConfigCommands_descriptor(), name, value);
+}
+enum ConfigFormatType {
+  CONFIG_FORMAT_TEXT = 0,
+  CONFIG_FORMAT_XML = 1,
+  CONFIG_FORMAT_JSON = 2,
+  ConfigFormatType_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
+  ConfigFormatType_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
+};
+bool ConfigFormatType_IsValid(int value);
+const ConfigFormatType ConfigFormatType_MIN = CONFIG_FORMAT_TEXT;
+const ConfigFormatType ConfigFormatType_MAX = CONFIG_FORMAT_JSON;
+const int ConfigFormatType_ARRAYSIZE = ConfigFormatType_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* ConfigFormatType_descriptor();
+inline const ::std::string& ConfigFormatType_Name(ConfigFormatType value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    ConfigFormatType_descriptor(), value);
+}
+inline bool ConfigFormatType_Parse(
+    const ::std::string& name, ConfigFormatType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<ConfigFormatType>(
+    ConfigFormatType_descriptor(), name, value);
+}
+enum ConfigLoadType {
+  CONFIG_LOAD_REPLACE = 0,
+  CONFIG_LOAD_MERGE = 1,
+  CONFIG_LOAD_OVERRIDE = 2,
+  CONFIG_LOAD_UPDATE = 3,
+  CONFIG_LOAD_SET = 4,
+  ConfigLoadType_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
+  ConfigLoadType_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
+};
+bool ConfigLoadType_IsValid(int value);
+const ConfigLoadType ConfigLoadType_MIN = CONFIG_LOAD_REPLACE;
+const ConfigLoadType ConfigLoadType_MAX = CONFIG_LOAD_SET;
+const int ConfigLoadType_ARRAYSIZE = ConfigLoadType_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* ConfigLoadType_descriptor();
+inline const ::std::string& ConfigLoadType_Name(ConfigLoadType value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    ConfigLoadType_descriptor(), value);
+}
+inline bool ConfigLoadType_Parse(
+    const ::std::string& name, ConfigLoadType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<ConfigLoadType>(
+    ConfigLoadType_descriptor(), name, value);
+}
+enum ConfigCommitType {
+  CONFIG_COMMIT_SYNCHRONIZE = 0,
+  CONFIG_COMMIT = 1,
+  ConfigCommitType_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
+  ConfigCommitType_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
+};
+bool ConfigCommitType_IsValid(int value);
+const ConfigCommitType ConfigCommitType_MIN = CONFIG_COMMIT_SYNCHRONIZE;
+const ConfigCommitType ConfigCommitType_MAX = CONFIG_COMMIT;
+const int ConfigCommitType_ARRAYSIZE = ConfigCommitType_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* ConfigCommitType_descriptor();
+inline const ::std::string& ConfigCommitType_Name(ConfigCommitType value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    ConfigCommitType_descriptor(), value);
+}
+inline bool ConfigCommitType_Parse(
+    const ::std::string& name, ConfigCommitType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<ConfigCommitType>(
+    ConfigCommitType_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -318,11 +387,11 @@ class ExecuteOpCommandResponse : public ::google::protobuf::Message {
   ::std::string* release_data();
   void set_allocated_data(::std::string* data);
 
-  // optional .management.JunosRpcResponseTypes response_code = 3;
-  void clear_response_code();
-  static const int kResponseCodeFieldNumber = 3;
-  ::management::JunosRpcResponseTypes response_code() const;
-  void set_response_code(::management::JunosRpcResponseTypes value);
+  // optional .management.JunosRpcResponseTypes status = 3;
+  void clear_status();
+  static const int kStatusFieldNumber = 3;
+  ::management::JunosRpcResponseTypes status() const;
+  void set_status(::management::JunosRpcResponseTypes value);
 
   // optional string message = 4;
   void clear_message();
@@ -343,7 +412,7 @@ class ExecuteOpCommandResponse : public ::google::protobuf::Message {
   ::google::protobuf::uint64 request_id_;
   ::google::protobuf::internal::ArenaStringPtr data_;
   ::google::protobuf::internal::ArenaStringPtr message_;
-  int response_code_;
+  int status_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_mgd_5fservice_2eproto();
   friend void protobuf_AssignDesc_mgd_5fservice_2eproto();
@@ -655,11 +724,11 @@ class GetEphemeralConfigResponse_ResponseList : public ::google::protobuf::Messa
   ::std::string* release_value();
   void set_allocated_value(::std::string* value);
 
-  // optional .management.JunosRpcResponseTypes response_code = 4;
-  void clear_response_code();
-  static const int kResponseCodeFieldNumber = 4;
-  ::management::JunosRpcResponseTypes response_code() const;
-  void set_response_code(::management::JunosRpcResponseTypes value);
+  // optional .management.JunosRpcResponseTypes status = 4;
+  void clear_status();
+  static const int kStatusFieldNumber = 4;
+  ::management::JunosRpcResponseTypes status() const;
+  void set_status(::management::JunosRpcResponseTypes value);
 
   // optional string message = 5;
   void clear_message();
@@ -681,7 +750,7 @@ class GetEphemeralConfigResponse_ResponseList : public ::google::protobuf::Messa
   ::google::protobuf::internal::ArenaStringPtr path_;
   ::google::protobuf::internal::ArenaStringPtr value_;
   ::google::protobuf::internal::ArenaStringPtr message_;
-  int response_code_;
+  int status_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_mgd_5fservice_2eproto();
   friend void protobuf_AssignDesc_mgd_5fservice_2eproto();
@@ -1078,11 +1147,11 @@ class EditEphemeralConfigResponse_ResponseList : public ::google::protobuf::Mess
   ::std::string* release_operation_id();
   void set_allocated_operation_id(::std::string* operation_id);
 
-  // optional .management.JunosRpcResponseTypes response_code = 2;
-  void clear_response_code();
-  static const int kResponseCodeFieldNumber = 2;
-  ::management::JunosRpcResponseTypes response_code() const;
-  void set_response_code(::management::JunosRpcResponseTypes value);
+  // optional .management.JunosRpcResponseTypes status = 2;
+  void clear_status();
+  static const int kStatusFieldNumber = 2;
+  ::management::JunosRpcResponseTypes status() const;
+  void set_status(::management::JunosRpcResponseTypes value);
 
   // optional string message = 3;
   void clear_message();
@@ -1102,7 +1171,7 @@ class EditEphemeralConfigResponse_ResponseList : public ::google::protobuf::Mess
   bool _is_default_instance_;
   ::google::protobuf::internal::ArenaStringPtr operation_id_;
   ::google::protobuf::internal::ArenaStringPtr message_;
-  int response_code_;
+  int status_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_mgd_5fservice_2eproto();
   friend void protobuf_AssignDesc_mgd_5fservice_2eproto();
@@ -1203,6 +1272,307 @@ class EditEphemeralConfigResponse : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static EditEphemeralConfigResponse* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class ConfigCommit : public ::google::protobuf::Message {
+ public:
+  ConfigCommit();
+  virtual ~ConfigCommit();
+
+  ConfigCommit(const ConfigCommit& from);
+
+  inline ConfigCommit& operator=(const ConfigCommit& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ConfigCommit& default_instance();
+
+  void Swap(ConfigCommit* other);
+
+  // implements Message ----------------------------------------------
+
+  inline ConfigCommit* New() const { return New(NULL); }
+
+  ConfigCommit* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const ConfigCommit& from);
+  void MergeFrom(const ConfigCommit& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(ConfigCommit* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional .management.ConfigCommitType commit_type = 1;
+  void clear_commit_type();
+  static const int kCommitTypeFieldNumber = 1;
+  ::management::ConfigCommitType commit_type() const;
+  void set_commit_type(::management::ConfigCommitType value);
+
+  // optional string comment = 2;
+  void clear_comment();
+  static const int kCommentFieldNumber = 2;
+  const ::std::string& comment() const;
+  void set_comment(const ::std::string& value);
+  void set_comment(const char* value);
+  void set_comment(const char* value, size_t size);
+  ::std::string* mutable_comment();
+  ::std::string* release_comment();
+  void set_allocated_comment(::std::string* comment);
+
+  // @@protoc_insertion_point(class_scope:management.ConfigCommit)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  bool _is_default_instance_;
+  ::google::protobuf::internal::ArenaStringPtr comment_;
+  int commit_type_;
+  mutable int _cached_size_;
+  friend void  protobuf_AddDesc_mgd_5fservice_2eproto();
+  friend void protobuf_AssignDesc_mgd_5fservice_2eproto();
+  friend void protobuf_ShutdownFile_mgd_5fservice_2eproto();
+
+  void InitAsDefaultInstance();
+  static ConfigCommit* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class ExecuteCfgCommandRequest : public ::google::protobuf::Message {
+ public:
+  ExecuteCfgCommandRequest();
+  virtual ~ExecuteCfgCommandRequest();
+
+  ExecuteCfgCommandRequest(const ExecuteCfgCommandRequest& from);
+
+  inline ExecuteCfgCommandRequest& operator=(const ExecuteCfgCommandRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ExecuteCfgCommandRequest& default_instance();
+
+  void Swap(ExecuteCfgCommandRequest* other);
+
+  // implements Message ----------------------------------------------
+
+  inline ExecuteCfgCommandRequest* New() const { return New(NULL); }
+
+  ExecuteCfgCommandRequest* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const ExecuteCfgCommandRequest& from);
+  void MergeFrom(const ExecuteCfgCommandRequest& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(ExecuteCfgCommandRequest* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 request_id = 1;
+  void clear_request_id();
+  static const int kRequestIdFieldNumber = 1;
+  ::google::protobuf::uint64 request_id() const;
+  void set_request_id(::google::protobuf::uint64 value);
+
+  // optional string config = 2;
+  void clear_config();
+  static const int kConfigFieldNumber = 2;
+  const ::std::string& config() const;
+  void set_config(const ::std::string& value);
+  void set_config(const char* value);
+  void set_config(const char* value, size_t size);
+  ::std::string* mutable_config();
+  ::std::string* release_config();
+  void set_allocated_config(::std::string* config);
+
+  // optional .management.ConfigFormatType format = 3;
+  void clear_format();
+  static const int kFormatFieldNumber = 3;
+  ::management::ConfigFormatType format() const;
+  void set_format(::management::ConfigFormatType value);
+
+  // optional .management.ConfigLoadType load_type = 4;
+  void clear_load_type();
+  static const int kLoadTypeFieldNumber = 4;
+  ::management::ConfigLoadType load_type() const;
+  void set_load_type(::management::ConfigLoadType value);
+
+  // optional .management.ConfigCommit commit = 5;
+  bool has_commit() const;
+  void clear_commit();
+  static const int kCommitFieldNumber = 5;
+  const ::management::ConfigCommit& commit() const;
+  ::management::ConfigCommit* mutable_commit();
+  ::management::ConfigCommit* release_commit();
+  void set_allocated_commit(::management::ConfigCommit* commit);
+
+  // @@protoc_insertion_point(class_scope:management.ExecuteCfgCommandRequest)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  bool _is_default_instance_;
+  ::google::protobuf::uint64 request_id_;
+  ::google::protobuf::internal::ArenaStringPtr config_;
+  int format_;
+  int load_type_;
+  ::management::ConfigCommit* commit_;
+  mutable int _cached_size_;
+  friend void  protobuf_AddDesc_mgd_5fservice_2eproto();
+  friend void protobuf_AssignDesc_mgd_5fservice_2eproto();
+  friend void protobuf_ShutdownFile_mgd_5fservice_2eproto();
+
+  void InitAsDefaultInstance();
+  static ExecuteCfgCommandRequest* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class ExecuteCfgCommandResponse : public ::google::protobuf::Message {
+ public:
+  ExecuteCfgCommandResponse();
+  virtual ~ExecuteCfgCommandResponse();
+
+  ExecuteCfgCommandResponse(const ExecuteCfgCommandResponse& from);
+
+  inline ExecuteCfgCommandResponse& operator=(const ExecuteCfgCommandResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ExecuteCfgCommandResponse& default_instance();
+
+  void Swap(ExecuteCfgCommandResponse* other);
+
+  // implements Message ----------------------------------------------
+
+  inline ExecuteCfgCommandResponse* New() const { return New(NULL); }
+
+  ExecuteCfgCommandResponse* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const ExecuteCfgCommandResponse& from);
+  void MergeFrom(const ExecuteCfgCommandResponse& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(ExecuteCfgCommandResponse* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 request_id = 1;
+  void clear_request_id();
+  static const int kRequestIdFieldNumber = 1;
+  ::google::protobuf::uint64 request_id() const;
+  void set_request_id(::google::protobuf::uint64 value);
+
+  // optional .management.JunosRpcResponseTypes status = 2;
+  void clear_status();
+  static const int kStatusFieldNumber = 2;
+  ::management::JunosRpcResponseTypes status() const;
+  void set_status(::management::JunosRpcResponseTypes value);
+
+  // optional string message = 3;
+  void clear_message();
+  static const int kMessageFieldNumber = 3;
+  const ::std::string& message() const;
+  void set_message(const ::std::string& value);
+  void set_message(const char* value);
+  void set_message(const char* value, size_t size);
+  ::std::string* mutable_message();
+  ::std::string* release_message();
+  void set_allocated_message(::std::string* message);
+
+  // @@protoc_insertion_point(class_scope:management.ExecuteCfgCommandResponse)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  bool _is_default_instance_;
+  ::google::protobuf::uint64 request_id_;
+  ::google::protobuf::internal::ArenaStringPtr message_;
+  int status_;
+  mutable int _cached_size_;
+  friend void  protobuf_AddDesc_mgd_5fservice_2eproto();
+  friend void protobuf_AssignDesc_mgd_5fservice_2eproto();
+  friend void protobuf_ShutdownFile_mgd_5fservice_2eproto();
+
+  void InitAsDefaultInstance();
+  static ExecuteCfgCommandResponse* default_instance_;
 };
 // ===================================================================
 
@@ -1358,18 +1728,18 @@ inline void ExecuteOpCommandResponse::set_allocated_data(::std::string* data) {
   // @@protoc_insertion_point(field_set_allocated:management.ExecuteOpCommandResponse.data)
 }
 
-// optional .management.JunosRpcResponseTypes response_code = 3;
-inline void ExecuteOpCommandResponse::clear_response_code() {
-  response_code_ = 0;
+// optional .management.JunosRpcResponseTypes status = 3;
+inline void ExecuteOpCommandResponse::clear_status() {
+  status_ = 0;
 }
-inline ::management::JunosRpcResponseTypes ExecuteOpCommandResponse::response_code() const {
-  // @@protoc_insertion_point(field_get:management.ExecuteOpCommandResponse.response_code)
-  return static_cast< ::management::JunosRpcResponseTypes >(response_code_);
+inline ::management::JunosRpcResponseTypes ExecuteOpCommandResponse::status() const {
+  // @@protoc_insertion_point(field_get:management.ExecuteOpCommandResponse.status)
+  return static_cast< ::management::JunosRpcResponseTypes >(status_);
 }
-inline void ExecuteOpCommandResponse::set_response_code(::management::JunosRpcResponseTypes value) {
+inline void ExecuteOpCommandResponse::set_status(::management::JunosRpcResponseTypes value) {
   
-  response_code_ = value;
-  // @@protoc_insertion_point(field_set:management.ExecuteOpCommandResponse.response_code)
+  status_ = value;
+  // @@protoc_insertion_point(field_set:management.ExecuteOpCommandResponse.status)
 }
 
 // optional string message = 4;
@@ -1757,18 +2127,18 @@ inline void GetEphemeralConfigResponse_ResponseList::set_allocated_value(::std::
   // @@protoc_insertion_point(field_set_allocated:management.GetEphemeralConfigResponse.ResponseList.value)
 }
 
-// optional .management.JunosRpcResponseTypes response_code = 4;
-inline void GetEphemeralConfigResponse_ResponseList::clear_response_code() {
-  response_code_ = 0;
+// optional .management.JunosRpcResponseTypes status = 4;
+inline void GetEphemeralConfigResponse_ResponseList::clear_status() {
+  status_ = 0;
 }
-inline ::management::JunosRpcResponseTypes GetEphemeralConfigResponse_ResponseList::response_code() const {
-  // @@protoc_insertion_point(field_get:management.GetEphemeralConfigResponse.ResponseList.response_code)
-  return static_cast< ::management::JunosRpcResponseTypes >(response_code_);
+inline ::management::JunosRpcResponseTypes GetEphemeralConfigResponse_ResponseList::status() const {
+  // @@protoc_insertion_point(field_get:management.GetEphemeralConfigResponse.ResponseList.status)
+  return static_cast< ::management::JunosRpcResponseTypes >(status_);
 }
-inline void GetEphemeralConfigResponse_ResponseList::set_response_code(::management::JunosRpcResponseTypes value) {
+inline void GetEphemeralConfigResponse_ResponseList::set_status(::management::JunosRpcResponseTypes value) {
   
-  response_code_ = value;
-  // @@protoc_insertion_point(field_set:management.GetEphemeralConfigResponse.ResponseList.response_code)
+  status_ = value;
+  // @@protoc_insertion_point(field_set:management.GetEphemeralConfigResponse.ResponseList.status)
 }
 
 // optional string message = 5;
@@ -2161,18 +2531,18 @@ inline void EditEphemeralConfigResponse_ResponseList::set_allocated_operation_id
   // @@protoc_insertion_point(field_set_allocated:management.EditEphemeralConfigResponse.ResponseList.operation_id)
 }
 
-// optional .management.JunosRpcResponseTypes response_code = 2;
-inline void EditEphemeralConfigResponse_ResponseList::clear_response_code() {
-  response_code_ = 0;
+// optional .management.JunosRpcResponseTypes status = 2;
+inline void EditEphemeralConfigResponse_ResponseList::clear_status() {
+  status_ = 0;
 }
-inline ::management::JunosRpcResponseTypes EditEphemeralConfigResponse_ResponseList::response_code() const {
-  // @@protoc_insertion_point(field_get:management.EditEphemeralConfigResponse.ResponseList.response_code)
-  return static_cast< ::management::JunosRpcResponseTypes >(response_code_);
+inline ::management::JunosRpcResponseTypes EditEphemeralConfigResponse_ResponseList::status() const {
+  // @@protoc_insertion_point(field_get:management.EditEphemeralConfigResponse.ResponseList.status)
+  return static_cast< ::management::JunosRpcResponseTypes >(status_);
 }
-inline void EditEphemeralConfigResponse_ResponseList::set_response_code(::management::JunosRpcResponseTypes value) {
+inline void EditEphemeralConfigResponse_ResponseList::set_status(::management::JunosRpcResponseTypes value) {
   
-  response_code_ = value;
-  // @@protoc_insertion_point(field_set:management.EditEphemeralConfigResponse.ResponseList.response_code)
+  status_ = value;
+  // @@protoc_insertion_point(field_set:management.EditEphemeralConfigResponse.ResponseList.status)
 }
 
 // optional string message = 3;
@@ -2266,7 +2636,275 @@ EditEphemeralConfigResponse::response() const {
   return response_;
 }
 
+// -------------------------------------------------------------------
+
+// ConfigCommit
+
+// optional .management.ConfigCommitType commit_type = 1;
+inline void ConfigCommit::clear_commit_type() {
+  commit_type_ = 0;
+}
+inline ::management::ConfigCommitType ConfigCommit::commit_type() const {
+  // @@protoc_insertion_point(field_get:management.ConfigCommit.commit_type)
+  return static_cast< ::management::ConfigCommitType >(commit_type_);
+}
+inline void ConfigCommit::set_commit_type(::management::ConfigCommitType value) {
+  
+  commit_type_ = value;
+  // @@protoc_insertion_point(field_set:management.ConfigCommit.commit_type)
+}
+
+// optional string comment = 2;
+inline void ConfigCommit::clear_comment() {
+  comment_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& ConfigCommit::comment() const {
+  // @@protoc_insertion_point(field_get:management.ConfigCommit.comment)
+  return comment_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void ConfigCommit::set_comment(const ::std::string& value) {
+  
+  comment_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:management.ConfigCommit.comment)
+}
+inline void ConfigCommit::set_comment(const char* value) {
+  
+  comment_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:management.ConfigCommit.comment)
+}
+inline void ConfigCommit::set_comment(const char* value, size_t size) {
+  
+  comment_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:management.ConfigCommit.comment)
+}
+inline ::std::string* ConfigCommit::mutable_comment() {
+  
+  // @@protoc_insertion_point(field_mutable:management.ConfigCommit.comment)
+  return comment_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* ConfigCommit::release_comment() {
+  
+  return comment_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void ConfigCommit::set_allocated_comment(::std::string* comment) {
+  if (comment != NULL) {
+    
+  } else {
+    
+  }
+  comment_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), comment);
+  // @@protoc_insertion_point(field_set_allocated:management.ConfigCommit.comment)
+}
+
+// -------------------------------------------------------------------
+
+// ExecuteCfgCommandRequest
+
+// optional uint64 request_id = 1;
+inline void ExecuteCfgCommandRequest::clear_request_id() {
+  request_id_ = GOOGLE_ULONGLONG(0);
+}
+inline ::google::protobuf::uint64 ExecuteCfgCommandRequest::request_id() const {
+  // @@protoc_insertion_point(field_get:management.ExecuteCfgCommandRequest.request_id)
+  return request_id_;
+}
+inline void ExecuteCfgCommandRequest::set_request_id(::google::protobuf::uint64 value) {
+  
+  request_id_ = value;
+  // @@protoc_insertion_point(field_set:management.ExecuteCfgCommandRequest.request_id)
+}
+
+// optional string config = 2;
+inline void ExecuteCfgCommandRequest::clear_config() {
+  config_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& ExecuteCfgCommandRequest::config() const {
+  // @@protoc_insertion_point(field_get:management.ExecuteCfgCommandRequest.config)
+  return config_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void ExecuteCfgCommandRequest::set_config(const ::std::string& value) {
+  
+  config_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:management.ExecuteCfgCommandRequest.config)
+}
+inline void ExecuteCfgCommandRequest::set_config(const char* value) {
+  
+  config_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:management.ExecuteCfgCommandRequest.config)
+}
+inline void ExecuteCfgCommandRequest::set_config(const char* value, size_t size) {
+  
+  config_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:management.ExecuteCfgCommandRequest.config)
+}
+inline ::std::string* ExecuteCfgCommandRequest::mutable_config() {
+  
+  // @@protoc_insertion_point(field_mutable:management.ExecuteCfgCommandRequest.config)
+  return config_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* ExecuteCfgCommandRequest::release_config() {
+  
+  return config_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void ExecuteCfgCommandRequest::set_allocated_config(::std::string* config) {
+  if (config != NULL) {
+    
+  } else {
+    
+  }
+  config_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), config);
+  // @@protoc_insertion_point(field_set_allocated:management.ExecuteCfgCommandRequest.config)
+}
+
+// optional .management.ConfigFormatType format = 3;
+inline void ExecuteCfgCommandRequest::clear_format() {
+  format_ = 0;
+}
+inline ::management::ConfigFormatType ExecuteCfgCommandRequest::format() const {
+  // @@protoc_insertion_point(field_get:management.ExecuteCfgCommandRequest.format)
+  return static_cast< ::management::ConfigFormatType >(format_);
+}
+inline void ExecuteCfgCommandRequest::set_format(::management::ConfigFormatType value) {
+  
+  format_ = value;
+  // @@protoc_insertion_point(field_set:management.ExecuteCfgCommandRequest.format)
+}
+
+// optional .management.ConfigLoadType load_type = 4;
+inline void ExecuteCfgCommandRequest::clear_load_type() {
+  load_type_ = 0;
+}
+inline ::management::ConfigLoadType ExecuteCfgCommandRequest::load_type() const {
+  // @@protoc_insertion_point(field_get:management.ExecuteCfgCommandRequest.load_type)
+  return static_cast< ::management::ConfigLoadType >(load_type_);
+}
+inline void ExecuteCfgCommandRequest::set_load_type(::management::ConfigLoadType value) {
+  
+  load_type_ = value;
+  // @@protoc_insertion_point(field_set:management.ExecuteCfgCommandRequest.load_type)
+}
+
+// optional .management.ConfigCommit commit = 5;
+inline bool ExecuteCfgCommandRequest::has_commit() const {
+  return !_is_default_instance_ && commit_ != NULL;
+}
+inline void ExecuteCfgCommandRequest::clear_commit() {
+  if (GetArenaNoVirtual() == NULL && commit_ != NULL) delete commit_;
+  commit_ = NULL;
+}
+inline const ::management::ConfigCommit& ExecuteCfgCommandRequest::commit() const {
+  // @@protoc_insertion_point(field_get:management.ExecuteCfgCommandRequest.commit)
+  return commit_ != NULL ? *commit_ : *default_instance_->commit_;
+}
+inline ::management::ConfigCommit* ExecuteCfgCommandRequest::mutable_commit() {
+  
+  if (commit_ == NULL) {
+    commit_ = new ::management::ConfigCommit;
+  }
+  // @@protoc_insertion_point(field_mutable:management.ExecuteCfgCommandRequest.commit)
+  return commit_;
+}
+inline ::management::ConfigCommit* ExecuteCfgCommandRequest::release_commit() {
+  
+  ::management::ConfigCommit* temp = commit_;
+  commit_ = NULL;
+  return temp;
+}
+inline void ExecuteCfgCommandRequest::set_allocated_commit(::management::ConfigCommit* commit) {
+  delete commit_;
+  commit_ = commit;
+  if (commit) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:management.ExecuteCfgCommandRequest.commit)
+}
+
+// -------------------------------------------------------------------
+
+// ExecuteCfgCommandResponse
+
+// optional uint64 request_id = 1;
+inline void ExecuteCfgCommandResponse::clear_request_id() {
+  request_id_ = GOOGLE_ULONGLONG(0);
+}
+inline ::google::protobuf::uint64 ExecuteCfgCommandResponse::request_id() const {
+  // @@protoc_insertion_point(field_get:management.ExecuteCfgCommandResponse.request_id)
+  return request_id_;
+}
+inline void ExecuteCfgCommandResponse::set_request_id(::google::protobuf::uint64 value) {
+  
+  request_id_ = value;
+  // @@protoc_insertion_point(field_set:management.ExecuteCfgCommandResponse.request_id)
+}
+
+// optional .management.JunosRpcResponseTypes status = 2;
+inline void ExecuteCfgCommandResponse::clear_status() {
+  status_ = 0;
+}
+inline ::management::JunosRpcResponseTypes ExecuteCfgCommandResponse::status() const {
+  // @@protoc_insertion_point(field_get:management.ExecuteCfgCommandResponse.status)
+  return static_cast< ::management::JunosRpcResponseTypes >(status_);
+}
+inline void ExecuteCfgCommandResponse::set_status(::management::JunosRpcResponseTypes value) {
+  
+  status_ = value;
+  // @@protoc_insertion_point(field_set:management.ExecuteCfgCommandResponse.status)
+}
+
+// optional string message = 3;
+inline void ExecuteCfgCommandResponse::clear_message() {
+  message_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& ExecuteCfgCommandResponse::message() const {
+  // @@protoc_insertion_point(field_get:management.ExecuteCfgCommandResponse.message)
+  return message_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void ExecuteCfgCommandResponse::set_message(const ::std::string& value) {
+  
+  message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:management.ExecuteCfgCommandResponse.message)
+}
+inline void ExecuteCfgCommandResponse::set_message(const char* value) {
+  
+  message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:management.ExecuteCfgCommandResponse.message)
+}
+inline void ExecuteCfgCommandResponse::set_message(const char* value, size_t size) {
+  
+  message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:management.ExecuteCfgCommandResponse.message)
+}
+inline ::std::string* ExecuteCfgCommandResponse::mutable_message() {
+  
+  // @@protoc_insertion_point(field_mutable:management.ExecuteCfgCommandResponse.message)
+  return message_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* ExecuteCfgCommandResponse::release_message() {
+  
+  return message_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void ExecuteCfgCommandResponse::set_allocated_message(::std::string* message) {
+  if (message != NULL) {
+    
+  } else {
+    
+  }
+  message_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), message);
+  // @@protoc_insertion_point(field_set_allocated:management.ExecuteCfgCommandResponse.message)
+}
+
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -2313,6 +2951,21 @@ template <> struct is_proto_enum< ::management::ConfigCommands> : ::google::prot
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::management::ConfigCommands>() {
   return ::management::ConfigCommands_descriptor();
+}
+template <> struct is_proto_enum< ::management::ConfigFormatType> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::management::ConfigFormatType>() {
+  return ::management::ConfigFormatType_descriptor();
+}
+template <> struct is_proto_enum< ::management::ConfigLoadType> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::management::ConfigLoadType>() {
+  return ::management::ConfigLoadType_descriptor();
+}
+template <> struct is_proto_enum< ::management::ConfigCommitType> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::management::ConfigCommitType>() {
+  return ::management::ConfigCommitType_descriptor();
 }
 
 }  // namespace protobuf

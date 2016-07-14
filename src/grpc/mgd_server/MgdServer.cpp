@@ -148,7 +148,7 @@ MgdServer::EditEphemeralConfig (ServerContext* context,
     EditEphemeralConfigResponse_ResponseList *response =
                                             edit_eph_response->add_response();
     response->set_operation_id(cmd->operation_id());
-    response->set_response_code(management::JunosRpcResponseTypes::OK);
+    response->set_status(management::JunosRpcResponseTypes::OK);
     response->set_message("Success");
 
     return Status::OK;
@@ -185,7 +185,7 @@ MgdServer::GetEphemeralConfig(ServerContext* context,
         _logger->log("No data available for request id : " +
                      std::to_string(request_id));
         response->set_value("");
-        response->set_response_code(management::JunosRpcResponseTypes::NOK);
+        response->set_status(management::JunosRpcResponseTypes::NOK);
         response->set_message("Fail");
     }
     EditEphemeralConfigRequest_ConfigOperationList *cmd =
@@ -193,7 +193,7 @@ MgdServer::GetEphemeralConfig(ServerContext* context,
 
     // Fill in the details
     response->set_value(cmd->value());
-    response->set_response_code(management::JunosRpcResponseTypes::OK);
+    response->set_status(management::JunosRpcResponseTypes::OK);
     response->set_message("Success");
 
     return Status::OK;

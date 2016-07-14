@@ -27,6 +27,13 @@ service ManagementRpcApi {
     (stream ExecuteOpCommandResponse) {}
 
     /*
+     * The RPC will enable user to load and commit configuration on a junos
+     * device
+     */
+    rpc ExecuteCfgCommand (ExecuteCfgCommandRequest) returns
+    (ExecuteCfgCommandResponse) {}
+
+    /*
      * This RPC will return the configuration in the ephemeral database
      * for Path specified in the request
      */
@@ -66,13 +73,31 @@ enum JunosRpcResponseTypes {
 enum JunosDataEncodingTypes {
     ENCODING_XML = 0;
     ENCODING_JSON = 1;
-    ENCODING_PROTO3 = 2;
 }
 
 enum ConfigCommands {
     UPDATE_CONFIG = 0;
     REPLACE_CONFIG = 1;
     DELETE_CONFIG = 2;
+}
+
+enum ConfigFormatType {
+    CONFIG_FORMAT_TEXT = 0;
+    CONFIG_FORMAT_XML = 1;
+    CONFIG_FORMAT_JSON = 2;
+}
+
+enum ConfigLoadType {
+    CONFIG_LOAD_REPLACE = 0;
+    CONFIG_LOAD_MERGE = 1;
+    CONFIG_LOAD_OVERRIDE = 2;
+    CONFIG_LOAD_UPDATE = 3;
+    CONFIG_LOAD_SET = 4;
+}
+
+enum ConfigCommitType {
+    CONFIG_COMMIT_SYNCHRONIZE = 0;
+    CONFIG_COMMIT = 1;
 }
 
 message ExecuteOpCommandRequest {
@@ -113,7 +138,7 @@ message ExecuteOpCommandResponse {
     /*
      * Response code indicating the result of the command
      */
-    JunosRpcResponseTypes response_code = 3;
+    JunosRpcResponseTypes status = 3;
 
     /*
      * Error or information text associated with the return-code value
@@ -199,7 +224,7 @@ message GetEphemeralConfigResponse {
         /*
          * Response code indicating the result of the command
          */
-        JunosRpcResponseTypes response_code = 4;
+        JunosRpcResponseTypes status = 4;
 
         /*
          * Error or information text associated with the return-code value
@@ -290,7 +315,7 @@ message EditEphemeralConfigResponse {
         /*
          * Response code indicating the result of the command
          */
-        JunosRpcResponseTypes response_code = 2;
+        JunosRpcResponseTypes status = 2;
 
         /*
          * Error or information text associated with the return-code value
@@ -301,4 +326,63 @@ message EditEphemeralConfigResponse {
      * List of responses for each configuration request
      */
     repeated ResponseList response = 2;
+}
+
+message ConfigCommit {
+
+    /*
+     * This will specify the type of commit operation
+     * commit operation can be commit-synchronize or commit
+     */
+    ConfigCommitType commit_type = 1;
+
+    /*
+     * Specify the comment for the commit log
+     */
+    string comment = 2;
+}
+
+message ExecuteCfgCommandRequest {
+
+    /*
+     * The request id corresponding to the request
+     */
+    uint64 request_id = 1;
+
+    /*
+     * Specify the configuration in this field
+     */
+    string config = 2;
+
+    /*
+     * Specify the format of configuration
+     */
+    ConfigFormatType format = 3;
+
+    /*
+     * Specify the type of load operation
+     */
+    ConfigLoadType load_type = 4;
+
+    /*
+     * Specify the type of commit operation
+     */
+    ConfigCommit commit = 5;
+}
+
+message ExecuteCfgCommandResponse {
+    /*
+     * The request id corresponding to the request
+     */
+    uint64 request_id = 1;
+
+    /*
+     * Response code indicating the result of the command
+     */
+    JunosRpcResponseTypes status = 2;
+
+    /*
+     * Error or information text associated with the return-code value
+     */
+    string message = 3;
 }
