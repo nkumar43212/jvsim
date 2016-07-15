@@ -270,6 +270,13 @@ AgentClient::listSubscriptions (uint32_t subscription_id)
         for (int lz = 0; lz < path_list_size; lz++) {
             telemetry::Path path = sub_reply->path_list(lz);
             std::cout << "Path[" << lz << "]: " << path.path() << std::endl;
+            std::cout << "Filter[" << lz << "]: " << path.filter() << std::endl;
+            std::cout << "Sup Unchanged[" << lz << "]: "
+                      << path.suppress_unchanged() << std::endl;
+            std::cout << "Max Silent Interval[" << lz << "]: "
+                      << path.max_silent_interval() << std::endl;
+            std::cout << "Sample Freq[" << lz << "]: "
+                      << path.sample_frequency() << std::endl;
         }
     }
 }

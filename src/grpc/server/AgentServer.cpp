@@ -313,12 +313,19 @@ AgentServer::getTelemetrySubscriptions (ServerContext* context,
             SubscriptionResponse *sub_resp = sub_reply->mutable_response();
             sub_resp->set_subscription_id(sub->getId());
 
-            PathList pathList = sub->getPathList();
+            /* Grab the consolidator handle for the subsription */
+            AgentConsolidatorHandle *conHandle = sub->getSystemSubscription();
 
-            for (PathList::iterator it = pathList.begin();
-                 it != pathList.end(); ++it) {
+            // Iterate through the handle
+            for (int i = 0; i < conHandle->getHandleCount(); i++) {
+                AgentConsolidatorSystemHandlePtr ptr = conHandle->getHandle(i);
+                if (!ptr) {
+                    continue;
+                }
+
+                // Return the local state in the consolidator
                 telemetry::Path *path = sub_reply->add_path_list();
-                path->set_path(*it);
+                path->CopyFrom(*ptr->getPath());
             }
         }
     } else {
@@ -331,12 +338,19 @@ AgentServer::getTelemetrySubscriptions (ServerContext* context,
             SubscriptionResponse *sub_resp = sub_reply->mutable_response();
             sub_resp->set_subscription_id(sub->getId());
 
-            PathList pathList = sub->getPathList();
+            /* Grab the consolidator handle for the subsription */
+            AgentConsolidatorHandle *conHandle = sub->getSystemSubscription();
 
-            for (PathList::iterator it = pathList.begin();
-                 it != pathList.end(); ++it) {
+            // Iterate through the handle
+            for (int i = 0; i < conHandle->getHandleCount(); i++) {
+                AgentConsolidatorSystemHandlePtr ptr = conHandle->getHandle(i);
+                if (!ptr) {
+                    continue;
+                }
+
+                // Return the local state in the consolidator
                 telemetry::Path *path = sub_reply->add_path_list();
-                path->set_path(*it);
+                path->CopyFrom(*ptr->getPath());
             }
 
             // Move to the next entry
