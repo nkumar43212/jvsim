@@ -50,7 +50,11 @@ AgentSubscription::on_message(const struct mosquitto_message* mosqmessage)
     oc_data.set_component_id(stream->component_id());
     oc_data.set_sub_component_id(stream->sub_component_id());
     // TODO ABBAS --- Change this to extracted path from sensor_name
-    oc_data.set_path(topic);
+    if (global_config.subscribe_topic_name == TOPIC_PATH) {
+        oc_data.set_path(topic);
+    } else if (global_config.subscribe_topic_name == TOPIC_INTERNAL_SUB_ID) {
+        oc_data.set_path(stream->sensor_name());
+    }
     oc_data.set_sequence_number(stream->sequence_number());
     oc_data.set_timestamp(stream->timestamp());
 
