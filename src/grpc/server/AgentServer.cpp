@@ -313,7 +313,7 @@ AgentServer::getTelemetrySubscriptions (ServerContext* context,
             SubscriptionResponse *sub_resp = sub_reply->mutable_response();
             sub_resp->set_subscription_id(sub->getId());
 
-            /* Grab the consolidator handle for the subsription */
+            // Grab the consolidator handle for the subsription
             AgentConsolidatorHandle *conHandle = sub->getSystemSubscription();
 
             // Iterate through the handle
@@ -338,7 +338,7 @@ AgentServer::getTelemetrySubscriptions (ServerContext* context,
             SubscriptionResponse *sub_resp = sub_reply->mutable_response();
             sub_resp->set_subscription_id(sub->getId());
 
-            /* Grab the consolidator handle for the subsription */
+            // Grab the consolidator handle for the subsription
             AgentConsolidatorHandle *conHandle = sub->getSystemSubscription();
 
             // Iterate through the handle

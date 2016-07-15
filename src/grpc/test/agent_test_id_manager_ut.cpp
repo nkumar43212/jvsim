@@ -136,7 +136,9 @@ _exhaust (AgentServerIdManagerType &mgr)
     EXPECT_TRUE(id != mgr.getNullIdentifier());
 }
 
-/* START TEST CASE */
+/*
+ * TEST CASES
+ */
 
 // Initialize a space manager, and ensure that we don't have bogus values
 TEST(id_manager, init) {

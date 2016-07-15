@@ -758,7 +758,9 @@ AgentClientTest::delete_subscriptions (void *args)
     return NULL;
 }
 
-/* *********************** SPECIAL STRESS TESTS ************************* */
+/*
+ * ********************** SPECIAL STRESS TESTS *************************
+ */
 
 #define LOCAL_TEST
 #define STRESS_TEST_SUB_UNSUB               100
