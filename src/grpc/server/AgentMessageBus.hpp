@@ -84,6 +84,7 @@ public:
         stats_unsubscribes++;
     }
 
+    // Unused now
     virtual void on_message (const struct mosquitto_message* mosqmessage)
     {
         messages.increment(1, mosqmessage->payloadlen);
@@ -92,6 +93,25 @@ public:
         }
 
         stats_topics[mosqmessage->topic].increment(1, mosqmessage->payloadlen);
+        if (_limits.expired(messages.getPackets())) {
+            _limits_reached = true;
+        }
+    }
+
+    // Topic supplied here was converted to path name for isid mode
+    void on_message_count (std::string topic,
+                           const struct mosquitto_message* mosqmessage)
+    {
+        // Global
+        messages.increment(1, mosqmessage->payloadlen);
+
+        // Per-topic
+        if (stats_topics.count(topic) == 0) {
+            stats_topics[topic] = Counter(topic);
+        }
+        stats_topics[topic].increment(1, mosqmessage->payloadlen);
+
+        // Check limit
         if (_limits.expired(messages.getPackets())) {
             _limits_reached = true;
         }
@@ -135,19 +155,19 @@ public:
         for (topicCounterMap::iterator itr = stats_topics.begin();
              itr != stats_topics.end(); itr++) {
             kv = operational_reply->add_kv();
-            kv->set_key("mqtt-packets:xpath:" + itr->first);
+            kv->set_key("mqtt-packets:path:" + itr->first);
             kv->set_int_value(itr->second.getPackets());
 
             kv = operational_reply->add_kv();
-            kv->set_key("mqtt-packet_rates:xpath:" + itr->first);
+            kv->set_key("mqtt-packet_rates:path:" + itr->first);
             kv->set_int_value(itr->second.getPacketRate());
 
             kv = operational_reply->add_kv();
-            kv->set_key("mqtt-bytes:xpath:" + itr->first);
+            kv->set_key("mqtt-bytes:path:" + itr->first);
             kv->set_int_value(itr->second.getBytes());
 
             kv = operational_reply->add_kv();
-            kv->set_key("mqtt-byte_rates:xpath:" + itr->first);
+            kv->set_key("mqtt-byte_rates:path:" + itr->first);
             kv->set_int_value(itr->second.getByteRate());
         }
     }

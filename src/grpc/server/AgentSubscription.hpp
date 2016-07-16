@@ -194,6 +194,7 @@ public:
         _active = value;
     }
 
+    void _count_message(const struct mosquitto_message* mosqmessage);
     virtual void on_message(const struct mosquitto_message* mosqmessage);
 };
 

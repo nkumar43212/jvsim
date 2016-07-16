@@ -61,19 +61,19 @@ AgentSubscriptionUdpWorker::_getOperational_path (
     for (topicCounterMap::iterator itr = stats_topics.begin();
          itr != stats_topics.end(); itr++) {
         kv = operational_reply->add_kv();
-        kv->set_key("udp-packets:xpath:" + itr->first);
+        kv->set_key("udp-packets:path:" + itr->first);
         kv->set_int_value(itr->second.getPackets());
 
         kv = operational_reply->add_kv();
-        kv->set_key("udp-packet_rates:xpath:" + itr->first);
+        kv->set_key("udp-packet_rates:path:" + itr->first);
         kv->set_int_value(itr->second.getPacketRate());
 
         kv = operational_reply->add_kv();
-        kv->set_key("udp-bytes:xpath:" + itr->first);
+        kv->set_key("udp-bytes:path:" + itr->first);
         kv->set_int_value(itr->second.getBytes());
 
         kv = operational_reply->add_kv();
-        kv->set_key("udp-byte_rates:xpath:" + itr->first);
+        kv->set_key("udp-byte_rates:path:" + itr->first);
         kv->set_int_value(itr->second.getByteRate());
     }
 }

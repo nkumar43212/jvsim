@@ -19,13 +19,60 @@
 std::map<id_idx_t, AgentSubscription *> store;
 
 void
-AgentSubscription::on_message(const struct mosquitto_message* mosqmessage)
+AgentSubscription::_count_message (const struct mosquitto_message* mosqmessage)
 {
-    char *topic     = mosqmessage->topic;
+    // Initialize path for the topic
+    // Note --- topic is "/<internal-subscription-id>" coming from Junos devices
+    std::string curr_path = "not_found";
+
+    // Convert the topic to curr_path
+    if (global_config.subscribe_topic_name == TOPIC_PATH) {
+        curr_path = std::string(mosqmessage->topic);
+    } else if (global_config.subscribe_topic_name == TOPIC_INTERNAL_SUB_ID) {
+        std::string isid_str(mosqmessage->topic);
+        // Remove the prepending "/"
+        isid_str.erase(0, 1);
+
+        // Convert to internal subscription index
+        id_idx_t isid;
+        try {
+            isid = std::stoi(isid_str);
+        } catch (const std::exception& e) {
+            isid = 0;
+        }
+
+        // Grab the consolidator handle for the subsription
+        AgentConsolidatorHandle *conHandle = getSystemSubscription();
+
+        // Iterate through the handle
+        for (int i = 0; i < conHandle->getHandleCount(); i++) {
+            AgentConsolidatorSystemHandlePtr ptr = conHandle->getHandle(i);
+            if (!ptr) {
+                continue;
+            }
+
+            // Return the local state in the consolidator
+            id_idx_t curr_isid = ptr->getInternalSubscriptionId();
+
+            // If topci isid and conHandle isid matches
+            if (curr_isid == isid) {
+                curr_path = ptr->getPath()->path();
+                break;
+            }
+        }
+    }
+
+    // Call the base message count
+    MessageBus::on_message_count(curr_path, mosqmessage);
+}
+
+void
+AgentSubscription::on_message (const struct mosquitto_message* mosqmessage)
+{
     uint8_t *buffer = (uint8_t *) mosqmessage->payload;
 
-    // Call the base message
-    MessageBus::on_message(mosqmessage);
+    // Count message
+    _count_message(mosqmessage);
 
     // Build a telemetry stream
     TelemetryStream *stream = new TelemetryStream;
@@ -49,9 +96,13 @@ AgentSubscription::on_message(const struct mosquitto_message* mosqmessage)
     oc_data.set_system_id(stream->system_id());
     oc_data.set_component_id(stream->component_id());
     oc_data.set_sub_component_id(stream->sub_component_id());
-    // TODO ABBAS --- Change this to extracted path from sensor_name
+
+    // Path is sensor name which is
+    // "internal_sensor_name:internal_path:external_path:component"
+    // e.g.:
+    // "sensor_1006:/junos/system/linecard/cpu/memory/:/junos/system/linecard/cpu/memory/:PFE"
     if (global_config.subscribe_topic_name == TOPIC_PATH) {
-        oc_data.set_path(topic);
+        oc_data.set_path(mosqmessage->topic);
     } else if (global_config.subscribe_topic_name == TOPIC_INTERNAL_SUB_ID) {
         oc_data.set_path(stream->sensor_name());
     }
