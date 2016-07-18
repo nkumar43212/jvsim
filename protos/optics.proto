@@ -66,218 +66,113 @@ message OpticsInfos {
 // Optics Diagnostics stats
 //
 message OpticsDiagStats {
+                                                                                    
+    optional uint32 optics_type                                                   =  1 ;
+    
     // Module temperature
-    optional int32 module_temp                                                    = 1 [(telemetry_options).is_gauge = true];
+    optional double module_temp                                                   =  2 [(telemetry_options).is_gauge = true];
+    
+    // Module temperature threshold information                                       
+    optional double module_temp_high_alarm_threshold                              =  3 [(telemetry_options).is_gauge = true];
+                                                                                    
+    optional double module_temp_low_alarm_threshold                               =  4 [(telemetry_options).is_gauge = true];
+                                                                                    
+    optional double module_temp_high_warning_threshold                            =  5 [(telemetry_options).is_gauge = true];
+                                                                                    
+    optional double module_temp_low_warning_threshold                             =  6 [(telemetry_options).is_gauge = true];
+    
+    // laser output power threshold information                                     
+    optional double laser_output_power_high_alarm_threshold_dbm                   =  7 [(telemetry_options).is_gauge = true];
+                                                                                    
+    optional double laser_output_power_low_alarm_threshold_dbm                    =  8 [(telemetry_options).is_gauge = true];
+                                                                                      
+    optional double laser_output_power_high_warning_threshold_dbm                 =  9 [(telemetry_options).is_gauge = true];
+                                                                                      
+    optional double laser_output_power_low_warning_threshold_dbm                  = 10 [(telemetry_options).is_gauge = true];
+    
+    // laser rx power threshold information                                           
+    optional double laser_rx_power_high_alarm_threshold_dbm                       = 11 [(telemetry_options).is_gauge = true];
+                                                                                      
+    optional double laser_rx_power_low_alarm_threshold_dbm                        = 12 [(telemetry_options).is_gauge = true];
+                                                                                      
+    optional double laser_rx_power_high_warning_threshold_dbm                     = 13 [(telemetry_options).is_gauge = true];
+                                                                                      
+    optional double laser_rx_power_low_warning_threshold_dbm                      = 14 [(telemetry_options).is_gauge = true];
+    
+    // laser bias current threshold information                                       
+    optional double laser_bias_current_high_alarm_threshold                       = 15 [(telemetry_options).is_gauge = true];
+                                                                                       
+    optional double laser_bias_current_low_alarm_threshold                        = 16 [(telemetry_options).is_gauge = true];
+                                                                                       
+    optional double laser_bias_current_high_warning_threshold                     = 17 [(telemetry_options).is_gauge = true];
+                                                                                       
+    optional double laser_bias_current_low_warning_threshold                      = 18 [(telemetry_options).is_gauge = true];
+    
+    // Module temperature alarm information                                           
+    optional bool module_temp_high_alarm                                          = 19;
+                                                                                      
+    optional bool module_temp_low_alarm                                           = 20;  
+                                                                                      
+    optional bool module_temp_high_warning                                        = 21;  
+                                                                                      
+    optional bool module_temp_low_warning                                         = 22;  
    
-    optional double module_temp_c                                                 = 2 [(telemetry_options).is_gauge = true];
-
-    optional double module_temp_f                                                 = 3 [(telemetry_options).is_gauge = true];
-
-    optional int32 module_temp_set                                                = 4 [(telemetry_options).is_gauge = true];
-    // Laser receive power
-    optional int32 receiver_signal_ave_optical_power                              = 5 [(telemetry_options).is_gauge = true];
-
-    optional double receiver_signal_ave_optical_power_mw                          = 6 [(telemetry_options).is_gauge = true];
-
-    optional double receiver_signal_ave_optical_power_dbm                         = 7 [(telemetry_options).is_gauge = true];
-
-    optional int32 receiver_signal_ave_optical_power_set                          = 8 [(telemetry_options).is_gauge = true];
-    // Laser transmit power
-    optional int32 laser_output_power                                             = 9 [(telemetry_options).is_gauge = true];
-
-    optional double laser_output_power_mw                                         = 10 [(telemetry_options).is_gauge = true];
-
-    optional double laser_output_power_dbm                                        = 11 [(telemetry_options).is_gauge = true];
-    
-    optional int32 laser_output_power_set                                         = 12 [(telemetry_options).is_gauge = true];
-
-    // Module temperature threshold information
-    optional int32 module_temp_high_alarm_threshold                               = 13 [(telemetry_options).is_gauge = true];
-
-    optional double module_temp_high_alarm_threshold_c                            = 14 [(telemetry_options).is_gauge = true];
-
-    optional double module_temp_high_alarm_threshold_f                            = 15 [(telemetry_options).is_gauge = true];
-
-    optional int32 module_temp_high_alarm_threshold_set                           = 16 [(telemetry_options).is_gauge = true];
-
-    optional int32 module_temp_low_alarm_threshold                                = 17 [(telemetry_options).is_gauge = true];
-
-    optional double module_temp_low_alarm_threshold_c                             = 18 [(telemetry_options).is_gauge = true];
-
-    optional double module_temp_low_alarm_threshold_f                             = 19 [(telemetry_options).is_gauge = true];
-
-    optional int32 module_temp_low_alarm_threshold_set                            = 20 [(telemetry_options).is_gauge = true];
-
-    optional int32 module_temp_high_warning_threshold                             = 21 [(telemetry_options).is_gauge = true];
-
-    optional double module_temp_high_warning_threshold_c                          = 22 [(telemetry_options).is_gauge = true];
-
-    optional double module_temp_high_warning_threshold_f                          = 23 [(telemetry_options).is_gauge = true];
-
-    optional int32 module_temp_high_warning_threshold_set                         = 24 [(telemetry_options).is_gauge = true];
-
-    optional int32 module_temp_low_warning_threshold                              = 25 [(telemetry_options).is_gauge = true];
-
-    optional double module_temp_low_warning_threshold_c                           = 26 [(telemetry_options).is_gauge = true];
-
-    optional double module_temp_low_warning_threshold_f                           = 27 [(telemetry_options).is_gauge = true];
-
-    optional int32 module_temp_low_warning_threshold_set                          = 28 [(telemetry_options).is_gauge = true];
-
-    // laser output power threshold information
-    optional int32 laser_output_power_high_alarm_threshold                        = 29 [(telemetry_options).is_gauge = true];
-
-    optional double laser_output_power_high_alarm_threshold_mw                    = 30 [(telemetry_options).is_gauge = true];
-
-    optional double laser_output_power_high_alarm_threshold_dbm                   = 31 [(telemetry_options).is_gauge = true];
-
-    optional int32 laser_output_power_high_alarm_threshold_set                    = 32 [(telemetry_options).is_gauge = true];
-
-    optional int32 laser_output_power_low_alarm_threshold                         = 33 [(telemetry_options).is_gauge = true];
-
-    optional double laser_output_power_low_alarm_threshold_mw                     = 34 [(telemetry_options).is_gauge = true];
-
-    optional double laser_output_power_low_alarm_threshold_dbm                    = 35 [(telemetry_options).is_gauge = true];
-
-    optional int32 laser_output_power_low_alarm_threshold_set                     = 36 [(telemetry_options).is_gauge = true];
-
-    optional int32 laser_output_power_high_warning_threshold                      = 37 [(telemetry_options).is_gauge = true];
-
-    optional double laser_output_power_high_warning_threshold_mw                  = 38 [(telemetry_options).is_gauge = true];
-
-    optional double laser_output_power_high_warning_threshold_dbm                 = 39 [(telemetry_options).is_gauge = true];
-
-    optional int32 laser_output_power_high_warning_threshold_set                  = 40 [(telemetry_options).is_gauge = true];
-
-    optional int32 laser_output_power_low_warning_threshold                       = 41 [(telemetry_options).is_gauge = true];
-
-    optional double laser_output_power_low_warning_threshold_mw                   = 42 [(telemetry_options).is_gauge = true];
-
-    optional double laser_output_power_low_warning_threshold_dbm                  = 43 [(telemetry_options).is_gauge = true];
-
-    optional int32 laser_output_power_low_warning_threshold_set                   = 44 [(telemetry_options).is_gauge = true];
-
-    // Module temperature threshold information
-    optional int32 laser_rx_power_high_alarm_threshold                            = 45 [(telemetry_options).is_gauge = true];
-
-    optional double laser_rx_power_high_alarm_threshold_mw                        = 46 [(telemetry_options).is_gauge = true];
-
-    optional double laser_rx_power_high_alarm_threshold_dbm                       = 47 [(telemetry_options).is_gauge = true];
-
-    optional int32 laser_rx_power_high_alarm_threshold_set                        = 48 [(telemetry_options).is_gauge = true];
-
-    optional int32 laser_rx_power_low_alarm_threshold                             = 49 [(telemetry_options).is_gauge = true];
-
-    optional double laser_rx_power_low_alarm_threshold_mw                         = 50 [(telemetry_options).is_gauge = true];
-
-    optional double laser_rx_power_low_alarm_threshold_dbm                        = 51 [(telemetry_options).is_gauge = true];
-
-    optional int32 laser_rx_power_low_alarm_threshold_set                         = 52 [(telemetry_options).is_gauge = true];
-
-    optional int32 laser_rx_power_high_warning_threshold                          = 53 [(telemetry_options).is_gauge = true];
-
-    optional double laser_rx_power_high_warning_threshold_mw                      = 54 [(telemetry_options).is_gauge = true];
-
-    optional double laser_rx_power_high_warning_threshold_dbm                     = 55 [(telemetry_options).is_gauge = true];
-
-    optional int32 laser_rx_power_high_warning_threshold_set                      = 56 [(telemetry_options).is_gauge = true];
-
-    optional int32 laser_rx_power_low_warning_threshold                           = 57 [(telemetry_options).is_gauge = true];
-
-    optional double laser_rx_power_low_warning_threshold_mw                       = 58 [(telemetry_options).is_gauge = true];
-
-    optional double laser_rx_power_low_warning_threshold_dbm                      = 59 [(telemetry_options).is_gauge = true];
-
-    optional int32 laser_rx_power_low_warning_threshold_set                       = 60 [(telemetry_options).is_gauge = true];
-
-    optional int32 lane_number                                                    = 61 [(telemetry_options).is_gauge = true];
-
-    // lane Module temperature
-    optional int32 lane_laser_temp                                                = 62 [(telemetry_options).is_gauge = true];
-
-    optional double lane_laser_temp_c                                             = 63 [(telemetry_options).is_gauge = true];
-
-    optional double lane_laser_temp_f                                             = 64 [(telemetry_options).is_gauge = true];
-
-    optional int32 lane_laser_temp_set                                            = 65 [(telemetry_options).is_gauge = true]; 
-
-    // Laser receive power
-    optional int32 lane_laser_output_power                                        = 66 [(telemetry_options).is_gauge = true];
-
-    optional double lane_laser_output_power_mw                                    = 67 [(telemetry_options).is_gauge = true];
-
-    optional double lane_laser_output_power_dbm                                   = 68 [(telemetry_options).is_gauge = true];
-
-    optional int32 lane_laser_output_power_set                                    = 69 [(telemetry_options).is_gauge = true];
-
-    // Laser transmit power
-    optional int32 lane_laser_receiver_power                                      = 70 [(telemetry_options).is_gauge = true];
-
-    optional double lane_laser_receiver_power_mw                                  = 71 [(telemetry_options).is_gauge = true];
-
-    optional double lane_laser_receiver_power_dbm                                 = 72 [(telemetry_options).is_gauge = true];
-
-    optional int32 lane_laser_receiver_power_set                                  = 73 [(telemetry_options).is_gauge = true];
-
-    // Module temperature threshold information
-    optional int32 lane_laser_temp_high_alarm_set                                 = 74 [(telemetry_options).is_gauge = true];
-    
-    optional int32 lane_laser_temp_high_alarm                                     = 75 [(telemetry_options).is_gauge = true];
-    
-    optional int32 lane_laser_temp_low_alarm_set                                  = 76 [(telemetry_options).is_gauge = true];
-    
-    optional int32 lane_laser_temp_low_alarm                                      = 77 [(telemetry_options).is_gauge = true];  
-
-    optional int32 lane_laser_temp_high_warning_set                               = 78 [(telemetry_options).is_gauge = true];
-    
-    optional int32 lane_laser_temp_high_warning                                   = 79 [(telemetry_options).is_gauge = true];  
-
-    //lane laser output power alarm
-    optional int32 lane_laser_output_power_high_alarm_set                         = 80 [(telemetry_options).is_gauge = true]; 
-
-    optional int32 lane_laser_output_power_high_alarm                             = 81 [(telemetry_options).is_gauge = true];
-
-    optional int32 lane_laser_output_power_low_alarm_set                          = 82 [(telemetry_options).is_gauge = true];
-    
-    optional int32 lane_laser_output_power_low_alarm                              = 83 [(telemetry_options).is_gauge = true];
-
-    optional int32 lane_laser_output_power_high_warning_set                       = 84 [(telemetry_options).is_gauge = true];
-
-    optional int32 lane_laser_output_power_high_warning                           = 85 [(telemetry_options).is_gauge = true];
-
-    optional int32 lane_laser_output_power_low_warning_set                        = 86 [(telemetry_options).is_gauge = true];
-
-    optional int32 lane_laser_output_power_low_warning                            = 87 [(telemetry_options).is_gauge = true];
-
-    //lane laser receiver power alarm
-    optional int32 lane_laser_receiver_power_high_alarm_set                       = 88 [(telemetry_options).is_gauge = true];
-
-    optional int32 lane_laser_receiver_power_high_alarm                           = 89 [(telemetry_options).is_gauge = true];
-
-    optional int32 lane_laser_receiver_power_low_alarm_set                        = 90 [(telemetry_options).is_gauge = true];
-
-    optional int32 lane_laser_receiver_power_low_alarm                            = 91 [(telemetry_options).is_gauge = true];
-
-    optional int32 lane_laser_receiver_power_high_warning_set                     = 92 [(telemetry_options).is_gauge = true];
-
-    optional int32 lane_laser_receiver_power_high_warning                         = 93 [(telemetry_options).is_gauge = true];
-
-    optional int32 lane_laser_receiver_power_low_warning_set                      = 94 [(telemetry_options).is_gauge = true];
-
-    optional int32 lane_laser_receiver_power_low_warning                          = 95 [(telemetry_options).is_gauge = true];
-
-    optional int32 optics_type                                                    = 96 [(telemetry_options).is_gauge = true];
-    
-    optional int32 optics_alarm_validity                                          = 97 [(telemetry_options).is_gauge = true];
-
-    optional int32 optics_capability                                              = 98 [(telemetry_options).is_gauge = true];    
-
-    optional int32 active_lane_map                                                = 99 [(telemetry_options).is_gauge = true]; 
-
-    optional int32 lane_alarms_warnings                                           = 100 [(telemetry_options).is_gauge = true];
-  
-    optional int32 lane_laser_temp_low_warning_set                                = 101 [(telemetry_options).is_gauge = true];
-
-    optional int32 lane_laser_temp_low_warning                                    = 102 [(telemetry_options).is_gauge = true];
+    // Optics module lane Diagnostics statistics                                      
+    repeated OpticsDiagLaneStats optics_lane_diag_stats                           = 23;
+                                                                                      
 }
 
+//
+// Optics Diagnostics lane stats
+//
+message OpticsDiagLaneStats {
+
+    optional uint32 lane_number                                                    =  1 [(telemetry_options).is_key = true];
+    
+    // lane Module temperature
+    optional double lane_laser_temperature                                        =  2 [(telemetry_options).is_gauge = true];
+
+    // Laser receive power
+    optional double lane_laser_output_power_dbm                                   =  3 [(telemetry_options).is_gauge = true];
+
+    // Laser transmit power
+    optional double lane_laser_receiver_power_dbm                                 =  4 [(telemetry_options).is_gauge = true];
+
+    // Laser receive power
+    optional double lane_laser_bias_current                                       =  5;
+    
+    //lane laser output power alarm                                                 
+    optional bool lane_laser_output_power_high_alarm                              =  6;
+                                                                                     
+    optional bool lane_laser_output_power_low_alarm                               =  7;
+                                                                                     
+    optional bool lane_laser_output_power_high_warning                            =  8;
+                                                                                     
+    optional bool lane_laser_output_power_low_warning                             =  9;
+                                                                         
+    //lane laser receiver power alarm                                                
+    optional bool lane_laser_receiver_power_high_alarm                            = 10;
+                                                                                     
+    optional bool lane_laser_receiver_power_low_alarm                             = 11;
+                                                                                     
+    optional bool lane_laser_receiver_power_high_warning                          = 12;
+                                                                                     
+    optional bool lane_laser_receiver_power_low_warning                           = 13;
+                                                                         
+     //lane laser output power alarm                                                 
+    optional bool lane_laser_bias_current_high_alarm                              = 14;
+                                                                                     
+    optional bool lane_laser_bias_current_low_alarm                               = 15;
+                                                                                     
+    optional bool lane_laser_bias_current_high_warning                            = 16;
+                                                                         
+    optional bool lane_laser_bias_current_low_warning                             = 17;
+                                                                         
+    optional bool lane_tx_loss_of_signal_alarm                                    = 18;
+                                                                                     
+    optional bool lane_rx_loss_of_signal_alarm                                    = 19;
+                                                                         
+    optional bool lane_tx_laser_disabled_alarm                                    = 20;
+                                                                         
+}                                                                        
+                                                                         
