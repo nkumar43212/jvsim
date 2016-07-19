@@ -62,7 +62,7 @@ enum OperationFormatType {
 
 enum JunosRpcResponseTypes {
 
-    OK = 0;
+    SUCCESS = 0;
     NOK = 1;
     UNSUPPORTED_PATH = 2;
     INVALID_PATH = 3;
@@ -79,12 +79,6 @@ enum ConfigCommands {
     UPDATE_CONFIG = 0;
     REPLACE_CONFIG = 1;
     DELETE_CONFIG = 2;
-}
-
-enum ConfigFormatType {
-    CONFIG_FORMAT_TEXT = 0;
-    CONFIG_FORMAT_XML = 1;
-    CONFIG_FORMAT_JSON = 2;
 }
 
 enum ConfigLoadType {
@@ -108,19 +102,18 @@ message ExecuteOpCommandRequest {
     uint64 request_id = 1;
 
     /*
-     * Identifier for the OperationalComamnd
+     * Input Command
      */
-    string command = 2; //Junos Operational command
-
-    /*
-     * Input format, default is JSON
-     */
-    OperationFormatType in_format = 3;
+    oneof command {
+	string cli_command = 2;
+	string xml_command = 3;
+	string json_command = 4;
+    }
 
     /*
      * Output format, default is JSON
      */
-    OperationFormatType out_format = 4;
+    OperationFormatType out_format = 5;
 }
 
 message ExecuteOpCommandResponse {
@@ -245,11 +238,6 @@ message EditEphemeralConfigRequest {
      */
     uint64 request_id = 1;
 
-    /*
-     * Identifier for the encoding scheme
-     */
-    JunosDataEncodingTypes encoding = 2;
-
     message ConfigOperationList {
 
 	/*
@@ -274,11 +262,13 @@ message EditEphemeralConfigRequest {
 	string path = 3;
 
         /*
-         * Data encoded using the encoding specified in set-data-encoding, or
-         * encoding specified in the request.This data may be populated by the
-         * management system.
+	 * Configuration data to be comitted. This data may be populated by
+	 * management system.
          */
-	string value = 4;
+	oneof value {
+	    string xml_config = 4;
+	    string json_config = 5;
+	}
     }
 
     /*
@@ -293,6 +283,12 @@ message EditEphemeralConfigRequest {
      * or The Name of the ephemeral instance for dynamic instance
      */
     string eph_instance_name = 4;
+
+    /*
+     * Enable validation of config
+     * For Internal Use only.
+     */
+    bool enable_config_validation = 5;
 }
 
 message EditEphemeralConfigResponse {
@@ -332,7 +328,7 @@ message ConfigCommit {
 
     /*
      * This will specify the type of commit operation
-     * commit operation can be commit-synchronize or commit
+     * commit operation can be commit or commit-synchronize
      */
     ConfigCommitType commit_type = 1;
 
@@ -350,24 +346,24 @@ message ExecuteCfgCommandRequest {
     uint64 request_id = 1;
 
     /*
-     * Specify the configuration in this field
+     * Configuration data to be comitted. This data can be populated by NMS
+     * system
      */
-    string config = 2;
-
-    /*
-     * Specify the format of configuration
-     */
-    ConfigFormatType format = 3;
+    oneof config {
+	string xml_config = 2;
+	string json_config = 3;
+	string text_config = 4;
+    }
 
     /*
      * Specify the type of load operation
      */
-    ConfigLoadType load_type = 4;
+    ConfigLoadType load_type = 5;
 
     /*
      * Specify the type of commit operation
      */
-    ConfigCommit commit = 5;
+    ConfigCommit commit = 6;
 }
 
 message ExecuteCfgCommandResponse {

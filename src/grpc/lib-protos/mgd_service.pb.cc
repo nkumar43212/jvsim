@@ -23,6 +23,11 @@ namespace {
 const ::google::protobuf::Descriptor* ExecuteOpCommandRequest_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   ExecuteOpCommandRequest_reflection_ = NULL;
+struct ExecuteOpCommandRequestOneofInstance {
+  ::google::protobuf::internal::ArenaStringPtr cli_command_;
+  ::google::protobuf::internal::ArenaStringPtr xml_command_;
+  ::google::protobuf::internal::ArenaStringPtr json_command_;
+}* ExecuteOpCommandRequest_default_oneof_instance_ = NULL;
 const ::google::protobuf::Descriptor* ExecuteOpCommandResponse_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   ExecuteOpCommandResponse_reflection_ = NULL;
@@ -44,6 +49,10 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* EditEphemeralConfigRequest_ConfigOperationList_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   EditEphemeralConfigRequest_ConfigOperationList_reflection_ = NULL;
+struct EditEphemeralConfigRequest_ConfigOperationListOneofInstance {
+  ::google::protobuf::internal::ArenaStringPtr xml_config_;
+  ::google::protobuf::internal::ArenaStringPtr json_config_;
+}* EditEphemeralConfigRequest_ConfigOperationList_default_oneof_instance_ = NULL;
 const ::google::protobuf::Descriptor* EditEphemeralConfigResponse_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   EditEphemeralConfigResponse_reflection_ = NULL;
@@ -56,6 +65,11 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* ExecuteCfgCommandRequest_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   ExecuteCfgCommandRequest_reflection_ = NULL;
+struct ExecuteCfgCommandRequestOneofInstance {
+  ::google::protobuf::internal::ArenaStringPtr xml_config_;
+  ::google::protobuf::internal::ArenaStringPtr json_config_;
+  ::google::protobuf::internal::ArenaStringPtr text_config_;
+}* ExecuteCfgCommandRequest_default_oneof_instance_ = NULL;
 const ::google::protobuf::Descriptor* ExecuteCfgCommandResponse_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   ExecuteCfgCommandResponse_reflection_ = NULL;
@@ -63,7 +77,6 @@ const ::google::protobuf::EnumDescriptor* OperationFormatType_descriptor_ = NULL
 const ::google::protobuf::EnumDescriptor* JunosRpcResponseTypes_descriptor_ = NULL;
 const ::google::protobuf::EnumDescriptor* JunosDataEncodingTypes_descriptor_ = NULL;
 const ::google::protobuf::EnumDescriptor* ConfigCommands_descriptor_ = NULL;
-const ::google::protobuf::EnumDescriptor* ConfigFormatType_descriptor_ = NULL;
 const ::google::protobuf::EnumDescriptor* ConfigLoadType_descriptor_ = NULL;
 const ::google::protobuf::EnumDescriptor* ConfigCommitType_descriptor_ = NULL;
 
@@ -77,11 +90,13 @@ void protobuf_AssignDesc_mgd_5fservice_2eproto() {
       "mgd_service.proto");
   GOOGLE_CHECK(file != NULL);
   ExecuteOpCommandRequest_descriptor_ = file->message_type(0);
-  static const int ExecuteOpCommandRequest_offsets_[4] = {
+  static const int ExecuteOpCommandRequest_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ExecuteOpCommandRequest, request_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ExecuteOpCommandRequest, command_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ExecuteOpCommandRequest, in_format_),
+    PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET(ExecuteOpCommandRequest_default_oneof_instance_, cli_command_),
+    PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET(ExecuteOpCommandRequest_default_oneof_instance_, xml_command_),
+    PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET(ExecuteOpCommandRequest_default_oneof_instance_, json_command_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ExecuteOpCommandRequest, out_format_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ExecuteOpCommandRequest, command_),
   };
   ExecuteOpCommandRequest_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -91,6 +106,8 @@ void protobuf_AssignDesc_mgd_5fservice_2eproto() {
       -1,
       -1,
       -1,
+      ExecuteOpCommandRequest_default_oneof_instance_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ExecuteOpCommandRequest, _oneof_case_[0]),
       sizeof(ExecuteOpCommandRequest),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ExecuteOpCommandRequest, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ExecuteOpCommandRequest, _is_default_instance_));
@@ -185,9 +202,9 @@ void protobuf_AssignDesc_mgd_5fservice_2eproto() {
   EditEphemeralConfigRequest_descriptor_ = file->message_type(5);
   static const int EditEphemeralConfigRequest_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EditEphemeralConfigRequest, request_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EditEphemeralConfigRequest, encoding_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EditEphemeralConfigRequest, eph_config_operations_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EditEphemeralConfigRequest, eph_instance_name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EditEphemeralConfigRequest, enable_config_validation_),
   };
   EditEphemeralConfigRequest_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -201,10 +218,12 @@ void protobuf_AssignDesc_mgd_5fservice_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EditEphemeralConfigRequest, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EditEphemeralConfigRequest, _is_default_instance_));
   EditEphemeralConfigRequest_ConfigOperationList_descriptor_ = EditEphemeralConfigRequest_descriptor_->nested_type(0);
-  static const int EditEphemeralConfigRequest_ConfigOperationList_offsets_[4] = {
+  static const int EditEphemeralConfigRequest_ConfigOperationList_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EditEphemeralConfigRequest_ConfigOperationList, operation_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EditEphemeralConfigRequest_ConfigOperationList, operation_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EditEphemeralConfigRequest_ConfigOperationList, path_),
+    PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET(EditEphemeralConfigRequest_ConfigOperationList_default_oneof_instance_, xml_config_),
+    PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET(EditEphemeralConfigRequest_ConfigOperationList_default_oneof_instance_, json_config_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EditEphemeralConfigRequest_ConfigOperationList, value_),
   };
   EditEphemeralConfigRequest_ConfigOperationList_reflection_ =
@@ -215,6 +234,8 @@ void protobuf_AssignDesc_mgd_5fservice_2eproto() {
       -1,
       -1,
       -1,
+      EditEphemeralConfigRequest_ConfigOperationList_default_oneof_instance_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EditEphemeralConfigRequest_ConfigOperationList, _oneof_case_[0]),
       sizeof(EditEphemeralConfigRequest_ConfigOperationList),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EditEphemeralConfigRequest_ConfigOperationList, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EditEphemeralConfigRequest_ConfigOperationList, _is_default_instance_));
@@ -268,12 +289,14 @@ void protobuf_AssignDesc_mgd_5fservice_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ConfigCommit, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ConfigCommit, _is_default_instance_));
   ExecuteCfgCommandRequest_descriptor_ = file->message_type(8);
-  static const int ExecuteCfgCommandRequest_offsets_[5] = {
+  static const int ExecuteCfgCommandRequest_offsets_[7] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ExecuteCfgCommandRequest, request_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ExecuteCfgCommandRequest, config_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ExecuteCfgCommandRequest, format_),
+    PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET(ExecuteCfgCommandRequest_default_oneof_instance_, xml_config_),
+    PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET(ExecuteCfgCommandRequest_default_oneof_instance_, json_config_),
+    PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET(ExecuteCfgCommandRequest_default_oneof_instance_, text_config_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ExecuteCfgCommandRequest, load_type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ExecuteCfgCommandRequest, commit_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ExecuteCfgCommandRequest, config_),
   };
   ExecuteCfgCommandRequest_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -283,6 +306,8 @@ void protobuf_AssignDesc_mgd_5fservice_2eproto() {
       -1,
       -1,
       -1,
+      ExecuteCfgCommandRequest_default_oneof_instance_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ExecuteCfgCommandRequest, _oneof_case_[0]),
       sizeof(ExecuteCfgCommandRequest),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ExecuteCfgCommandRequest, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ExecuteCfgCommandRequest, _is_default_instance_));
@@ -307,9 +332,8 @@ void protobuf_AssignDesc_mgd_5fservice_2eproto() {
   JunosRpcResponseTypes_descriptor_ = file->enum_type(1);
   JunosDataEncodingTypes_descriptor_ = file->enum_type(2);
   ConfigCommands_descriptor_ = file->enum_type(3);
-  ConfigFormatType_descriptor_ = file->enum_type(4);
-  ConfigLoadType_descriptor_ = file->enum_type(5);
-  ConfigCommitType_descriptor_ = file->enum_type(6);
+  ConfigLoadType_descriptor_ = file->enum_type(4);
+  ConfigCommitType_descriptor_ = file->enum_type(5);
 }
 
 namespace {
@@ -354,6 +378,7 @@ void protobuf_RegisterTypes(const ::std::string&) {
 
 void protobuf_ShutdownFile_mgd_5fservice_2eproto() {
   delete ExecuteOpCommandRequest::default_instance_;
+  delete ExecuteOpCommandRequest_default_oneof_instance_;
   delete ExecuteOpCommandRequest_reflection_;
   delete ExecuteOpCommandResponse::default_instance_;
   delete ExecuteOpCommandResponse_reflection_;
@@ -368,6 +393,7 @@ void protobuf_ShutdownFile_mgd_5fservice_2eproto() {
   delete EditEphemeralConfigRequest::default_instance_;
   delete EditEphemeralConfigRequest_reflection_;
   delete EditEphemeralConfigRequest_ConfigOperationList::default_instance_;
+  delete EditEphemeralConfigRequest_ConfigOperationList_default_oneof_instance_;
   delete EditEphemeralConfigRequest_ConfigOperationList_reflection_;
   delete EditEphemeralConfigResponse::default_instance_;
   delete EditEphemeralConfigResponse_reflection_;
@@ -376,6 +402,7 @@ void protobuf_ShutdownFile_mgd_5fservice_2eproto() {
   delete ConfigCommit::default_instance_;
   delete ConfigCommit_reflection_;
   delete ExecuteCfgCommandRequest::default_instance_;
+  delete ExecuteCfgCommandRequest_default_oneof_instance_;
   delete ExecuteCfgCommandRequest_reflection_;
   delete ExecuteCfgCommandResponse::default_instance_;
   delete ExecuteCfgCommandResponse_reflection_;
@@ -388,83 +415,83 @@ void protobuf_AddDesc_mgd_5fservice_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\021mgd_service.proto\022\nmanagement\"\247\001\n\027Exec"
+    "\n\021mgd_service.proto\022\nmanagement\"\263\001\n\027Exec"
     "uteOpCommandRequest\022\022\n\nrequest_id\030\001 \001(\004\022"
-    "\017\n\007command\030\002 \001(\t\0222\n\tin_format\030\003 \001(\0162\037.ma"
-    "nagement.OperationFormatType\0223\n\nout_form"
-    "at\030\004 \001(\0162\037.management.OperationFormatTyp"
-    "e\"\200\001\n\030ExecuteOpCommandResponse\022\022\n\nreques"
-    "t_id\030\001 \001(\004\022\014\n\004data\030\002 \001(\t\0221\n\006status\030\003 \001(\016"
-    "2!.management.JunosRpcResponseTypes\022\017\n\007m"
-    "essage\030\004 \001(\t\":\n\024EphConfigRequestList\022\024\n\014"
-    "operation_id\030\001 \001(\t\022\014\n\004path\030\002 \001(\t\"\323\001\n\031Get"
-    "EphemeralConfigRequest\022\022\n\nrequest_id\030\001 \001"
-    "(\004\0224\n\010encoding\030\002 \001(\0162\".management.JunosD"
-    "ataEncodingTypes\022=\n\023eph_config_requests\030"
-    "\003 \003(\0132 .management.EphConfigRequestList\022"
-    "\031\n\021eph_instance_name\030\004 \001(\t\022\022\n\nmerge_view"
-    "\030\005 \001(\010\"\377\001\n\032GetEphemeralConfigResponse\022\022\n"
-    "\nrequest_id\030\001 \001(\004\022E\n\010response\030\002 \003(\01323.ma"
-    "nagement.GetEphemeralConfigResponse.Resp"
-    "onseList\032\205\001\n\014ResponseList\022\024\n\014operation_i"
-    "d\030\001 \001(\t\022\014\n\004path\030\002 \001(\t\022\r\n\005value\030\003 \001(\t\0221\n\006"
-    "status\030\004 \001(\0162!.management.JunosRpcRespon"
-    "seTypes\022\017\n\007message\030\005 \001(\t\"\325\002\n\032EditEphemer"
-    "alConfigRequest\022\022\n\nrequest_id\030\001 \001(\004\0224\n\010e"
-    "ncoding\030\002 \001(\0162\".management.JunosDataEnco"
-    "dingTypes\022Y\n\025eph_config_operations\030\003 \003(\013"
-    "2:.management.EditEphemeralConfigRequest"
-    ".ConfigOperationList\022\031\n\021eph_instance_nam"
-    "e\030\004 \001(\t\032w\n\023ConfigOperationList\022\024\n\014operat"
-    "ion_id\030\001 \001(\t\022-\n\toperation\030\002 \001(\0162\032.manage"
-    "ment.ConfigCommands\022\014\n\004path\030\003 \001(\t\022\r\n\005val"
-    "ue\030\004 \001(\t\"\343\001\n\033EditEphemeralConfigResponse"
-    "\022\022\n\nrequest_id\030\001 \001(\004\022F\n\010response\030\002 \003(\01324"
-    ".management.EditEphemeralConfigResponse."
-    "ResponseList\032h\n\014ResponseList\022\024\n\014operatio"
-    "n_id\030\001 \001(\t\0221\n\006status\030\002 \001(\0162!.management."
-    "JunosRpcResponseTypes\022\017\n\007message\030\003 \001(\t\"R"
-    "\n\014ConfigCommit\0221\n\013commit_type\030\001 \001(\0162\034.ma"
-    "nagement.ConfigCommitType\022\017\n\007comment\030\002 \001"
-    "(\t\"\305\001\n\030ExecuteCfgCommandRequest\022\022\n\nreque"
-    "st_id\030\001 \001(\004\022\016\n\006config\030\002 \001(\t\022,\n\006format\030\003 "
-    "\001(\0162\034.management.ConfigFormatType\022-\n\tloa"
-    "d_type\030\004 \001(\0162\032.management.ConfigLoadType"
-    "\022(\n\006commit\030\005 \001(\0132\030.management.ConfigComm"
-    "it\"s\n\031ExecuteCfgCommandResponse\022\022\n\nreque"
-    "st_id\030\001 \001(\004\0221\n\006status\030\002 \001(\0162!.management"
-    ".JunosRpcResponseTypes\022\017\n\007message\030\003 \001(\t*"
-    "d\n\023OperationFormatType\022\031\n\025OPERATION_FORM"
-    "AT_JSON\020\000\022\030\n\024OPERATION_FORMAT_XML\020\001\022\030\n\024O"
-    "PERATION_FORMAT_CLI\020\002*\205\001\n\025JunosRpcRespon"
-    "seTypes\022\006\n\002OK\020\000\022\007\n\003NOK\020\001\022\024\n\020UNSUPPORTED_"
-    "PATH\020\002\022\020\n\014INVALID_PATH\020\003\022\031\n\025INVALID_CONF"
-    "IGURATION\020\004\022\030\n\024UNSUPPORTED_ENCODING\020\005*=\n"
-    "\026JunosDataEncodingTypes\022\020\n\014ENCODING_XML\020"
-    "\000\022\021\n\rENCODING_JSON\020\001*J\n\016ConfigCommands\022\021"
-    "\n\rUPDATE_CONFIG\020\000\022\022\n\016REPLACE_CONFIG\020\001\022\021\n"
-    "\rDELETE_CONFIG\020\002*Y\n\020ConfigFormatType\022\026\n\022"
-    "CONFIG_FORMAT_TEXT\020\000\022\025\n\021CONFIG_FORMAT_XM"
-    "L\020\001\022\026\n\022CONFIG_FORMAT_JSON\020\002*\207\001\n\016ConfigLo"
-    "adType\022\027\n\023CONFIG_LOAD_REPLACE\020\000\022\025\n\021CONFI"
-    "G_LOAD_MERGE\020\001\022\030\n\024CONFIG_LOAD_OVERRIDE\020\002"
-    "\022\026\n\022CONFIG_LOAD_UPDATE\020\003\022\023\n\017CONFIG_LOAD_"
-    "SET\020\004*D\n\020ConfigCommitType\022\035\n\031CONFIG_COMM"
-    "IT_SYNCHRONIZE\020\000\022\021\n\rCONFIG_COMMIT\020\0012\252\003\n\020"
-    "ManagementRpcApi\022a\n\020ExecuteOpCommand\022#.m"
-    "anagement.ExecuteOpCommandRequest\032$.mana"
-    "gement.ExecuteOpCommandResponse\"\0000\001\022b\n\021E"
-    "xecuteCfgCommand\022$.management.ExecuteCfg"
-    "CommandRequest\032%.management.ExecuteCfgCo"
-    "mmandResponse\"\000\022e\n\022GetEphemeralConfig\022%."
-    "management.GetEphemeralConfigRequest\032&.m"
-    "anagement.GetEphemeralConfigResponse\"\000\022h"
-    "\n\023EditEphemeralConfig\022&.management.EditE"
-    "phemeralConfigRequest\032\'.management.EditE"
-    "phemeralConfigResponse\"\000b\006proto3", 2952);
+    "\025\n\013cli_command\030\002 \001(\tH\000\022\025\n\013xml_command\030\003 "
+    "\001(\tH\000\022\026\n\014json_command\030\004 \001(\tH\000\0223\n\nout_for"
+    "mat\030\005 \001(\0162\037.management.OperationFormatTy"
+    "peB\t\n\007command\"\200\001\n\030ExecuteOpCommandRespon"
+    "se\022\022\n\nrequest_id\030\001 \001(\004\022\014\n\004data\030\002 \001(\t\0221\n\006"
+    "status\030\003 \001(\0162!.management.JunosRpcRespon"
+    "seTypes\022\017\n\007message\030\004 \001(\t\":\n\024EphConfigReq"
+    "uestList\022\024\n\014operation_id\030\001 \001(\t\022\014\n\004path\030\002"
+    " \001(\t\"\323\001\n\031GetEphemeralConfigRequest\022\022\n\nre"
+    "quest_id\030\001 \001(\004\0224\n\010encoding\030\002 \001(\0162\".manag"
+    "ement.JunosDataEncodingTypes\022=\n\023eph_conf"
+    "ig_requests\030\003 \003(\0132 .management.EphConfig"
+    "RequestList\022\031\n\021eph_instance_name\030\004 \001(\t\022\022"
+    "\n\nmerge_view\030\005 \001(\010\"\377\001\n\032GetEphemeralConfi"
+    "gResponse\022\022\n\nrequest_id\030\001 \001(\004\022E\n\010respons"
+    "e\030\002 \003(\01323.management.GetEphemeralConfigR"
+    "esponse.ResponseList\032\205\001\n\014ResponseList\022\024\n"
+    "\014operation_id\030\001 \001(\t\022\014\n\004path\030\002 \001(\t\022\r\n\005val"
+    "ue\030\003 \001(\t\0221\n\006status\030\004 \001(\0162!.management.Ju"
+    "nosRpcResponseTypes\022\017\n\007message\030\005 \001(\t\"\351\002\n"
+    "\032EditEphemeralConfigRequest\022\022\n\nrequest_i"
+    "d\030\001 \001(\004\022Y\n\025eph_config_operations\030\003 \003(\0132:"
+    ".management.EditEphemeralConfigRequest.C"
+    "onfigOperationList\022\031\n\021eph_instance_name\030"
+    "\004 \001(\t\022 \n\030enable_config_validation\030\005 \001(\010\032"
+    "\236\001\n\023ConfigOperationList\022\024\n\014operation_id\030"
+    "\001 \001(\t\022-\n\toperation\030\002 \001(\0162\032.management.Co"
+    "nfigCommands\022\014\n\004path\030\003 \001(\t\022\024\n\nxml_config"
+    "\030\004 \001(\tH\000\022\025\n\013json_config\030\005 \001(\tH\000B\007\n\005value"
+    "\"\343\001\n\033EditEphemeralConfigResponse\022\022\n\nrequ"
+    "est_id\030\001 \001(\004\022F\n\010response\030\002 \003(\01324.managem"
+    "ent.EditEphemeralConfigResponse.Response"
+    "List\032h\n\014ResponseList\022\024\n\014operation_id\030\001 \001"
+    "(\t\0221\n\006status\030\002 \001(\0162!.management.JunosRpc"
+    "ResponseTypes\022\017\n\007message\030\003 \001(\t\"R\n\014Config"
+    "Commit\0221\n\013commit_type\030\001 \001(\0162\034.management"
+    ".ConfigCommitType\022\017\n\007comment\030\002 \001(\t\"\325\001\n\030E"
+    "xecuteCfgCommandRequest\022\022\n\nrequest_id\030\001 "
+    "\001(\004\022\024\n\nxml_config\030\002 \001(\tH\000\022\025\n\013json_config"
+    "\030\003 \001(\tH\000\022\025\n\013text_config\030\004 \001(\tH\000\022-\n\tload_"
+    "type\030\005 \001(\0162\032.management.ConfigLoadType\022("
+    "\n\006commit\030\006 \001(\0132\030.management.ConfigCommit"
+    "B\010\n\006config\"s\n\031ExecuteCfgCommandResponse\022"
+    "\022\n\nrequest_id\030\001 \001(\004\0221\n\006status\030\002 \001(\0162!.ma"
+    "nagement.JunosRpcResponseTypes\022\017\n\007messag"
+    "e\030\003 \001(\t*d\n\023OperationFormatType\022\031\n\025OPERAT"
+    "ION_FORMAT_JSON\020\000\022\030\n\024OPERATION_FORMAT_XM"
+    "L\020\001\022\030\n\024OPERATION_FORMAT_CLI\020\002*\212\001\n\025JunosR"
+    "pcResponseTypes\022\013\n\007SUCCESS\020\000\022\007\n\003NOK\020\001\022\024\n"
+    "\020UNSUPPORTED_PATH\020\002\022\020\n\014INVALID_PATH\020\003\022\031\n"
+    "\025INVALID_CONFIGURATION\020\004\022\030\n\024UNSUPPORTED_"
+    "ENCODING\020\005*=\n\026JunosDataEncodingTypes\022\020\n\014"
+    "ENCODING_XML\020\000\022\021\n\rENCODING_JSON\020\001*J\n\016Con"
+    "figCommands\022\021\n\rUPDATE_CONFIG\020\000\022\022\n\016REPLAC"
+    "E_CONFIG\020\001\022\021\n\rDELETE_CONFIG\020\002*\207\001\n\016Config"
+    "LoadType\022\027\n\023CONFIG_LOAD_REPLACE\020\000\022\025\n\021CON"
+    "FIG_LOAD_MERGE\020\001\022\030\n\024CONFIG_LOAD_OVERRIDE"
+    "\020\002\022\026\n\022CONFIG_LOAD_UPDATE\020\003\022\023\n\017CONFIG_LOA"
+    "D_SET\020\004*D\n\020ConfigCommitType\022\035\n\031CONFIG_CO"
+    "MMIT_SYNCHRONIZE\020\000\022\021\n\rCONFIG_COMMIT\020\0012\252\003"
+    "\n\020ManagementRpcApi\022a\n\020ExecuteOpCommand\022#"
+    ".management.ExecuteOpCommandRequest\032$.ma"
+    "nagement.ExecuteOpCommandResponse\"\0000\001\022b\n"
+    "\021ExecuteCfgCommand\022$.management.ExecuteC"
+    "fgCommandRequest\032%.management.ExecuteCfg"
+    "CommandResponse\"\000\022e\n\022GetEphemeralConfig\022"
+    "%.management.GetEphemeralConfigRequest\032&"
+    ".management.GetEphemeralConfigResponse\"\000"
+    "\022h\n\023EditEphemeralConfig\022&.management.Edi"
+    "tEphemeralConfigRequest\032\'.management.Edi"
+    "tEphemeralConfigResponse\"\000b\006proto3", 2914);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "mgd_service.proto", &protobuf_RegisterTypes);
   ExecuteOpCommandRequest::default_instance_ = new ExecuteOpCommandRequest();
+  ExecuteOpCommandRequest_default_oneof_instance_ = new ExecuteOpCommandRequestOneofInstance();
   ExecuteOpCommandResponse::default_instance_ = new ExecuteOpCommandResponse();
   EphConfigRequestList::default_instance_ = new EphConfigRequestList();
   GetEphemeralConfigRequest::default_instance_ = new GetEphemeralConfigRequest();
@@ -472,10 +499,12 @@ void protobuf_AddDesc_mgd_5fservice_2eproto() {
   GetEphemeralConfigResponse_ResponseList::default_instance_ = new GetEphemeralConfigResponse_ResponseList();
   EditEphemeralConfigRequest::default_instance_ = new EditEphemeralConfigRequest();
   EditEphemeralConfigRequest_ConfigOperationList::default_instance_ = new EditEphemeralConfigRequest_ConfigOperationList();
+  EditEphemeralConfigRequest_ConfigOperationList_default_oneof_instance_ = new EditEphemeralConfigRequest_ConfigOperationListOneofInstance();
   EditEphemeralConfigResponse::default_instance_ = new EditEphemeralConfigResponse();
   EditEphemeralConfigResponse_ResponseList::default_instance_ = new EditEphemeralConfigResponse_ResponseList();
   ConfigCommit::default_instance_ = new ConfigCommit();
   ExecuteCfgCommandRequest::default_instance_ = new ExecuteCfgCommandRequest();
+  ExecuteCfgCommandRequest_default_oneof_instance_ = new ExecuteCfgCommandRequestOneofInstance();
   ExecuteCfgCommandResponse::default_instance_ = new ExecuteCfgCommandResponse();
   ExecuteOpCommandRequest::default_instance_->InitAsDefaultInstance();
   ExecuteOpCommandResponse::default_instance_->InitAsDefaultInstance();
@@ -561,21 +590,6 @@ bool ConfigCommands_IsValid(int value) {
   }
 }
 
-const ::google::protobuf::EnumDescriptor* ConfigFormatType_descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return ConfigFormatType_descriptor_;
-}
-bool ConfigFormatType_IsValid(int value) {
-  switch(value) {
-    case 0:
-    case 1:
-    case 2:
-      return true;
-    default:
-      return false;
-  }
-}
-
 const ::google::protobuf::EnumDescriptor* ConfigLoadType_descriptor() {
   protobuf_AssignDescriptorsOnce();
   return ConfigLoadType_descriptor_;
@@ -622,8 +636,9 @@ static void MergeFromFail(int line) {
 
 #ifndef _MSC_VER
 const int ExecuteOpCommandRequest::kRequestIdFieldNumber;
-const int ExecuteOpCommandRequest::kCommandFieldNumber;
-const int ExecuteOpCommandRequest::kInFormatFieldNumber;
+const int ExecuteOpCommandRequest::kCliCommandFieldNumber;
+const int ExecuteOpCommandRequest::kXmlCommandFieldNumber;
+const int ExecuteOpCommandRequest::kJsonCommandFieldNumber;
 const int ExecuteOpCommandRequest::kOutFormatFieldNumber;
 #endif  // !_MSC_VER
 
@@ -635,6 +650,9 @@ ExecuteOpCommandRequest::ExecuteOpCommandRequest()
 
 void ExecuteOpCommandRequest::InitAsDefaultInstance() {
   _is_default_instance_ = true;
+  ExecuteOpCommandRequest_default_oneof_instance_->cli_command_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ExecuteOpCommandRequest_default_oneof_instance_->xml_command_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ExecuteOpCommandRequest_default_oneof_instance_->json_command_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 ExecuteOpCommandRequest::ExecuteOpCommandRequest(const ExecuteOpCommandRequest& from)
@@ -650,9 +668,8 @@ void ExecuteOpCommandRequest::SharedCtor() {
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
   request_id_ = GOOGLE_ULONGLONG(0);
-  command_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  in_format_ = 0;
   out_format_ = 0;
+  clear_has_command();
 }
 
 ExecuteOpCommandRequest::~ExecuteOpCommandRequest() {
@@ -661,7 +678,9 @@ ExecuteOpCommandRequest::~ExecuteOpCommandRequest() {
 }
 
 void ExecuteOpCommandRequest::SharedDtor() {
-  command_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (has_command()) {
+    clear_command();
+  }
   if (this != default_instance_) {
   }
 }
@@ -691,6 +710,28 @@ ExecuteOpCommandRequest* ExecuteOpCommandRequest::New(::google::protobuf::Arena*
   return n;
 }
 
+void ExecuteOpCommandRequest::clear_command() {
+  switch(command_case()) {
+    case kCliCommand: {
+      command_.cli_command_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+      break;
+    }
+    case kXmlCommand: {
+      command_.xml_command_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+      break;
+    }
+    case kJsonCommand: {
+      command_.json_command_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+      break;
+    }
+    case COMMAND_NOT_SET: {
+      break;
+    }
+  }
+  _oneof_case_[0] = COMMAND_NOT_SET;
+}
+
+
 void ExecuteOpCommandRequest::Clear() {
 #define ZR_HELPER_(f) reinterpret_cast<char*>(\
   &reinterpret_cast<ExecuteOpCommandRequest*>(16)->f)
@@ -700,13 +741,12 @@ void ExecuteOpCommandRequest::Clear() {
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
-  ZR_(in_format_, out_format_);
-  request_id_ = GOOGLE_ULONGLONG(0);
-  command_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ZR_(request_id_, out_format_);
 
 #undef ZR_HELPER_
 #undef ZR_
 
+  clear_command();
 }
 
 bool ExecuteOpCommandRequest::MergePartialFromCodedStream(
@@ -729,46 +769,64 @@ bool ExecuteOpCommandRequest::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_command;
+        if (input->ExpectTag(18)) goto parse_cli_command;
         break;
       }
 
-      // optional string command = 2;
+      // optional string cli_command = 2;
       case 2: {
         if (tag == 18) {
-         parse_command:
+         parse_cli_command:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_command()));
+                input, this->mutable_cli_command()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->command().data(), this->command().length(),
+            this->cli_command().data(), this->cli_command().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "management.ExecuteOpCommandRequest.command"));
+            "management.ExecuteOpCommandRequest.cli_command"));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(24)) goto parse_in_format;
+        if (input->ExpectTag(26)) goto parse_xml_command;
         break;
       }
 
-      // optional .management.OperationFormatType in_format = 3;
+      // optional string xml_command = 3;
       case 3: {
-        if (tag == 24) {
-         parse_in_format:
-          int value;
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
-                 input, &value)));
-          set_in_format(static_cast< ::management::OperationFormatType >(value));
+        if (tag == 26) {
+         parse_xml_command:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_xml_command()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->xml_command().data(), this->xml_command().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "management.ExecuteOpCommandRequest.xml_command"));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(32)) goto parse_out_format;
+        if (input->ExpectTag(34)) goto parse_json_command;
         break;
       }
 
-      // optional .management.OperationFormatType out_format = 4;
+      // optional string json_command = 4;
       case 4: {
-        if (tag == 32) {
+        if (tag == 34) {
+         parse_json_command:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_json_command()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->json_command().data(), this->json_command().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "management.ExecuteOpCommandRequest.json_command"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(40)) goto parse_out_format;
+        break;
+      }
+
+      // optional .management.OperationFormatType out_format = 5;
+      case 5: {
+        if (tag == 40) {
          parse_out_format:
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
@@ -811,26 +869,40 @@ void ExecuteOpCommandRequest::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->request_id(), output);
   }
 
-  // optional string command = 2;
-  if (this->command().size() > 0) {
+  // optional string cli_command = 2;
+  if (has_cli_command()) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->command().data(), this->command().length(),
+      this->cli_command().data(), this->cli_command().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "management.ExecuteOpCommandRequest.command");
+      "management.ExecuteOpCommandRequest.cli_command");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->command(), output);
+      2, this->cli_command(), output);
   }
 
-  // optional .management.OperationFormatType in_format = 3;
-  if (this->in_format() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      3, this->in_format(), output);
+  // optional string xml_command = 3;
+  if (has_xml_command()) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->xml_command().data(), this->xml_command().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "management.ExecuteOpCommandRequest.xml_command");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      3, this->xml_command(), output);
   }
 
-  // optional .management.OperationFormatType out_format = 4;
+  // optional string json_command = 4;
+  if (has_json_command()) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->json_command().data(), this->json_command().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "management.ExecuteOpCommandRequest.json_command");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      4, this->json_command(), output);
+  }
+
+  // optional .management.OperationFormatType out_format = 5;
   if (this->out_format() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      4, this->out_format(), output);
+      5, this->out_format(), output);
   }
 
   // @@protoc_insertion_point(serialize_end:management.ExecuteOpCommandRequest)
@@ -844,27 +916,43 @@ void ExecuteOpCommandRequest::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->request_id(), target);
   }
 
-  // optional string command = 2;
-  if (this->command().size() > 0) {
+  // optional string cli_command = 2;
+  if (has_cli_command()) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->command().data(), this->command().length(),
+      this->cli_command().data(), this->cli_command().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "management.ExecuteOpCommandRequest.command");
+      "management.ExecuteOpCommandRequest.cli_command");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->command(), target);
+        2, this->cli_command(), target);
   }
 
-  // optional .management.OperationFormatType in_format = 3;
-  if (this->in_format() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      3, this->in_format(), target);
+  // optional string xml_command = 3;
+  if (has_xml_command()) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->xml_command().data(), this->xml_command().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "management.ExecuteOpCommandRequest.xml_command");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->xml_command(), target);
   }
 
-  // optional .management.OperationFormatType out_format = 4;
+  // optional string json_command = 4;
+  if (has_json_command()) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->json_command().data(), this->json_command().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "management.ExecuteOpCommandRequest.json_command");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        4, this->json_command(), target);
+  }
+
+  // optional .management.OperationFormatType out_format = 5;
   if (this->out_format() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      4, this->out_format(), target);
+      5, this->out_format(), target);
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:management.ExecuteOpCommandRequest)
@@ -881,25 +969,38 @@ int ExecuteOpCommandRequest::ByteSize() const {
         this->request_id());
   }
 
-  // optional string command = 2;
-  if (this->command().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->command());
-  }
-
-  // optional .management.OperationFormatType in_format = 3;
-  if (this->in_format() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->in_format());
-  }
-
-  // optional .management.OperationFormatType out_format = 4;
+  // optional .management.OperationFormatType out_format = 5;
   if (this->out_format() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->out_format());
   }
 
+  switch (command_case()) {
+    // optional string cli_command = 2;
+    case kCliCommand: {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->cli_command());
+      break;
+    }
+    // optional string xml_command = 3;
+    case kXmlCommand: {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->xml_command());
+      break;
+    }
+    // optional string json_command = 4;
+    case kJsonCommand: {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->json_command());
+      break;
+    }
+    case COMMAND_NOT_SET: {
+      break;
+    }
+  }
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
@@ -920,15 +1021,25 @@ void ExecuteOpCommandRequest::MergeFrom(const ::google::protobuf::Message& from)
 
 void ExecuteOpCommandRequest::MergeFrom(const ExecuteOpCommandRequest& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  switch (from.command_case()) {
+    case kCliCommand: {
+      set_cli_command(from.cli_command());
+      break;
+    }
+    case kXmlCommand: {
+      set_xml_command(from.xml_command());
+      break;
+    }
+    case kJsonCommand: {
+      set_json_command(from.json_command());
+      break;
+    }
+    case COMMAND_NOT_SET: {
+      break;
+    }
+  }
   if (from.request_id() != 0) {
     set_request_id(from.request_id());
-  }
-  if (from.command().size() > 0) {
-
-    command_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.command_);
-  }
-  if (from.in_format() != 0) {
-    set_in_format(from.in_format());
   }
   if (from.out_format() != 0) {
     set_out_format(from.out_format());
@@ -958,9 +1069,9 @@ void ExecuteOpCommandRequest::Swap(ExecuteOpCommandRequest* other) {
 }
 void ExecuteOpCommandRequest::InternalSwap(ExecuteOpCommandRequest* other) {
   std::swap(request_id_, other->request_id_);
-  command_.Swap(&other->command_);
-  std::swap(in_format_, other->in_format_);
   std::swap(out_format_, other->out_format_);
+  std::swap(command_, other->command_);
+  std::swap(_oneof_case_[0], other->_oneof_case_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -990,64 +1101,247 @@ void ExecuteOpCommandRequest::clear_request_id() {
   // @@protoc_insertion_point(field_set:management.ExecuteOpCommandRequest.request_id)
 }
 
-// optional string command = 2;
-void ExecuteOpCommandRequest::clear_command() {
-  command_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// optional string cli_command = 2;
+bool ExecuteOpCommandRequest::has_cli_command() const {
+  return command_case() == kCliCommand;
 }
- const ::std::string& ExecuteOpCommandRequest::command() const {
-  // @@protoc_insertion_point(field_get:management.ExecuteOpCommandRequest.command)
-  return command_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+void ExecuteOpCommandRequest::set_has_cli_command() {
+  _oneof_case_[0] = kCliCommand;
 }
- void ExecuteOpCommandRequest::set_command(const ::std::string& value) {
-  
-  command_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:management.ExecuteOpCommandRequest.command)
-}
- void ExecuteOpCommandRequest::set_command(const char* value) {
-  
-  command_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:management.ExecuteOpCommandRequest.command)
-}
- void ExecuteOpCommandRequest::set_command(const char* value, size_t size) {
-  
-  command_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:management.ExecuteOpCommandRequest.command)
-}
- ::std::string* ExecuteOpCommandRequest::mutable_command() {
-  
-  // @@protoc_insertion_point(field_mutable:management.ExecuteOpCommandRequest.command)
-  return command_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
- ::std::string* ExecuteOpCommandRequest::release_command() {
-  
-  return command_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
- void ExecuteOpCommandRequest::set_allocated_command(::std::string* command) {
-  if (command != NULL) {
-    
-  } else {
-    
+void ExecuteOpCommandRequest::clear_cli_command() {
+  if (has_cli_command()) {
+    command_.cli_command_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    clear_has_command();
   }
-  command_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), command);
-  // @@protoc_insertion_point(field_set_allocated:management.ExecuteOpCommandRequest.command)
+}
+ const ::std::string& ExecuteOpCommandRequest::cli_command() const {
+  // @@protoc_insertion_point(field_get:management.ExecuteOpCommandRequest.cli_command)
+  if (has_cli_command()) {
+    return command_.cli_command_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  return *&::google::protobuf::internal::GetEmptyStringAlreadyInited();
+}
+ void ExecuteOpCommandRequest::set_cli_command(const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:management.ExecuteOpCommandRequest.cli_command)
+  if (!has_cli_command()) {
+    clear_command();
+    set_has_cli_command();
+    command_.cli_command_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  command_.cli_command_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:management.ExecuteOpCommandRequest.cli_command)
+}
+ void ExecuteOpCommandRequest::set_cli_command(const char* value) {
+  if (!has_cli_command()) {
+    clear_command();
+    set_has_cli_command();
+    command_.cli_command_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  command_.cli_command_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:management.ExecuteOpCommandRequest.cli_command)
+}
+ void ExecuteOpCommandRequest::set_cli_command(const char* value, size_t size) {
+  if (!has_cli_command()) {
+    clear_command();
+    set_has_cli_command();
+    command_.cli_command_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  command_.cli_command_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:management.ExecuteOpCommandRequest.cli_command)
+}
+ ::std::string* ExecuteOpCommandRequest::mutable_cli_command() {
+  if (!has_cli_command()) {
+    clear_command();
+    set_has_cli_command();
+    command_.cli_command_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  // @@protoc_insertion_point(field_mutable:management.ExecuteOpCommandRequest.cli_command)
+  return command_.cli_command_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* ExecuteOpCommandRequest::release_cli_command() {
+  if (has_cli_command()) {
+    clear_has_command();
+    return command_.cli_command_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  } else {
+    return NULL;
+  }
+}
+ void ExecuteOpCommandRequest::set_allocated_cli_command(::std::string* cli_command) {
+  if (!has_cli_command()) {
+    command_.cli_command_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  clear_command();
+  if (cli_command != NULL) {
+    set_has_cli_command();
+    command_.cli_command_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+        cli_command);
+  }
+  // @@protoc_insertion_point(field_set_allocated:management.ExecuteOpCommandRequest.cli_command)
 }
 
-// optional .management.OperationFormatType in_format = 3;
-void ExecuteOpCommandRequest::clear_in_format() {
-  in_format_ = 0;
+// optional string xml_command = 3;
+bool ExecuteOpCommandRequest::has_xml_command() const {
+  return command_case() == kXmlCommand;
 }
- ::management::OperationFormatType ExecuteOpCommandRequest::in_format() const {
-  // @@protoc_insertion_point(field_get:management.ExecuteOpCommandRequest.in_format)
-  return static_cast< ::management::OperationFormatType >(in_format_);
+void ExecuteOpCommandRequest::set_has_xml_command() {
+  _oneof_case_[0] = kXmlCommand;
 }
- void ExecuteOpCommandRequest::set_in_format(::management::OperationFormatType value) {
-  
-  in_format_ = value;
-  // @@protoc_insertion_point(field_set:management.ExecuteOpCommandRequest.in_format)
+void ExecuteOpCommandRequest::clear_xml_command() {
+  if (has_xml_command()) {
+    command_.xml_command_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    clear_has_command();
+  }
+}
+ const ::std::string& ExecuteOpCommandRequest::xml_command() const {
+  // @@protoc_insertion_point(field_get:management.ExecuteOpCommandRequest.xml_command)
+  if (has_xml_command()) {
+    return command_.xml_command_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  return *&::google::protobuf::internal::GetEmptyStringAlreadyInited();
+}
+ void ExecuteOpCommandRequest::set_xml_command(const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:management.ExecuteOpCommandRequest.xml_command)
+  if (!has_xml_command()) {
+    clear_command();
+    set_has_xml_command();
+    command_.xml_command_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  command_.xml_command_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:management.ExecuteOpCommandRequest.xml_command)
+}
+ void ExecuteOpCommandRequest::set_xml_command(const char* value) {
+  if (!has_xml_command()) {
+    clear_command();
+    set_has_xml_command();
+    command_.xml_command_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  command_.xml_command_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:management.ExecuteOpCommandRequest.xml_command)
+}
+ void ExecuteOpCommandRequest::set_xml_command(const char* value, size_t size) {
+  if (!has_xml_command()) {
+    clear_command();
+    set_has_xml_command();
+    command_.xml_command_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  command_.xml_command_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:management.ExecuteOpCommandRequest.xml_command)
+}
+ ::std::string* ExecuteOpCommandRequest::mutable_xml_command() {
+  if (!has_xml_command()) {
+    clear_command();
+    set_has_xml_command();
+    command_.xml_command_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  // @@protoc_insertion_point(field_mutable:management.ExecuteOpCommandRequest.xml_command)
+  return command_.xml_command_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* ExecuteOpCommandRequest::release_xml_command() {
+  if (has_xml_command()) {
+    clear_has_command();
+    return command_.xml_command_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  } else {
+    return NULL;
+  }
+}
+ void ExecuteOpCommandRequest::set_allocated_xml_command(::std::string* xml_command) {
+  if (!has_xml_command()) {
+    command_.xml_command_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  clear_command();
+  if (xml_command != NULL) {
+    set_has_xml_command();
+    command_.xml_command_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+        xml_command);
+  }
+  // @@protoc_insertion_point(field_set_allocated:management.ExecuteOpCommandRequest.xml_command)
 }
 
-// optional .management.OperationFormatType out_format = 4;
+// optional string json_command = 4;
+bool ExecuteOpCommandRequest::has_json_command() const {
+  return command_case() == kJsonCommand;
+}
+void ExecuteOpCommandRequest::set_has_json_command() {
+  _oneof_case_[0] = kJsonCommand;
+}
+void ExecuteOpCommandRequest::clear_json_command() {
+  if (has_json_command()) {
+    command_.json_command_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    clear_has_command();
+  }
+}
+ const ::std::string& ExecuteOpCommandRequest::json_command() const {
+  // @@protoc_insertion_point(field_get:management.ExecuteOpCommandRequest.json_command)
+  if (has_json_command()) {
+    return command_.json_command_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  return *&::google::protobuf::internal::GetEmptyStringAlreadyInited();
+}
+ void ExecuteOpCommandRequest::set_json_command(const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:management.ExecuteOpCommandRequest.json_command)
+  if (!has_json_command()) {
+    clear_command();
+    set_has_json_command();
+    command_.json_command_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  command_.json_command_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:management.ExecuteOpCommandRequest.json_command)
+}
+ void ExecuteOpCommandRequest::set_json_command(const char* value) {
+  if (!has_json_command()) {
+    clear_command();
+    set_has_json_command();
+    command_.json_command_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  command_.json_command_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:management.ExecuteOpCommandRequest.json_command)
+}
+ void ExecuteOpCommandRequest::set_json_command(const char* value, size_t size) {
+  if (!has_json_command()) {
+    clear_command();
+    set_has_json_command();
+    command_.json_command_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  command_.json_command_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:management.ExecuteOpCommandRequest.json_command)
+}
+ ::std::string* ExecuteOpCommandRequest::mutable_json_command() {
+  if (!has_json_command()) {
+    clear_command();
+    set_has_json_command();
+    command_.json_command_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  // @@protoc_insertion_point(field_mutable:management.ExecuteOpCommandRequest.json_command)
+  return command_.json_command_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* ExecuteOpCommandRequest::release_json_command() {
+  if (has_json_command()) {
+    clear_has_command();
+    return command_.json_command_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  } else {
+    return NULL;
+  }
+}
+ void ExecuteOpCommandRequest::set_allocated_json_command(::std::string* json_command) {
+  if (!has_json_command()) {
+    command_.json_command_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  clear_command();
+  if (json_command != NULL) {
+    set_has_json_command();
+    command_.json_command_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+        json_command);
+  }
+  // @@protoc_insertion_point(field_set_allocated:management.ExecuteOpCommandRequest.json_command)
+}
+
+// optional .management.OperationFormatType out_format = 5;
 void ExecuteOpCommandRequest::clear_out_format() {
   out_format_ = 0;
 }
@@ -1061,6 +1355,15 @@ void ExecuteOpCommandRequest::clear_out_format() {
   // @@protoc_insertion_point(field_set:management.ExecuteOpCommandRequest.out_format)
 }
 
+bool ExecuteOpCommandRequest::has_command() const {
+  return command_case() != COMMAND_NOT_SET;
+}
+void ExecuteOpCommandRequest::clear_has_command() {
+  _oneof_case_[0] = COMMAND_NOT_SET;
+}
+ExecuteOpCommandRequest::CommandCase ExecuteOpCommandRequest::command_case() const {
+  return ExecuteOpCommandRequest::CommandCase(_oneof_case_[0]);
+}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -3341,7 +3644,8 @@ GetEphemeralConfigResponse::response() const {
 const int EditEphemeralConfigRequest_ConfigOperationList::kOperationIdFieldNumber;
 const int EditEphemeralConfigRequest_ConfigOperationList::kOperationFieldNumber;
 const int EditEphemeralConfigRequest_ConfigOperationList::kPathFieldNumber;
-const int EditEphemeralConfigRequest_ConfigOperationList::kValueFieldNumber;
+const int EditEphemeralConfigRequest_ConfigOperationList::kXmlConfigFieldNumber;
+const int EditEphemeralConfigRequest_ConfigOperationList::kJsonConfigFieldNumber;
 #endif  // !_MSC_VER
 
 EditEphemeralConfigRequest_ConfigOperationList::EditEphemeralConfigRequest_ConfigOperationList()
@@ -3352,6 +3656,8 @@ EditEphemeralConfigRequest_ConfigOperationList::EditEphemeralConfigRequest_Confi
 
 void EditEphemeralConfigRequest_ConfigOperationList::InitAsDefaultInstance() {
   _is_default_instance_ = true;
+  EditEphemeralConfigRequest_ConfigOperationList_default_oneof_instance_->xml_config_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  EditEphemeralConfigRequest_ConfigOperationList_default_oneof_instance_->json_config_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 EditEphemeralConfigRequest_ConfigOperationList::EditEphemeralConfigRequest_ConfigOperationList(const EditEphemeralConfigRequest_ConfigOperationList& from)
@@ -3369,7 +3675,7 @@ void EditEphemeralConfigRequest_ConfigOperationList::SharedCtor() {
   operation_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   operation_ = 0;
   path_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  value_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_value();
 }
 
 EditEphemeralConfigRequest_ConfigOperationList::~EditEphemeralConfigRequest_ConfigOperationList() {
@@ -3380,7 +3686,9 @@ EditEphemeralConfigRequest_ConfigOperationList::~EditEphemeralConfigRequest_Conf
 void EditEphemeralConfigRequest_ConfigOperationList::SharedDtor() {
   operation_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   path_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  value_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (has_value()) {
+    clear_value();
+  }
   if (this != default_instance_) {
   }
 }
@@ -3410,11 +3718,29 @@ EditEphemeralConfigRequest_ConfigOperationList* EditEphemeralConfigRequest_Confi
   return n;
 }
 
+void EditEphemeralConfigRequest_ConfigOperationList::clear_value() {
+  switch(value_case()) {
+    case kXmlConfig: {
+      value_.xml_config_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+      break;
+    }
+    case kJsonConfig: {
+      value_.json_config_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+      break;
+    }
+    case VALUE_NOT_SET: {
+      break;
+    }
+  }
+  _oneof_case_[0] = VALUE_NOT_SET;
+}
+
+
 void EditEphemeralConfigRequest_ConfigOperationList::Clear() {
   operation_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   operation_ = 0;
   path_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  value_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_value();
 }
 
 bool EditEphemeralConfigRequest_ConfigOperationList::MergePartialFromCodedStream(
@@ -3472,20 +3798,37 @@ bool EditEphemeralConfigRequest_ConfigOperationList::MergePartialFromCodedStream
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(34)) goto parse_value;
+        if (input->ExpectTag(34)) goto parse_xml_config;
         break;
       }
 
-      // optional string value = 4;
+      // optional string xml_config = 4;
       case 4: {
         if (tag == 34) {
-         parse_value:
+         parse_xml_config:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_value()));
+                input, this->mutable_xml_config()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->value().data(), this->value().length(),
+            this->xml_config().data(), this->xml_config().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "management.EditEphemeralConfigRequest.ConfigOperationList.value"));
+            "management.EditEphemeralConfigRequest.ConfigOperationList.xml_config"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(42)) goto parse_json_config;
+        break;
+      }
+
+      // optional string json_config = 5;
+      case 5: {
+        if (tag == 42) {
+         parse_json_config:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_json_config()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->json_config().data(), this->json_config().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "management.EditEphemeralConfigRequest.ConfigOperationList.json_config"));
         } else {
           goto handle_unusual;
         }
@@ -3543,14 +3886,24 @@ void EditEphemeralConfigRequest_ConfigOperationList::SerializeWithCachedSizes(
       3, this->path(), output);
   }
 
-  // optional string value = 4;
-  if (this->value().size() > 0) {
+  // optional string xml_config = 4;
+  if (has_xml_config()) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->value().data(), this->value().length(),
+      this->xml_config().data(), this->xml_config().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "management.EditEphemeralConfigRequest.ConfigOperationList.value");
+      "management.EditEphemeralConfigRequest.ConfigOperationList.xml_config");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      4, this->value(), output);
+      4, this->xml_config(), output);
+  }
+
+  // optional string json_config = 5;
+  if (has_json_config()) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->json_config().data(), this->json_config().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "management.EditEphemeralConfigRequest.ConfigOperationList.json_config");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      5, this->json_config(), output);
   }
 
   // @@protoc_insertion_point(serialize_end:management.EditEphemeralConfigRequest.ConfigOperationList)
@@ -3587,15 +3940,26 @@ void EditEphemeralConfigRequest_ConfigOperationList::SerializeWithCachedSizes(
         3, this->path(), target);
   }
 
-  // optional string value = 4;
-  if (this->value().size() > 0) {
+  // optional string xml_config = 4;
+  if (has_xml_config()) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->value().data(), this->value().length(),
+      this->xml_config().data(), this->xml_config().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "management.EditEphemeralConfigRequest.ConfigOperationList.value");
+      "management.EditEphemeralConfigRequest.ConfigOperationList.xml_config");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        4, this->value(), target);
+        4, this->xml_config(), target);
+  }
+
+  // optional string json_config = 5;
+  if (has_json_config()) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->json_config().data(), this->json_config().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "management.EditEphemeralConfigRequest.ConfigOperationList.json_config");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        5, this->json_config(), target);
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:management.EditEphemeralConfigRequest.ConfigOperationList)
@@ -3625,13 +3989,25 @@ int EditEphemeralConfigRequest_ConfigOperationList::ByteSize() const {
         this->path());
   }
 
-  // optional string value = 4;
-  if (this->value().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->value());
+  switch (value_case()) {
+    // optional string xml_config = 4;
+    case kXmlConfig: {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->xml_config());
+      break;
+    }
+    // optional string json_config = 5;
+    case kJsonConfig: {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->json_config());
+      break;
+    }
+    case VALUE_NOT_SET: {
+      break;
+    }
   }
-
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
@@ -3652,6 +4028,19 @@ void EditEphemeralConfigRequest_ConfigOperationList::MergeFrom(const ::google::p
 
 void EditEphemeralConfigRequest_ConfigOperationList::MergeFrom(const EditEphemeralConfigRequest_ConfigOperationList& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  switch (from.value_case()) {
+    case kXmlConfig: {
+      set_xml_config(from.xml_config());
+      break;
+    }
+    case kJsonConfig: {
+      set_json_config(from.json_config());
+      break;
+    }
+    case VALUE_NOT_SET: {
+      break;
+    }
+  }
   if (from.operation_id().size() > 0) {
 
     operation_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.operation_id_);
@@ -3662,10 +4051,6 @@ void EditEphemeralConfigRequest_ConfigOperationList::MergeFrom(const EditEphemer
   if (from.path().size() > 0) {
 
     path_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.path_);
-  }
-  if (from.value().size() > 0) {
-
-    value_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.value_);
   }
 }
 
@@ -3694,7 +4079,8 @@ void EditEphemeralConfigRequest_ConfigOperationList::InternalSwap(EditEphemeralC
   operation_id_.Swap(&other->operation_id_);
   std::swap(operation_, other->operation_);
   path_.Swap(&other->path_);
-  value_.Swap(&other->value_);
+  std::swap(value_, other->value_);
+  std::swap(_oneof_case_[0], other->_oneof_case_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -3712,9 +4098,9 @@ void EditEphemeralConfigRequest_ConfigOperationList::InternalSwap(EditEphemeralC
 
 #ifndef _MSC_VER
 const int EditEphemeralConfigRequest::kRequestIdFieldNumber;
-const int EditEphemeralConfigRequest::kEncodingFieldNumber;
 const int EditEphemeralConfigRequest::kEphConfigOperationsFieldNumber;
 const int EditEphemeralConfigRequest::kEphInstanceNameFieldNumber;
+const int EditEphemeralConfigRequest::kEnableConfigValidationFieldNumber;
 #endif  // !_MSC_VER
 
 EditEphemeralConfigRequest::EditEphemeralConfigRequest()
@@ -3740,8 +4126,8 @@ void EditEphemeralConfigRequest::SharedCtor() {
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
   request_id_ = GOOGLE_ULONGLONG(0);
-  encoding_ = 0;
   eph_instance_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  enable_config_validation_ = false;
 }
 
 EditEphemeralConfigRequest::~EditEphemeralConfigRequest() {
@@ -3782,8 +4168,8 @@ EditEphemeralConfigRequest* EditEphemeralConfigRequest::New(::google::protobuf::
 
 void EditEphemeralConfigRequest::Clear() {
   request_id_ = GOOGLE_ULONGLONG(0);
-  encoding_ = 0;
   eph_instance_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  enable_config_validation_ = false;
   eph_config_operations_.Clear();
 }
 
@@ -3804,22 +4190,6 @@ bool EditEphemeralConfigRequest::MergePartialFromCodedStream(
                    ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
                  input, &request_id_)));
 
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(16)) goto parse_encoding;
-        break;
-      }
-
-      // optional .management.JunosDataEncodingTypes encoding = 2;
-      case 2: {
-        if (tag == 16) {
-         parse_encoding:
-          int value;
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
-                 input, &value)));
-          set_encoding(static_cast< ::management::JunosDataEncodingTypes >(value));
         } else {
           goto handle_unusual;
         }
@@ -3857,6 +4227,21 @@ bool EditEphemeralConfigRequest::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(40)) goto parse_enable_config_validation;
+        break;
+      }
+
+      // optional bool enable_config_validation = 5;
+      case 5: {
+        if (tag == 40) {
+         parse_enable_config_validation:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &enable_config_validation_)));
+
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -3890,12 +4275,6 @@ void EditEphemeralConfigRequest::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->request_id(), output);
   }
 
-  // optional .management.JunosDataEncodingTypes encoding = 2;
-  if (this->encoding() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      2, this->encoding(), output);
-  }
-
   // repeated .management.EditEphemeralConfigRequest.ConfigOperationList eph_config_operations = 3;
   for (unsigned int i = 0, n = this->eph_config_operations_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
@@ -3912,6 +4291,11 @@ void EditEphemeralConfigRequest::SerializeWithCachedSizes(
       4, this->eph_instance_name(), output);
   }
 
+  // optional bool enable_config_validation = 5;
+  if (this->enable_config_validation() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(5, this->enable_config_validation(), output);
+  }
+
   // @@protoc_insertion_point(serialize_end:management.EditEphemeralConfigRequest)
 }
 
@@ -3921,12 +4305,6 @@ void EditEphemeralConfigRequest::SerializeWithCachedSizes(
   // optional uint64 request_id = 1;
   if (this->request_id() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->request_id(), target);
-  }
-
-  // optional .management.JunosDataEncodingTypes encoding = 2;
-  if (this->encoding() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      2, this->encoding(), target);
   }
 
   // repeated .management.EditEphemeralConfigRequest.ConfigOperationList eph_config_operations = 3;
@@ -3947,6 +4325,11 @@ void EditEphemeralConfigRequest::SerializeWithCachedSizes(
         4, this->eph_instance_name(), target);
   }
 
+  // optional bool enable_config_validation = 5;
+  if (this->enable_config_validation() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(5, this->enable_config_validation(), target);
+  }
+
   // @@protoc_insertion_point(serialize_to_array_end:management.EditEphemeralConfigRequest)
   return target;
 }
@@ -3961,17 +4344,16 @@ int EditEphemeralConfigRequest::ByteSize() const {
         this->request_id());
   }
 
-  // optional .management.JunosDataEncodingTypes encoding = 2;
-  if (this->encoding() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->encoding());
-  }
-
   // optional string eph_instance_name = 4;
   if (this->eph_instance_name().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->eph_instance_name());
+  }
+
+  // optional bool enable_config_validation = 5;
+  if (this->enable_config_validation() != 0) {
+    total_size += 1 + 1;
   }
 
   // repeated .management.EditEphemeralConfigRequest.ConfigOperationList eph_config_operations = 3;
@@ -4006,12 +4388,12 @@ void EditEphemeralConfigRequest::MergeFrom(const EditEphemeralConfigRequest& fro
   if (from.request_id() != 0) {
     set_request_id(from.request_id());
   }
-  if (from.encoding() != 0) {
-    set_encoding(from.encoding());
-  }
   if (from.eph_instance_name().size() > 0) {
 
     eph_instance_name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.eph_instance_name_);
+  }
+  if (from.enable_config_validation() != 0) {
+    set_enable_config_validation(from.enable_config_validation());
   }
 }
 
@@ -4038,9 +4420,9 @@ void EditEphemeralConfigRequest::Swap(EditEphemeralConfigRequest* other) {
 }
 void EditEphemeralConfigRequest::InternalSwap(EditEphemeralConfigRequest* other) {
   std::swap(request_id_, other->request_id_);
-  std::swap(encoding_, other->encoding_);
   eph_config_operations_.UnsafeArenaSwap(&other->eph_config_operations_);
   eph_instance_name_.Swap(&other->eph_instance_name_);
+  std::swap(enable_config_validation_, other->enable_config_validation_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -4156,49 +4538,175 @@ void EditEphemeralConfigRequest_ConfigOperationList::clear_path() {
   // @@protoc_insertion_point(field_set_allocated:management.EditEphemeralConfigRequest.ConfigOperationList.path)
 }
 
-// optional string value = 4;
-void EditEphemeralConfigRequest_ConfigOperationList::clear_value() {
-  value_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// optional string xml_config = 4;
+bool EditEphemeralConfigRequest_ConfigOperationList::has_xml_config() const {
+  return value_case() == kXmlConfig;
 }
- const ::std::string& EditEphemeralConfigRequest_ConfigOperationList::value() const {
-  // @@protoc_insertion_point(field_get:management.EditEphemeralConfigRequest.ConfigOperationList.value)
-  return value_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+void EditEphemeralConfigRequest_ConfigOperationList::set_has_xml_config() {
+  _oneof_case_[0] = kXmlConfig;
 }
- void EditEphemeralConfigRequest_ConfigOperationList::set_value(const ::std::string& value) {
-  
-  value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:management.EditEphemeralConfigRequest.ConfigOperationList.value)
-}
- void EditEphemeralConfigRequest_ConfigOperationList::set_value(const char* value) {
-  
-  value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:management.EditEphemeralConfigRequest.ConfigOperationList.value)
-}
- void EditEphemeralConfigRequest_ConfigOperationList::set_value(const char* value, size_t size) {
-  
-  value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:management.EditEphemeralConfigRequest.ConfigOperationList.value)
-}
- ::std::string* EditEphemeralConfigRequest_ConfigOperationList::mutable_value() {
-  
-  // @@protoc_insertion_point(field_mutable:management.EditEphemeralConfigRequest.ConfigOperationList.value)
-  return value_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
- ::std::string* EditEphemeralConfigRequest_ConfigOperationList::release_value() {
-  
-  return value_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
- void EditEphemeralConfigRequest_ConfigOperationList::set_allocated_value(::std::string* value) {
-  if (value != NULL) {
-    
-  } else {
-    
+void EditEphemeralConfigRequest_ConfigOperationList::clear_xml_config() {
+  if (has_xml_config()) {
+    value_.xml_config_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    clear_has_value();
   }
-  value_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set_allocated:management.EditEphemeralConfigRequest.ConfigOperationList.value)
+}
+ const ::std::string& EditEphemeralConfigRequest_ConfigOperationList::xml_config() const {
+  // @@protoc_insertion_point(field_get:management.EditEphemeralConfigRequest.ConfigOperationList.xml_config)
+  if (has_xml_config()) {
+    return value_.xml_config_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  return *&::google::protobuf::internal::GetEmptyStringAlreadyInited();
+}
+ void EditEphemeralConfigRequest_ConfigOperationList::set_xml_config(const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:management.EditEphemeralConfigRequest.ConfigOperationList.xml_config)
+  if (!has_xml_config()) {
+    clear_value();
+    set_has_xml_config();
+    value_.xml_config_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  value_.xml_config_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:management.EditEphemeralConfigRequest.ConfigOperationList.xml_config)
+}
+ void EditEphemeralConfigRequest_ConfigOperationList::set_xml_config(const char* value) {
+  if (!has_xml_config()) {
+    clear_value();
+    set_has_xml_config();
+    value_.xml_config_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  value_.xml_config_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:management.EditEphemeralConfigRequest.ConfigOperationList.xml_config)
+}
+ void EditEphemeralConfigRequest_ConfigOperationList::set_xml_config(const char* value, size_t size) {
+  if (!has_xml_config()) {
+    clear_value();
+    set_has_xml_config();
+    value_.xml_config_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  value_.xml_config_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:management.EditEphemeralConfigRequest.ConfigOperationList.xml_config)
+}
+ ::std::string* EditEphemeralConfigRequest_ConfigOperationList::mutable_xml_config() {
+  if (!has_xml_config()) {
+    clear_value();
+    set_has_xml_config();
+    value_.xml_config_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  // @@protoc_insertion_point(field_mutable:management.EditEphemeralConfigRequest.ConfigOperationList.xml_config)
+  return value_.xml_config_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* EditEphemeralConfigRequest_ConfigOperationList::release_xml_config() {
+  if (has_xml_config()) {
+    clear_has_value();
+    return value_.xml_config_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  } else {
+    return NULL;
+  }
+}
+ void EditEphemeralConfigRequest_ConfigOperationList::set_allocated_xml_config(::std::string* xml_config) {
+  if (!has_xml_config()) {
+    value_.xml_config_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  clear_value();
+  if (xml_config != NULL) {
+    set_has_xml_config();
+    value_.xml_config_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+        xml_config);
+  }
+  // @@protoc_insertion_point(field_set_allocated:management.EditEphemeralConfigRequest.ConfigOperationList.xml_config)
 }
 
+// optional string json_config = 5;
+bool EditEphemeralConfigRequest_ConfigOperationList::has_json_config() const {
+  return value_case() == kJsonConfig;
+}
+void EditEphemeralConfigRequest_ConfigOperationList::set_has_json_config() {
+  _oneof_case_[0] = kJsonConfig;
+}
+void EditEphemeralConfigRequest_ConfigOperationList::clear_json_config() {
+  if (has_json_config()) {
+    value_.json_config_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    clear_has_value();
+  }
+}
+ const ::std::string& EditEphemeralConfigRequest_ConfigOperationList::json_config() const {
+  // @@protoc_insertion_point(field_get:management.EditEphemeralConfigRequest.ConfigOperationList.json_config)
+  if (has_json_config()) {
+    return value_.json_config_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  return *&::google::protobuf::internal::GetEmptyStringAlreadyInited();
+}
+ void EditEphemeralConfigRequest_ConfigOperationList::set_json_config(const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:management.EditEphemeralConfigRequest.ConfigOperationList.json_config)
+  if (!has_json_config()) {
+    clear_value();
+    set_has_json_config();
+    value_.json_config_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  value_.json_config_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:management.EditEphemeralConfigRequest.ConfigOperationList.json_config)
+}
+ void EditEphemeralConfigRequest_ConfigOperationList::set_json_config(const char* value) {
+  if (!has_json_config()) {
+    clear_value();
+    set_has_json_config();
+    value_.json_config_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  value_.json_config_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:management.EditEphemeralConfigRequest.ConfigOperationList.json_config)
+}
+ void EditEphemeralConfigRequest_ConfigOperationList::set_json_config(const char* value, size_t size) {
+  if (!has_json_config()) {
+    clear_value();
+    set_has_json_config();
+    value_.json_config_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  value_.json_config_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:management.EditEphemeralConfigRequest.ConfigOperationList.json_config)
+}
+ ::std::string* EditEphemeralConfigRequest_ConfigOperationList::mutable_json_config() {
+  if (!has_json_config()) {
+    clear_value();
+    set_has_json_config();
+    value_.json_config_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  // @@protoc_insertion_point(field_mutable:management.EditEphemeralConfigRequest.ConfigOperationList.json_config)
+  return value_.json_config_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* EditEphemeralConfigRequest_ConfigOperationList::release_json_config() {
+  if (has_json_config()) {
+    clear_has_value();
+    return value_.json_config_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  } else {
+    return NULL;
+  }
+}
+ void EditEphemeralConfigRequest_ConfigOperationList::set_allocated_json_config(::std::string* json_config) {
+  if (!has_json_config()) {
+    value_.json_config_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  clear_value();
+  if (json_config != NULL) {
+    set_has_json_config();
+    value_.json_config_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+        json_config);
+  }
+  // @@protoc_insertion_point(field_set_allocated:management.EditEphemeralConfigRequest.ConfigOperationList.json_config)
+}
+
+bool EditEphemeralConfigRequest_ConfigOperationList::has_value() const {
+  return value_case() != VALUE_NOT_SET;
+}
+void EditEphemeralConfigRequest_ConfigOperationList::clear_has_value() {
+  _oneof_case_[0] = VALUE_NOT_SET;
+}
+EditEphemeralConfigRequest_ConfigOperationList::ValueCase EditEphemeralConfigRequest_ConfigOperationList::value_case() const {
+  return EditEphemeralConfigRequest_ConfigOperationList::ValueCase(_oneof_case_[0]);
+}
 // -------------------------------------------------------------------
 
 // EditEphemeralConfigRequest
@@ -4215,20 +4723,6 @@ void EditEphemeralConfigRequest::clear_request_id() {
   
   request_id_ = value;
   // @@protoc_insertion_point(field_set:management.EditEphemeralConfigRequest.request_id)
-}
-
-// optional .management.JunosDataEncodingTypes encoding = 2;
-void EditEphemeralConfigRequest::clear_encoding() {
-  encoding_ = 0;
-}
- ::management::JunosDataEncodingTypes EditEphemeralConfigRequest::encoding() const {
-  // @@protoc_insertion_point(field_get:management.EditEphemeralConfigRequest.encoding)
-  return static_cast< ::management::JunosDataEncodingTypes >(encoding_);
-}
- void EditEphemeralConfigRequest::set_encoding(::management::JunosDataEncodingTypes value) {
-  
-  encoding_ = value;
-  // @@protoc_insertion_point(field_set:management.EditEphemeralConfigRequest.encoding)
 }
 
 // repeated .management.EditEphemeralConfigRequest.ConfigOperationList eph_config_operations = 3;
@@ -4302,6 +4796,20 @@ void EditEphemeralConfigRequest::clear_eph_instance_name() {
   }
   eph_instance_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), eph_instance_name);
   // @@protoc_insertion_point(field_set_allocated:management.EditEphemeralConfigRequest.eph_instance_name)
+}
+
+// optional bool enable_config_validation = 5;
+void EditEphemeralConfigRequest::clear_enable_config_validation() {
+  enable_config_validation_ = false;
+}
+ bool EditEphemeralConfigRequest::enable_config_validation() const {
+  // @@protoc_insertion_point(field_get:management.EditEphemeralConfigRequest.enable_config_validation)
+  return enable_config_validation_;
+}
+ void EditEphemeralConfigRequest::set_enable_config_validation(bool value) {
+  
+  enable_config_validation_ = value;
+  // @@protoc_insertion_point(field_set:management.EditEphemeralConfigRequest.enable_config_validation)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -5357,8 +5865,9 @@ void ConfigCommit::clear_comment() {
 
 #ifndef _MSC_VER
 const int ExecuteCfgCommandRequest::kRequestIdFieldNumber;
-const int ExecuteCfgCommandRequest::kConfigFieldNumber;
-const int ExecuteCfgCommandRequest::kFormatFieldNumber;
+const int ExecuteCfgCommandRequest::kXmlConfigFieldNumber;
+const int ExecuteCfgCommandRequest::kJsonConfigFieldNumber;
+const int ExecuteCfgCommandRequest::kTextConfigFieldNumber;
 const int ExecuteCfgCommandRequest::kLoadTypeFieldNumber;
 const int ExecuteCfgCommandRequest::kCommitFieldNumber;
 #endif  // !_MSC_VER
@@ -5371,6 +5880,9 @@ ExecuteCfgCommandRequest::ExecuteCfgCommandRequest()
 
 void ExecuteCfgCommandRequest::InitAsDefaultInstance() {
   _is_default_instance_ = true;
+  ExecuteCfgCommandRequest_default_oneof_instance_->xml_config_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ExecuteCfgCommandRequest_default_oneof_instance_->json_config_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ExecuteCfgCommandRequest_default_oneof_instance_->text_config_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   commit_ = const_cast< ::management::ConfigCommit*>(&::management::ConfigCommit::default_instance());
 }
 
@@ -5387,10 +5899,9 @@ void ExecuteCfgCommandRequest::SharedCtor() {
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
   request_id_ = GOOGLE_ULONGLONG(0);
-  config_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  format_ = 0;
   load_type_ = 0;
   commit_ = NULL;
+  clear_has_config();
 }
 
 ExecuteCfgCommandRequest::~ExecuteCfgCommandRequest() {
@@ -5399,7 +5910,9 @@ ExecuteCfgCommandRequest::~ExecuteCfgCommandRequest() {
 }
 
 void ExecuteCfgCommandRequest::SharedDtor() {
-  config_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (has_config()) {
+    clear_config();
+  }
   if (this != default_instance_) {
     delete commit_;
   }
@@ -5430,24 +5943,34 @@ ExecuteCfgCommandRequest* ExecuteCfgCommandRequest::New(::google::protobuf::Aren
   return n;
 }
 
+void ExecuteCfgCommandRequest::clear_config() {
+  switch(config_case()) {
+    case kXmlConfig: {
+      config_.xml_config_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+      break;
+    }
+    case kJsonConfig: {
+      config_.json_config_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+      break;
+    }
+    case kTextConfig: {
+      config_.text_config_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+      break;
+    }
+    case CONFIG_NOT_SET: {
+      break;
+    }
+  }
+  _oneof_case_[0] = CONFIG_NOT_SET;
+}
+
+
 void ExecuteCfgCommandRequest::Clear() {
-#define ZR_HELPER_(f) reinterpret_cast<char*>(\
-  &reinterpret_cast<ExecuteCfgCommandRequest*>(16)->f)
-
-#define ZR_(first, last) do {\
-  ::memset(&first, 0,\
-           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
-} while (0)
-
-  ZR_(format_, load_type_);
   request_id_ = GOOGLE_ULONGLONG(0);
-  config_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  load_type_ = 0;
   if (GetArenaNoVirtual() == NULL && commit_ != NULL) delete commit_;
   commit_ = NULL;
-
-#undef ZR_HELPER_
-#undef ZR_
-
+  clear_config();
 }
 
 bool ExecuteCfgCommandRequest::MergePartialFromCodedStream(
@@ -5470,46 +5993,64 @@ bool ExecuteCfgCommandRequest::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_config;
+        if (input->ExpectTag(18)) goto parse_xml_config;
         break;
       }
 
-      // optional string config = 2;
+      // optional string xml_config = 2;
       case 2: {
         if (tag == 18) {
-         parse_config:
+         parse_xml_config:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_config()));
+                input, this->mutable_xml_config()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->config().data(), this->config().length(),
+            this->xml_config().data(), this->xml_config().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "management.ExecuteCfgCommandRequest.config"));
+            "management.ExecuteCfgCommandRequest.xml_config"));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(24)) goto parse_format;
+        if (input->ExpectTag(26)) goto parse_json_config;
         break;
       }
 
-      // optional .management.ConfigFormatType format = 3;
+      // optional string json_config = 3;
       case 3: {
-        if (tag == 24) {
-         parse_format:
-          int value;
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
-                 input, &value)));
-          set_format(static_cast< ::management::ConfigFormatType >(value));
+        if (tag == 26) {
+         parse_json_config:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_json_config()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->json_config().data(), this->json_config().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "management.ExecuteCfgCommandRequest.json_config"));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(32)) goto parse_load_type;
+        if (input->ExpectTag(34)) goto parse_text_config;
         break;
       }
 
-      // optional .management.ConfigLoadType load_type = 4;
+      // optional string text_config = 4;
       case 4: {
-        if (tag == 32) {
+        if (tag == 34) {
+         parse_text_config:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_text_config()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->text_config().data(), this->text_config().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "management.ExecuteCfgCommandRequest.text_config"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(40)) goto parse_load_type;
+        break;
+      }
+
+      // optional .management.ConfigLoadType load_type = 5;
+      case 5: {
+        if (tag == 40) {
          parse_load_type:
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
@@ -5519,13 +6060,13 @@ bool ExecuteCfgCommandRequest::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(42)) goto parse_commit;
+        if (input->ExpectTag(50)) goto parse_commit;
         break;
       }
 
-      // optional .management.ConfigCommit commit = 5;
-      case 5: {
-        if (tag == 42) {
+      // optional .management.ConfigCommit commit = 6;
+      case 6: {
+        if (tag == 50) {
          parse_commit:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_commit()));
@@ -5565,32 +6106,46 @@ void ExecuteCfgCommandRequest::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->request_id(), output);
   }
 
-  // optional string config = 2;
-  if (this->config().size() > 0) {
+  // optional string xml_config = 2;
+  if (has_xml_config()) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->config().data(), this->config().length(),
+      this->xml_config().data(), this->xml_config().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "management.ExecuteCfgCommandRequest.config");
+      "management.ExecuteCfgCommandRequest.xml_config");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->config(), output);
+      2, this->xml_config(), output);
   }
 
-  // optional .management.ConfigFormatType format = 3;
-  if (this->format() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      3, this->format(), output);
+  // optional string json_config = 3;
+  if (has_json_config()) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->json_config().data(), this->json_config().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "management.ExecuteCfgCommandRequest.json_config");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      3, this->json_config(), output);
   }
 
-  // optional .management.ConfigLoadType load_type = 4;
+  // optional string text_config = 4;
+  if (has_text_config()) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->text_config().data(), this->text_config().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "management.ExecuteCfgCommandRequest.text_config");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      4, this->text_config(), output);
+  }
+
+  // optional .management.ConfigLoadType load_type = 5;
   if (this->load_type() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      4, this->load_type(), output);
+      5, this->load_type(), output);
   }
 
-  // optional .management.ConfigCommit commit = 5;
+  // optional .management.ConfigCommit commit = 6;
   if (this->has_commit()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      5, *this->commit_, output);
+      6, *this->commit_, output);
   }
 
   // @@protoc_insertion_point(serialize_end:management.ExecuteCfgCommandRequest)
@@ -5604,34 +6159,50 @@ void ExecuteCfgCommandRequest::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->request_id(), target);
   }
 
-  // optional string config = 2;
-  if (this->config().size() > 0) {
+  // optional string xml_config = 2;
+  if (has_xml_config()) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->config().data(), this->config().length(),
+      this->xml_config().data(), this->xml_config().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "management.ExecuteCfgCommandRequest.config");
+      "management.ExecuteCfgCommandRequest.xml_config");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->config(), target);
+        2, this->xml_config(), target);
   }
 
-  // optional .management.ConfigFormatType format = 3;
-  if (this->format() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      3, this->format(), target);
+  // optional string json_config = 3;
+  if (has_json_config()) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->json_config().data(), this->json_config().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "management.ExecuteCfgCommandRequest.json_config");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->json_config(), target);
   }
 
-  // optional .management.ConfigLoadType load_type = 4;
+  // optional string text_config = 4;
+  if (has_text_config()) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->text_config().data(), this->text_config().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "management.ExecuteCfgCommandRequest.text_config");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        4, this->text_config(), target);
+  }
+
+  // optional .management.ConfigLoadType load_type = 5;
   if (this->load_type() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      4, this->load_type(), target);
+      5, this->load_type(), target);
   }
 
-  // optional .management.ConfigCommit commit = 5;
+  // optional .management.ConfigCommit commit = 6;
   if (this->has_commit()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        5, *this->commit_, target);
+        6, *this->commit_, target);
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:management.ExecuteCfgCommandRequest)
@@ -5648,32 +6219,45 @@ int ExecuteCfgCommandRequest::ByteSize() const {
         this->request_id());
   }
 
-  // optional string config = 2;
-  if (this->config().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->config());
-  }
-
-  // optional .management.ConfigFormatType format = 3;
-  if (this->format() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->format());
-  }
-
-  // optional .management.ConfigLoadType load_type = 4;
+  // optional .management.ConfigLoadType load_type = 5;
   if (this->load_type() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->load_type());
   }
 
-  // optional .management.ConfigCommit commit = 5;
+  // optional .management.ConfigCommit commit = 6;
   if (this->has_commit()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->commit_);
   }
 
+  switch (config_case()) {
+    // optional string xml_config = 2;
+    case kXmlConfig: {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->xml_config());
+      break;
+    }
+    // optional string json_config = 3;
+    case kJsonConfig: {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->json_config());
+      break;
+    }
+    // optional string text_config = 4;
+    case kTextConfig: {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->text_config());
+      break;
+    }
+    case CONFIG_NOT_SET: {
+      break;
+    }
+  }
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
@@ -5694,15 +6278,25 @@ void ExecuteCfgCommandRequest::MergeFrom(const ::google::protobuf::Message& from
 
 void ExecuteCfgCommandRequest::MergeFrom(const ExecuteCfgCommandRequest& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  switch (from.config_case()) {
+    case kXmlConfig: {
+      set_xml_config(from.xml_config());
+      break;
+    }
+    case kJsonConfig: {
+      set_json_config(from.json_config());
+      break;
+    }
+    case kTextConfig: {
+      set_text_config(from.text_config());
+      break;
+    }
+    case CONFIG_NOT_SET: {
+      break;
+    }
+  }
   if (from.request_id() != 0) {
     set_request_id(from.request_id());
-  }
-  if (from.config().size() > 0) {
-
-    config_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.config_);
-  }
-  if (from.format() != 0) {
-    set_format(from.format());
   }
   if (from.load_type() != 0) {
     set_load_type(from.load_type());
@@ -5735,10 +6329,10 @@ void ExecuteCfgCommandRequest::Swap(ExecuteCfgCommandRequest* other) {
 }
 void ExecuteCfgCommandRequest::InternalSwap(ExecuteCfgCommandRequest* other) {
   std::swap(request_id_, other->request_id_);
-  config_.Swap(&other->config_);
-  std::swap(format_, other->format_);
   std::swap(load_type_, other->load_type_);
   std::swap(commit_, other->commit_);
+  std::swap(config_, other->config_);
+  std::swap(_oneof_case_[0], other->_oneof_case_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -5768,64 +6362,247 @@ void ExecuteCfgCommandRequest::clear_request_id() {
   // @@protoc_insertion_point(field_set:management.ExecuteCfgCommandRequest.request_id)
 }
 
-// optional string config = 2;
-void ExecuteCfgCommandRequest::clear_config() {
-  config_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// optional string xml_config = 2;
+bool ExecuteCfgCommandRequest::has_xml_config() const {
+  return config_case() == kXmlConfig;
 }
- const ::std::string& ExecuteCfgCommandRequest::config() const {
-  // @@protoc_insertion_point(field_get:management.ExecuteCfgCommandRequest.config)
-  return config_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+void ExecuteCfgCommandRequest::set_has_xml_config() {
+  _oneof_case_[0] = kXmlConfig;
 }
- void ExecuteCfgCommandRequest::set_config(const ::std::string& value) {
-  
-  config_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:management.ExecuteCfgCommandRequest.config)
-}
- void ExecuteCfgCommandRequest::set_config(const char* value) {
-  
-  config_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:management.ExecuteCfgCommandRequest.config)
-}
- void ExecuteCfgCommandRequest::set_config(const char* value, size_t size) {
-  
-  config_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:management.ExecuteCfgCommandRequest.config)
-}
- ::std::string* ExecuteCfgCommandRequest::mutable_config() {
-  
-  // @@protoc_insertion_point(field_mutable:management.ExecuteCfgCommandRequest.config)
-  return config_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
- ::std::string* ExecuteCfgCommandRequest::release_config() {
-  
-  return config_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
- void ExecuteCfgCommandRequest::set_allocated_config(::std::string* config) {
-  if (config != NULL) {
-    
-  } else {
-    
+void ExecuteCfgCommandRequest::clear_xml_config() {
+  if (has_xml_config()) {
+    config_.xml_config_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    clear_has_config();
   }
-  config_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), config);
-  // @@protoc_insertion_point(field_set_allocated:management.ExecuteCfgCommandRequest.config)
+}
+ const ::std::string& ExecuteCfgCommandRequest::xml_config() const {
+  // @@protoc_insertion_point(field_get:management.ExecuteCfgCommandRequest.xml_config)
+  if (has_xml_config()) {
+    return config_.xml_config_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  return *&::google::protobuf::internal::GetEmptyStringAlreadyInited();
+}
+ void ExecuteCfgCommandRequest::set_xml_config(const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:management.ExecuteCfgCommandRequest.xml_config)
+  if (!has_xml_config()) {
+    clear_config();
+    set_has_xml_config();
+    config_.xml_config_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  config_.xml_config_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:management.ExecuteCfgCommandRequest.xml_config)
+}
+ void ExecuteCfgCommandRequest::set_xml_config(const char* value) {
+  if (!has_xml_config()) {
+    clear_config();
+    set_has_xml_config();
+    config_.xml_config_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  config_.xml_config_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:management.ExecuteCfgCommandRequest.xml_config)
+}
+ void ExecuteCfgCommandRequest::set_xml_config(const char* value, size_t size) {
+  if (!has_xml_config()) {
+    clear_config();
+    set_has_xml_config();
+    config_.xml_config_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  config_.xml_config_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:management.ExecuteCfgCommandRequest.xml_config)
+}
+ ::std::string* ExecuteCfgCommandRequest::mutable_xml_config() {
+  if (!has_xml_config()) {
+    clear_config();
+    set_has_xml_config();
+    config_.xml_config_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  // @@protoc_insertion_point(field_mutable:management.ExecuteCfgCommandRequest.xml_config)
+  return config_.xml_config_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* ExecuteCfgCommandRequest::release_xml_config() {
+  if (has_xml_config()) {
+    clear_has_config();
+    return config_.xml_config_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  } else {
+    return NULL;
+  }
+}
+ void ExecuteCfgCommandRequest::set_allocated_xml_config(::std::string* xml_config) {
+  if (!has_xml_config()) {
+    config_.xml_config_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  clear_config();
+  if (xml_config != NULL) {
+    set_has_xml_config();
+    config_.xml_config_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+        xml_config);
+  }
+  // @@protoc_insertion_point(field_set_allocated:management.ExecuteCfgCommandRequest.xml_config)
 }
 
-// optional .management.ConfigFormatType format = 3;
-void ExecuteCfgCommandRequest::clear_format() {
-  format_ = 0;
+// optional string json_config = 3;
+bool ExecuteCfgCommandRequest::has_json_config() const {
+  return config_case() == kJsonConfig;
 }
- ::management::ConfigFormatType ExecuteCfgCommandRequest::format() const {
-  // @@protoc_insertion_point(field_get:management.ExecuteCfgCommandRequest.format)
-  return static_cast< ::management::ConfigFormatType >(format_);
+void ExecuteCfgCommandRequest::set_has_json_config() {
+  _oneof_case_[0] = kJsonConfig;
 }
- void ExecuteCfgCommandRequest::set_format(::management::ConfigFormatType value) {
-  
-  format_ = value;
-  // @@protoc_insertion_point(field_set:management.ExecuteCfgCommandRequest.format)
+void ExecuteCfgCommandRequest::clear_json_config() {
+  if (has_json_config()) {
+    config_.json_config_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    clear_has_config();
+  }
+}
+ const ::std::string& ExecuteCfgCommandRequest::json_config() const {
+  // @@protoc_insertion_point(field_get:management.ExecuteCfgCommandRequest.json_config)
+  if (has_json_config()) {
+    return config_.json_config_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  return *&::google::protobuf::internal::GetEmptyStringAlreadyInited();
+}
+ void ExecuteCfgCommandRequest::set_json_config(const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:management.ExecuteCfgCommandRequest.json_config)
+  if (!has_json_config()) {
+    clear_config();
+    set_has_json_config();
+    config_.json_config_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  config_.json_config_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:management.ExecuteCfgCommandRequest.json_config)
+}
+ void ExecuteCfgCommandRequest::set_json_config(const char* value) {
+  if (!has_json_config()) {
+    clear_config();
+    set_has_json_config();
+    config_.json_config_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  config_.json_config_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:management.ExecuteCfgCommandRequest.json_config)
+}
+ void ExecuteCfgCommandRequest::set_json_config(const char* value, size_t size) {
+  if (!has_json_config()) {
+    clear_config();
+    set_has_json_config();
+    config_.json_config_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  config_.json_config_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:management.ExecuteCfgCommandRequest.json_config)
+}
+ ::std::string* ExecuteCfgCommandRequest::mutable_json_config() {
+  if (!has_json_config()) {
+    clear_config();
+    set_has_json_config();
+    config_.json_config_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  // @@protoc_insertion_point(field_mutable:management.ExecuteCfgCommandRequest.json_config)
+  return config_.json_config_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* ExecuteCfgCommandRequest::release_json_config() {
+  if (has_json_config()) {
+    clear_has_config();
+    return config_.json_config_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  } else {
+    return NULL;
+  }
+}
+ void ExecuteCfgCommandRequest::set_allocated_json_config(::std::string* json_config) {
+  if (!has_json_config()) {
+    config_.json_config_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  clear_config();
+  if (json_config != NULL) {
+    set_has_json_config();
+    config_.json_config_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+        json_config);
+  }
+  // @@protoc_insertion_point(field_set_allocated:management.ExecuteCfgCommandRequest.json_config)
 }
 
-// optional .management.ConfigLoadType load_type = 4;
+// optional string text_config = 4;
+bool ExecuteCfgCommandRequest::has_text_config() const {
+  return config_case() == kTextConfig;
+}
+void ExecuteCfgCommandRequest::set_has_text_config() {
+  _oneof_case_[0] = kTextConfig;
+}
+void ExecuteCfgCommandRequest::clear_text_config() {
+  if (has_text_config()) {
+    config_.text_config_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    clear_has_config();
+  }
+}
+ const ::std::string& ExecuteCfgCommandRequest::text_config() const {
+  // @@protoc_insertion_point(field_get:management.ExecuteCfgCommandRequest.text_config)
+  if (has_text_config()) {
+    return config_.text_config_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  return *&::google::protobuf::internal::GetEmptyStringAlreadyInited();
+}
+ void ExecuteCfgCommandRequest::set_text_config(const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:management.ExecuteCfgCommandRequest.text_config)
+  if (!has_text_config()) {
+    clear_config();
+    set_has_text_config();
+    config_.text_config_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  config_.text_config_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:management.ExecuteCfgCommandRequest.text_config)
+}
+ void ExecuteCfgCommandRequest::set_text_config(const char* value) {
+  if (!has_text_config()) {
+    clear_config();
+    set_has_text_config();
+    config_.text_config_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  config_.text_config_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:management.ExecuteCfgCommandRequest.text_config)
+}
+ void ExecuteCfgCommandRequest::set_text_config(const char* value, size_t size) {
+  if (!has_text_config()) {
+    clear_config();
+    set_has_text_config();
+    config_.text_config_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  config_.text_config_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:management.ExecuteCfgCommandRequest.text_config)
+}
+ ::std::string* ExecuteCfgCommandRequest::mutable_text_config() {
+  if (!has_text_config()) {
+    clear_config();
+    set_has_text_config();
+    config_.text_config_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  // @@protoc_insertion_point(field_mutable:management.ExecuteCfgCommandRequest.text_config)
+  return config_.text_config_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* ExecuteCfgCommandRequest::release_text_config() {
+  if (has_text_config()) {
+    clear_has_config();
+    return config_.text_config_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  } else {
+    return NULL;
+  }
+}
+ void ExecuteCfgCommandRequest::set_allocated_text_config(::std::string* text_config) {
+  if (!has_text_config()) {
+    config_.text_config_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  clear_config();
+  if (text_config != NULL) {
+    set_has_text_config();
+    config_.text_config_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+        text_config);
+  }
+  // @@protoc_insertion_point(field_set_allocated:management.ExecuteCfgCommandRequest.text_config)
+}
+
+// optional .management.ConfigLoadType load_type = 5;
 void ExecuteCfgCommandRequest::clear_load_type() {
   load_type_ = 0;
 }
@@ -5839,7 +6616,7 @@ void ExecuteCfgCommandRequest::clear_load_type() {
   // @@protoc_insertion_point(field_set:management.ExecuteCfgCommandRequest.load_type)
 }
 
-// optional .management.ConfigCommit commit = 5;
+// optional .management.ConfigCommit commit = 6;
 bool ExecuteCfgCommandRequest::has_commit() const {
   return !_is_default_instance_ && commit_ != NULL;
 }
@@ -5876,6 +6653,15 @@ void ExecuteCfgCommandRequest::set_allocated_commit(::management::ConfigCommit* 
   // @@protoc_insertion_point(field_set_allocated:management.ExecuteCfgCommandRequest.commit)
 }
 
+bool ExecuteCfgCommandRequest::has_config() const {
+  return config_case() != CONFIG_NOT_SET;
+}
+void ExecuteCfgCommandRequest::clear_has_config() {
+  _oneof_case_[0] = CONFIG_NOT_SET;
+}
+ExecuteCfgCommandRequest::ConfigCase ExecuteCfgCommandRequest::config_case() const {
+  return ExecuteCfgCommandRequest::ConfigCase(_oneof_case_[0]);
+}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================

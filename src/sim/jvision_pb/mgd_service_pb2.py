@@ -18,7 +18,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='mgd_service.proto',
   package='management',
   syntax='proto3',
-  serialized_pb=b'\n\x11mgd_service.proto\x12\nmanagement\"\xa7\x01\n\x17\x45xecuteOpCommandRequest\x12\x12\n\nrequest_id\x18\x01 \x01(\x04\x12\x0f\n\x07\x63ommand\x18\x02 \x01(\t\x12\x32\n\tin_format\x18\x03 \x01(\x0e\x32\x1f.management.OperationFormatType\x12\x33\n\nout_format\x18\x04 \x01(\x0e\x32\x1f.management.OperationFormatType\"\x80\x01\n\x18\x45xecuteOpCommandResponse\x12\x12\n\nrequest_id\x18\x01 \x01(\x04\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\t\x12\x31\n\x06status\x18\x03 \x01(\x0e\x32!.management.JunosRpcResponseTypes\x12\x0f\n\x07message\x18\x04 \x01(\t\":\n\x14\x45phConfigRequestList\x12\x14\n\x0coperation_id\x18\x01 \x01(\t\x12\x0c\n\x04path\x18\x02 \x01(\t\"\xd3\x01\n\x19GetEphemeralConfigRequest\x12\x12\n\nrequest_id\x18\x01 \x01(\x04\x12\x34\n\x08\x65ncoding\x18\x02 \x01(\x0e\x32\".management.JunosDataEncodingTypes\x12=\n\x13\x65ph_config_requests\x18\x03 \x03(\x0b\x32 .management.EphConfigRequestList\x12\x19\n\x11\x65ph_instance_name\x18\x04 \x01(\t\x12\x12\n\nmerge_view\x18\x05 \x01(\x08\"\xff\x01\n\x1aGetEphemeralConfigResponse\x12\x12\n\nrequest_id\x18\x01 \x01(\x04\x12\x45\n\x08response\x18\x02 \x03(\x0b\x32\x33.management.GetEphemeralConfigResponse.ResponseList\x1a\x85\x01\n\x0cResponseList\x12\x14\n\x0coperation_id\x18\x01 \x01(\t\x12\x0c\n\x04path\x18\x02 \x01(\t\x12\r\n\x05value\x18\x03 \x01(\t\x12\x31\n\x06status\x18\x04 \x01(\x0e\x32!.management.JunosRpcResponseTypes\x12\x0f\n\x07message\x18\x05 \x01(\t\"\xd5\x02\n\x1a\x45\x64itEphemeralConfigRequest\x12\x12\n\nrequest_id\x18\x01 \x01(\x04\x12\x34\n\x08\x65ncoding\x18\x02 \x01(\x0e\x32\".management.JunosDataEncodingTypes\x12Y\n\x15\x65ph_config_operations\x18\x03 \x03(\x0b\x32:.management.EditEphemeralConfigRequest.ConfigOperationList\x12\x19\n\x11\x65ph_instance_name\x18\x04 \x01(\t\x1aw\n\x13\x43onfigOperationList\x12\x14\n\x0coperation_id\x18\x01 \x01(\t\x12-\n\toperation\x18\x02 \x01(\x0e\x32\x1a.management.ConfigCommands\x12\x0c\n\x04path\x18\x03 \x01(\t\x12\r\n\x05value\x18\x04 \x01(\t\"\xe3\x01\n\x1b\x45\x64itEphemeralConfigResponse\x12\x12\n\nrequest_id\x18\x01 \x01(\x04\x12\x46\n\x08response\x18\x02 \x03(\x0b\x32\x34.management.EditEphemeralConfigResponse.ResponseList\x1ah\n\x0cResponseList\x12\x14\n\x0coperation_id\x18\x01 \x01(\t\x12\x31\n\x06status\x18\x02 \x01(\x0e\x32!.management.JunosRpcResponseTypes\x12\x0f\n\x07message\x18\x03 \x01(\t\"R\n\x0c\x43onfigCommit\x12\x31\n\x0b\x63ommit_type\x18\x01 \x01(\x0e\x32\x1c.management.ConfigCommitType\x12\x0f\n\x07\x63omment\x18\x02 \x01(\t\"\xc5\x01\n\x18\x45xecuteCfgCommandRequest\x12\x12\n\nrequest_id\x18\x01 \x01(\x04\x12\x0e\n\x06\x63onfig\x18\x02 \x01(\t\x12,\n\x06\x66ormat\x18\x03 \x01(\x0e\x32\x1c.management.ConfigFormatType\x12-\n\tload_type\x18\x04 \x01(\x0e\x32\x1a.management.ConfigLoadType\x12(\n\x06\x63ommit\x18\x05 \x01(\x0b\x32\x18.management.ConfigCommit\"s\n\x19\x45xecuteCfgCommandResponse\x12\x12\n\nrequest_id\x18\x01 \x01(\x04\x12\x31\n\x06status\x18\x02 \x01(\x0e\x32!.management.JunosRpcResponseTypes\x12\x0f\n\x07message\x18\x03 \x01(\t*d\n\x13OperationFormatType\x12\x19\n\x15OPERATION_FORMAT_JSON\x10\x00\x12\x18\n\x14OPERATION_FORMAT_XML\x10\x01\x12\x18\n\x14OPERATION_FORMAT_CLI\x10\x02*\x85\x01\n\x15JunosRpcResponseTypes\x12\x06\n\x02OK\x10\x00\x12\x07\n\x03NOK\x10\x01\x12\x14\n\x10UNSUPPORTED_PATH\x10\x02\x12\x10\n\x0cINVALID_PATH\x10\x03\x12\x19\n\x15INVALID_CONFIGURATION\x10\x04\x12\x18\n\x14UNSUPPORTED_ENCODING\x10\x05*=\n\x16JunosDataEncodingTypes\x12\x10\n\x0c\x45NCODING_XML\x10\x00\x12\x11\n\rENCODING_JSON\x10\x01*J\n\x0e\x43onfigCommands\x12\x11\n\rUPDATE_CONFIG\x10\x00\x12\x12\n\x0eREPLACE_CONFIG\x10\x01\x12\x11\n\rDELETE_CONFIG\x10\x02*Y\n\x10\x43onfigFormatType\x12\x16\n\x12\x43ONFIG_FORMAT_TEXT\x10\x00\x12\x15\n\x11\x43ONFIG_FORMAT_XML\x10\x01\x12\x16\n\x12\x43ONFIG_FORMAT_JSON\x10\x02*\x87\x01\n\x0e\x43onfigLoadType\x12\x17\n\x13\x43ONFIG_LOAD_REPLACE\x10\x00\x12\x15\n\x11\x43ONFIG_LOAD_MERGE\x10\x01\x12\x18\n\x14\x43ONFIG_LOAD_OVERRIDE\x10\x02\x12\x16\n\x12\x43ONFIG_LOAD_UPDATE\x10\x03\x12\x13\n\x0f\x43ONFIG_LOAD_SET\x10\x04*D\n\x10\x43onfigCommitType\x12\x1d\n\x19\x43ONFIG_COMMIT_SYNCHRONIZE\x10\x00\x12\x11\n\rCONFIG_COMMIT\x10\x01\x32\xaa\x03\n\x10ManagementRpcApi\x12\x61\n\x10\x45xecuteOpCommand\x12#.management.ExecuteOpCommandRequest\x1a$.management.ExecuteOpCommandResponse\"\x00\x30\x01\x12\x62\n\x11\x45xecuteCfgCommand\x12$.management.ExecuteCfgCommandRequest\x1a%.management.ExecuteCfgCommandResponse\"\x00\x12\x65\n\x12GetEphemeralConfig\x12%.management.GetEphemeralConfigRequest\x1a&.management.GetEphemeralConfigResponse\"\x00\x12h\n\x13\x45\x64itEphemeralConfig\x12&.management.EditEphemeralConfigRequest\x1a\'.management.EditEphemeralConfigResponse\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x11mgd_service.proto\x12\nmanagement\"\xb3\x01\n\x17\x45xecuteOpCommandRequest\x12\x12\n\nrequest_id\x18\x01 \x01(\x04\x12\x15\n\x0b\x63li_command\x18\x02 \x01(\tH\x00\x12\x15\n\x0bxml_command\x18\x03 \x01(\tH\x00\x12\x16\n\x0cjson_command\x18\x04 \x01(\tH\x00\x12\x33\n\nout_format\x18\x05 \x01(\x0e\x32\x1f.management.OperationFormatTypeB\t\n\x07\x63ommand\"\x80\x01\n\x18\x45xecuteOpCommandResponse\x12\x12\n\nrequest_id\x18\x01 \x01(\x04\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\t\x12\x31\n\x06status\x18\x03 \x01(\x0e\x32!.management.JunosRpcResponseTypes\x12\x0f\n\x07message\x18\x04 \x01(\t\":\n\x14\x45phConfigRequestList\x12\x14\n\x0coperation_id\x18\x01 \x01(\t\x12\x0c\n\x04path\x18\x02 \x01(\t\"\xd3\x01\n\x19GetEphemeralConfigRequest\x12\x12\n\nrequest_id\x18\x01 \x01(\x04\x12\x34\n\x08\x65ncoding\x18\x02 \x01(\x0e\x32\".management.JunosDataEncodingTypes\x12=\n\x13\x65ph_config_requests\x18\x03 \x03(\x0b\x32 .management.EphConfigRequestList\x12\x19\n\x11\x65ph_instance_name\x18\x04 \x01(\t\x12\x12\n\nmerge_view\x18\x05 \x01(\x08\"\xff\x01\n\x1aGetEphemeralConfigResponse\x12\x12\n\nrequest_id\x18\x01 \x01(\x04\x12\x45\n\x08response\x18\x02 \x03(\x0b\x32\x33.management.GetEphemeralConfigResponse.ResponseList\x1a\x85\x01\n\x0cResponseList\x12\x14\n\x0coperation_id\x18\x01 \x01(\t\x12\x0c\n\x04path\x18\x02 \x01(\t\x12\r\n\x05value\x18\x03 \x01(\t\x12\x31\n\x06status\x18\x04 \x01(\x0e\x32!.management.JunosRpcResponseTypes\x12\x0f\n\x07message\x18\x05 \x01(\t\"\xe9\x02\n\x1a\x45\x64itEphemeralConfigRequest\x12\x12\n\nrequest_id\x18\x01 \x01(\x04\x12Y\n\x15\x65ph_config_operations\x18\x03 \x03(\x0b\x32:.management.EditEphemeralConfigRequest.ConfigOperationList\x12\x19\n\x11\x65ph_instance_name\x18\x04 \x01(\t\x12 \n\x18\x65nable_config_validation\x18\x05 \x01(\x08\x1a\x9e\x01\n\x13\x43onfigOperationList\x12\x14\n\x0coperation_id\x18\x01 \x01(\t\x12-\n\toperation\x18\x02 \x01(\x0e\x32\x1a.management.ConfigCommands\x12\x0c\n\x04path\x18\x03 \x01(\t\x12\x14\n\nxml_config\x18\x04 \x01(\tH\x00\x12\x15\n\x0bjson_config\x18\x05 \x01(\tH\x00\x42\x07\n\x05value\"\xe3\x01\n\x1b\x45\x64itEphemeralConfigResponse\x12\x12\n\nrequest_id\x18\x01 \x01(\x04\x12\x46\n\x08response\x18\x02 \x03(\x0b\x32\x34.management.EditEphemeralConfigResponse.ResponseList\x1ah\n\x0cResponseList\x12\x14\n\x0coperation_id\x18\x01 \x01(\t\x12\x31\n\x06status\x18\x02 \x01(\x0e\x32!.management.JunosRpcResponseTypes\x12\x0f\n\x07message\x18\x03 \x01(\t\"R\n\x0c\x43onfigCommit\x12\x31\n\x0b\x63ommit_type\x18\x01 \x01(\x0e\x32\x1c.management.ConfigCommitType\x12\x0f\n\x07\x63omment\x18\x02 \x01(\t\"\xd5\x01\n\x18\x45xecuteCfgCommandRequest\x12\x12\n\nrequest_id\x18\x01 \x01(\x04\x12\x14\n\nxml_config\x18\x02 \x01(\tH\x00\x12\x15\n\x0bjson_config\x18\x03 \x01(\tH\x00\x12\x15\n\x0btext_config\x18\x04 \x01(\tH\x00\x12-\n\tload_type\x18\x05 \x01(\x0e\x32\x1a.management.ConfigLoadType\x12(\n\x06\x63ommit\x18\x06 \x01(\x0b\x32\x18.management.ConfigCommitB\x08\n\x06\x63onfig\"s\n\x19\x45xecuteCfgCommandResponse\x12\x12\n\nrequest_id\x18\x01 \x01(\x04\x12\x31\n\x06status\x18\x02 \x01(\x0e\x32!.management.JunosRpcResponseTypes\x12\x0f\n\x07message\x18\x03 \x01(\t*d\n\x13OperationFormatType\x12\x19\n\x15OPERATION_FORMAT_JSON\x10\x00\x12\x18\n\x14OPERATION_FORMAT_XML\x10\x01\x12\x18\n\x14OPERATION_FORMAT_CLI\x10\x02*\x8a\x01\n\x15JunosRpcResponseTypes\x12\x0b\n\x07SUCCESS\x10\x00\x12\x07\n\x03NOK\x10\x01\x12\x14\n\x10UNSUPPORTED_PATH\x10\x02\x12\x10\n\x0cINVALID_PATH\x10\x03\x12\x19\n\x15INVALID_CONFIGURATION\x10\x04\x12\x18\n\x14UNSUPPORTED_ENCODING\x10\x05*=\n\x16JunosDataEncodingTypes\x12\x10\n\x0c\x45NCODING_XML\x10\x00\x12\x11\n\rENCODING_JSON\x10\x01*J\n\x0e\x43onfigCommands\x12\x11\n\rUPDATE_CONFIG\x10\x00\x12\x12\n\x0eREPLACE_CONFIG\x10\x01\x12\x11\n\rDELETE_CONFIG\x10\x02*\x87\x01\n\x0e\x43onfigLoadType\x12\x17\n\x13\x43ONFIG_LOAD_REPLACE\x10\x00\x12\x15\n\x11\x43ONFIG_LOAD_MERGE\x10\x01\x12\x18\n\x14\x43ONFIG_LOAD_OVERRIDE\x10\x02\x12\x16\n\x12\x43ONFIG_LOAD_UPDATE\x10\x03\x12\x13\n\x0f\x43ONFIG_LOAD_SET\x10\x04*D\n\x10\x43onfigCommitType\x12\x1d\n\x19\x43ONFIG_COMMIT_SYNCHRONIZE\x10\x00\x12\x11\n\rCONFIG_COMMIT\x10\x01\x32\xaa\x03\n\x10ManagementRpcApi\x12\x61\n\x10\x45xecuteOpCommand\x12#.management.ExecuteOpCommandRequest\x1a$.management.ExecuteOpCommandResponse\"\x00\x30\x01\x12\x62\n\x11\x45xecuteCfgCommand\x12$.management.ExecuteCfgCommandRequest\x1a%.management.ExecuteCfgCommandResponse\"\x00\x12\x65\n\x12GetEphemeralConfig\x12%.management.GetEphemeralConfigRequest\x1a&.management.GetEphemeralConfigResponse\"\x00\x12h\n\x13\x45\x64itEphemeralConfig\x12&.management.EditEphemeralConfigRequest\x1a\'.management.EditEphemeralConfigResponse\"\x00\x62\x06proto3'
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -43,8 +43,8 @@ _OPERATIONFORMATTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=1841,
-  serialized_end=1941,
+  serialized_start=1889,
+  serialized_end=1989,
 )
 _sym_db.RegisterEnumDescriptor(_OPERATIONFORMATTYPE)
 
@@ -56,7 +56,7 @@ _JUNOSRPCRESPONSETYPES = _descriptor.EnumDescriptor(
   file=DESCRIPTOR,
   values=[
     _descriptor.EnumValueDescriptor(
-      name='OK', index=0, number=0,
+      name='SUCCESS', index=0, number=0,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
@@ -82,8 +82,8 @@ _JUNOSRPCRESPONSETYPES = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=1944,
-  serialized_end=2077,
+  serialized_start=1992,
+  serialized_end=2130,
 )
 _sym_db.RegisterEnumDescriptor(_JUNOSRPCRESPONSETYPES)
 
@@ -105,8 +105,8 @@ _JUNOSDATAENCODINGTYPES = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=2079,
-  serialized_end=2140,
+  serialized_start=2132,
+  serialized_end=2193,
 )
 _sym_db.RegisterEnumDescriptor(_JUNOSDATAENCODINGTYPES)
 
@@ -132,39 +132,12 @@ _CONFIGCOMMANDS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=2142,
-  serialized_end=2216,
+  serialized_start=2195,
+  serialized_end=2269,
 )
 _sym_db.RegisterEnumDescriptor(_CONFIGCOMMANDS)
 
 ConfigCommands = enum_type_wrapper.EnumTypeWrapper(_CONFIGCOMMANDS)
-_CONFIGFORMATTYPE = _descriptor.EnumDescriptor(
-  name='ConfigFormatType',
-  full_name='management.ConfigFormatType',
-  filename=None,
-  file=DESCRIPTOR,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='CONFIG_FORMAT_TEXT', index=0, number=0,
-      options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='CONFIG_FORMAT_XML', index=1, number=1,
-      options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='CONFIG_FORMAT_JSON', index=2, number=2,
-      options=None,
-      type=None),
-  ],
-  containing_type=None,
-  options=None,
-  serialized_start=2218,
-  serialized_end=2307,
-)
-_sym_db.RegisterEnumDescriptor(_CONFIGFORMATTYPE)
-
-ConfigFormatType = enum_type_wrapper.EnumTypeWrapper(_CONFIGFORMATTYPE)
 _CONFIGLOADTYPE = _descriptor.EnumDescriptor(
   name='ConfigLoadType',
   full_name='management.ConfigLoadType',
@@ -194,8 +167,8 @@ _CONFIGLOADTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=2310,
-  serialized_end=2445,
+  serialized_start=2272,
+  serialized_end=2407,
 )
 _sym_db.RegisterEnumDescriptor(_CONFIGLOADTYPE)
 
@@ -217,8 +190,8 @@ _CONFIGCOMMITTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=2447,
-  serialized_end=2515,
+  serialized_start=2409,
+  serialized_end=2477,
 )
 _sym_db.RegisterEnumDescriptor(_CONFIGCOMMITTYPE)
 
@@ -226,7 +199,7 @@ ConfigCommitType = enum_type_wrapper.EnumTypeWrapper(_CONFIGCOMMITTYPE)
 OPERATION_FORMAT_JSON = 0
 OPERATION_FORMAT_XML = 1
 OPERATION_FORMAT_CLI = 2
-OK = 0
+SUCCESS = 0
 NOK = 1
 UNSUPPORTED_PATH = 2
 INVALID_PATH = 3
@@ -237,9 +210,6 @@ ENCODING_JSON = 1
 UPDATE_CONFIG = 0
 REPLACE_CONFIG = 1
 DELETE_CONFIG = 2
-CONFIG_FORMAT_TEXT = 0
-CONFIG_FORMAT_XML = 1
-CONFIG_FORMAT_JSON = 2
 CONFIG_LOAD_REPLACE = 0
 CONFIG_LOAD_MERGE = 1
 CONFIG_LOAD_OVERRIDE = 2
@@ -265,22 +235,29 @@ _EXECUTEOPCOMMANDREQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='command', full_name='management.ExecuteOpCommandRequest.command', index=1,
+      name='cli_command', full_name='management.ExecuteOpCommandRequest.cli_command', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='in_format', full_name='management.ExecuteOpCommandRequest.in_format', index=2,
-      number=3, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
+      name='xml_command', full_name='management.ExecuteOpCommandRequest.xml_command', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='out_format', full_name='management.ExecuteOpCommandRequest.out_format', index=3,
-      number=4, type=14, cpp_type=8, label=1,
+      name='json_command', full_name='management.ExecuteOpCommandRequest.json_command', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='out_format', full_name='management.ExecuteOpCommandRequest.out_format', index=4,
+      number=5, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -296,9 +273,12 @@ _EXECUTEOPCOMMANDREQUEST = _descriptor.Descriptor(
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
+    _descriptor.OneofDescriptor(
+      name='command', full_name='management.ExecuteOpCommandRequest.command',
+      index=0, containing_type=None, fields=[]),
   ],
   serialized_start=34,
-  serialized_end=201,
+  serialized_end=213,
 )
 
 
@@ -349,8 +329,8 @@ _EXECUTEOPCOMMANDRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=204,
-  serialized_end=332,
+  serialized_start=216,
+  serialized_end=344,
 )
 
 
@@ -387,8 +367,8 @@ _EPHCONFIGREQUESTLIST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=334,
-  serialized_end=392,
+  serialized_start=346,
+  serialized_end=404,
 )
 
 
@@ -446,8 +426,8 @@ _GETEPHEMERALCONFIGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=395,
-  serialized_end=606,
+  serialized_start=407,
+  serialized_end=618,
 )
 
 
@@ -505,8 +485,8 @@ _GETEPHEMERALCONFIGRESPONSE_RESPONSELIST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=731,
-  serialized_end=864,
+  serialized_start=743,
+  serialized_end=876,
 )
 
 _GETEPHEMERALCONFIGRESPONSE = _descriptor.Descriptor(
@@ -542,8 +522,8 @@ _GETEPHEMERALCONFIGRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=609,
-  serialized_end=864,
+  serialized_start=621,
+  serialized_end=876,
 )
 
 
@@ -576,8 +556,15 @@ _EDITEPHEMERALCONFIGREQUEST_CONFIGOPERATIONLIST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='value', full_name='management.EditEphemeralConfigRequest.ConfigOperationList.value', index=3,
+      name='xml_config', full_name='management.EditEphemeralConfigRequest.ConfigOperationList.xml_config', index=3,
       number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='json_config', full_name='management.EditEphemeralConfigRequest.ConfigOperationList.json_config', index=4,
+      number=5, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -593,9 +580,12 @@ _EDITEPHEMERALCONFIGREQUEST_CONFIGOPERATIONLIST = _descriptor.Descriptor(
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
+    _descriptor.OneofDescriptor(
+      name='value', full_name='management.EditEphemeralConfigRequest.ConfigOperationList.value',
+      index=0, containing_type=None, fields=[]),
   ],
-  serialized_start=1089,
-  serialized_end=1208,
+  serialized_start=1082,
+  serialized_end=1240,
 )
 
 _EDITEPHEMERALCONFIGREQUEST = _descriptor.Descriptor(
@@ -613,23 +603,23 @@ _EDITEPHEMERALCONFIGREQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='encoding', full_name='management.EditEphemeralConfigRequest.encoding', index=1,
-      number=2, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='eph_config_operations', full_name='management.EditEphemeralConfigRequest.eph_config_operations', index=2,
+      name='eph_config_operations', full_name='management.EditEphemeralConfigRequest.eph_config_operations', index=1,
       number=3, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='eph_instance_name', full_name='management.EditEphemeralConfigRequest.eph_instance_name', index=3,
+      name='eph_instance_name', full_name='management.EditEphemeralConfigRequest.eph_instance_name', index=2,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='enable_config_validation', full_name='management.EditEphemeralConfigRequest.enable_config_validation', index=3,
+      number=5, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -645,8 +635,8 @@ _EDITEPHEMERALCONFIGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=867,
-  serialized_end=1208,
+  serialized_start=879,
+  serialized_end=1240,
 )
 
 
@@ -690,8 +680,8 @@ _EDITEPHEMERALCONFIGRESPONSE_RESPONSELIST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1334,
-  serialized_end=1438,
+  serialized_start=1366,
+  serialized_end=1470,
 )
 
 _EDITEPHEMERALCONFIGRESPONSE = _descriptor.Descriptor(
@@ -727,8 +717,8 @@ _EDITEPHEMERALCONFIGRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1211,
-  serialized_end=1438,
+  serialized_start=1243,
+  serialized_end=1470,
 )
 
 
@@ -765,8 +755,8 @@ _CONFIGCOMMIT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1440,
-  serialized_end=1522,
+  serialized_start=1472,
+  serialized_end=1554,
 )
 
 
@@ -785,29 +775,36 @@ _EXECUTECFGCOMMANDREQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='config', full_name='management.ExecuteCfgCommandRequest.config', index=1,
+      name='xml_config', full_name='management.ExecuteCfgCommandRequest.xml_config', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='format', full_name='management.ExecuteCfgCommandRequest.format', index=2,
-      number=3, type=14, cpp_type=8, label=1,
+      name='json_config', full_name='management.ExecuteCfgCommandRequest.json_config', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='text_config', full_name='management.ExecuteCfgCommandRequest.text_config', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='load_type', full_name='management.ExecuteCfgCommandRequest.load_type', index=4,
+      number=5, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='load_type', full_name='management.ExecuteCfgCommandRequest.load_type', index=3,
-      number=4, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='commit', full_name='management.ExecuteCfgCommandRequest.commit', index=4,
-      number=5, type=11, cpp_type=10, label=1,
+      name='commit', full_name='management.ExecuteCfgCommandRequest.commit', index=5,
+      number=6, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -823,9 +820,12 @@ _EXECUTECFGCOMMANDREQUEST = _descriptor.Descriptor(
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
+    _descriptor.OneofDescriptor(
+      name='config', full_name='management.ExecuteCfgCommandRequest.config',
+      index=0, containing_type=None, fields=[]),
   ],
-  serialized_start=1525,
-  serialized_end=1722,
+  serialized_start=1557,
+  serialized_end=1770,
 )
 
 
@@ -869,12 +869,20 @@ _EXECUTECFGCOMMANDRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1724,
-  serialized_end=1839,
+  serialized_start=1772,
+  serialized_end=1887,
 )
 
-_EXECUTEOPCOMMANDREQUEST.fields_by_name['in_format'].enum_type = _OPERATIONFORMATTYPE
 _EXECUTEOPCOMMANDREQUEST.fields_by_name['out_format'].enum_type = _OPERATIONFORMATTYPE
+_EXECUTEOPCOMMANDREQUEST.oneofs_by_name['command'].fields.append(
+  _EXECUTEOPCOMMANDREQUEST.fields_by_name['cli_command'])
+_EXECUTEOPCOMMANDREQUEST.fields_by_name['cli_command'].containing_oneof = _EXECUTEOPCOMMANDREQUEST.oneofs_by_name['command']
+_EXECUTEOPCOMMANDREQUEST.oneofs_by_name['command'].fields.append(
+  _EXECUTEOPCOMMANDREQUEST.fields_by_name['xml_command'])
+_EXECUTEOPCOMMANDREQUEST.fields_by_name['xml_command'].containing_oneof = _EXECUTEOPCOMMANDREQUEST.oneofs_by_name['command']
+_EXECUTEOPCOMMANDREQUEST.oneofs_by_name['command'].fields.append(
+  _EXECUTEOPCOMMANDREQUEST.fields_by_name['json_command'])
+_EXECUTEOPCOMMANDREQUEST.fields_by_name['json_command'].containing_oneof = _EXECUTEOPCOMMANDREQUEST.oneofs_by_name['command']
 _EXECUTEOPCOMMANDRESPONSE.fields_by_name['status'].enum_type = _JUNOSRPCRESPONSETYPES
 _GETEPHEMERALCONFIGREQUEST.fields_by_name['encoding'].enum_type = _JUNOSDATAENCODINGTYPES
 _GETEPHEMERALCONFIGREQUEST.fields_by_name['eph_config_requests'].message_type = _EPHCONFIGREQUESTLIST
@@ -883,15 +891,28 @@ _GETEPHEMERALCONFIGRESPONSE_RESPONSELIST.containing_type = _GETEPHEMERALCONFIGRE
 _GETEPHEMERALCONFIGRESPONSE.fields_by_name['response'].message_type = _GETEPHEMERALCONFIGRESPONSE_RESPONSELIST
 _EDITEPHEMERALCONFIGREQUEST_CONFIGOPERATIONLIST.fields_by_name['operation'].enum_type = _CONFIGCOMMANDS
 _EDITEPHEMERALCONFIGREQUEST_CONFIGOPERATIONLIST.containing_type = _EDITEPHEMERALCONFIGREQUEST
-_EDITEPHEMERALCONFIGREQUEST.fields_by_name['encoding'].enum_type = _JUNOSDATAENCODINGTYPES
+_EDITEPHEMERALCONFIGREQUEST_CONFIGOPERATIONLIST.oneofs_by_name['value'].fields.append(
+  _EDITEPHEMERALCONFIGREQUEST_CONFIGOPERATIONLIST.fields_by_name['xml_config'])
+_EDITEPHEMERALCONFIGREQUEST_CONFIGOPERATIONLIST.fields_by_name['xml_config'].containing_oneof = _EDITEPHEMERALCONFIGREQUEST_CONFIGOPERATIONLIST.oneofs_by_name['value']
+_EDITEPHEMERALCONFIGREQUEST_CONFIGOPERATIONLIST.oneofs_by_name['value'].fields.append(
+  _EDITEPHEMERALCONFIGREQUEST_CONFIGOPERATIONLIST.fields_by_name['json_config'])
+_EDITEPHEMERALCONFIGREQUEST_CONFIGOPERATIONLIST.fields_by_name['json_config'].containing_oneof = _EDITEPHEMERALCONFIGREQUEST_CONFIGOPERATIONLIST.oneofs_by_name['value']
 _EDITEPHEMERALCONFIGREQUEST.fields_by_name['eph_config_operations'].message_type = _EDITEPHEMERALCONFIGREQUEST_CONFIGOPERATIONLIST
 _EDITEPHEMERALCONFIGRESPONSE_RESPONSELIST.fields_by_name['status'].enum_type = _JUNOSRPCRESPONSETYPES
 _EDITEPHEMERALCONFIGRESPONSE_RESPONSELIST.containing_type = _EDITEPHEMERALCONFIGRESPONSE
 _EDITEPHEMERALCONFIGRESPONSE.fields_by_name['response'].message_type = _EDITEPHEMERALCONFIGRESPONSE_RESPONSELIST
 _CONFIGCOMMIT.fields_by_name['commit_type'].enum_type = _CONFIGCOMMITTYPE
-_EXECUTECFGCOMMANDREQUEST.fields_by_name['format'].enum_type = _CONFIGFORMATTYPE
 _EXECUTECFGCOMMANDREQUEST.fields_by_name['load_type'].enum_type = _CONFIGLOADTYPE
 _EXECUTECFGCOMMANDREQUEST.fields_by_name['commit'].message_type = _CONFIGCOMMIT
+_EXECUTECFGCOMMANDREQUEST.oneofs_by_name['config'].fields.append(
+  _EXECUTECFGCOMMANDREQUEST.fields_by_name['xml_config'])
+_EXECUTECFGCOMMANDREQUEST.fields_by_name['xml_config'].containing_oneof = _EXECUTECFGCOMMANDREQUEST.oneofs_by_name['config']
+_EXECUTECFGCOMMANDREQUEST.oneofs_by_name['config'].fields.append(
+  _EXECUTECFGCOMMANDREQUEST.fields_by_name['json_config'])
+_EXECUTECFGCOMMANDREQUEST.fields_by_name['json_config'].containing_oneof = _EXECUTECFGCOMMANDREQUEST.oneofs_by_name['config']
+_EXECUTECFGCOMMANDREQUEST.oneofs_by_name['config'].fields.append(
+  _EXECUTECFGCOMMANDREQUEST.fields_by_name['text_config'])
+_EXECUTECFGCOMMANDREQUEST.fields_by_name['text_config'].containing_oneof = _EXECUTECFGCOMMANDREQUEST.oneofs_by_name['config']
 _EXECUTECFGCOMMANDRESPONSE.fields_by_name['status'].enum_type = _JUNOSRPCRESPONSETYPES
 DESCRIPTOR.message_types_by_name['ExecuteOpCommandRequest'] = _EXECUTEOPCOMMANDREQUEST
 DESCRIPTOR.message_types_by_name['ExecuteOpCommandResponse'] = _EXECUTEOPCOMMANDRESPONSE
@@ -907,7 +928,6 @@ DESCRIPTOR.enum_types_by_name['OperationFormatType'] = _OPERATIONFORMATTYPE
 DESCRIPTOR.enum_types_by_name['JunosRpcResponseTypes'] = _JUNOSRPCRESPONSETYPES
 DESCRIPTOR.enum_types_by_name['JunosDataEncodingTypes'] = _JUNOSDATAENCODINGTYPES
 DESCRIPTOR.enum_types_by_name['ConfigCommands'] = _CONFIGCOMMANDS
-DESCRIPTOR.enum_types_by_name['ConfigFormatType'] = _CONFIGFORMATTYPE
 DESCRIPTOR.enum_types_by_name['ConfigLoadType'] = _CONFIGLOADTYPE
 DESCRIPTOR.enum_types_by_name['ConfigCommitType'] = _CONFIGCOMMITTYPE
 

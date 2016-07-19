@@ -158,8 +158,6 @@ AgentSystemProc::_sendJunosMessagetoMgd (std::string &config,
 
     // Request Header
     edit_eph_request.set_request_id(id.getId());
-    edit_eph_request.set_encoding(
-                     management::JunosDataEncodingTypes::ENCODING_JSON);
     // edit_eph_request.set_eph_instance_name();
 
     // Create the command
@@ -168,7 +166,7 @@ AgentSystemProc::_sendJunosMessagetoMgd (std::string &config,
     cmd->set_operation_id("0");
     cmd->set_operation(cmdcode);
     cmd->set_path("/");
-    cmd->set_value(config);
+    cmd->set_json_config(config);
 
     // Send over the request
     EditEphemeralConfigResponse edit_eph_response;
@@ -214,7 +212,7 @@ AgentSystemProc::_sendJunosMessagetoMgd (std::string &config,
                                                 edit_eph_response.response(0);
 
     // Check the status
-    if (response.status() != management::JunosRpcResponseTypes::OK) {
+    if (response.status() != management::JunosRpcResponseTypes::SUCCESS) {
             // Increment count
             ++_error_system_count;
 
@@ -253,7 +251,7 @@ AgentSystemProc::systemAdd (SystemId id, const telemetry::Path *request_path)
         // Increment the counter
         ++_add_system_count;
 
-        _logger->log("MGD command UPDATE_CONFIG passed. Request_id: " +
+        _logger->log("MGD command to add config passed. Request_id: " +
                      std::to_string(id.getId()) +
                      " Path: " + AgentUtils::getMessageString(*request_path));
         return true;
@@ -275,7 +273,7 @@ AgentSystemProc::systemAdd (SystemId id, const telemetry::Path *request_path)
         // Increment the counter
         ++_add_system_count;
 
-        _logger->log("MGD command UPDATE_CONFIG passed. Request_id: " +
+        _logger->log("MGD command to add config passed. Request_id: " +
                      std::to_string(id.getId()) +
                      " Path: " + AgentUtils::getMessageString(*request_path));
         return true;
@@ -300,7 +298,7 @@ AgentSystemProc::systemRemove (SystemId id, const telemetry::Path *request_path)
         // Increment the counter
         ++_remove_system_count;
 
-        _logger->log("MGD command DELETE_CONFIG passed. Request_id: " +
+        _logger->log("MGD command to delete config passed. Request_id: " +
                      std::to_string(id.getId()) +
                      " Path: " + AgentUtils::getMessageString(*request_path));
         return true;
@@ -317,12 +315,12 @@ AgentSystemProc::systemRemove (SystemId id, const telemetry::Path *request_path)
                                     (id_idx_t)id.getId(),
                                     request_path);
     Status status = _sendJunosMessagetoMgd(config, id,
-                        management::ConfigCommands::DELETE_CONFIG);
+                        management::ConfigCommands::UPDATE_CONFIG);
     if (status.ok()) {
         // Increment the counter
         ++_add_system_count;
 
-        _logger->log("MGD command DELETE_CONFIG passed. Request_id: " +
+        _logger->log("MGD command to delete config passed. Request_id: " +
                      std::to_string(id.getId()) +
                      " Path: " + AgentUtils::getMessageString(*request_path));
         return true;
@@ -470,13 +468,13 @@ AgentSystemProc::systemClearAll (void)
 
     SystemId id(0);
     Status status = _sendJunosMessagetoMgd(config, id,
-                                management::ConfigCommands::DELETE_CONFIG);
+                                management::ConfigCommands::UPDATE_CONFIG);
     if (status.ok()) {
-        _logger->log("MGD command DELETE_CONFIG passed. Config pushed: " +
+        _logger->log("MGD command to delete all config passed. Config pushed: " +
                      config);
         return true;
     } else {
-        _logger->log("MGD command DELETE_CONFIG failed. Config pushed: " +
+        _logger->log("MGD command to delete all config failed. Config pushed: " +
                      config);
         return false;
     }

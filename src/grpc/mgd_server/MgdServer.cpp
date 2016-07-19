@@ -148,7 +148,7 @@ MgdServer::EditEphemeralConfig (ServerContext* context,
     EditEphemeralConfigResponse_ResponseList *response =
                                             edit_eph_response->add_response();
     response->set_operation_id(cmd->operation_id());
-    response->set_status(management::JunosRpcResponseTypes::OK);
+    response->set_status(management::JunosRpcResponseTypes::SUCCESS);
     response->set_message("Success");
 
     return Status::OK;
@@ -192,8 +192,8 @@ MgdServer::GetEphemeralConfig(ServerContext* context,
                                                     eph_config_db[request_id];
 
     // Fill in the details
-    response->set_value(cmd->value());
-    response->set_status(management::JunosRpcResponseTypes::OK);
+    response->set_value(cmd->json_config());
+    response->set_status(management::JunosRpcResponseTypes::SUCCESS);
     response->set_message("Success");
 
     return Status::OK;
