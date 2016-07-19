@@ -18,7 +18,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='optics.proto',
   package='',
   syntax='proto2',
-  serialized_pb=b'\n\x0coptics.proto\x1a\x13telemetry_top.proto\"+\n\x06Optics\x12!\n\x0bOptics_diag\x18\x01 \x03(\x0b\x32\x0c.OpticsInfos\"i\n\x0bOpticsInfos\x12\x16\n\x07if_name\x18\x01 \x02(\tB\x05\x82@\x02\x08\x01\x12\x15\n\rsnmp_if_index\x18\x02 \x01(\r\x12+\n\x11optics_diag_stats\x18\x03 \x01(\x0b\x32\x10.OpticsDiagStats\"\xd2\'\n\x0fOpticsDiagStats\x12\x1a\n\x0bmodule_temp\x18\x01 \x01(\x05\x42\x05\x82@\x02 \x01\x12\x1c\n\rmodule_temp_c\x18\x02 \x01(\x01\x42\x05\x82@\x02 \x01\x12\x1c\n\rmodule_temp_f\x18\x03 \x01(\x01\x42\x05\x82@\x02 \x01\x12\x1e\n\x0fmodule_temp_set\x18\x04 \x01(\x05\x42\x05\x82@\x02 \x01\x12\x30\n!receiver_signal_ave_optical_power\x18\x05 \x01(\x05\x42\x05\x82@\x02 \x01\x12\x33\n$receiver_signal_ave_optical_power_mw\x18\x06 \x01(\x01\x42\x05\x82@\x02 \x01\x12\x34\n%receiver_signal_ave_optical_power_dbm\x18\x07 \x01(\x01\x42\x05\x82@\x02 \x01\x12\x34\n%receiver_signal_ave_optical_power_set\x18\x08 \x01(\x05\x42\x05\x82@\x02 \x01\x12!\n\x12laser_output_power\x18\t \x01(\x05\x42\x05\x82@\x02 \x01\x12$\n\x15laser_output_power_mw\x18\n \x01(\x01\x42\x05\x82@\x02 \x01\x12%\n\x16laser_output_power_dbm\x18\x0b \x01(\x01\x42\x05\x82@\x02 \x01\x12%\n\x16laser_output_power_set\x18\x0c \x01(\x05\x42\x05\x82@\x02 \x01\x12/\n module_temp_high_alarm_threshold\x18\r \x01(\x05\x42\x05\x82@\x02 \x01\x12\x31\n\"module_temp_high_alarm_threshold_c\x18\x0e \x01(\x01\x42\x05\x82@\x02 \x01\x12\x31\n\"module_temp_high_alarm_threshold_f\x18\x0f \x01(\x01\x42\x05\x82@\x02 \x01\x12\x33\n$module_temp_high_alarm_threshold_set\x18\x10 \x01(\x05\x42\x05\x82@\x02 \x01\x12.\n\x1fmodule_temp_low_alarm_threshold\x18\x11 \x01(\x05\x42\x05\x82@\x02 \x01\x12\x30\n!module_temp_low_alarm_threshold_c\x18\x12 \x01(\x01\x42\x05\x82@\x02 \x01\x12\x30\n!module_temp_low_alarm_threshold_f\x18\x13 \x01(\x01\x42\x05\x82@\x02 \x01\x12\x32\n#module_temp_low_alarm_threshold_set\x18\x14 \x01(\x05\x42\x05\x82@\x02 \x01\x12\x31\n\"module_temp_high_warning_threshold\x18\x15 \x01(\x05\x42\x05\x82@\x02 \x01\x12\x33\n$module_temp_high_warning_threshold_c\x18\x16 \x01(\x01\x42\x05\x82@\x02 \x01\x12\x33\n$module_temp_high_warning_threshold_f\x18\x17 \x01(\x01\x42\x05\x82@\x02 \x01\x12\x35\n&module_temp_high_warning_threshold_set\x18\x18 \x01(\x05\x42\x05\x82@\x02 \x01\x12\x30\n!module_temp_low_warning_threshold\x18\x19 \x01(\x05\x42\x05\x82@\x02 \x01\x12\x32\n#module_temp_low_warning_threshold_c\x18\x1a \x01(\x01\x42\x05\x82@\x02 \x01\x12\x32\n#module_temp_low_warning_threshold_f\x18\x1b \x01(\x01\x42\x05\x82@\x02 \x01\x12\x34\n%module_temp_low_warning_threshold_set\x18\x1c \x01(\x05\x42\x05\x82@\x02 \x01\x12\x36\n\'laser_output_power_high_alarm_threshold\x18\x1d \x01(\x05\x42\x05\x82@\x02 \x01\x12\x39\n*laser_output_power_high_alarm_threshold_mw\x18\x1e \x01(\x01\x42\x05\x82@\x02 \x01\x12:\n+laser_output_power_high_alarm_threshold_dbm\x18\x1f \x01(\x01\x42\x05\x82@\x02 \x01\x12:\n+laser_output_power_high_alarm_threshold_set\x18  \x01(\x05\x42\x05\x82@\x02 \x01\x12\x35\n&laser_output_power_low_alarm_threshold\x18! \x01(\x05\x42\x05\x82@\x02 \x01\x12\x38\n)laser_output_power_low_alarm_threshold_mw\x18\" \x01(\x01\x42\x05\x82@\x02 \x01\x12\x39\n*laser_output_power_low_alarm_threshold_dbm\x18# \x01(\x01\x42\x05\x82@\x02 \x01\x12\x39\n*laser_output_power_low_alarm_threshold_set\x18$ \x01(\x05\x42\x05\x82@\x02 \x01\x12\x38\n)laser_output_power_high_warning_threshold\x18% \x01(\x05\x42\x05\x82@\x02 \x01\x12;\n,laser_output_power_high_warning_threshold_mw\x18& \x01(\x01\x42\x05\x82@\x02 \x01\x12<\n-laser_output_power_high_warning_threshold_dbm\x18\' \x01(\x01\x42\x05\x82@\x02 \x01\x12<\n-laser_output_power_high_warning_threshold_set\x18( \x01(\x05\x42\x05\x82@\x02 \x01\x12\x37\n(laser_output_power_low_warning_threshold\x18) \x01(\x05\x42\x05\x82@\x02 \x01\x12:\n+laser_output_power_low_warning_threshold_mw\x18* \x01(\x01\x42\x05\x82@\x02 \x01\x12;\n,laser_output_power_low_warning_threshold_dbm\x18+ \x01(\x01\x42\x05\x82@\x02 \x01\x12;\n,laser_output_power_low_warning_threshold_set\x18, \x01(\x05\x42\x05\x82@\x02 \x01\x12\x32\n#laser_rx_power_high_alarm_threshold\x18- \x01(\x05\x42\x05\x82@\x02 \x01\x12\x35\n&laser_rx_power_high_alarm_threshold_mw\x18. \x01(\x01\x42\x05\x82@\x02 \x01\x12\x36\n\'laser_rx_power_high_alarm_threshold_dbm\x18/ \x01(\x01\x42\x05\x82@\x02 \x01\x12\x36\n\'laser_rx_power_high_alarm_threshold_set\x18\x30 \x01(\x05\x42\x05\x82@\x02 \x01\x12\x31\n\"laser_rx_power_low_alarm_threshold\x18\x31 \x01(\x05\x42\x05\x82@\x02 \x01\x12\x34\n%laser_rx_power_low_alarm_threshold_mw\x18\x32 \x01(\x01\x42\x05\x82@\x02 \x01\x12\x35\n&laser_rx_power_low_alarm_threshold_dbm\x18\x33 \x01(\x01\x42\x05\x82@\x02 \x01\x12\x35\n&laser_rx_power_low_alarm_threshold_set\x18\x34 \x01(\x05\x42\x05\x82@\x02 \x01\x12\x34\n%laser_rx_power_high_warning_threshold\x18\x35 \x01(\x05\x42\x05\x82@\x02 \x01\x12\x37\n(laser_rx_power_high_warning_threshold_mw\x18\x36 \x01(\x01\x42\x05\x82@\x02 \x01\x12\x38\n)laser_rx_power_high_warning_threshold_dbm\x18\x37 \x01(\x01\x42\x05\x82@\x02 \x01\x12\x38\n)laser_rx_power_high_warning_threshold_set\x18\x38 \x01(\x05\x42\x05\x82@\x02 \x01\x12\x33\n$laser_rx_power_low_warning_threshold\x18\x39 \x01(\x05\x42\x05\x82@\x02 \x01\x12\x36\n\'laser_rx_power_low_warning_threshold_mw\x18: \x01(\x01\x42\x05\x82@\x02 \x01\x12\x37\n(laser_rx_power_low_warning_threshold_dbm\x18; \x01(\x01\x42\x05\x82@\x02 \x01\x12\x37\n(laser_rx_power_low_warning_threshold_set\x18< \x01(\x05\x42\x05\x82@\x02 \x01\x12\x1a\n\x0blane_number\x18= \x01(\x05\x42\x05\x82@\x02 \x01\x12\x1e\n\x0flane_laser_temp\x18> \x01(\x05\x42\x05\x82@\x02 \x01\x12 \n\x11lane_laser_temp_c\x18? \x01(\x01\x42\x05\x82@\x02 \x01\x12 \n\x11lane_laser_temp_f\x18@ \x01(\x01\x42\x05\x82@\x02 \x01\x12\"\n\x13lane_laser_temp_set\x18\x41 \x01(\x05\x42\x05\x82@\x02 \x01\x12&\n\x17lane_laser_output_power\x18\x42 \x01(\x05\x42\x05\x82@\x02 \x01\x12)\n\x1alane_laser_output_power_mw\x18\x43 \x01(\x01\x42\x05\x82@\x02 \x01\x12*\n\x1blane_laser_output_power_dbm\x18\x44 \x01(\x01\x42\x05\x82@\x02 \x01\x12*\n\x1blane_laser_output_power_set\x18\x45 \x01(\x05\x42\x05\x82@\x02 \x01\x12(\n\x19lane_laser_receiver_power\x18\x46 \x01(\x05\x42\x05\x82@\x02 \x01\x12+\n\x1clane_laser_receiver_power_mw\x18G \x01(\x01\x42\x05\x82@\x02 \x01\x12,\n\x1dlane_laser_receiver_power_dbm\x18H \x01(\x01\x42\x05\x82@\x02 \x01\x12,\n\x1dlane_laser_receiver_power_set\x18I \x01(\x05\x42\x05\x82@\x02 \x01\x12-\n\x1elane_laser_temp_high_alarm_set\x18J \x01(\x05\x42\x05\x82@\x02 \x01\x12)\n\x1alane_laser_temp_high_alarm\x18K \x01(\x05\x42\x05\x82@\x02 \x01\x12,\n\x1dlane_laser_temp_low_alarm_set\x18L \x01(\x05\x42\x05\x82@\x02 \x01\x12(\n\x19lane_laser_temp_low_alarm\x18M \x01(\x05\x42\x05\x82@\x02 \x01\x12/\n lane_laser_temp_high_warning_set\x18N \x01(\x05\x42\x05\x82@\x02 \x01\x12+\n\x1clane_laser_temp_high_warning\x18O \x01(\x05\x42\x05\x82@\x02 \x01\x12\x35\n&lane_laser_output_power_high_alarm_set\x18P \x01(\x05\x42\x05\x82@\x02 \x01\x12\x31\n\"lane_laser_output_power_high_alarm\x18Q \x01(\x05\x42\x05\x82@\x02 \x01\x12\x34\n%lane_laser_output_power_low_alarm_set\x18R \x01(\x05\x42\x05\x82@\x02 \x01\x12\x30\n!lane_laser_output_power_low_alarm\x18S \x01(\x05\x42\x05\x82@\x02 \x01\x12\x37\n(lane_laser_output_power_high_warning_set\x18T \x01(\x05\x42\x05\x82@\x02 \x01\x12\x33\n$lane_laser_output_power_high_warning\x18U \x01(\x05\x42\x05\x82@\x02 \x01\x12\x36\n\'lane_laser_output_power_low_warning_set\x18V \x01(\x05\x42\x05\x82@\x02 \x01\x12\x32\n#lane_laser_output_power_low_warning\x18W \x01(\x05\x42\x05\x82@\x02 \x01\x12\x37\n(lane_laser_receiver_power_high_alarm_set\x18X \x01(\x05\x42\x05\x82@\x02 \x01\x12\x33\n$lane_laser_receiver_power_high_alarm\x18Y \x01(\x05\x42\x05\x82@\x02 \x01\x12\x36\n\'lane_laser_receiver_power_low_alarm_set\x18Z \x01(\x05\x42\x05\x82@\x02 \x01\x12\x32\n#lane_laser_receiver_power_low_alarm\x18[ \x01(\x05\x42\x05\x82@\x02 \x01\x12\x39\n*lane_laser_receiver_power_high_warning_set\x18\\ \x01(\x05\x42\x05\x82@\x02 \x01\x12\x35\n&lane_laser_receiver_power_high_warning\x18] \x01(\x05\x42\x05\x82@\x02 \x01\x12\x38\n)lane_laser_receiver_power_low_warning_set\x18^ \x01(\x05\x42\x05\x82@\x02 \x01\x12\x34\n%lane_laser_receiver_power_low_warning\x18_ \x01(\x05\x42\x05\x82@\x02 \x01\x12\x1a\n\x0boptics_type\x18` \x01(\x05\x42\x05\x82@\x02 \x01\x12$\n\x15optics_alarm_validity\x18\x61 \x01(\x05\x42\x05\x82@\x02 \x01\x12 \n\x11optics_capability\x18\x62 \x01(\x05\x42\x05\x82@\x02 \x01\x12\x1e\n\x0f\x61\x63tive_lane_map\x18\x63 \x01(\x05\x42\x05\x82@\x02 \x01\x12#\n\x14lane_alarms_warnings\x18\x64 \x01(\x05\x42\x05\x82@\x02 \x01\x12.\n\x1flane_laser_temp_low_warning_set\x18\x65 \x01(\x05\x42\x05\x82@\x02 \x01\x12*\n\x1blane_laser_temp_low_warning\x18\x66 \x01(\x05\x42\x05\x82@\x02 \x01:9\n\x0fjnpr_optics_ext\x12\x17.JuniperNetworksSensors\x18\n \x01(\x0b\x32\x07.Optics'
+  serialized_pb=b'\n\x0coptics.proto\x1a\x13telemetry_top.proto\"+\n\x06Optics\x12!\n\x0bOptics_diag\x18\x01 \x03(\x0b\x32\x0c.OpticsInfos\"i\n\x0bOpticsInfos\x12\x16\n\x07if_name\x18\x01 \x02(\tB\x05\x82@\x02\x08\x01\x12\x15\n\rsnmp_if_index\x18\x02 \x01(\r\x12+\n\x11optics_diag_stats\x18\x03 \x01(\x0b\x32\x10.OpticsDiagStats\"\xf6\x08\n\x0fOpticsDiagStats\x12\x13\n\x0boptics_type\x18\x01 \x01(\r\x12\x1a\n\x0bmodule_temp\x18\x02 \x01(\x01\x42\x05\x82@\x02 \x01\x12/\n module_temp_high_alarm_threshold\x18\x03 \x01(\x01\x42\x05\x82@\x02 \x01\x12.\n\x1fmodule_temp_low_alarm_threshold\x18\x04 \x01(\x01\x42\x05\x82@\x02 \x01\x12\x31\n\"module_temp_high_warning_threshold\x18\x05 \x01(\x01\x42\x05\x82@\x02 \x01\x12\x30\n!module_temp_low_warning_threshold\x18\x06 \x01(\x01\x42\x05\x82@\x02 \x01\x12:\n+laser_output_power_high_alarm_threshold_dbm\x18\x07 \x01(\x01\x42\x05\x82@\x02 \x01\x12\x39\n*laser_output_power_low_alarm_threshold_dbm\x18\x08 \x01(\x01\x42\x05\x82@\x02 \x01\x12<\n-laser_output_power_high_warning_threshold_dbm\x18\t \x01(\x01\x42\x05\x82@\x02 \x01\x12;\n,laser_output_power_low_warning_threshold_dbm\x18\n \x01(\x01\x42\x05\x82@\x02 \x01\x12\x36\n\'laser_rx_power_high_alarm_threshold_dbm\x18\x0b \x01(\x01\x42\x05\x82@\x02 \x01\x12\x35\n&laser_rx_power_low_alarm_threshold_dbm\x18\x0c \x01(\x01\x42\x05\x82@\x02 \x01\x12\x38\n)laser_rx_power_high_warning_threshold_dbm\x18\r \x01(\x01\x42\x05\x82@\x02 \x01\x12\x37\n(laser_rx_power_low_warning_threshold_dbm\x18\x0e \x01(\x01\x42\x05\x82@\x02 \x01\x12\x36\n\'laser_bias_current_high_alarm_threshold\x18\x0f \x01(\x01\x42\x05\x82@\x02 \x01\x12\x35\n&laser_bias_current_low_alarm_threshold\x18\x10 \x01(\x01\x42\x05\x82@\x02 \x01\x12\x38\n)laser_bias_current_high_warning_threshold\x18\x11 \x01(\x01\x42\x05\x82@\x02 \x01\x12\x37\n(laser_bias_current_low_warning_threshold\x18\x12 \x01(\x01\x42\x05\x82@\x02 \x01\x12\x1e\n\x16module_temp_high_alarm\x18\x13 \x01(\x08\x12\x1d\n\x15module_temp_low_alarm\x18\x14 \x01(\x08\x12 \n\x18module_temp_high_warning\x18\x15 \x01(\x08\x12\x1f\n\x17module_temp_low_warning\x18\x16 \x01(\x08\x12\x34\n\x16optics_lane_diag_stats\x18\x17 \x03(\x0b\x32\x14.OpticsDiagLaneStats\"\xe3\x06\n\x13OpticsDiagLaneStats\x12\x1a\n\x0blane_number\x18\x01 \x01(\rB\x05\x82@\x02\x08\x01\x12%\n\x16lane_laser_temperature\x18\x02 \x01(\x01\x42\x05\x82@\x02 \x01\x12*\n\x1blane_laser_output_power_dbm\x18\x03 \x01(\x01\x42\x05\x82@\x02 \x01\x12,\n\x1dlane_laser_receiver_power_dbm\x18\x04 \x01(\x01\x42\x05\x82@\x02 \x01\x12\x1f\n\x17lane_laser_bias_current\x18\x05 \x01(\x01\x12*\n\"lane_laser_output_power_high_alarm\x18\x06 \x01(\x08\x12)\n!lane_laser_output_power_low_alarm\x18\x07 \x01(\x08\x12,\n$lane_laser_output_power_high_warning\x18\x08 \x01(\x08\x12+\n#lane_laser_output_power_low_warning\x18\t \x01(\x08\x12,\n$lane_laser_receiver_power_high_alarm\x18\n \x01(\x08\x12+\n#lane_laser_receiver_power_low_alarm\x18\x0b \x01(\x08\x12.\n&lane_laser_receiver_power_high_warning\x18\x0c \x01(\x08\x12-\n%lane_laser_receiver_power_low_warning\x18\r \x01(\x08\x12*\n\"lane_laser_bias_current_high_alarm\x18\x0e \x01(\x08\x12)\n!lane_laser_bias_current_low_alarm\x18\x0f \x01(\x08\x12,\n$lane_laser_bias_current_high_warning\x18\x10 \x01(\x08\x12+\n#lane_laser_bias_current_low_warning\x18\x11 \x01(\x08\x12$\n\x1clane_tx_loss_of_signal_alarm\x18\x12 \x01(\x08\x12$\n\x1clane_rx_loss_of_signal_alarm\x18\x13 \x01(\x08\x12$\n\x1clane_tx_laser_disabled_alarm\x18\x14 \x01(\x08:9\n\x0fjnpr_optics_ext\x12\x17.JuniperNetworksSensors\x18\n \x01(\x0b\x32\x07.Optics'
   ,
   dependencies=[telemetry__top__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -118,719 +118,166 @@ _OPTICSDIAGSTATS = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='module_temp', full_name='OpticsDiagStats.module_temp', index=0,
-      number=1, type=5, cpp_type=1, label=1,
+      name='optics_type', full_name='OpticsDiagStats.optics_type', index=0,
+      number=1, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
+      options=None),
     _descriptor.FieldDescriptor(
-      name='module_temp_c', full_name='OpticsDiagStats.module_temp_c', index=1,
+      name='module_temp', full_name='OpticsDiagStats.module_temp', index=1,
       number=2, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
     _descriptor.FieldDescriptor(
-      name='module_temp_f', full_name='OpticsDiagStats.module_temp_f', index=2,
+      name='module_temp_high_alarm_threshold', full_name='OpticsDiagStats.module_temp_high_alarm_threshold', index=2,
       number=3, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
     _descriptor.FieldDescriptor(
-      name='module_temp_set', full_name='OpticsDiagStats.module_temp_set', index=3,
-      number=4, type=5, cpp_type=1, label=1,
+      name='module_temp_low_alarm_threshold', full_name='OpticsDiagStats.module_temp_low_alarm_threshold', index=3,
+      number=4, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
     _descriptor.FieldDescriptor(
-      name='receiver_signal_ave_optical_power', full_name='OpticsDiagStats.receiver_signal_ave_optical_power', index=4,
-      number=5, type=5, cpp_type=1, label=1,
+      name='module_temp_high_warning_threshold', full_name='OpticsDiagStats.module_temp_high_warning_threshold', index=4,
+      number=5, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
     _descriptor.FieldDescriptor(
-      name='receiver_signal_ave_optical_power_mw', full_name='OpticsDiagStats.receiver_signal_ave_optical_power_mw', index=5,
+      name='module_temp_low_warning_threshold', full_name='OpticsDiagStats.module_temp_low_warning_threshold', index=5,
       number=6, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
     _descriptor.FieldDescriptor(
-      name='receiver_signal_ave_optical_power_dbm', full_name='OpticsDiagStats.receiver_signal_ave_optical_power_dbm', index=6,
+      name='laser_output_power_high_alarm_threshold_dbm', full_name='OpticsDiagStats.laser_output_power_high_alarm_threshold_dbm', index=6,
       number=7, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
     _descriptor.FieldDescriptor(
-      name='receiver_signal_ave_optical_power_set', full_name='OpticsDiagStats.receiver_signal_ave_optical_power_set', index=7,
-      number=8, type=5, cpp_type=1, label=1,
+      name='laser_output_power_low_alarm_threshold_dbm', full_name='OpticsDiagStats.laser_output_power_low_alarm_threshold_dbm', index=7,
+      number=8, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
     _descriptor.FieldDescriptor(
-      name='laser_output_power', full_name='OpticsDiagStats.laser_output_power', index=8,
-      number=9, type=5, cpp_type=1, label=1,
+      name='laser_output_power_high_warning_threshold_dbm', full_name='OpticsDiagStats.laser_output_power_high_warning_threshold_dbm', index=8,
+      number=9, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
     _descriptor.FieldDescriptor(
-      name='laser_output_power_mw', full_name='OpticsDiagStats.laser_output_power_mw', index=9,
+      name='laser_output_power_low_warning_threshold_dbm', full_name='OpticsDiagStats.laser_output_power_low_warning_threshold_dbm', index=9,
       number=10, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
     _descriptor.FieldDescriptor(
-      name='laser_output_power_dbm', full_name='OpticsDiagStats.laser_output_power_dbm', index=10,
+      name='laser_rx_power_high_alarm_threshold_dbm', full_name='OpticsDiagStats.laser_rx_power_high_alarm_threshold_dbm', index=10,
       number=11, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
     _descriptor.FieldDescriptor(
-      name='laser_output_power_set', full_name='OpticsDiagStats.laser_output_power_set', index=11,
-      number=12, type=5, cpp_type=1, label=1,
+      name='laser_rx_power_low_alarm_threshold_dbm', full_name='OpticsDiagStats.laser_rx_power_low_alarm_threshold_dbm', index=11,
+      number=12, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
     _descriptor.FieldDescriptor(
-      name='module_temp_high_alarm_threshold', full_name='OpticsDiagStats.module_temp_high_alarm_threshold', index=12,
-      number=13, type=5, cpp_type=1, label=1,
+      name='laser_rx_power_high_warning_threshold_dbm', full_name='OpticsDiagStats.laser_rx_power_high_warning_threshold_dbm', index=12,
+      number=13, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
     _descriptor.FieldDescriptor(
-      name='module_temp_high_alarm_threshold_c', full_name='OpticsDiagStats.module_temp_high_alarm_threshold_c', index=13,
+      name='laser_rx_power_low_warning_threshold_dbm', full_name='OpticsDiagStats.laser_rx_power_low_warning_threshold_dbm', index=13,
       number=14, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
     _descriptor.FieldDescriptor(
-      name='module_temp_high_alarm_threshold_f', full_name='OpticsDiagStats.module_temp_high_alarm_threshold_f', index=14,
+      name='laser_bias_current_high_alarm_threshold', full_name='OpticsDiagStats.laser_bias_current_high_alarm_threshold', index=14,
       number=15, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
     _descriptor.FieldDescriptor(
-      name='module_temp_high_alarm_threshold_set', full_name='OpticsDiagStats.module_temp_high_alarm_threshold_set', index=15,
-      number=16, type=5, cpp_type=1, label=1,
+      name='laser_bias_current_low_alarm_threshold', full_name='OpticsDiagStats.laser_bias_current_low_alarm_threshold', index=15,
+      number=16, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
     _descriptor.FieldDescriptor(
-      name='module_temp_low_alarm_threshold', full_name='OpticsDiagStats.module_temp_low_alarm_threshold', index=16,
-      number=17, type=5, cpp_type=1, label=1,
+      name='laser_bias_current_high_warning_threshold', full_name='OpticsDiagStats.laser_bias_current_high_warning_threshold', index=16,
+      number=17, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
     _descriptor.FieldDescriptor(
-      name='module_temp_low_alarm_threshold_c', full_name='OpticsDiagStats.module_temp_low_alarm_threshold_c', index=17,
+      name='laser_bias_current_low_warning_threshold', full_name='OpticsDiagStats.laser_bias_current_low_warning_threshold', index=17,
       number=18, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
     _descriptor.FieldDescriptor(
-      name='module_temp_low_alarm_threshold_f', full_name='OpticsDiagStats.module_temp_low_alarm_threshold_f', index=18,
-      number=19, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=0,
+      name='module_temp_high_alarm', full_name='OpticsDiagStats.module_temp_high_alarm', index=18,
+      number=19, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
+      options=None),
     _descriptor.FieldDescriptor(
-      name='module_temp_low_alarm_threshold_set', full_name='OpticsDiagStats.module_temp_low_alarm_threshold_set', index=19,
-      number=20, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
+      name='module_temp_low_alarm', full_name='OpticsDiagStats.module_temp_low_alarm', index=19,
+      number=20, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
+      options=None),
     _descriptor.FieldDescriptor(
-      name='module_temp_high_warning_threshold', full_name='OpticsDiagStats.module_temp_high_warning_threshold', index=20,
-      number=21, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
+      name='module_temp_high_warning', full_name='OpticsDiagStats.module_temp_high_warning', index=20,
+      number=21, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
+      options=None),
     _descriptor.FieldDescriptor(
-      name='module_temp_high_warning_threshold_c', full_name='OpticsDiagStats.module_temp_high_warning_threshold_c', index=21,
-      number=22, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=0,
+      name='module_temp_low_warning', full_name='OpticsDiagStats.module_temp_low_warning', index=21,
+      number=22, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
+      options=None),
     _descriptor.FieldDescriptor(
-      name='module_temp_high_warning_threshold_f', full_name='OpticsDiagStats.module_temp_high_warning_threshold_f', index=22,
-      number=23, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=0,
+      name='optics_lane_diag_stats', full_name='OpticsDiagStats.optics_lane_diag_stats', index=22,
+      number=23, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='module_temp_high_warning_threshold_set', full_name='OpticsDiagStats.module_temp_high_warning_threshold_set', index=23,
-      number=24, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='module_temp_low_warning_threshold', full_name='OpticsDiagStats.module_temp_low_warning_threshold', index=24,
-      number=25, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='module_temp_low_warning_threshold_c', full_name='OpticsDiagStats.module_temp_low_warning_threshold_c', index=25,
-      number=26, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='module_temp_low_warning_threshold_f', full_name='OpticsDiagStats.module_temp_low_warning_threshold_f', index=26,
-      number=27, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='module_temp_low_warning_threshold_set', full_name='OpticsDiagStats.module_temp_low_warning_threshold_set', index=27,
-      number=28, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='laser_output_power_high_alarm_threshold', full_name='OpticsDiagStats.laser_output_power_high_alarm_threshold', index=28,
-      number=29, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='laser_output_power_high_alarm_threshold_mw', full_name='OpticsDiagStats.laser_output_power_high_alarm_threshold_mw', index=29,
-      number=30, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='laser_output_power_high_alarm_threshold_dbm', full_name='OpticsDiagStats.laser_output_power_high_alarm_threshold_dbm', index=30,
-      number=31, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='laser_output_power_high_alarm_threshold_set', full_name='OpticsDiagStats.laser_output_power_high_alarm_threshold_set', index=31,
-      number=32, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='laser_output_power_low_alarm_threshold', full_name='OpticsDiagStats.laser_output_power_low_alarm_threshold', index=32,
-      number=33, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='laser_output_power_low_alarm_threshold_mw', full_name='OpticsDiagStats.laser_output_power_low_alarm_threshold_mw', index=33,
-      number=34, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='laser_output_power_low_alarm_threshold_dbm', full_name='OpticsDiagStats.laser_output_power_low_alarm_threshold_dbm', index=34,
-      number=35, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='laser_output_power_low_alarm_threshold_set', full_name='OpticsDiagStats.laser_output_power_low_alarm_threshold_set', index=35,
-      number=36, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='laser_output_power_high_warning_threshold', full_name='OpticsDiagStats.laser_output_power_high_warning_threshold', index=36,
-      number=37, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='laser_output_power_high_warning_threshold_mw', full_name='OpticsDiagStats.laser_output_power_high_warning_threshold_mw', index=37,
-      number=38, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='laser_output_power_high_warning_threshold_dbm', full_name='OpticsDiagStats.laser_output_power_high_warning_threshold_dbm', index=38,
-      number=39, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='laser_output_power_high_warning_threshold_set', full_name='OpticsDiagStats.laser_output_power_high_warning_threshold_set', index=39,
-      number=40, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='laser_output_power_low_warning_threshold', full_name='OpticsDiagStats.laser_output_power_low_warning_threshold', index=40,
-      number=41, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='laser_output_power_low_warning_threshold_mw', full_name='OpticsDiagStats.laser_output_power_low_warning_threshold_mw', index=41,
-      number=42, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='laser_output_power_low_warning_threshold_dbm', full_name='OpticsDiagStats.laser_output_power_low_warning_threshold_dbm', index=42,
-      number=43, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='laser_output_power_low_warning_threshold_set', full_name='OpticsDiagStats.laser_output_power_low_warning_threshold_set', index=43,
-      number=44, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='laser_rx_power_high_alarm_threshold', full_name='OpticsDiagStats.laser_rx_power_high_alarm_threshold', index=44,
-      number=45, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='laser_rx_power_high_alarm_threshold_mw', full_name='OpticsDiagStats.laser_rx_power_high_alarm_threshold_mw', index=45,
-      number=46, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='laser_rx_power_high_alarm_threshold_dbm', full_name='OpticsDiagStats.laser_rx_power_high_alarm_threshold_dbm', index=46,
-      number=47, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='laser_rx_power_high_alarm_threshold_set', full_name='OpticsDiagStats.laser_rx_power_high_alarm_threshold_set', index=47,
-      number=48, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='laser_rx_power_low_alarm_threshold', full_name='OpticsDiagStats.laser_rx_power_low_alarm_threshold', index=48,
-      number=49, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='laser_rx_power_low_alarm_threshold_mw', full_name='OpticsDiagStats.laser_rx_power_low_alarm_threshold_mw', index=49,
-      number=50, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='laser_rx_power_low_alarm_threshold_dbm', full_name='OpticsDiagStats.laser_rx_power_low_alarm_threshold_dbm', index=50,
-      number=51, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='laser_rx_power_low_alarm_threshold_set', full_name='OpticsDiagStats.laser_rx_power_low_alarm_threshold_set', index=51,
-      number=52, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='laser_rx_power_high_warning_threshold', full_name='OpticsDiagStats.laser_rx_power_high_warning_threshold', index=52,
-      number=53, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='laser_rx_power_high_warning_threshold_mw', full_name='OpticsDiagStats.laser_rx_power_high_warning_threshold_mw', index=53,
-      number=54, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='laser_rx_power_high_warning_threshold_dbm', full_name='OpticsDiagStats.laser_rx_power_high_warning_threshold_dbm', index=54,
-      number=55, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='laser_rx_power_high_warning_threshold_set', full_name='OpticsDiagStats.laser_rx_power_high_warning_threshold_set', index=55,
-      number=56, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='laser_rx_power_low_warning_threshold', full_name='OpticsDiagStats.laser_rx_power_low_warning_threshold', index=56,
-      number=57, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='laser_rx_power_low_warning_threshold_mw', full_name='OpticsDiagStats.laser_rx_power_low_warning_threshold_mw', index=57,
-      number=58, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='laser_rx_power_low_warning_threshold_dbm', full_name='OpticsDiagStats.laser_rx_power_low_warning_threshold_dbm', index=58,
-      number=59, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='laser_rx_power_low_warning_threshold_set', full_name='OpticsDiagStats.laser_rx_power_low_warning_threshold_set', index=59,
-      number=60, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='lane_number', full_name='OpticsDiagStats.lane_number', index=60,
-      number=61, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='lane_laser_temp', full_name='OpticsDiagStats.lane_laser_temp', index=61,
-      number=62, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='lane_laser_temp_c', full_name='OpticsDiagStats.lane_laser_temp_c', index=62,
-      number=63, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='lane_laser_temp_f', full_name='OpticsDiagStats.lane_laser_temp_f', index=63,
-      number=64, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='lane_laser_temp_set', full_name='OpticsDiagStats.lane_laser_temp_set', index=64,
-      number=65, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='lane_laser_output_power', full_name='OpticsDiagStats.lane_laser_output_power', index=65,
-      number=66, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='lane_laser_output_power_mw', full_name='OpticsDiagStats.lane_laser_output_power_mw', index=66,
-      number=67, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='lane_laser_output_power_dbm', full_name='OpticsDiagStats.lane_laser_output_power_dbm', index=67,
-      number=68, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='lane_laser_output_power_set', full_name='OpticsDiagStats.lane_laser_output_power_set', index=68,
-      number=69, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='lane_laser_receiver_power', full_name='OpticsDiagStats.lane_laser_receiver_power', index=69,
-      number=70, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='lane_laser_receiver_power_mw', full_name='OpticsDiagStats.lane_laser_receiver_power_mw', index=70,
-      number=71, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='lane_laser_receiver_power_dbm', full_name='OpticsDiagStats.lane_laser_receiver_power_dbm', index=71,
-      number=72, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='lane_laser_receiver_power_set', full_name='OpticsDiagStats.lane_laser_receiver_power_set', index=72,
-      number=73, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='lane_laser_temp_high_alarm_set', full_name='OpticsDiagStats.lane_laser_temp_high_alarm_set', index=73,
-      number=74, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='lane_laser_temp_high_alarm', full_name='OpticsDiagStats.lane_laser_temp_high_alarm', index=74,
-      number=75, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='lane_laser_temp_low_alarm_set', full_name='OpticsDiagStats.lane_laser_temp_low_alarm_set', index=75,
-      number=76, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='lane_laser_temp_low_alarm', full_name='OpticsDiagStats.lane_laser_temp_low_alarm', index=76,
-      number=77, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='lane_laser_temp_high_warning_set', full_name='OpticsDiagStats.lane_laser_temp_high_warning_set', index=77,
-      number=78, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='lane_laser_temp_high_warning', full_name='OpticsDiagStats.lane_laser_temp_high_warning', index=78,
-      number=79, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='lane_laser_output_power_high_alarm_set', full_name='OpticsDiagStats.lane_laser_output_power_high_alarm_set', index=79,
-      number=80, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='lane_laser_output_power_high_alarm', full_name='OpticsDiagStats.lane_laser_output_power_high_alarm', index=80,
-      number=81, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='lane_laser_output_power_low_alarm_set', full_name='OpticsDiagStats.lane_laser_output_power_low_alarm_set', index=81,
-      number=82, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='lane_laser_output_power_low_alarm', full_name='OpticsDiagStats.lane_laser_output_power_low_alarm', index=82,
-      number=83, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='lane_laser_output_power_high_warning_set', full_name='OpticsDiagStats.lane_laser_output_power_high_warning_set', index=83,
-      number=84, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='lane_laser_output_power_high_warning', full_name='OpticsDiagStats.lane_laser_output_power_high_warning', index=84,
-      number=85, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='lane_laser_output_power_low_warning_set', full_name='OpticsDiagStats.lane_laser_output_power_low_warning_set', index=85,
-      number=86, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='lane_laser_output_power_low_warning', full_name='OpticsDiagStats.lane_laser_output_power_low_warning', index=86,
-      number=87, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='lane_laser_receiver_power_high_alarm_set', full_name='OpticsDiagStats.lane_laser_receiver_power_high_alarm_set', index=87,
-      number=88, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='lane_laser_receiver_power_high_alarm', full_name='OpticsDiagStats.lane_laser_receiver_power_high_alarm', index=88,
-      number=89, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='lane_laser_receiver_power_low_alarm_set', full_name='OpticsDiagStats.lane_laser_receiver_power_low_alarm_set', index=89,
-      number=90, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='lane_laser_receiver_power_low_alarm', full_name='OpticsDiagStats.lane_laser_receiver_power_low_alarm', index=90,
-      number=91, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='lane_laser_receiver_power_high_warning_set', full_name='OpticsDiagStats.lane_laser_receiver_power_high_warning_set', index=91,
-      number=92, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='lane_laser_receiver_power_high_warning', full_name='OpticsDiagStats.lane_laser_receiver_power_high_warning', index=92,
-      number=93, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='lane_laser_receiver_power_low_warning_set', full_name='OpticsDiagStats.lane_laser_receiver_power_low_warning_set', index=93,
-      number=94, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='lane_laser_receiver_power_low_warning', full_name='OpticsDiagStats.lane_laser_receiver_power_low_warning', index=94,
-      number=95, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='optics_type', full_name='OpticsDiagStats.optics_type', index=95,
-      number=96, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='optics_alarm_validity', full_name='OpticsDiagStats.optics_alarm_validity', index=96,
-      number=97, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='optics_capability', full_name='OpticsDiagStats.optics_capability', index=97,
-      number=98, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='active_lane_map', full_name='OpticsDiagStats.active_lane_map', index=98,
-      number=99, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='lane_alarms_warnings', full_name='OpticsDiagStats.lane_alarms_warnings', index=99,
-      number=100, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='lane_laser_temp_low_warning_set', full_name='OpticsDiagStats.lane_laser_temp_low_warning_set', index=100,
-      number=101, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
-    _descriptor.FieldDescriptor(
-      name='lane_laser_temp_low_warning', full_name='OpticsDiagStats.lane_laser_temp_low_warning', index=101,
-      number=102, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
+      options=None),
   ],
   extensions=[
   ],
@@ -844,14 +291,180 @@ _OPTICSDIAGSTATS = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=190,
-  serialized_end=5264,
+  serialized_end=1332,
+)
+
+
+_OPTICSDIAGLANESTATS = _descriptor.Descriptor(
+  name='OpticsDiagLaneStats',
+  full_name='OpticsDiagLaneStats',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='lane_number', full_name='OpticsDiagLaneStats.lane_number', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002\010\001')),
+    _descriptor.FieldDescriptor(
+      name='lane_laser_temperature', full_name='OpticsDiagLaneStats.lane_laser_temperature', index=1,
+      number=2, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
+    _descriptor.FieldDescriptor(
+      name='lane_laser_output_power_dbm', full_name='OpticsDiagLaneStats.lane_laser_output_power_dbm', index=2,
+      number=3, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
+    _descriptor.FieldDescriptor(
+      name='lane_laser_receiver_power_dbm', full_name='OpticsDiagLaneStats.lane_laser_receiver_power_dbm', index=3,
+      number=4, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')),
+    _descriptor.FieldDescriptor(
+      name='lane_laser_bias_current', full_name='OpticsDiagLaneStats.lane_laser_bias_current', index=4,
+      number=5, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='lane_laser_output_power_high_alarm', full_name='OpticsDiagLaneStats.lane_laser_output_power_high_alarm', index=5,
+      number=6, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='lane_laser_output_power_low_alarm', full_name='OpticsDiagLaneStats.lane_laser_output_power_low_alarm', index=6,
+      number=7, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='lane_laser_output_power_high_warning', full_name='OpticsDiagLaneStats.lane_laser_output_power_high_warning', index=7,
+      number=8, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='lane_laser_output_power_low_warning', full_name='OpticsDiagLaneStats.lane_laser_output_power_low_warning', index=8,
+      number=9, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='lane_laser_receiver_power_high_alarm', full_name='OpticsDiagLaneStats.lane_laser_receiver_power_high_alarm', index=9,
+      number=10, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='lane_laser_receiver_power_low_alarm', full_name='OpticsDiagLaneStats.lane_laser_receiver_power_low_alarm', index=10,
+      number=11, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='lane_laser_receiver_power_high_warning', full_name='OpticsDiagLaneStats.lane_laser_receiver_power_high_warning', index=11,
+      number=12, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='lane_laser_receiver_power_low_warning', full_name='OpticsDiagLaneStats.lane_laser_receiver_power_low_warning', index=12,
+      number=13, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='lane_laser_bias_current_high_alarm', full_name='OpticsDiagLaneStats.lane_laser_bias_current_high_alarm', index=13,
+      number=14, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='lane_laser_bias_current_low_alarm', full_name='OpticsDiagLaneStats.lane_laser_bias_current_low_alarm', index=14,
+      number=15, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='lane_laser_bias_current_high_warning', full_name='OpticsDiagLaneStats.lane_laser_bias_current_high_warning', index=15,
+      number=16, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='lane_laser_bias_current_low_warning', full_name='OpticsDiagLaneStats.lane_laser_bias_current_low_warning', index=16,
+      number=17, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='lane_tx_loss_of_signal_alarm', full_name='OpticsDiagLaneStats.lane_tx_loss_of_signal_alarm', index=17,
+      number=18, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='lane_rx_loss_of_signal_alarm', full_name='OpticsDiagLaneStats.lane_rx_loss_of_signal_alarm', index=18,
+      number=19, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='lane_tx_laser_disabled_alarm', full_name='OpticsDiagLaneStats.lane_tx_laser_disabled_alarm', index=19,
+      number=20, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1335,
+  serialized_end=2202,
 )
 
 _OPTICS.fields_by_name['Optics_diag'].message_type = _OPTICSINFOS
 _OPTICSINFOS.fields_by_name['optics_diag_stats'].message_type = _OPTICSDIAGSTATS
+_OPTICSDIAGSTATS.fields_by_name['optics_lane_diag_stats'].message_type = _OPTICSDIAGLANESTATS
 DESCRIPTOR.message_types_by_name['Optics'] = _OPTICS
 DESCRIPTOR.message_types_by_name['OpticsInfos'] = _OPTICSINFOS
 DESCRIPTOR.message_types_by_name['OpticsDiagStats'] = _OPTICSDIAGSTATS
+DESCRIPTOR.message_types_by_name['OpticsDiagLaneStats'] = _OPTICSDIAGLANESTATS
 DESCRIPTOR.extensions_by_name['jnpr_optics_ext'] = jnpr_optics_ext
 
 Optics = _reflection.GeneratedProtocolMessageType('Optics', (_message.Message,), dict(
@@ -875,6 +488,13 @@ OpticsDiagStats = _reflection.GeneratedProtocolMessageType('OpticsDiagStats', (_
   ))
 _sym_db.RegisterMessage(OpticsDiagStats)
 
+OpticsDiagLaneStats = _reflection.GeneratedProtocolMessageType('OpticsDiagLaneStats', (_message.Message,), dict(
+  DESCRIPTOR = _OPTICSDIAGLANESTATS,
+  __module__ = 'optics_pb2'
+  # @@protoc_insertion_point(class_scope:OpticsDiagLaneStats)
+  ))
+_sym_db.RegisterMessage(OpticsDiagLaneStats)
+
 jnpr_optics_ext.message_type = _OPTICS
 telemetry__top__pb2.JuniperNetworksSensors.RegisterExtension(jnpr_optics_ext)
 
@@ -882,206 +502,44 @@ _OPTICSINFOS.fields_by_name['if_name'].has_options = True
 _OPTICSINFOS.fields_by_name['if_name']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002\010\001')
 _OPTICSDIAGSTATS.fields_by_name['module_temp'].has_options = True
 _OPTICSDIAGSTATS.fields_by_name['module_temp']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['module_temp_c'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['module_temp_c']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['module_temp_f'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['module_temp_f']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['module_temp_set'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['module_temp_set']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['receiver_signal_ave_optical_power'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['receiver_signal_ave_optical_power']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['receiver_signal_ave_optical_power_mw'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['receiver_signal_ave_optical_power_mw']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['receiver_signal_ave_optical_power_dbm'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['receiver_signal_ave_optical_power_dbm']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['receiver_signal_ave_optical_power_set'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['receiver_signal_ave_optical_power_set']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['laser_output_power'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['laser_output_power']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['laser_output_power_mw'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['laser_output_power_mw']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['laser_output_power_dbm'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['laser_output_power_dbm']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['laser_output_power_set'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['laser_output_power_set']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
 _OPTICSDIAGSTATS.fields_by_name['module_temp_high_alarm_threshold'].has_options = True
 _OPTICSDIAGSTATS.fields_by_name['module_temp_high_alarm_threshold']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['module_temp_high_alarm_threshold_c'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['module_temp_high_alarm_threshold_c']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['module_temp_high_alarm_threshold_f'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['module_temp_high_alarm_threshold_f']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['module_temp_high_alarm_threshold_set'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['module_temp_high_alarm_threshold_set']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
 _OPTICSDIAGSTATS.fields_by_name['module_temp_low_alarm_threshold'].has_options = True
 _OPTICSDIAGSTATS.fields_by_name['module_temp_low_alarm_threshold']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['module_temp_low_alarm_threshold_c'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['module_temp_low_alarm_threshold_c']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['module_temp_low_alarm_threshold_f'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['module_temp_low_alarm_threshold_f']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['module_temp_low_alarm_threshold_set'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['module_temp_low_alarm_threshold_set']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
 _OPTICSDIAGSTATS.fields_by_name['module_temp_high_warning_threshold'].has_options = True
 _OPTICSDIAGSTATS.fields_by_name['module_temp_high_warning_threshold']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['module_temp_high_warning_threshold_c'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['module_temp_high_warning_threshold_c']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['module_temp_high_warning_threshold_f'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['module_temp_high_warning_threshold_f']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['module_temp_high_warning_threshold_set'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['module_temp_high_warning_threshold_set']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
 _OPTICSDIAGSTATS.fields_by_name['module_temp_low_warning_threshold'].has_options = True
 _OPTICSDIAGSTATS.fields_by_name['module_temp_low_warning_threshold']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['module_temp_low_warning_threshold_c'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['module_temp_low_warning_threshold_c']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['module_temp_low_warning_threshold_f'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['module_temp_low_warning_threshold_f']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['module_temp_low_warning_threshold_set'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['module_temp_low_warning_threshold_set']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['laser_output_power_high_alarm_threshold'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['laser_output_power_high_alarm_threshold']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['laser_output_power_high_alarm_threshold_mw'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['laser_output_power_high_alarm_threshold_mw']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
 _OPTICSDIAGSTATS.fields_by_name['laser_output_power_high_alarm_threshold_dbm'].has_options = True
 _OPTICSDIAGSTATS.fields_by_name['laser_output_power_high_alarm_threshold_dbm']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['laser_output_power_high_alarm_threshold_set'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['laser_output_power_high_alarm_threshold_set']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['laser_output_power_low_alarm_threshold'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['laser_output_power_low_alarm_threshold']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['laser_output_power_low_alarm_threshold_mw'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['laser_output_power_low_alarm_threshold_mw']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
 _OPTICSDIAGSTATS.fields_by_name['laser_output_power_low_alarm_threshold_dbm'].has_options = True
 _OPTICSDIAGSTATS.fields_by_name['laser_output_power_low_alarm_threshold_dbm']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['laser_output_power_low_alarm_threshold_set'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['laser_output_power_low_alarm_threshold_set']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['laser_output_power_high_warning_threshold'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['laser_output_power_high_warning_threshold']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['laser_output_power_high_warning_threshold_mw'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['laser_output_power_high_warning_threshold_mw']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
 _OPTICSDIAGSTATS.fields_by_name['laser_output_power_high_warning_threshold_dbm'].has_options = True
 _OPTICSDIAGSTATS.fields_by_name['laser_output_power_high_warning_threshold_dbm']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['laser_output_power_high_warning_threshold_set'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['laser_output_power_high_warning_threshold_set']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['laser_output_power_low_warning_threshold'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['laser_output_power_low_warning_threshold']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['laser_output_power_low_warning_threshold_mw'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['laser_output_power_low_warning_threshold_mw']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
 _OPTICSDIAGSTATS.fields_by_name['laser_output_power_low_warning_threshold_dbm'].has_options = True
 _OPTICSDIAGSTATS.fields_by_name['laser_output_power_low_warning_threshold_dbm']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['laser_output_power_low_warning_threshold_set'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['laser_output_power_low_warning_threshold_set']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['laser_rx_power_high_alarm_threshold'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['laser_rx_power_high_alarm_threshold']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['laser_rx_power_high_alarm_threshold_mw'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['laser_rx_power_high_alarm_threshold_mw']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
 _OPTICSDIAGSTATS.fields_by_name['laser_rx_power_high_alarm_threshold_dbm'].has_options = True
 _OPTICSDIAGSTATS.fields_by_name['laser_rx_power_high_alarm_threshold_dbm']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['laser_rx_power_high_alarm_threshold_set'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['laser_rx_power_high_alarm_threshold_set']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['laser_rx_power_low_alarm_threshold'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['laser_rx_power_low_alarm_threshold']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['laser_rx_power_low_alarm_threshold_mw'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['laser_rx_power_low_alarm_threshold_mw']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
 _OPTICSDIAGSTATS.fields_by_name['laser_rx_power_low_alarm_threshold_dbm'].has_options = True
 _OPTICSDIAGSTATS.fields_by_name['laser_rx_power_low_alarm_threshold_dbm']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['laser_rx_power_low_alarm_threshold_set'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['laser_rx_power_low_alarm_threshold_set']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['laser_rx_power_high_warning_threshold'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['laser_rx_power_high_warning_threshold']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['laser_rx_power_high_warning_threshold_mw'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['laser_rx_power_high_warning_threshold_mw']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
 _OPTICSDIAGSTATS.fields_by_name['laser_rx_power_high_warning_threshold_dbm'].has_options = True
 _OPTICSDIAGSTATS.fields_by_name['laser_rx_power_high_warning_threshold_dbm']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['laser_rx_power_high_warning_threshold_set'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['laser_rx_power_high_warning_threshold_set']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['laser_rx_power_low_warning_threshold'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['laser_rx_power_low_warning_threshold']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['laser_rx_power_low_warning_threshold_mw'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['laser_rx_power_low_warning_threshold_mw']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
 _OPTICSDIAGSTATS.fields_by_name['laser_rx_power_low_warning_threshold_dbm'].has_options = True
 _OPTICSDIAGSTATS.fields_by_name['laser_rx_power_low_warning_threshold_dbm']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['laser_rx_power_low_warning_threshold_set'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['laser_rx_power_low_warning_threshold_set']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['lane_number'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['lane_number']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_temp'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_temp']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_temp_c'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_temp_c']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_temp_f'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_temp_f']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_temp_set'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_temp_set']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_output_power'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_output_power']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_output_power_mw'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_output_power_mw']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_output_power_dbm'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_output_power_dbm']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_output_power_set'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_output_power_set']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_receiver_power'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_receiver_power']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_receiver_power_mw'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_receiver_power_mw']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_receiver_power_dbm'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_receiver_power_dbm']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_receiver_power_set'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_receiver_power_set']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_temp_high_alarm_set'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_temp_high_alarm_set']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_temp_high_alarm'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_temp_high_alarm']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_temp_low_alarm_set'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_temp_low_alarm_set']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_temp_low_alarm'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_temp_low_alarm']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_temp_high_warning_set'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_temp_high_warning_set']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_temp_high_warning'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_temp_high_warning']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_output_power_high_alarm_set'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_output_power_high_alarm_set']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_output_power_high_alarm'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_output_power_high_alarm']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_output_power_low_alarm_set'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_output_power_low_alarm_set']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_output_power_low_alarm'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_output_power_low_alarm']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_output_power_high_warning_set'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_output_power_high_warning_set']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_output_power_high_warning'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_output_power_high_warning']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_output_power_low_warning_set'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_output_power_low_warning_set']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_output_power_low_warning'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_output_power_low_warning']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_receiver_power_high_alarm_set'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_receiver_power_high_alarm_set']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_receiver_power_high_alarm'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_receiver_power_high_alarm']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_receiver_power_low_alarm_set'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_receiver_power_low_alarm_set']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_receiver_power_low_alarm'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_receiver_power_low_alarm']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_receiver_power_high_warning_set'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_receiver_power_high_warning_set']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_receiver_power_high_warning'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_receiver_power_high_warning']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_receiver_power_low_warning_set'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_receiver_power_low_warning_set']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_receiver_power_low_warning'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_receiver_power_low_warning']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['optics_type'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['optics_type']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['optics_alarm_validity'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['optics_alarm_validity']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['optics_capability'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['optics_capability']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['active_lane_map'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['active_lane_map']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['lane_alarms_warnings'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['lane_alarms_warnings']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_temp_low_warning_set'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_temp_low_warning_set']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_temp_low_warning'].has_options = True
-_OPTICSDIAGSTATS.fields_by_name['lane_laser_temp_low_warning']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
+_OPTICSDIAGSTATS.fields_by_name['laser_bias_current_high_alarm_threshold'].has_options = True
+_OPTICSDIAGSTATS.fields_by_name['laser_bias_current_high_alarm_threshold']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
+_OPTICSDIAGSTATS.fields_by_name['laser_bias_current_low_alarm_threshold'].has_options = True
+_OPTICSDIAGSTATS.fields_by_name['laser_bias_current_low_alarm_threshold']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
+_OPTICSDIAGSTATS.fields_by_name['laser_bias_current_high_warning_threshold'].has_options = True
+_OPTICSDIAGSTATS.fields_by_name['laser_bias_current_high_warning_threshold']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
+_OPTICSDIAGSTATS.fields_by_name['laser_bias_current_low_warning_threshold'].has_options = True
+_OPTICSDIAGSTATS.fields_by_name['laser_bias_current_low_warning_threshold']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
+_OPTICSDIAGLANESTATS.fields_by_name['lane_number'].has_options = True
+_OPTICSDIAGLANESTATS.fields_by_name['lane_number']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002\010\001')
+_OPTICSDIAGLANESTATS.fields_by_name['lane_laser_temperature'].has_options = True
+_OPTICSDIAGLANESTATS.fields_by_name['lane_laser_temperature']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
+_OPTICSDIAGLANESTATS.fields_by_name['lane_laser_output_power_dbm'].has_options = True
+_OPTICSDIAGLANESTATS.fields_by_name['lane_laser_output_power_dbm']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
+_OPTICSDIAGLANESTATS.fields_by_name['lane_laser_receiver_power_dbm'].has_options = True
+_OPTICSDIAGLANESTATS.fields_by_name['lane_laser_receiver_power_dbm']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), b'\202@\002 \001')
 # @@protoc_insertion_point(module_scope)

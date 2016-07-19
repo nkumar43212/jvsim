@@ -27,6 +27,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* OpticsDiagStats_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   OpticsDiagStats_reflection_ = NULL;
+const ::google::protobuf::Descriptor* OpticsDiagLaneStats_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  OpticsDiagLaneStats_reflection_ = NULL;
 
 }  // namespace
 
@@ -70,109 +73,30 @@ void protobuf_AssignDesc_optics_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsInfos, _internal_metadata_),
       -1);
   OpticsDiagStats_descriptor_ = file->message_type(2);
-  static const int OpticsDiagStats_offsets_[102] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, module_temp_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, module_temp_c_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, module_temp_f_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, module_temp_set_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, receiver_signal_ave_optical_power_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, receiver_signal_ave_optical_power_mw_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, receiver_signal_ave_optical_power_dbm_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, receiver_signal_ave_optical_power_set_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_output_power_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_output_power_mw_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_output_power_dbm_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_output_power_set_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, module_temp_high_alarm_threshold_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, module_temp_high_alarm_threshold_c_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, module_temp_high_alarm_threshold_f_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, module_temp_high_alarm_threshold_set_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, module_temp_low_alarm_threshold_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, module_temp_low_alarm_threshold_c_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, module_temp_low_alarm_threshold_f_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, module_temp_low_alarm_threshold_set_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, module_temp_high_warning_threshold_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, module_temp_high_warning_threshold_c_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, module_temp_high_warning_threshold_f_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, module_temp_high_warning_threshold_set_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, module_temp_low_warning_threshold_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, module_temp_low_warning_threshold_c_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, module_temp_low_warning_threshold_f_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, module_temp_low_warning_threshold_set_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_output_power_high_alarm_threshold_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_output_power_high_alarm_threshold_mw_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_output_power_high_alarm_threshold_dbm_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_output_power_high_alarm_threshold_set_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_output_power_low_alarm_threshold_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_output_power_low_alarm_threshold_mw_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_output_power_low_alarm_threshold_dbm_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_output_power_low_alarm_threshold_set_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_output_power_high_warning_threshold_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_output_power_high_warning_threshold_mw_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_output_power_high_warning_threshold_dbm_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_output_power_high_warning_threshold_set_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_output_power_low_warning_threshold_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_output_power_low_warning_threshold_mw_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_output_power_low_warning_threshold_dbm_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_output_power_low_warning_threshold_set_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_rx_power_high_alarm_threshold_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_rx_power_high_alarm_threshold_mw_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_rx_power_high_alarm_threshold_dbm_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_rx_power_high_alarm_threshold_set_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_rx_power_low_alarm_threshold_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_rx_power_low_alarm_threshold_mw_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_rx_power_low_alarm_threshold_dbm_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_rx_power_low_alarm_threshold_set_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_rx_power_high_warning_threshold_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_rx_power_high_warning_threshold_mw_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_rx_power_high_warning_threshold_dbm_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_rx_power_high_warning_threshold_set_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_rx_power_low_warning_threshold_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_rx_power_low_warning_threshold_mw_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_rx_power_low_warning_threshold_dbm_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_rx_power_low_warning_threshold_set_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, lane_number_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, lane_laser_temp_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, lane_laser_temp_c_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, lane_laser_temp_f_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, lane_laser_temp_set_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, lane_laser_output_power_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, lane_laser_output_power_mw_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, lane_laser_output_power_dbm_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, lane_laser_output_power_set_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, lane_laser_receiver_power_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, lane_laser_receiver_power_mw_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, lane_laser_receiver_power_dbm_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, lane_laser_receiver_power_set_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, lane_laser_temp_high_alarm_set_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, lane_laser_temp_high_alarm_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, lane_laser_temp_low_alarm_set_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, lane_laser_temp_low_alarm_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, lane_laser_temp_high_warning_set_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, lane_laser_temp_high_warning_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, lane_laser_output_power_high_alarm_set_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, lane_laser_output_power_high_alarm_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, lane_laser_output_power_low_alarm_set_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, lane_laser_output_power_low_alarm_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, lane_laser_output_power_high_warning_set_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, lane_laser_output_power_high_warning_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, lane_laser_output_power_low_warning_set_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, lane_laser_output_power_low_warning_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, lane_laser_receiver_power_high_alarm_set_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, lane_laser_receiver_power_high_alarm_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, lane_laser_receiver_power_low_alarm_set_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, lane_laser_receiver_power_low_alarm_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, lane_laser_receiver_power_high_warning_set_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, lane_laser_receiver_power_high_warning_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, lane_laser_receiver_power_low_warning_set_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, lane_laser_receiver_power_low_warning_),
+  static const int OpticsDiagStats_offsets_[23] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, optics_type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, optics_alarm_validity_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, optics_capability_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, active_lane_map_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, lane_alarms_warnings_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, lane_laser_temp_low_warning_set_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, lane_laser_temp_low_warning_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, module_temp_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, module_temp_high_alarm_threshold_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, module_temp_low_alarm_threshold_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, module_temp_high_warning_threshold_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, module_temp_low_warning_threshold_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_output_power_high_alarm_threshold_dbm_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_output_power_low_alarm_threshold_dbm_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_output_power_high_warning_threshold_dbm_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_output_power_low_warning_threshold_dbm_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_rx_power_high_alarm_threshold_dbm_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_rx_power_low_alarm_threshold_dbm_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_rx_power_high_warning_threshold_dbm_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_rx_power_low_warning_threshold_dbm_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_bias_current_high_alarm_threshold_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_bias_current_low_alarm_threshold_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_bias_current_high_warning_threshold_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, laser_bias_current_low_warning_threshold_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, module_temp_high_alarm_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, module_temp_low_alarm_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, module_temp_high_warning_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, module_temp_low_warning_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, optics_lane_diag_stats_),
   };
   OpticsDiagStats_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -184,6 +108,40 @@ void protobuf_AssignDesc_optics_2eproto() {
       -1,
       sizeof(OpticsDiagStats),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagStats, _internal_metadata_),
+      -1);
+  OpticsDiagLaneStats_descriptor_ = file->message_type(3);
+  static const int OpticsDiagLaneStats_offsets_[20] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagLaneStats, lane_number_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagLaneStats, lane_laser_temperature_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagLaneStats, lane_laser_output_power_dbm_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagLaneStats, lane_laser_receiver_power_dbm_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagLaneStats, lane_laser_bias_current_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagLaneStats, lane_laser_output_power_high_alarm_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagLaneStats, lane_laser_output_power_low_alarm_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagLaneStats, lane_laser_output_power_high_warning_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagLaneStats, lane_laser_output_power_low_warning_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagLaneStats, lane_laser_receiver_power_high_alarm_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagLaneStats, lane_laser_receiver_power_low_alarm_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagLaneStats, lane_laser_receiver_power_high_warning_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagLaneStats, lane_laser_receiver_power_low_warning_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagLaneStats, lane_laser_bias_current_high_alarm_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagLaneStats, lane_laser_bias_current_low_alarm_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagLaneStats, lane_laser_bias_current_high_warning_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagLaneStats, lane_laser_bias_current_low_warning_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagLaneStats, lane_tx_loss_of_signal_alarm_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagLaneStats, lane_rx_loss_of_signal_alarm_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagLaneStats, lane_tx_laser_disabled_alarm_),
+  };
+  OpticsDiagLaneStats_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      OpticsDiagLaneStats_descriptor_,
+      OpticsDiagLaneStats::default_instance_,
+      OpticsDiagLaneStats_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagLaneStats, _has_bits_[0]),
+      -1,
+      -1,
+      sizeof(OpticsDiagLaneStats),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OpticsDiagLaneStats, _internal_metadata_),
       -1);
 }
 
@@ -203,6 +161,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
       OpticsInfos_descriptor_, &OpticsInfos::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       OpticsDiagStats_descriptor_, &OpticsDiagStats::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      OpticsDiagLaneStats_descriptor_, &OpticsDiagLaneStats::default_instance());
 }
 
 }  // namespace
@@ -214,6 +174,8 @@ void protobuf_ShutdownFile_optics_2eproto() {
   delete OpticsInfos_reflection_;
   delete OpticsDiagStats::default_instance_;
   delete OpticsDiagStats_reflection_;
+  delete OpticsDiagLaneStats::default_instance_;
+  delete OpticsDiagLaneStats_reflection_;
 }
 
 void protobuf_AddDesc_optics_2eproto() {
@@ -228,141 +190,65 @@ void protobuf_AddDesc_optics_2eproto() {
     "ptics\022!\n\013Optics_diag\030\001 \003(\0132\014.OpticsInfos"
     "\"i\n\013OpticsInfos\022\026\n\007if_name\030\001 \002(\tB\005\202@\002\010\001\022"
     "\025\n\rsnmp_if_index\030\002 \001(\r\022+\n\021optics_diag_st"
-    "ats\030\003 \001(\0132\020.OpticsDiagStats\"\322\'\n\017OpticsDi"
-    "agStats\022\032\n\013module_temp\030\001 \001(\005B\005\202@\002 \001\022\034\n\rm"
-    "odule_temp_c\030\002 \001(\001B\005\202@\002 \001\022\034\n\rmodule_temp"
-    "_f\030\003 \001(\001B\005\202@\002 \001\022\036\n\017module_temp_set\030\004 \001(\005"
-    "B\005\202@\002 \001\0220\n!receiver_signal_ave_optical_p"
-    "ower\030\005 \001(\005B\005\202@\002 \001\0223\n$receiver_signal_ave"
-    "_optical_power_mw\030\006 \001(\001B\005\202@\002 \001\0224\n%receiv"
-    "er_signal_ave_optical_power_dbm\030\007 \001(\001B\005\202"
-    "@\002 \001\0224\n%receiver_signal_ave_optical_powe"
-    "r_set\030\010 \001(\005B\005\202@\002 \001\022!\n\022laser_output_power"
-    "\030\t \001(\005B\005\202@\002 \001\022$\n\025laser_output_power_mw\030\n"
-    " \001(\001B\005\202@\002 \001\022%\n\026laser_output_power_dbm\030\013 "
-    "\001(\001B\005\202@\002 \001\022%\n\026laser_output_power_set\030\014 \001"
-    "(\005B\005\202@\002 \001\022/\n module_temp_high_alarm_thre"
-    "shold\030\r \001(\005B\005\202@\002 \001\0221\n\"module_temp_high_a"
-    "larm_threshold_c\030\016 \001(\001B\005\202@\002 \001\0221\n\"module_"
-    "temp_high_alarm_threshold_f\030\017 \001(\001B\005\202@\002 \001"
-    "\0223\n$module_temp_high_alarm_threshold_set"
-    "\030\020 \001(\005B\005\202@\002 \001\022.\n\037module_temp_low_alarm_t"
-    "hreshold\030\021 \001(\005B\005\202@\002 \001\0220\n!module_temp_low"
-    "_alarm_threshold_c\030\022 \001(\001B\005\202@\002 \001\0220\n!modul"
-    "e_temp_low_alarm_threshold_f\030\023 \001(\001B\005\202@\002 "
-    "\001\0222\n#module_temp_low_alarm_threshold_set"
-    "\030\024 \001(\005B\005\202@\002 \001\0221\n\"module_temp_high_warnin"
-    "g_threshold\030\025 \001(\005B\005\202@\002 \001\0223\n$module_temp_"
-    "high_warning_threshold_c\030\026 \001(\001B\005\202@\002 \001\0223\n"
-    "$module_temp_high_warning_threshold_f\030\027 "
-    "\001(\001B\005\202@\002 \001\0225\n&module_temp_high_warning_t"
-    "hreshold_set\030\030 \001(\005B\005\202@\002 \001\0220\n!module_temp"
-    "_low_warning_threshold\030\031 \001(\005B\005\202@\002 \001\0222\n#m"
-    "odule_temp_low_warning_threshold_c\030\032 \001(\001"
-    "B\005\202@\002 \001\0222\n#module_temp_low_warning_thres"
-    "hold_f\030\033 \001(\001B\005\202@\002 \001\0224\n%module_temp_low_w"
-    "arning_threshold_set\030\034 \001(\005B\005\202@\002 \001\0226\n\'las"
-    "er_output_power_high_alarm_threshold\030\035 \001"
-    "(\005B\005\202@\002 \001\0229\n*laser_output_power_high_ala"
-    "rm_threshold_mw\030\036 \001(\001B\005\202@\002 \001\022:\n+laser_ou"
-    "tput_power_high_alarm_threshold_dbm\030\037 \001("
-    "\001B\005\202@\002 \001\022:\n+laser_output_power_high_alar"
-    "m_threshold_set\030  \001(\005B\005\202@\002 \001\0225\n&laser_ou"
-    "tput_power_low_alarm_threshold\030! \001(\005B\005\202@"
-    "\002 \001\0228\n)laser_output_power_low_alarm_thre"
-    "shold_mw\030\" \001(\001B\005\202@\002 \001\0229\n*laser_output_po"
-    "wer_low_alarm_threshold_dbm\030# \001(\001B\005\202@\002 \001"
-    "\0229\n*laser_output_power_low_alarm_thresho"
-    "ld_set\030$ \001(\005B\005\202@\002 \001\0228\n)laser_output_powe"
-    "r_high_warning_threshold\030% \001(\005B\005\202@\002 \001\022;\n"
-    ",laser_output_power_high_warning_thresho"
-    "ld_mw\030& \001(\001B\005\202@\002 \001\022<\n-laser_output_power"
-    "_high_warning_threshold_dbm\030\' \001(\001B\005\202@\002 \001"
-    "\022<\n-laser_output_power_high_warning_thre"
-    "shold_set\030( \001(\005B\005\202@\002 \001\0227\n(laser_output_p"
-    "ower_low_warning_threshold\030) \001(\005B\005\202@\002 \001\022"
-    ":\n+laser_output_power_low_warning_thresh"
-    "old_mw\030* \001(\001B\005\202@\002 \001\022;\n,laser_output_powe"
-    "r_low_warning_threshold_dbm\030+ \001(\001B\005\202@\002 \001"
-    "\022;\n,laser_output_power_low_warning_thres"
-    "hold_set\030, \001(\005B\005\202@\002 \001\0222\n#laser_rx_power_"
-    "high_alarm_threshold\030- \001(\005B\005\202@\002 \001\0225\n&las"
-    "er_rx_power_high_alarm_threshold_mw\030. \001("
-    "\001B\005\202@\002 \001\0226\n\'laser_rx_power_high_alarm_th"
-    "reshold_dbm\030/ \001(\001B\005\202@\002 \001\0226\n\'laser_rx_pow"
-    "er_high_alarm_threshold_set\0300 \001(\005B\005\202@\002 \001"
-    "\0221\n\"laser_rx_power_low_alarm_threshold\0301"
-    " \001(\005B\005\202@\002 \001\0224\n%laser_rx_power_low_alarm_"
-    "threshold_mw\0302 \001(\001B\005\202@\002 \001\0225\n&laser_rx_po"
-    "wer_low_alarm_threshold_dbm\0303 \001(\001B\005\202@\002 \001"
-    "\0225\n&laser_rx_power_low_alarm_threshold_s"
-    "et\0304 \001(\005B\005\202@\002 \001\0224\n%laser_rx_power_high_w"
-    "arning_threshold\0305 \001(\005B\005\202@\002 \001\0227\n(laser_r"
-    "x_power_high_warning_threshold_mw\0306 \001(\001B"
-    "\005\202@\002 \001\0228\n)laser_rx_power_high_warning_th"
-    "reshold_dbm\0307 \001(\001B\005\202@\002 \001\0228\n)laser_rx_pow"
-    "er_high_warning_threshold_set\0308 \001(\005B\005\202@\002"
-    " \001\0223\n$laser_rx_power_low_warning_thresho"
-    "ld\0309 \001(\005B\005\202@\002 \001\0226\n\'laser_rx_power_low_wa"
-    "rning_threshold_mw\030: \001(\001B\005\202@\002 \001\0227\n(laser"
-    "_rx_power_low_warning_threshold_dbm\030; \001("
-    "\001B\005\202@\002 \001\0227\n(laser_rx_power_low_warning_t"
-    "hreshold_set\030< \001(\005B\005\202@\002 \001\022\032\n\013lane_number"
-    "\030= \001(\005B\005\202@\002 \001\022\036\n\017lane_laser_temp\030> \001(\005B\005"
-    "\202@\002 \001\022 \n\021lane_laser_temp_c\030\? \001(\001B\005\202@\002 \001\022"
-    " \n\021lane_laser_temp_f\030@ \001(\001B\005\202@\002 \001\022\"\n\023lan"
-    "e_laser_temp_set\030A \001(\005B\005\202@\002 \001\022&\n\027lane_la"
-    "ser_output_power\030B \001(\005B\005\202@\002 \001\022)\n\032lane_la"
-    "ser_output_power_mw\030C \001(\001B\005\202@\002 \001\022*\n\033lane"
-    "_laser_output_power_dbm\030D \001(\001B\005\202@\002 \001\022*\n\033"
-    "lane_laser_output_power_set\030E \001(\005B\005\202@\002 \001"
-    "\022(\n\031lane_laser_receiver_power\030F \001(\005B\005\202@\002"
-    " \001\022+\n\034lane_laser_receiver_power_mw\030G \001(\001"
-    "B\005\202@\002 \001\022,\n\035lane_laser_receiver_power_dbm"
-    "\030H \001(\001B\005\202@\002 \001\022,\n\035lane_laser_receiver_pow"
-    "er_set\030I \001(\005B\005\202@\002 \001\022-\n\036lane_laser_temp_h"
-    "igh_alarm_set\030J \001(\005B\005\202@\002 \001\022)\n\032lane_laser"
-    "_temp_high_alarm\030K \001(\005B\005\202@\002 \001\022,\n\035lane_la"
-    "ser_temp_low_alarm_set\030L \001(\005B\005\202@\002 \001\022(\n\031l"
-    "ane_laser_temp_low_alarm\030M \001(\005B\005\202@\002 \001\022/\n"
-    " lane_laser_temp_high_warning_set\030N \001(\005B"
-    "\005\202@\002 \001\022+\n\034lane_laser_temp_high_warning\030O"
-    " \001(\005B\005\202@\002 \001\0225\n&lane_laser_output_power_h"
-    "igh_alarm_set\030P \001(\005B\005\202@\002 \001\0221\n\"lane_laser"
-    "_output_power_high_alarm\030Q \001(\005B\005\202@\002 \001\0224\n"
-    "%lane_laser_output_power_low_alarm_set\030R"
-    " \001(\005B\005\202@\002 \001\0220\n!lane_laser_output_power_l"
-    "ow_alarm\030S \001(\005B\005\202@\002 \001\0227\n(lane_laser_outp"
-    "ut_power_high_warning_set\030T \001(\005B\005\202@\002 \001\0223"
-    "\n$lane_laser_output_power_high_warning\030U"
-    " \001(\005B\005\202@\002 \001\0226\n\'lane_laser_output_power_l"
-    "ow_warning_set\030V \001(\005B\005\202@\002 \001\0222\n#lane_lase"
-    "r_output_power_low_warning\030W \001(\005B\005\202@\002 \001\022"
-    "7\n(lane_laser_receiver_power_high_alarm_"
-    "set\030X \001(\005B\005\202@\002 \001\0223\n$lane_laser_receiver_"
-    "power_high_alarm\030Y \001(\005B\005\202@\002 \001\0226\n\'lane_la"
-    "ser_receiver_power_low_alarm_set\030Z \001(\005B\005"
-    "\202@\002 \001\0222\n#lane_laser_receiver_power_low_a"
-    "larm\030[ \001(\005B\005\202@\002 \001\0229\n*lane_laser_receiver"
-    "_power_high_warning_set\030\\ \001(\005B\005\202@\002 \001\0225\n&"
-    "lane_laser_receiver_power_high_warning\030]"
-    " \001(\005B\005\202@\002 \001\0228\n)lane_laser_receiver_power"
-    "_low_warning_set\030^ \001(\005B\005\202@\002 \001\0224\n%lane_la"
-    "ser_receiver_power_low_warning\030_ \001(\005B\005\202@"
-    "\002 \001\022\032\n\013optics_type\030` \001(\005B\005\202@\002 \001\022$\n\025optic"
-    "s_alarm_validity\030a \001(\005B\005\202@\002 \001\022 \n\021optics_"
-    "capability\030b \001(\005B\005\202@\002 \001\022\036\n\017active_lane_m"
-    "ap\030c \001(\005B\005\202@\002 \001\022#\n\024lane_alarms_warnings\030"
-    "d \001(\005B\005\202@\002 \001\022.\n\037lane_laser_temp_low_warn"
-    "ing_set\030e \001(\005B\005\202@\002 \001\022*\n\033lane_laser_temp_"
-    "low_warning\030f \001(\005B\005\202@\002 \001:9\n\017jnpr_optics_"
-    "ext\022\027.JuniperNetworksSensors\030\n \001(\0132\007.Opt"
-    "ics", 5323);
+    "ats\030\003 \001(\0132\020.OpticsDiagStats\"\366\010\n\017OpticsDi"
+    "agStats\022\023\n\013optics_type\030\001 \001(\r\022\032\n\013module_t"
+    "emp\030\002 \001(\001B\005\202@\002 \001\022/\n module_temp_high_ala"
+    "rm_threshold\030\003 \001(\001B\005\202@\002 \001\022.\n\037module_temp"
+    "_low_alarm_threshold\030\004 \001(\001B\005\202@\002 \001\0221\n\"mod"
+    "ule_temp_high_warning_threshold\030\005 \001(\001B\005\202"
+    "@\002 \001\0220\n!module_temp_low_warning_threshol"
+    "d\030\006 \001(\001B\005\202@\002 \001\022:\n+laser_output_power_hig"
+    "h_alarm_threshold_dbm\030\007 \001(\001B\005\202@\002 \001\0229\n*la"
+    "ser_output_power_low_alarm_threshold_dbm"
+    "\030\010 \001(\001B\005\202@\002 \001\022<\n-laser_output_power_high"
+    "_warning_threshold_dbm\030\t \001(\001B\005\202@\002 \001\022;\n,l"
+    "aser_output_power_low_warning_threshold_"
+    "dbm\030\n \001(\001B\005\202@\002 \001\0226\n\'laser_rx_power_high_"
+    "alarm_threshold_dbm\030\013 \001(\001B\005\202@\002 \001\0225\n&lase"
+    "r_rx_power_low_alarm_threshold_dbm\030\014 \001(\001"
+    "B\005\202@\002 \001\0228\n)laser_rx_power_high_warning_t"
+    "hreshold_dbm\030\r \001(\001B\005\202@\002 \001\0227\n(laser_rx_po"
+    "wer_low_warning_threshold_dbm\030\016 \001(\001B\005\202@\002"
+    " \001\0226\n\'laser_bias_current_high_alarm_thre"
+    "shold\030\017 \001(\001B\005\202@\002 \001\0225\n&laser_bias_current"
+    "_low_alarm_threshold\030\020 \001(\001B\005\202@\002 \001\0228\n)las"
+    "er_bias_current_high_warning_threshold\030\021"
+    " \001(\001B\005\202@\002 \001\0227\n(laser_bias_current_low_wa"
+    "rning_threshold\030\022 \001(\001B\005\202@\002 \001\022\036\n\026module_t"
+    "emp_high_alarm\030\023 \001(\010\022\035\n\025module_temp_low_"
+    "alarm\030\024 \001(\010\022 \n\030module_temp_high_warning\030"
+    "\025 \001(\010\022\037\n\027module_temp_low_warning\030\026 \001(\010\0224"
+    "\n\026optics_lane_diag_stats\030\027 \003(\0132\024.OpticsD"
+    "iagLaneStats\"\343\006\n\023OpticsDiagLaneStats\022\032\n\013"
+    "lane_number\030\001 \001(\rB\005\202@\002\010\001\022%\n\026lane_laser_t"
+    "emperature\030\002 \001(\001B\005\202@\002 \001\022*\n\033lane_laser_ou"
+    "tput_power_dbm\030\003 \001(\001B\005\202@\002 \001\022,\n\035lane_lase"
+    "r_receiver_power_dbm\030\004 \001(\001B\005\202@\002 \001\022\037\n\027lan"
+    "e_laser_bias_current\030\005 \001(\001\022*\n\"lane_laser"
+    "_output_power_high_alarm\030\006 \001(\010\022)\n!lane_l"
+    "aser_output_power_low_alarm\030\007 \001(\010\022,\n$lan"
+    "e_laser_output_power_high_warning\030\010 \001(\010\022"
+    "+\n#lane_laser_output_power_low_warning\030\t"
+    " \001(\010\022,\n$lane_laser_receiver_power_high_a"
+    "larm\030\n \001(\010\022+\n#lane_laser_receiver_power_"
+    "low_alarm\030\013 \001(\010\022.\n&lane_laser_receiver_p"
+    "ower_high_warning\030\014 \001(\010\022-\n%lane_laser_re"
+    "ceiver_power_low_warning\030\r \001(\010\022*\n\"lane_l"
+    "aser_bias_current_high_alarm\030\016 \001(\010\022)\n!la"
+    "ne_laser_bias_current_low_alarm\030\017 \001(\010\022,\n"
+    "$lane_laser_bias_current_high_warning\030\020 "
+    "\001(\010\022+\n#lane_laser_bias_current_low_warni"
+    "ng\030\021 \001(\010\022$\n\034lane_tx_loss_of_signal_alarm"
+    "\030\022 \001(\010\022$\n\034lane_rx_loss_of_signal_alarm\030\023"
+    " \001(\010\022$\n\034lane_tx_laser_disabled_alarm\030\024 \001"
+    "(\010:9\n\017jnpr_optics_ext\022\027.JuniperNetworksS"
+    "ensors\030\n \001(\0132\007.Optics", 2261);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "optics.proto", &protobuf_RegisterTypes);
   Optics::default_instance_ = new Optics();
   OpticsInfos::default_instance_ = new OpticsInfos();
   OpticsDiagStats::default_instance_ = new OpticsDiagStats();
+  OpticsDiagLaneStats::default_instance_ = new OpticsDiagLaneStats();
   ::google::protobuf::internal::ExtensionSet::RegisterMessageExtension(
     &::JuniperNetworksSensors::default_instance(),
     10, 11, false, false,
@@ -370,6 +256,7 @@ void protobuf_AddDesc_optics_2eproto() {
   Optics::default_instance_->InitAsDefaultInstance();
   OpticsInfos::default_instance_->InitAsDefaultInstance();
   OpticsDiagStats::default_instance_->InitAsDefaultInstance();
+  OpticsDiagLaneStats::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_optics_2eproto);
 }
 
@@ -1120,108 +1007,29 @@ void OpticsInfos::set_allocated_optics_diag_stats(::OpticsDiagStats* optics_diag
 // ===================================================================
 
 #ifndef _MSC_VER
-const int OpticsDiagStats::kModuleTempFieldNumber;
-const int OpticsDiagStats::kModuleTempCFieldNumber;
-const int OpticsDiagStats::kModuleTempFFieldNumber;
-const int OpticsDiagStats::kModuleTempSetFieldNumber;
-const int OpticsDiagStats::kReceiverSignalAveOpticalPowerFieldNumber;
-const int OpticsDiagStats::kReceiverSignalAveOpticalPowerMwFieldNumber;
-const int OpticsDiagStats::kReceiverSignalAveOpticalPowerDbmFieldNumber;
-const int OpticsDiagStats::kReceiverSignalAveOpticalPowerSetFieldNumber;
-const int OpticsDiagStats::kLaserOutputPowerFieldNumber;
-const int OpticsDiagStats::kLaserOutputPowerMwFieldNumber;
-const int OpticsDiagStats::kLaserOutputPowerDbmFieldNumber;
-const int OpticsDiagStats::kLaserOutputPowerSetFieldNumber;
-const int OpticsDiagStats::kModuleTempHighAlarmThresholdFieldNumber;
-const int OpticsDiagStats::kModuleTempHighAlarmThresholdCFieldNumber;
-const int OpticsDiagStats::kModuleTempHighAlarmThresholdFFieldNumber;
-const int OpticsDiagStats::kModuleTempHighAlarmThresholdSetFieldNumber;
-const int OpticsDiagStats::kModuleTempLowAlarmThresholdFieldNumber;
-const int OpticsDiagStats::kModuleTempLowAlarmThresholdCFieldNumber;
-const int OpticsDiagStats::kModuleTempLowAlarmThresholdFFieldNumber;
-const int OpticsDiagStats::kModuleTempLowAlarmThresholdSetFieldNumber;
-const int OpticsDiagStats::kModuleTempHighWarningThresholdFieldNumber;
-const int OpticsDiagStats::kModuleTempHighWarningThresholdCFieldNumber;
-const int OpticsDiagStats::kModuleTempHighWarningThresholdFFieldNumber;
-const int OpticsDiagStats::kModuleTempHighWarningThresholdSetFieldNumber;
-const int OpticsDiagStats::kModuleTempLowWarningThresholdFieldNumber;
-const int OpticsDiagStats::kModuleTempLowWarningThresholdCFieldNumber;
-const int OpticsDiagStats::kModuleTempLowWarningThresholdFFieldNumber;
-const int OpticsDiagStats::kModuleTempLowWarningThresholdSetFieldNumber;
-const int OpticsDiagStats::kLaserOutputPowerHighAlarmThresholdFieldNumber;
-const int OpticsDiagStats::kLaserOutputPowerHighAlarmThresholdMwFieldNumber;
-const int OpticsDiagStats::kLaserOutputPowerHighAlarmThresholdDbmFieldNumber;
-const int OpticsDiagStats::kLaserOutputPowerHighAlarmThresholdSetFieldNumber;
-const int OpticsDiagStats::kLaserOutputPowerLowAlarmThresholdFieldNumber;
-const int OpticsDiagStats::kLaserOutputPowerLowAlarmThresholdMwFieldNumber;
-const int OpticsDiagStats::kLaserOutputPowerLowAlarmThresholdDbmFieldNumber;
-const int OpticsDiagStats::kLaserOutputPowerLowAlarmThresholdSetFieldNumber;
-const int OpticsDiagStats::kLaserOutputPowerHighWarningThresholdFieldNumber;
-const int OpticsDiagStats::kLaserOutputPowerHighWarningThresholdMwFieldNumber;
-const int OpticsDiagStats::kLaserOutputPowerHighWarningThresholdDbmFieldNumber;
-const int OpticsDiagStats::kLaserOutputPowerHighWarningThresholdSetFieldNumber;
-const int OpticsDiagStats::kLaserOutputPowerLowWarningThresholdFieldNumber;
-const int OpticsDiagStats::kLaserOutputPowerLowWarningThresholdMwFieldNumber;
-const int OpticsDiagStats::kLaserOutputPowerLowWarningThresholdDbmFieldNumber;
-const int OpticsDiagStats::kLaserOutputPowerLowWarningThresholdSetFieldNumber;
-const int OpticsDiagStats::kLaserRxPowerHighAlarmThresholdFieldNumber;
-const int OpticsDiagStats::kLaserRxPowerHighAlarmThresholdMwFieldNumber;
-const int OpticsDiagStats::kLaserRxPowerHighAlarmThresholdDbmFieldNumber;
-const int OpticsDiagStats::kLaserRxPowerHighAlarmThresholdSetFieldNumber;
-const int OpticsDiagStats::kLaserRxPowerLowAlarmThresholdFieldNumber;
-const int OpticsDiagStats::kLaserRxPowerLowAlarmThresholdMwFieldNumber;
-const int OpticsDiagStats::kLaserRxPowerLowAlarmThresholdDbmFieldNumber;
-const int OpticsDiagStats::kLaserRxPowerLowAlarmThresholdSetFieldNumber;
-const int OpticsDiagStats::kLaserRxPowerHighWarningThresholdFieldNumber;
-const int OpticsDiagStats::kLaserRxPowerHighWarningThresholdMwFieldNumber;
-const int OpticsDiagStats::kLaserRxPowerHighWarningThresholdDbmFieldNumber;
-const int OpticsDiagStats::kLaserRxPowerHighWarningThresholdSetFieldNumber;
-const int OpticsDiagStats::kLaserRxPowerLowWarningThresholdFieldNumber;
-const int OpticsDiagStats::kLaserRxPowerLowWarningThresholdMwFieldNumber;
-const int OpticsDiagStats::kLaserRxPowerLowWarningThresholdDbmFieldNumber;
-const int OpticsDiagStats::kLaserRxPowerLowWarningThresholdSetFieldNumber;
-const int OpticsDiagStats::kLaneNumberFieldNumber;
-const int OpticsDiagStats::kLaneLaserTempFieldNumber;
-const int OpticsDiagStats::kLaneLaserTempCFieldNumber;
-const int OpticsDiagStats::kLaneLaserTempFFieldNumber;
-const int OpticsDiagStats::kLaneLaserTempSetFieldNumber;
-const int OpticsDiagStats::kLaneLaserOutputPowerFieldNumber;
-const int OpticsDiagStats::kLaneLaserOutputPowerMwFieldNumber;
-const int OpticsDiagStats::kLaneLaserOutputPowerDbmFieldNumber;
-const int OpticsDiagStats::kLaneLaserOutputPowerSetFieldNumber;
-const int OpticsDiagStats::kLaneLaserReceiverPowerFieldNumber;
-const int OpticsDiagStats::kLaneLaserReceiverPowerMwFieldNumber;
-const int OpticsDiagStats::kLaneLaserReceiverPowerDbmFieldNumber;
-const int OpticsDiagStats::kLaneLaserReceiverPowerSetFieldNumber;
-const int OpticsDiagStats::kLaneLaserTempHighAlarmSetFieldNumber;
-const int OpticsDiagStats::kLaneLaserTempHighAlarmFieldNumber;
-const int OpticsDiagStats::kLaneLaserTempLowAlarmSetFieldNumber;
-const int OpticsDiagStats::kLaneLaserTempLowAlarmFieldNumber;
-const int OpticsDiagStats::kLaneLaserTempHighWarningSetFieldNumber;
-const int OpticsDiagStats::kLaneLaserTempHighWarningFieldNumber;
-const int OpticsDiagStats::kLaneLaserOutputPowerHighAlarmSetFieldNumber;
-const int OpticsDiagStats::kLaneLaserOutputPowerHighAlarmFieldNumber;
-const int OpticsDiagStats::kLaneLaserOutputPowerLowAlarmSetFieldNumber;
-const int OpticsDiagStats::kLaneLaserOutputPowerLowAlarmFieldNumber;
-const int OpticsDiagStats::kLaneLaserOutputPowerHighWarningSetFieldNumber;
-const int OpticsDiagStats::kLaneLaserOutputPowerHighWarningFieldNumber;
-const int OpticsDiagStats::kLaneLaserOutputPowerLowWarningSetFieldNumber;
-const int OpticsDiagStats::kLaneLaserOutputPowerLowWarningFieldNumber;
-const int OpticsDiagStats::kLaneLaserReceiverPowerHighAlarmSetFieldNumber;
-const int OpticsDiagStats::kLaneLaserReceiverPowerHighAlarmFieldNumber;
-const int OpticsDiagStats::kLaneLaserReceiverPowerLowAlarmSetFieldNumber;
-const int OpticsDiagStats::kLaneLaserReceiverPowerLowAlarmFieldNumber;
-const int OpticsDiagStats::kLaneLaserReceiverPowerHighWarningSetFieldNumber;
-const int OpticsDiagStats::kLaneLaserReceiverPowerHighWarningFieldNumber;
-const int OpticsDiagStats::kLaneLaserReceiverPowerLowWarningSetFieldNumber;
-const int OpticsDiagStats::kLaneLaserReceiverPowerLowWarningFieldNumber;
 const int OpticsDiagStats::kOpticsTypeFieldNumber;
-const int OpticsDiagStats::kOpticsAlarmValidityFieldNumber;
-const int OpticsDiagStats::kOpticsCapabilityFieldNumber;
-const int OpticsDiagStats::kActiveLaneMapFieldNumber;
-const int OpticsDiagStats::kLaneAlarmsWarningsFieldNumber;
-const int OpticsDiagStats::kLaneLaserTempLowWarningSetFieldNumber;
-const int OpticsDiagStats::kLaneLaserTempLowWarningFieldNumber;
+const int OpticsDiagStats::kModuleTempFieldNumber;
+const int OpticsDiagStats::kModuleTempHighAlarmThresholdFieldNumber;
+const int OpticsDiagStats::kModuleTempLowAlarmThresholdFieldNumber;
+const int OpticsDiagStats::kModuleTempHighWarningThresholdFieldNumber;
+const int OpticsDiagStats::kModuleTempLowWarningThresholdFieldNumber;
+const int OpticsDiagStats::kLaserOutputPowerHighAlarmThresholdDbmFieldNumber;
+const int OpticsDiagStats::kLaserOutputPowerLowAlarmThresholdDbmFieldNumber;
+const int OpticsDiagStats::kLaserOutputPowerHighWarningThresholdDbmFieldNumber;
+const int OpticsDiagStats::kLaserOutputPowerLowWarningThresholdDbmFieldNumber;
+const int OpticsDiagStats::kLaserRxPowerHighAlarmThresholdDbmFieldNumber;
+const int OpticsDiagStats::kLaserRxPowerLowAlarmThresholdDbmFieldNumber;
+const int OpticsDiagStats::kLaserRxPowerHighWarningThresholdDbmFieldNumber;
+const int OpticsDiagStats::kLaserRxPowerLowWarningThresholdDbmFieldNumber;
+const int OpticsDiagStats::kLaserBiasCurrentHighAlarmThresholdFieldNumber;
+const int OpticsDiagStats::kLaserBiasCurrentLowAlarmThresholdFieldNumber;
+const int OpticsDiagStats::kLaserBiasCurrentHighWarningThresholdFieldNumber;
+const int OpticsDiagStats::kLaserBiasCurrentLowWarningThresholdFieldNumber;
+const int OpticsDiagStats::kModuleTempHighAlarmFieldNumber;
+const int OpticsDiagStats::kModuleTempLowAlarmFieldNumber;
+const int OpticsDiagStats::kModuleTempHighWarningFieldNumber;
+const int OpticsDiagStats::kModuleTempLowWarningFieldNumber;
+const int OpticsDiagStats::kOpticsLaneDiagStatsFieldNumber;
 #endif  // !_MSC_VER
 
 OpticsDiagStats::OpticsDiagStats()
@@ -1243,108 +1051,28 @@ OpticsDiagStats::OpticsDiagStats(const OpticsDiagStats& from)
 
 void OpticsDiagStats::SharedCtor() {
   _cached_size_ = 0;
+  optics_type_ = 0u;
   module_temp_ = 0;
-  module_temp_c_ = 0;
-  module_temp_f_ = 0;
-  module_temp_set_ = 0;
-  receiver_signal_ave_optical_power_ = 0;
-  receiver_signal_ave_optical_power_mw_ = 0;
-  receiver_signal_ave_optical_power_dbm_ = 0;
-  receiver_signal_ave_optical_power_set_ = 0;
-  laser_output_power_ = 0;
-  laser_output_power_mw_ = 0;
-  laser_output_power_dbm_ = 0;
-  laser_output_power_set_ = 0;
   module_temp_high_alarm_threshold_ = 0;
-  module_temp_high_alarm_threshold_c_ = 0;
-  module_temp_high_alarm_threshold_f_ = 0;
-  module_temp_high_alarm_threshold_set_ = 0;
   module_temp_low_alarm_threshold_ = 0;
-  module_temp_low_alarm_threshold_c_ = 0;
-  module_temp_low_alarm_threshold_f_ = 0;
-  module_temp_low_alarm_threshold_set_ = 0;
   module_temp_high_warning_threshold_ = 0;
-  module_temp_high_warning_threshold_c_ = 0;
-  module_temp_high_warning_threshold_f_ = 0;
-  module_temp_high_warning_threshold_set_ = 0;
   module_temp_low_warning_threshold_ = 0;
-  module_temp_low_warning_threshold_c_ = 0;
-  module_temp_low_warning_threshold_f_ = 0;
-  module_temp_low_warning_threshold_set_ = 0;
-  laser_output_power_high_alarm_threshold_ = 0;
-  laser_output_power_high_alarm_threshold_mw_ = 0;
   laser_output_power_high_alarm_threshold_dbm_ = 0;
-  laser_output_power_high_alarm_threshold_set_ = 0;
-  laser_output_power_low_alarm_threshold_ = 0;
-  laser_output_power_low_alarm_threshold_mw_ = 0;
   laser_output_power_low_alarm_threshold_dbm_ = 0;
-  laser_output_power_low_alarm_threshold_set_ = 0;
-  laser_output_power_high_warning_threshold_ = 0;
-  laser_output_power_high_warning_threshold_mw_ = 0;
   laser_output_power_high_warning_threshold_dbm_ = 0;
-  laser_output_power_high_warning_threshold_set_ = 0;
-  laser_output_power_low_warning_threshold_ = 0;
-  laser_output_power_low_warning_threshold_mw_ = 0;
   laser_output_power_low_warning_threshold_dbm_ = 0;
-  laser_output_power_low_warning_threshold_set_ = 0;
-  laser_rx_power_high_alarm_threshold_ = 0;
-  laser_rx_power_high_alarm_threshold_mw_ = 0;
   laser_rx_power_high_alarm_threshold_dbm_ = 0;
-  laser_rx_power_high_alarm_threshold_set_ = 0;
-  laser_rx_power_low_alarm_threshold_ = 0;
-  laser_rx_power_low_alarm_threshold_mw_ = 0;
   laser_rx_power_low_alarm_threshold_dbm_ = 0;
-  laser_rx_power_low_alarm_threshold_set_ = 0;
-  laser_rx_power_high_warning_threshold_ = 0;
-  laser_rx_power_high_warning_threshold_mw_ = 0;
   laser_rx_power_high_warning_threshold_dbm_ = 0;
-  laser_rx_power_high_warning_threshold_set_ = 0;
-  laser_rx_power_low_warning_threshold_ = 0;
-  laser_rx_power_low_warning_threshold_mw_ = 0;
   laser_rx_power_low_warning_threshold_dbm_ = 0;
-  laser_rx_power_low_warning_threshold_set_ = 0;
-  lane_number_ = 0;
-  lane_laser_temp_ = 0;
-  lane_laser_temp_c_ = 0;
-  lane_laser_temp_f_ = 0;
-  lane_laser_temp_set_ = 0;
-  lane_laser_output_power_ = 0;
-  lane_laser_output_power_mw_ = 0;
-  lane_laser_output_power_dbm_ = 0;
-  lane_laser_output_power_set_ = 0;
-  lane_laser_receiver_power_ = 0;
-  lane_laser_receiver_power_mw_ = 0;
-  lane_laser_receiver_power_dbm_ = 0;
-  lane_laser_receiver_power_set_ = 0;
-  lane_laser_temp_high_alarm_set_ = 0;
-  lane_laser_temp_high_alarm_ = 0;
-  lane_laser_temp_low_alarm_set_ = 0;
-  lane_laser_temp_low_alarm_ = 0;
-  lane_laser_temp_high_warning_set_ = 0;
-  lane_laser_temp_high_warning_ = 0;
-  lane_laser_output_power_high_alarm_set_ = 0;
-  lane_laser_output_power_high_alarm_ = 0;
-  lane_laser_output_power_low_alarm_set_ = 0;
-  lane_laser_output_power_low_alarm_ = 0;
-  lane_laser_output_power_high_warning_set_ = 0;
-  lane_laser_output_power_high_warning_ = 0;
-  lane_laser_output_power_low_warning_set_ = 0;
-  lane_laser_output_power_low_warning_ = 0;
-  lane_laser_receiver_power_high_alarm_set_ = 0;
-  lane_laser_receiver_power_high_alarm_ = 0;
-  lane_laser_receiver_power_low_alarm_set_ = 0;
-  lane_laser_receiver_power_low_alarm_ = 0;
-  lane_laser_receiver_power_high_warning_set_ = 0;
-  lane_laser_receiver_power_high_warning_ = 0;
-  lane_laser_receiver_power_low_warning_set_ = 0;
-  lane_laser_receiver_power_low_warning_ = 0;
-  optics_type_ = 0;
-  optics_alarm_validity_ = 0;
-  optics_capability_ = 0;
-  active_lane_map_ = 0;
-  lane_alarms_warnings_ = 0;
-  lane_laser_temp_low_warning_set_ = 0;
-  lane_laser_temp_low_warning_ = 0;
+  laser_bias_current_high_alarm_threshold_ = 0;
+  laser_bias_current_low_alarm_threshold_ = 0;
+  laser_bias_current_high_warning_threshold_ = 0;
+  laser_bias_current_low_warning_threshold_ = 0;
+  module_temp_high_alarm_ = false;
+  module_temp_low_alarm_ = false;
+  module_temp_high_warning_ = false;
+  module_temp_low_warning_ = false;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -1393,48 +1121,20 @@ void OpticsDiagStats::Clear() {
 } while (0)
 
   if (_has_bits_[0 / 32] & 255u) {
-    ZR_(module_temp_c_, receiver_signal_ave_optical_power_dbm_);
+    ZR_(module_temp_, laser_output_power_low_alarm_threshold_dbm_);
+    optics_type_ = 0u;
   }
   if (_has_bits_[8 / 32] & 65280u) {
-    ZR_(laser_output_power_mw_, module_temp_high_alarm_threshold_f_);
+    ZR_(laser_output_power_high_warning_threshold_dbm_, laser_bias_current_low_alarm_threshold_);
   }
-  if (_has_bits_[16 / 32] & 16711680u) {
-    ZR_(module_temp_low_alarm_threshold_c_, module_temp_high_warning_threshold_f_);
-  }
-  if (_has_bits_[24 / 32] & 4278190080u) {
-    ZR_(module_temp_low_warning_threshold_c_, laser_output_power_high_alarm_threshold_dbm_);
-  }
-  if (_has_bits_[32 / 32] & 255u) {
-    ZR_(laser_output_power_low_alarm_threshold_mw_, laser_output_power_high_warning_threshold_dbm_);
-  }
-  if (_has_bits_[40 / 32] & 65280u) {
-    ZR_(laser_output_power_low_warning_threshold_mw_, laser_rx_power_high_alarm_threshold_dbm_);
-  }
-  if (_has_bits_[48 / 32] & 16711680u) {
-    ZR_(laser_rx_power_low_alarm_threshold_mw_, laser_rx_power_high_warning_threshold_dbm_);
-  }
-  if (_has_bits_[56 / 32] & 4278190080u) {
-    ZR_(laser_rx_power_low_warning_threshold_mw_, lane_laser_temp_f_);
-  }
-  if (_has_bits_[64 / 32] & 255u) {
-    ZR_(lane_laser_temp_set_, lane_laser_receiver_power_dbm_);
-  }
-  if (_has_bits_[72 / 32] & 65280u) {
-    ZR_(lane_laser_receiver_power_set_, lane_laser_output_power_high_alarm_set_);
-  }
-  if (_has_bits_[80 / 32] & 16711680u) {
-    ZR_(lane_laser_output_power_high_alarm_, lane_laser_receiver_power_high_alarm_set_);
-  }
-  if (_has_bits_[88 / 32] & 4278190080u) {
-    ZR_(lane_laser_receiver_power_high_alarm_, optics_type_);
-  }
-  if (_has_bits_[96 / 32] & 63u) {
-    ZR_(optics_alarm_validity_, lane_laser_temp_low_warning_);
+  if (_has_bits_[16 / 32] & 4128768u) {
+    ZR_(module_temp_high_alarm_, laser_bias_current_low_warning_threshold_);
   }
 
 #undef ZR_HELPER_
 #undef ZR_
 
+  optics_lane_diag_stats_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   if (_internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->Clear();
@@ -1451,458 +1151,98 @@ bool OpticsDiagStats::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 module_temp = 1;
+      // optional uint32 optics_type = 1;
       case 1: {
         if (tag == 8) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &optics_type_)));
+          set_has_optics_type();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(17)) goto parse_module_temp;
+        break;
+      }
+
+      // optional double module_temp = 2;
+      case 2: {
+        if (tag == 17) {
+         parse_module_temp:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
                  input, &module_temp_)));
           set_has_module_temp();
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(17)) goto parse_module_temp_c;
+        if (input->ExpectTag(25)) goto parse_module_temp_high_alarm_threshold;
         break;
       }
 
-      // optional double module_temp_c = 2;
-      case 2: {
-        if (tag == 17) {
-         parse_module_temp_c:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
-                 input, &module_temp_c_)));
-          set_has_module_temp_c();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(25)) goto parse_module_temp_f;
-        break;
-      }
-
-      // optional double module_temp_f = 3;
+      // optional double module_temp_high_alarm_threshold = 3;
       case 3: {
         if (tag == 25) {
-         parse_module_temp_f:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
-                 input, &module_temp_f_)));
-          set_has_module_temp_f();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(32)) goto parse_module_temp_set;
-        break;
-      }
-
-      // optional int32 module_temp_set = 4;
-      case 4: {
-        if (tag == 32) {
-         parse_module_temp_set:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &module_temp_set_)));
-          set_has_module_temp_set();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(40)) goto parse_receiver_signal_ave_optical_power;
-        break;
-      }
-
-      // optional int32 receiver_signal_ave_optical_power = 5;
-      case 5: {
-        if (tag == 40) {
-         parse_receiver_signal_ave_optical_power:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &receiver_signal_ave_optical_power_)));
-          set_has_receiver_signal_ave_optical_power();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(49)) goto parse_receiver_signal_ave_optical_power_mw;
-        break;
-      }
-
-      // optional double receiver_signal_ave_optical_power_mw = 6;
-      case 6: {
-        if (tag == 49) {
-         parse_receiver_signal_ave_optical_power_mw:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
-                 input, &receiver_signal_ave_optical_power_mw_)));
-          set_has_receiver_signal_ave_optical_power_mw();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(57)) goto parse_receiver_signal_ave_optical_power_dbm;
-        break;
-      }
-
-      // optional double receiver_signal_ave_optical_power_dbm = 7;
-      case 7: {
-        if (tag == 57) {
-         parse_receiver_signal_ave_optical_power_dbm:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
-                 input, &receiver_signal_ave_optical_power_dbm_)));
-          set_has_receiver_signal_ave_optical_power_dbm();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(64)) goto parse_receiver_signal_ave_optical_power_set;
-        break;
-      }
-
-      // optional int32 receiver_signal_ave_optical_power_set = 8;
-      case 8: {
-        if (tag == 64) {
-         parse_receiver_signal_ave_optical_power_set:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &receiver_signal_ave_optical_power_set_)));
-          set_has_receiver_signal_ave_optical_power_set();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(72)) goto parse_laser_output_power;
-        break;
-      }
-
-      // optional int32 laser_output_power = 9;
-      case 9: {
-        if (tag == 72) {
-         parse_laser_output_power:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &laser_output_power_)));
-          set_has_laser_output_power();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(81)) goto parse_laser_output_power_mw;
-        break;
-      }
-
-      // optional double laser_output_power_mw = 10;
-      case 10: {
-        if (tag == 81) {
-         parse_laser_output_power_mw:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
-                 input, &laser_output_power_mw_)));
-          set_has_laser_output_power_mw();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(89)) goto parse_laser_output_power_dbm;
-        break;
-      }
-
-      // optional double laser_output_power_dbm = 11;
-      case 11: {
-        if (tag == 89) {
-         parse_laser_output_power_dbm:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
-                 input, &laser_output_power_dbm_)));
-          set_has_laser_output_power_dbm();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(96)) goto parse_laser_output_power_set;
-        break;
-      }
-
-      // optional int32 laser_output_power_set = 12;
-      case 12: {
-        if (tag == 96) {
-         parse_laser_output_power_set:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &laser_output_power_set_)));
-          set_has_laser_output_power_set();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(104)) goto parse_module_temp_high_alarm_threshold;
-        break;
-      }
-
-      // optional int32 module_temp_high_alarm_threshold = 13;
-      case 13: {
-        if (tag == 104) {
          parse_module_temp_high_alarm_threshold:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
                  input, &module_temp_high_alarm_threshold_)));
           set_has_module_temp_high_alarm_threshold();
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(113)) goto parse_module_temp_high_alarm_threshold_c;
+        if (input->ExpectTag(33)) goto parse_module_temp_low_alarm_threshold;
         break;
       }
 
-      // optional double module_temp_high_alarm_threshold_c = 14;
-      case 14: {
-        if (tag == 113) {
-         parse_module_temp_high_alarm_threshold_c:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
-                 input, &module_temp_high_alarm_threshold_c_)));
-          set_has_module_temp_high_alarm_threshold_c();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(121)) goto parse_module_temp_high_alarm_threshold_f;
-        break;
-      }
-
-      // optional double module_temp_high_alarm_threshold_f = 15;
-      case 15: {
-        if (tag == 121) {
-         parse_module_temp_high_alarm_threshold_f:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
-                 input, &module_temp_high_alarm_threshold_f_)));
-          set_has_module_temp_high_alarm_threshold_f();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(128)) goto parse_module_temp_high_alarm_threshold_set;
-        break;
-      }
-
-      // optional int32 module_temp_high_alarm_threshold_set = 16;
-      case 16: {
-        if (tag == 128) {
-         parse_module_temp_high_alarm_threshold_set:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &module_temp_high_alarm_threshold_set_)));
-          set_has_module_temp_high_alarm_threshold_set();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(136)) goto parse_module_temp_low_alarm_threshold;
-        break;
-      }
-
-      // optional int32 module_temp_low_alarm_threshold = 17;
-      case 17: {
-        if (tag == 136) {
+      // optional double module_temp_low_alarm_threshold = 4;
+      case 4: {
+        if (tag == 33) {
          parse_module_temp_low_alarm_threshold:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
                  input, &module_temp_low_alarm_threshold_)));
           set_has_module_temp_low_alarm_threshold();
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(145)) goto parse_module_temp_low_alarm_threshold_c;
+        if (input->ExpectTag(41)) goto parse_module_temp_high_warning_threshold;
         break;
       }
 
-      // optional double module_temp_low_alarm_threshold_c = 18;
-      case 18: {
-        if (tag == 145) {
-         parse_module_temp_low_alarm_threshold_c:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
-                 input, &module_temp_low_alarm_threshold_c_)));
-          set_has_module_temp_low_alarm_threshold_c();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(153)) goto parse_module_temp_low_alarm_threshold_f;
-        break;
-      }
-
-      // optional double module_temp_low_alarm_threshold_f = 19;
-      case 19: {
-        if (tag == 153) {
-         parse_module_temp_low_alarm_threshold_f:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
-                 input, &module_temp_low_alarm_threshold_f_)));
-          set_has_module_temp_low_alarm_threshold_f();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(160)) goto parse_module_temp_low_alarm_threshold_set;
-        break;
-      }
-
-      // optional int32 module_temp_low_alarm_threshold_set = 20;
-      case 20: {
-        if (tag == 160) {
-         parse_module_temp_low_alarm_threshold_set:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &module_temp_low_alarm_threshold_set_)));
-          set_has_module_temp_low_alarm_threshold_set();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(168)) goto parse_module_temp_high_warning_threshold;
-        break;
-      }
-
-      // optional int32 module_temp_high_warning_threshold = 21;
-      case 21: {
-        if (tag == 168) {
+      // optional double module_temp_high_warning_threshold = 5;
+      case 5: {
+        if (tag == 41) {
          parse_module_temp_high_warning_threshold:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
                  input, &module_temp_high_warning_threshold_)));
           set_has_module_temp_high_warning_threshold();
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(177)) goto parse_module_temp_high_warning_threshold_c;
+        if (input->ExpectTag(49)) goto parse_module_temp_low_warning_threshold;
         break;
       }
 
-      // optional double module_temp_high_warning_threshold_c = 22;
-      case 22: {
-        if (tag == 177) {
-         parse_module_temp_high_warning_threshold_c:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
-                 input, &module_temp_high_warning_threshold_c_)));
-          set_has_module_temp_high_warning_threshold_c();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(185)) goto parse_module_temp_high_warning_threshold_f;
-        break;
-      }
-
-      // optional double module_temp_high_warning_threshold_f = 23;
-      case 23: {
-        if (tag == 185) {
-         parse_module_temp_high_warning_threshold_f:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
-                 input, &module_temp_high_warning_threshold_f_)));
-          set_has_module_temp_high_warning_threshold_f();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(192)) goto parse_module_temp_high_warning_threshold_set;
-        break;
-      }
-
-      // optional int32 module_temp_high_warning_threshold_set = 24;
-      case 24: {
-        if (tag == 192) {
-         parse_module_temp_high_warning_threshold_set:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &module_temp_high_warning_threshold_set_)));
-          set_has_module_temp_high_warning_threshold_set();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(200)) goto parse_module_temp_low_warning_threshold;
-        break;
-      }
-
-      // optional int32 module_temp_low_warning_threshold = 25;
-      case 25: {
-        if (tag == 200) {
+      // optional double module_temp_low_warning_threshold = 6;
+      case 6: {
+        if (tag == 49) {
          parse_module_temp_low_warning_threshold:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
                  input, &module_temp_low_warning_threshold_)));
           set_has_module_temp_low_warning_threshold();
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(209)) goto parse_module_temp_low_warning_threshold_c;
+        if (input->ExpectTag(57)) goto parse_laser_output_power_high_alarm_threshold_dbm;
         break;
       }
 
-      // optional double module_temp_low_warning_threshold_c = 26;
-      case 26: {
-        if (tag == 209) {
-         parse_module_temp_low_warning_threshold_c:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
-                 input, &module_temp_low_warning_threshold_c_)));
-          set_has_module_temp_low_warning_threshold_c();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(217)) goto parse_module_temp_low_warning_threshold_f;
-        break;
-      }
-
-      // optional double module_temp_low_warning_threshold_f = 27;
-      case 27: {
-        if (tag == 217) {
-         parse_module_temp_low_warning_threshold_f:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
-                 input, &module_temp_low_warning_threshold_f_)));
-          set_has_module_temp_low_warning_threshold_f();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(224)) goto parse_module_temp_low_warning_threshold_set;
-        break;
-      }
-
-      // optional int32 module_temp_low_warning_threshold_set = 28;
-      case 28: {
-        if (tag == 224) {
-         parse_module_temp_low_warning_threshold_set:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &module_temp_low_warning_threshold_set_)));
-          set_has_module_temp_low_warning_threshold_set();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(232)) goto parse_laser_output_power_high_alarm_threshold;
-        break;
-      }
-
-      // optional int32 laser_output_power_high_alarm_threshold = 29;
-      case 29: {
-        if (tag == 232) {
-         parse_laser_output_power_high_alarm_threshold:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &laser_output_power_high_alarm_threshold_)));
-          set_has_laser_output_power_high_alarm_threshold();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(241)) goto parse_laser_output_power_high_alarm_threshold_mw;
-        break;
-      }
-
-      // optional double laser_output_power_high_alarm_threshold_mw = 30;
-      case 30: {
-        if (tag == 241) {
-         parse_laser_output_power_high_alarm_threshold_mw:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
-                 input, &laser_output_power_high_alarm_threshold_mw_)));
-          set_has_laser_output_power_high_alarm_threshold_mw();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(249)) goto parse_laser_output_power_high_alarm_threshold_dbm;
-        break;
-      }
-
-      // optional double laser_output_power_high_alarm_threshold_dbm = 31;
-      case 31: {
-        if (tag == 249) {
+      // optional double laser_output_power_high_alarm_threshold_dbm = 7;
+      case 7: {
+        if (tag == 57) {
          parse_laser_output_power_high_alarm_threshold_dbm:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
@@ -1911,58 +1251,13 @@ bool OpticsDiagStats::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(256)) goto parse_laser_output_power_high_alarm_threshold_set;
+        if (input->ExpectTag(65)) goto parse_laser_output_power_low_alarm_threshold_dbm;
         break;
       }
 
-      // optional int32 laser_output_power_high_alarm_threshold_set = 32;
-      case 32: {
-        if (tag == 256) {
-         parse_laser_output_power_high_alarm_threshold_set:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &laser_output_power_high_alarm_threshold_set_)));
-          set_has_laser_output_power_high_alarm_threshold_set();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(264)) goto parse_laser_output_power_low_alarm_threshold;
-        break;
-      }
-
-      // optional int32 laser_output_power_low_alarm_threshold = 33;
-      case 33: {
-        if (tag == 264) {
-         parse_laser_output_power_low_alarm_threshold:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &laser_output_power_low_alarm_threshold_)));
-          set_has_laser_output_power_low_alarm_threshold();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(273)) goto parse_laser_output_power_low_alarm_threshold_mw;
-        break;
-      }
-
-      // optional double laser_output_power_low_alarm_threshold_mw = 34;
-      case 34: {
-        if (tag == 273) {
-         parse_laser_output_power_low_alarm_threshold_mw:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
-                 input, &laser_output_power_low_alarm_threshold_mw_)));
-          set_has_laser_output_power_low_alarm_threshold_mw();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(281)) goto parse_laser_output_power_low_alarm_threshold_dbm;
-        break;
-      }
-
-      // optional double laser_output_power_low_alarm_threshold_dbm = 35;
-      case 35: {
-        if (tag == 281) {
+      // optional double laser_output_power_low_alarm_threshold_dbm = 8;
+      case 8: {
+        if (tag == 65) {
          parse_laser_output_power_low_alarm_threshold_dbm:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
@@ -1971,58 +1266,13 @@ bool OpticsDiagStats::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(288)) goto parse_laser_output_power_low_alarm_threshold_set;
+        if (input->ExpectTag(73)) goto parse_laser_output_power_high_warning_threshold_dbm;
         break;
       }
 
-      // optional int32 laser_output_power_low_alarm_threshold_set = 36;
-      case 36: {
-        if (tag == 288) {
-         parse_laser_output_power_low_alarm_threshold_set:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &laser_output_power_low_alarm_threshold_set_)));
-          set_has_laser_output_power_low_alarm_threshold_set();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(296)) goto parse_laser_output_power_high_warning_threshold;
-        break;
-      }
-
-      // optional int32 laser_output_power_high_warning_threshold = 37;
-      case 37: {
-        if (tag == 296) {
-         parse_laser_output_power_high_warning_threshold:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &laser_output_power_high_warning_threshold_)));
-          set_has_laser_output_power_high_warning_threshold();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(305)) goto parse_laser_output_power_high_warning_threshold_mw;
-        break;
-      }
-
-      // optional double laser_output_power_high_warning_threshold_mw = 38;
-      case 38: {
-        if (tag == 305) {
-         parse_laser_output_power_high_warning_threshold_mw:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
-                 input, &laser_output_power_high_warning_threshold_mw_)));
-          set_has_laser_output_power_high_warning_threshold_mw();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(313)) goto parse_laser_output_power_high_warning_threshold_dbm;
-        break;
-      }
-
-      // optional double laser_output_power_high_warning_threshold_dbm = 39;
-      case 39: {
-        if (tag == 313) {
+      // optional double laser_output_power_high_warning_threshold_dbm = 9;
+      case 9: {
+        if (tag == 73) {
          parse_laser_output_power_high_warning_threshold_dbm:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
@@ -2031,58 +1281,13 @@ bool OpticsDiagStats::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(320)) goto parse_laser_output_power_high_warning_threshold_set;
+        if (input->ExpectTag(81)) goto parse_laser_output_power_low_warning_threshold_dbm;
         break;
       }
 
-      // optional int32 laser_output_power_high_warning_threshold_set = 40;
-      case 40: {
-        if (tag == 320) {
-         parse_laser_output_power_high_warning_threshold_set:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &laser_output_power_high_warning_threshold_set_)));
-          set_has_laser_output_power_high_warning_threshold_set();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(328)) goto parse_laser_output_power_low_warning_threshold;
-        break;
-      }
-
-      // optional int32 laser_output_power_low_warning_threshold = 41;
-      case 41: {
-        if (tag == 328) {
-         parse_laser_output_power_low_warning_threshold:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &laser_output_power_low_warning_threshold_)));
-          set_has_laser_output_power_low_warning_threshold();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(337)) goto parse_laser_output_power_low_warning_threshold_mw;
-        break;
-      }
-
-      // optional double laser_output_power_low_warning_threshold_mw = 42;
-      case 42: {
-        if (tag == 337) {
-         parse_laser_output_power_low_warning_threshold_mw:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
-                 input, &laser_output_power_low_warning_threshold_mw_)));
-          set_has_laser_output_power_low_warning_threshold_mw();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(345)) goto parse_laser_output_power_low_warning_threshold_dbm;
-        break;
-      }
-
-      // optional double laser_output_power_low_warning_threshold_dbm = 43;
-      case 43: {
-        if (tag == 345) {
+      // optional double laser_output_power_low_warning_threshold_dbm = 10;
+      case 10: {
+        if (tag == 81) {
          parse_laser_output_power_low_warning_threshold_dbm:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
@@ -2091,58 +1296,13 @@ bool OpticsDiagStats::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(352)) goto parse_laser_output_power_low_warning_threshold_set;
+        if (input->ExpectTag(89)) goto parse_laser_rx_power_high_alarm_threshold_dbm;
         break;
       }
 
-      // optional int32 laser_output_power_low_warning_threshold_set = 44;
-      case 44: {
-        if (tag == 352) {
-         parse_laser_output_power_low_warning_threshold_set:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &laser_output_power_low_warning_threshold_set_)));
-          set_has_laser_output_power_low_warning_threshold_set();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(360)) goto parse_laser_rx_power_high_alarm_threshold;
-        break;
-      }
-
-      // optional int32 laser_rx_power_high_alarm_threshold = 45;
-      case 45: {
-        if (tag == 360) {
-         parse_laser_rx_power_high_alarm_threshold:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &laser_rx_power_high_alarm_threshold_)));
-          set_has_laser_rx_power_high_alarm_threshold();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(369)) goto parse_laser_rx_power_high_alarm_threshold_mw;
-        break;
-      }
-
-      // optional double laser_rx_power_high_alarm_threshold_mw = 46;
-      case 46: {
-        if (tag == 369) {
-         parse_laser_rx_power_high_alarm_threshold_mw:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
-                 input, &laser_rx_power_high_alarm_threshold_mw_)));
-          set_has_laser_rx_power_high_alarm_threshold_mw();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(377)) goto parse_laser_rx_power_high_alarm_threshold_dbm;
-        break;
-      }
-
-      // optional double laser_rx_power_high_alarm_threshold_dbm = 47;
-      case 47: {
-        if (tag == 377) {
+      // optional double laser_rx_power_high_alarm_threshold_dbm = 11;
+      case 11: {
+        if (tag == 89) {
          parse_laser_rx_power_high_alarm_threshold_dbm:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
@@ -2151,58 +1311,13 @@ bool OpticsDiagStats::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(384)) goto parse_laser_rx_power_high_alarm_threshold_set;
+        if (input->ExpectTag(97)) goto parse_laser_rx_power_low_alarm_threshold_dbm;
         break;
       }
 
-      // optional int32 laser_rx_power_high_alarm_threshold_set = 48;
-      case 48: {
-        if (tag == 384) {
-         parse_laser_rx_power_high_alarm_threshold_set:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &laser_rx_power_high_alarm_threshold_set_)));
-          set_has_laser_rx_power_high_alarm_threshold_set();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(392)) goto parse_laser_rx_power_low_alarm_threshold;
-        break;
-      }
-
-      // optional int32 laser_rx_power_low_alarm_threshold = 49;
-      case 49: {
-        if (tag == 392) {
-         parse_laser_rx_power_low_alarm_threshold:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &laser_rx_power_low_alarm_threshold_)));
-          set_has_laser_rx_power_low_alarm_threshold();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(401)) goto parse_laser_rx_power_low_alarm_threshold_mw;
-        break;
-      }
-
-      // optional double laser_rx_power_low_alarm_threshold_mw = 50;
-      case 50: {
-        if (tag == 401) {
-         parse_laser_rx_power_low_alarm_threshold_mw:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
-                 input, &laser_rx_power_low_alarm_threshold_mw_)));
-          set_has_laser_rx_power_low_alarm_threshold_mw();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(409)) goto parse_laser_rx_power_low_alarm_threshold_dbm;
-        break;
-      }
-
-      // optional double laser_rx_power_low_alarm_threshold_dbm = 51;
-      case 51: {
-        if (tag == 409) {
+      // optional double laser_rx_power_low_alarm_threshold_dbm = 12;
+      case 12: {
+        if (tag == 97) {
          parse_laser_rx_power_low_alarm_threshold_dbm:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
@@ -2211,58 +1326,13 @@ bool OpticsDiagStats::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(416)) goto parse_laser_rx_power_low_alarm_threshold_set;
+        if (input->ExpectTag(105)) goto parse_laser_rx_power_high_warning_threshold_dbm;
         break;
       }
 
-      // optional int32 laser_rx_power_low_alarm_threshold_set = 52;
-      case 52: {
-        if (tag == 416) {
-         parse_laser_rx_power_low_alarm_threshold_set:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &laser_rx_power_low_alarm_threshold_set_)));
-          set_has_laser_rx_power_low_alarm_threshold_set();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(424)) goto parse_laser_rx_power_high_warning_threshold;
-        break;
-      }
-
-      // optional int32 laser_rx_power_high_warning_threshold = 53;
-      case 53: {
-        if (tag == 424) {
-         parse_laser_rx_power_high_warning_threshold:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &laser_rx_power_high_warning_threshold_)));
-          set_has_laser_rx_power_high_warning_threshold();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(433)) goto parse_laser_rx_power_high_warning_threshold_mw;
-        break;
-      }
-
-      // optional double laser_rx_power_high_warning_threshold_mw = 54;
-      case 54: {
-        if (tag == 433) {
-         parse_laser_rx_power_high_warning_threshold_mw:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
-                 input, &laser_rx_power_high_warning_threshold_mw_)));
-          set_has_laser_rx_power_high_warning_threshold_mw();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(441)) goto parse_laser_rx_power_high_warning_threshold_dbm;
-        break;
-      }
-
-      // optional double laser_rx_power_high_warning_threshold_dbm = 55;
-      case 55: {
-        if (tag == 441) {
+      // optional double laser_rx_power_high_warning_threshold_dbm = 13;
+      case 13: {
+        if (tag == 105) {
          parse_laser_rx_power_high_warning_threshold_dbm:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
@@ -2271,58 +1341,13 @@ bool OpticsDiagStats::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(448)) goto parse_laser_rx_power_high_warning_threshold_set;
+        if (input->ExpectTag(113)) goto parse_laser_rx_power_low_warning_threshold_dbm;
         break;
       }
 
-      // optional int32 laser_rx_power_high_warning_threshold_set = 56;
-      case 56: {
-        if (tag == 448) {
-         parse_laser_rx_power_high_warning_threshold_set:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &laser_rx_power_high_warning_threshold_set_)));
-          set_has_laser_rx_power_high_warning_threshold_set();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(456)) goto parse_laser_rx_power_low_warning_threshold;
-        break;
-      }
-
-      // optional int32 laser_rx_power_low_warning_threshold = 57;
-      case 57: {
-        if (tag == 456) {
-         parse_laser_rx_power_low_warning_threshold:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &laser_rx_power_low_warning_threshold_)));
-          set_has_laser_rx_power_low_warning_threshold();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(465)) goto parse_laser_rx_power_low_warning_threshold_mw;
-        break;
-      }
-
-      // optional double laser_rx_power_low_warning_threshold_mw = 58;
-      case 58: {
-        if (tag == 465) {
-         parse_laser_rx_power_low_warning_threshold_mw:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
-                 input, &laser_rx_power_low_warning_threshold_mw_)));
-          set_has_laser_rx_power_low_warning_threshold_mw();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(473)) goto parse_laser_rx_power_low_warning_threshold_dbm;
-        break;
-      }
-
-      // optional double laser_rx_power_low_warning_threshold_dbm = 59;
-      case 59: {
-        if (tag == 473) {
+      // optional double laser_rx_power_low_warning_threshold_dbm = 14;
+      case 14: {
+        if (tag == 113) {
          parse_laser_rx_power_low_warning_threshold_dbm:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
@@ -2331,651 +1356,143 @@ bool OpticsDiagStats::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(480)) goto parse_laser_rx_power_low_warning_threshold_set;
+        if (input->ExpectTag(121)) goto parse_laser_bias_current_high_alarm_threshold;
         break;
       }
 
-      // optional int32 laser_rx_power_low_warning_threshold_set = 60;
-      case 60: {
-        if (tag == 480) {
-         parse_laser_rx_power_low_warning_threshold_set:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &laser_rx_power_low_warning_threshold_set_)));
-          set_has_laser_rx_power_low_warning_threshold_set();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(488)) goto parse_lane_number;
-        break;
-      }
-
-      // optional int32 lane_number = 61;
-      case 61: {
-        if (tag == 488) {
-         parse_lane_number:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lane_number_)));
-          set_has_lane_number();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(496)) goto parse_lane_laser_temp;
-        break;
-      }
-
-      // optional int32 lane_laser_temp = 62;
-      case 62: {
-        if (tag == 496) {
-         parse_lane_laser_temp:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lane_laser_temp_)));
-          set_has_lane_laser_temp();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(505)) goto parse_lane_laser_temp_c;
-        break;
-      }
-
-      // optional double lane_laser_temp_c = 63;
-      case 63: {
-        if (tag == 505) {
-         parse_lane_laser_temp_c:
+      // optional double laser_bias_current_high_alarm_threshold = 15;
+      case 15: {
+        if (tag == 121) {
+         parse_laser_bias_current_high_alarm_threshold:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
-                 input, &lane_laser_temp_c_)));
-          set_has_lane_laser_temp_c();
+                 input, &laser_bias_current_high_alarm_threshold_)));
+          set_has_laser_bias_current_high_alarm_threshold();
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(513)) goto parse_lane_laser_temp_f;
+        if (input->ExpectTag(129)) goto parse_laser_bias_current_low_alarm_threshold;
         break;
       }
 
-      // optional double lane_laser_temp_f = 64;
-      case 64: {
-        if (tag == 513) {
-         parse_lane_laser_temp_f:
+      // optional double laser_bias_current_low_alarm_threshold = 16;
+      case 16: {
+        if (tag == 129) {
+         parse_laser_bias_current_low_alarm_threshold:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
-                 input, &lane_laser_temp_f_)));
-          set_has_lane_laser_temp_f();
+                 input, &laser_bias_current_low_alarm_threshold_)));
+          set_has_laser_bias_current_low_alarm_threshold();
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(520)) goto parse_lane_laser_temp_set;
+        if (input->ExpectTag(137)) goto parse_laser_bias_current_high_warning_threshold;
         break;
       }
 
-      // optional int32 lane_laser_temp_set = 65;
-      case 65: {
-        if (tag == 520) {
-         parse_lane_laser_temp_set:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lane_laser_temp_set_)));
-          set_has_lane_laser_temp_set();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(528)) goto parse_lane_laser_output_power;
-        break;
-      }
-
-      // optional int32 lane_laser_output_power = 66;
-      case 66: {
-        if (tag == 528) {
-         parse_lane_laser_output_power:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lane_laser_output_power_)));
-          set_has_lane_laser_output_power();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(537)) goto parse_lane_laser_output_power_mw;
-        break;
-      }
-
-      // optional double lane_laser_output_power_mw = 67;
-      case 67: {
-        if (tag == 537) {
-         parse_lane_laser_output_power_mw:
+      // optional double laser_bias_current_high_warning_threshold = 17;
+      case 17: {
+        if (tag == 137) {
+         parse_laser_bias_current_high_warning_threshold:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
-                 input, &lane_laser_output_power_mw_)));
-          set_has_lane_laser_output_power_mw();
+                 input, &laser_bias_current_high_warning_threshold_)));
+          set_has_laser_bias_current_high_warning_threshold();
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(545)) goto parse_lane_laser_output_power_dbm;
+        if (input->ExpectTag(145)) goto parse_laser_bias_current_low_warning_threshold;
         break;
       }
 
-      // optional double lane_laser_output_power_dbm = 68;
-      case 68: {
-        if (tag == 545) {
-         parse_lane_laser_output_power_dbm:
+      // optional double laser_bias_current_low_warning_threshold = 18;
+      case 18: {
+        if (tag == 145) {
+         parse_laser_bias_current_low_warning_threshold:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
-                 input, &lane_laser_output_power_dbm_)));
-          set_has_lane_laser_output_power_dbm();
+                 input, &laser_bias_current_low_warning_threshold_)));
+          set_has_laser_bias_current_low_warning_threshold();
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(552)) goto parse_lane_laser_output_power_set;
+        if (input->ExpectTag(152)) goto parse_module_temp_high_alarm;
         break;
       }
 
-      // optional int32 lane_laser_output_power_set = 69;
-      case 69: {
-        if (tag == 552) {
-         parse_lane_laser_output_power_set:
+      // optional bool module_temp_high_alarm = 19;
+      case 19: {
+        if (tag == 152) {
+         parse_module_temp_high_alarm:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lane_laser_output_power_set_)));
-          set_has_lane_laser_output_power_set();
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &module_temp_high_alarm_)));
+          set_has_module_temp_high_alarm();
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(560)) goto parse_lane_laser_receiver_power;
+        if (input->ExpectTag(160)) goto parse_module_temp_low_alarm;
         break;
       }
 
-      // optional int32 lane_laser_receiver_power = 70;
-      case 70: {
-        if (tag == 560) {
-         parse_lane_laser_receiver_power:
+      // optional bool module_temp_low_alarm = 20;
+      case 20: {
+        if (tag == 160) {
+         parse_module_temp_low_alarm:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lane_laser_receiver_power_)));
-          set_has_lane_laser_receiver_power();
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &module_temp_low_alarm_)));
+          set_has_module_temp_low_alarm();
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(569)) goto parse_lane_laser_receiver_power_mw;
+        if (input->ExpectTag(168)) goto parse_module_temp_high_warning;
         break;
       }
 
-      // optional double lane_laser_receiver_power_mw = 71;
-      case 71: {
-        if (tag == 569) {
-         parse_lane_laser_receiver_power_mw:
+      // optional bool module_temp_high_warning = 21;
+      case 21: {
+        if (tag == 168) {
+         parse_module_temp_high_warning:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
-                 input, &lane_laser_receiver_power_mw_)));
-          set_has_lane_laser_receiver_power_mw();
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &module_temp_high_warning_)));
+          set_has_module_temp_high_warning();
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(577)) goto parse_lane_laser_receiver_power_dbm;
+        if (input->ExpectTag(176)) goto parse_module_temp_low_warning;
         break;
       }
 
-      // optional double lane_laser_receiver_power_dbm = 72;
-      case 72: {
-        if (tag == 577) {
-         parse_lane_laser_receiver_power_dbm:
+      // optional bool module_temp_low_warning = 22;
+      case 22: {
+        if (tag == 176) {
+         parse_module_temp_low_warning:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
-                 input, &lane_laser_receiver_power_dbm_)));
-          set_has_lane_laser_receiver_power_dbm();
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &module_temp_low_warning_)));
+          set_has_module_temp_low_warning();
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(584)) goto parse_lane_laser_receiver_power_set;
+        if (input->ExpectTag(186)) goto parse_optics_lane_diag_stats;
         break;
       }
 
-      // optional int32 lane_laser_receiver_power_set = 73;
-      case 73: {
-        if (tag == 584) {
-         parse_lane_laser_receiver_power_set:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lane_laser_receiver_power_set_)));
-          set_has_lane_laser_receiver_power_set();
+      // repeated .OpticsDiagLaneStats optics_lane_diag_stats = 23;
+      case 23: {
+        if (tag == 186) {
+         parse_optics_lane_diag_stats:
+          DO_(input->IncrementRecursionDepth());
+         parse_loop_optics_lane_diag_stats:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtualNoRecursionDepth(
+                input, add_optics_lane_diag_stats()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(592)) goto parse_lane_laser_temp_high_alarm_set;
-        break;
-      }
-
-      // optional int32 lane_laser_temp_high_alarm_set = 74;
-      case 74: {
-        if (tag == 592) {
-         parse_lane_laser_temp_high_alarm_set:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lane_laser_temp_high_alarm_set_)));
-          set_has_lane_laser_temp_high_alarm_set();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(600)) goto parse_lane_laser_temp_high_alarm;
-        break;
-      }
-
-      // optional int32 lane_laser_temp_high_alarm = 75;
-      case 75: {
-        if (tag == 600) {
-         parse_lane_laser_temp_high_alarm:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lane_laser_temp_high_alarm_)));
-          set_has_lane_laser_temp_high_alarm();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(608)) goto parse_lane_laser_temp_low_alarm_set;
-        break;
-      }
-
-      // optional int32 lane_laser_temp_low_alarm_set = 76;
-      case 76: {
-        if (tag == 608) {
-         parse_lane_laser_temp_low_alarm_set:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lane_laser_temp_low_alarm_set_)));
-          set_has_lane_laser_temp_low_alarm_set();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(616)) goto parse_lane_laser_temp_low_alarm;
-        break;
-      }
-
-      // optional int32 lane_laser_temp_low_alarm = 77;
-      case 77: {
-        if (tag == 616) {
-         parse_lane_laser_temp_low_alarm:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lane_laser_temp_low_alarm_)));
-          set_has_lane_laser_temp_low_alarm();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(624)) goto parse_lane_laser_temp_high_warning_set;
-        break;
-      }
-
-      // optional int32 lane_laser_temp_high_warning_set = 78;
-      case 78: {
-        if (tag == 624) {
-         parse_lane_laser_temp_high_warning_set:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lane_laser_temp_high_warning_set_)));
-          set_has_lane_laser_temp_high_warning_set();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(632)) goto parse_lane_laser_temp_high_warning;
-        break;
-      }
-
-      // optional int32 lane_laser_temp_high_warning = 79;
-      case 79: {
-        if (tag == 632) {
-         parse_lane_laser_temp_high_warning:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lane_laser_temp_high_warning_)));
-          set_has_lane_laser_temp_high_warning();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(640)) goto parse_lane_laser_output_power_high_alarm_set;
-        break;
-      }
-
-      // optional int32 lane_laser_output_power_high_alarm_set = 80;
-      case 80: {
-        if (tag == 640) {
-         parse_lane_laser_output_power_high_alarm_set:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lane_laser_output_power_high_alarm_set_)));
-          set_has_lane_laser_output_power_high_alarm_set();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(648)) goto parse_lane_laser_output_power_high_alarm;
-        break;
-      }
-
-      // optional int32 lane_laser_output_power_high_alarm = 81;
-      case 81: {
-        if (tag == 648) {
-         parse_lane_laser_output_power_high_alarm:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lane_laser_output_power_high_alarm_)));
-          set_has_lane_laser_output_power_high_alarm();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(656)) goto parse_lane_laser_output_power_low_alarm_set;
-        break;
-      }
-
-      // optional int32 lane_laser_output_power_low_alarm_set = 82;
-      case 82: {
-        if (tag == 656) {
-         parse_lane_laser_output_power_low_alarm_set:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lane_laser_output_power_low_alarm_set_)));
-          set_has_lane_laser_output_power_low_alarm_set();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(664)) goto parse_lane_laser_output_power_low_alarm;
-        break;
-      }
-
-      // optional int32 lane_laser_output_power_low_alarm = 83;
-      case 83: {
-        if (tag == 664) {
-         parse_lane_laser_output_power_low_alarm:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lane_laser_output_power_low_alarm_)));
-          set_has_lane_laser_output_power_low_alarm();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(672)) goto parse_lane_laser_output_power_high_warning_set;
-        break;
-      }
-
-      // optional int32 lane_laser_output_power_high_warning_set = 84;
-      case 84: {
-        if (tag == 672) {
-         parse_lane_laser_output_power_high_warning_set:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lane_laser_output_power_high_warning_set_)));
-          set_has_lane_laser_output_power_high_warning_set();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(680)) goto parse_lane_laser_output_power_high_warning;
-        break;
-      }
-
-      // optional int32 lane_laser_output_power_high_warning = 85;
-      case 85: {
-        if (tag == 680) {
-         parse_lane_laser_output_power_high_warning:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lane_laser_output_power_high_warning_)));
-          set_has_lane_laser_output_power_high_warning();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(688)) goto parse_lane_laser_output_power_low_warning_set;
-        break;
-      }
-
-      // optional int32 lane_laser_output_power_low_warning_set = 86;
-      case 86: {
-        if (tag == 688) {
-         parse_lane_laser_output_power_low_warning_set:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lane_laser_output_power_low_warning_set_)));
-          set_has_lane_laser_output_power_low_warning_set();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(696)) goto parse_lane_laser_output_power_low_warning;
-        break;
-      }
-
-      // optional int32 lane_laser_output_power_low_warning = 87;
-      case 87: {
-        if (tag == 696) {
-         parse_lane_laser_output_power_low_warning:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lane_laser_output_power_low_warning_)));
-          set_has_lane_laser_output_power_low_warning();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(704)) goto parse_lane_laser_receiver_power_high_alarm_set;
-        break;
-      }
-
-      // optional int32 lane_laser_receiver_power_high_alarm_set = 88;
-      case 88: {
-        if (tag == 704) {
-         parse_lane_laser_receiver_power_high_alarm_set:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lane_laser_receiver_power_high_alarm_set_)));
-          set_has_lane_laser_receiver_power_high_alarm_set();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(712)) goto parse_lane_laser_receiver_power_high_alarm;
-        break;
-      }
-
-      // optional int32 lane_laser_receiver_power_high_alarm = 89;
-      case 89: {
-        if (tag == 712) {
-         parse_lane_laser_receiver_power_high_alarm:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lane_laser_receiver_power_high_alarm_)));
-          set_has_lane_laser_receiver_power_high_alarm();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(720)) goto parse_lane_laser_receiver_power_low_alarm_set;
-        break;
-      }
-
-      // optional int32 lane_laser_receiver_power_low_alarm_set = 90;
-      case 90: {
-        if (tag == 720) {
-         parse_lane_laser_receiver_power_low_alarm_set:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lane_laser_receiver_power_low_alarm_set_)));
-          set_has_lane_laser_receiver_power_low_alarm_set();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(728)) goto parse_lane_laser_receiver_power_low_alarm;
-        break;
-      }
-
-      // optional int32 lane_laser_receiver_power_low_alarm = 91;
-      case 91: {
-        if (tag == 728) {
-         parse_lane_laser_receiver_power_low_alarm:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lane_laser_receiver_power_low_alarm_)));
-          set_has_lane_laser_receiver_power_low_alarm();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(736)) goto parse_lane_laser_receiver_power_high_warning_set;
-        break;
-      }
-
-      // optional int32 lane_laser_receiver_power_high_warning_set = 92;
-      case 92: {
-        if (tag == 736) {
-         parse_lane_laser_receiver_power_high_warning_set:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lane_laser_receiver_power_high_warning_set_)));
-          set_has_lane_laser_receiver_power_high_warning_set();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(744)) goto parse_lane_laser_receiver_power_high_warning;
-        break;
-      }
-
-      // optional int32 lane_laser_receiver_power_high_warning = 93;
-      case 93: {
-        if (tag == 744) {
-         parse_lane_laser_receiver_power_high_warning:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lane_laser_receiver_power_high_warning_)));
-          set_has_lane_laser_receiver_power_high_warning();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(752)) goto parse_lane_laser_receiver_power_low_warning_set;
-        break;
-      }
-
-      // optional int32 lane_laser_receiver_power_low_warning_set = 94;
-      case 94: {
-        if (tag == 752) {
-         parse_lane_laser_receiver_power_low_warning_set:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lane_laser_receiver_power_low_warning_set_)));
-          set_has_lane_laser_receiver_power_low_warning_set();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(760)) goto parse_lane_laser_receiver_power_low_warning;
-        break;
-      }
-
-      // optional int32 lane_laser_receiver_power_low_warning = 95;
-      case 95: {
-        if (tag == 760) {
-         parse_lane_laser_receiver_power_low_warning:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lane_laser_receiver_power_low_warning_)));
-          set_has_lane_laser_receiver_power_low_warning();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(768)) goto parse_optics_type;
-        break;
-      }
-
-      // optional int32 optics_type = 96;
-      case 96: {
-        if (tag == 768) {
-         parse_optics_type:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &optics_type_)));
-          set_has_optics_type();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(776)) goto parse_optics_alarm_validity;
-        break;
-      }
-
-      // optional int32 optics_alarm_validity = 97;
-      case 97: {
-        if (tag == 776) {
-         parse_optics_alarm_validity:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &optics_alarm_validity_)));
-          set_has_optics_alarm_validity();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(784)) goto parse_optics_capability;
-        break;
-      }
-
-      // optional int32 optics_capability = 98;
-      case 98: {
-        if (tag == 784) {
-         parse_optics_capability:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &optics_capability_)));
-          set_has_optics_capability();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(792)) goto parse_active_lane_map;
-        break;
-      }
-
-      // optional int32 active_lane_map = 99;
-      case 99: {
-        if (tag == 792) {
-         parse_active_lane_map:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &active_lane_map_)));
-          set_has_active_lane_map();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(800)) goto parse_lane_alarms_warnings;
-        break;
-      }
-
-      // optional int32 lane_alarms_warnings = 100;
-      case 100: {
-        if (tag == 800) {
-         parse_lane_alarms_warnings:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lane_alarms_warnings_)));
-          set_has_lane_alarms_warnings();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(808)) goto parse_lane_laser_temp_low_warning_set;
-        break;
-      }
-
-      // optional int32 lane_laser_temp_low_warning_set = 101;
-      case 101: {
-        if (tag == 808) {
-         parse_lane_laser_temp_low_warning_set:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lane_laser_temp_low_warning_set_)));
-          set_has_lane_laser_temp_low_warning_set();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(816)) goto parse_lane_laser_temp_low_warning;
-        break;
-      }
-
-      // optional int32 lane_laser_temp_low_warning = 102;
-      case 102: {
-        if (tag == 816) {
-         parse_lane_laser_temp_low_warning:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lane_laser_temp_low_warning_)));
-          set_has_lane_laser_temp_low_warning();
-        } else {
-          goto handle_unusual;
-        }
+        if (input->ExpectTag(186)) goto parse_loop_optics_lane_diag_stats;
+        input->UnsafeDecrementRecursionDepth();
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -3005,514 +1522,120 @@ failure:
 void OpticsDiagStats::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:OpticsDiagStats)
-  // optional int32 module_temp = 1;
-  if (has_module_temp()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->module_temp(), output);
-  }
-
-  // optional double module_temp_c = 2;
-  if (has_module_temp_c()) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(2, this->module_temp_c(), output);
-  }
-
-  // optional double module_temp_f = 3;
-  if (has_module_temp_f()) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(3, this->module_temp_f(), output);
-  }
-
-  // optional int32 module_temp_set = 4;
-  if (has_module_temp_set()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->module_temp_set(), output);
-  }
-
-  // optional int32 receiver_signal_ave_optical_power = 5;
-  if (has_receiver_signal_ave_optical_power()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->receiver_signal_ave_optical_power(), output);
-  }
-
-  // optional double receiver_signal_ave_optical_power_mw = 6;
-  if (has_receiver_signal_ave_optical_power_mw()) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(6, this->receiver_signal_ave_optical_power_mw(), output);
-  }
-
-  // optional double receiver_signal_ave_optical_power_dbm = 7;
-  if (has_receiver_signal_ave_optical_power_dbm()) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(7, this->receiver_signal_ave_optical_power_dbm(), output);
-  }
-
-  // optional int32 receiver_signal_ave_optical_power_set = 8;
-  if (has_receiver_signal_ave_optical_power_set()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->receiver_signal_ave_optical_power_set(), output);
-  }
-
-  // optional int32 laser_output_power = 9;
-  if (has_laser_output_power()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->laser_output_power(), output);
-  }
-
-  // optional double laser_output_power_mw = 10;
-  if (has_laser_output_power_mw()) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(10, this->laser_output_power_mw(), output);
-  }
-
-  // optional double laser_output_power_dbm = 11;
-  if (has_laser_output_power_dbm()) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(11, this->laser_output_power_dbm(), output);
-  }
-
-  // optional int32 laser_output_power_set = 12;
-  if (has_laser_output_power_set()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->laser_output_power_set(), output);
-  }
-
-  // optional int32 module_temp_high_alarm_threshold = 13;
-  if (has_module_temp_high_alarm_threshold()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->module_temp_high_alarm_threshold(), output);
-  }
-
-  // optional double module_temp_high_alarm_threshold_c = 14;
-  if (has_module_temp_high_alarm_threshold_c()) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(14, this->module_temp_high_alarm_threshold_c(), output);
-  }
-
-  // optional double module_temp_high_alarm_threshold_f = 15;
-  if (has_module_temp_high_alarm_threshold_f()) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(15, this->module_temp_high_alarm_threshold_f(), output);
-  }
-
-  // optional int32 module_temp_high_alarm_threshold_set = 16;
-  if (has_module_temp_high_alarm_threshold_set()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(16, this->module_temp_high_alarm_threshold_set(), output);
-  }
-
-  // optional int32 module_temp_low_alarm_threshold = 17;
-  if (has_module_temp_low_alarm_threshold()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(17, this->module_temp_low_alarm_threshold(), output);
-  }
-
-  // optional double module_temp_low_alarm_threshold_c = 18;
-  if (has_module_temp_low_alarm_threshold_c()) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(18, this->module_temp_low_alarm_threshold_c(), output);
-  }
-
-  // optional double module_temp_low_alarm_threshold_f = 19;
-  if (has_module_temp_low_alarm_threshold_f()) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(19, this->module_temp_low_alarm_threshold_f(), output);
-  }
-
-  // optional int32 module_temp_low_alarm_threshold_set = 20;
-  if (has_module_temp_low_alarm_threshold_set()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(20, this->module_temp_low_alarm_threshold_set(), output);
-  }
-
-  // optional int32 module_temp_high_warning_threshold = 21;
-  if (has_module_temp_high_warning_threshold()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(21, this->module_temp_high_warning_threshold(), output);
-  }
-
-  // optional double module_temp_high_warning_threshold_c = 22;
-  if (has_module_temp_high_warning_threshold_c()) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(22, this->module_temp_high_warning_threshold_c(), output);
-  }
-
-  // optional double module_temp_high_warning_threshold_f = 23;
-  if (has_module_temp_high_warning_threshold_f()) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(23, this->module_temp_high_warning_threshold_f(), output);
-  }
-
-  // optional int32 module_temp_high_warning_threshold_set = 24;
-  if (has_module_temp_high_warning_threshold_set()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(24, this->module_temp_high_warning_threshold_set(), output);
-  }
-
-  // optional int32 module_temp_low_warning_threshold = 25;
-  if (has_module_temp_low_warning_threshold()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(25, this->module_temp_low_warning_threshold(), output);
-  }
-
-  // optional double module_temp_low_warning_threshold_c = 26;
-  if (has_module_temp_low_warning_threshold_c()) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(26, this->module_temp_low_warning_threshold_c(), output);
-  }
-
-  // optional double module_temp_low_warning_threshold_f = 27;
-  if (has_module_temp_low_warning_threshold_f()) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(27, this->module_temp_low_warning_threshold_f(), output);
-  }
-
-  // optional int32 module_temp_low_warning_threshold_set = 28;
-  if (has_module_temp_low_warning_threshold_set()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(28, this->module_temp_low_warning_threshold_set(), output);
-  }
-
-  // optional int32 laser_output_power_high_alarm_threshold = 29;
-  if (has_laser_output_power_high_alarm_threshold()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(29, this->laser_output_power_high_alarm_threshold(), output);
-  }
-
-  // optional double laser_output_power_high_alarm_threshold_mw = 30;
-  if (has_laser_output_power_high_alarm_threshold_mw()) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(30, this->laser_output_power_high_alarm_threshold_mw(), output);
-  }
-
-  // optional double laser_output_power_high_alarm_threshold_dbm = 31;
-  if (has_laser_output_power_high_alarm_threshold_dbm()) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(31, this->laser_output_power_high_alarm_threshold_dbm(), output);
-  }
-
-  // optional int32 laser_output_power_high_alarm_threshold_set = 32;
-  if (has_laser_output_power_high_alarm_threshold_set()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(32, this->laser_output_power_high_alarm_threshold_set(), output);
-  }
-
-  // optional int32 laser_output_power_low_alarm_threshold = 33;
-  if (has_laser_output_power_low_alarm_threshold()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(33, this->laser_output_power_low_alarm_threshold(), output);
-  }
-
-  // optional double laser_output_power_low_alarm_threshold_mw = 34;
-  if (has_laser_output_power_low_alarm_threshold_mw()) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(34, this->laser_output_power_low_alarm_threshold_mw(), output);
-  }
-
-  // optional double laser_output_power_low_alarm_threshold_dbm = 35;
-  if (has_laser_output_power_low_alarm_threshold_dbm()) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(35, this->laser_output_power_low_alarm_threshold_dbm(), output);
-  }
-
-  // optional int32 laser_output_power_low_alarm_threshold_set = 36;
-  if (has_laser_output_power_low_alarm_threshold_set()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(36, this->laser_output_power_low_alarm_threshold_set(), output);
-  }
-
-  // optional int32 laser_output_power_high_warning_threshold = 37;
-  if (has_laser_output_power_high_warning_threshold()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(37, this->laser_output_power_high_warning_threshold(), output);
-  }
-
-  // optional double laser_output_power_high_warning_threshold_mw = 38;
-  if (has_laser_output_power_high_warning_threshold_mw()) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(38, this->laser_output_power_high_warning_threshold_mw(), output);
-  }
-
-  // optional double laser_output_power_high_warning_threshold_dbm = 39;
-  if (has_laser_output_power_high_warning_threshold_dbm()) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(39, this->laser_output_power_high_warning_threshold_dbm(), output);
-  }
-
-  // optional int32 laser_output_power_high_warning_threshold_set = 40;
-  if (has_laser_output_power_high_warning_threshold_set()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(40, this->laser_output_power_high_warning_threshold_set(), output);
-  }
-
-  // optional int32 laser_output_power_low_warning_threshold = 41;
-  if (has_laser_output_power_low_warning_threshold()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(41, this->laser_output_power_low_warning_threshold(), output);
-  }
-
-  // optional double laser_output_power_low_warning_threshold_mw = 42;
-  if (has_laser_output_power_low_warning_threshold_mw()) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(42, this->laser_output_power_low_warning_threshold_mw(), output);
-  }
-
-  // optional double laser_output_power_low_warning_threshold_dbm = 43;
-  if (has_laser_output_power_low_warning_threshold_dbm()) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(43, this->laser_output_power_low_warning_threshold_dbm(), output);
-  }
-
-  // optional int32 laser_output_power_low_warning_threshold_set = 44;
-  if (has_laser_output_power_low_warning_threshold_set()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(44, this->laser_output_power_low_warning_threshold_set(), output);
-  }
-
-  // optional int32 laser_rx_power_high_alarm_threshold = 45;
-  if (has_laser_rx_power_high_alarm_threshold()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(45, this->laser_rx_power_high_alarm_threshold(), output);
-  }
-
-  // optional double laser_rx_power_high_alarm_threshold_mw = 46;
-  if (has_laser_rx_power_high_alarm_threshold_mw()) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(46, this->laser_rx_power_high_alarm_threshold_mw(), output);
-  }
-
-  // optional double laser_rx_power_high_alarm_threshold_dbm = 47;
-  if (has_laser_rx_power_high_alarm_threshold_dbm()) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(47, this->laser_rx_power_high_alarm_threshold_dbm(), output);
-  }
-
-  // optional int32 laser_rx_power_high_alarm_threshold_set = 48;
-  if (has_laser_rx_power_high_alarm_threshold_set()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(48, this->laser_rx_power_high_alarm_threshold_set(), output);
-  }
-
-  // optional int32 laser_rx_power_low_alarm_threshold = 49;
-  if (has_laser_rx_power_low_alarm_threshold()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(49, this->laser_rx_power_low_alarm_threshold(), output);
-  }
-
-  // optional double laser_rx_power_low_alarm_threshold_mw = 50;
-  if (has_laser_rx_power_low_alarm_threshold_mw()) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(50, this->laser_rx_power_low_alarm_threshold_mw(), output);
-  }
-
-  // optional double laser_rx_power_low_alarm_threshold_dbm = 51;
-  if (has_laser_rx_power_low_alarm_threshold_dbm()) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(51, this->laser_rx_power_low_alarm_threshold_dbm(), output);
-  }
-
-  // optional int32 laser_rx_power_low_alarm_threshold_set = 52;
-  if (has_laser_rx_power_low_alarm_threshold_set()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(52, this->laser_rx_power_low_alarm_threshold_set(), output);
-  }
-
-  // optional int32 laser_rx_power_high_warning_threshold = 53;
-  if (has_laser_rx_power_high_warning_threshold()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(53, this->laser_rx_power_high_warning_threshold(), output);
-  }
-
-  // optional double laser_rx_power_high_warning_threshold_mw = 54;
-  if (has_laser_rx_power_high_warning_threshold_mw()) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(54, this->laser_rx_power_high_warning_threshold_mw(), output);
-  }
-
-  // optional double laser_rx_power_high_warning_threshold_dbm = 55;
-  if (has_laser_rx_power_high_warning_threshold_dbm()) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(55, this->laser_rx_power_high_warning_threshold_dbm(), output);
-  }
-
-  // optional int32 laser_rx_power_high_warning_threshold_set = 56;
-  if (has_laser_rx_power_high_warning_threshold_set()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(56, this->laser_rx_power_high_warning_threshold_set(), output);
-  }
-
-  // optional int32 laser_rx_power_low_warning_threshold = 57;
-  if (has_laser_rx_power_low_warning_threshold()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(57, this->laser_rx_power_low_warning_threshold(), output);
-  }
-
-  // optional double laser_rx_power_low_warning_threshold_mw = 58;
-  if (has_laser_rx_power_low_warning_threshold_mw()) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(58, this->laser_rx_power_low_warning_threshold_mw(), output);
-  }
-
-  // optional double laser_rx_power_low_warning_threshold_dbm = 59;
-  if (has_laser_rx_power_low_warning_threshold_dbm()) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(59, this->laser_rx_power_low_warning_threshold_dbm(), output);
-  }
-
-  // optional int32 laser_rx_power_low_warning_threshold_set = 60;
-  if (has_laser_rx_power_low_warning_threshold_set()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(60, this->laser_rx_power_low_warning_threshold_set(), output);
-  }
-
-  // optional int32 lane_number = 61;
-  if (has_lane_number()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(61, this->lane_number(), output);
-  }
-
-  // optional int32 lane_laser_temp = 62;
-  if (has_lane_laser_temp()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(62, this->lane_laser_temp(), output);
-  }
-
-  // optional double lane_laser_temp_c = 63;
-  if (has_lane_laser_temp_c()) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(63, this->lane_laser_temp_c(), output);
-  }
-
-  // optional double lane_laser_temp_f = 64;
-  if (has_lane_laser_temp_f()) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(64, this->lane_laser_temp_f(), output);
-  }
-
-  // optional int32 lane_laser_temp_set = 65;
-  if (has_lane_laser_temp_set()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(65, this->lane_laser_temp_set(), output);
-  }
-
-  // optional int32 lane_laser_output_power = 66;
-  if (has_lane_laser_output_power()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(66, this->lane_laser_output_power(), output);
-  }
-
-  // optional double lane_laser_output_power_mw = 67;
-  if (has_lane_laser_output_power_mw()) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(67, this->lane_laser_output_power_mw(), output);
-  }
-
-  // optional double lane_laser_output_power_dbm = 68;
-  if (has_lane_laser_output_power_dbm()) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(68, this->lane_laser_output_power_dbm(), output);
-  }
-
-  // optional int32 lane_laser_output_power_set = 69;
-  if (has_lane_laser_output_power_set()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(69, this->lane_laser_output_power_set(), output);
-  }
-
-  // optional int32 lane_laser_receiver_power = 70;
-  if (has_lane_laser_receiver_power()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(70, this->lane_laser_receiver_power(), output);
-  }
-
-  // optional double lane_laser_receiver_power_mw = 71;
-  if (has_lane_laser_receiver_power_mw()) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(71, this->lane_laser_receiver_power_mw(), output);
-  }
-
-  // optional double lane_laser_receiver_power_dbm = 72;
-  if (has_lane_laser_receiver_power_dbm()) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(72, this->lane_laser_receiver_power_dbm(), output);
-  }
-
-  // optional int32 lane_laser_receiver_power_set = 73;
-  if (has_lane_laser_receiver_power_set()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(73, this->lane_laser_receiver_power_set(), output);
-  }
-
-  // optional int32 lane_laser_temp_high_alarm_set = 74;
-  if (has_lane_laser_temp_high_alarm_set()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(74, this->lane_laser_temp_high_alarm_set(), output);
-  }
-
-  // optional int32 lane_laser_temp_high_alarm = 75;
-  if (has_lane_laser_temp_high_alarm()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(75, this->lane_laser_temp_high_alarm(), output);
-  }
-
-  // optional int32 lane_laser_temp_low_alarm_set = 76;
-  if (has_lane_laser_temp_low_alarm_set()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(76, this->lane_laser_temp_low_alarm_set(), output);
-  }
-
-  // optional int32 lane_laser_temp_low_alarm = 77;
-  if (has_lane_laser_temp_low_alarm()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(77, this->lane_laser_temp_low_alarm(), output);
-  }
-
-  // optional int32 lane_laser_temp_high_warning_set = 78;
-  if (has_lane_laser_temp_high_warning_set()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(78, this->lane_laser_temp_high_warning_set(), output);
-  }
-
-  // optional int32 lane_laser_temp_high_warning = 79;
-  if (has_lane_laser_temp_high_warning()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(79, this->lane_laser_temp_high_warning(), output);
-  }
-
-  // optional int32 lane_laser_output_power_high_alarm_set = 80;
-  if (has_lane_laser_output_power_high_alarm_set()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(80, this->lane_laser_output_power_high_alarm_set(), output);
-  }
-
-  // optional int32 lane_laser_output_power_high_alarm = 81;
-  if (has_lane_laser_output_power_high_alarm()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(81, this->lane_laser_output_power_high_alarm(), output);
-  }
-
-  // optional int32 lane_laser_output_power_low_alarm_set = 82;
-  if (has_lane_laser_output_power_low_alarm_set()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(82, this->lane_laser_output_power_low_alarm_set(), output);
-  }
-
-  // optional int32 lane_laser_output_power_low_alarm = 83;
-  if (has_lane_laser_output_power_low_alarm()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(83, this->lane_laser_output_power_low_alarm(), output);
-  }
-
-  // optional int32 lane_laser_output_power_high_warning_set = 84;
-  if (has_lane_laser_output_power_high_warning_set()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(84, this->lane_laser_output_power_high_warning_set(), output);
-  }
-
-  // optional int32 lane_laser_output_power_high_warning = 85;
-  if (has_lane_laser_output_power_high_warning()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(85, this->lane_laser_output_power_high_warning(), output);
-  }
-
-  // optional int32 lane_laser_output_power_low_warning_set = 86;
-  if (has_lane_laser_output_power_low_warning_set()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(86, this->lane_laser_output_power_low_warning_set(), output);
-  }
-
-  // optional int32 lane_laser_output_power_low_warning = 87;
-  if (has_lane_laser_output_power_low_warning()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(87, this->lane_laser_output_power_low_warning(), output);
-  }
-
-  // optional int32 lane_laser_receiver_power_high_alarm_set = 88;
-  if (has_lane_laser_receiver_power_high_alarm_set()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(88, this->lane_laser_receiver_power_high_alarm_set(), output);
-  }
-
-  // optional int32 lane_laser_receiver_power_high_alarm = 89;
-  if (has_lane_laser_receiver_power_high_alarm()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(89, this->lane_laser_receiver_power_high_alarm(), output);
-  }
-
-  // optional int32 lane_laser_receiver_power_low_alarm_set = 90;
-  if (has_lane_laser_receiver_power_low_alarm_set()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(90, this->lane_laser_receiver_power_low_alarm_set(), output);
-  }
-
-  // optional int32 lane_laser_receiver_power_low_alarm = 91;
-  if (has_lane_laser_receiver_power_low_alarm()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(91, this->lane_laser_receiver_power_low_alarm(), output);
-  }
-
-  // optional int32 lane_laser_receiver_power_high_warning_set = 92;
-  if (has_lane_laser_receiver_power_high_warning_set()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(92, this->lane_laser_receiver_power_high_warning_set(), output);
-  }
-
-  // optional int32 lane_laser_receiver_power_high_warning = 93;
-  if (has_lane_laser_receiver_power_high_warning()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(93, this->lane_laser_receiver_power_high_warning(), output);
-  }
-
-  // optional int32 lane_laser_receiver_power_low_warning_set = 94;
-  if (has_lane_laser_receiver_power_low_warning_set()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(94, this->lane_laser_receiver_power_low_warning_set(), output);
-  }
-
-  // optional int32 lane_laser_receiver_power_low_warning = 95;
-  if (has_lane_laser_receiver_power_low_warning()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(95, this->lane_laser_receiver_power_low_warning(), output);
-  }
-
-  // optional int32 optics_type = 96;
+  // optional uint32 optics_type = 1;
   if (has_optics_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(96, this->optics_type(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->optics_type(), output);
   }
 
-  // optional int32 optics_alarm_validity = 97;
-  if (has_optics_alarm_validity()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(97, this->optics_alarm_validity(), output);
+  // optional double module_temp = 2;
+  if (has_module_temp()) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(2, this->module_temp(), output);
   }
 
-  // optional int32 optics_capability = 98;
-  if (has_optics_capability()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(98, this->optics_capability(), output);
+  // optional double module_temp_high_alarm_threshold = 3;
+  if (has_module_temp_high_alarm_threshold()) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(3, this->module_temp_high_alarm_threshold(), output);
   }
 
-  // optional int32 active_lane_map = 99;
-  if (has_active_lane_map()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(99, this->active_lane_map(), output);
+  // optional double module_temp_low_alarm_threshold = 4;
+  if (has_module_temp_low_alarm_threshold()) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(4, this->module_temp_low_alarm_threshold(), output);
   }
 
-  // optional int32 lane_alarms_warnings = 100;
-  if (has_lane_alarms_warnings()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(100, this->lane_alarms_warnings(), output);
+  // optional double module_temp_high_warning_threshold = 5;
+  if (has_module_temp_high_warning_threshold()) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(5, this->module_temp_high_warning_threshold(), output);
   }
 
-  // optional int32 lane_laser_temp_low_warning_set = 101;
-  if (has_lane_laser_temp_low_warning_set()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(101, this->lane_laser_temp_low_warning_set(), output);
+  // optional double module_temp_low_warning_threshold = 6;
+  if (has_module_temp_low_warning_threshold()) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(6, this->module_temp_low_warning_threshold(), output);
   }
 
-  // optional int32 lane_laser_temp_low_warning = 102;
-  if (has_lane_laser_temp_low_warning()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(102, this->lane_laser_temp_low_warning(), output);
+  // optional double laser_output_power_high_alarm_threshold_dbm = 7;
+  if (has_laser_output_power_high_alarm_threshold_dbm()) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(7, this->laser_output_power_high_alarm_threshold_dbm(), output);
+  }
+
+  // optional double laser_output_power_low_alarm_threshold_dbm = 8;
+  if (has_laser_output_power_low_alarm_threshold_dbm()) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(8, this->laser_output_power_low_alarm_threshold_dbm(), output);
+  }
+
+  // optional double laser_output_power_high_warning_threshold_dbm = 9;
+  if (has_laser_output_power_high_warning_threshold_dbm()) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(9, this->laser_output_power_high_warning_threshold_dbm(), output);
+  }
+
+  // optional double laser_output_power_low_warning_threshold_dbm = 10;
+  if (has_laser_output_power_low_warning_threshold_dbm()) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(10, this->laser_output_power_low_warning_threshold_dbm(), output);
+  }
+
+  // optional double laser_rx_power_high_alarm_threshold_dbm = 11;
+  if (has_laser_rx_power_high_alarm_threshold_dbm()) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(11, this->laser_rx_power_high_alarm_threshold_dbm(), output);
+  }
+
+  // optional double laser_rx_power_low_alarm_threshold_dbm = 12;
+  if (has_laser_rx_power_low_alarm_threshold_dbm()) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(12, this->laser_rx_power_low_alarm_threshold_dbm(), output);
+  }
+
+  // optional double laser_rx_power_high_warning_threshold_dbm = 13;
+  if (has_laser_rx_power_high_warning_threshold_dbm()) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(13, this->laser_rx_power_high_warning_threshold_dbm(), output);
+  }
+
+  // optional double laser_rx_power_low_warning_threshold_dbm = 14;
+  if (has_laser_rx_power_low_warning_threshold_dbm()) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(14, this->laser_rx_power_low_warning_threshold_dbm(), output);
+  }
+
+  // optional double laser_bias_current_high_alarm_threshold = 15;
+  if (has_laser_bias_current_high_alarm_threshold()) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(15, this->laser_bias_current_high_alarm_threshold(), output);
+  }
+
+  // optional double laser_bias_current_low_alarm_threshold = 16;
+  if (has_laser_bias_current_low_alarm_threshold()) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(16, this->laser_bias_current_low_alarm_threshold(), output);
+  }
+
+  // optional double laser_bias_current_high_warning_threshold = 17;
+  if (has_laser_bias_current_high_warning_threshold()) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(17, this->laser_bias_current_high_warning_threshold(), output);
+  }
+
+  // optional double laser_bias_current_low_warning_threshold = 18;
+  if (has_laser_bias_current_low_warning_threshold()) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(18, this->laser_bias_current_low_warning_threshold(), output);
+  }
+
+  // optional bool module_temp_high_alarm = 19;
+  if (has_module_temp_high_alarm()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(19, this->module_temp_high_alarm(), output);
+  }
+
+  // optional bool module_temp_low_alarm = 20;
+  if (has_module_temp_low_alarm()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(20, this->module_temp_low_alarm(), output);
+  }
+
+  // optional bool module_temp_high_warning = 21;
+  if (has_module_temp_high_warning()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(21, this->module_temp_high_warning(), output);
+  }
+
+  // optional bool module_temp_low_warning = 22;
+  if (has_module_temp_low_warning()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(22, this->module_temp_low_warning(), output);
+  }
+
+  // repeated .OpticsDiagLaneStats optics_lane_diag_stats = 23;
+  for (unsigned int i = 0, n = this->optics_lane_diag_stats_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      23, this->optics_lane_diag_stats(i), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -3525,514 +1648,121 @@ void OpticsDiagStats::SerializeWithCachedSizes(
 ::google::protobuf::uint8* OpticsDiagStats::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:OpticsDiagStats)
-  // optional int32 module_temp = 1;
-  if (has_module_temp()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->module_temp(), target);
-  }
-
-  // optional double module_temp_c = 2;
-  if (has_module_temp_c()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(2, this->module_temp_c(), target);
-  }
-
-  // optional double module_temp_f = 3;
-  if (has_module_temp_f()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(3, this->module_temp_f(), target);
-  }
-
-  // optional int32 module_temp_set = 4;
-  if (has_module_temp_set()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->module_temp_set(), target);
-  }
-
-  // optional int32 receiver_signal_ave_optical_power = 5;
-  if (has_receiver_signal_ave_optical_power()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->receiver_signal_ave_optical_power(), target);
-  }
-
-  // optional double receiver_signal_ave_optical_power_mw = 6;
-  if (has_receiver_signal_ave_optical_power_mw()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(6, this->receiver_signal_ave_optical_power_mw(), target);
-  }
-
-  // optional double receiver_signal_ave_optical_power_dbm = 7;
-  if (has_receiver_signal_ave_optical_power_dbm()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(7, this->receiver_signal_ave_optical_power_dbm(), target);
-  }
-
-  // optional int32 receiver_signal_ave_optical_power_set = 8;
-  if (has_receiver_signal_ave_optical_power_set()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->receiver_signal_ave_optical_power_set(), target);
-  }
-
-  // optional int32 laser_output_power = 9;
-  if (has_laser_output_power()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->laser_output_power(), target);
-  }
-
-  // optional double laser_output_power_mw = 10;
-  if (has_laser_output_power_mw()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(10, this->laser_output_power_mw(), target);
-  }
-
-  // optional double laser_output_power_dbm = 11;
-  if (has_laser_output_power_dbm()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(11, this->laser_output_power_dbm(), target);
-  }
-
-  // optional int32 laser_output_power_set = 12;
-  if (has_laser_output_power_set()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->laser_output_power_set(), target);
-  }
-
-  // optional int32 module_temp_high_alarm_threshold = 13;
-  if (has_module_temp_high_alarm_threshold()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->module_temp_high_alarm_threshold(), target);
-  }
-
-  // optional double module_temp_high_alarm_threshold_c = 14;
-  if (has_module_temp_high_alarm_threshold_c()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(14, this->module_temp_high_alarm_threshold_c(), target);
-  }
-
-  // optional double module_temp_high_alarm_threshold_f = 15;
-  if (has_module_temp_high_alarm_threshold_f()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(15, this->module_temp_high_alarm_threshold_f(), target);
-  }
-
-  // optional int32 module_temp_high_alarm_threshold_set = 16;
-  if (has_module_temp_high_alarm_threshold_set()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(16, this->module_temp_high_alarm_threshold_set(), target);
-  }
-
-  // optional int32 module_temp_low_alarm_threshold = 17;
-  if (has_module_temp_low_alarm_threshold()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(17, this->module_temp_low_alarm_threshold(), target);
-  }
-
-  // optional double module_temp_low_alarm_threshold_c = 18;
-  if (has_module_temp_low_alarm_threshold_c()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(18, this->module_temp_low_alarm_threshold_c(), target);
-  }
-
-  // optional double module_temp_low_alarm_threshold_f = 19;
-  if (has_module_temp_low_alarm_threshold_f()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(19, this->module_temp_low_alarm_threshold_f(), target);
-  }
-
-  // optional int32 module_temp_low_alarm_threshold_set = 20;
-  if (has_module_temp_low_alarm_threshold_set()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(20, this->module_temp_low_alarm_threshold_set(), target);
-  }
-
-  // optional int32 module_temp_high_warning_threshold = 21;
-  if (has_module_temp_high_warning_threshold()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(21, this->module_temp_high_warning_threshold(), target);
-  }
-
-  // optional double module_temp_high_warning_threshold_c = 22;
-  if (has_module_temp_high_warning_threshold_c()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(22, this->module_temp_high_warning_threshold_c(), target);
-  }
-
-  // optional double module_temp_high_warning_threshold_f = 23;
-  if (has_module_temp_high_warning_threshold_f()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(23, this->module_temp_high_warning_threshold_f(), target);
-  }
-
-  // optional int32 module_temp_high_warning_threshold_set = 24;
-  if (has_module_temp_high_warning_threshold_set()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(24, this->module_temp_high_warning_threshold_set(), target);
-  }
-
-  // optional int32 module_temp_low_warning_threshold = 25;
-  if (has_module_temp_low_warning_threshold()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(25, this->module_temp_low_warning_threshold(), target);
-  }
-
-  // optional double module_temp_low_warning_threshold_c = 26;
-  if (has_module_temp_low_warning_threshold_c()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(26, this->module_temp_low_warning_threshold_c(), target);
-  }
-
-  // optional double module_temp_low_warning_threshold_f = 27;
-  if (has_module_temp_low_warning_threshold_f()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(27, this->module_temp_low_warning_threshold_f(), target);
-  }
-
-  // optional int32 module_temp_low_warning_threshold_set = 28;
-  if (has_module_temp_low_warning_threshold_set()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(28, this->module_temp_low_warning_threshold_set(), target);
-  }
-
-  // optional int32 laser_output_power_high_alarm_threshold = 29;
-  if (has_laser_output_power_high_alarm_threshold()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(29, this->laser_output_power_high_alarm_threshold(), target);
-  }
-
-  // optional double laser_output_power_high_alarm_threshold_mw = 30;
-  if (has_laser_output_power_high_alarm_threshold_mw()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(30, this->laser_output_power_high_alarm_threshold_mw(), target);
-  }
-
-  // optional double laser_output_power_high_alarm_threshold_dbm = 31;
-  if (has_laser_output_power_high_alarm_threshold_dbm()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(31, this->laser_output_power_high_alarm_threshold_dbm(), target);
-  }
-
-  // optional int32 laser_output_power_high_alarm_threshold_set = 32;
-  if (has_laser_output_power_high_alarm_threshold_set()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(32, this->laser_output_power_high_alarm_threshold_set(), target);
-  }
-
-  // optional int32 laser_output_power_low_alarm_threshold = 33;
-  if (has_laser_output_power_low_alarm_threshold()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(33, this->laser_output_power_low_alarm_threshold(), target);
-  }
-
-  // optional double laser_output_power_low_alarm_threshold_mw = 34;
-  if (has_laser_output_power_low_alarm_threshold_mw()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(34, this->laser_output_power_low_alarm_threshold_mw(), target);
-  }
-
-  // optional double laser_output_power_low_alarm_threshold_dbm = 35;
-  if (has_laser_output_power_low_alarm_threshold_dbm()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(35, this->laser_output_power_low_alarm_threshold_dbm(), target);
-  }
-
-  // optional int32 laser_output_power_low_alarm_threshold_set = 36;
-  if (has_laser_output_power_low_alarm_threshold_set()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(36, this->laser_output_power_low_alarm_threshold_set(), target);
-  }
-
-  // optional int32 laser_output_power_high_warning_threshold = 37;
-  if (has_laser_output_power_high_warning_threshold()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(37, this->laser_output_power_high_warning_threshold(), target);
-  }
-
-  // optional double laser_output_power_high_warning_threshold_mw = 38;
-  if (has_laser_output_power_high_warning_threshold_mw()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(38, this->laser_output_power_high_warning_threshold_mw(), target);
-  }
-
-  // optional double laser_output_power_high_warning_threshold_dbm = 39;
-  if (has_laser_output_power_high_warning_threshold_dbm()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(39, this->laser_output_power_high_warning_threshold_dbm(), target);
-  }
-
-  // optional int32 laser_output_power_high_warning_threshold_set = 40;
-  if (has_laser_output_power_high_warning_threshold_set()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(40, this->laser_output_power_high_warning_threshold_set(), target);
-  }
-
-  // optional int32 laser_output_power_low_warning_threshold = 41;
-  if (has_laser_output_power_low_warning_threshold()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(41, this->laser_output_power_low_warning_threshold(), target);
-  }
-
-  // optional double laser_output_power_low_warning_threshold_mw = 42;
-  if (has_laser_output_power_low_warning_threshold_mw()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(42, this->laser_output_power_low_warning_threshold_mw(), target);
-  }
-
-  // optional double laser_output_power_low_warning_threshold_dbm = 43;
-  if (has_laser_output_power_low_warning_threshold_dbm()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(43, this->laser_output_power_low_warning_threshold_dbm(), target);
-  }
-
-  // optional int32 laser_output_power_low_warning_threshold_set = 44;
-  if (has_laser_output_power_low_warning_threshold_set()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(44, this->laser_output_power_low_warning_threshold_set(), target);
-  }
-
-  // optional int32 laser_rx_power_high_alarm_threshold = 45;
-  if (has_laser_rx_power_high_alarm_threshold()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(45, this->laser_rx_power_high_alarm_threshold(), target);
-  }
-
-  // optional double laser_rx_power_high_alarm_threshold_mw = 46;
-  if (has_laser_rx_power_high_alarm_threshold_mw()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(46, this->laser_rx_power_high_alarm_threshold_mw(), target);
-  }
-
-  // optional double laser_rx_power_high_alarm_threshold_dbm = 47;
-  if (has_laser_rx_power_high_alarm_threshold_dbm()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(47, this->laser_rx_power_high_alarm_threshold_dbm(), target);
-  }
-
-  // optional int32 laser_rx_power_high_alarm_threshold_set = 48;
-  if (has_laser_rx_power_high_alarm_threshold_set()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(48, this->laser_rx_power_high_alarm_threshold_set(), target);
-  }
-
-  // optional int32 laser_rx_power_low_alarm_threshold = 49;
-  if (has_laser_rx_power_low_alarm_threshold()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(49, this->laser_rx_power_low_alarm_threshold(), target);
-  }
-
-  // optional double laser_rx_power_low_alarm_threshold_mw = 50;
-  if (has_laser_rx_power_low_alarm_threshold_mw()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(50, this->laser_rx_power_low_alarm_threshold_mw(), target);
-  }
-
-  // optional double laser_rx_power_low_alarm_threshold_dbm = 51;
-  if (has_laser_rx_power_low_alarm_threshold_dbm()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(51, this->laser_rx_power_low_alarm_threshold_dbm(), target);
-  }
-
-  // optional int32 laser_rx_power_low_alarm_threshold_set = 52;
-  if (has_laser_rx_power_low_alarm_threshold_set()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(52, this->laser_rx_power_low_alarm_threshold_set(), target);
-  }
-
-  // optional int32 laser_rx_power_high_warning_threshold = 53;
-  if (has_laser_rx_power_high_warning_threshold()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(53, this->laser_rx_power_high_warning_threshold(), target);
-  }
-
-  // optional double laser_rx_power_high_warning_threshold_mw = 54;
-  if (has_laser_rx_power_high_warning_threshold_mw()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(54, this->laser_rx_power_high_warning_threshold_mw(), target);
-  }
-
-  // optional double laser_rx_power_high_warning_threshold_dbm = 55;
-  if (has_laser_rx_power_high_warning_threshold_dbm()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(55, this->laser_rx_power_high_warning_threshold_dbm(), target);
-  }
-
-  // optional int32 laser_rx_power_high_warning_threshold_set = 56;
-  if (has_laser_rx_power_high_warning_threshold_set()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(56, this->laser_rx_power_high_warning_threshold_set(), target);
-  }
-
-  // optional int32 laser_rx_power_low_warning_threshold = 57;
-  if (has_laser_rx_power_low_warning_threshold()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(57, this->laser_rx_power_low_warning_threshold(), target);
-  }
-
-  // optional double laser_rx_power_low_warning_threshold_mw = 58;
-  if (has_laser_rx_power_low_warning_threshold_mw()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(58, this->laser_rx_power_low_warning_threshold_mw(), target);
-  }
-
-  // optional double laser_rx_power_low_warning_threshold_dbm = 59;
-  if (has_laser_rx_power_low_warning_threshold_dbm()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(59, this->laser_rx_power_low_warning_threshold_dbm(), target);
-  }
-
-  // optional int32 laser_rx_power_low_warning_threshold_set = 60;
-  if (has_laser_rx_power_low_warning_threshold_set()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(60, this->laser_rx_power_low_warning_threshold_set(), target);
-  }
-
-  // optional int32 lane_number = 61;
-  if (has_lane_number()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(61, this->lane_number(), target);
-  }
-
-  // optional int32 lane_laser_temp = 62;
-  if (has_lane_laser_temp()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(62, this->lane_laser_temp(), target);
-  }
-
-  // optional double lane_laser_temp_c = 63;
-  if (has_lane_laser_temp_c()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(63, this->lane_laser_temp_c(), target);
-  }
-
-  // optional double lane_laser_temp_f = 64;
-  if (has_lane_laser_temp_f()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(64, this->lane_laser_temp_f(), target);
-  }
-
-  // optional int32 lane_laser_temp_set = 65;
-  if (has_lane_laser_temp_set()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(65, this->lane_laser_temp_set(), target);
-  }
-
-  // optional int32 lane_laser_output_power = 66;
-  if (has_lane_laser_output_power()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(66, this->lane_laser_output_power(), target);
-  }
-
-  // optional double lane_laser_output_power_mw = 67;
-  if (has_lane_laser_output_power_mw()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(67, this->lane_laser_output_power_mw(), target);
-  }
-
-  // optional double lane_laser_output_power_dbm = 68;
-  if (has_lane_laser_output_power_dbm()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(68, this->lane_laser_output_power_dbm(), target);
-  }
-
-  // optional int32 lane_laser_output_power_set = 69;
-  if (has_lane_laser_output_power_set()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(69, this->lane_laser_output_power_set(), target);
-  }
-
-  // optional int32 lane_laser_receiver_power = 70;
-  if (has_lane_laser_receiver_power()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(70, this->lane_laser_receiver_power(), target);
-  }
-
-  // optional double lane_laser_receiver_power_mw = 71;
-  if (has_lane_laser_receiver_power_mw()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(71, this->lane_laser_receiver_power_mw(), target);
-  }
-
-  // optional double lane_laser_receiver_power_dbm = 72;
-  if (has_lane_laser_receiver_power_dbm()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(72, this->lane_laser_receiver_power_dbm(), target);
-  }
-
-  // optional int32 lane_laser_receiver_power_set = 73;
-  if (has_lane_laser_receiver_power_set()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(73, this->lane_laser_receiver_power_set(), target);
-  }
-
-  // optional int32 lane_laser_temp_high_alarm_set = 74;
-  if (has_lane_laser_temp_high_alarm_set()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(74, this->lane_laser_temp_high_alarm_set(), target);
-  }
-
-  // optional int32 lane_laser_temp_high_alarm = 75;
-  if (has_lane_laser_temp_high_alarm()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(75, this->lane_laser_temp_high_alarm(), target);
-  }
-
-  // optional int32 lane_laser_temp_low_alarm_set = 76;
-  if (has_lane_laser_temp_low_alarm_set()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(76, this->lane_laser_temp_low_alarm_set(), target);
-  }
-
-  // optional int32 lane_laser_temp_low_alarm = 77;
-  if (has_lane_laser_temp_low_alarm()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(77, this->lane_laser_temp_low_alarm(), target);
-  }
-
-  // optional int32 lane_laser_temp_high_warning_set = 78;
-  if (has_lane_laser_temp_high_warning_set()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(78, this->lane_laser_temp_high_warning_set(), target);
-  }
-
-  // optional int32 lane_laser_temp_high_warning = 79;
-  if (has_lane_laser_temp_high_warning()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(79, this->lane_laser_temp_high_warning(), target);
-  }
-
-  // optional int32 lane_laser_output_power_high_alarm_set = 80;
-  if (has_lane_laser_output_power_high_alarm_set()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(80, this->lane_laser_output_power_high_alarm_set(), target);
-  }
-
-  // optional int32 lane_laser_output_power_high_alarm = 81;
-  if (has_lane_laser_output_power_high_alarm()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(81, this->lane_laser_output_power_high_alarm(), target);
-  }
-
-  // optional int32 lane_laser_output_power_low_alarm_set = 82;
-  if (has_lane_laser_output_power_low_alarm_set()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(82, this->lane_laser_output_power_low_alarm_set(), target);
-  }
-
-  // optional int32 lane_laser_output_power_low_alarm = 83;
-  if (has_lane_laser_output_power_low_alarm()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(83, this->lane_laser_output_power_low_alarm(), target);
-  }
-
-  // optional int32 lane_laser_output_power_high_warning_set = 84;
-  if (has_lane_laser_output_power_high_warning_set()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(84, this->lane_laser_output_power_high_warning_set(), target);
-  }
-
-  // optional int32 lane_laser_output_power_high_warning = 85;
-  if (has_lane_laser_output_power_high_warning()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(85, this->lane_laser_output_power_high_warning(), target);
-  }
-
-  // optional int32 lane_laser_output_power_low_warning_set = 86;
-  if (has_lane_laser_output_power_low_warning_set()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(86, this->lane_laser_output_power_low_warning_set(), target);
-  }
-
-  // optional int32 lane_laser_output_power_low_warning = 87;
-  if (has_lane_laser_output_power_low_warning()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(87, this->lane_laser_output_power_low_warning(), target);
-  }
-
-  // optional int32 lane_laser_receiver_power_high_alarm_set = 88;
-  if (has_lane_laser_receiver_power_high_alarm_set()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(88, this->lane_laser_receiver_power_high_alarm_set(), target);
-  }
-
-  // optional int32 lane_laser_receiver_power_high_alarm = 89;
-  if (has_lane_laser_receiver_power_high_alarm()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(89, this->lane_laser_receiver_power_high_alarm(), target);
-  }
-
-  // optional int32 lane_laser_receiver_power_low_alarm_set = 90;
-  if (has_lane_laser_receiver_power_low_alarm_set()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(90, this->lane_laser_receiver_power_low_alarm_set(), target);
-  }
-
-  // optional int32 lane_laser_receiver_power_low_alarm = 91;
-  if (has_lane_laser_receiver_power_low_alarm()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(91, this->lane_laser_receiver_power_low_alarm(), target);
-  }
-
-  // optional int32 lane_laser_receiver_power_high_warning_set = 92;
-  if (has_lane_laser_receiver_power_high_warning_set()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(92, this->lane_laser_receiver_power_high_warning_set(), target);
-  }
-
-  // optional int32 lane_laser_receiver_power_high_warning = 93;
-  if (has_lane_laser_receiver_power_high_warning()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(93, this->lane_laser_receiver_power_high_warning(), target);
-  }
-
-  // optional int32 lane_laser_receiver_power_low_warning_set = 94;
-  if (has_lane_laser_receiver_power_low_warning_set()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(94, this->lane_laser_receiver_power_low_warning_set(), target);
-  }
-
-  // optional int32 lane_laser_receiver_power_low_warning = 95;
-  if (has_lane_laser_receiver_power_low_warning()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(95, this->lane_laser_receiver_power_low_warning(), target);
-  }
-
-  // optional int32 optics_type = 96;
+  // optional uint32 optics_type = 1;
   if (has_optics_type()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(96, this->optics_type(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->optics_type(), target);
   }
 
-  // optional int32 optics_alarm_validity = 97;
-  if (has_optics_alarm_validity()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(97, this->optics_alarm_validity(), target);
+  // optional double module_temp = 2;
+  if (has_module_temp()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(2, this->module_temp(), target);
   }
 
-  // optional int32 optics_capability = 98;
-  if (has_optics_capability()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(98, this->optics_capability(), target);
+  // optional double module_temp_high_alarm_threshold = 3;
+  if (has_module_temp_high_alarm_threshold()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(3, this->module_temp_high_alarm_threshold(), target);
   }
 
-  // optional int32 active_lane_map = 99;
-  if (has_active_lane_map()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(99, this->active_lane_map(), target);
+  // optional double module_temp_low_alarm_threshold = 4;
+  if (has_module_temp_low_alarm_threshold()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(4, this->module_temp_low_alarm_threshold(), target);
   }
 
-  // optional int32 lane_alarms_warnings = 100;
-  if (has_lane_alarms_warnings()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(100, this->lane_alarms_warnings(), target);
+  // optional double module_temp_high_warning_threshold = 5;
+  if (has_module_temp_high_warning_threshold()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(5, this->module_temp_high_warning_threshold(), target);
   }
 
-  // optional int32 lane_laser_temp_low_warning_set = 101;
-  if (has_lane_laser_temp_low_warning_set()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(101, this->lane_laser_temp_low_warning_set(), target);
+  // optional double module_temp_low_warning_threshold = 6;
+  if (has_module_temp_low_warning_threshold()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(6, this->module_temp_low_warning_threshold(), target);
   }
 
-  // optional int32 lane_laser_temp_low_warning = 102;
-  if (has_lane_laser_temp_low_warning()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(102, this->lane_laser_temp_low_warning(), target);
+  // optional double laser_output_power_high_alarm_threshold_dbm = 7;
+  if (has_laser_output_power_high_alarm_threshold_dbm()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(7, this->laser_output_power_high_alarm_threshold_dbm(), target);
+  }
+
+  // optional double laser_output_power_low_alarm_threshold_dbm = 8;
+  if (has_laser_output_power_low_alarm_threshold_dbm()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(8, this->laser_output_power_low_alarm_threshold_dbm(), target);
+  }
+
+  // optional double laser_output_power_high_warning_threshold_dbm = 9;
+  if (has_laser_output_power_high_warning_threshold_dbm()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(9, this->laser_output_power_high_warning_threshold_dbm(), target);
+  }
+
+  // optional double laser_output_power_low_warning_threshold_dbm = 10;
+  if (has_laser_output_power_low_warning_threshold_dbm()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(10, this->laser_output_power_low_warning_threshold_dbm(), target);
+  }
+
+  // optional double laser_rx_power_high_alarm_threshold_dbm = 11;
+  if (has_laser_rx_power_high_alarm_threshold_dbm()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(11, this->laser_rx_power_high_alarm_threshold_dbm(), target);
+  }
+
+  // optional double laser_rx_power_low_alarm_threshold_dbm = 12;
+  if (has_laser_rx_power_low_alarm_threshold_dbm()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(12, this->laser_rx_power_low_alarm_threshold_dbm(), target);
+  }
+
+  // optional double laser_rx_power_high_warning_threshold_dbm = 13;
+  if (has_laser_rx_power_high_warning_threshold_dbm()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(13, this->laser_rx_power_high_warning_threshold_dbm(), target);
+  }
+
+  // optional double laser_rx_power_low_warning_threshold_dbm = 14;
+  if (has_laser_rx_power_low_warning_threshold_dbm()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(14, this->laser_rx_power_low_warning_threshold_dbm(), target);
+  }
+
+  // optional double laser_bias_current_high_alarm_threshold = 15;
+  if (has_laser_bias_current_high_alarm_threshold()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(15, this->laser_bias_current_high_alarm_threshold(), target);
+  }
+
+  // optional double laser_bias_current_low_alarm_threshold = 16;
+  if (has_laser_bias_current_low_alarm_threshold()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(16, this->laser_bias_current_low_alarm_threshold(), target);
+  }
+
+  // optional double laser_bias_current_high_warning_threshold = 17;
+  if (has_laser_bias_current_high_warning_threshold()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(17, this->laser_bias_current_high_warning_threshold(), target);
+  }
+
+  // optional double laser_bias_current_low_warning_threshold = 18;
+  if (has_laser_bias_current_low_warning_threshold()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(18, this->laser_bias_current_low_warning_threshold(), target);
+  }
+
+  // optional bool module_temp_high_alarm = 19;
+  if (has_module_temp_high_alarm()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(19, this->module_temp_high_alarm(), target);
+  }
+
+  // optional bool module_temp_low_alarm = 20;
+  if (has_module_temp_low_alarm()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(20, this->module_temp_low_alarm(), target);
+  }
+
+  // optional bool module_temp_high_warning = 21;
+  if (has_module_temp_high_warning()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(21, this->module_temp_high_warning(), target);
+  }
+
+  // optional bool module_temp_low_warning = 22;
+  if (has_module_temp_low_warning()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(22, this->module_temp_low_warning(), target);
+  }
+
+  // repeated .OpticsDiagLaneStats optics_lane_diag_stats = 23;
+  for (unsigned int i = 0, n = this->optics_lane_diag_stats_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        23, this->optics_lane_diag_stats(i), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -4047,673 +1777,131 @@ int OpticsDiagStats::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & 255u) {
-    // optional int32 module_temp = 1;
+    // optional uint32 optics_type = 1;
+    if (has_optics_type()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->optics_type());
+    }
+
+    // optional double module_temp = 2;
     if (has_module_temp()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->module_temp());
-    }
-
-    // optional double module_temp_c = 2;
-    if (has_module_temp_c()) {
       total_size += 1 + 8;
     }
 
-    // optional double module_temp_f = 3;
-    if (has_module_temp_f()) {
+    // optional double module_temp_high_alarm_threshold = 3;
+    if (has_module_temp_high_alarm_threshold()) {
       total_size += 1 + 8;
     }
 
-    // optional int32 module_temp_set = 4;
-    if (has_module_temp_set()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->module_temp_set());
-    }
-
-    // optional int32 receiver_signal_ave_optical_power = 5;
-    if (has_receiver_signal_ave_optical_power()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->receiver_signal_ave_optical_power());
-    }
-
-    // optional double receiver_signal_ave_optical_power_mw = 6;
-    if (has_receiver_signal_ave_optical_power_mw()) {
+    // optional double module_temp_low_alarm_threshold = 4;
+    if (has_module_temp_low_alarm_threshold()) {
       total_size += 1 + 8;
     }
 
-    // optional double receiver_signal_ave_optical_power_dbm = 7;
-    if (has_receiver_signal_ave_optical_power_dbm()) {
+    // optional double module_temp_high_warning_threshold = 5;
+    if (has_module_temp_high_warning_threshold()) {
       total_size += 1 + 8;
     }
 
-    // optional int32 receiver_signal_ave_optical_power_set = 8;
-    if (has_receiver_signal_ave_optical_power_set()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->receiver_signal_ave_optical_power_set());
+    // optional double module_temp_low_warning_threshold = 6;
+    if (has_module_temp_low_warning_threshold()) {
+      total_size += 1 + 8;
+    }
+
+    // optional double laser_output_power_high_alarm_threshold_dbm = 7;
+    if (has_laser_output_power_high_alarm_threshold_dbm()) {
+      total_size += 1 + 8;
+    }
+
+    // optional double laser_output_power_low_alarm_threshold_dbm = 8;
+    if (has_laser_output_power_low_alarm_threshold_dbm()) {
+      total_size += 1 + 8;
     }
 
   }
   if (_has_bits_[8 / 32] & 65280u) {
-    // optional int32 laser_output_power = 9;
-    if (has_laser_output_power()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->laser_output_power());
-    }
-
-    // optional double laser_output_power_mw = 10;
-    if (has_laser_output_power_mw()) {
-      total_size += 1 + 8;
-    }
-
-    // optional double laser_output_power_dbm = 11;
-    if (has_laser_output_power_dbm()) {
-      total_size += 1 + 8;
-    }
-
-    // optional int32 laser_output_power_set = 12;
-    if (has_laser_output_power_set()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->laser_output_power_set());
-    }
-
-    // optional int32 module_temp_high_alarm_threshold = 13;
-    if (has_module_temp_high_alarm_threshold()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->module_temp_high_alarm_threshold());
-    }
-
-    // optional double module_temp_high_alarm_threshold_c = 14;
-    if (has_module_temp_high_alarm_threshold_c()) {
-      total_size += 1 + 8;
-    }
-
-    // optional double module_temp_high_alarm_threshold_f = 15;
-    if (has_module_temp_high_alarm_threshold_f()) {
-      total_size += 1 + 8;
-    }
-
-    // optional int32 module_temp_high_alarm_threshold_set = 16;
-    if (has_module_temp_high_alarm_threshold_set()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->module_temp_high_alarm_threshold_set());
-    }
-
-  }
-  if (_has_bits_[16 / 32] & 16711680u) {
-    // optional int32 module_temp_low_alarm_threshold = 17;
-    if (has_module_temp_low_alarm_threshold()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->module_temp_low_alarm_threshold());
-    }
-
-    // optional double module_temp_low_alarm_threshold_c = 18;
-    if (has_module_temp_low_alarm_threshold_c()) {
-      total_size += 2 + 8;
-    }
-
-    // optional double module_temp_low_alarm_threshold_f = 19;
-    if (has_module_temp_low_alarm_threshold_f()) {
-      total_size += 2 + 8;
-    }
-
-    // optional int32 module_temp_low_alarm_threshold_set = 20;
-    if (has_module_temp_low_alarm_threshold_set()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->module_temp_low_alarm_threshold_set());
-    }
-
-    // optional int32 module_temp_high_warning_threshold = 21;
-    if (has_module_temp_high_warning_threshold()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->module_temp_high_warning_threshold());
-    }
-
-    // optional double module_temp_high_warning_threshold_c = 22;
-    if (has_module_temp_high_warning_threshold_c()) {
-      total_size += 2 + 8;
-    }
-
-    // optional double module_temp_high_warning_threshold_f = 23;
-    if (has_module_temp_high_warning_threshold_f()) {
-      total_size += 2 + 8;
-    }
-
-    // optional int32 module_temp_high_warning_threshold_set = 24;
-    if (has_module_temp_high_warning_threshold_set()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->module_temp_high_warning_threshold_set());
-    }
-
-  }
-  if (_has_bits_[24 / 32] & 4278190080u) {
-    // optional int32 module_temp_low_warning_threshold = 25;
-    if (has_module_temp_low_warning_threshold()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->module_temp_low_warning_threshold());
-    }
-
-    // optional double module_temp_low_warning_threshold_c = 26;
-    if (has_module_temp_low_warning_threshold_c()) {
-      total_size += 2 + 8;
-    }
-
-    // optional double module_temp_low_warning_threshold_f = 27;
-    if (has_module_temp_low_warning_threshold_f()) {
-      total_size += 2 + 8;
-    }
-
-    // optional int32 module_temp_low_warning_threshold_set = 28;
-    if (has_module_temp_low_warning_threshold_set()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->module_temp_low_warning_threshold_set());
-    }
-
-    // optional int32 laser_output_power_high_alarm_threshold = 29;
-    if (has_laser_output_power_high_alarm_threshold()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->laser_output_power_high_alarm_threshold());
-    }
-
-    // optional double laser_output_power_high_alarm_threshold_mw = 30;
-    if (has_laser_output_power_high_alarm_threshold_mw()) {
-      total_size += 2 + 8;
-    }
-
-    // optional double laser_output_power_high_alarm_threshold_dbm = 31;
-    if (has_laser_output_power_high_alarm_threshold_dbm()) {
-      total_size += 2 + 8;
-    }
-
-    // optional int32 laser_output_power_high_alarm_threshold_set = 32;
-    if (has_laser_output_power_high_alarm_threshold_set()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->laser_output_power_high_alarm_threshold_set());
-    }
-
-  }
-  if (_has_bits_[32 / 32] & 255u) {
-    // optional int32 laser_output_power_low_alarm_threshold = 33;
-    if (has_laser_output_power_low_alarm_threshold()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->laser_output_power_low_alarm_threshold());
-    }
-
-    // optional double laser_output_power_low_alarm_threshold_mw = 34;
-    if (has_laser_output_power_low_alarm_threshold_mw()) {
-      total_size += 2 + 8;
-    }
-
-    // optional double laser_output_power_low_alarm_threshold_dbm = 35;
-    if (has_laser_output_power_low_alarm_threshold_dbm()) {
-      total_size += 2 + 8;
-    }
-
-    // optional int32 laser_output_power_low_alarm_threshold_set = 36;
-    if (has_laser_output_power_low_alarm_threshold_set()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->laser_output_power_low_alarm_threshold_set());
-    }
-
-    // optional int32 laser_output_power_high_warning_threshold = 37;
-    if (has_laser_output_power_high_warning_threshold()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->laser_output_power_high_warning_threshold());
-    }
-
-    // optional double laser_output_power_high_warning_threshold_mw = 38;
-    if (has_laser_output_power_high_warning_threshold_mw()) {
-      total_size += 2 + 8;
-    }
-
-    // optional double laser_output_power_high_warning_threshold_dbm = 39;
+    // optional double laser_output_power_high_warning_threshold_dbm = 9;
     if (has_laser_output_power_high_warning_threshold_dbm()) {
-      total_size += 2 + 8;
+      total_size += 1 + 8;
     }
 
-    // optional int32 laser_output_power_high_warning_threshold_set = 40;
-    if (has_laser_output_power_high_warning_threshold_set()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->laser_output_power_high_warning_threshold_set());
-    }
-
-  }
-  if (_has_bits_[40 / 32] & 65280u) {
-    // optional int32 laser_output_power_low_warning_threshold = 41;
-    if (has_laser_output_power_low_warning_threshold()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->laser_output_power_low_warning_threshold());
-    }
-
-    // optional double laser_output_power_low_warning_threshold_mw = 42;
-    if (has_laser_output_power_low_warning_threshold_mw()) {
-      total_size += 2 + 8;
-    }
-
-    // optional double laser_output_power_low_warning_threshold_dbm = 43;
+    // optional double laser_output_power_low_warning_threshold_dbm = 10;
     if (has_laser_output_power_low_warning_threshold_dbm()) {
-      total_size += 2 + 8;
+      total_size += 1 + 8;
     }
 
-    // optional int32 laser_output_power_low_warning_threshold_set = 44;
-    if (has_laser_output_power_low_warning_threshold_set()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->laser_output_power_low_warning_threshold_set());
-    }
-
-    // optional int32 laser_rx_power_high_alarm_threshold = 45;
-    if (has_laser_rx_power_high_alarm_threshold()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->laser_rx_power_high_alarm_threshold());
-    }
-
-    // optional double laser_rx_power_high_alarm_threshold_mw = 46;
-    if (has_laser_rx_power_high_alarm_threshold_mw()) {
-      total_size += 2 + 8;
-    }
-
-    // optional double laser_rx_power_high_alarm_threshold_dbm = 47;
+    // optional double laser_rx_power_high_alarm_threshold_dbm = 11;
     if (has_laser_rx_power_high_alarm_threshold_dbm()) {
-      total_size += 2 + 8;
+      total_size += 1 + 8;
     }
 
-    // optional int32 laser_rx_power_high_alarm_threshold_set = 48;
-    if (has_laser_rx_power_high_alarm_threshold_set()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->laser_rx_power_high_alarm_threshold_set());
-    }
-
-  }
-  if (_has_bits_[48 / 32] & 16711680u) {
-    // optional int32 laser_rx_power_low_alarm_threshold = 49;
-    if (has_laser_rx_power_low_alarm_threshold()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->laser_rx_power_low_alarm_threshold());
-    }
-
-    // optional double laser_rx_power_low_alarm_threshold_mw = 50;
-    if (has_laser_rx_power_low_alarm_threshold_mw()) {
-      total_size += 2 + 8;
-    }
-
-    // optional double laser_rx_power_low_alarm_threshold_dbm = 51;
+    // optional double laser_rx_power_low_alarm_threshold_dbm = 12;
     if (has_laser_rx_power_low_alarm_threshold_dbm()) {
-      total_size += 2 + 8;
+      total_size += 1 + 8;
     }
 
-    // optional int32 laser_rx_power_low_alarm_threshold_set = 52;
-    if (has_laser_rx_power_low_alarm_threshold_set()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->laser_rx_power_low_alarm_threshold_set());
-    }
-
-    // optional int32 laser_rx_power_high_warning_threshold = 53;
-    if (has_laser_rx_power_high_warning_threshold()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->laser_rx_power_high_warning_threshold());
-    }
-
-    // optional double laser_rx_power_high_warning_threshold_mw = 54;
-    if (has_laser_rx_power_high_warning_threshold_mw()) {
-      total_size += 2 + 8;
-    }
-
-    // optional double laser_rx_power_high_warning_threshold_dbm = 55;
+    // optional double laser_rx_power_high_warning_threshold_dbm = 13;
     if (has_laser_rx_power_high_warning_threshold_dbm()) {
-      total_size += 2 + 8;
+      total_size += 1 + 8;
     }
 
-    // optional int32 laser_rx_power_high_warning_threshold_set = 56;
-    if (has_laser_rx_power_high_warning_threshold_set()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->laser_rx_power_high_warning_threshold_set());
-    }
-
-  }
-  if (_has_bits_[56 / 32] & 4278190080u) {
-    // optional int32 laser_rx_power_low_warning_threshold = 57;
-    if (has_laser_rx_power_low_warning_threshold()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->laser_rx_power_low_warning_threshold());
-    }
-
-    // optional double laser_rx_power_low_warning_threshold_mw = 58;
-    if (has_laser_rx_power_low_warning_threshold_mw()) {
-      total_size += 2 + 8;
-    }
-
-    // optional double laser_rx_power_low_warning_threshold_dbm = 59;
+    // optional double laser_rx_power_low_warning_threshold_dbm = 14;
     if (has_laser_rx_power_low_warning_threshold_dbm()) {
-      total_size += 2 + 8;
+      total_size += 1 + 8;
     }
 
-    // optional int32 laser_rx_power_low_warning_threshold_set = 60;
-    if (has_laser_rx_power_low_warning_threshold_set()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->laser_rx_power_low_warning_threshold_set());
+    // optional double laser_bias_current_high_alarm_threshold = 15;
+    if (has_laser_bias_current_high_alarm_threshold()) {
+      total_size += 1 + 8;
     }
 
-    // optional int32 lane_number = 61;
-    if (has_lane_number()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lane_number());
-    }
-
-    // optional int32 lane_laser_temp = 62;
-    if (has_lane_laser_temp()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lane_laser_temp());
-    }
-
-    // optional double lane_laser_temp_c = 63;
-    if (has_lane_laser_temp_c()) {
-      total_size += 2 + 8;
-    }
-
-    // optional double lane_laser_temp_f = 64;
-    if (has_lane_laser_temp_f()) {
+    // optional double laser_bias_current_low_alarm_threshold = 16;
+    if (has_laser_bias_current_low_alarm_threshold()) {
       total_size += 2 + 8;
     }
 
   }
-  if (_has_bits_[64 / 32] & 255u) {
-    // optional int32 lane_laser_temp_set = 65;
-    if (has_lane_laser_temp_set()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lane_laser_temp_set());
-    }
-
-    // optional int32 lane_laser_output_power = 66;
-    if (has_lane_laser_output_power()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lane_laser_output_power());
-    }
-
-    // optional double lane_laser_output_power_mw = 67;
-    if (has_lane_laser_output_power_mw()) {
+  if (_has_bits_[16 / 32] & 4128768u) {
+    // optional double laser_bias_current_high_warning_threshold = 17;
+    if (has_laser_bias_current_high_warning_threshold()) {
       total_size += 2 + 8;
     }
 
-    // optional double lane_laser_output_power_dbm = 68;
-    if (has_lane_laser_output_power_dbm()) {
+    // optional double laser_bias_current_low_warning_threshold = 18;
+    if (has_laser_bias_current_low_warning_threshold()) {
       total_size += 2 + 8;
     }
 
-    // optional int32 lane_laser_output_power_set = 69;
-    if (has_lane_laser_output_power_set()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lane_laser_output_power_set());
+    // optional bool module_temp_high_alarm = 19;
+    if (has_module_temp_high_alarm()) {
+      total_size += 2 + 1;
     }
 
-    // optional int32 lane_laser_receiver_power = 70;
-    if (has_lane_laser_receiver_power()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lane_laser_receiver_power());
+    // optional bool module_temp_low_alarm = 20;
+    if (has_module_temp_low_alarm()) {
+      total_size += 2 + 1;
     }
 
-    // optional double lane_laser_receiver_power_mw = 71;
-    if (has_lane_laser_receiver_power_mw()) {
-      total_size += 2 + 8;
+    // optional bool module_temp_high_warning = 21;
+    if (has_module_temp_high_warning()) {
+      total_size += 2 + 1;
     }
 
-    // optional double lane_laser_receiver_power_dbm = 72;
-    if (has_lane_laser_receiver_power_dbm()) {
-      total_size += 2 + 8;
+    // optional bool module_temp_low_warning = 22;
+    if (has_module_temp_low_warning()) {
+      total_size += 2 + 1;
     }
 
   }
-  if (_has_bits_[72 / 32] & 65280u) {
-    // optional int32 lane_laser_receiver_power_set = 73;
-    if (has_lane_laser_receiver_power_set()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lane_laser_receiver_power_set());
-    }
-
-    // optional int32 lane_laser_temp_high_alarm_set = 74;
-    if (has_lane_laser_temp_high_alarm_set()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lane_laser_temp_high_alarm_set());
-    }
-
-    // optional int32 lane_laser_temp_high_alarm = 75;
-    if (has_lane_laser_temp_high_alarm()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lane_laser_temp_high_alarm());
-    }
-
-    // optional int32 lane_laser_temp_low_alarm_set = 76;
-    if (has_lane_laser_temp_low_alarm_set()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lane_laser_temp_low_alarm_set());
-    }
-
-    // optional int32 lane_laser_temp_low_alarm = 77;
-    if (has_lane_laser_temp_low_alarm()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lane_laser_temp_low_alarm());
-    }
-
-    // optional int32 lane_laser_temp_high_warning_set = 78;
-    if (has_lane_laser_temp_high_warning_set()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lane_laser_temp_high_warning_set());
-    }
-
-    // optional int32 lane_laser_temp_high_warning = 79;
-    if (has_lane_laser_temp_high_warning()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lane_laser_temp_high_warning());
-    }
-
-    // optional int32 lane_laser_output_power_high_alarm_set = 80;
-    if (has_lane_laser_output_power_high_alarm_set()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lane_laser_output_power_high_alarm_set());
-    }
-
+  // repeated .OpticsDiagLaneStats optics_lane_diag_stats = 23;
+  total_size += 2 * this->optics_lane_diag_stats_size();
+  for (int i = 0; i < this->optics_lane_diag_stats_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->optics_lane_diag_stats(i));
   }
-  if (_has_bits_[80 / 32] & 16711680u) {
-    // optional int32 lane_laser_output_power_high_alarm = 81;
-    if (has_lane_laser_output_power_high_alarm()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lane_laser_output_power_high_alarm());
-    }
 
-    // optional int32 lane_laser_output_power_low_alarm_set = 82;
-    if (has_lane_laser_output_power_low_alarm_set()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lane_laser_output_power_low_alarm_set());
-    }
-
-    // optional int32 lane_laser_output_power_low_alarm = 83;
-    if (has_lane_laser_output_power_low_alarm()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lane_laser_output_power_low_alarm());
-    }
-
-    // optional int32 lane_laser_output_power_high_warning_set = 84;
-    if (has_lane_laser_output_power_high_warning_set()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lane_laser_output_power_high_warning_set());
-    }
-
-    // optional int32 lane_laser_output_power_high_warning = 85;
-    if (has_lane_laser_output_power_high_warning()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lane_laser_output_power_high_warning());
-    }
-
-    // optional int32 lane_laser_output_power_low_warning_set = 86;
-    if (has_lane_laser_output_power_low_warning_set()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lane_laser_output_power_low_warning_set());
-    }
-
-    // optional int32 lane_laser_output_power_low_warning = 87;
-    if (has_lane_laser_output_power_low_warning()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lane_laser_output_power_low_warning());
-    }
-
-    // optional int32 lane_laser_receiver_power_high_alarm_set = 88;
-    if (has_lane_laser_receiver_power_high_alarm_set()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lane_laser_receiver_power_high_alarm_set());
-    }
-
-  }
-  if (_has_bits_[88 / 32] & 4278190080u) {
-    // optional int32 lane_laser_receiver_power_high_alarm = 89;
-    if (has_lane_laser_receiver_power_high_alarm()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lane_laser_receiver_power_high_alarm());
-    }
-
-    // optional int32 lane_laser_receiver_power_low_alarm_set = 90;
-    if (has_lane_laser_receiver_power_low_alarm_set()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lane_laser_receiver_power_low_alarm_set());
-    }
-
-    // optional int32 lane_laser_receiver_power_low_alarm = 91;
-    if (has_lane_laser_receiver_power_low_alarm()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lane_laser_receiver_power_low_alarm());
-    }
-
-    // optional int32 lane_laser_receiver_power_high_warning_set = 92;
-    if (has_lane_laser_receiver_power_high_warning_set()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lane_laser_receiver_power_high_warning_set());
-    }
-
-    // optional int32 lane_laser_receiver_power_high_warning = 93;
-    if (has_lane_laser_receiver_power_high_warning()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lane_laser_receiver_power_high_warning());
-    }
-
-    // optional int32 lane_laser_receiver_power_low_warning_set = 94;
-    if (has_lane_laser_receiver_power_low_warning_set()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lane_laser_receiver_power_low_warning_set());
-    }
-
-    // optional int32 lane_laser_receiver_power_low_warning = 95;
-    if (has_lane_laser_receiver_power_low_warning()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lane_laser_receiver_power_low_warning());
-    }
-
-    // optional int32 optics_type = 96;
-    if (has_optics_type()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->optics_type());
-    }
-
-  }
-  if (_has_bits_[96 / 32] & 63u) {
-    // optional int32 optics_alarm_validity = 97;
-    if (has_optics_alarm_validity()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->optics_alarm_validity());
-    }
-
-    // optional int32 optics_capability = 98;
-    if (has_optics_capability()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->optics_capability());
-    }
-
-    // optional int32 active_lane_map = 99;
-    if (has_active_lane_map()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->active_lane_map());
-    }
-
-    // optional int32 lane_alarms_warnings = 100;
-    if (has_lane_alarms_warnings()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lane_alarms_warnings());
-    }
-
-    // optional int32 lane_laser_temp_low_warning_set = 101;
-    if (has_lane_laser_temp_low_warning_set()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lane_laser_temp_low_warning_set());
-    }
-
-    // optional int32 lane_laser_temp_low_warning = 102;
-    if (has_lane_laser_temp_low_warning()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lane_laser_temp_low_warning());
-    }
-
-  }
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -4739,336 +1927,77 @@ void OpticsDiagStats::MergeFrom(const ::google::protobuf::Message& from) {
 
 void OpticsDiagStats::MergeFrom(const OpticsDiagStats& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  optics_lane_diag_stats_.MergeFrom(from.optics_lane_diag_stats_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_optics_type()) {
+      set_optics_type(from.optics_type());
+    }
     if (from.has_module_temp()) {
       set_module_temp(from.module_temp());
-    }
-    if (from.has_module_temp_c()) {
-      set_module_temp_c(from.module_temp_c());
-    }
-    if (from.has_module_temp_f()) {
-      set_module_temp_f(from.module_temp_f());
-    }
-    if (from.has_module_temp_set()) {
-      set_module_temp_set(from.module_temp_set());
-    }
-    if (from.has_receiver_signal_ave_optical_power()) {
-      set_receiver_signal_ave_optical_power(from.receiver_signal_ave_optical_power());
-    }
-    if (from.has_receiver_signal_ave_optical_power_mw()) {
-      set_receiver_signal_ave_optical_power_mw(from.receiver_signal_ave_optical_power_mw());
-    }
-    if (from.has_receiver_signal_ave_optical_power_dbm()) {
-      set_receiver_signal_ave_optical_power_dbm(from.receiver_signal_ave_optical_power_dbm());
-    }
-    if (from.has_receiver_signal_ave_optical_power_set()) {
-      set_receiver_signal_ave_optical_power_set(from.receiver_signal_ave_optical_power_set());
-    }
-  }
-  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    if (from.has_laser_output_power()) {
-      set_laser_output_power(from.laser_output_power());
-    }
-    if (from.has_laser_output_power_mw()) {
-      set_laser_output_power_mw(from.laser_output_power_mw());
-    }
-    if (from.has_laser_output_power_dbm()) {
-      set_laser_output_power_dbm(from.laser_output_power_dbm());
-    }
-    if (from.has_laser_output_power_set()) {
-      set_laser_output_power_set(from.laser_output_power_set());
     }
     if (from.has_module_temp_high_alarm_threshold()) {
       set_module_temp_high_alarm_threshold(from.module_temp_high_alarm_threshold());
     }
-    if (from.has_module_temp_high_alarm_threshold_c()) {
-      set_module_temp_high_alarm_threshold_c(from.module_temp_high_alarm_threshold_c());
-    }
-    if (from.has_module_temp_high_alarm_threshold_f()) {
-      set_module_temp_high_alarm_threshold_f(from.module_temp_high_alarm_threshold_f());
-    }
-    if (from.has_module_temp_high_alarm_threshold_set()) {
-      set_module_temp_high_alarm_threshold_set(from.module_temp_high_alarm_threshold_set());
-    }
-  }
-  if (from._has_bits_[16 / 32] & (0xffu << (16 % 32))) {
     if (from.has_module_temp_low_alarm_threshold()) {
       set_module_temp_low_alarm_threshold(from.module_temp_low_alarm_threshold());
-    }
-    if (from.has_module_temp_low_alarm_threshold_c()) {
-      set_module_temp_low_alarm_threshold_c(from.module_temp_low_alarm_threshold_c());
-    }
-    if (from.has_module_temp_low_alarm_threshold_f()) {
-      set_module_temp_low_alarm_threshold_f(from.module_temp_low_alarm_threshold_f());
-    }
-    if (from.has_module_temp_low_alarm_threshold_set()) {
-      set_module_temp_low_alarm_threshold_set(from.module_temp_low_alarm_threshold_set());
     }
     if (from.has_module_temp_high_warning_threshold()) {
       set_module_temp_high_warning_threshold(from.module_temp_high_warning_threshold());
     }
-    if (from.has_module_temp_high_warning_threshold_c()) {
-      set_module_temp_high_warning_threshold_c(from.module_temp_high_warning_threshold_c());
-    }
-    if (from.has_module_temp_high_warning_threshold_f()) {
-      set_module_temp_high_warning_threshold_f(from.module_temp_high_warning_threshold_f());
-    }
-    if (from.has_module_temp_high_warning_threshold_set()) {
-      set_module_temp_high_warning_threshold_set(from.module_temp_high_warning_threshold_set());
-    }
-  }
-  if (from._has_bits_[24 / 32] & (0xffu << (24 % 32))) {
     if (from.has_module_temp_low_warning_threshold()) {
       set_module_temp_low_warning_threshold(from.module_temp_low_warning_threshold());
-    }
-    if (from.has_module_temp_low_warning_threshold_c()) {
-      set_module_temp_low_warning_threshold_c(from.module_temp_low_warning_threshold_c());
-    }
-    if (from.has_module_temp_low_warning_threshold_f()) {
-      set_module_temp_low_warning_threshold_f(from.module_temp_low_warning_threshold_f());
-    }
-    if (from.has_module_temp_low_warning_threshold_set()) {
-      set_module_temp_low_warning_threshold_set(from.module_temp_low_warning_threshold_set());
-    }
-    if (from.has_laser_output_power_high_alarm_threshold()) {
-      set_laser_output_power_high_alarm_threshold(from.laser_output_power_high_alarm_threshold());
-    }
-    if (from.has_laser_output_power_high_alarm_threshold_mw()) {
-      set_laser_output_power_high_alarm_threshold_mw(from.laser_output_power_high_alarm_threshold_mw());
     }
     if (from.has_laser_output_power_high_alarm_threshold_dbm()) {
       set_laser_output_power_high_alarm_threshold_dbm(from.laser_output_power_high_alarm_threshold_dbm());
     }
-    if (from.has_laser_output_power_high_alarm_threshold_set()) {
-      set_laser_output_power_high_alarm_threshold_set(from.laser_output_power_high_alarm_threshold_set());
-    }
-  }
-  if (from._has_bits_[32 / 32] & (0xffu << (32 % 32))) {
-    if (from.has_laser_output_power_low_alarm_threshold()) {
-      set_laser_output_power_low_alarm_threshold(from.laser_output_power_low_alarm_threshold());
-    }
-    if (from.has_laser_output_power_low_alarm_threshold_mw()) {
-      set_laser_output_power_low_alarm_threshold_mw(from.laser_output_power_low_alarm_threshold_mw());
-    }
     if (from.has_laser_output_power_low_alarm_threshold_dbm()) {
       set_laser_output_power_low_alarm_threshold_dbm(from.laser_output_power_low_alarm_threshold_dbm());
     }
-    if (from.has_laser_output_power_low_alarm_threshold_set()) {
-      set_laser_output_power_low_alarm_threshold_set(from.laser_output_power_low_alarm_threshold_set());
-    }
-    if (from.has_laser_output_power_high_warning_threshold()) {
-      set_laser_output_power_high_warning_threshold(from.laser_output_power_high_warning_threshold());
-    }
-    if (from.has_laser_output_power_high_warning_threshold_mw()) {
-      set_laser_output_power_high_warning_threshold_mw(from.laser_output_power_high_warning_threshold_mw());
-    }
+  }
+  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     if (from.has_laser_output_power_high_warning_threshold_dbm()) {
       set_laser_output_power_high_warning_threshold_dbm(from.laser_output_power_high_warning_threshold_dbm());
-    }
-    if (from.has_laser_output_power_high_warning_threshold_set()) {
-      set_laser_output_power_high_warning_threshold_set(from.laser_output_power_high_warning_threshold_set());
-    }
-  }
-  if (from._has_bits_[40 / 32] & (0xffu << (40 % 32))) {
-    if (from.has_laser_output_power_low_warning_threshold()) {
-      set_laser_output_power_low_warning_threshold(from.laser_output_power_low_warning_threshold());
-    }
-    if (from.has_laser_output_power_low_warning_threshold_mw()) {
-      set_laser_output_power_low_warning_threshold_mw(from.laser_output_power_low_warning_threshold_mw());
     }
     if (from.has_laser_output_power_low_warning_threshold_dbm()) {
       set_laser_output_power_low_warning_threshold_dbm(from.laser_output_power_low_warning_threshold_dbm());
     }
-    if (from.has_laser_output_power_low_warning_threshold_set()) {
-      set_laser_output_power_low_warning_threshold_set(from.laser_output_power_low_warning_threshold_set());
-    }
-    if (from.has_laser_rx_power_high_alarm_threshold()) {
-      set_laser_rx_power_high_alarm_threshold(from.laser_rx_power_high_alarm_threshold());
-    }
-    if (from.has_laser_rx_power_high_alarm_threshold_mw()) {
-      set_laser_rx_power_high_alarm_threshold_mw(from.laser_rx_power_high_alarm_threshold_mw());
-    }
     if (from.has_laser_rx_power_high_alarm_threshold_dbm()) {
       set_laser_rx_power_high_alarm_threshold_dbm(from.laser_rx_power_high_alarm_threshold_dbm());
-    }
-    if (from.has_laser_rx_power_high_alarm_threshold_set()) {
-      set_laser_rx_power_high_alarm_threshold_set(from.laser_rx_power_high_alarm_threshold_set());
-    }
-  }
-  if (from._has_bits_[48 / 32] & (0xffu << (48 % 32))) {
-    if (from.has_laser_rx_power_low_alarm_threshold()) {
-      set_laser_rx_power_low_alarm_threshold(from.laser_rx_power_low_alarm_threshold());
-    }
-    if (from.has_laser_rx_power_low_alarm_threshold_mw()) {
-      set_laser_rx_power_low_alarm_threshold_mw(from.laser_rx_power_low_alarm_threshold_mw());
     }
     if (from.has_laser_rx_power_low_alarm_threshold_dbm()) {
       set_laser_rx_power_low_alarm_threshold_dbm(from.laser_rx_power_low_alarm_threshold_dbm());
     }
-    if (from.has_laser_rx_power_low_alarm_threshold_set()) {
-      set_laser_rx_power_low_alarm_threshold_set(from.laser_rx_power_low_alarm_threshold_set());
-    }
-    if (from.has_laser_rx_power_high_warning_threshold()) {
-      set_laser_rx_power_high_warning_threshold(from.laser_rx_power_high_warning_threshold());
-    }
-    if (from.has_laser_rx_power_high_warning_threshold_mw()) {
-      set_laser_rx_power_high_warning_threshold_mw(from.laser_rx_power_high_warning_threshold_mw());
-    }
     if (from.has_laser_rx_power_high_warning_threshold_dbm()) {
       set_laser_rx_power_high_warning_threshold_dbm(from.laser_rx_power_high_warning_threshold_dbm());
-    }
-    if (from.has_laser_rx_power_high_warning_threshold_set()) {
-      set_laser_rx_power_high_warning_threshold_set(from.laser_rx_power_high_warning_threshold_set());
-    }
-  }
-  if (from._has_bits_[56 / 32] & (0xffu << (56 % 32))) {
-    if (from.has_laser_rx_power_low_warning_threshold()) {
-      set_laser_rx_power_low_warning_threshold(from.laser_rx_power_low_warning_threshold());
-    }
-    if (from.has_laser_rx_power_low_warning_threshold_mw()) {
-      set_laser_rx_power_low_warning_threshold_mw(from.laser_rx_power_low_warning_threshold_mw());
     }
     if (from.has_laser_rx_power_low_warning_threshold_dbm()) {
       set_laser_rx_power_low_warning_threshold_dbm(from.laser_rx_power_low_warning_threshold_dbm());
     }
-    if (from.has_laser_rx_power_low_warning_threshold_set()) {
-      set_laser_rx_power_low_warning_threshold_set(from.laser_rx_power_low_warning_threshold_set());
+    if (from.has_laser_bias_current_high_alarm_threshold()) {
+      set_laser_bias_current_high_alarm_threshold(from.laser_bias_current_high_alarm_threshold());
     }
-    if (from.has_lane_number()) {
-      set_lane_number(from.lane_number());
-    }
-    if (from.has_lane_laser_temp()) {
-      set_lane_laser_temp(from.lane_laser_temp());
-    }
-    if (from.has_lane_laser_temp_c()) {
-      set_lane_laser_temp_c(from.lane_laser_temp_c());
-    }
-    if (from.has_lane_laser_temp_f()) {
-      set_lane_laser_temp_f(from.lane_laser_temp_f());
+    if (from.has_laser_bias_current_low_alarm_threshold()) {
+      set_laser_bias_current_low_alarm_threshold(from.laser_bias_current_low_alarm_threshold());
     }
   }
-  if (from._has_bits_[64 / 32] & (0xffu << (64 % 32))) {
-    if (from.has_lane_laser_temp_set()) {
-      set_lane_laser_temp_set(from.lane_laser_temp_set());
+  if (from._has_bits_[16 / 32] & (0xffu << (16 % 32))) {
+    if (from.has_laser_bias_current_high_warning_threshold()) {
+      set_laser_bias_current_high_warning_threshold(from.laser_bias_current_high_warning_threshold());
     }
-    if (from.has_lane_laser_output_power()) {
-      set_lane_laser_output_power(from.lane_laser_output_power());
+    if (from.has_laser_bias_current_low_warning_threshold()) {
+      set_laser_bias_current_low_warning_threshold(from.laser_bias_current_low_warning_threshold());
     }
-    if (from.has_lane_laser_output_power_mw()) {
-      set_lane_laser_output_power_mw(from.lane_laser_output_power_mw());
+    if (from.has_module_temp_high_alarm()) {
+      set_module_temp_high_alarm(from.module_temp_high_alarm());
     }
-    if (from.has_lane_laser_output_power_dbm()) {
-      set_lane_laser_output_power_dbm(from.lane_laser_output_power_dbm());
+    if (from.has_module_temp_low_alarm()) {
+      set_module_temp_low_alarm(from.module_temp_low_alarm());
     }
-    if (from.has_lane_laser_output_power_set()) {
-      set_lane_laser_output_power_set(from.lane_laser_output_power_set());
+    if (from.has_module_temp_high_warning()) {
+      set_module_temp_high_warning(from.module_temp_high_warning());
     }
-    if (from.has_lane_laser_receiver_power()) {
-      set_lane_laser_receiver_power(from.lane_laser_receiver_power());
-    }
-    if (from.has_lane_laser_receiver_power_mw()) {
-      set_lane_laser_receiver_power_mw(from.lane_laser_receiver_power_mw());
-    }
-    if (from.has_lane_laser_receiver_power_dbm()) {
-      set_lane_laser_receiver_power_dbm(from.lane_laser_receiver_power_dbm());
-    }
-  }
-  if (from._has_bits_[72 / 32] & (0xffu << (72 % 32))) {
-    if (from.has_lane_laser_receiver_power_set()) {
-      set_lane_laser_receiver_power_set(from.lane_laser_receiver_power_set());
-    }
-    if (from.has_lane_laser_temp_high_alarm_set()) {
-      set_lane_laser_temp_high_alarm_set(from.lane_laser_temp_high_alarm_set());
-    }
-    if (from.has_lane_laser_temp_high_alarm()) {
-      set_lane_laser_temp_high_alarm(from.lane_laser_temp_high_alarm());
-    }
-    if (from.has_lane_laser_temp_low_alarm_set()) {
-      set_lane_laser_temp_low_alarm_set(from.lane_laser_temp_low_alarm_set());
-    }
-    if (from.has_lane_laser_temp_low_alarm()) {
-      set_lane_laser_temp_low_alarm(from.lane_laser_temp_low_alarm());
-    }
-    if (from.has_lane_laser_temp_high_warning_set()) {
-      set_lane_laser_temp_high_warning_set(from.lane_laser_temp_high_warning_set());
-    }
-    if (from.has_lane_laser_temp_high_warning()) {
-      set_lane_laser_temp_high_warning(from.lane_laser_temp_high_warning());
-    }
-    if (from.has_lane_laser_output_power_high_alarm_set()) {
-      set_lane_laser_output_power_high_alarm_set(from.lane_laser_output_power_high_alarm_set());
-    }
-  }
-  if (from._has_bits_[80 / 32] & (0xffu << (80 % 32))) {
-    if (from.has_lane_laser_output_power_high_alarm()) {
-      set_lane_laser_output_power_high_alarm(from.lane_laser_output_power_high_alarm());
-    }
-    if (from.has_lane_laser_output_power_low_alarm_set()) {
-      set_lane_laser_output_power_low_alarm_set(from.lane_laser_output_power_low_alarm_set());
-    }
-    if (from.has_lane_laser_output_power_low_alarm()) {
-      set_lane_laser_output_power_low_alarm(from.lane_laser_output_power_low_alarm());
-    }
-    if (from.has_lane_laser_output_power_high_warning_set()) {
-      set_lane_laser_output_power_high_warning_set(from.lane_laser_output_power_high_warning_set());
-    }
-    if (from.has_lane_laser_output_power_high_warning()) {
-      set_lane_laser_output_power_high_warning(from.lane_laser_output_power_high_warning());
-    }
-    if (from.has_lane_laser_output_power_low_warning_set()) {
-      set_lane_laser_output_power_low_warning_set(from.lane_laser_output_power_low_warning_set());
-    }
-    if (from.has_lane_laser_output_power_low_warning()) {
-      set_lane_laser_output_power_low_warning(from.lane_laser_output_power_low_warning());
-    }
-    if (from.has_lane_laser_receiver_power_high_alarm_set()) {
-      set_lane_laser_receiver_power_high_alarm_set(from.lane_laser_receiver_power_high_alarm_set());
-    }
-  }
-  if (from._has_bits_[88 / 32] & (0xffu << (88 % 32))) {
-    if (from.has_lane_laser_receiver_power_high_alarm()) {
-      set_lane_laser_receiver_power_high_alarm(from.lane_laser_receiver_power_high_alarm());
-    }
-    if (from.has_lane_laser_receiver_power_low_alarm_set()) {
-      set_lane_laser_receiver_power_low_alarm_set(from.lane_laser_receiver_power_low_alarm_set());
-    }
-    if (from.has_lane_laser_receiver_power_low_alarm()) {
-      set_lane_laser_receiver_power_low_alarm(from.lane_laser_receiver_power_low_alarm());
-    }
-    if (from.has_lane_laser_receiver_power_high_warning_set()) {
-      set_lane_laser_receiver_power_high_warning_set(from.lane_laser_receiver_power_high_warning_set());
-    }
-    if (from.has_lane_laser_receiver_power_high_warning()) {
-      set_lane_laser_receiver_power_high_warning(from.lane_laser_receiver_power_high_warning());
-    }
-    if (from.has_lane_laser_receiver_power_low_warning_set()) {
-      set_lane_laser_receiver_power_low_warning_set(from.lane_laser_receiver_power_low_warning_set());
-    }
-    if (from.has_lane_laser_receiver_power_low_warning()) {
-      set_lane_laser_receiver_power_low_warning(from.lane_laser_receiver_power_low_warning());
-    }
-    if (from.has_optics_type()) {
-      set_optics_type(from.optics_type());
-    }
-  }
-  if (from._has_bits_[96 / 32] & (0xffu << (96 % 32))) {
-    if (from.has_optics_alarm_validity()) {
-      set_optics_alarm_validity(from.optics_alarm_validity());
-    }
-    if (from.has_optics_capability()) {
-      set_optics_capability(from.optics_capability());
-    }
-    if (from.has_active_lane_map()) {
-      set_active_lane_map(from.active_lane_map());
-    }
-    if (from.has_lane_alarms_warnings()) {
-      set_lane_alarms_warnings(from.lane_alarms_warnings());
-    }
-    if (from.has_lane_laser_temp_low_warning_set()) {
-      set_lane_laser_temp_low_warning_set(from.lane_laser_temp_low_warning_set());
-    }
-    if (from.has_lane_laser_temp_low_warning()) {
-      set_lane_laser_temp_low_warning(from.lane_laser_temp_low_warning());
+    if (from.has_module_temp_low_warning()) {
+      set_module_temp_low_warning(from.module_temp_low_warning());
     }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
@@ -5098,112 +2027,30 @@ void OpticsDiagStats::Swap(OpticsDiagStats* other) {
   InternalSwap(other);
 }
 void OpticsDiagStats::InternalSwap(OpticsDiagStats* other) {
-  std::swap(module_temp_, other->module_temp_);
-  std::swap(module_temp_c_, other->module_temp_c_);
-  std::swap(module_temp_f_, other->module_temp_f_);
-  std::swap(module_temp_set_, other->module_temp_set_);
-  std::swap(receiver_signal_ave_optical_power_, other->receiver_signal_ave_optical_power_);
-  std::swap(receiver_signal_ave_optical_power_mw_, other->receiver_signal_ave_optical_power_mw_);
-  std::swap(receiver_signal_ave_optical_power_dbm_, other->receiver_signal_ave_optical_power_dbm_);
-  std::swap(receiver_signal_ave_optical_power_set_, other->receiver_signal_ave_optical_power_set_);
-  std::swap(laser_output_power_, other->laser_output_power_);
-  std::swap(laser_output_power_mw_, other->laser_output_power_mw_);
-  std::swap(laser_output_power_dbm_, other->laser_output_power_dbm_);
-  std::swap(laser_output_power_set_, other->laser_output_power_set_);
-  std::swap(module_temp_high_alarm_threshold_, other->module_temp_high_alarm_threshold_);
-  std::swap(module_temp_high_alarm_threshold_c_, other->module_temp_high_alarm_threshold_c_);
-  std::swap(module_temp_high_alarm_threshold_f_, other->module_temp_high_alarm_threshold_f_);
-  std::swap(module_temp_high_alarm_threshold_set_, other->module_temp_high_alarm_threshold_set_);
-  std::swap(module_temp_low_alarm_threshold_, other->module_temp_low_alarm_threshold_);
-  std::swap(module_temp_low_alarm_threshold_c_, other->module_temp_low_alarm_threshold_c_);
-  std::swap(module_temp_low_alarm_threshold_f_, other->module_temp_low_alarm_threshold_f_);
-  std::swap(module_temp_low_alarm_threshold_set_, other->module_temp_low_alarm_threshold_set_);
-  std::swap(module_temp_high_warning_threshold_, other->module_temp_high_warning_threshold_);
-  std::swap(module_temp_high_warning_threshold_c_, other->module_temp_high_warning_threshold_c_);
-  std::swap(module_temp_high_warning_threshold_f_, other->module_temp_high_warning_threshold_f_);
-  std::swap(module_temp_high_warning_threshold_set_, other->module_temp_high_warning_threshold_set_);
-  std::swap(module_temp_low_warning_threshold_, other->module_temp_low_warning_threshold_);
-  std::swap(module_temp_low_warning_threshold_c_, other->module_temp_low_warning_threshold_c_);
-  std::swap(module_temp_low_warning_threshold_f_, other->module_temp_low_warning_threshold_f_);
-  std::swap(module_temp_low_warning_threshold_set_, other->module_temp_low_warning_threshold_set_);
-  std::swap(laser_output_power_high_alarm_threshold_, other->laser_output_power_high_alarm_threshold_);
-  std::swap(laser_output_power_high_alarm_threshold_mw_, other->laser_output_power_high_alarm_threshold_mw_);
-  std::swap(laser_output_power_high_alarm_threshold_dbm_, other->laser_output_power_high_alarm_threshold_dbm_);
-  std::swap(laser_output_power_high_alarm_threshold_set_, other->laser_output_power_high_alarm_threshold_set_);
-  std::swap(laser_output_power_low_alarm_threshold_, other->laser_output_power_low_alarm_threshold_);
-  std::swap(laser_output_power_low_alarm_threshold_mw_, other->laser_output_power_low_alarm_threshold_mw_);
-  std::swap(laser_output_power_low_alarm_threshold_dbm_, other->laser_output_power_low_alarm_threshold_dbm_);
-  std::swap(laser_output_power_low_alarm_threshold_set_, other->laser_output_power_low_alarm_threshold_set_);
-  std::swap(laser_output_power_high_warning_threshold_, other->laser_output_power_high_warning_threshold_);
-  std::swap(laser_output_power_high_warning_threshold_mw_, other->laser_output_power_high_warning_threshold_mw_);
-  std::swap(laser_output_power_high_warning_threshold_dbm_, other->laser_output_power_high_warning_threshold_dbm_);
-  std::swap(laser_output_power_high_warning_threshold_set_, other->laser_output_power_high_warning_threshold_set_);
-  std::swap(laser_output_power_low_warning_threshold_, other->laser_output_power_low_warning_threshold_);
-  std::swap(laser_output_power_low_warning_threshold_mw_, other->laser_output_power_low_warning_threshold_mw_);
-  std::swap(laser_output_power_low_warning_threshold_dbm_, other->laser_output_power_low_warning_threshold_dbm_);
-  std::swap(laser_output_power_low_warning_threshold_set_, other->laser_output_power_low_warning_threshold_set_);
-  std::swap(laser_rx_power_high_alarm_threshold_, other->laser_rx_power_high_alarm_threshold_);
-  std::swap(laser_rx_power_high_alarm_threshold_mw_, other->laser_rx_power_high_alarm_threshold_mw_);
-  std::swap(laser_rx_power_high_alarm_threshold_dbm_, other->laser_rx_power_high_alarm_threshold_dbm_);
-  std::swap(laser_rx_power_high_alarm_threshold_set_, other->laser_rx_power_high_alarm_threshold_set_);
-  std::swap(laser_rx_power_low_alarm_threshold_, other->laser_rx_power_low_alarm_threshold_);
-  std::swap(laser_rx_power_low_alarm_threshold_mw_, other->laser_rx_power_low_alarm_threshold_mw_);
-  std::swap(laser_rx_power_low_alarm_threshold_dbm_, other->laser_rx_power_low_alarm_threshold_dbm_);
-  std::swap(laser_rx_power_low_alarm_threshold_set_, other->laser_rx_power_low_alarm_threshold_set_);
-  std::swap(laser_rx_power_high_warning_threshold_, other->laser_rx_power_high_warning_threshold_);
-  std::swap(laser_rx_power_high_warning_threshold_mw_, other->laser_rx_power_high_warning_threshold_mw_);
-  std::swap(laser_rx_power_high_warning_threshold_dbm_, other->laser_rx_power_high_warning_threshold_dbm_);
-  std::swap(laser_rx_power_high_warning_threshold_set_, other->laser_rx_power_high_warning_threshold_set_);
-  std::swap(laser_rx_power_low_warning_threshold_, other->laser_rx_power_low_warning_threshold_);
-  std::swap(laser_rx_power_low_warning_threshold_mw_, other->laser_rx_power_low_warning_threshold_mw_);
-  std::swap(laser_rx_power_low_warning_threshold_dbm_, other->laser_rx_power_low_warning_threshold_dbm_);
-  std::swap(laser_rx_power_low_warning_threshold_set_, other->laser_rx_power_low_warning_threshold_set_);
-  std::swap(lane_number_, other->lane_number_);
-  std::swap(lane_laser_temp_, other->lane_laser_temp_);
-  std::swap(lane_laser_temp_c_, other->lane_laser_temp_c_);
-  std::swap(lane_laser_temp_f_, other->lane_laser_temp_f_);
-  std::swap(lane_laser_temp_set_, other->lane_laser_temp_set_);
-  std::swap(lane_laser_output_power_, other->lane_laser_output_power_);
-  std::swap(lane_laser_output_power_mw_, other->lane_laser_output_power_mw_);
-  std::swap(lane_laser_output_power_dbm_, other->lane_laser_output_power_dbm_);
-  std::swap(lane_laser_output_power_set_, other->lane_laser_output_power_set_);
-  std::swap(lane_laser_receiver_power_, other->lane_laser_receiver_power_);
-  std::swap(lane_laser_receiver_power_mw_, other->lane_laser_receiver_power_mw_);
-  std::swap(lane_laser_receiver_power_dbm_, other->lane_laser_receiver_power_dbm_);
-  std::swap(lane_laser_receiver_power_set_, other->lane_laser_receiver_power_set_);
-  std::swap(lane_laser_temp_high_alarm_set_, other->lane_laser_temp_high_alarm_set_);
-  std::swap(lane_laser_temp_high_alarm_, other->lane_laser_temp_high_alarm_);
-  std::swap(lane_laser_temp_low_alarm_set_, other->lane_laser_temp_low_alarm_set_);
-  std::swap(lane_laser_temp_low_alarm_, other->lane_laser_temp_low_alarm_);
-  std::swap(lane_laser_temp_high_warning_set_, other->lane_laser_temp_high_warning_set_);
-  std::swap(lane_laser_temp_high_warning_, other->lane_laser_temp_high_warning_);
-  std::swap(lane_laser_output_power_high_alarm_set_, other->lane_laser_output_power_high_alarm_set_);
-  std::swap(lane_laser_output_power_high_alarm_, other->lane_laser_output_power_high_alarm_);
-  std::swap(lane_laser_output_power_low_alarm_set_, other->lane_laser_output_power_low_alarm_set_);
-  std::swap(lane_laser_output_power_low_alarm_, other->lane_laser_output_power_low_alarm_);
-  std::swap(lane_laser_output_power_high_warning_set_, other->lane_laser_output_power_high_warning_set_);
-  std::swap(lane_laser_output_power_high_warning_, other->lane_laser_output_power_high_warning_);
-  std::swap(lane_laser_output_power_low_warning_set_, other->lane_laser_output_power_low_warning_set_);
-  std::swap(lane_laser_output_power_low_warning_, other->lane_laser_output_power_low_warning_);
-  std::swap(lane_laser_receiver_power_high_alarm_set_, other->lane_laser_receiver_power_high_alarm_set_);
-  std::swap(lane_laser_receiver_power_high_alarm_, other->lane_laser_receiver_power_high_alarm_);
-  std::swap(lane_laser_receiver_power_low_alarm_set_, other->lane_laser_receiver_power_low_alarm_set_);
-  std::swap(lane_laser_receiver_power_low_alarm_, other->lane_laser_receiver_power_low_alarm_);
-  std::swap(lane_laser_receiver_power_high_warning_set_, other->lane_laser_receiver_power_high_warning_set_);
-  std::swap(lane_laser_receiver_power_high_warning_, other->lane_laser_receiver_power_high_warning_);
-  std::swap(lane_laser_receiver_power_low_warning_set_, other->lane_laser_receiver_power_low_warning_set_);
-  std::swap(lane_laser_receiver_power_low_warning_, other->lane_laser_receiver_power_low_warning_);
   std::swap(optics_type_, other->optics_type_);
-  std::swap(optics_alarm_validity_, other->optics_alarm_validity_);
-  std::swap(optics_capability_, other->optics_capability_);
-  std::swap(active_lane_map_, other->active_lane_map_);
-  std::swap(lane_alarms_warnings_, other->lane_alarms_warnings_);
-  std::swap(lane_laser_temp_low_warning_set_, other->lane_laser_temp_low_warning_set_);
-  std::swap(lane_laser_temp_low_warning_, other->lane_laser_temp_low_warning_);
+  std::swap(module_temp_, other->module_temp_);
+  std::swap(module_temp_high_alarm_threshold_, other->module_temp_high_alarm_threshold_);
+  std::swap(module_temp_low_alarm_threshold_, other->module_temp_low_alarm_threshold_);
+  std::swap(module_temp_high_warning_threshold_, other->module_temp_high_warning_threshold_);
+  std::swap(module_temp_low_warning_threshold_, other->module_temp_low_warning_threshold_);
+  std::swap(laser_output_power_high_alarm_threshold_dbm_, other->laser_output_power_high_alarm_threshold_dbm_);
+  std::swap(laser_output_power_low_alarm_threshold_dbm_, other->laser_output_power_low_alarm_threshold_dbm_);
+  std::swap(laser_output_power_high_warning_threshold_dbm_, other->laser_output_power_high_warning_threshold_dbm_);
+  std::swap(laser_output_power_low_warning_threshold_dbm_, other->laser_output_power_low_warning_threshold_dbm_);
+  std::swap(laser_rx_power_high_alarm_threshold_dbm_, other->laser_rx_power_high_alarm_threshold_dbm_);
+  std::swap(laser_rx_power_low_alarm_threshold_dbm_, other->laser_rx_power_low_alarm_threshold_dbm_);
+  std::swap(laser_rx_power_high_warning_threshold_dbm_, other->laser_rx_power_high_warning_threshold_dbm_);
+  std::swap(laser_rx_power_low_warning_threshold_dbm_, other->laser_rx_power_low_warning_threshold_dbm_);
+  std::swap(laser_bias_current_high_alarm_threshold_, other->laser_bias_current_high_alarm_threshold_);
+  std::swap(laser_bias_current_low_alarm_threshold_, other->laser_bias_current_low_alarm_threshold_);
+  std::swap(laser_bias_current_high_warning_threshold_, other->laser_bias_current_high_warning_threshold_);
+  std::swap(laser_bias_current_low_warning_threshold_, other->laser_bias_current_low_warning_threshold_);
+  std::swap(module_temp_high_alarm_, other->module_temp_high_alarm_);
+  std::swap(module_temp_low_alarm_, other->module_temp_low_alarm_);
+  std::swap(module_temp_high_warning_, other->module_temp_high_warning_);
+  std::swap(module_temp_low_warning_, other->module_temp_low_warning_);
+  optics_lane_diag_stats_.UnsafeArenaSwap(&other->optics_lane_diag_stats_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
-  std::swap(_has_bits_[1], other->_has_bits_[1]);
-  std::swap(_has_bits_[2], other->_has_bits_[2]);
-  std::swap(_has_bits_[3], other->_has_bits_[3]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -5219,735 +2066,159 @@ void OpticsDiagStats::InternalSwap(OpticsDiagStats* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // OpticsDiagStats
 
-// optional int32 module_temp = 1;
-bool OpticsDiagStats::has_module_temp() const {
+// optional uint32 optics_type = 1;
+bool OpticsDiagStats::has_optics_type() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-void OpticsDiagStats::set_has_module_temp() {
+void OpticsDiagStats::set_has_optics_type() {
   _has_bits_[0] |= 0x00000001u;
 }
-void OpticsDiagStats::clear_has_module_temp() {
+void OpticsDiagStats::clear_has_optics_type() {
   _has_bits_[0] &= ~0x00000001u;
+}
+void OpticsDiagStats::clear_optics_type() {
+  optics_type_ = 0u;
+  clear_has_optics_type();
+}
+ ::google::protobuf::uint32 OpticsDiagStats::optics_type() const {
+  // @@protoc_insertion_point(field_get:OpticsDiagStats.optics_type)
+  return optics_type_;
+}
+ void OpticsDiagStats::set_optics_type(::google::protobuf::uint32 value) {
+  set_has_optics_type();
+  optics_type_ = value;
+  // @@protoc_insertion_point(field_set:OpticsDiagStats.optics_type)
+}
+
+// optional double module_temp = 2;
+bool OpticsDiagStats::has_module_temp() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void OpticsDiagStats::set_has_module_temp() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void OpticsDiagStats::clear_has_module_temp() {
+  _has_bits_[0] &= ~0x00000002u;
 }
 void OpticsDiagStats::clear_module_temp() {
   module_temp_ = 0;
   clear_has_module_temp();
 }
- ::google::protobuf::int32 OpticsDiagStats::module_temp() const {
+ double OpticsDiagStats::module_temp() const {
   // @@protoc_insertion_point(field_get:OpticsDiagStats.module_temp)
   return module_temp_;
 }
- void OpticsDiagStats::set_module_temp(::google::protobuf::int32 value) {
+ void OpticsDiagStats::set_module_temp(double value) {
   set_has_module_temp();
   module_temp_ = value;
   // @@protoc_insertion_point(field_set:OpticsDiagStats.module_temp)
 }
 
-// optional double module_temp_c = 2;
-bool OpticsDiagStats::has_module_temp_c() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-void OpticsDiagStats::set_has_module_temp_c() {
-  _has_bits_[0] |= 0x00000002u;
-}
-void OpticsDiagStats::clear_has_module_temp_c() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-void OpticsDiagStats::clear_module_temp_c() {
-  module_temp_c_ = 0;
-  clear_has_module_temp_c();
-}
- double OpticsDiagStats::module_temp_c() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.module_temp_c)
-  return module_temp_c_;
-}
- void OpticsDiagStats::set_module_temp_c(double value) {
-  set_has_module_temp_c();
-  module_temp_c_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.module_temp_c)
-}
-
-// optional double module_temp_f = 3;
-bool OpticsDiagStats::has_module_temp_f() const {
+// optional double module_temp_high_alarm_threshold = 3;
+bool OpticsDiagStats::has_module_temp_high_alarm_threshold() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-void OpticsDiagStats::set_has_module_temp_f() {
+void OpticsDiagStats::set_has_module_temp_high_alarm_threshold() {
   _has_bits_[0] |= 0x00000004u;
 }
-void OpticsDiagStats::clear_has_module_temp_f() {
-  _has_bits_[0] &= ~0x00000004u;
-}
-void OpticsDiagStats::clear_module_temp_f() {
-  module_temp_f_ = 0;
-  clear_has_module_temp_f();
-}
- double OpticsDiagStats::module_temp_f() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.module_temp_f)
-  return module_temp_f_;
-}
- void OpticsDiagStats::set_module_temp_f(double value) {
-  set_has_module_temp_f();
-  module_temp_f_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.module_temp_f)
-}
-
-// optional int32 module_temp_set = 4;
-bool OpticsDiagStats::has_module_temp_set() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
-}
-void OpticsDiagStats::set_has_module_temp_set() {
-  _has_bits_[0] |= 0x00000008u;
-}
-void OpticsDiagStats::clear_has_module_temp_set() {
-  _has_bits_[0] &= ~0x00000008u;
-}
-void OpticsDiagStats::clear_module_temp_set() {
-  module_temp_set_ = 0;
-  clear_has_module_temp_set();
-}
- ::google::protobuf::int32 OpticsDiagStats::module_temp_set() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.module_temp_set)
-  return module_temp_set_;
-}
- void OpticsDiagStats::set_module_temp_set(::google::protobuf::int32 value) {
-  set_has_module_temp_set();
-  module_temp_set_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.module_temp_set)
-}
-
-// optional int32 receiver_signal_ave_optical_power = 5;
-bool OpticsDiagStats::has_receiver_signal_ave_optical_power() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
-}
-void OpticsDiagStats::set_has_receiver_signal_ave_optical_power() {
-  _has_bits_[0] |= 0x00000010u;
-}
-void OpticsDiagStats::clear_has_receiver_signal_ave_optical_power() {
-  _has_bits_[0] &= ~0x00000010u;
-}
-void OpticsDiagStats::clear_receiver_signal_ave_optical_power() {
-  receiver_signal_ave_optical_power_ = 0;
-  clear_has_receiver_signal_ave_optical_power();
-}
- ::google::protobuf::int32 OpticsDiagStats::receiver_signal_ave_optical_power() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.receiver_signal_ave_optical_power)
-  return receiver_signal_ave_optical_power_;
-}
- void OpticsDiagStats::set_receiver_signal_ave_optical_power(::google::protobuf::int32 value) {
-  set_has_receiver_signal_ave_optical_power();
-  receiver_signal_ave_optical_power_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.receiver_signal_ave_optical_power)
-}
-
-// optional double receiver_signal_ave_optical_power_mw = 6;
-bool OpticsDiagStats::has_receiver_signal_ave_optical_power_mw() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
-}
-void OpticsDiagStats::set_has_receiver_signal_ave_optical_power_mw() {
-  _has_bits_[0] |= 0x00000020u;
-}
-void OpticsDiagStats::clear_has_receiver_signal_ave_optical_power_mw() {
-  _has_bits_[0] &= ~0x00000020u;
-}
-void OpticsDiagStats::clear_receiver_signal_ave_optical_power_mw() {
-  receiver_signal_ave_optical_power_mw_ = 0;
-  clear_has_receiver_signal_ave_optical_power_mw();
-}
- double OpticsDiagStats::receiver_signal_ave_optical_power_mw() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.receiver_signal_ave_optical_power_mw)
-  return receiver_signal_ave_optical_power_mw_;
-}
- void OpticsDiagStats::set_receiver_signal_ave_optical_power_mw(double value) {
-  set_has_receiver_signal_ave_optical_power_mw();
-  receiver_signal_ave_optical_power_mw_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.receiver_signal_ave_optical_power_mw)
-}
-
-// optional double receiver_signal_ave_optical_power_dbm = 7;
-bool OpticsDiagStats::has_receiver_signal_ave_optical_power_dbm() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
-}
-void OpticsDiagStats::set_has_receiver_signal_ave_optical_power_dbm() {
-  _has_bits_[0] |= 0x00000040u;
-}
-void OpticsDiagStats::clear_has_receiver_signal_ave_optical_power_dbm() {
-  _has_bits_[0] &= ~0x00000040u;
-}
-void OpticsDiagStats::clear_receiver_signal_ave_optical_power_dbm() {
-  receiver_signal_ave_optical_power_dbm_ = 0;
-  clear_has_receiver_signal_ave_optical_power_dbm();
-}
- double OpticsDiagStats::receiver_signal_ave_optical_power_dbm() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.receiver_signal_ave_optical_power_dbm)
-  return receiver_signal_ave_optical_power_dbm_;
-}
- void OpticsDiagStats::set_receiver_signal_ave_optical_power_dbm(double value) {
-  set_has_receiver_signal_ave_optical_power_dbm();
-  receiver_signal_ave_optical_power_dbm_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.receiver_signal_ave_optical_power_dbm)
-}
-
-// optional int32 receiver_signal_ave_optical_power_set = 8;
-bool OpticsDiagStats::has_receiver_signal_ave_optical_power_set() const {
-  return (_has_bits_[0] & 0x00000080u) != 0;
-}
-void OpticsDiagStats::set_has_receiver_signal_ave_optical_power_set() {
-  _has_bits_[0] |= 0x00000080u;
-}
-void OpticsDiagStats::clear_has_receiver_signal_ave_optical_power_set() {
-  _has_bits_[0] &= ~0x00000080u;
-}
-void OpticsDiagStats::clear_receiver_signal_ave_optical_power_set() {
-  receiver_signal_ave_optical_power_set_ = 0;
-  clear_has_receiver_signal_ave_optical_power_set();
-}
- ::google::protobuf::int32 OpticsDiagStats::receiver_signal_ave_optical_power_set() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.receiver_signal_ave_optical_power_set)
-  return receiver_signal_ave_optical_power_set_;
-}
- void OpticsDiagStats::set_receiver_signal_ave_optical_power_set(::google::protobuf::int32 value) {
-  set_has_receiver_signal_ave_optical_power_set();
-  receiver_signal_ave_optical_power_set_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.receiver_signal_ave_optical_power_set)
-}
-
-// optional int32 laser_output_power = 9;
-bool OpticsDiagStats::has_laser_output_power() const {
-  return (_has_bits_[0] & 0x00000100u) != 0;
-}
-void OpticsDiagStats::set_has_laser_output_power() {
-  _has_bits_[0] |= 0x00000100u;
-}
-void OpticsDiagStats::clear_has_laser_output_power() {
-  _has_bits_[0] &= ~0x00000100u;
-}
-void OpticsDiagStats::clear_laser_output_power() {
-  laser_output_power_ = 0;
-  clear_has_laser_output_power();
-}
- ::google::protobuf::int32 OpticsDiagStats::laser_output_power() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.laser_output_power)
-  return laser_output_power_;
-}
- void OpticsDiagStats::set_laser_output_power(::google::protobuf::int32 value) {
-  set_has_laser_output_power();
-  laser_output_power_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.laser_output_power)
-}
-
-// optional double laser_output_power_mw = 10;
-bool OpticsDiagStats::has_laser_output_power_mw() const {
-  return (_has_bits_[0] & 0x00000200u) != 0;
-}
-void OpticsDiagStats::set_has_laser_output_power_mw() {
-  _has_bits_[0] |= 0x00000200u;
-}
-void OpticsDiagStats::clear_has_laser_output_power_mw() {
-  _has_bits_[0] &= ~0x00000200u;
-}
-void OpticsDiagStats::clear_laser_output_power_mw() {
-  laser_output_power_mw_ = 0;
-  clear_has_laser_output_power_mw();
-}
- double OpticsDiagStats::laser_output_power_mw() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.laser_output_power_mw)
-  return laser_output_power_mw_;
-}
- void OpticsDiagStats::set_laser_output_power_mw(double value) {
-  set_has_laser_output_power_mw();
-  laser_output_power_mw_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.laser_output_power_mw)
-}
-
-// optional double laser_output_power_dbm = 11;
-bool OpticsDiagStats::has_laser_output_power_dbm() const {
-  return (_has_bits_[0] & 0x00000400u) != 0;
-}
-void OpticsDiagStats::set_has_laser_output_power_dbm() {
-  _has_bits_[0] |= 0x00000400u;
-}
-void OpticsDiagStats::clear_has_laser_output_power_dbm() {
-  _has_bits_[0] &= ~0x00000400u;
-}
-void OpticsDiagStats::clear_laser_output_power_dbm() {
-  laser_output_power_dbm_ = 0;
-  clear_has_laser_output_power_dbm();
-}
- double OpticsDiagStats::laser_output_power_dbm() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.laser_output_power_dbm)
-  return laser_output_power_dbm_;
-}
- void OpticsDiagStats::set_laser_output_power_dbm(double value) {
-  set_has_laser_output_power_dbm();
-  laser_output_power_dbm_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.laser_output_power_dbm)
-}
-
-// optional int32 laser_output_power_set = 12;
-bool OpticsDiagStats::has_laser_output_power_set() const {
-  return (_has_bits_[0] & 0x00000800u) != 0;
-}
-void OpticsDiagStats::set_has_laser_output_power_set() {
-  _has_bits_[0] |= 0x00000800u;
-}
-void OpticsDiagStats::clear_has_laser_output_power_set() {
-  _has_bits_[0] &= ~0x00000800u;
-}
-void OpticsDiagStats::clear_laser_output_power_set() {
-  laser_output_power_set_ = 0;
-  clear_has_laser_output_power_set();
-}
- ::google::protobuf::int32 OpticsDiagStats::laser_output_power_set() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.laser_output_power_set)
-  return laser_output_power_set_;
-}
- void OpticsDiagStats::set_laser_output_power_set(::google::protobuf::int32 value) {
-  set_has_laser_output_power_set();
-  laser_output_power_set_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.laser_output_power_set)
-}
-
-// optional int32 module_temp_high_alarm_threshold = 13;
-bool OpticsDiagStats::has_module_temp_high_alarm_threshold() const {
-  return (_has_bits_[0] & 0x00001000u) != 0;
-}
-void OpticsDiagStats::set_has_module_temp_high_alarm_threshold() {
-  _has_bits_[0] |= 0x00001000u;
-}
 void OpticsDiagStats::clear_has_module_temp_high_alarm_threshold() {
-  _has_bits_[0] &= ~0x00001000u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 void OpticsDiagStats::clear_module_temp_high_alarm_threshold() {
   module_temp_high_alarm_threshold_ = 0;
   clear_has_module_temp_high_alarm_threshold();
 }
- ::google::protobuf::int32 OpticsDiagStats::module_temp_high_alarm_threshold() const {
+ double OpticsDiagStats::module_temp_high_alarm_threshold() const {
   // @@protoc_insertion_point(field_get:OpticsDiagStats.module_temp_high_alarm_threshold)
   return module_temp_high_alarm_threshold_;
 }
- void OpticsDiagStats::set_module_temp_high_alarm_threshold(::google::protobuf::int32 value) {
+ void OpticsDiagStats::set_module_temp_high_alarm_threshold(double value) {
   set_has_module_temp_high_alarm_threshold();
   module_temp_high_alarm_threshold_ = value;
   // @@protoc_insertion_point(field_set:OpticsDiagStats.module_temp_high_alarm_threshold)
 }
 
-// optional double module_temp_high_alarm_threshold_c = 14;
-bool OpticsDiagStats::has_module_temp_high_alarm_threshold_c() const {
-  return (_has_bits_[0] & 0x00002000u) != 0;
-}
-void OpticsDiagStats::set_has_module_temp_high_alarm_threshold_c() {
-  _has_bits_[0] |= 0x00002000u;
-}
-void OpticsDiagStats::clear_has_module_temp_high_alarm_threshold_c() {
-  _has_bits_[0] &= ~0x00002000u;
-}
-void OpticsDiagStats::clear_module_temp_high_alarm_threshold_c() {
-  module_temp_high_alarm_threshold_c_ = 0;
-  clear_has_module_temp_high_alarm_threshold_c();
-}
- double OpticsDiagStats::module_temp_high_alarm_threshold_c() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.module_temp_high_alarm_threshold_c)
-  return module_temp_high_alarm_threshold_c_;
-}
- void OpticsDiagStats::set_module_temp_high_alarm_threshold_c(double value) {
-  set_has_module_temp_high_alarm_threshold_c();
-  module_temp_high_alarm_threshold_c_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.module_temp_high_alarm_threshold_c)
-}
-
-// optional double module_temp_high_alarm_threshold_f = 15;
-bool OpticsDiagStats::has_module_temp_high_alarm_threshold_f() const {
-  return (_has_bits_[0] & 0x00004000u) != 0;
-}
-void OpticsDiagStats::set_has_module_temp_high_alarm_threshold_f() {
-  _has_bits_[0] |= 0x00004000u;
-}
-void OpticsDiagStats::clear_has_module_temp_high_alarm_threshold_f() {
-  _has_bits_[0] &= ~0x00004000u;
-}
-void OpticsDiagStats::clear_module_temp_high_alarm_threshold_f() {
-  module_temp_high_alarm_threshold_f_ = 0;
-  clear_has_module_temp_high_alarm_threshold_f();
-}
- double OpticsDiagStats::module_temp_high_alarm_threshold_f() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.module_temp_high_alarm_threshold_f)
-  return module_temp_high_alarm_threshold_f_;
-}
- void OpticsDiagStats::set_module_temp_high_alarm_threshold_f(double value) {
-  set_has_module_temp_high_alarm_threshold_f();
-  module_temp_high_alarm_threshold_f_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.module_temp_high_alarm_threshold_f)
-}
-
-// optional int32 module_temp_high_alarm_threshold_set = 16;
-bool OpticsDiagStats::has_module_temp_high_alarm_threshold_set() const {
-  return (_has_bits_[0] & 0x00008000u) != 0;
-}
-void OpticsDiagStats::set_has_module_temp_high_alarm_threshold_set() {
-  _has_bits_[0] |= 0x00008000u;
-}
-void OpticsDiagStats::clear_has_module_temp_high_alarm_threshold_set() {
-  _has_bits_[0] &= ~0x00008000u;
-}
-void OpticsDiagStats::clear_module_temp_high_alarm_threshold_set() {
-  module_temp_high_alarm_threshold_set_ = 0;
-  clear_has_module_temp_high_alarm_threshold_set();
-}
- ::google::protobuf::int32 OpticsDiagStats::module_temp_high_alarm_threshold_set() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.module_temp_high_alarm_threshold_set)
-  return module_temp_high_alarm_threshold_set_;
-}
- void OpticsDiagStats::set_module_temp_high_alarm_threshold_set(::google::protobuf::int32 value) {
-  set_has_module_temp_high_alarm_threshold_set();
-  module_temp_high_alarm_threshold_set_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.module_temp_high_alarm_threshold_set)
-}
-
-// optional int32 module_temp_low_alarm_threshold = 17;
+// optional double module_temp_low_alarm_threshold = 4;
 bool OpticsDiagStats::has_module_temp_low_alarm_threshold() const {
-  return (_has_bits_[0] & 0x00010000u) != 0;
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
 void OpticsDiagStats::set_has_module_temp_low_alarm_threshold() {
-  _has_bits_[0] |= 0x00010000u;
+  _has_bits_[0] |= 0x00000008u;
 }
 void OpticsDiagStats::clear_has_module_temp_low_alarm_threshold() {
-  _has_bits_[0] &= ~0x00010000u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 void OpticsDiagStats::clear_module_temp_low_alarm_threshold() {
   module_temp_low_alarm_threshold_ = 0;
   clear_has_module_temp_low_alarm_threshold();
 }
- ::google::protobuf::int32 OpticsDiagStats::module_temp_low_alarm_threshold() const {
+ double OpticsDiagStats::module_temp_low_alarm_threshold() const {
   // @@protoc_insertion_point(field_get:OpticsDiagStats.module_temp_low_alarm_threshold)
   return module_temp_low_alarm_threshold_;
 }
- void OpticsDiagStats::set_module_temp_low_alarm_threshold(::google::protobuf::int32 value) {
+ void OpticsDiagStats::set_module_temp_low_alarm_threshold(double value) {
   set_has_module_temp_low_alarm_threshold();
   module_temp_low_alarm_threshold_ = value;
   // @@protoc_insertion_point(field_set:OpticsDiagStats.module_temp_low_alarm_threshold)
 }
 
-// optional double module_temp_low_alarm_threshold_c = 18;
-bool OpticsDiagStats::has_module_temp_low_alarm_threshold_c() const {
-  return (_has_bits_[0] & 0x00020000u) != 0;
-}
-void OpticsDiagStats::set_has_module_temp_low_alarm_threshold_c() {
-  _has_bits_[0] |= 0x00020000u;
-}
-void OpticsDiagStats::clear_has_module_temp_low_alarm_threshold_c() {
-  _has_bits_[0] &= ~0x00020000u;
-}
-void OpticsDiagStats::clear_module_temp_low_alarm_threshold_c() {
-  module_temp_low_alarm_threshold_c_ = 0;
-  clear_has_module_temp_low_alarm_threshold_c();
-}
- double OpticsDiagStats::module_temp_low_alarm_threshold_c() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.module_temp_low_alarm_threshold_c)
-  return module_temp_low_alarm_threshold_c_;
-}
- void OpticsDiagStats::set_module_temp_low_alarm_threshold_c(double value) {
-  set_has_module_temp_low_alarm_threshold_c();
-  module_temp_low_alarm_threshold_c_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.module_temp_low_alarm_threshold_c)
-}
-
-// optional double module_temp_low_alarm_threshold_f = 19;
-bool OpticsDiagStats::has_module_temp_low_alarm_threshold_f() const {
-  return (_has_bits_[0] & 0x00040000u) != 0;
-}
-void OpticsDiagStats::set_has_module_temp_low_alarm_threshold_f() {
-  _has_bits_[0] |= 0x00040000u;
-}
-void OpticsDiagStats::clear_has_module_temp_low_alarm_threshold_f() {
-  _has_bits_[0] &= ~0x00040000u;
-}
-void OpticsDiagStats::clear_module_temp_low_alarm_threshold_f() {
-  module_temp_low_alarm_threshold_f_ = 0;
-  clear_has_module_temp_low_alarm_threshold_f();
-}
- double OpticsDiagStats::module_temp_low_alarm_threshold_f() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.module_temp_low_alarm_threshold_f)
-  return module_temp_low_alarm_threshold_f_;
-}
- void OpticsDiagStats::set_module_temp_low_alarm_threshold_f(double value) {
-  set_has_module_temp_low_alarm_threshold_f();
-  module_temp_low_alarm_threshold_f_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.module_temp_low_alarm_threshold_f)
-}
-
-// optional int32 module_temp_low_alarm_threshold_set = 20;
-bool OpticsDiagStats::has_module_temp_low_alarm_threshold_set() const {
-  return (_has_bits_[0] & 0x00080000u) != 0;
-}
-void OpticsDiagStats::set_has_module_temp_low_alarm_threshold_set() {
-  _has_bits_[0] |= 0x00080000u;
-}
-void OpticsDiagStats::clear_has_module_temp_low_alarm_threshold_set() {
-  _has_bits_[0] &= ~0x00080000u;
-}
-void OpticsDiagStats::clear_module_temp_low_alarm_threshold_set() {
-  module_temp_low_alarm_threshold_set_ = 0;
-  clear_has_module_temp_low_alarm_threshold_set();
-}
- ::google::protobuf::int32 OpticsDiagStats::module_temp_low_alarm_threshold_set() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.module_temp_low_alarm_threshold_set)
-  return module_temp_low_alarm_threshold_set_;
-}
- void OpticsDiagStats::set_module_temp_low_alarm_threshold_set(::google::protobuf::int32 value) {
-  set_has_module_temp_low_alarm_threshold_set();
-  module_temp_low_alarm_threshold_set_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.module_temp_low_alarm_threshold_set)
-}
-
-// optional int32 module_temp_high_warning_threshold = 21;
+// optional double module_temp_high_warning_threshold = 5;
 bool OpticsDiagStats::has_module_temp_high_warning_threshold() const {
-  return (_has_bits_[0] & 0x00100000u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
 void OpticsDiagStats::set_has_module_temp_high_warning_threshold() {
-  _has_bits_[0] |= 0x00100000u;
+  _has_bits_[0] |= 0x00000010u;
 }
 void OpticsDiagStats::clear_has_module_temp_high_warning_threshold() {
-  _has_bits_[0] &= ~0x00100000u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 void OpticsDiagStats::clear_module_temp_high_warning_threshold() {
   module_temp_high_warning_threshold_ = 0;
   clear_has_module_temp_high_warning_threshold();
 }
- ::google::protobuf::int32 OpticsDiagStats::module_temp_high_warning_threshold() const {
+ double OpticsDiagStats::module_temp_high_warning_threshold() const {
   // @@protoc_insertion_point(field_get:OpticsDiagStats.module_temp_high_warning_threshold)
   return module_temp_high_warning_threshold_;
 }
- void OpticsDiagStats::set_module_temp_high_warning_threshold(::google::protobuf::int32 value) {
+ void OpticsDiagStats::set_module_temp_high_warning_threshold(double value) {
   set_has_module_temp_high_warning_threshold();
   module_temp_high_warning_threshold_ = value;
   // @@protoc_insertion_point(field_set:OpticsDiagStats.module_temp_high_warning_threshold)
 }
 
-// optional double module_temp_high_warning_threshold_c = 22;
-bool OpticsDiagStats::has_module_temp_high_warning_threshold_c() const {
-  return (_has_bits_[0] & 0x00200000u) != 0;
-}
-void OpticsDiagStats::set_has_module_temp_high_warning_threshold_c() {
-  _has_bits_[0] |= 0x00200000u;
-}
-void OpticsDiagStats::clear_has_module_temp_high_warning_threshold_c() {
-  _has_bits_[0] &= ~0x00200000u;
-}
-void OpticsDiagStats::clear_module_temp_high_warning_threshold_c() {
-  module_temp_high_warning_threshold_c_ = 0;
-  clear_has_module_temp_high_warning_threshold_c();
-}
- double OpticsDiagStats::module_temp_high_warning_threshold_c() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.module_temp_high_warning_threshold_c)
-  return module_temp_high_warning_threshold_c_;
-}
- void OpticsDiagStats::set_module_temp_high_warning_threshold_c(double value) {
-  set_has_module_temp_high_warning_threshold_c();
-  module_temp_high_warning_threshold_c_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.module_temp_high_warning_threshold_c)
-}
-
-// optional double module_temp_high_warning_threshold_f = 23;
-bool OpticsDiagStats::has_module_temp_high_warning_threshold_f() const {
-  return (_has_bits_[0] & 0x00400000u) != 0;
-}
-void OpticsDiagStats::set_has_module_temp_high_warning_threshold_f() {
-  _has_bits_[0] |= 0x00400000u;
-}
-void OpticsDiagStats::clear_has_module_temp_high_warning_threshold_f() {
-  _has_bits_[0] &= ~0x00400000u;
-}
-void OpticsDiagStats::clear_module_temp_high_warning_threshold_f() {
-  module_temp_high_warning_threshold_f_ = 0;
-  clear_has_module_temp_high_warning_threshold_f();
-}
- double OpticsDiagStats::module_temp_high_warning_threshold_f() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.module_temp_high_warning_threshold_f)
-  return module_temp_high_warning_threshold_f_;
-}
- void OpticsDiagStats::set_module_temp_high_warning_threshold_f(double value) {
-  set_has_module_temp_high_warning_threshold_f();
-  module_temp_high_warning_threshold_f_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.module_temp_high_warning_threshold_f)
-}
-
-// optional int32 module_temp_high_warning_threshold_set = 24;
-bool OpticsDiagStats::has_module_temp_high_warning_threshold_set() const {
-  return (_has_bits_[0] & 0x00800000u) != 0;
-}
-void OpticsDiagStats::set_has_module_temp_high_warning_threshold_set() {
-  _has_bits_[0] |= 0x00800000u;
-}
-void OpticsDiagStats::clear_has_module_temp_high_warning_threshold_set() {
-  _has_bits_[0] &= ~0x00800000u;
-}
-void OpticsDiagStats::clear_module_temp_high_warning_threshold_set() {
-  module_temp_high_warning_threshold_set_ = 0;
-  clear_has_module_temp_high_warning_threshold_set();
-}
- ::google::protobuf::int32 OpticsDiagStats::module_temp_high_warning_threshold_set() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.module_temp_high_warning_threshold_set)
-  return module_temp_high_warning_threshold_set_;
-}
- void OpticsDiagStats::set_module_temp_high_warning_threshold_set(::google::protobuf::int32 value) {
-  set_has_module_temp_high_warning_threshold_set();
-  module_temp_high_warning_threshold_set_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.module_temp_high_warning_threshold_set)
-}
-
-// optional int32 module_temp_low_warning_threshold = 25;
+// optional double module_temp_low_warning_threshold = 6;
 bool OpticsDiagStats::has_module_temp_low_warning_threshold() const {
-  return (_has_bits_[0] & 0x01000000u) != 0;
+  return (_has_bits_[0] & 0x00000020u) != 0;
 }
 void OpticsDiagStats::set_has_module_temp_low_warning_threshold() {
-  _has_bits_[0] |= 0x01000000u;
+  _has_bits_[0] |= 0x00000020u;
 }
 void OpticsDiagStats::clear_has_module_temp_low_warning_threshold() {
-  _has_bits_[0] &= ~0x01000000u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 void OpticsDiagStats::clear_module_temp_low_warning_threshold() {
   module_temp_low_warning_threshold_ = 0;
   clear_has_module_temp_low_warning_threshold();
 }
- ::google::protobuf::int32 OpticsDiagStats::module_temp_low_warning_threshold() const {
+ double OpticsDiagStats::module_temp_low_warning_threshold() const {
   // @@protoc_insertion_point(field_get:OpticsDiagStats.module_temp_low_warning_threshold)
   return module_temp_low_warning_threshold_;
 }
- void OpticsDiagStats::set_module_temp_low_warning_threshold(::google::protobuf::int32 value) {
+ void OpticsDiagStats::set_module_temp_low_warning_threshold(double value) {
   set_has_module_temp_low_warning_threshold();
   module_temp_low_warning_threshold_ = value;
   // @@protoc_insertion_point(field_set:OpticsDiagStats.module_temp_low_warning_threshold)
 }
 
-// optional double module_temp_low_warning_threshold_c = 26;
-bool OpticsDiagStats::has_module_temp_low_warning_threshold_c() const {
-  return (_has_bits_[0] & 0x02000000u) != 0;
-}
-void OpticsDiagStats::set_has_module_temp_low_warning_threshold_c() {
-  _has_bits_[0] |= 0x02000000u;
-}
-void OpticsDiagStats::clear_has_module_temp_low_warning_threshold_c() {
-  _has_bits_[0] &= ~0x02000000u;
-}
-void OpticsDiagStats::clear_module_temp_low_warning_threshold_c() {
-  module_temp_low_warning_threshold_c_ = 0;
-  clear_has_module_temp_low_warning_threshold_c();
-}
- double OpticsDiagStats::module_temp_low_warning_threshold_c() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.module_temp_low_warning_threshold_c)
-  return module_temp_low_warning_threshold_c_;
-}
- void OpticsDiagStats::set_module_temp_low_warning_threshold_c(double value) {
-  set_has_module_temp_low_warning_threshold_c();
-  module_temp_low_warning_threshold_c_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.module_temp_low_warning_threshold_c)
-}
-
-// optional double module_temp_low_warning_threshold_f = 27;
-bool OpticsDiagStats::has_module_temp_low_warning_threshold_f() const {
-  return (_has_bits_[0] & 0x04000000u) != 0;
-}
-void OpticsDiagStats::set_has_module_temp_low_warning_threshold_f() {
-  _has_bits_[0] |= 0x04000000u;
-}
-void OpticsDiagStats::clear_has_module_temp_low_warning_threshold_f() {
-  _has_bits_[0] &= ~0x04000000u;
-}
-void OpticsDiagStats::clear_module_temp_low_warning_threshold_f() {
-  module_temp_low_warning_threshold_f_ = 0;
-  clear_has_module_temp_low_warning_threshold_f();
-}
- double OpticsDiagStats::module_temp_low_warning_threshold_f() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.module_temp_low_warning_threshold_f)
-  return module_temp_low_warning_threshold_f_;
-}
- void OpticsDiagStats::set_module_temp_low_warning_threshold_f(double value) {
-  set_has_module_temp_low_warning_threshold_f();
-  module_temp_low_warning_threshold_f_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.module_temp_low_warning_threshold_f)
-}
-
-// optional int32 module_temp_low_warning_threshold_set = 28;
-bool OpticsDiagStats::has_module_temp_low_warning_threshold_set() const {
-  return (_has_bits_[0] & 0x08000000u) != 0;
-}
-void OpticsDiagStats::set_has_module_temp_low_warning_threshold_set() {
-  _has_bits_[0] |= 0x08000000u;
-}
-void OpticsDiagStats::clear_has_module_temp_low_warning_threshold_set() {
-  _has_bits_[0] &= ~0x08000000u;
-}
-void OpticsDiagStats::clear_module_temp_low_warning_threshold_set() {
-  module_temp_low_warning_threshold_set_ = 0;
-  clear_has_module_temp_low_warning_threshold_set();
-}
- ::google::protobuf::int32 OpticsDiagStats::module_temp_low_warning_threshold_set() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.module_temp_low_warning_threshold_set)
-  return module_temp_low_warning_threshold_set_;
-}
- void OpticsDiagStats::set_module_temp_low_warning_threshold_set(::google::protobuf::int32 value) {
-  set_has_module_temp_low_warning_threshold_set();
-  module_temp_low_warning_threshold_set_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.module_temp_low_warning_threshold_set)
-}
-
-// optional int32 laser_output_power_high_alarm_threshold = 29;
-bool OpticsDiagStats::has_laser_output_power_high_alarm_threshold() const {
-  return (_has_bits_[0] & 0x10000000u) != 0;
-}
-void OpticsDiagStats::set_has_laser_output_power_high_alarm_threshold() {
-  _has_bits_[0] |= 0x10000000u;
-}
-void OpticsDiagStats::clear_has_laser_output_power_high_alarm_threshold() {
-  _has_bits_[0] &= ~0x10000000u;
-}
-void OpticsDiagStats::clear_laser_output_power_high_alarm_threshold() {
-  laser_output_power_high_alarm_threshold_ = 0;
-  clear_has_laser_output_power_high_alarm_threshold();
-}
- ::google::protobuf::int32 OpticsDiagStats::laser_output_power_high_alarm_threshold() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.laser_output_power_high_alarm_threshold)
-  return laser_output_power_high_alarm_threshold_;
-}
- void OpticsDiagStats::set_laser_output_power_high_alarm_threshold(::google::protobuf::int32 value) {
-  set_has_laser_output_power_high_alarm_threshold();
-  laser_output_power_high_alarm_threshold_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.laser_output_power_high_alarm_threshold)
-}
-
-// optional double laser_output_power_high_alarm_threshold_mw = 30;
-bool OpticsDiagStats::has_laser_output_power_high_alarm_threshold_mw() const {
-  return (_has_bits_[0] & 0x20000000u) != 0;
-}
-void OpticsDiagStats::set_has_laser_output_power_high_alarm_threshold_mw() {
-  _has_bits_[0] |= 0x20000000u;
-}
-void OpticsDiagStats::clear_has_laser_output_power_high_alarm_threshold_mw() {
-  _has_bits_[0] &= ~0x20000000u;
-}
-void OpticsDiagStats::clear_laser_output_power_high_alarm_threshold_mw() {
-  laser_output_power_high_alarm_threshold_mw_ = 0;
-  clear_has_laser_output_power_high_alarm_threshold_mw();
-}
- double OpticsDiagStats::laser_output_power_high_alarm_threshold_mw() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.laser_output_power_high_alarm_threshold_mw)
-  return laser_output_power_high_alarm_threshold_mw_;
-}
- void OpticsDiagStats::set_laser_output_power_high_alarm_threshold_mw(double value) {
-  set_has_laser_output_power_high_alarm_threshold_mw();
-  laser_output_power_high_alarm_threshold_mw_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.laser_output_power_high_alarm_threshold_mw)
-}
-
-// optional double laser_output_power_high_alarm_threshold_dbm = 31;
+// optional double laser_output_power_high_alarm_threshold_dbm = 7;
 bool OpticsDiagStats::has_laser_output_power_high_alarm_threshold_dbm() const {
-  return (_has_bits_[0] & 0x40000000u) != 0;
+  return (_has_bits_[0] & 0x00000040u) != 0;
 }
 void OpticsDiagStats::set_has_laser_output_power_high_alarm_threshold_dbm() {
-  _has_bits_[0] |= 0x40000000u;
+  _has_bits_[0] |= 0x00000040u;
 }
 void OpticsDiagStats::clear_has_laser_output_power_high_alarm_threshold_dbm() {
-  _has_bits_[0] &= ~0x40000000u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 void OpticsDiagStats::clear_laser_output_power_high_alarm_threshold_dbm() {
   laser_output_power_high_alarm_threshold_dbm_ = 0;
@@ -5963,87 +2234,15 @@ void OpticsDiagStats::clear_laser_output_power_high_alarm_threshold_dbm() {
   // @@protoc_insertion_point(field_set:OpticsDiagStats.laser_output_power_high_alarm_threshold_dbm)
 }
 
-// optional int32 laser_output_power_high_alarm_threshold_set = 32;
-bool OpticsDiagStats::has_laser_output_power_high_alarm_threshold_set() const {
-  return (_has_bits_[0] & 0x80000000u) != 0;
-}
-void OpticsDiagStats::set_has_laser_output_power_high_alarm_threshold_set() {
-  _has_bits_[0] |= 0x80000000u;
-}
-void OpticsDiagStats::clear_has_laser_output_power_high_alarm_threshold_set() {
-  _has_bits_[0] &= ~0x80000000u;
-}
-void OpticsDiagStats::clear_laser_output_power_high_alarm_threshold_set() {
-  laser_output_power_high_alarm_threshold_set_ = 0;
-  clear_has_laser_output_power_high_alarm_threshold_set();
-}
- ::google::protobuf::int32 OpticsDiagStats::laser_output_power_high_alarm_threshold_set() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.laser_output_power_high_alarm_threshold_set)
-  return laser_output_power_high_alarm_threshold_set_;
-}
- void OpticsDiagStats::set_laser_output_power_high_alarm_threshold_set(::google::protobuf::int32 value) {
-  set_has_laser_output_power_high_alarm_threshold_set();
-  laser_output_power_high_alarm_threshold_set_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.laser_output_power_high_alarm_threshold_set)
-}
-
-// optional int32 laser_output_power_low_alarm_threshold = 33;
-bool OpticsDiagStats::has_laser_output_power_low_alarm_threshold() const {
-  return (_has_bits_[1] & 0x00000001u) != 0;
-}
-void OpticsDiagStats::set_has_laser_output_power_low_alarm_threshold() {
-  _has_bits_[1] |= 0x00000001u;
-}
-void OpticsDiagStats::clear_has_laser_output_power_low_alarm_threshold() {
-  _has_bits_[1] &= ~0x00000001u;
-}
-void OpticsDiagStats::clear_laser_output_power_low_alarm_threshold() {
-  laser_output_power_low_alarm_threshold_ = 0;
-  clear_has_laser_output_power_low_alarm_threshold();
-}
- ::google::protobuf::int32 OpticsDiagStats::laser_output_power_low_alarm_threshold() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.laser_output_power_low_alarm_threshold)
-  return laser_output_power_low_alarm_threshold_;
-}
- void OpticsDiagStats::set_laser_output_power_low_alarm_threshold(::google::protobuf::int32 value) {
-  set_has_laser_output_power_low_alarm_threshold();
-  laser_output_power_low_alarm_threshold_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.laser_output_power_low_alarm_threshold)
-}
-
-// optional double laser_output_power_low_alarm_threshold_mw = 34;
-bool OpticsDiagStats::has_laser_output_power_low_alarm_threshold_mw() const {
-  return (_has_bits_[1] & 0x00000002u) != 0;
-}
-void OpticsDiagStats::set_has_laser_output_power_low_alarm_threshold_mw() {
-  _has_bits_[1] |= 0x00000002u;
-}
-void OpticsDiagStats::clear_has_laser_output_power_low_alarm_threshold_mw() {
-  _has_bits_[1] &= ~0x00000002u;
-}
-void OpticsDiagStats::clear_laser_output_power_low_alarm_threshold_mw() {
-  laser_output_power_low_alarm_threshold_mw_ = 0;
-  clear_has_laser_output_power_low_alarm_threshold_mw();
-}
- double OpticsDiagStats::laser_output_power_low_alarm_threshold_mw() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.laser_output_power_low_alarm_threshold_mw)
-  return laser_output_power_low_alarm_threshold_mw_;
-}
- void OpticsDiagStats::set_laser_output_power_low_alarm_threshold_mw(double value) {
-  set_has_laser_output_power_low_alarm_threshold_mw();
-  laser_output_power_low_alarm_threshold_mw_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.laser_output_power_low_alarm_threshold_mw)
-}
-
-// optional double laser_output_power_low_alarm_threshold_dbm = 35;
+// optional double laser_output_power_low_alarm_threshold_dbm = 8;
 bool OpticsDiagStats::has_laser_output_power_low_alarm_threshold_dbm() const {
-  return (_has_bits_[1] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000080u) != 0;
 }
 void OpticsDiagStats::set_has_laser_output_power_low_alarm_threshold_dbm() {
-  _has_bits_[1] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000080u;
 }
 void OpticsDiagStats::clear_has_laser_output_power_low_alarm_threshold_dbm() {
-  _has_bits_[1] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000080u;
 }
 void OpticsDiagStats::clear_laser_output_power_low_alarm_threshold_dbm() {
   laser_output_power_low_alarm_threshold_dbm_ = 0;
@@ -6059,87 +2258,15 @@ void OpticsDiagStats::clear_laser_output_power_low_alarm_threshold_dbm() {
   // @@protoc_insertion_point(field_set:OpticsDiagStats.laser_output_power_low_alarm_threshold_dbm)
 }
 
-// optional int32 laser_output_power_low_alarm_threshold_set = 36;
-bool OpticsDiagStats::has_laser_output_power_low_alarm_threshold_set() const {
-  return (_has_bits_[1] & 0x00000008u) != 0;
-}
-void OpticsDiagStats::set_has_laser_output_power_low_alarm_threshold_set() {
-  _has_bits_[1] |= 0x00000008u;
-}
-void OpticsDiagStats::clear_has_laser_output_power_low_alarm_threshold_set() {
-  _has_bits_[1] &= ~0x00000008u;
-}
-void OpticsDiagStats::clear_laser_output_power_low_alarm_threshold_set() {
-  laser_output_power_low_alarm_threshold_set_ = 0;
-  clear_has_laser_output_power_low_alarm_threshold_set();
-}
- ::google::protobuf::int32 OpticsDiagStats::laser_output_power_low_alarm_threshold_set() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.laser_output_power_low_alarm_threshold_set)
-  return laser_output_power_low_alarm_threshold_set_;
-}
- void OpticsDiagStats::set_laser_output_power_low_alarm_threshold_set(::google::protobuf::int32 value) {
-  set_has_laser_output_power_low_alarm_threshold_set();
-  laser_output_power_low_alarm_threshold_set_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.laser_output_power_low_alarm_threshold_set)
-}
-
-// optional int32 laser_output_power_high_warning_threshold = 37;
-bool OpticsDiagStats::has_laser_output_power_high_warning_threshold() const {
-  return (_has_bits_[1] & 0x00000010u) != 0;
-}
-void OpticsDiagStats::set_has_laser_output_power_high_warning_threshold() {
-  _has_bits_[1] |= 0x00000010u;
-}
-void OpticsDiagStats::clear_has_laser_output_power_high_warning_threshold() {
-  _has_bits_[1] &= ~0x00000010u;
-}
-void OpticsDiagStats::clear_laser_output_power_high_warning_threshold() {
-  laser_output_power_high_warning_threshold_ = 0;
-  clear_has_laser_output_power_high_warning_threshold();
-}
- ::google::protobuf::int32 OpticsDiagStats::laser_output_power_high_warning_threshold() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.laser_output_power_high_warning_threshold)
-  return laser_output_power_high_warning_threshold_;
-}
- void OpticsDiagStats::set_laser_output_power_high_warning_threshold(::google::protobuf::int32 value) {
-  set_has_laser_output_power_high_warning_threshold();
-  laser_output_power_high_warning_threshold_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.laser_output_power_high_warning_threshold)
-}
-
-// optional double laser_output_power_high_warning_threshold_mw = 38;
-bool OpticsDiagStats::has_laser_output_power_high_warning_threshold_mw() const {
-  return (_has_bits_[1] & 0x00000020u) != 0;
-}
-void OpticsDiagStats::set_has_laser_output_power_high_warning_threshold_mw() {
-  _has_bits_[1] |= 0x00000020u;
-}
-void OpticsDiagStats::clear_has_laser_output_power_high_warning_threshold_mw() {
-  _has_bits_[1] &= ~0x00000020u;
-}
-void OpticsDiagStats::clear_laser_output_power_high_warning_threshold_mw() {
-  laser_output_power_high_warning_threshold_mw_ = 0;
-  clear_has_laser_output_power_high_warning_threshold_mw();
-}
- double OpticsDiagStats::laser_output_power_high_warning_threshold_mw() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.laser_output_power_high_warning_threshold_mw)
-  return laser_output_power_high_warning_threshold_mw_;
-}
- void OpticsDiagStats::set_laser_output_power_high_warning_threshold_mw(double value) {
-  set_has_laser_output_power_high_warning_threshold_mw();
-  laser_output_power_high_warning_threshold_mw_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.laser_output_power_high_warning_threshold_mw)
-}
-
-// optional double laser_output_power_high_warning_threshold_dbm = 39;
+// optional double laser_output_power_high_warning_threshold_dbm = 9;
 bool OpticsDiagStats::has_laser_output_power_high_warning_threshold_dbm() const {
-  return (_has_bits_[1] & 0x00000040u) != 0;
+  return (_has_bits_[0] & 0x00000100u) != 0;
 }
 void OpticsDiagStats::set_has_laser_output_power_high_warning_threshold_dbm() {
-  _has_bits_[1] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000100u;
 }
 void OpticsDiagStats::clear_has_laser_output_power_high_warning_threshold_dbm() {
-  _has_bits_[1] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000100u;
 }
 void OpticsDiagStats::clear_laser_output_power_high_warning_threshold_dbm() {
   laser_output_power_high_warning_threshold_dbm_ = 0;
@@ -6155,87 +2282,15 @@ void OpticsDiagStats::clear_laser_output_power_high_warning_threshold_dbm() {
   // @@protoc_insertion_point(field_set:OpticsDiagStats.laser_output_power_high_warning_threshold_dbm)
 }
 
-// optional int32 laser_output_power_high_warning_threshold_set = 40;
-bool OpticsDiagStats::has_laser_output_power_high_warning_threshold_set() const {
-  return (_has_bits_[1] & 0x00000080u) != 0;
-}
-void OpticsDiagStats::set_has_laser_output_power_high_warning_threshold_set() {
-  _has_bits_[1] |= 0x00000080u;
-}
-void OpticsDiagStats::clear_has_laser_output_power_high_warning_threshold_set() {
-  _has_bits_[1] &= ~0x00000080u;
-}
-void OpticsDiagStats::clear_laser_output_power_high_warning_threshold_set() {
-  laser_output_power_high_warning_threshold_set_ = 0;
-  clear_has_laser_output_power_high_warning_threshold_set();
-}
- ::google::protobuf::int32 OpticsDiagStats::laser_output_power_high_warning_threshold_set() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.laser_output_power_high_warning_threshold_set)
-  return laser_output_power_high_warning_threshold_set_;
-}
- void OpticsDiagStats::set_laser_output_power_high_warning_threshold_set(::google::protobuf::int32 value) {
-  set_has_laser_output_power_high_warning_threshold_set();
-  laser_output_power_high_warning_threshold_set_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.laser_output_power_high_warning_threshold_set)
-}
-
-// optional int32 laser_output_power_low_warning_threshold = 41;
-bool OpticsDiagStats::has_laser_output_power_low_warning_threshold() const {
-  return (_has_bits_[1] & 0x00000100u) != 0;
-}
-void OpticsDiagStats::set_has_laser_output_power_low_warning_threshold() {
-  _has_bits_[1] |= 0x00000100u;
-}
-void OpticsDiagStats::clear_has_laser_output_power_low_warning_threshold() {
-  _has_bits_[1] &= ~0x00000100u;
-}
-void OpticsDiagStats::clear_laser_output_power_low_warning_threshold() {
-  laser_output_power_low_warning_threshold_ = 0;
-  clear_has_laser_output_power_low_warning_threshold();
-}
- ::google::protobuf::int32 OpticsDiagStats::laser_output_power_low_warning_threshold() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.laser_output_power_low_warning_threshold)
-  return laser_output_power_low_warning_threshold_;
-}
- void OpticsDiagStats::set_laser_output_power_low_warning_threshold(::google::protobuf::int32 value) {
-  set_has_laser_output_power_low_warning_threshold();
-  laser_output_power_low_warning_threshold_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.laser_output_power_low_warning_threshold)
-}
-
-// optional double laser_output_power_low_warning_threshold_mw = 42;
-bool OpticsDiagStats::has_laser_output_power_low_warning_threshold_mw() const {
-  return (_has_bits_[1] & 0x00000200u) != 0;
-}
-void OpticsDiagStats::set_has_laser_output_power_low_warning_threshold_mw() {
-  _has_bits_[1] |= 0x00000200u;
-}
-void OpticsDiagStats::clear_has_laser_output_power_low_warning_threshold_mw() {
-  _has_bits_[1] &= ~0x00000200u;
-}
-void OpticsDiagStats::clear_laser_output_power_low_warning_threshold_mw() {
-  laser_output_power_low_warning_threshold_mw_ = 0;
-  clear_has_laser_output_power_low_warning_threshold_mw();
-}
- double OpticsDiagStats::laser_output_power_low_warning_threshold_mw() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.laser_output_power_low_warning_threshold_mw)
-  return laser_output_power_low_warning_threshold_mw_;
-}
- void OpticsDiagStats::set_laser_output_power_low_warning_threshold_mw(double value) {
-  set_has_laser_output_power_low_warning_threshold_mw();
-  laser_output_power_low_warning_threshold_mw_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.laser_output_power_low_warning_threshold_mw)
-}
-
-// optional double laser_output_power_low_warning_threshold_dbm = 43;
+// optional double laser_output_power_low_warning_threshold_dbm = 10;
 bool OpticsDiagStats::has_laser_output_power_low_warning_threshold_dbm() const {
-  return (_has_bits_[1] & 0x00000400u) != 0;
+  return (_has_bits_[0] & 0x00000200u) != 0;
 }
 void OpticsDiagStats::set_has_laser_output_power_low_warning_threshold_dbm() {
-  _has_bits_[1] |= 0x00000400u;
+  _has_bits_[0] |= 0x00000200u;
 }
 void OpticsDiagStats::clear_has_laser_output_power_low_warning_threshold_dbm() {
-  _has_bits_[1] &= ~0x00000400u;
+  _has_bits_[0] &= ~0x00000200u;
 }
 void OpticsDiagStats::clear_laser_output_power_low_warning_threshold_dbm() {
   laser_output_power_low_warning_threshold_dbm_ = 0;
@@ -6251,87 +2306,15 @@ void OpticsDiagStats::clear_laser_output_power_low_warning_threshold_dbm() {
   // @@protoc_insertion_point(field_set:OpticsDiagStats.laser_output_power_low_warning_threshold_dbm)
 }
 
-// optional int32 laser_output_power_low_warning_threshold_set = 44;
-bool OpticsDiagStats::has_laser_output_power_low_warning_threshold_set() const {
-  return (_has_bits_[1] & 0x00000800u) != 0;
-}
-void OpticsDiagStats::set_has_laser_output_power_low_warning_threshold_set() {
-  _has_bits_[1] |= 0x00000800u;
-}
-void OpticsDiagStats::clear_has_laser_output_power_low_warning_threshold_set() {
-  _has_bits_[1] &= ~0x00000800u;
-}
-void OpticsDiagStats::clear_laser_output_power_low_warning_threshold_set() {
-  laser_output_power_low_warning_threshold_set_ = 0;
-  clear_has_laser_output_power_low_warning_threshold_set();
-}
- ::google::protobuf::int32 OpticsDiagStats::laser_output_power_low_warning_threshold_set() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.laser_output_power_low_warning_threshold_set)
-  return laser_output_power_low_warning_threshold_set_;
-}
- void OpticsDiagStats::set_laser_output_power_low_warning_threshold_set(::google::protobuf::int32 value) {
-  set_has_laser_output_power_low_warning_threshold_set();
-  laser_output_power_low_warning_threshold_set_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.laser_output_power_low_warning_threshold_set)
-}
-
-// optional int32 laser_rx_power_high_alarm_threshold = 45;
-bool OpticsDiagStats::has_laser_rx_power_high_alarm_threshold() const {
-  return (_has_bits_[1] & 0x00001000u) != 0;
-}
-void OpticsDiagStats::set_has_laser_rx_power_high_alarm_threshold() {
-  _has_bits_[1] |= 0x00001000u;
-}
-void OpticsDiagStats::clear_has_laser_rx_power_high_alarm_threshold() {
-  _has_bits_[1] &= ~0x00001000u;
-}
-void OpticsDiagStats::clear_laser_rx_power_high_alarm_threshold() {
-  laser_rx_power_high_alarm_threshold_ = 0;
-  clear_has_laser_rx_power_high_alarm_threshold();
-}
- ::google::protobuf::int32 OpticsDiagStats::laser_rx_power_high_alarm_threshold() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.laser_rx_power_high_alarm_threshold)
-  return laser_rx_power_high_alarm_threshold_;
-}
- void OpticsDiagStats::set_laser_rx_power_high_alarm_threshold(::google::protobuf::int32 value) {
-  set_has_laser_rx_power_high_alarm_threshold();
-  laser_rx_power_high_alarm_threshold_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.laser_rx_power_high_alarm_threshold)
-}
-
-// optional double laser_rx_power_high_alarm_threshold_mw = 46;
-bool OpticsDiagStats::has_laser_rx_power_high_alarm_threshold_mw() const {
-  return (_has_bits_[1] & 0x00002000u) != 0;
-}
-void OpticsDiagStats::set_has_laser_rx_power_high_alarm_threshold_mw() {
-  _has_bits_[1] |= 0x00002000u;
-}
-void OpticsDiagStats::clear_has_laser_rx_power_high_alarm_threshold_mw() {
-  _has_bits_[1] &= ~0x00002000u;
-}
-void OpticsDiagStats::clear_laser_rx_power_high_alarm_threshold_mw() {
-  laser_rx_power_high_alarm_threshold_mw_ = 0;
-  clear_has_laser_rx_power_high_alarm_threshold_mw();
-}
- double OpticsDiagStats::laser_rx_power_high_alarm_threshold_mw() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.laser_rx_power_high_alarm_threshold_mw)
-  return laser_rx_power_high_alarm_threshold_mw_;
-}
- void OpticsDiagStats::set_laser_rx_power_high_alarm_threshold_mw(double value) {
-  set_has_laser_rx_power_high_alarm_threshold_mw();
-  laser_rx_power_high_alarm_threshold_mw_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.laser_rx_power_high_alarm_threshold_mw)
-}
-
-// optional double laser_rx_power_high_alarm_threshold_dbm = 47;
+// optional double laser_rx_power_high_alarm_threshold_dbm = 11;
 bool OpticsDiagStats::has_laser_rx_power_high_alarm_threshold_dbm() const {
-  return (_has_bits_[1] & 0x00004000u) != 0;
+  return (_has_bits_[0] & 0x00000400u) != 0;
 }
 void OpticsDiagStats::set_has_laser_rx_power_high_alarm_threshold_dbm() {
-  _has_bits_[1] |= 0x00004000u;
+  _has_bits_[0] |= 0x00000400u;
 }
 void OpticsDiagStats::clear_has_laser_rx_power_high_alarm_threshold_dbm() {
-  _has_bits_[1] &= ~0x00004000u;
+  _has_bits_[0] &= ~0x00000400u;
 }
 void OpticsDiagStats::clear_laser_rx_power_high_alarm_threshold_dbm() {
   laser_rx_power_high_alarm_threshold_dbm_ = 0;
@@ -6347,87 +2330,15 @@ void OpticsDiagStats::clear_laser_rx_power_high_alarm_threshold_dbm() {
   // @@protoc_insertion_point(field_set:OpticsDiagStats.laser_rx_power_high_alarm_threshold_dbm)
 }
 
-// optional int32 laser_rx_power_high_alarm_threshold_set = 48;
-bool OpticsDiagStats::has_laser_rx_power_high_alarm_threshold_set() const {
-  return (_has_bits_[1] & 0x00008000u) != 0;
-}
-void OpticsDiagStats::set_has_laser_rx_power_high_alarm_threshold_set() {
-  _has_bits_[1] |= 0x00008000u;
-}
-void OpticsDiagStats::clear_has_laser_rx_power_high_alarm_threshold_set() {
-  _has_bits_[1] &= ~0x00008000u;
-}
-void OpticsDiagStats::clear_laser_rx_power_high_alarm_threshold_set() {
-  laser_rx_power_high_alarm_threshold_set_ = 0;
-  clear_has_laser_rx_power_high_alarm_threshold_set();
-}
- ::google::protobuf::int32 OpticsDiagStats::laser_rx_power_high_alarm_threshold_set() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.laser_rx_power_high_alarm_threshold_set)
-  return laser_rx_power_high_alarm_threshold_set_;
-}
- void OpticsDiagStats::set_laser_rx_power_high_alarm_threshold_set(::google::protobuf::int32 value) {
-  set_has_laser_rx_power_high_alarm_threshold_set();
-  laser_rx_power_high_alarm_threshold_set_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.laser_rx_power_high_alarm_threshold_set)
-}
-
-// optional int32 laser_rx_power_low_alarm_threshold = 49;
-bool OpticsDiagStats::has_laser_rx_power_low_alarm_threshold() const {
-  return (_has_bits_[1] & 0x00010000u) != 0;
-}
-void OpticsDiagStats::set_has_laser_rx_power_low_alarm_threshold() {
-  _has_bits_[1] |= 0x00010000u;
-}
-void OpticsDiagStats::clear_has_laser_rx_power_low_alarm_threshold() {
-  _has_bits_[1] &= ~0x00010000u;
-}
-void OpticsDiagStats::clear_laser_rx_power_low_alarm_threshold() {
-  laser_rx_power_low_alarm_threshold_ = 0;
-  clear_has_laser_rx_power_low_alarm_threshold();
-}
- ::google::protobuf::int32 OpticsDiagStats::laser_rx_power_low_alarm_threshold() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.laser_rx_power_low_alarm_threshold)
-  return laser_rx_power_low_alarm_threshold_;
-}
- void OpticsDiagStats::set_laser_rx_power_low_alarm_threshold(::google::protobuf::int32 value) {
-  set_has_laser_rx_power_low_alarm_threshold();
-  laser_rx_power_low_alarm_threshold_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.laser_rx_power_low_alarm_threshold)
-}
-
-// optional double laser_rx_power_low_alarm_threshold_mw = 50;
-bool OpticsDiagStats::has_laser_rx_power_low_alarm_threshold_mw() const {
-  return (_has_bits_[1] & 0x00020000u) != 0;
-}
-void OpticsDiagStats::set_has_laser_rx_power_low_alarm_threshold_mw() {
-  _has_bits_[1] |= 0x00020000u;
-}
-void OpticsDiagStats::clear_has_laser_rx_power_low_alarm_threshold_mw() {
-  _has_bits_[1] &= ~0x00020000u;
-}
-void OpticsDiagStats::clear_laser_rx_power_low_alarm_threshold_mw() {
-  laser_rx_power_low_alarm_threshold_mw_ = 0;
-  clear_has_laser_rx_power_low_alarm_threshold_mw();
-}
- double OpticsDiagStats::laser_rx_power_low_alarm_threshold_mw() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.laser_rx_power_low_alarm_threshold_mw)
-  return laser_rx_power_low_alarm_threshold_mw_;
-}
- void OpticsDiagStats::set_laser_rx_power_low_alarm_threshold_mw(double value) {
-  set_has_laser_rx_power_low_alarm_threshold_mw();
-  laser_rx_power_low_alarm_threshold_mw_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.laser_rx_power_low_alarm_threshold_mw)
-}
-
-// optional double laser_rx_power_low_alarm_threshold_dbm = 51;
+// optional double laser_rx_power_low_alarm_threshold_dbm = 12;
 bool OpticsDiagStats::has_laser_rx_power_low_alarm_threshold_dbm() const {
-  return (_has_bits_[1] & 0x00040000u) != 0;
+  return (_has_bits_[0] & 0x00000800u) != 0;
 }
 void OpticsDiagStats::set_has_laser_rx_power_low_alarm_threshold_dbm() {
-  _has_bits_[1] |= 0x00040000u;
+  _has_bits_[0] |= 0x00000800u;
 }
 void OpticsDiagStats::clear_has_laser_rx_power_low_alarm_threshold_dbm() {
-  _has_bits_[1] &= ~0x00040000u;
+  _has_bits_[0] &= ~0x00000800u;
 }
 void OpticsDiagStats::clear_laser_rx_power_low_alarm_threshold_dbm() {
   laser_rx_power_low_alarm_threshold_dbm_ = 0;
@@ -6443,87 +2354,15 @@ void OpticsDiagStats::clear_laser_rx_power_low_alarm_threshold_dbm() {
   // @@protoc_insertion_point(field_set:OpticsDiagStats.laser_rx_power_low_alarm_threshold_dbm)
 }
 
-// optional int32 laser_rx_power_low_alarm_threshold_set = 52;
-bool OpticsDiagStats::has_laser_rx_power_low_alarm_threshold_set() const {
-  return (_has_bits_[1] & 0x00080000u) != 0;
-}
-void OpticsDiagStats::set_has_laser_rx_power_low_alarm_threshold_set() {
-  _has_bits_[1] |= 0x00080000u;
-}
-void OpticsDiagStats::clear_has_laser_rx_power_low_alarm_threshold_set() {
-  _has_bits_[1] &= ~0x00080000u;
-}
-void OpticsDiagStats::clear_laser_rx_power_low_alarm_threshold_set() {
-  laser_rx_power_low_alarm_threshold_set_ = 0;
-  clear_has_laser_rx_power_low_alarm_threshold_set();
-}
- ::google::protobuf::int32 OpticsDiagStats::laser_rx_power_low_alarm_threshold_set() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.laser_rx_power_low_alarm_threshold_set)
-  return laser_rx_power_low_alarm_threshold_set_;
-}
- void OpticsDiagStats::set_laser_rx_power_low_alarm_threshold_set(::google::protobuf::int32 value) {
-  set_has_laser_rx_power_low_alarm_threshold_set();
-  laser_rx_power_low_alarm_threshold_set_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.laser_rx_power_low_alarm_threshold_set)
-}
-
-// optional int32 laser_rx_power_high_warning_threshold = 53;
-bool OpticsDiagStats::has_laser_rx_power_high_warning_threshold() const {
-  return (_has_bits_[1] & 0x00100000u) != 0;
-}
-void OpticsDiagStats::set_has_laser_rx_power_high_warning_threshold() {
-  _has_bits_[1] |= 0x00100000u;
-}
-void OpticsDiagStats::clear_has_laser_rx_power_high_warning_threshold() {
-  _has_bits_[1] &= ~0x00100000u;
-}
-void OpticsDiagStats::clear_laser_rx_power_high_warning_threshold() {
-  laser_rx_power_high_warning_threshold_ = 0;
-  clear_has_laser_rx_power_high_warning_threshold();
-}
- ::google::protobuf::int32 OpticsDiagStats::laser_rx_power_high_warning_threshold() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.laser_rx_power_high_warning_threshold)
-  return laser_rx_power_high_warning_threshold_;
-}
- void OpticsDiagStats::set_laser_rx_power_high_warning_threshold(::google::protobuf::int32 value) {
-  set_has_laser_rx_power_high_warning_threshold();
-  laser_rx_power_high_warning_threshold_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.laser_rx_power_high_warning_threshold)
-}
-
-// optional double laser_rx_power_high_warning_threshold_mw = 54;
-bool OpticsDiagStats::has_laser_rx_power_high_warning_threshold_mw() const {
-  return (_has_bits_[1] & 0x00200000u) != 0;
-}
-void OpticsDiagStats::set_has_laser_rx_power_high_warning_threshold_mw() {
-  _has_bits_[1] |= 0x00200000u;
-}
-void OpticsDiagStats::clear_has_laser_rx_power_high_warning_threshold_mw() {
-  _has_bits_[1] &= ~0x00200000u;
-}
-void OpticsDiagStats::clear_laser_rx_power_high_warning_threshold_mw() {
-  laser_rx_power_high_warning_threshold_mw_ = 0;
-  clear_has_laser_rx_power_high_warning_threshold_mw();
-}
- double OpticsDiagStats::laser_rx_power_high_warning_threshold_mw() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.laser_rx_power_high_warning_threshold_mw)
-  return laser_rx_power_high_warning_threshold_mw_;
-}
- void OpticsDiagStats::set_laser_rx_power_high_warning_threshold_mw(double value) {
-  set_has_laser_rx_power_high_warning_threshold_mw();
-  laser_rx_power_high_warning_threshold_mw_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.laser_rx_power_high_warning_threshold_mw)
-}
-
-// optional double laser_rx_power_high_warning_threshold_dbm = 55;
+// optional double laser_rx_power_high_warning_threshold_dbm = 13;
 bool OpticsDiagStats::has_laser_rx_power_high_warning_threshold_dbm() const {
-  return (_has_bits_[1] & 0x00400000u) != 0;
+  return (_has_bits_[0] & 0x00001000u) != 0;
 }
 void OpticsDiagStats::set_has_laser_rx_power_high_warning_threshold_dbm() {
-  _has_bits_[1] |= 0x00400000u;
+  _has_bits_[0] |= 0x00001000u;
 }
 void OpticsDiagStats::clear_has_laser_rx_power_high_warning_threshold_dbm() {
-  _has_bits_[1] &= ~0x00400000u;
+  _has_bits_[0] &= ~0x00001000u;
 }
 void OpticsDiagStats::clear_laser_rx_power_high_warning_threshold_dbm() {
   laser_rx_power_high_warning_threshold_dbm_ = 0;
@@ -6539,87 +2378,15 @@ void OpticsDiagStats::clear_laser_rx_power_high_warning_threshold_dbm() {
   // @@protoc_insertion_point(field_set:OpticsDiagStats.laser_rx_power_high_warning_threshold_dbm)
 }
 
-// optional int32 laser_rx_power_high_warning_threshold_set = 56;
-bool OpticsDiagStats::has_laser_rx_power_high_warning_threshold_set() const {
-  return (_has_bits_[1] & 0x00800000u) != 0;
-}
-void OpticsDiagStats::set_has_laser_rx_power_high_warning_threshold_set() {
-  _has_bits_[1] |= 0x00800000u;
-}
-void OpticsDiagStats::clear_has_laser_rx_power_high_warning_threshold_set() {
-  _has_bits_[1] &= ~0x00800000u;
-}
-void OpticsDiagStats::clear_laser_rx_power_high_warning_threshold_set() {
-  laser_rx_power_high_warning_threshold_set_ = 0;
-  clear_has_laser_rx_power_high_warning_threshold_set();
-}
- ::google::protobuf::int32 OpticsDiagStats::laser_rx_power_high_warning_threshold_set() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.laser_rx_power_high_warning_threshold_set)
-  return laser_rx_power_high_warning_threshold_set_;
-}
- void OpticsDiagStats::set_laser_rx_power_high_warning_threshold_set(::google::protobuf::int32 value) {
-  set_has_laser_rx_power_high_warning_threshold_set();
-  laser_rx_power_high_warning_threshold_set_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.laser_rx_power_high_warning_threshold_set)
-}
-
-// optional int32 laser_rx_power_low_warning_threshold = 57;
-bool OpticsDiagStats::has_laser_rx_power_low_warning_threshold() const {
-  return (_has_bits_[1] & 0x01000000u) != 0;
-}
-void OpticsDiagStats::set_has_laser_rx_power_low_warning_threshold() {
-  _has_bits_[1] |= 0x01000000u;
-}
-void OpticsDiagStats::clear_has_laser_rx_power_low_warning_threshold() {
-  _has_bits_[1] &= ~0x01000000u;
-}
-void OpticsDiagStats::clear_laser_rx_power_low_warning_threshold() {
-  laser_rx_power_low_warning_threshold_ = 0;
-  clear_has_laser_rx_power_low_warning_threshold();
-}
- ::google::protobuf::int32 OpticsDiagStats::laser_rx_power_low_warning_threshold() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.laser_rx_power_low_warning_threshold)
-  return laser_rx_power_low_warning_threshold_;
-}
- void OpticsDiagStats::set_laser_rx_power_low_warning_threshold(::google::protobuf::int32 value) {
-  set_has_laser_rx_power_low_warning_threshold();
-  laser_rx_power_low_warning_threshold_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.laser_rx_power_low_warning_threshold)
-}
-
-// optional double laser_rx_power_low_warning_threshold_mw = 58;
-bool OpticsDiagStats::has_laser_rx_power_low_warning_threshold_mw() const {
-  return (_has_bits_[1] & 0x02000000u) != 0;
-}
-void OpticsDiagStats::set_has_laser_rx_power_low_warning_threshold_mw() {
-  _has_bits_[1] |= 0x02000000u;
-}
-void OpticsDiagStats::clear_has_laser_rx_power_low_warning_threshold_mw() {
-  _has_bits_[1] &= ~0x02000000u;
-}
-void OpticsDiagStats::clear_laser_rx_power_low_warning_threshold_mw() {
-  laser_rx_power_low_warning_threshold_mw_ = 0;
-  clear_has_laser_rx_power_low_warning_threshold_mw();
-}
- double OpticsDiagStats::laser_rx_power_low_warning_threshold_mw() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.laser_rx_power_low_warning_threshold_mw)
-  return laser_rx_power_low_warning_threshold_mw_;
-}
- void OpticsDiagStats::set_laser_rx_power_low_warning_threshold_mw(double value) {
-  set_has_laser_rx_power_low_warning_threshold_mw();
-  laser_rx_power_low_warning_threshold_mw_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.laser_rx_power_low_warning_threshold_mw)
-}
-
-// optional double laser_rx_power_low_warning_threshold_dbm = 59;
+// optional double laser_rx_power_low_warning_threshold_dbm = 14;
 bool OpticsDiagStats::has_laser_rx_power_low_warning_threshold_dbm() const {
-  return (_has_bits_[1] & 0x04000000u) != 0;
+  return (_has_bits_[0] & 0x00002000u) != 0;
 }
 void OpticsDiagStats::set_has_laser_rx_power_low_warning_threshold_dbm() {
-  _has_bits_[1] |= 0x04000000u;
+  _has_bits_[0] |= 0x00002000u;
 }
 void OpticsDiagStats::clear_has_laser_rx_power_low_warning_threshold_dbm() {
-  _has_bits_[1] &= ~0x04000000u;
+  _has_bits_[0] &= ~0x00002000u;
 }
 void OpticsDiagStats::clear_laser_rx_power_low_warning_threshold_dbm() {
   laser_rx_power_low_warning_threshold_dbm_ = 0;
@@ -6635,1036 +2402,1653 @@ void OpticsDiagStats::clear_laser_rx_power_low_warning_threshold_dbm() {
   // @@protoc_insertion_point(field_set:OpticsDiagStats.laser_rx_power_low_warning_threshold_dbm)
 }
 
-// optional int32 laser_rx_power_low_warning_threshold_set = 60;
-bool OpticsDiagStats::has_laser_rx_power_low_warning_threshold_set() const {
-  return (_has_bits_[1] & 0x08000000u) != 0;
+// optional double laser_bias_current_high_alarm_threshold = 15;
+bool OpticsDiagStats::has_laser_bias_current_high_alarm_threshold() const {
+  return (_has_bits_[0] & 0x00004000u) != 0;
 }
-void OpticsDiagStats::set_has_laser_rx_power_low_warning_threshold_set() {
-  _has_bits_[1] |= 0x08000000u;
+void OpticsDiagStats::set_has_laser_bias_current_high_alarm_threshold() {
+  _has_bits_[0] |= 0x00004000u;
 }
-void OpticsDiagStats::clear_has_laser_rx_power_low_warning_threshold_set() {
-  _has_bits_[1] &= ~0x08000000u;
+void OpticsDiagStats::clear_has_laser_bias_current_high_alarm_threshold() {
+  _has_bits_[0] &= ~0x00004000u;
 }
-void OpticsDiagStats::clear_laser_rx_power_low_warning_threshold_set() {
-  laser_rx_power_low_warning_threshold_set_ = 0;
-  clear_has_laser_rx_power_low_warning_threshold_set();
+void OpticsDiagStats::clear_laser_bias_current_high_alarm_threshold() {
+  laser_bias_current_high_alarm_threshold_ = 0;
+  clear_has_laser_bias_current_high_alarm_threshold();
 }
- ::google::protobuf::int32 OpticsDiagStats::laser_rx_power_low_warning_threshold_set() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.laser_rx_power_low_warning_threshold_set)
-  return laser_rx_power_low_warning_threshold_set_;
+ double OpticsDiagStats::laser_bias_current_high_alarm_threshold() const {
+  // @@protoc_insertion_point(field_get:OpticsDiagStats.laser_bias_current_high_alarm_threshold)
+  return laser_bias_current_high_alarm_threshold_;
 }
- void OpticsDiagStats::set_laser_rx_power_low_warning_threshold_set(::google::protobuf::int32 value) {
-  set_has_laser_rx_power_low_warning_threshold_set();
-  laser_rx_power_low_warning_threshold_set_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.laser_rx_power_low_warning_threshold_set)
+ void OpticsDiagStats::set_laser_bias_current_high_alarm_threshold(double value) {
+  set_has_laser_bias_current_high_alarm_threshold();
+  laser_bias_current_high_alarm_threshold_ = value;
+  // @@protoc_insertion_point(field_set:OpticsDiagStats.laser_bias_current_high_alarm_threshold)
 }
 
-// optional int32 lane_number = 61;
-bool OpticsDiagStats::has_lane_number() const {
-  return (_has_bits_[1] & 0x10000000u) != 0;
+// optional double laser_bias_current_low_alarm_threshold = 16;
+bool OpticsDiagStats::has_laser_bias_current_low_alarm_threshold() const {
+  return (_has_bits_[0] & 0x00008000u) != 0;
 }
-void OpticsDiagStats::set_has_lane_number() {
-  _has_bits_[1] |= 0x10000000u;
+void OpticsDiagStats::set_has_laser_bias_current_low_alarm_threshold() {
+  _has_bits_[0] |= 0x00008000u;
 }
-void OpticsDiagStats::clear_has_lane_number() {
-  _has_bits_[1] &= ~0x10000000u;
+void OpticsDiagStats::clear_has_laser_bias_current_low_alarm_threshold() {
+  _has_bits_[0] &= ~0x00008000u;
 }
-void OpticsDiagStats::clear_lane_number() {
-  lane_number_ = 0;
+void OpticsDiagStats::clear_laser_bias_current_low_alarm_threshold() {
+  laser_bias_current_low_alarm_threshold_ = 0;
+  clear_has_laser_bias_current_low_alarm_threshold();
+}
+ double OpticsDiagStats::laser_bias_current_low_alarm_threshold() const {
+  // @@protoc_insertion_point(field_get:OpticsDiagStats.laser_bias_current_low_alarm_threshold)
+  return laser_bias_current_low_alarm_threshold_;
+}
+ void OpticsDiagStats::set_laser_bias_current_low_alarm_threshold(double value) {
+  set_has_laser_bias_current_low_alarm_threshold();
+  laser_bias_current_low_alarm_threshold_ = value;
+  // @@protoc_insertion_point(field_set:OpticsDiagStats.laser_bias_current_low_alarm_threshold)
+}
+
+// optional double laser_bias_current_high_warning_threshold = 17;
+bool OpticsDiagStats::has_laser_bias_current_high_warning_threshold() const {
+  return (_has_bits_[0] & 0x00010000u) != 0;
+}
+void OpticsDiagStats::set_has_laser_bias_current_high_warning_threshold() {
+  _has_bits_[0] |= 0x00010000u;
+}
+void OpticsDiagStats::clear_has_laser_bias_current_high_warning_threshold() {
+  _has_bits_[0] &= ~0x00010000u;
+}
+void OpticsDiagStats::clear_laser_bias_current_high_warning_threshold() {
+  laser_bias_current_high_warning_threshold_ = 0;
+  clear_has_laser_bias_current_high_warning_threshold();
+}
+ double OpticsDiagStats::laser_bias_current_high_warning_threshold() const {
+  // @@protoc_insertion_point(field_get:OpticsDiagStats.laser_bias_current_high_warning_threshold)
+  return laser_bias_current_high_warning_threshold_;
+}
+ void OpticsDiagStats::set_laser_bias_current_high_warning_threshold(double value) {
+  set_has_laser_bias_current_high_warning_threshold();
+  laser_bias_current_high_warning_threshold_ = value;
+  // @@protoc_insertion_point(field_set:OpticsDiagStats.laser_bias_current_high_warning_threshold)
+}
+
+// optional double laser_bias_current_low_warning_threshold = 18;
+bool OpticsDiagStats::has_laser_bias_current_low_warning_threshold() const {
+  return (_has_bits_[0] & 0x00020000u) != 0;
+}
+void OpticsDiagStats::set_has_laser_bias_current_low_warning_threshold() {
+  _has_bits_[0] |= 0x00020000u;
+}
+void OpticsDiagStats::clear_has_laser_bias_current_low_warning_threshold() {
+  _has_bits_[0] &= ~0x00020000u;
+}
+void OpticsDiagStats::clear_laser_bias_current_low_warning_threshold() {
+  laser_bias_current_low_warning_threshold_ = 0;
+  clear_has_laser_bias_current_low_warning_threshold();
+}
+ double OpticsDiagStats::laser_bias_current_low_warning_threshold() const {
+  // @@protoc_insertion_point(field_get:OpticsDiagStats.laser_bias_current_low_warning_threshold)
+  return laser_bias_current_low_warning_threshold_;
+}
+ void OpticsDiagStats::set_laser_bias_current_low_warning_threshold(double value) {
+  set_has_laser_bias_current_low_warning_threshold();
+  laser_bias_current_low_warning_threshold_ = value;
+  // @@protoc_insertion_point(field_set:OpticsDiagStats.laser_bias_current_low_warning_threshold)
+}
+
+// optional bool module_temp_high_alarm = 19;
+bool OpticsDiagStats::has_module_temp_high_alarm() const {
+  return (_has_bits_[0] & 0x00040000u) != 0;
+}
+void OpticsDiagStats::set_has_module_temp_high_alarm() {
+  _has_bits_[0] |= 0x00040000u;
+}
+void OpticsDiagStats::clear_has_module_temp_high_alarm() {
+  _has_bits_[0] &= ~0x00040000u;
+}
+void OpticsDiagStats::clear_module_temp_high_alarm() {
+  module_temp_high_alarm_ = false;
+  clear_has_module_temp_high_alarm();
+}
+ bool OpticsDiagStats::module_temp_high_alarm() const {
+  // @@protoc_insertion_point(field_get:OpticsDiagStats.module_temp_high_alarm)
+  return module_temp_high_alarm_;
+}
+ void OpticsDiagStats::set_module_temp_high_alarm(bool value) {
+  set_has_module_temp_high_alarm();
+  module_temp_high_alarm_ = value;
+  // @@protoc_insertion_point(field_set:OpticsDiagStats.module_temp_high_alarm)
+}
+
+// optional bool module_temp_low_alarm = 20;
+bool OpticsDiagStats::has_module_temp_low_alarm() const {
+  return (_has_bits_[0] & 0x00080000u) != 0;
+}
+void OpticsDiagStats::set_has_module_temp_low_alarm() {
+  _has_bits_[0] |= 0x00080000u;
+}
+void OpticsDiagStats::clear_has_module_temp_low_alarm() {
+  _has_bits_[0] &= ~0x00080000u;
+}
+void OpticsDiagStats::clear_module_temp_low_alarm() {
+  module_temp_low_alarm_ = false;
+  clear_has_module_temp_low_alarm();
+}
+ bool OpticsDiagStats::module_temp_low_alarm() const {
+  // @@protoc_insertion_point(field_get:OpticsDiagStats.module_temp_low_alarm)
+  return module_temp_low_alarm_;
+}
+ void OpticsDiagStats::set_module_temp_low_alarm(bool value) {
+  set_has_module_temp_low_alarm();
+  module_temp_low_alarm_ = value;
+  // @@protoc_insertion_point(field_set:OpticsDiagStats.module_temp_low_alarm)
+}
+
+// optional bool module_temp_high_warning = 21;
+bool OpticsDiagStats::has_module_temp_high_warning() const {
+  return (_has_bits_[0] & 0x00100000u) != 0;
+}
+void OpticsDiagStats::set_has_module_temp_high_warning() {
+  _has_bits_[0] |= 0x00100000u;
+}
+void OpticsDiagStats::clear_has_module_temp_high_warning() {
+  _has_bits_[0] &= ~0x00100000u;
+}
+void OpticsDiagStats::clear_module_temp_high_warning() {
+  module_temp_high_warning_ = false;
+  clear_has_module_temp_high_warning();
+}
+ bool OpticsDiagStats::module_temp_high_warning() const {
+  // @@protoc_insertion_point(field_get:OpticsDiagStats.module_temp_high_warning)
+  return module_temp_high_warning_;
+}
+ void OpticsDiagStats::set_module_temp_high_warning(bool value) {
+  set_has_module_temp_high_warning();
+  module_temp_high_warning_ = value;
+  // @@protoc_insertion_point(field_set:OpticsDiagStats.module_temp_high_warning)
+}
+
+// optional bool module_temp_low_warning = 22;
+bool OpticsDiagStats::has_module_temp_low_warning() const {
+  return (_has_bits_[0] & 0x00200000u) != 0;
+}
+void OpticsDiagStats::set_has_module_temp_low_warning() {
+  _has_bits_[0] |= 0x00200000u;
+}
+void OpticsDiagStats::clear_has_module_temp_low_warning() {
+  _has_bits_[0] &= ~0x00200000u;
+}
+void OpticsDiagStats::clear_module_temp_low_warning() {
+  module_temp_low_warning_ = false;
+  clear_has_module_temp_low_warning();
+}
+ bool OpticsDiagStats::module_temp_low_warning() const {
+  // @@protoc_insertion_point(field_get:OpticsDiagStats.module_temp_low_warning)
+  return module_temp_low_warning_;
+}
+ void OpticsDiagStats::set_module_temp_low_warning(bool value) {
+  set_has_module_temp_low_warning();
+  module_temp_low_warning_ = value;
+  // @@protoc_insertion_point(field_set:OpticsDiagStats.module_temp_low_warning)
+}
+
+// repeated .OpticsDiagLaneStats optics_lane_diag_stats = 23;
+int OpticsDiagStats::optics_lane_diag_stats_size() const {
+  return optics_lane_diag_stats_.size();
+}
+void OpticsDiagStats::clear_optics_lane_diag_stats() {
+  optics_lane_diag_stats_.Clear();
+}
+const ::OpticsDiagLaneStats& OpticsDiagStats::optics_lane_diag_stats(int index) const {
+  // @@protoc_insertion_point(field_get:OpticsDiagStats.optics_lane_diag_stats)
+  return optics_lane_diag_stats_.Get(index);
+}
+::OpticsDiagLaneStats* OpticsDiagStats::mutable_optics_lane_diag_stats(int index) {
+  // @@protoc_insertion_point(field_mutable:OpticsDiagStats.optics_lane_diag_stats)
+  return optics_lane_diag_stats_.Mutable(index);
+}
+::OpticsDiagLaneStats* OpticsDiagStats::add_optics_lane_diag_stats() {
+  // @@protoc_insertion_point(field_add:OpticsDiagStats.optics_lane_diag_stats)
+  return optics_lane_diag_stats_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::OpticsDiagLaneStats >*
+OpticsDiagStats::mutable_optics_lane_diag_stats() {
+  // @@protoc_insertion_point(field_mutable_list:OpticsDiagStats.optics_lane_diag_stats)
+  return &optics_lane_diag_stats_;
+}
+const ::google::protobuf::RepeatedPtrField< ::OpticsDiagLaneStats >&
+OpticsDiagStats::optics_lane_diag_stats() const {
+  // @@protoc_insertion_point(field_list:OpticsDiagStats.optics_lane_diag_stats)
+  return optics_lane_diag_stats_;
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int OpticsDiagLaneStats::kLaneNumberFieldNumber;
+const int OpticsDiagLaneStats::kLaneLaserTemperatureFieldNumber;
+const int OpticsDiagLaneStats::kLaneLaserOutputPowerDbmFieldNumber;
+const int OpticsDiagLaneStats::kLaneLaserReceiverPowerDbmFieldNumber;
+const int OpticsDiagLaneStats::kLaneLaserBiasCurrentFieldNumber;
+const int OpticsDiagLaneStats::kLaneLaserOutputPowerHighAlarmFieldNumber;
+const int OpticsDiagLaneStats::kLaneLaserOutputPowerLowAlarmFieldNumber;
+const int OpticsDiagLaneStats::kLaneLaserOutputPowerHighWarningFieldNumber;
+const int OpticsDiagLaneStats::kLaneLaserOutputPowerLowWarningFieldNumber;
+const int OpticsDiagLaneStats::kLaneLaserReceiverPowerHighAlarmFieldNumber;
+const int OpticsDiagLaneStats::kLaneLaserReceiverPowerLowAlarmFieldNumber;
+const int OpticsDiagLaneStats::kLaneLaserReceiverPowerHighWarningFieldNumber;
+const int OpticsDiagLaneStats::kLaneLaserReceiverPowerLowWarningFieldNumber;
+const int OpticsDiagLaneStats::kLaneLaserBiasCurrentHighAlarmFieldNumber;
+const int OpticsDiagLaneStats::kLaneLaserBiasCurrentLowAlarmFieldNumber;
+const int OpticsDiagLaneStats::kLaneLaserBiasCurrentHighWarningFieldNumber;
+const int OpticsDiagLaneStats::kLaneLaserBiasCurrentLowWarningFieldNumber;
+const int OpticsDiagLaneStats::kLaneTxLossOfSignalAlarmFieldNumber;
+const int OpticsDiagLaneStats::kLaneRxLossOfSignalAlarmFieldNumber;
+const int OpticsDiagLaneStats::kLaneTxLaserDisabledAlarmFieldNumber;
+#endif  // !_MSC_VER
+
+OpticsDiagLaneStats::OpticsDiagLaneStats()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:OpticsDiagLaneStats)
+}
+
+void OpticsDiagLaneStats::InitAsDefaultInstance() {
+}
+
+OpticsDiagLaneStats::OpticsDiagLaneStats(const OpticsDiagLaneStats& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:OpticsDiagLaneStats)
+}
+
+void OpticsDiagLaneStats::SharedCtor() {
+  _cached_size_ = 0;
+  lane_number_ = 0u;
+  lane_laser_temperature_ = 0;
+  lane_laser_output_power_dbm_ = 0;
+  lane_laser_receiver_power_dbm_ = 0;
+  lane_laser_bias_current_ = 0;
+  lane_laser_output_power_high_alarm_ = false;
+  lane_laser_output_power_low_alarm_ = false;
+  lane_laser_output_power_high_warning_ = false;
+  lane_laser_output_power_low_warning_ = false;
+  lane_laser_receiver_power_high_alarm_ = false;
+  lane_laser_receiver_power_low_alarm_ = false;
+  lane_laser_receiver_power_high_warning_ = false;
+  lane_laser_receiver_power_low_warning_ = false;
+  lane_laser_bias_current_high_alarm_ = false;
+  lane_laser_bias_current_low_alarm_ = false;
+  lane_laser_bias_current_high_warning_ = false;
+  lane_laser_bias_current_low_warning_ = false;
+  lane_tx_loss_of_signal_alarm_ = false;
+  lane_rx_loss_of_signal_alarm_ = false;
+  lane_tx_laser_disabled_alarm_ = false;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+OpticsDiagLaneStats::~OpticsDiagLaneStats() {
+  // @@protoc_insertion_point(destructor:OpticsDiagLaneStats)
+  SharedDtor();
+}
+
+void OpticsDiagLaneStats::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void OpticsDiagLaneStats::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* OpticsDiagLaneStats::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return OpticsDiagLaneStats_descriptor_;
+}
+
+const OpticsDiagLaneStats& OpticsDiagLaneStats::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_optics_2eproto();
+  return *default_instance_;
+}
+
+OpticsDiagLaneStats* OpticsDiagLaneStats::default_instance_ = NULL;
+
+OpticsDiagLaneStats* OpticsDiagLaneStats::New(::google::protobuf::Arena* arena) const {
+  OpticsDiagLaneStats* n = new OpticsDiagLaneStats;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void OpticsDiagLaneStats::Clear() {
+#define ZR_HELPER_(f) reinterpret_cast<char*>(\
+  &reinterpret_cast<OpticsDiagLaneStats*>(16)->f)
+
+#define ZR_(first, last) do {\
+  ::memset(&first, 0,\
+           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
+} while (0)
+
+  if (_has_bits_[0 / 32] & 255u) {
+    ZR_(lane_laser_temperature_, lane_laser_output_power_high_warning_);
+  }
+  if (_has_bits_[8 / 32] & 65280u) {
+    ZR_(lane_laser_output_power_low_warning_, lane_laser_bias_current_high_warning_);
+  }
+  ZR_(lane_laser_bias_current_low_warning_, lane_tx_laser_disabled_alarm_);
+
+#undef ZR_HELPER_
+#undef ZR_
+
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
+}
+
+bool OpticsDiagLaneStats::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:OpticsDiagLaneStats)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(16383);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional uint32 lane_number = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &lane_number_)));
+          set_has_lane_number();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(17)) goto parse_lane_laser_temperature;
+        break;
+      }
+
+      // optional double lane_laser_temperature = 2;
+      case 2: {
+        if (tag == 17) {
+         parse_lane_laser_temperature:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &lane_laser_temperature_)));
+          set_has_lane_laser_temperature();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(25)) goto parse_lane_laser_output_power_dbm;
+        break;
+      }
+
+      // optional double lane_laser_output_power_dbm = 3;
+      case 3: {
+        if (tag == 25) {
+         parse_lane_laser_output_power_dbm:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &lane_laser_output_power_dbm_)));
+          set_has_lane_laser_output_power_dbm();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(33)) goto parse_lane_laser_receiver_power_dbm;
+        break;
+      }
+
+      // optional double lane_laser_receiver_power_dbm = 4;
+      case 4: {
+        if (tag == 33) {
+         parse_lane_laser_receiver_power_dbm:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &lane_laser_receiver_power_dbm_)));
+          set_has_lane_laser_receiver_power_dbm();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(41)) goto parse_lane_laser_bias_current;
+        break;
+      }
+
+      // optional double lane_laser_bias_current = 5;
+      case 5: {
+        if (tag == 41) {
+         parse_lane_laser_bias_current:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &lane_laser_bias_current_)));
+          set_has_lane_laser_bias_current();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(48)) goto parse_lane_laser_output_power_high_alarm;
+        break;
+      }
+
+      // optional bool lane_laser_output_power_high_alarm = 6;
+      case 6: {
+        if (tag == 48) {
+         parse_lane_laser_output_power_high_alarm:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &lane_laser_output_power_high_alarm_)));
+          set_has_lane_laser_output_power_high_alarm();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(56)) goto parse_lane_laser_output_power_low_alarm;
+        break;
+      }
+
+      // optional bool lane_laser_output_power_low_alarm = 7;
+      case 7: {
+        if (tag == 56) {
+         parse_lane_laser_output_power_low_alarm:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &lane_laser_output_power_low_alarm_)));
+          set_has_lane_laser_output_power_low_alarm();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(64)) goto parse_lane_laser_output_power_high_warning;
+        break;
+      }
+
+      // optional bool lane_laser_output_power_high_warning = 8;
+      case 8: {
+        if (tag == 64) {
+         parse_lane_laser_output_power_high_warning:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &lane_laser_output_power_high_warning_)));
+          set_has_lane_laser_output_power_high_warning();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(72)) goto parse_lane_laser_output_power_low_warning;
+        break;
+      }
+
+      // optional bool lane_laser_output_power_low_warning = 9;
+      case 9: {
+        if (tag == 72) {
+         parse_lane_laser_output_power_low_warning:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &lane_laser_output_power_low_warning_)));
+          set_has_lane_laser_output_power_low_warning();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(80)) goto parse_lane_laser_receiver_power_high_alarm;
+        break;
+      }
+
+      // optional bool lane_laser_receiver_power_high_alarm = 10;
+      case 10: {
+        if (tag == 80) {
+         parse_lane_laser_receiver_power_high_alarm:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &lane_laser_receiver_power_high_alarm_)));
+          set_has_lane_laser_receiver_power_high_alarm();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(88)) goto parse_lane_laser_receiver_power_low_alarm;
+        break;
+      }
+
+      // optional bool lane_laser_receiver_power_low_alarm = 11;
+      case 11: {
+        if (tag == 88) {
+         parse_lane_laser_receiver_power_low_alarm:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &lane_laser_receiver_power_low_alarm_)));
+          set_has_lane_laser_receiver_power_low_alarm();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(96)) goto parse_lane_laser_receiver_power_high_warning;
+        break;
+      }
+
+      // optional bool lane_laser_receiver_power_high_warning = 12;
+      case 12: {
+        if (tag == 96) {
+         parse_lane_laser_receiver_power_high_warning:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &lane_laser_receiver_power_high_warning_)));
+          set_has_lane_laser_receiver_power_high_warning();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(104)) goto parse_lane_laser_receiver_power_low_warning;
+        break;
+      }
+
+      // optional bool lane_laser_receiver_power_low_warning = 13;
+      case 13: {
+        if (tag == 104) {
+         parse_lane_laser_receiver_power_low_warning:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &lane_laser_receiver_power_low_warning_)));
+          set_has_lane_laser_receiver_power_low_warning();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(112)) goto parse_lane_laser_bias_current_high_alarm;
+        break;
+      }
+
+      // optional bool lane_laser_bias_current_high_alarm = 14;
+      case 14: {
+        if (tag == 112) {
+         parse_lane_laser_bias_current_high_alarm:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &lane_laser_bias_current_high_alarm_)));
+          set_has_lane_laser_bias_current_high_alarm();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(120)) goto parse_lane_laser_bias_current_low_alarm;
+        break;
+      }
+
+      // optional bool lane_laser_bias_current_low_alarm = 15;
+      case 15: {
+        if (tag == 120) {
+         parse_lane_laser_bias_current_low_alarm:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &lane_laser_bias_current_low_alarm_)));
+          set_has_lane_laser_bias_current_low_alarm();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(128)) goto parse_lane_laser_bias_current_high_warning;
+        break;
+      }
+
+      // optional bool lane_laser_bias_current_high_warning = 16;
+      case 16: {
+        if (tag == 128) {
+         parse_lane_laser_bias_current_high_warning:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &lane_laser_bias_current_high_warning_)));
+          set_has_lane_laser_bias_current_high_warning();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(136)) goto parse_lane_laser_bias_current_low_warning;
+        break;
+      }
+
+      // optional bool lane_laser_bias_current_low_warning = 17;
+      case 17: {
+        if (tag == 136) {
+         parse_lane_laser_bias_current_low_warning:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &lane_laser_bias_current_low_warning_)));
+          set_has_lane_laser_bias_current_low_warning();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(144)) goto parse_lane_tx_loss_of_signal_alarm;
+        break;
+      }
+
+      // optional bool lane_tx_loss_of_signal_alarm = 18;
+      case 18: {
+        if (tag == 144) {
+         parse_lane_tx_loss_of_signal_alarm:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &lane_tx_loss_of_signal_alarm_)));
+          set_has_lane_tx_loss_of_signal_alarm();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(152)) goto parse_lane_rx_loss_of_signal_alarm;
+        break;
+      }
+
+      // optional bool lane_rx_loss_of_signal_alarm = 19;
+      case 19: {
+        if (tag == 152) {
+         parse_lane_rx_loss_of_signal_alarm:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &lane_rx_loss_of_signal_alarm_)));
+          set_has_lane_rx_loss_of_signal_alarm();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(160)) goto parse_lane_tx_laser_disabled_alarm;
+        break;
+      }
+
+      // optional bool lane_tx_laser_disabled_alarm = 20;
+      case 20: {
+        if (tag == 160) {
+         parse_lane_tx_laser_disabled_alarm:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &lane_tx_laser_disabled_alarm_)));
+          set_has_lane_tx_laser_disabled_alarm();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:OpticsDiagLaneStats)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:OpticsDiagLaneStats)
+  return false;
+#undef DO_
+}
+
+void OpticsDiagLaneStats::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:OpticsDiagLaneStats)
+  // optional uint32 lane_number = 1;
+  if (has_lane_number()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->lane_number(), output);
+  }
+
+  // optional double lane_laser_temperature = 2;
+  if (has_lane_laser_temperature()) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(2, this->lane_laser_temperature(), output);
+  }
+
+  // optional double lane_laser_output_power_dbm = 3;
+  if (has_lane_laser_output_power_dbm()) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(3, this->lane_laser_output_power_dbm(), output);
+  }
+
+  // optional double lane_laser_receiver_power_dbm = 4;
+  if (has_lane_laser_receiver_power_dbm()) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(4, this->lane_laser_receiver_power_dbm(), output);
+  }
+
+  // optional double lane_laser_bias_current = 5;
+  if (has_lane_laser_bias_current()) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(5, this->lane_laser_bias_current(), output);
+  }
+
+  // optional bool lane_laser_output_power_high_alarm = 6;
+  if (has_lane_laser_output_power_high_alarm()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(6, this->lane_laser_output_power_high_alarm(), output);
+  }
+
+  // optional bool lane_laser_output_power_low_alarm = 7;
+  if (has_lane_laser_output_power_low_alarm()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(7, this->lane_laser_output_power_low_alarm(), output);
+  }
+
+  // optional bool lane_laser_output_power_high_warning = 8;
+  if (has_lane_laser_output_power_high_warning()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(8, this->lane_laser_output_power_high_warning(), output);
+  }
+
+  // optional bool lane_laser_output_power_low_warning = 9;
+  if (has_lane_laser_output_power_low_warning()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(9, this->lane_laser_output_power_low_warning(), output);
+  }
+
+  // optional bool lane_laser_receiver_power_high_alarm = 10;
+  if (has_lane_laser_receiver_power_high_alarm()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(10, this->lane_laser_receiver_power_high_alarm(), output);
+  }
+
+  // optional bool lane_laser_receiver_power_low_alarm = 11;
+  if (has_lane_laser_receiver_power_low_alarm()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(11, this->lane_laser_receiver_power_low_alarm(), output);
+  }
+
+  // optional bool lane_laser_receiver_power_high_warning = 12;
+  if (has_lane_laser_receiver_power_high_warning()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(12, this->lane_laser_receiver_power_high_warning(), output);
+  }
+
+  // optional bool lane_laser_receiver_power_low_warning = 13;
+  if (has_lane_laser_receiver_power_low_warning()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(13, this->lane_laser_receiver_power_low_warning(), output);
+  }
+
+  // optional bool lane_laser_bias_current_high_alarm = 14;
+  if (has_lane_laser_bias_current_high_alarm()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(14, this->lane_laser_bias_current_high_alarm(), output);
+  }
+
+  // optional bool lane_laser_bias_current_low_alarm = 15;
+  if (has_lane_laser_bias_current_low_alarm()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(15, this->lane_laser_bias_current_low_alarm(), output);
+  }
+
+  // optional bool lane_laser_bias_current_high_warning = 16;
+  if (has_lane_laser_bias_current_high_warning()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(16, this->lane_laser_bias_current_high_warning(), output);
+  }
+
+  // optional bool lane_laser_bias_current_low_warning = 17;
+  if (has_lane_laser_bias_current_low_warning()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(17, this->lane_laser_bias_current_low_warning(), output);
+  }
+
+  // optional bool lane_tx_loss_of_signal_alarm = 18;
+  if (has_lane_tx_loss_of_signal_alarm()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(18, this->lane_tx_loss_of_signal_alarm(), output);
+  }
+
+  // optional bool lane_rx_loss_of_signal_alarm = 19;
+  if (has_lane_rx_loss_of_signal_alarm()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(19, this->lane_rx_loss_of_signal_alarm(), output);
+  }
+
+  // optional bool lane_tx_laser_disabled_alarm = 20;
+  if (has_lane_tx_laser_disabled_alarm()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(20, this->lane_tx_laser_disabled_alarm(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:OpticsDiagLaneStats)
+}
+
+::google::protobuf::uint8* OpticsDiagLaneStats::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:OpticsDiagLaneStats)
+  // optional uint32 lane_number = 1;
+  if (has_lane_number()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->lane_number(), target);
+  }
+
+  // optional double lane_laser_temperature = 2;
+  if (has_lane_laser_temperature()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(2, this->lane_laser_temperature(), target);
+  }
+
+  // optional double lane_laser_output_power_dbm = 3;
+  if (has_lane_laser_output_power_dbm()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(3, this->lane_laser_output_power_dbm(), target);
+  }
+
+  // optional double lane_laser_receiver_power_dbm = 4;
+  if (has_lane_laser_receiver_power_dbm()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(4, this->lane_laser_receiver_power_dbm(), target);
+  }
+
+  // optional double lane_laser_bias_current = 5;
+  if (has_lane_laser_bias_current()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(5, this->lane_laser_bias_current(), target);
+  }
+
+  // optional bool lane_laser_output_power_high_alarm = 6;
+  if (has_lane_laser_output_power_high_alarm()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(6, this->lane_laser_output_power_high_alarm(), target);
+  }
+
+  // optional bool lane_laser_output_power_low_alarm = 7;
+  if (has_lane_laser_output_power_low_alarm()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(7, this->lane_laser_output_power_low_alarm(), target);
+  }
+
+  // optional bool lane_laser_output_power_high_warning = 8;
+  if (has_lane_laser_output_power_high_warning()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(8, this->lane_laser_output_power_high_warning(), target);
+  }
+
+  // optional bool lane_laser_output_power_low_warning = 9;
+  if (has_lane_laser_output_power_low_warning()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(9, this->lane_laser_output_power_low_warning(), target);
+  }
+
+  // optional bool lane_laser_receiver_power_high_alarm = 10;
+  if (has_lane_laser_receiver_power_high_alarm()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(10, this->lane_laser_receiver_power_high_alarm(), target);
+  }
+
+  // optional bool lane_laser_receiver_power_low_alarm = 11;
+  if (has_lane_laser_receiver_power_low_alarm()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(11, this->lane_laser_receiver_power_low_alarm(), target);
+  }
+
+  // optional bool lane_laser_receiver_power_high_warning = 12;
+  if (has_lane_laser_receiver_power_high_warning()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(12, this->lane_laser_receiver_power_high_warning(), target);
+  }
+
+  // optional bool lane_laser_receiver_power_low_warning = 13;
+  if (has_lane_laser_receiver_power_low_warning()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(13, this->lane_laser_receiver_power_low_warning(), target);
+  }
+
+  // optional bool lane_laser_bias_current_high_alarm = 14;
+  if (has_lane_laser_bias_current_high_alarm()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(14, this->lane_laser_bias_current_high_alarm(), target);
+  }
+
+  // optional bool lane_laser_bias_current_low_alarm = 15;
+  if (has_lane_laser_bias_current_low_alarm()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(15, this->lane_laser_bias_current_low_alarm(), target);
+  }
+
+  // optional bool lane_laser_bias_current_high_warning = 16;
+  if (has_lane_laser_bias_current_high_warning()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(16, this->lane_laser_bias_current_high_warning(), target);
+  }
+
+  // optional bool lane_laser_bias_current_low_warning = 17;
+  if (has_lane_laser_bias_current_low_warning()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(17, this->lane_laser_bias_current_low_warning(), target);
+  }
+
+  // optional bool lane_tx_loss_of_signal_alarm = 18;
+  if (has_lane_tx_loss_of_signal_alarm()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(18, this->lane_tx_loss_of_signal_alarm(), target);
+  }
+
+  // optional bool lane_rx_loss_of_signal_alarm = 19;
+  if (has_lane_rx_loss_of_signal_alarm()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(19, this->lane_rx_loss_of_signal_alarm(), target);
+  }
+
+  // optional bool lane_tx_laser_disabled_alarm = 20;
+  if (has_lane_tx_laser_disabled_alarm()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(20, this->lane_tx_laser_disabled_alarm(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:OpticsDiagLaneStats)
+  return target;
+}
+
+int OpticsDiagLaneStats::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & 255u) {
+    // optional uint32 lane_number = 1;
+    if (has_lane_number()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->lane_number());
+    }
+
+    // optional double lane_laser_temperature = 2;
+    if (has_lane_laser_temperature()) {
+      total_size += 1 + 8;
+    }
+
+    // optional double lane_laser_output_power_dbm = 3;
+    if (has_lane_laser_output_power_dbm()) {
+      total_size += 1 + 8;
+    }
+
+    // optional double lane_laser_receiver_power_dbm = 4;
+    if (has_lane_laser_receiver_power_dbm()) {
+      total_size += 1 + 8;
+    }
+
+    // optional double lane_laser_bias_current = 5;
+    if (has_lane_laser_bias_current()) {
+      total_size += 1 + 8;
+    }
+
+    // optional bool lane_laser_output_power_high_alarm = 6;
+    if (has_lane_laser_output_power_high_alarm()) {
+      total_size += 1 + 1;
+    }
+
+    // optional bool lane_laser_output_power_low_alarm = 7;
+    if (has_lane_laser_output_power_low_alarm()) {
+      total_size += 1 + 1;
+    }
+
+    // optional bool lane_laser_output_power_high_warning = 8;
+    if (has_lane_laser_output_power_high_warning()) {
+      total_size += 1 + 1;
+    }
+
+  }
+  if (_has_bits_[8 / 32] & 65280u) {
+    // optional bool lane_laser_output_power_low_warning = 9;
+    if (has_lane_laser_output_power_low_warning()) {
+      total_size += 1 + 1;
+    }
+
+    // optional bool lane_laser_receiver_power_high_alarm = 10;
+    if (has_lane_laser_receiver_power_high_alarm()) {
+      total_size += 1 + 1;
+    }
+
+    // optional bool lane_laser_receiver_power_low_alarm = 11;
+    if (has_lane_laser_receiver_power_low_alarm()) {
+      total_size += 1 + 1;
+    }
+
+    // optional bool lane_laser_receiver_power_high_warning = 12;
+    if (has_lane_laser_receiver_power_high_warning()) {
+      total_size += 1 + 1;
+    }
+
+    // optional bool lane_laser_receiver_power_low_warning = 13;
+    if (has_lane_laser_receiver_power_low_warning()) {
+      total_size += 1 + 1;
+    }
+
+    // optional bool lane_laser_bias_current_high_alarm = 14;
+    if (has_lane_laser_bias_current_high_alarm()) {
+      total_size += 1 + 1;
+    }
+
+    // optional bool lane_laser_bias_current_low_alarm = 15;
+    if (has_lane_laser_bias_current_low_alarm()) {
+      total_size += 1 + 1;
+    }
+
+    // optional bool lane_laser_bias_current_high_warning = 16;
+    if (has_lane_laser_bias_current_high_warning()) {
+      total_size += 2 + 1;
+    }
+
+  }
+  if (_has_bits_[16 / 32] & 983040u) {
+    // optional bool lane_laser_bias_current_low_warning = 17;
+    if (has_lane_laser_bias_current_low_warning()) {
+      total_size += 2 + 1;
+    }
+
+    // optional bool lane_tx_loss_of_signal_alarm = 18;
+    if (has_lane_tx_loss_of_signal_alarm()) {
+      total_size += 2 + 1;
+    }
+
+    // optional bool lane_rx_loss_of_signal_alarm = 19;
+    if (has_lane_rx_loss_of_signal_alarm()) {
+      total_size += 2 + 1;
+    }
+
+    // optional bool lane_tx_laser_disabled_alarm = 20;
+    if (has_lane_tx_laser_disabled_alarm()) {
+      total_size += 2 + 1;
+    }
+
+  }
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void OpticsDiagLaneStats::MergeFrom(const ::google::protobuf::Message& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const OpticsDiagLaneStats* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const OpticsDiagLaneStats>(
+          &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void OpticsDiagLaneStats::MergeFrom(const OpticsDiagLaneStats& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_lane_number()) {
+      set_lane_number(from.lane_number());
+    }
+    if (from.has_lane_laser_temperature()) {
+      set_lane_laser_temperature(from.lane_laser_temperature());
+    }
+    if (from.has_lane_laser_output_power_dbm()) {
+      set_lane_laser_output_power_dbm(from.lane_laser_output_power_dbm());
+    }
+    if (from.has_lane_laser_receiver_power_dbm()) {
+      set_lane_laser_receiver_power_dbm(from.lane_laser_receiver_power_dbm());
+    }
+    if (from.has_lane_laser_bias_current()) {
+      set_lane_laser_bias_current(from.lane_laser_bias_current());
+    }
+    if (from.has_lane_laser_output_power_high_alarm()) {
+      set_lane_laser_output_power_high_alarm(from.lane_laser_output_power_high_alarm());
+    }
+    if (from.has_lane_laser_output_power_low_alarm()) {
+      set_lane_laser_output_power_low_alarm(from.lane_laser_output_power_low_alarm());
+    }
+    if (from.has_lane_laser_output_power_high_warning()) {
+      set_lane_laser_output_power_high_warning(from.lane_laser_output_power_high_warning());
+    }
+  }
+  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    if (from.has_lane_laser_output_power_low_warning()) {
+      set_lane_laser_output_power_low_warning(from.lane_laser_output_power_low_warning());
+    }
+    if (from.has_lane_laser_receiver_power_high_alarm()) {
+      set_lane_laser_receiver_power_high_alarm(from.lane_laser_receiver_power_high_alarm());
+    }
+    if (from.has_lane_laser_receiver_power_low_alarm()) {
+      set_lane_laser_receiver_power_low_alarm(from.lane_laser_receiver_power_low_alarm());
+    }
+    if (from.has_lane_laser_receiver_power_high_warning()) {
+      set_lane_laser_receiver_power_high_warning(from.lane_laser_receiver_power_high_warning());
+    }
+    if (from.has_lane_laser_receiver_power_low_warning()) {
+      set_lane_laser_receiver_power_low_warning(from.lane_laser_receiver_power_low_warning());
+    }
+    if (from.has_lane_laser_bias_current_high_alarm()) {
+      set_lane_laser_bias_current_high_alarm(from.lane_laser_bias_current_high_alarm());
+    }
+    if (from.has_lane_laser_bias_current_low_alarm()) {
+      set_lane_laser_bias_current_low_alarm(from.lane_laser_bias_current_low_alarm());
+    }
+    if (from.has_lane_laser_bias_current_high_warning()) {
+      set_lane_laser_bias_current_high_warning(from.lane_laser_bias_current_high_warning());
+    }
+  }
+  if (from._has_bits_[16 / 32] & (0xffu << (16 % 32))) {
+    if (from.has_lane_laser_bias_current_low_warning()) {
+      set_lane_laser_bias_current_low_warning(from.lane_laser_bias_current_low_warning());
+    }
+    if (from.has_lane_tx_loss_of_signal_alarm()) {
+      set_lane_tx_loss_of_signal_alarm(from.lane_tx_loss_of_signal_alarm());
+    }
+    if (from.has_lane_rx_loss_of_signal_alarm()) {
+      set_lane_rx_loss_of_signal_alarm(from.lane_rx_loss_of_signal_alarm());
+    }
+    if (from.has_lane_tx_laser_disabled_alarm()) {
+      set_lane_tx_laser_disabled_alarm(from.lane_tx_laser_disabled_alarm());
+    }
+  }
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
+}
+
+void OpticsDiagLaneStats::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void OpticsDiagLaneStats::CopyFrom(const OpticsDiagLaneStats& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool OpticsDiagLaneStats::IsInitialized() const {
+
+  return true;
+}
+
+void OpticsDiagLaneStats::Swap(OpticsDiagLaneStats* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void OpticsDiagLaneStats::InternalSwap(OpticsDiagLaneStats* other) {
+  std::swap(lane_number_, other->lane_number_);
+  std::swap(lane_laser_temperature_, other->lane_laser_temperature_);
+  std::swap(lane_laser_output_power_dbm_, other->lane_laser_output_power_dbm_);
+  std::swap(lane_laser_receiver_power_dbm_, other->lane_laser_receiver_power_dbm_);
+  std::swap(lane_laser_bias_current_, other->lane_laser_bias_current_);
+  std::swap(lane_laser_output_power_high_alarm_, other->lane_laser_output_power_high_alarm_);
+  std::swap(lane_laser_output_power_low_alarm_, other->lane_laser_output_power_low_alarm_);
+  std::swap(lane_laser_output_power_high_warning_, other->lane_laser_output_power_high_warning_);
+  std::swap(lane_laser_output_power_low_warning_, other->lane_laser_output_power_low_warning_);
+  std::swap(lane_laser_receiver_power_high_alarm_, other->lane_laser_receiver_power_high_alarm_);
+  std::swap(lane_laser_receiver_power_low_alarm_, other->lane_laser_receiver_power_low_alarm_);
+  std::swap(lane_laser_receiver_power_high_warning_, other->lane_laser_receiver_power_high_warning_);
+  std::swap(lane_laser_receiver_power_low_warning_, other->lane_laser_receiver_power_low_warning_);
+  std::swap(lane_laser_bias_current_high_alarm_, other->lane_laser_bias_current_high_alarm_);
+  std::swap(lane_laser_bias_current_low_alarm_, other->lane_laser_bias_current_low_alarm_);
+  std::swap(lane_laser_bias_current_high_warning_, other->lane_laser_bias_current_high_warning_);
+  std::swap(lane_laser_bias_current_low_warning_, other->lane_laser_bias_current_low_warning_);
+  std::swap(lane_tx_loss_of_signal_alarm_, other->lane_tx_loss_of_signal_alarm_);
+  std::swap(lane_rx_loss_of_signal_alarm_, other->lane_rx_loss_of_signal_alarm_);
+  std::swap(lane_tx_laser_disabled_alarm_, other->lane_tx_laser_disabled_alarm_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata OpticsDiagLaneStats::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = OpticsDiagLaneStats_descriptor_;
+  metadata.reflection = OpticsDiagLaneStats_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// OpticsDiagLaneStats
+
+// optional uint32 lane_number = 1;
+bool OpticsDiagLaneStats::has_lane_number() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void OpticsDiagLaneStats::set_has_lane_number() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void OpticsDiagLaneStats::clear_has_lane_number() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void OpticsDiagLaneStats::clear_lane_number() {
+  lane_number_ = 0u;
   clear_has_lane_number();
 }
- ::google::protobuf::int32 OpticsDiagStats::lane_number() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.lane_number)
+ ::google::protobuf::uint32 OpticsDiagLaneStats::lane_number() const {
+  // @@protoc_insertion_point(field_get:OpticsDiagLaneStats.lane_number)
   return lane_number_;
 }
- void OpticsDiagStats::set_lane_number(::google::protobuf::int32 value) {
+ void OpticsDiagLaneStats::set_lane_number(::google::protobuf::uint32 value) {
   set_has_lane_number();
   lane_number_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.lane_number)
+  // @@protoc_insertion_point(field_set:OpticsDiagLaneStats.lane_number)
 }
 
-// optional int32 lane_laser_temp = 62;
-bool OpticsDiagStats::has_lane_laser_temp() const {
-  return (_has_bits_[1] & 0x20000000u) != 0;
+// optional double lane_laser_temperature = 2;
+bool OpticsDiagLaneStats::has_lane_laser_temperature() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
 }
-void OpticsDiagStats::set_has_lane_laser_temp() {
-  _has_bits_[1] |= 0x20000000u;
+void OpticsDiagLaneStats::set_has_lane_laser_temperature() {
+  _has_bits_[0] |= 0x00000002u;
 }
-void OpticsDiagStats::clear_has_lane_laser_temp() {
-  _has_bits_[1] &= ~0x20000000u;
+void OpticsDiagLaneStats::clear_has_lane_laser_temperature() {
+  _has_bits_[0] &= ~0x00000002u;
 }
-void OpticsDiagStats::clear_lane_laser_temp() {
-  lane_laser_temp_ = 0;
-  clear_has_lane_laser_temp();
+void OpticsDiagLaneStats::clear_lane_laser_temperature() {
+  lane_laser_temperature_ = 0;
+  clear_has_lane_laser_temperature();
 }
- ::google::protobuf::int32 OpticsDiagStats::lane_laser_temp() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.lane_laser_temp)
-  return lane_laser_temp_;
+ double OpticsDiagLaneStats::lane_laser_temperature() const {
+  // @@protoc_insertion_point(field_get:OpticsDiagLaneStats.lane_laser_temperature)
+  return lane_laser_temperature_;
 }
- void OpticsDiagStats::set_lane_laser_temp(::google::protobuf::int32 value) {
-  set_has_lane_laser_temp();
-  lane_laser_temp_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.lane_laser_temp)
-}
-
-// optional double lane_laser_temp_c = 63;
-bool OpticsDiagStats::has_lane_laser_temp_c() const {
-  return (_has_bits_[1] & 0x40000000u) != 0;
-}
-void OpticsDiagStats::set_has_lane_laser_temp_c() {
-  _has_bits_[1] |= 0x40000000u;
-}
-void OpticsDiagStats::clear_has_lane_laser_temp_c() {
-  _has_bits_[1] &= ~0x40000000u;
-}
-void OpticsDiagStats::clear_lane_laser_temp_c() {
-  lane_laser_temp_c_ = 0;
-  clear_has_lane_laser_temp_c();
-}
- double OpticsDiagStats::lane_laser_temp_c() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.lane_laser_temp_c)
-  return lane_laser_temp_c_;
-}
- void OpticsDiagStats::set_lane_laser_temp_c(double value) {
-  set_has_lane_laser_temp_c();
-  lane_laser_temp_c_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.lane_laser_temp_c)
+ void OpticsDiagLaneStats::set_lane_laser_temperature(double value) {
+  set_has_lane_laser_temperature();
+  lane_laser_temperature_ = value;
+  // @@protoc_insertion_point(field_set:OpticsDiagLaneStats.lane_laser_temperature)
 }
 
-// optional double lane_laser_temp_f = 64;
-bool OpticsDiagStats::has_lane_laser_temp_f() const {
-  return (_has_bits_[1] & 0x80000000u) != 0;
+// optional double lane_laser_output_power_dbm = 3;
+bool OpticsDiagLaneStats::has_lane_laser_output_power_dbm() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
-void OpticsDiagStats::set_has_lane_laser_temp_f() {
-  _has_bits_[1] |= 0x80000000u;
+void OpticsDiagLaneStats::set_has_lane_laser_output_power_dbm() {
+  _has_bits_[0] |= 0x00000004u;
 }
-void OpticsDiagStats::clear_has_lane_laser_temp_f() {
-  _has_bits_[1] &= ~0x80000000u;
+void OpticsDiagLaneStats::clear_has_lane_laser_output_power_dbm() {
+  _has_bits_[0] &= ~0x00000004u;
 }
-void OpticsDiagStats::clear_lane_laser_temp_f() {
-  lane_laser_temp_f_ = 0;
-  clear_has_lane_laser_temp_f();
-}
- double OpticsDiagStats::lane_laser_temp_f() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.lane_laser_temp_f)
-  return lane_laser_temp_f_;
-}
- void OpticsDiagStats::set_lane_laser_temp_f(double value) {
-  set_has_lane_laser_temp_f();
-  lane_laser_temp_f_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.lane_laser_temp_f)
-}
-
-// optional int32 lane_laser_temp_set = 65;
-bool OpticsDiagStats::has_lane_laser_temp_set() const {
-  return (_has_bits_[2] & 0x00000001u) != 0;
-}
-void OpticsDiagStats::set_has_lane_laser_temp_set() {
-  _has_bits_[2] |= 0x00000001u;
-}
-void OpticsDiagStats::clear_has_lane_laser_temp_set() {
-  _has_bits_[2] &= ~0x00000001u;
-}
-void OpticsDiagStats::clear_lane_laser_temp_set() {
-  lane_laser_temp_set_ = 0;
-  clear_has_lane_laser_temp_set();
-}
- ::google::protobuf::int32 OpticsDiagStats::lane_laser_temp_set() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.lane_laser_temp_set)
-  return lane_laser_temp_set_;
-}
- void OpticsDiagStats::set_lane_laser_temp_set(::google::protobuf::int32 value) {
-  set_has_lane_laser_temp_set();
-  lane_laser_temp_set_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.lane_laser_temp_set)
-}
-
-// optional int32 lane_laser_output_power = 66;
-bool OpticsDiagStats::has_lane_laser_output_power() const {
-  return (_has_bits_[2] & 0x00000002u) != 0;
-}
-void OpticsDiagStats::set_has_lane_laser_output_power() {
-  _has_bits_[2] |= 0x00000002u;
-}
-void OpticsDiagStats::clear_has_lane_laser_output_power() {
-  _has_bits_[2] &= ~0x00000002u;
-}
-void OpticsDiagStats::clear_lane_laser_output_power() {
-  lane_laser_output_power_ = 0;
-  clear_has_lane_laser_output_power();
-}
- ::google::protobuf::int32 OpticsDiagStats::lane_laser_output_power() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.lane_laser_output_power)
-  return lane_laser_output_power_;
-}
- void OpticsDiagStats::set_lane_laser_output_power(::google::protobuf::int32 value) {
-  set_has_lane_laser_output_power();
-  lane_laser_output_power_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.lane_laser_output_power)
-}
-
-// optional double lane_laser_output_power_mw = 67;
-bool OpticsDiagStats::has_lane_laser_output_power_mw() const {
-  return (_has_bits_[2] & 0x00000004u) != 0;
-}
-void OpticsDiagStats::set_has_lane_laser_output_power_mw() {
-  _has_bits_[2] |= 0x00000004u;
-}
-void OpticsDiagStats::clear_has_lane_laser_output_power_mw() {
-  _has_bits_[2] &= ~0x00000004u;
-}
-void OpticsDiagStats::clear_lane_laser_output_power_mw() {
-  lane_laser_output_power_mw_ = 0;
-  clear_has_lane_laser_output_power_mw();
-}
- double OpticsDiagStats::lane_laser_output_power_mw() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.lane_laser_output_power_mw)
-  return lane_laser_output_power_mw_;
-}
- void OpticsDiagStats::set_lane_laser_output_power_mw(double value) {
-  set_has_lane_laser_output_power_mw();
-  lane_laser_output_power_mw_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.lane_laser_output_power_mw)
-}
-
-// optional double lane_laser_output_power_dbm = 68;
-bool OpticsDiagStats::has_lane_laser_output_power_dbm() const {
-  return (_has_bits_[2] & 0x00000008u) != 0;
-}
-void OpticsDiagStats::set_has_lane_laser_output_power_dbm() {
-  _has_bits_[2] |= 0x00000008u;
-}
-void OpticsDiagStats::clear_has_lane_laser_output_power_dbm() {
-  _has_bits_[2] &= ~0x00000008u;
-}
-void OpticsDiagStats::clear_lane_laser_output_power_dbm() {
+void OpticsDiagLaneStats::clear_lane_laser_output_power_dbm() {
   lane_laser_output_power_dbm_ = 0;
   clear_has_lane_laser_output_power_dbm();
 }
- double OpticsDiagStats::lane_laser_output_power_dbm() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.lane_laser_output_power_dbm)
+ double OpticsDiagLaneStats::lane_laser_output_power_dbm() const {
+  // @@protoc_insertion_point(field_get:OpticsDiagLaneStats.lane_laser_output_power_dbm)
   return lane_laser_output_power_dbm_;
 }
- void OpticsDiagStats::set_lane_laser_output_power_dbm(double value) {
+ void OpticsDiagLaneStats::set_lane_laser_output_power_dbm(double value) {
   set_has_lane_laser_output_power_dbm();
   lane_laser_output_power_dbm_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.lane_laser_output_power_dbm)
+  // @@protoc_insertion_point(field_set:OpticsDiagLaneStats.lane_laser_output_power_dbm)
 }
 
-// optional int32 lane_laser_output_power_set = 69;
-bool OpticsDiagStats::has_lane_laser_output_power_set() const {
-  return (_has_bits_[2] & 0x00000010u) != 0;
+// optional double lane_laser_receiver_power_dbm = 4;
+bool OpticsDiagLaneStats::has_lane_laser_receiver_power_dbm() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
-void OpticsDiagStats::set_has_lane_laser_output_power_set() {
-  _has_bits_[2] |= 0x00000010u;
+void OpticsDiagLaneStats::set_has_lane_laser_receiver_power_dbm() {
+  _has_bits_[0] |= 0x00000008u;
 }
-void OpticsDiagStats::clear_has_lane_laser_output_power_set() {
-  _has_bits_[2] &= ~0x00000010u;
+void OpticsDiagLaneStats::clear_has_lane_laser_receiver_power_dbm() {
+  _has_bits_[0] &= ~0x00000008u;
 }
-void OpticsDiagStats::clear_lane_laser_output_power_set() {
-  lane_laser_output_power_set_ = 0;
-  clear_has_lane_laser_output_power_set();
-}
- ::google::protobuf::int32 OpticsDiagStats::lane_laser_output_power_set() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.lane_laser_output_power_set)
-  return lane_laser_output_power_set_;
-}
- void OpticsDiagStats::set_lane_laser_output_power_set(::google::protobuf::int32 value) {
-  set_has_lane_laser_output_power_set();
-  lane_laser_output_power_set_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.lane_laser_output_power_set)
-}
-
-// optional int32 lane_laser_receiver_power = 70;
-bool OpticsDiagStats::has_lane_laser_receiver_power() const {
-  return (_has_bits_[2] & 0x00000020u) != 0;
-}
-void OpticsDiagStats::set_has_lane_laser_receiver_power() {
-  _has_bits_[2] |= 0x00000020u;
-}
-void OpticsDiagStats::clear_has_lane_laser_receiver_power() {
-  _has_bits_[2] &= ~0x00000020u;
-}
-void OpticsDiagStats::clear_lane_laser_receiver_power() {
-  lane_laser_receiver_power_ = 0;
-  clear_has_lane_laser_receiver_power();
-}
- ::google::protobuf::int32 OpticsDiagStats::lane_laser_receiver_power() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.lane_laser_receiver_power)
-  return lane_laser_receiver_power_;
-}
- void OpticsDiagStats::set_lane_laser_receiver_power(::google::protobuf::int32 value) {
-  set_has_lane_laser_receiver_power();
-  lane_laser_receiver_power_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.lane_laser_receiver_power)
-}
-
-// optional double lane_laser_receiver_power_mw = 71;
-bool OpticsDiagStats::has_lane_laser_receiver_power_mw() const {
-  return (_has_bits_[2] & 0x00000040u) != 0;
-}
-void OpticsDiagStats::set_has_lane_laser_receiver_power_mw() {
-  _has_bits_[2] |= 0x00000040u;
-}
-void OpticsDiagStats::clear_has_lane_laser_receiver_power_mw() {
-  _has_bits_[2] &= ~0x00000040u;
-}
-void OpticsDiagStats::clear_lane_laser_receiver_power_mw() {
-  lane_laser_receiver_power_mw_ = 0;
-  clear_has_lane_laser_receiver_power_mw();
-}
- double OpticsDiagStats::lane_laser_receiver_power_mw() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.lane_laser_receiver_power_mw)
-  return lane_laser_receiver_power_mw_;
-}
- void OpticsDiagStats::set_lane_laser_receiver_power_mw(double value) {
-  set_has_lane_laser_receiver_power_mw();
-  lane_laser_receiver_power_mw_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.lane_laser_receiver_power_mw)
-}
-
-// optional double lane_laser_receiver_power_dbm = 72;
-bool OpticsDiagStats::has_lane_laser_receiver_power_dbm() const {
-  return (_has_bits_[2] & 0x00000080u) != 0;
-}
-void OpticsDiagStats::set_has_lane_laser_receiver_power_dbm() {
-  _has_bits_[2] |= 0x00000080u;
-}
-void OpticsDiagStats::clear_has_lane_laser_receiver_power_dbm() {
-  _has_bits_[2] &= ~0x00000080u;
-}
-void OpticsDiagStats::clear_lane_laser_receiver_power_dbm() {
+void OpticsDiagLaneStats::clear_lane_laser_receiver_power_dbm() {
   lane_laser_receiver_power_dbm_ = 0;
   clear_has_lane_laser_receiver_power_dbm();
 }
- double OpticsDiagStats::lane_laser_receiver_power_dbm() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.lane_laser_receiver_power_dbm)
+ double OpticsDiagLaneStats::lane_laser_receiver_power_dbm() const {
+  // @@protoc_insertion_point(field_get:OpticsDiagLaneStats.lane_laser_receiver_power_dbm)
   return lane_laser_receiver_power_dbm_;
 }
- void OpticsDiagStats::set_lane_laser_receiver_power_dbm(double value) {
+ void OpticsDiagLaneStats::set_lane_laser_receiver_power_dbm(double value) {
   set_has_lane_laser_receiver_power_dbm();
   lane_laser_receiver_power_dbm_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.lane_laser_receiver_power_dbm)
+  // @@protoc_insertion_point(field_set:OpticsDiagLaneStats.lane_laser_receiver_power_dbm)
 }
 
-// optional int32 lane_laser_receiver_power_set = 73;
-bool OpticsDiagStats::has_lane_laser_receiver_power_set() const {
-  return (_has_bits_[2] & 0x00000100u) != 0;
+// optional double lane_laser_bias_current = 5;
+bool OpticsDiagLaneStats::has_lane_laser_bias_current() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
-void OpticsDiagStats::set_has_lane_laser_receiver_power_set() {
-  _has_bits_[2] |= 0x00000100u;
+void OpticsDiagLaneStats::set_has_lane_laser_bias_current() {
+  _has_bits_[0] |= 0x00000010u;
 }
-void OpticsDiagStats::clear_has_lane_laser_receiver_power_set() {
-  _has_bits_[2] &= ~0x00000100u;
+void OpticsDiagLaneStats::clear_has_lane_laser_bias_current() {
+  _has_bits_[0] &= ~0x00000010u;
 }
-void OpticsDiagStats::clear_lane_laser_receiver_power_set() {
-  lane_laser_receiver_power_set_ = 0;
-  clear_has_lane_laser_receiver_power_set();
+void OpticsDiagLaneStats::clear_lane_laser_bias_current() {
+  lane_laser_bias_current_ = 0;
+  clear_has_lane_laser_bias_current();
 }
- ::google::protobuf::int32 OpticsDiagStats::lane_laser_receiver_power_set() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.lane_laser_receiver_power_set)
-  return lane_laser_receiver_power_set_;
+ double OpticsDiagLaneStats::lane_laser_bias_current() const {
+  // @@protoc_insertion_point(field_get:OpticsDiagLaneStats.lane_laser_bias_current)
+  return lane_laser_bias_current_;
 }
- void OpticsDiagStats::set_lane_laser_receiver_power_set(::google::protobuf::int32 value) {
-  set_has_lane_laser_receiver_power_set();
-  lane_laser_receiver_power_set_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.lane_laser_receiver_power_set)
-}
-
-// optional int32 lane_laser_temp_high_alarm_set = 74;
-bool OpticsDiagStats::has_lane_laser_temp_high_alarm_set() const {
-  return (_has_bits_[2] & 0x00000200u) != 0;
-}
-void OpticsDiagStats::set_has_lane_laser_temp_high_alarm_set() {
-  _has_bits_[2] |= 0x00000200u;
-}
-void OpticsDiagStats::clear_has_lane_laser_temp_high_alarm_set() {
-  _has_bits_[2] &= ~0x00000200u;
-}
-void OpticsDiagStats::clear_lane_laser_temp_high_alarm_set() {
-  lane_laser_temp_high_alarm_set_ = 0;
-  clear_has_lane_laser_temp_high_alarm_set();
-}
- ::google::protobuf::int32 OpticsDiagStats::lane_laser_temp_high_alarm_set() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.lane_laser_temp_high_alarm_set)
-  return lane_laser_temp_high_alarm_set_;
-}
- void OpticsDiagStats::set_lane_laser_temp_high_alarm_set(::google::protobuf::int32 value) {
-  set_has_lane_laser_temp_high_alarm_set();
-  lane_laser_temp_high_alarm_set_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.lane_laser_temp_high_alarm_set)
+ void OpticsDiagLaneStats::set_lane_laser_bias_current(double value) {
+  set_has_lane_laser_bias_current();
+  lane_laser_bias_current_ = value;
+  // @@protoc_insertion_point(field_set:OpticsDiagLaneStats.lane_laser_bias_current)
 }
 
-// optional int32 lane_laser_temp_high_alarm = 75;
-bool OpticsDiagStats::has_lane_laser_temp_high_alarm() const {
-  return (_has_bits_[2] & 0x00000400u) != 0;
+// optional bool lane_laser_output_power_high_alarm = 6;
+bool OpticsDiagLaneStats::has_lane_laser_output_power_high_alarm() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
 }
-void OpticsDiagStats::set_has_lane_laser_temp_high_alarm() {
-  _has_bits_[2] |= 0x00000400u;
+void OpticsDiagLaneStats::set_has_lane_laser_output_power_high_alarm() {
+  _has_bits_[0] |= 0x00000020u;
 }
-void OpticsDiagStats::clear_has_lane_laser_temp_high_alarm() {
-  _has_bits_[2] &= ~0x00000400u;
+void OpticsDiagLaneStats::clear_has_lane_laser_output_power_high_alarm() {
+  _has_bits_[0] &= ~0x00000020u;
 }
-void OpticsDiagStats::clear_lane_laser_temp_high_alarm() {
-  lane_laser_temp_high_alarm_ = 0;
-  clear_has_lane_laser_temp_high_alarm();
-}
- ::google::protobuf::int32 OpticsDiagStats::lane_laser_temp_high_alarm() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.lane_laser_temp_high_alarm)
-  return lane_laser_temp_high_alarm_;
-}
- void OpticsDiagStats::set_lane_laser_temp_high_alarm(::google::protobuf::int32 value) {
-  set_has_lane_laser_temp_high_alarm();
-  lane_laser_temp_high_alarm_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.lane_laser_temp_high_alarm)
-}
-
-// optional int32 lane_laser_temp_low_alarm_set = 76;
-bool OpticsDiagStats::has_lane_laser_temp_low_alarm_set() const {
-  return (_has_bits_[2] & 0x00000800u) != 0;
-}
-void OpticsDiagStats::set_has_lane_laser_temp_low_alarm_set() {
-  _has_bits_[2] |= 0x00000800u;
-}
-void OpticsDiagStats::clear_has_lane_laser_temp_low_alarm_set() {
-  _has_bits_[2] &= ~0x00000800u;
-}
-void OpticsDiagStats::clear_lane_laser_temp_low_alarm_set() {
-  lane_laser_temp_low_alarm_set_ = 0;
-  clear_has_lane_laser_temp_low_alarm_set();
-}
- ::google::protobuf::int32 OpticsDiagStats::lane_laser_temp_low_alarm_set() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.lane_laser_temp_low_alarm_set)
-  return lane_laser_temp_low_alarm_set_;
-}
- void OpticsDiagStats::set_lane_laser_temp_low_alarm_set(::google::protobuf::int32 value) {
-  set_has_lane_laser_temp_low_alarm_set();
-  lane_laser_temp_low_alarm_set_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.lane_laser_temp_low_alarm_set)
-}
-
-// optional int32 lane_laser_temp_low_alarm = 77;
-bool OpticsDiagStats::has_lane_laser_temp_low_alarm() const {
-  return (_has_bits_[2] & 0x00001000u) != 0;
-}
-void OpticsDiagStats::set_has_lane_laser_temp_low_alarm() {
-  _has_bits_[2] |= 0x00001000u;
-}
-void OpticsDiagStats::clear_has_lane_laser_temp_low_alarm() {
-  _has_bits_[2] &= ~0x00001000u;
-}
-void OpticsDiagStats::clear_lane_laser_temp_low_alarm() {
-  lane_laser_temp_low_alarm_ = 0;
-  clear_has_lane_laser_temp_low_alarm();
-}
- ::google::protobuf::int32 OpticsDiagStats::lane_laser_temp_low_alarm() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.lane_laser_temp_low_alarm)
-  return lane_laser_temp_low_alarm_;
-}
- void OpticsDiagStats::set_lane_laser_temp_low_alarm(::google::protobuf::int32 value) {
-  set_has_lane_laser_temp_low_alarm();
-  lane_laser_temp_low_alarm_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.lane_laser_temp_low_alarm)
-}
-
-// optional int32 lane_laser_temp_high_warning_set = 78;
-bool OpticsDiagStats::has_lane_laser_temp_high_warning_set() const {
-  return (_has_bits_[2] & 0x00002000u) != 0;
-}
-void OpticsDiagStats::set_has_lane_laser_temp_high_warning_set() {
-  _has_bits_[2] |= 0x00002000u;
-}
-void OpticsDiagStats::clear_has_lane_laser_temp_high_warning_set() {
-  _has_bits_[2] &= ~0x00002000u;
-}
-void OpticsDiagStats::clear_lane_laser_temp_high_warning_set() {
-  lane_laser_temp_high_warning_set_ = 0;
-  clear_has_lane_laser_temp_high_warning_set();
-}
- ::google::protobuf::int32 OpticsDiagStats::lane_laser_temp_high_warning_set() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.lane_laser_temp_high_warning_set)
-  return lane_laser_temp_high_warning_set_;
-}
- void OpticsDiagStats::set_lane_laser_temp_high_warning_set(::google::protobuf::int32 value) {
-  set_has_lane_laser_temp_high_warning_set();
-  lane_laser_temp_high_warning_set_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.lane_laser_temp_high_warning_set)
-}
-
-// optional int32 lane_laser_temp_high_warning = 79;
-bool OpticsDiagStats::has_lane_laser_temp_high_warning() const {
-  return (_has_bits_[2] & 0x00004000u) != 0;
-}
-void OpticsDiagStats::set_has_lane_laser_temp_high_warning() {
-  _has_bits_[2] |= 0x00004000u;
-}
-void OpticsDiagStats::clear_has_lane_laser_temp_high_warning() {
-  _has_bits_[2] &= ~0x00004000u;
-}
-void OpticsDiagStats::clear_lane_laser_temp_high_warning() {
-  lane_laser_temp_high_warning_ = 0;
-  clear_has_lane_laser_temp_high_warning();
-}
- ::google::protobuf::int32 OpticsDiagStats::lane_laser_temp_high_warning() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.lane_laser_temp_high_warning)
-  return lane_laser_temp_high_warning_;
-}
- void OpticsDiagStats::set_lane_laser_temp_high_warning(::google::protobuf::int32 value) {
-  set_has_lane_laser_temp_high_warning();
-  lane_laser_temp_high_warning_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.lane_laser_temp_high_warning)
-}
-
-// optional int32 lane_laser_output_power_high_alarm_set = 80;
-bool OpticsDiagStats::has_lane_laser_output_power_high_alarm_set() const {
-  return (_has_bits_[2] & 0x00008000u) != 0;
-}
-void OpticsDiagStats::set_has_lane_laser_output_power_high_alarm_set() {
-  _has_bits_[2] |= 0x00008000u;
-}
-void OpticsDiagStats::clear_has_lane_laser_output_power_high_alarm_set() {
-  _has_bits_[2] &= ~0x00008000u;
-}
-void OpticsDiagStats::clear_lane_laser_output_power_high_alarm_set() {
-  lane_laser_output_power_high_alarm_set_ = 0;
-  clear_has_lane_laser_output_power_high_alarm_set();
-}
- ::google::protobuf::int32 OpticsDiagStats::lane_laser_output_power_high_alarm_set() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.lane_laser_output_power_high_alarm_set)
-  return lane_laser_output_power_high_alarm_set_;
-}
- void OpticsDiagStats::set_lane_laser_output_power_high_alarm_set(::google::protobuf::int32 value) {
-  set_has_lane_laser_output_power_high_alarm_set();
-  lane_laser_output_power_high_alarm_set_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.lane_laser_output_power_high_alarm_set)
-}
-
-// optional int32 lane_laser_output_power_high_alarm = 81;
-bool OpticsDiagStats::has_lane_laser_output_power_high_alarm() const {
-  return (_has_bits_[2] & 0x00010000u) != 0;
-}
-void OpticsDiagStats::set_has_lane_laser_output_power_high_alarm() {
-  _has_bits_[2] |= 0x00010000u;
-}
-void OpticsDiagStats::clear_has_lane_laser_output_power_high_alarm() {
-  _has_bits_[2] &= ~0x00010000u;
-}
-void OpticsDiagStats::clear_lane_laser_output_power_high_alarm() {
-  lane_laser_output_power_high_alarm_ = 0;
+void OpticsDiagLaneStats::clear_lane_laser_output_power_high_alarm() {
+  lane_laser_output_power_high_alarm_ = false;
   clear_has_lane_laser_output_power_high_alarm();
 }
- ::google::protobuf::int32 OpticsDiagStats::lane_laser_output_power_high_alarm() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.lane_laser_output_power_high_alarm)
+ bool OpticsDiagLaneStats::lane_laser_output_power_high_alarm() const {
+  // @@protoc_insertion_point(field_get:OpticsDiagLaneStats.lane_laser_output_power_high_alarm)
   return lane_laser_output_power_high_alarm_;
 }
- void OpticsDiagStats::set_lane_laser_output_power_high_alarm(::google::protobuf::int32 value) {
+ void OpticsDiagLaneStats::set_lane_laser_output_power_high_alarm(bool value) {
   set_has_lane_laser_output_power_high_alarm();
   lane_laser_output_power_high_alarm_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.lane_laser_output_power_high_alarm)
+  // @@protoc_insertion_point(field_set:OpticsDiagLaneStats.lane_laser_output_power_high_alarm)
 }
 
-// optional int32 lane_laser_output_power_low_alarm_set = 82;
-bool OpticsDiagStats::has_lane_laser_output_power_low_alarm_set() const {
-  return (_has_bits_[2] & 0x00020000u) != 0;
+// optional bool lane_laser_output_power_low_alarm = 7;
+bool OpticsDiagLaneStats::has_lane_laser_output_power_low_alarm() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
 }
-void OpticsDiagStats::set_has_lane_laser_output_power_low_alarm_set() {
-  _has_bits_[2] |= 0x00020000u;
+void OpticsDiagLaneStats::set_has_lane_laser_output_power_low_alarm() {
+  _has_bits_[0] |= 0x00000040u;
 }
-void OpticsDiagStats::clear_has_lane_laser_output_power_low_alarm_set() {
-  _has_bits_[2] &= ~0x00020000u;
+void OpticsDiagLaneStats::clear_has_lane_laser_output_power_low_alarm() {
+  _has_bits_[0] &= ~0x00000040u;
 }
-void OpticsDiagStats::clear_lane_laser_output_power_low_alarm_set() {
-  lane_laser_output_power_low_alarm_set_ = 0;
-  clear_has_lane_laser_output_power_low_alarm_set();
-}
- ::google::protobuf::int32 OpticsDiagStats::lane_laser_output_power_low_alarm_set() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.lane_laser_output_power_low_alarm_set)
-  return lane_laser_output_power_low_alarm_set_;
-}
- void OpticsDiagStats::set_lane_laser_output_power_low_alarm_set(::google::protobuf::int32 value) {
-  set_has_lane_laser_output_power_low_alarm_set();
-  lane_laser_output_power_low_alarm_set_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.lane_laser_output_power_low_alarm_set)
-}
-
-// optional int32 lane_laser_output_power_low_alarm = 83;
-bool OpticsDiagStats::has_lane_laser_output_power_low_alarm() const {
-  return (_has_bits_[2] & 0x00040000u) != 0;
-}
-void OpticsDiagStats::set_has_lane_laser_output_power_low_alarm() {
-  _has_bits_[2] |= 0x00040000u;
-}
-void OpticsDiagStats::clear_has_lane_laser_output_power_low_alarm() {
-  _has_bits_[2] &= ~0x00040000u;
-}
-void OpticsDiagStats::clear_lane_laser_output_power_low_alarm() {
-  lane_laser_output_power_low_alarm_ = 0;
+void OpticsDiagLaneStats::clear_lane_laser_output_power_low_alarm() {
+  lane_laser_output_power_low_alarm_ = false;
   clear_has_lane_laser_output_power_low_alarm();
 }
- ::google::protobuf::int32 OpticsDiagStats::lane_laser_output_power_low_alarm() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.lane_laser_output_power_low_alarm)
+ bool OpticsDiagLaneStats::lane_laser_output_power_low_alarm() const {
+  // @@protoc_insertion_point(field_get:OpticsDiagLaneStats.lane_laser_output_power_low_alarm)
   return lane_laser_output_power_low_alarm_;
 }
- void OpticsDiagStats::set_lane_laser_output_power_low_alarm(::google::protobuf::int32 value) {
+ void OpticsDiagLaneStats::set_lane_laser_output_power_low_alarm(bool value) {
   set_has_lane_laser_output_power_low_alarm();
   lane_laser_output_power_low_alarm_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.lane_laser_output_power_low_alarm)
+  // @@protoc_insertion_point(field_set:OpticsDiagLaneStats.lane_laser_output_power_low_alarm)
 }
 
-// optional int32 lane_laser_output_power_high_warning_set = 84;
-bool OpticsDiagStats::has_lane_laser_output_power_high_warning_set() const {
-  return (_has_bits_[2] & 0x00080000u) != 0;
+// optional bool lane_laser_output_power_high_warning = 8;
+bool OpticsDiagLaneStats::has_lane_laser_output_power_high_warning() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
 }
-void OpticsDiagStats::set_has_lane_laser_output_power_high_warning_set() {
-  _has_bits_[2] |= 0x00080000u;
+void OpticsDiagLaneStats::set_has_lane_laser_output_power_high_warning() {
+  _has_bits_[0] |= 0x00000080u;
 }
-void OpticsDiagStats::clear_has_lane_laser_output_power_high_warning_set() {
-  _has_bits_[2] &= ~0x00080000u;
+void OpticsDiagLaneStats::clear_has_lane_laser_output_power_high_warning() {
+  _has_bits_[0] &= ~0x00000080u;
 }
-void OpticsDiagStats::clear_lane_laser_output_power_high_warning_set() {
-  lane_laser_output_power_high_warning_set_ = 0;
-  clear_has_lane_laser_output_power_high_warning_set();
-}
- ::google::protobuf::int32 OpticsDiagStats::lane_laser_output_power_high_warning_set() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.lane_laser_output_power_high_warning_set)
-  return lane_laser_output_power_high_warning_set_;
-}
- void OpticsDiagStats::set_lane_laser_output_power_high_warning_set(::google::protobuf::int32 value) {
-  set_has_lane_laser_output_power_high_warning_set();
-  lane_laser_output_power_high_warning_set_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.lane_laser_output_power_high_warning_set)
-}
-
-// optional int32 lane_laser_output_power_high_warning = 85;
-bool OpticsDiagStats::has_lane_laser_output_power_high_warning() const {
-  return (_has_bits_[2] & 0x00100000u) != 0;
-}
-void OpticsDiagStats::set_has_lane_laser_output_power_high_warning() {
-  _has_bits_[2] |= 0x00100000u;
-}
-void OpticsDiagStats::clear_has_lane_laser_output_power_high_warning() {
-  _has_bits_[2] &= ~0x00100000u;
-}
-void OpticsDiagStats::clear_lane_laser_output_power_high_warning() {
-  lane_laser_output_power_high_warning_ = 0;
+void OpticsDiagLaneStats::clear_lane_laser_output_power_high_warning() {
+  lane_laser_output_power_high_warning_ = false;
   clear_has_lane_laser_output_power_high_warning();
 }
- ::google::protobuf::int32 OpticsDiagStats::lane_laser_output_power_high_warning() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.lane_laser_output_power_high_warning)
+ bool OpticsDiagLaneStats::lane_laser_output_power_high_warning() const {
+  // @@protoc_insertion_point(field_get:OpticsDiagLaneStats.lane_laser_output_power_high_warning)
   return lane_laser_output_power_high_warning_;
 }
- void OpticsDiagStats::set_lane_laser_output_power_high_warning(::google::protobuf::int32 value) {
+ void OpticsDiagLaneStats::set_lane_laser_output_power_high_warning(bool value) {
   set_has_lane_laser_output_power_high_warning();
   lane_laser_output_power_high_warning_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.lane_laser_output_power_high_warning)
+  // @@protoc_insertion_point(field_set:OpticsDiagLaneStats.lane_laser_output_power_high_warning)
 }
 
-// optional int32 lane_laser_output_power_low_warning_set = 86;
-bool OpticsDiagStats::has_lane_laser_output_power_low_warning_set() const {
-  return (_has_bits_[2] & 0x00200000u) != 0;
+// optional bool lane_laser_output_power_low_warning = 9;
+bool OpticsDiagLaneStats::has_lane_laser_output_power_low_warning() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
 }
-void OpticsDiagStats::set_has_lane_laser_output_power_low_warning_set() {
-  _has_bits_[2] |= 0x00200000u;
+void OpticsDiagLaneStats::set_has_lane_laser_output_power_low_warning() {
+  _has_bits_[0] |= 0x00000100u;
 }
-void OpticsDiagStats::clear_has_lane_laser_output_power_low_warning_set() {
-  _has_bits_[2] &= ~0x00200000u;
+void OpticsDiagLaneStats::clear_has_lane_laser_output_power_low_warning() {
+  _has_bits_[0] &= ~0x00000100u;
 }
-void OpticsDiagStats::clear_lane_laser_output_power_low_warning_set() {
-  lane_laser_output_power_low_warning_set_ = 0;
-  clear_has_lane_laser_output_power_low_warning_set();
-}
- ::google::protobuf::int32 OpticsDiagStats::lane_laser_output_power_low_warning_set() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.lane_laser_output_power_low_warning_set)
-  return lane_laser_output_power_low_warning_set_;
-}
- void OpticsDiagStats::set_lane_laser_output_power_low_warning_set(::google::protobuf::int32 value) {
-  set_has_lane_laser_output_power_low_warning_set();
-  lane_laser_output_power_low_warning_set_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.lane_laser_output_power_low_warning_set)
-}
-
-// optional int32 lane_laser_output_power_low_warning = 87;
-bool OpticsDiagStats::has_lane_laser_output_power_low_warning() const {
-  return (_has_bits_[2] & 0x00400000u) != 0;
-}
-void OpticsDiagStats::set_has_lane_laser_output_power_low_warning() {
-  _has_bits_[2] |= 0x00400000u;
-}
-void OpticsDiagStats::clear_has_lane_laser_output_power_low_warning() {
-  _has_bits_[2] &= ~0x00400000u;
-}
-void OpticsDiagStats::clear_lane_laser_output_power_low_warning() {
-  lane_laser_output_power_low_warning_ = 0;
+void OpticsDiagLaneStats::clear_lane_laser_output_power_low_warning() {
+  lane_laser_output_power_low_warning_ = false;
   clear_has_lane_laser_output_power_low_warning();
 }
- ::google::protobuf::int32 OpticsDiagStats::lane_laser_output_power_low_warning() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.lane_laser_output_power_low_warning)
+ bool OpticsDiagLaneStats::lane_laser_output_power_low_warning() const {
+  // @@protoc_insertion_point(field_get:OpticsDiagLaneStats.lane_laser_output_power_low_warning)
   return lane_laser_output_power_low_warning_;
 }
- void OpticsDiagStats::set_lane_laser_output_power_low_warning(::google::protobuf::int32 value) {
+ void OpticsDiagLaneStats::set_lane_laser_output_power_low_warning(bool value) {
   set_has_lane_laser_output_power_low_warning();
   lane_laser_output_power_low_warning_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.lane_laser_output_power_low_warning)
+  // @@protoc_insertion_point(field_set:OpticsDiagLaneStats.lane_laser_output_power_low_warning)
 }
 
-// optional int32 lane_laser_receiver_power_high_alarm_set = 88;
-bool OpticsDiagStats::has_lane_laser_receiver_power_high_alarm_set() const {
-  return (_has_bits_[2] & 0x00800000u) != 0;
+// optional bool lane_laser_receiver_power_high_alarm = 10;
+bool OpticsDiagLaneStats::has_lane_laser_receiver_power_high_alarm() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
 }
-void OpticsDiagStats::set_has_lane_laser_receiver_power_high_alarm_set() {
-  _has_bits_[2] |= 0x00800000u;
+void OpticsDiagLaneStats::set_has_lane_laser_receiver_power_high_alarm() {
+  _has_bits_[0] |= 0x00000200u;
 }
-void OpticsDiagStats::clear_has_lane_laser_receiver_power_high_alarm_set() {
-  _has_bits_[2] &= ~0x00800000u;
+void OpticsDiagLaneStats::clear_has_lane_laser_receiver_power_high_alarm() {
+  _has_bits_[0] &= ~0x00000200u;
 }
-void OpticsDiagStats::clear_lane_laser_receiver_power_high_alarm_set() {
-  lane_laser_receiver_power_high_alarm_set_ = 0;
-  clear_has_lane_laser_receiver_power_high_alarm_set();
-}
- ::google::protobuf::int32 OpticsDiagStats::lane_laser_receiver_power_high_alarm_set() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.lane_laser_receiver_power_high_alarm_set)
-  return lane_laser_receiver_power_high_alarm_set_;
-}
- void OpticsDiagStats::set_lane_laser_receiver_power_high_alarm_set(::google::protobuf::int32 value) {
-  set_has_lane_laser_receiver_power_high_alarm_set();
-  lane_laser_receiver_power_high_alarm_set_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.lane_laser_receiver_power_high_alarm_set)
-}
-
-// optional int32 lane_laser_receiver_power_high_alarm = 89;
-bool OpticsDiagStats::has_lane_laser_receiver_power_high_alarm() const {
-  return (_has_bits_[2] & 0x01000000u) != 0;
-}
-void OpticsDiagStats::set_has_lane_laser_receiver_power_high_alarm() {
-  _has_bits_[2] |= 0x01000000u;
-}
-void OpticsDiagStats::clear_has_lane_laser_receiver_power_high_alarm() {
-  _has_bits_[2] &= ~0x01000000u;
-}
-void OpticsDiagStats::clear_lane_laser_receiver_power_high_alarm() {
-  lane_laser_receiver_power_high_alarm_ = 0;
+void OpticsDiagLaneStats::clear_lane_laser_receiver_power_high_alarm() {
+  lane_laser_receiver_power_high_alarm_ = false;
   clear_has_lane_laser_receiver_power_high_alarm();
 }
- ::google::protobuf::int32 OpticsDiagStats::lane_laser_receiver_power_high_alarm() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.lane_laser_receiver_power_high_alarm)
+ bool OpticsDiagLaneStats::lane_laser_receiver_power_high_alarm() const {
+  // @@protoc_insertion_point(field_get:OpticsDiagLaneStats.lane_laser_receiver_power_high_alarm)
   return lane_laser_receiver_power_high_alarm_;
 }
- void OpticsDiagStats::set_lane_laser_receiver_power_high_alarm(::google::protobuf::int32 value) {
+ void OpticsDiagLaneStats::set_lane_laser_receiver_power_high_alarm(bool value) {
   set_has_lane_laser_receiver_power_high_alarm();
   lane_laser_receiver_power_high_alarm_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.lane_laser_receiver_power_high_alarm)
+  // @@protoc_insertion_point(field_set:OpticsDiagLaneStats.lane_laser_receiver_power_high_alarm)
 }
 
-// optional int32 lane_laser_receiver_power_low_alarm_set = 90;
-bool OpticsDiagStats::has_lane_laser_receiver_power_low_alarm_set() const {
-  return (_has_bits_[2] & 0x02000000u) != 0;
+// optional bool lane_laser_receiver_power_low_alarm = 11;
+bool OpticsDiagLaneStats::has_lane_laser_receiver_power_low_alarm() const {
+  return (_has_bits_[0] & 0x00000400u) != 0;
 }
-void OpticsDiagStats::set_has_lane_laser_receiver_power_low_alarm_set() {
-  _has_bits_[2] |= 0x02000000u;
+void OpticsDiagLaneStats::set_has_lane_laser_receiver_power_low_alarm() {
+  _has_bits_[0] |= 0x00000400u;
 }
-void OpticsDiagStats::clear_has_lane_laser_receiver_power_low_alarm_set() {
-  _has_bits_[2] &= ~0x02000000u;
+void OpticsDiagLaneStats::clear_has_lane_laser_receiver_power_low_alarm() {
+  _has_bits_[0] &= ~0x00000400u;
 }
-void OpticsDiagStats::clear_lane_laser_receiver_power_low_alarm_set() {
-  lane_laser_receiver_power_low_alarm_set_ = 0;
-  clear_has_lane_laser_receiver_power_low_alarm_set();
-}
- ::google::protobuf::int32 OpticsDiagStats::lane_laser_receiver_power_low_alarm_set() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.lane_laser_receiver_power_low_alarm_set)
-  return lane_laser_receiver_power_low_alarm_set_;
-}
- void OpticsDiagStats::set_lane_laser_receiver_power_low_alarm_set(::google::protobuf::int32 value) {
-  set_has_lane_laser_receiver_power_low_alarm_set();
-  lane_laser_receiver_power_low_alarm_set_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.lane_laser_receiver_power_low_alarm_set)
-}
-
-// optional int32 lane_laser_receiver_power_low_alarm = 91;
-bool OpticsDiagStats::has_lane_laser_receiver_power_low_alarm() const {
-  return (_has_bits_[2] & 0x04000000u) != 0;
-}
-void OpticsDiagStats::set_has_lane_laser_receiver_power_low_alarm() {
-  _has_bits_[2] |= 0x04000000u;
-}
-void OpticsDiagStats::clear_has_lane_laser_receiver_power_low_alarm() {
-  _has_bits_[2] &= ~0x04000000u;
-}
-void OpticsDiagStats::clear_lane_laser_receiver_power_low_alarm() {
-  lane_laser_receiver_power_low_alarm_ = 0;
+void OpticsDiagLaneStats::clear_lane_laser_receiver_power_low_alarm() {
+  lane_laser_receiver_power_low_alarm_ = false;
   clear_has_lane_laser_receiver_power_low_alarm();
 }
- ::google::protobuf::int32 OpticsDiagStats::lane_laser_receiver_power_low_alarm() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.lane_laser_receiver_power_low_alarm)
+ bool OpticsDiagLaneStats::lane_laser_receiver_power_low_alarm() const {
+  // @@protoc_insertion_point(field_get:OpticsDiagLaneStats.lane_laser_receiver_power_low_alarm)
   return lane_laser_receiver_power_low_alarm_;
 }
- void OpticsDiagStats::set_lane_laser_receiver_power_low_alarm(::google::protobuf::int32 value) {
+ void OpticsDiagLaneStats::set_lane_laser_receiver_power_low_alarm(bool value) {
   set_has_lane_laser_receiver_power_low_alarm();
   lane_laser_receiver_power_low_alarm_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.lane_laser_receiver_power_low_alarm)
+  // @@protoc_insertion_point(field_set:OpticsDiagLaneStats.lane_laser_receiver_power_low_alarm)
 }
 
-// optional int32 lane_laser_receiver_power_high_warning_set = 92;
-bool OpticsDiagStats::has_lane_laser_receiver_power_high_warning_set() const {
-  return (_has_bits_[2] & 0x08000000u) != 0;
+// optional bool lane_laser_receiver_power_high_warning = 12;
+bool OpticsDiagLaneStats::has_lane_laser_receiver_power_high_warning() const {
+  return (_has_bits_[0] & 0x00000800u) != 0;
 }
-void OpticsDiagStats::set_has_lane_laser_receiver_power_high_warning_set() {
-  _has_bits_[2] |= 0x08000000u;
+void OpticsDiagLaneStats::set_has_lane_laser_receiver_power_high_warning() {
+  _has_bits_[0] |= 0x00000800u;
 }
-void OpticsDiagStats::clear_has_lane_laser_receiver_power_high_warning_set() {
-  _has_bits_[2] &= ~0x08000000u;
+void OpticsDiagLaneStats::clear_has_lane_laser_receiver_power_high_warning() {
+  _has_bits_[0] &= ~0x00000800u;
 }
-void OpticsDiagStats::clear_lane_laser_receiver_power_high_warning_set() {
-  lane_laser_receiver_power_high_warning_set_ = 0;
-  clear_has_lane_laser_receiver_power_high_warning_set();
-}
- ::google::protobuf::int32 OpticsDiagStats::lane_laser_receiver_power_high_warning_set() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.lane_laser_receiver_power_high_warning_set)
-  return lane_laser_receiver_power_high_warning_set_;
-}
- void OpticsDiagStats::set_lane_laser_receiver_power_high_warning_set(::google::protobuf::int32 value) {
-  set_has_lane_laser_receiver_power_high_warning_set();
-  lane_laser_receiver_power_high_warning_set_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.lane_laser_receiver_power_high_warning_set)
-}
-
-// optional int32 lane_laser_receiver_power_high_warning = 93;
-bool OpticsDiagStats::has_lane_laser_receiver_power_high_warning() const {
-  return (_has_bits_[2] & 0x10000000u) != 0;
-}
-void OpticsDiagStats::set_has_lane_laser_receiver_power_high_warning() {
-  _has_bits_[2] |= 0x10000000u;
-}
-void OpticsDiagStats::clear_has_lane_laser_receiver_power_high_warning() {
-  _has_bits_[2] &= ~0x10000000u;
-}
-void OpticsDiagStats::clear_lane_laser_receiver_power_high_warning() {
-  lane_laser_receiver_power_high_warning_ = 0;
+void OpticsDiagLaneStats::clear_lane_laser_receiver_power_high_warning() {
+  lane_laser_receiver_power_high_warning_ = false;
   clear_has_lane_laser_receiver_power_high_warning();
 }
- ::google::protobuf::int32 OpticsDiagStats::lane_laser_receiver_power_high_warning() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.lane_laser_receiver_power_high_warning)
+ bool OpticsDiagLaneStats::lane_laser_receiver_power_high_warning() const {
+  // @@protoc_insertion_point(field_get:OpticsDiagLaneStats.lane_laser_receiver_power_high_warning)
   return lane_laser_receiver_power_high_warning_;
 }
- void OpticsDiagStats::set_lane_laser_receiver_power_high_warning(::google::protobuf::int32 value) {
+ void OpticsDiagLaneStats::set_lane_laser_receiver_power_high_warning(bool value) {
   set_has_lane_laser_receiver_power_high_warning();
   lane_laser_receiver_power_high_warning_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.lane_laser_receiver_power_high_warning)
+  // @@protoc_insertion_point(field_set:OpticsDiagLaneStats.lane_laser_receiver_power_high_warning)
 }
 
-// optional int32 lane_laser_receiver_power_low_warning_set = 94;
-bool OpticsDiagStats::has_lane_laser_receiver_power_low_warning_set() const {
-  return (_has_bits_[2] & 0x20000000u) != 0;
+// optional bool lane_laser_receiver_power_low_warning = 13;
+bool OpticsDiagLaneStats::has_lane_laser_receiver_power_low_warning() const {
+  return (_has_bits_[0] & 0x00001000u) != 0;
 }
-void OpticsDiagStats::set_has_lane_laser_receiver_power_low_warning_set() {
-  _has_bits_[2] |= 0x20000000u;
+void OpticsDiagLaneStats::set_has_lane_laser_receiver_power_low_warning() {
+  _has_bits_[0] |= 0x00001000u;
 }
-void OpticsDiagStats::clear_has_lane_laser_receiver_power_low_warning_set() {
-  _has_bits_[2] &= ~0x20000000u;
+void OpticsDiagLaneStats::clear_has_lane_laser_receiver_power_low_warning() {
+  _has_bits_[0] &= ~0x00001000u;
 }
-void OpticsDiagStats::clear_lane_laser_receiver_power_low_warning_set() {
-  lane_laser_receiver_power_low_warning_set_ = 0;
-  clear_has_lane_laser_receiver_power_low_warning_set();
-}
- ::google::protobuf::int32 OpticsDiagStats::lane_laser_receiver_power_low_warning_set() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.lane_laser_receiver_power_low_warning_set)
-  return lane_laser_receiver_power_low_warning_set_;
-}
- void OpticsDiagStats::set_lane_laser_receiver_power_low_warning_set(::google::protobuf::int32 value) {
-  set_has_lane_laser_receiver_power_low_warning_set();
-  lane_laser_receiver_power_low_warning_set_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.lane_laser_receiver_power_low_warning_set)
-}
-
-// optional int32 lane_laser_receiver_power_low_warning = 95;
-bool OpticsDiagStats::has_lane_laser_receiver_power_low_warning() const {
-  return (_has_bits_[2] & 0x40000000u) != 0;
-}
-void OpticsDiagStats::set_has_lane_laser_receiver_power_low_warning() {
-  _has_bits_[2] |= 0x40000000u;
-}
-void OpticsDiagStats::clear_has_lane_laser_receiver_power_low_warning() {
-  _has_bits_[2] &= ~0x40000000u;
-}
-void OpticsDiagStats::clear_lane_laser_receiver_power_low_warning() {
-  lane_laser_receiver_power_low_warning_ = 0;
+void OpticsDiagLaneStats::clear_lane_laser_receiver_power_low_warning() {
+  lane_laser_receiver_power_low_warning_ = false;
   clear_has_lane_laser_receiver_power_low_warning();
 }
- ::google::protobuf::int32 OpticsDiagStats::lane_laser_receiver_power_low_warning() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.lane_laser_receiver_power_low_warning)
+ bool OpticsDiagLaneStats::lane_laser_receiver_power_low_warning() const {
+  // @@protoc_insertion_point(field_get:OpticsDiagLaneStats.lane_laser_receiver_power_low_warning)
   return lane_laser_receiver_power_low_warning_;
 }
- void OpticsDiagStats::set_lane_laser_receiver_power_low_warning(::google::protobuf::int32 value) {
+ void OpticsDiagLaneStats::set_lane_laser_receiver_power_low_warning(bool value) {
   set_has_lane_laser_receiver_power_low_warning();
   lane_laser_receiver_power_low_warning_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.lane_laser_receiver_power_low_warning)
+  // @@protoc_insertion_point(field_set:OpticsDiagLaneStats.lane_laser_receiver_power_low_warning)
 }
 
-// optional int32 optics_type = 96;
-bool OpticsDiagStats::has_optics_type() const {
-  return (_has_bits_[2] & 0x80000000u) != 0;
+// optional bool lane_laser_bias_current_high_alarm = 14;
+bool OpticsDiagLaneStats::has_lane_laser_bias_current_high_alarm() const {
+  return (_has_bits_[0] & 0x00002000u) != 0;
 }
-void OpticsDiagStats::set_has_optics_type() {
-  _has_bits_[2] |= 0x80000000u;
+void OpticsDiagLaneStats::set_has_lane_laser_bias_current_high_alarm() {
+  _has_bits_[0] |= 0x00002000u;
 }
-void OpticsDiagStats::clear_has_optics_type() {
-  _has_bits_[2] &= ~0x80000000u;
+void OpticsDiagLaneStats::clear_has_lane_laser_bias_current_high_alarm() {
+  _has_bits_[0] &= ~0x00002000u;
 }
-void OpticsDiagStats::clear_optics_type() {
-  optics_type_ = 0;
-  clear_has_optics_type();
+void OpticsDiagLaneStats::clear_lane_laser_bias_current_high_alarm() {
+  lane_laser_bias_current_high_alarm_ = false;
+  clear_has_lane_laser_bias_current_high_alarm();
 }
- ::google::protobuf::int32 OpticsDiagStats::optics_type() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.optics_type)
-  return optics_type_;
+ bool OpticsDiagLaneStats::lane_laser_bias_current_high_alarm() const {
+  // @@protoc_insertion_point(field_get:OpticsDiagLaneStats.lane_laser_bias_current_high_alarm)
+  return lane_laser_bias_current_high_alarm_;
 }
- void OpticsDiagStats::set_optics_type(::google::protobuf::int32 value) {
-  set_has_optics_type();
-  optics_type_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.optics_type)
-}
-
-// optional int32 optics_alarm_validity = 97;
-bool OpticsDiagStats::has_optics_alarm_validity() const {
-  return (_has_bits_[3] & 0x00000001u) != 0;
-}
-void OpticsDiagStats::set_has_optics_alarm_validity() {
-  _has_bits_[3] |= 0x00000001u;
-}
-void OpticsDiagStats::clear_has_optics_alarm_validity() {
-  _has_bits_[3] &= ~0x00000001u;
-}
-void OpticsDiagStats::clear_optics_alarm_validity() {
-  optics_alarm_validity_ = 0;
-  clear_has_optics_alarm_validity();
-}
- ::google::protobuf::int32 OpticsDiagStats::optics_alarm_validity() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.optics_alarm_validity)
-  return optics_alarm_validity_;
-}
- void OpticsDiagStats::set_optics_alarm_validity(::google::protobuf::int32 value) {
-  set_has_optics_alarm_validity();
-  optics_alarm_validity_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.optics_alarm_validity)
+ void OpticsDiagLaneStats::set_lane_laser_bias_current_high_alarm(bool value) {
+  set_has_lane_laser_bias_current_high_alarm();
+  lane_laser_bias_current_high_alarm_ = value;
+  // @@protoc_insertion_point(field_set:OpticsDiagLaneStats.lane_laser_bias_current_high_alarm)
 }
 
-// optional int32 optics_capability = 98;
-bool OpticsDiagStats::has_optics_capability() const {
-  return (_has_bits_[3] & 0x00000002u) != 0;
+// optional bool lane_laser_bias_current_low_alarm = 15;
+bool OpticsDiagLaneStats::has_lane_laser_bias_current_low_alarm() const {
+  return (_has_bits_[0] & 0x00004000u) != 0;
 }
-void OpticsDiagStats::set_has_optics_capability() {
-  _has_bits_[3] |= 0x00000002u;
+void OpticsDiagLaneStats::set_has_lane_laser_bias_current_low_alarm() {
+  _has_bits_[0] |= 0x00004000u;
 }
-void OpticsDiagStats::clear_has_optics_capability() {
-  _has_bits_[3] &= ~0x00000002u;
+void OpticsDiagLaneStats::clear_has_lane_laser_bias_current_low_alarm() {
+  _has_bits_[0] &= ~0x00004000u;
 }
-void OpticsDiagStats::clear_optics_capability() {
-  optics_capability_ = 0;
-  clear_has_optics_capability();
+void OpticsDiagLaneStats::clear_lane_laser_bias_current_low_alarm() {
+  lane_laser_bias_current_low_alarm_ = false;
+  clear_has_lane_laser_bias_current_low_alarm();
 }
- ::google::protobuf::int32 OpticsDiagStats::optics_capability() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.optics_capability)
-  return optics_capability_;
+ bool OpticsDiagLaneStats::lane_laser_bias_current_low_alarm() const {
+  // @@protoc_insertion_point(field_get:OpticsDiagLaneStats.lane_laser_bias_current_low_alarm)
+  return lane_laser_bias_current_low_alarm_;
 }
- void OpticsDiagStats::set_optics_capability(::google::protobuf::int32 value) {
-  set_has_optics_capability();
-  optics_capability_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.optics_capability)
-}
-
-// optional int32 active_lane_map = 99;
-bool OpticsDiagStats::has_active_lane_map() const {
-  return (_has_bits_[3] & 0x00000004u) != 0;
-}
-void OpticsDiagStats::set_has_active_lane_map() {
-  _has_bits_[3] |= 0x00000004u;
-}
-void OpticsDiagStats::clear_has_active_lane_map() {
-  _has_bits_[3] &= ~0x00000004u;
-}
-void OpticsDiagStats::clear_active_lane_map() {
-  active_lane_map_ = 0;
-  clear_has_active_lane_map();
-}
- ::google::protobuf::int32 OpticsDiagStats::active_lane_map() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.active_lane_map)
-  return active_lane_map_;
-}
- void OpticsDiagStats::set_active_lane_map(::google::protobuf::int32 value) {
-  set_has_active_lane_map();
-  active_lane_map_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.active_lane_map)
+ void OpticsDiagLaneStats::set_lane_laser_bias_current_low_alarm(bool value) {
+  set_has_lane_laser_bias_current_low_alarm();
+  lane_laser_bias_current_low_alarm_ = value;
+  // @@protoc_insertion_point(field_set:OpticsDiagLaneStats.lane_laser_bias_current_low_alarm)
 }
 
-// optional int32 lane_alarms_warnings = 100;
-bool OpticsDiagStats::has_lane_alarms_warnings() const {
-  return (_has_bits_[3] & 0x00000008u) != 0;
+// optional bool lane_laser_bias_current_high_warning = 16;
+bool OpticsDiagLaneStats::has_lane_laser_bias_current_high_warning() const {
+  return (_has_bits_[0] & 0x00008000u) != 0;
 }
-void OpticsDiagStats::set_has_lane_alarms_warnings() {
-  _has_bits_[3] |= 0x00000008u;
+void OpticsDiagLaneStats::set_has_lane_laser_bias_current_high_warning() {
+  _has_bits_[0] |= 0x00008000u;
 }
-void OpticsDiagStats::clear_has_lane_alarms_warnings() {
-  _has_bits_[3] &= ~0x00000008u;
+void OpticsDiagLaneStats::clear_has_lane_laser_bias_current_high_warning() {
+  _has_bits_[0] &= ~0x00008000u;
 }
-void OpticsDiagStats::clear_lane_alarms_warnings() {
-  lane_alarms_warnings_ = 0;
-  clear_has_lane_alarms_warnings();
+void OpticsDiagLaneStats::clear_lane_laser_bias_current_high_warning() {
+  lane_laser_bias_current_high_warning_ = false;
+  clear_has_lane_laser_bias_current_high_warning();
 }
- ::google::protobuf::int32 OpticsDiagStats::lane_alarms_warnings() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.lane_alarms_warnings)
-  return lane_alarms_warnings_;
+ bool OpticsDiagLaneStats::lane_laser_bias_current_high_warning() const {
+  // @@protoc_insertion_point(field_get:OpticsDiagLaneStats.lane_laser_bias_current_high_warning)
+  return lane_laser_bias_current_high_warning_;
 }
- void OpticsDiagStats::set_lane_alarms_warnings(::google::protobuf::int32 value) {
-  set_has_lane_alarms_warnings();
-  lane_alarms_warnings_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.lane_alarms_warnings)
-}
-
-// optional int32 lane_laser_temp_low_warning_set = 101;
-bool OpticsDiagStats::has_lane_laser_temp_low_warning_set() const {
-  return (_has_bits_[3] & 0x00000010u) != 0;
-}
-void OpticsDiagStats::set_has_lane_laser_temp_low_warning_set() {
-  _has_bits_[3] |= 0x00000010u;
-}
-void OpticsDiagStats::clear_has_lane_laser_temp_low_warning_set() {
-  _has_bits_[3] &= ~0x00000010u;
-}
-void OpticsDiagStats::clear_lane_laser_temp_low_warning_set() {
-  lane_laser_temp_low_warning_set_ = 0;
-  clear_has_lane_laser_temp_low_warning_set();
-}
- ::google::protobuf::int32 OpticsDiagStats::lane_laser_temp_low_warning_set() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.lane_laser_temp_low_warning_set)
-  return lane_laser_temp_low_warning_set_;
-}
- void OpticsDiagStats::set_lane_laser_temp_low_warning_set(::google::protobuf::int32 value) {
-  set_has_lane_laser_temp_low_warning_set();
-  lane_laser_temp_low_warning_set_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.lane_laser_temp_low_warning_set)
+ void OpticsDiagLaneStats::set_lane_laser_bias_current_high_warning(bool value) {
+  set_has_lane_laser_bias_current_high_warning();
+  lane_laser_bias_current_high_warning_ = value;
+  // @@protoc_insertion_point(field_set:OpticsDiagLaneStats.lane_laser_bias_current_high_warning)
 }
 
-// optional int32 lane_laser_temp_low_warning = 102;
-bool OpticsDiagStats::has_lane_laser_temp_low_warning() const {
-  return (_has_bits_[3] & 0x00000020u) != 0;
+// optional bool lane_laser_bias_current_low_warning = 17;
+bool OpticsDiagLaneStats::has_lane_laser_bias_current_low_warning() const {
+  return (_has_bits_[0] & 0x00010000u) != 0;
 }
-void OpticsDiagStats::set_has_lane_laser_temp_low_warning() {
-  _has_bits_[3] |= 0x00000020u;
+void OpticsDiagLaneStats::set_has_lane_laser_bias_current_low_warning() {
+  _has_bits_[0] |= 0x00010000u;
 }
-void OpticsDiagStats::clear_has_lane_laser_temp_low_warning() {
-  _has_bits_[3] &= ~0x00000020u;
+void OpticsDiagLaneStats::clear_has_lane_laser_bias_current_low_warning() {
+  _has_bits_[0] &= ~0x00010000u;
 }
-void OpticsDiagStats::clear_lane_laser_temp_low_warning() {
-  lane_laser_temp_low_warning_ = 0;
-  clear_has_lane_laser_temp_low_warning();
+void OpticsDiagLaneStats::clear_lane_laser_bias_current_low_warning() {
+  lane_laser_bias_current_low_warning_ = false;
+  clear_has_lane_laser_bias_current_low_warning();
 }
- ::google::protobuf::int32 OpticsDiagStats::lane_laser_temp_low_warning() const {
-  // @@protoc_insertion_point(field_get:OpticsDiagStats.lane_laser_temp_low_warning)
-  return lane_laser_temp_low_warning_;
+ bool OpticsDiagLaneStats::lane_laser_bias_current_low_warning() const {
+  // @@protoc_insertion_point(field_get:OpticsDiagLaneStats.lane_laser_bias_current_low_warning)
+  return lane_laser_bias_current_low_warning_;
 }
- void OpticsDiagStats::set_lane_laser_temp_low_warning(::google::protobuf::int32 value) {
-  set_has_lane_laser_temp_low_warning();
-  lane_laser_temp_low_warning_ = value;
-  // @@protoc_insertion_point(field_set:OpticsDiagStats.lane_laser_temp_low_warning)
+ void OpticsDiagLaneStats::set_lane_laser_bias_current_low_warning(bool value) {
+  set_has_lane_laser_bias_current_low_warning();
+  lane_laser_bias_current_low_warning_ = value;
+  // @@protoc_insertion_point(field_set:OpticsDiagLaneStats.lane_laser_bias_current_low_warning)
+}
+
+// optional bool lane_tx_loss_of_signal_alarm = 18;
+bool OpticsDiagLaneStats::has_lane_tx_loss_of_signal_alarm() const {
+  return (_has_bits_[0] & 0x00020000u) != 0;
+}
+void OpticsDiagLaneStats::set_has_lane_tx_loss_of_signal_alarm() {
+  _has_bits_[0] |= 0x00020000u;
+}
+void OpticsDiagLaneStats::clear_has_lane_tx_loss_of_signal_alarm() {
+  _has_bits_[0] &= ~0x00020000u;
+}
+void OpticsDiagLaneStats::clear_lane_tx_loss_of_signal_alarm() {
+  lane_tx_loss_of_signal_alarm_ = false;
+  clear_has_lane_tx_loss_of_signal_alarm();
+}
+ bool OpticsDiagLaneStats::lane_tx_loss_of_signal_alarm() const {
+  // @@protoc_insertion_point(field_get:OpticsDiagLaneStats.lane_tx_loss_of_signal_alarm)
+  return lane_tx_loss_of_signal_alarm_;
+}
+ void OpticsDiagLaneStats::set_lane_tx_loss_of_signal_alarm(bool value) {
+  set_has_lane_tx_loss_of_signal_alarm();
+  lane_tx_loss_of_signal_alarm_ = value;
+  // @@protoc_insertion_point(field_set:OpticsDiagLaneStats.lane_tx_loss_of_signal_alarm)
+}
+
+// optional bool lane_rx_loss_of_signal_alarm = 19;
+bool OpticsDiagLaneStats::has_lane_rx_loss_of_signal_alarm() const {
+  return (_has_bits_[0] & 0x00040000u) != 0;
+}
+void OpticsDiagLaneStats::set_has_lane_rx_loss_of_signal_alarm() {
+  _has_bits_[0] |= 0x00040000u;
+}
+void OpticsDiagLaneStats::clear_has_lane_rx_loss_of_signal_alarm() {
+  _has_bits_[0] &= ~0x00040000u;
+}
+void OpticsDiagLaneStats::clear_lane_rx_loss_of_signal_alarm() {
+  lane_rx_loss_of_signal_alarm_ = false;
+  clear_has_lane_rx_loss_of_signal_alarm();
+}
+ bool OpticsDiagLaneStats::lane_rx_loss_of_signal_alarm() const {
+  // @@protoc_insertion_point(field_get:OpticsDiagLaneStats.lane_rx_loss_of_signal_alarm)
+  return lane_rx_loss_of_signal_alarm_;
+}
+ void OpticsDiagLaneStats::set_lane_rx_loss_of_signal_alarm(bool value) {
+  set_has_lane_rx_loss_of_signal_alarm();
+  lane_rx_loss_of_signal_alarm_ = value;
+  // @@protoc_insertion_point(field_set:OpticsDiagLaneStats.lane_rx_loss_of_signal_alarm)
+}
+
+// optional bool lane_tx_laser_disabled_alarm = 20;
+bool OpticsDiagLaneStats::has_lane_tx_laser_disabled_alarm() const {
+  return (_has_bits_[0] & 0x00080000u) != 0;
+}
+void OpticsDiagLaneStats::set_has_lane_tx_laser_disabled_alarm() {
+  _has_bits_[0] |= 0x00080000u;
+}
+void OpticsDiagLaneStats::clear_has_lane_tx_laser_disabled_alarm() {
+  _has_bits_[0] &= ~0x00080000u;
+}
+void OpticsDiagLaneStats::clear_lane_tx_laser_disabled_alarm() {
+  lane_tx_laser_disabled_alarm_ = false;
+  clear_has_lane_tx_laser_disabled_alarm();
+}
+ bool OpticsDiagLaneStats::lane_tx_laser_disabled_alarm() const {
+  // @@protoc_insertion_point(field_get:OpticsDiagLaneStats.lane_tx_laser_disabled_alarm)
+  return lane_tx_laser_disabled_alarm_;
+}
+ void OpticsDiagLaneStats::set_lane_tx_laser_disabled_alarm(bool value) {
+  set_has_lane_tx_laser_disabled_alarm();
+  lane_tx_laser_disabled_alarm_ = value;
+  // @@protoc_insertion_point(field_set:OpticsDiagLaneStats.lane_tx_laser_disabled_alarm)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
