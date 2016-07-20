@@ -124,6 +124,7 @@ MgdServer::EditEphemeralConfig (ServerContext* context,
                             new EditEphemeralConfigRequest_ConfigOperationList;
     cmd->CopyFrom(edit_eph_request->eph_config_operations(0));
 
+    // Need to fix this --- ABBAS after Vignesh's change this will be affected
     if ((cmd->operation() == management::ConfigCommands::UPDATE_CONFIG) ||
         (cmd->operation() == management::ConfigCommands::REPLACE_CONFIG)) {
         // add
