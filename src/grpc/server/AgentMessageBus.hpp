@@ -158,17 +158,21 @@ public:
             kv->set_key("mqtt-packets:path:" + itr->first);
             kv->set_int_value(itr->second.getPackets());
 
+#if 0 /* unsupported for now ... discussed with Nitin */
             kv = operational_reply->add_kv();
             kv->set_key("mqtt-packet_rates:path:" + itr->first);
             kv->set_int_value(itr->second.getPacketRate());
+#endif
 
             kv = operational_reply->add_kv();
             kv->set_key("mqtt-bytes:path:" + itr->first);
             kv->set_int_value(itr->second.getBytes());
 
+#if 0 /* unsupported for now ... discussed with Nitin */
             kv = operational_reply->add_kv();
             kv->set_key("mqtt-byte_rates:path:" + itr->first);
             kv->set_int_value(itr->second.getByteRate());
+#endif
         }
     }
 };

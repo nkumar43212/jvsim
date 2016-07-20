@@ -159,6 +159,7 @@ AgentSystemProc::_sendJunosMessagetoMgd (std::string &config,
     // Request Header
     edit_eph_request.set_request_id(id.getId());
     // edit_eph_request.set_eph_instance_name();
+    edit_eph_request.set_enable_config_validation(true);
 
     // Create the command
     EditEphemeralConfigRequest_ConfigOperationList *cmd =
