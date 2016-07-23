@@ -195,14 +195,14 @@ class MessageBus : public Mqtt {
     void Subscribe (const std::string resource)
     {
         _logger->log("Subscription " + _name +
-                     " subscribe path: " + resource);
+                     " MQTT subscribe path: " + resource);
         subscribe(0, resource.c_str());
     }
 
     void unSubscribe (const std::string resource)
     {
         _logger->log("Subscription " + _name +
-                     " unsubscribe path: " + resource);
+                     " MQTT unsubscribe path: " + resource);
         unsubscribe(0, resource.c_str());
     }
 };
