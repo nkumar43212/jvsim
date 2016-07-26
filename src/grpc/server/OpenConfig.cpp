@@ -52,12 +52,15 @@ OpenConfig::insertExportTimestamp (telemetry::OpenConfigData *datap)
 {
     struct timeval tv;
     telemetry::KeyValue *kv;
+    u_int64_t sectime, mstime;
 
     // What is the time now
     gettimeofday(&tv, NULL); 
+    sectime = tv.tv_sec;
+    mstime = (sectime * 1000) + (tv.tv_usec / 1000);
 
     // Add the key
     kv = datap->add_kv();
     kv->set_key("__timestamp__");
-    kv->set_uint_value(tv.tv_sec * 1000000 + tv.tv_usec);
+    kv->set_uint_value(mstime);
 }
