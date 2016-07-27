@@ -50,6 +50,7 @@ CFLAGS += \
 	-DTIMESTAMP="\"${TIME_STAMP}\"" \
 	-DWITH_JUNOS_IRI \
 	-DJUNOS_LOCK_PID_FILE \
+	-DWITH_JUNOS_TRAFFIC_KA \
 	-I${.CURDIR} \
 	-I${RELSRCTOP_JUNOS}/libexec/mosquitto \
 	-I${RELSRCTOP_DIST}/mosquitto/src \
