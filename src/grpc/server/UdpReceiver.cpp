@@ -26,14 +26,14 @@ UdpReceiver::operator()()
     _sock = socket(AF_INET, SOCK_DGRAM, 0);
     if (_sock < 0) {
         _logger->log("Opening socket error on port " +
-                     std::to_string(_server.sin_port));
+                     std::to_string(ntohs(_server.sin_port)));
         exit(1);
     }
     
     // bind port to the IP
     if(bind(_sock, (struct sockaddr *)&_server, sizeof(_server))<0) {
         _logger->log("Bind socket error on port " +
-                     std::to_string(_server.sin_port));
+                     std::to_string(ntohs(_server.sin_port)));
         exit(1);
     }
 
@@ -41,7 +41,7 @@ UdpReceiver::operator()()
     inet_ntop(AF_INET, &(_server.sin_addr), &server_ip[0], INET_ADDRSTRLEN);
     std::string server_ip_str(server_ip);
     _logger->log("UDP Receiver ready. Listening on IP=" + server_ip_str +
-                 ", Port=" + std::to_string(_server.sin_port));
+                 ", Port=" + std::to_string(ntohs(_server.sin_port)));
 
     // continuously listen on the specified port
     while (true) {

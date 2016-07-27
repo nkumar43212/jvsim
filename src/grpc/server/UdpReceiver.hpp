@@ -85,7 +85,7 @@ private:
 public:
     UdpReceiver(AgentServerLog *logger,
                 in_addr_t SERVER_IP,
-                in_port_t SERVER_PORT):
+                int SERVER_PORT):
                 _logger(logger),
                 _messages("UdpReceiver-MessageCounter", true)
     {
@@ -98,7 +98,7 @@ public:
         bzero(&_server, length);
         _server.sin_family = AF_INET;
         _server.sin_addr.s_addr = SERVER_IP; // INADDR_ANY
-        _server.sin_port=SERVER_PORT;
+        _server.sin_port=htons(SERVER_PORT); // save as htons
 
         // Lets look here
         _request = (struct Request*) malloc(sizeof(Request));
