@@ -30,7 +30,6 @@ CFLAGS += \
 	-I${RELSRCTOP_DIST}/mosquitto/lib \
 	-DWITH_THREADING \
 	-DWITH_JUNOS_TRAFFIC_KA \
-	-DWITH_JUNOS_IRI
 
 .include <bsd.lib.mk>
 
