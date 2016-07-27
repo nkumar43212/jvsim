@@ -37,6 +37,7 @@
 		05C1BEDB1CC824C000A6A342 /* OpenConfigLogicalPort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05C1BED91CC824C000A6A342 /* OpenConfigLogicalPort.cpp */; };
 		05C1BEDD1CC94D0800A6A342 /* AgentUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05C1BEDC1CC94D0800A6A342 /* AgentUtils.cpp */; };
 		05C1BEDF1CC94ED700A6A342 /* AgentUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05C1BEDC1CC94D0800A6A342 /* AgentUtils.cpp */; };
+		05DE65971D4835E000485DD9 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05DE65961D4835E000485DD9 /* main.cpp */; };
 		05F265BF1D0A25B20033769E /* AgentRestart.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05F265BC1D0A225D0033769E /* AgentRestart.cpp */; };
 		05F265C41D123FC40033769E /* PidFileUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05F265C31D123FC40033769E /* PidFileUtils.cpp */; };
 		05FA5C271CF5AEEF00F90E30 /* PathValidator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05FA5C251CF5AEEF00F90E30 /* PathValidator.cpp */; };
@@ -92,6 +93,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		05DE65921D4835E000485DD9 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		946702981C64348C00E73BF5 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -223,6 +233,9 @@
 		05C1BEDA1CC824C000A6A342 /* OpenConfigLogicalPort.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = OpenConfigLogicalPort.hpp; sourceTree = "<group>"; };
 		05C1BEDC1CC94D0800A6A342 /* AgentUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AgentUtils.cpp; sourceTree = "<group>"; };
 		05C1BEDE1CC94D1700A6A342 /* AgentUtils.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AgentUtils.hpp; sourceTree = "<group>"; };
+		05DE65941D4835E000485DD9 /* udp_data_simulator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = udp_data_simulator; sourceTree = BUILT_PRODUCTS_DIR; };
+		05DE65961D4835E000485DD9 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		05DE659B1D48368B00485DD9 /* Sensor_keys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sensor_keys.h; sourceTree = "<group>"; };
 		05EF80711CEA8C190032A538 /* authentication_service.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = authentication_service.proto; path = ../../../protos/authentication_service.proto; sourceTree = "<group>"; };
 		05F265BA1D08DE350033769E /* registration_service.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = registration_service.proto; path = ../../../protos/registration_service.proto; sourceTree = "<group>"; };
 		05F265BB1D0A21940033769E /* agent.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = agent.json; path = ../../../config/agent.json; sourceTree = "<group>"; };
@@ -321,6 +334,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		05DE65911D4835E000485DD9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		946702971C64348C00E73BF5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -382,6 +402,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05DE65951D4835E000485DD9 /* udp_data_simulator */ = {
+			isa = PBXGroup;
+			children = (
+				05DE659B1D48368B00485DD9 /* Sensor_keys.h */,
+				05DE65961D4835E000485DD9 /* main.cpp */,
+			);
+			path = udp_data_simulator;
+			sourceTree = "<group>";
+		};
 		946702911C64348C00E73BF5 = {
 			isa = PBXGroup;
 			children = (
@@ -393,6 +422,7 @@
 				946703B21C6477A400E73BF5 /* lib-rpc-service */,
 				946703C41C64782500E73BF5 /* lib-oc */,
 				94AC4F1B1CA1EFD500AFDFE0 /* mgd_server */,
+				05DE65951D4835E000485DD9 /* udp_data_simulator */,
 				9467029B1C64348C00E73BF5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -408,6 +438,7 @@
 				946703B11C6477A400E73BF5 /* lib-rpc-service */,
 				946703C31C64782500E73BF5 /* lib-oc */,
 				94AC4F1A1CA1EFD500AFDFE0 /* mgd_server */,
+				05DE65941D4835E000485DD9 /* udp_data_simulator */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -598,6 +629,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		05DE65931D4835E000485DD9 /* udp_data_simulator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05DE659A1D4835E000485DD9 /* Build configuration list for PBXNativeTarget "udp_data_simulator" */;
+			buildPhases = (
+				05DE65901D4835E000485DD9 /* Sources */,
+				05DE65911D4835E000485DD9 /* Frameworks */,
+				05DE65921D4835E000485DD9 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = udp_data_simulator;
+			productName = udp_data_simulator;
+			productReference = 05DE65941D4835E000485DD9 /* udp_data_simulator */;
+			productType = "com.apple.product-type.tool";
+		};
 		946702991C64348C00E73BF5 /* grpc */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 946702A11C64348C00E73BF5 /* Build configuration list for PBXNativeTarget "grpc" */;
@@ -743,6 +791,9 @@
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Juniper Networks";
 				TargetAttributes = {
+					05DE65931D4835E000485DD9 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
 					946702991C64348C00E73BF5 = {
 						CreatedOnToolsVersion = 7.1;
 					};
@@ -789,11 +840,20 @@
 				946703B01C6477A400E73BF5 /* lib-rpc-service */,
 				946703C21C64782500E73BF5 /* lib-oc */,
 				94AC4F191CA1EFD500AFDFE0 /* mgd_server */,
+				05DE65931D4835E000485DD9 /* udp_data_simulator */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		05DE65901D4835E000485DD9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05DE65971D4835E000485DD9 /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		946702961C64348C00E73BF5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -933,6 +993,36 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		05DE65981D4835E000485DD9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				"HEADER_SEARCH_PATHS[arch=*]" = (
+					/usr/local/include,
+					"${PROJECT_DIR}/lib/h",
+				);
+				"LIBRARY_SEARCH_PATHS[arch=*]" = (
+					/usr/local/lib,
+					"${PROJECT_DIR}/lib",
+					"${inherited}",
+				);
+				"OTHER_LDFLAGS[arch=*]" = (
+					"-lpthread",
+					"-lprotobuf",
+					"-lprotos",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		05DE65991D4835E000485DD9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		9467029F1C64348C00E73BF5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1224,6 +1314,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		05DE659A1D4835E000485DD9 /* Build configuration list for PBXNativeTarget "udp_data_simulator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05DE65981D4835E000485DD9 /* Debug */,
+				05DE65991D4835E000485DD9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		946702951C64348C00E73BF5 /* Build configuration list for PBXProject "grpc" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
