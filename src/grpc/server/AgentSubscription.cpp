@@ -106,6 +106,7 @@ AgentSubscription::on_message (const struct mosquitto_message* mosqmessage)
     } else if (global_config.subscribe_topic_name == TOPIC_INTERNAL_SUB_ID) {
         oc_data.set_path(stream->sensor_name());
     }
+
     oc_data.set_sequence_number(stream->sequence_number());
     oc_data.set_timestamp(stream->timestamp());
 
@@ -182,4 +183,26 @@ AgentSubscription::getClientDisconnects (void)
         }
     }
     return true;
+}
+
+void AgentSubscription::on_connect (int rc)
+{
+    _logger->log("Subscribing for  " + getName());
+
+    // Add all the corresponding subscriptions
+    if (global_config.subscribe_topic_name == TOPIC_PATH) {
+        for (PathList::iterator itr = _path_list.begin();
+             itr != _path_list.end();
+             itr++) {
+            Subscribe(*itr);
+        }
+    } else if (global_config.subscribe_topic_name == TOPIC_INTERNAL_SUB_ID) {
+        int total_handles = _system_subscription->getHandleCount();
+        for (int i = 0; i < total_handles; i++) {
+            AgentConsolidatorSystemHandlePtr csh =
+                                        _system_subscription->getHandle(i);
+            id_idx_t isubid = csh->getInternalSubscriptionId();
+            Subscribe("/" + std::to_string(isubid));
+        }
+    }
 }

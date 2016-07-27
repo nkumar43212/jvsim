@@ -146,22 +146,27 @@ public:
 
     void enable ()
     {
+        // Connect to the message bus and then start subscribing for topics
+        BusConnect();
+
+#if 0
         // Add all the corresponding subscriptions
         if (global_config.subscribe_topic_name == TOPIC_PATH) {
             for (PathList::iterator itr = _path_list.begin();
-                 itr != _path_list.end();
-                 itr++) {
+                 itr != _path_list.end(); itr++) {
                 Subscribe(*itr);
             }
-        } else if (global_config.subscribe_topic_name == TOPIC_INTERNAL_SUB_ID) {
+        } else if (global_config.subscribe_topic_name 
+                                                == TOPIC_INTERNAL_SUB_ID) {
             int total_handles = _system_subscription->getHandleCount();
             for (int i = 0; i < total_handles; i++) {
                 AgentConsolidatorSystemHandlePtr csh =
                                             _system_subscription->getHandle(i);
                 id_idx_t isubid = csh->getInternalSubscriptionId();
                 Subscribe("/" + std::to_string(isubid));
-            }
+           }
         }
+#endif
     }
 
     void disable ()
@@ -196,6 +201,8 @@ public:
 
     void _count_message(const struct mosquitto_message* mosqmessage);
     virtual void on_message(const struct mosquitto_message* mosqmessage);
+
+    void on_connect (int rc);
 };
 
 #endif /* AgentSubscription_hpp */

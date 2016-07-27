@@ -188,7 +188,9 @@ AgentServer::telemetrySubscribe (ServerContext *context,
     if (sub->getActive()) {
         if (sub->expired() || sub->getClientDisconnects()) {
             _logger->log("Channel disconnected or Subscription expired: ID = " +
-                         std::to_string(id));
+                 std::to_string(id) + ", Expired : " + 
+                 std::to_string(sub->expired())  + ", Client Disconnects : "+
+                 std::to_string(sub->getClientDisconnects()));
             // cleanup udp worker subscription gracefully
             if (global_config.udp_server_module) {
                 _cleanupSubscriptionUdpWorker(sub_udp_worker);
