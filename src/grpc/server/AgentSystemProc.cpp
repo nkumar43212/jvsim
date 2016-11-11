@@ -35,7 +35,7 @@ AgentSystemProc::_sendOCMessagetoMgd (std::string &config,
                             std::to_string(global_config.device_mgd_port));
     std::shared_ptr<grpc::Channel> channel = grpc::CreateChannel(
                                                  mgd_address,
-                                                 grpc::InsecureCredentials());
+                                                 grpc::InsecureChannelCredentials());
     stub_ = OpenconfigRpcApi::NewStub(channel);
 
     // Form the mgd request
@@ -139,7 +139,7 @@ AgentSystemProc::_sendJunosMessagetoMgd (std::string &config,
     }
     std::shared_ptr<grpc::Channel> channel = grpc::CreateChannel(
                                                    mgd_address,
-                                                   grpc::InsecureCredentials());
+                                                   grpc::InsecureChannelCredentials());
 
     // Off-box mode requires login authentication
     if (global_config.running_mode == RUNNING_MODE_OFF_BOX) {
@@ -343,7 +343,7 @@ AgentSystemProc::systemGet (SystemId id)
     }
     std::shared_ptr<grpc::Channel> channel = grpc::CreateChannel(
                                                 mgd_address,
-                                                grpc::InsecureCredentials());
+                                                grpc::InsecureChannelCredentials());
     stub_ = ManagementRpcApi::NewStub(channel);
 
 #if defined(__OC_Telemetry_Config__)
