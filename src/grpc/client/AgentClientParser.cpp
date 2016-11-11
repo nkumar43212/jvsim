@@ -38,7 +38,7 @@ handle_subscribe (int argc, const char *argv[])
 
     // Create a client
     client = AgentClient::create(grpc::CreateChannel(AGENT_SERVER_IP_PORT,
-                                 grpc::InsecureCredentials()),
+                                 grpc::InsecureChannelCredentials()),
                                  client_name,
                                  global_id++,
                                  parser->getLogDir());
@@ -71,7 +71,7 @@ handle_subscribe_telegraf (int argc, const char *argv[])
 
     // Create a client
     client = AgentClient::create(grpc::CreateChannel(AGENT_SERVER_IP_PORT,
-                                 grpc::InsecureCredentials()),
+                                 grpc::InsecureChannelCredentials()),
                                  client_name,
                                  global_id++,
                                  parser->getLogDir());
@@ -104,7 +104,7 @@ handle_subscribe_limits (int argc, const char *argv[])
 
     // Create a client
     client = AgentClient::create(grpc::CreateChannel(AGENT_SERVER_IP_PORT,
-                                 grpc::InsecureCredentials()),
+                                 grpc::InsecureChannelCredentials()),
                                  client_name,
                                  global_id++,
                                  parser->getLogDir());
@@ -143,7 +143,7 @@ proc (void *args)
 
     // Create a client
     client = AgentClient::create(grpc::CreateChannel(AGENT_SERVER_IP_PORT,
-                                 grpc::InsecureCredentials()),
+                                 grpc::InsecureChannelCredentials()),
                                  client_name,
                                  global_id++,
                                  parser->getLogDir());

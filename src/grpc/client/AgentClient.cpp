@@ -61,7 +61,7 @@ void
 AgentClient::rehome (void)
 {
     stub_ = OpenConfigTelemetry::NewStub(grpc::CreateChannel(AGENT_SERVER_IP_PORT,
-                                         grpc::InsecureCredentials()));
+                                         grpc::InsecureChannelCredentials()));
 }
 
 AgentClient *
