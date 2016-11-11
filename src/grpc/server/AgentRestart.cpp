@@ -112,7 +112,7 @@ _jsd_register (AgentServerLog *_logger, Json::Value &registration_obj)
     }
     std::shared_ptr<grpc::Channel> channel = grpc::CreateChannel(
                                                 jsd_address,
-                                                grpc::InsecureCredentials());
+                                                grpc::InsecureChannelCredentials());
 
     // Off-box mode requires login authentication
     if (global_config.running_mode == RUNNING_MODE_OFF_BOX) {

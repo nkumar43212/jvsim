@@ -21,7 +21,7 @@ TEST_F(AgentClientTest, subscribe_and_force_terminate) {
     // Create the test client
     std::string mgmt_client_name(AGENTCLIENT_MGMT);
     client = AgentClient::create(grpc::CreateChannel(GRPC_SERVER_IP_PORT,
-                                 grpc::InsecureCredentials()),
+                                 grpc::InsecureChannelCredentials()),
                                  mgmt_client_name, 0, CLIENT_LOGDIR);
     EXPECT_TRUE(client != NULL);
     if (!client) {
@@ -97,7 +97,7 @@ TEST_F(AgentClientTest, subscribe_and_graceful_terminate) {
     // Create the test client
     std::string mgmt_client_name(AGENTCLIENT_MGMT);
     client = AgentClient::create(grpc::CreateChannel(GRPC_SERVER_IP_PORT,
-                                 grpc::InsecureCredentials()),
+                                 grpc::InsecureChannelCredentials()),
                                  mgmt_client_name, 0, CLIENT_LOGDIR);
     EXPECT_TRUE(client != NULL);
     if (!client) {
@@ -161,7 +161,7 @@ TEST_F(AgentClientTest, list) {
     // Create the test client
     std::string mgmt_client_name(AGENTCLIENT_MGMT);
     client = AgentClient::create(grpc::CreateChannel(GRPC_SERVER_IP_PORT,
-                                 grpc::InsecureCredentials()),
+                                 grpc::InsecureChannelCredentials()),
                                  mgmt_client_name, 0, CLIENT_LOGDIR);
     EXPECT_TRUE(client != NULL);
     if (!client) {
@@ -249,7 +249,7 @@ TEST_F(AgentClientTest, multiple_subscribe) {
     // Create the test client
     std::string mgmt_client_name(AGENTCLIENT_MGMT);
     mgmt_client = AgentClient::create(grpc::CreateChannel(GRPC_SERVER_IP_PORT,
-                                      grpc::InsecureCredentials()),
+                                      grpc::InsecureChannelCredentials()),
                                       mgmt_client_name, 0, CLIENT_LOGDIR);
     EXPECT_TRUE(mgmt_client != NULL);
     if (!mgmt_client) {
@@ -302,7 +302,7 @@ TEST_F(AgentClientTest, verify_multiple_subscribe) {
     // Create the test client
     std::string mgmt_client_name(AGENTCLIENT_MGMT);
     mgmt_client = AgentClient::create(grpc::CreateChannel(GRPC_SERVER_IP_PORT,
-                                      grpc::InsecureCredentials()),
+                                      grpc::InsecureChannelCredentials()),
                                       mgmt_client_name, 0, CLIENT_LOGDIR);
     EXPECT_TRUE(mgmt_client != NULL);
     if (!mgmt_client) {
@@ -388,7 +388,7 @@ TEST_F(AgentClientTest, get_oper_all) {
     // Create the test client
     std::string mgmt_client_name(AGENTCLIENT_MGMT);
     mgmt_client = AgentClient::create(grpc::CreateChannel(GRPC_SERVER_IP_PORT,
-                                      grpc::InsecureCredentials()),
+                                      grpc::InsecureChannelCredentials()),
                                       mgmt_client_name, 0, CLIENT_LOGDIR);
     EXPECT_TRUE(mgmt_client != NULL);
     if (!mgmt_client) {
@@ -495,7 +495,7 @@ TEST_F(AgentClientTest, subscribe_and_path_validation_2v_1inv) {
     // Create the test client
     std::string mgmt_client_name(AGENTCLIENT_MGMT);
     client = AgentClient::create(grpc::CreateChannel(GRPC_SERVER_IP_PORT,
-                                 grpc::InsecureCredentials()),
+                                 grpc::InsecureChannelCredentials()),
                                  mgmt_client_name, 0, CLIENT_LOGDIR);
     EXPECT_TRUE(client != NULL);
     if (!client) {
@@ -575,7 +575,7 @@ TEST_F(AgentClientTest, subscribe_and_path_validation_Allinv) {
     // Create the test client
     std::string mgmt_client_name(AGENTCLIENT_MGMT);
     client = AgentClient::create(grpc::CreateChannel(GRPC_SERVER_IP_PORT,
-                                 grpc::InsecureCredentials()),
+                                 grpc::InsecureChannelCredentials()),
                                  mgmt_client_name, 0, CLIENT_LOGDIR);
     EXPECT_TRUE(client != NULL);
     if (!client) {
@@ -644,7 +644,7 @@ TEST_F(AgentClientTest, encoding) {
     // Create the test client
     std::string mgmt_client_name(AGENTCLIENT_MGMT);
     client = AgentClient::create(grpc::CreateChannel(GRPC_SERVER_IP_PORT,
-                                 grpc::InsecureCredentials()),
+                                 grpc::InsecureChannelCredentials()),
                                  mgmt_client_name, 0, CLIENT_LOGDIR);
     EXPECT_TRUE(client != NULL);
     if (!client) {
@@ -671,7 +671,7 @@ AgentClientTest::create_subscriptions (void *args)
     std::string client_name("client-" + std::to_string(test_args->index));
     client = AgentClient::create(grpc::CreateChannel(
                                    test_args->grpc_server_ip_port,
-                                   grpc::InsecureCredentials()),
+                                   grpc::InsecureChannelCredentials()),
                                  client_name, 0, test_args->client_logdir);
     EXPECT_TRUE(client != NULL);
     if (!client) {
@@ -808,7 +808,7 @@ TEST_F(AgentClientTest, stress_test_sub_unsub) {
         // Create the test client
         std::string client_name("stress_test");
         client = AgentClient::create(grpc::CreateChannel(grpc_server_ip_port,
-                                     grpc::InsecureCredentials()),
+                                     grpc::InsecureChannelCredentials()),
                                      client_name, 0, CLIENT_LOGDIR);
         EXPECT_TRUE(client != NULL);
         if (!client) {
@@ -892,7 +892,7 @@ TEST_F(AgentClientTest, stress_test_sub_unsub) {
     // Create the test client
     std::string mgmt_client_name(AGENTCLIENT_MGMT);
     mgmt_client = AgentClient::create(grpc::CreateChannel(grpc_server_ip_port,
-                                      grpc::InsecureCredentials()),
+                                      grpc::InsecureChannelCredentials()),
                                       mgmt_client_name, 0, CLIENT_LOGDIR);
     EXPECT_TRUE(mgmt_client != NULL);
     if (!mgmt_client) {

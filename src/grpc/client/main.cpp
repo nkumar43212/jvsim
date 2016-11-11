@@ -52,7 +52,7 @@ int main(int argc, const char * argv[])
     // A well known Management Client
     std::string mgmt_client_name(AGENTCLIENT_MGMT);
     AgentClient::create(grpc::CreateChannel(AGENT_SERVER_IP_PORT,
-                        grpc::InsecureCredentials()),
+                        grpc::InsecureChannelCredentials()),
                         mgmt_client_name,
                         global_id++,
                         logfile_dir);

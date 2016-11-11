@@ -4,26 +4,28 @@ MAINTAINER Surya Nimmagadda <nscsekhar@juniper.net> && Abbas Sakarwala <abbas@ju
 # Install base packages
 RUN cd /home  \
 && sudo apt-get update \
-&& sudo apt-get install -y git wget curl zip unzip \
+&& sudo apt-get install -y git wget curl zip unzip pkg-config \
 && sudo apt-get install -y build-essential autoconf libtool \
 && apt-get install -y python \
-&& apt-get install -y python-setuptools
+&& apt-get install -y python-setuptools python-pip
 
-# Install GRPC and GPB
+# install relevant gRPC tools
 RUN cd /home \
-&& git clone -b release-0_11 https://github.com/grpc/grpc grpc \
-&& cd /home/grpc \
+&& git clone https://github.com/grpc/grpc grpc \
+&& cd /home/grpc  \
 && git submodule update --init \
 && make \
-&& make install \
-&& cd /home/grpc/third_party/protobuf/  \
+&& sudo make install \
+&& cd /home/grpc/third_party/protobuf/ \
 &&  ./autogen.sh \
 &&  ./configure \
-&&  sudo make \
-&&  sudo make install \
-&& cd /home/grpc/third_party/protobuf/python \
-&&  python setup.py build \
-&&  python setup.py install
+&& make \
+&& sudo make install
+
+# install python bindings
+RUN sudo python -m pip install --upgrade pip \
+&&  sudo python -m pip install grpcio \
+&&  sudo python -m pip install grpcio-tools 
 
 # Install mosquitto
 RUN cd /home \
@@ -33,7 +35,6 @@ RUN cd /home \
 && cd mosquitto-1.3.5 \
 && cmake . \
 && sudo make install \
-&& apt-get install -y python-pip \
 && pip install paho-mqtt \
 && useradd mosquitto
 
