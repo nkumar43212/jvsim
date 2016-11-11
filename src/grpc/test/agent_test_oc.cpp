@@ -21,7 +21,7 @@ TEST_F(AgentClientOpenConfigTest, oc_paths) {
     // Create the test client
     std::string mgmt_client_name(AGENTCLIENT_MGMT);
     client = AgentClient::create(grpc::CreateChannel(GRPC_SERVER_IP_PORT,
-                                                     grpc::InsecureCredentials()),
+                                                     grpc::InsecureChannelCredentials()),
                                  mgmt_client_name, 0, CLIENT_LOGDIR);
     EXPECT_TRUE(client != NULL);
     if (!client) {
